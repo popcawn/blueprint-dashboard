@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-16T20:29:27Z",
-  "odds_remaining": "80997",
+  "generated": "2026-10-16T20:51:45Z",
+  "odds_remaining": "80994",
   "gp_min": 4,
   "gp_max": 6,
   "cats": [
@@ -11,6 +11,13 @@
     "PPG top-10",
     "Opp PPG top-10",
     "PD/g \u2265+5"
+  ],
+  "labels": [
+    "Win%",
+    "Pt Diff",
+    "PPG",
+    "Opp PPG",
+    "PD/g"
   ],
   "teams": [
     {

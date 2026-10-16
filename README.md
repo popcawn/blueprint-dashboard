@@ -38,11 +38,16 @@ python -m http.server 8777
   shots/saves (for ES save%). This replaced the Cloudflare-walled Natural Stat Trick, so **no Playwright needed.**
 - **Futures:** The Odds API `outrights` market, FanDuel book. Reports `x-requests-remaining`.
 
-## Sports
+## Views & sports
+- **⭐ Best EV (default view):** scans every sport's board and ranks the *actionable* +EV plays, pushes early-season
+  NHL/NBA noise into a separate "ignore" bucket, lists biggest fades, and filters out CFB schedule-mirages.
+- **Per-sport tabs:** each category chip is labelled with its stat (e.g. `Pt Diff +61 #1`), green = qualifies.
 - **Live:** NFL, CFB, NHL.
-- **MLB — deferred:** its FanGraphs inputs (WAR / pBABIP / DRS) are Cloudflare-blocked with no clean curl source,
-  *and* the 2026 regular season is over (nothing live to show until spring 2027). Add it then, with a MoneyPuck-style
-  source hunt or a Playwright step. Engine logic already exists in the `/blueprint` command.
+- **NBA:** scaffolded; shows a preseason placeholder until the regular season tips off (~late Oct), then auto-populates.
+  Source = ESPN standings (win%) + ESPN byteam (PPG/Opp PPG); the exact scoring field mapping should be verified on
+  the first real run. Categories: Win% ≥.600 · Net/g top-5 · PPG top-10 · Opp PPG top-10 (chalkiest sport → top team uncapped-ish).
+- **MLB — deferred:** FanGraphs inputs (WAR / pBABIP / DRS) are Cloudflare-blocked with no clean curl source,
+  *and* the 2026 regular season is over (nothing live until spring 2027). Engine logic already exists in the `/blueprint` command.
 
 ## Refresh schedule
 `.github/workflows/refresh.yml` runs Tue & Sat 14:00 UTC in-season, plus manual dispatch.

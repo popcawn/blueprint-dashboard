@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-16T20:29:32Z",
-  "odds_remaining": "80996",
+  "generated": "2026-10-16T20:51:50Z",
+  "odds_remaining": "80993",
   "gp_min": 5,
   "gp_max": 7,
   "cats": [
@@ -11,6 +11,13 @@
     "Opp PPG top-10",
     "Opp YPG top-10",
     "Margin top-5"
+  ],
+  "labels": [
+    "Win%",
+    "PPG",
+    "Opp PPG",
+    "Opp YPG",
+    "Margin"
   ],
   "teams": [
     {

@@ -116,6 +116,7 @@ def build_nfl():
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "cats": ["Win% ≥.625", "Pt Diff top-6", "PPG top-10", "Opp PPG top-10", "PD/g ≥+5"],
+            "labels": ["Win%", "Pt Diff", "PPG", "Opp PPG", "PD/g"],
             "teams": [nfl_row(t) for t in rows]}
 
 def nfl_row(t):
@@ -217,6 +218,7 @@ def build_cfb():
     return {"sport": "CFB", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem,
             "gp_min": min(t["gp"] for t in teams), "gp_max": max(t["gp"] for t in teams),
             "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
+            "labels": ["Win%", "PPG", "Opp PPG", "Opp YPG", "Margin"],
             "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet}
 
 def cfb_row(t):
@@ -302,6 +304,7 @@ def build_nhl():
     return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "cats": ["ES goal diff top-11", "ES save% top-12", "Corsi top-16", "Goals Against top-14"],
+            "labels": ["ES Diff", "ES SV%", "Corsi", "GA"],
             "teams": [nhl_row(t) for t in rows if t["score"] >= 1]}
 
 def nhl_row(t):
@@ -311,6 +314,94 @@ def nhl_row(t):
                  f"{t['corsi']:.1f} #{t['rk_cf']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev")}
+
+# ----------------------------------------------------------------------------- NBA (ESPN; live once the season tips off ~late Oct)
+NBA_EAST = {"Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors",
+    "Chicago Bulls","Cleveland Cavaliers","Detroit Pistons","Indiana Pacers","Milwaukee Bucks",
+    "Atlanta Hawks","Charlotte Hornets","Miami Heat","Orlando Magic","Washington Wizards"}
+
+def nba_scoring(season):
+    """Pull per-team PPG / Opp PPG from ESPN byteam. Returns {name:(ppg,oppppg)} or {} if the season hasn't started."""
+    try:
+        bt = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/statistics/byteam?region=us&lang=en&contentorigin=espn&season={season}&seasontype=2")
+    except Exception:
+        return {}
+    out = {}
+    for t in bt.get("teams", []):
+        nm = t.get("team", {}).get("displayName")
+        own = opp = None
+        for c in t.get("categories", []):
+            names = c.get("names", []); vals = c.get("values", []); dn = (c.get("displayName") or "").lower()
+            idx = None
+            for cand in ("avgPoints", "points", "avgPointsFor"):
+                if cand in names: idx = names.index(cand); break
+            if idx is None or idx >= len(vals): continue
+            if "opponent" in dn: opp = vals[idx]
+            elif own is None: own = vals[idx]
+        if nm and own is not None and opp is not None:
+            out[nm] = (own, opp)
+    return out
+
+def build_nba():
+    season = YEAR + 1  # ESPN tags the NBA season by its end year (2026-27 -> 2027)
+    base = {"sport": "NBA", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso()}
+    scoring = nba_scoring(season)
+    if not scoring:
+        base.update({"status": "preseason", "odds_remaining": None,
+            "note": "NBA regular season tips off in late October — the blueprint goes live on the first real games.", "teams": []})
+        return base
+    # win% / games from standings
+    sd = get(f"https://cdn.espn.com/core/nba/standings?xhr=1&season={season}")
+    wl = {}
+    def walk(o):
+        if isinstance(o, dict):
+            if isinstance(o.get("entries"), list):
+                for e in o["entries"]:
+                    nm = e.get("team", {}).get("displayName"); st = {s.get("name"): s.get("value") for s in e.get("stats", [])}
+                    if nm:
+                        try: wl[nm] = (int(float(st.get("wins", 0))), int(float(st.get("losses", 0))))
+                        except Exception: pass
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    walk(sd)
+    rows = []
+    for nm, (ppg, opp) in scoring.items():
+        w, l = wl.get(nm, (0, 0)); g = w + l
+        if g == 0: continue
+        rows.append({"name": nm, "conf": "E" if nm in NBA_EAST else "W", "rec": f"{w}-{l}", "gp": g,
+            "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp})
+    if not rows:
+        base.update({"status": "preseason", "odds_remaining": None,
+            "note": "NBA regular season tips off in late October — the blueprint goes live on the first real games.", "teams": []})
+        return base
+    rk_pd = ranks(rows, "pdg", True); rk_ppg = ranks(rows, "ppg", True); rk_opp = ranks(rows, "oppppg", False)
+    for t in rows:
+        t["rk_pd"], t["rk_ppg"], t["rk_opp"] = rk_pd[t["name"]], rk_ppg[t["name"]], rk_opp[t["name"]]
+        t["q"] = [t["winpct"] >= 0.600, t["rk_pd"] <= 5, t["rk_ppg"] <= 10, t["rk_opp"] <= 10]
+        t["score"] = sum(t["q"])
+    npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nf = norm(rows, "ppg", True); nw = norm(rows, "winpct", True)
+    for t in rows:
+        t["index"] = round(npd[t["name"]]*.35 + no[t["name"]]*.25 + nf[t["name"]]*.25 + nw[t["name"]]*.15, 1)
+    pool = [t for t in rows if t["score"] >= 2]
+    tm = {4:1.7,3:1.2,2:0.8}
+    for cf in ("E","W"):
+        cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
+        for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
+    for t in pool: t["p"] = t.get("_pc", 0) * 0.5
+    cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
+    fd, rem = fetch_futures("basketball_nba_championship_winner")
+    attach(rows, pool, fd)
+    rows.sort(key=lambda t: (-t["score"], -t["index"]))
+    base.update({"odds_remaining": rem, "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+        "cats": ["Win% ≥.600", "Net/g top-5", "PPG top-10", "Opp PPG top-10"],
+        "labels": ["Win%", "Net/g", "PPG", "Opp PPG"],
+        "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+            "q": [bool(x) for x in t["q"]],
+            "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
+            "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+            "market": t.get("market"), "ev": t.get("ev")} for t in rows if t["score"] >= 1]})
+    return base
 
 # ----------------------------------------------------------------------------- shared
 def cap_odds(pool, cap):
@@ -341,18 +432,21 @@ def now_iso():
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba)]:
         try:
             print(f"building {name}...")
             data = fn()
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
-            built[name] = f"{len(data['teams'])} teams, GP {data['gp_min']}-{data['gp_max']}, odds_remaining={data.get('odds_remaining')}"
+            if data.get("status") == "preseason":
+                built[name] = "preseason (no games yet)"
+            else:
+                built[name] = f"{len(data['teams'])} teams, GP {data['gp_min']}-{data['gp_max']}, odds_remaining={data.get('odds_remaining')}"
         except Exception as e:
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":

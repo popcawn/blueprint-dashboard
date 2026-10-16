@@ -34,6 +34,19 @@
   .chips{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 2px}
   .chip{font-size:11px;padding:2px 7px;border-radius:5px;background:var(--chip-off);color:var(--mut);white-space:nowrap}
   .chip.on{background:var(--chip-on);color:#b9f0c4}
+  .chip b{font-weight:700;opacity:.7;margin-right:2px;font-size:10px;letter-spacing:.2px}
+  /* Best EV view */
+  .evrow{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:7px 0}
+  .evrow.mir{opacity:.55}
+  .rnk{color:var(--mut);font-size:12px;width:20px;text-align:right;flex:0 0 auto}
+  .sb{font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;flex:0 0 auto}
+  .sb.nfl{background:#1f2b45;color:#7fb0ff} .sb.cfb{background:#3a2d12;color:#f2c871}
+  .sb.nhl{background:#13303a;color:#7fd8e8} .sb.nba{background:#3a1430;color:#f29ad8}
+  .evrow .en{font-weight:700;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .evrow .om{color:var(--mut);font-size:12px;flex:0 0 auto}
+  .evrow .om b{color:var(--ink)}
+  .preseason{text-align:center;color:var(--mut);padding:40px 16px;font-size:15px}
+  .preseason .big{font-size:40px;margin-bottom:10px}
   .odds{display:flex;flex-wrap:wrap;gap:14px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:13px;align-items:center}
   .odds .k{color:var(--mut);font-size:11px;display:block;margin-bottom:1px}
   .ev{font-weight:700;padding:3px 9px;border-radius:6px}
@@ -62,18 +75,19 @@
 <div class="wrap" id="app"><div class="err">Loading…</div></div>
 
 <script>
-const SPORTS = {nfl:"NFL", cfb:"CFB", nhl:"NHL"};
+const SPORTS = {nfl:"NFL", cfb:"CFB", nhl:"NHL", nba:"NBA"};
 const LABELS = [["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 function tierInfo(score, maxcat){ const d = maxcat - score; return LABELS[Math.min(Math.max(d,0),4)]; }
-const MAXCAT = {nfl:5, cfb:5, nhl:4};
-let DATA = {}, cur = "nfl";
+const MAXCAT = {nfl:5, cfb:5, nhl:4, nba:4};
+let DATA = {}, cur = "ev";
 
 function evClass(ev){ if(ev==null) return "zero"; if(ev>=15) return "pos"; if(ev<=-10) return "neg"; return "zero"; }
 function fmtEV(ev){ return ev==null ? "—" : (ev>0?"+":"")+ev+"%"; }
 
 function card(t, sport){
   const tier = tierInfo(t.score, MAXCAT[sport])[1];
-  const chips = t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}">${t.vals[i]}</span>`).join("");
+  const L = (DATA[sport] && DATA[sport].labels) || [];
+  const chips = t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("");
   let srs = "";
   if(sport==="cfb" && t.srsrank!=null){
     const cls = t.srs_flag, lbl = {elite:"SRS #"+t.srsrank+" ✓",ok:"SRS #"+t.srsrank,mirage:"SRS #"+t.srsrank+" ⚑"}[cls];
@@ -93,12 +107,61 @@ function card(t, sport){
     </div></div>`;
 }
 
+function renderEV(){
+  document.getElementById("meta").innerHTML = "Best value across all sports · model fair odds vs live FanDuel · updated "+
+    (Object.values(DATA).find(d=>d&&d.generated)? new Date(Object.values(DATA).find(d=>d&&d.generated).generated).toLocaleString():"—");
+  let all = [];
+  for(const [k,d] of Object.entries(DATA)){
+    if(!d || !d.teams) continue;
+    const gp = d.gp_max||0;
+    for(const t of d.teams){
+      if(t.ev==null) continue;
+      all.push({sk:k, name:t.name, ev:t.ev, fair:t.fair_odds, market:t.market,
+        mirage:(k==="cfb" && t.srs_flag==="mirage"),
+        dead:((k==="nhl"&&gp<20)||(k==="nba"&&gp<15)),       // low-signal -> separate "ignore" bucket
+        soft:((k==="nfl"&&gp<8)||(k==="cfb"&&gp<6))});         // early but actionable -> keep, flag ⚡
+    }
+  }
+  const real  = all.filter(x=>!x.mirage && !x.dead && x.ev>0).sort((a,b)=>b.ev-a.ev);
+  const fades = all.filter(x=>!x.mirage && !x.dead && x.ev<=-15).sort((a,b)=>a.ev-b.ev).slice(0,5);
+  const dead  = all.filter(x=>x.dead && x.ev>0).sort((a,b)=>b.ev-a.ev).slice(0,6);
+  const mir   = all.filter(x=>x.mirage && x.ev>0).sort((a,b)=>b.ev-a.ev).slice(0,4);
+  const row = (x,i)=>`<div class="evrow ${x.mirage||x.dead?'mir':''}">
+    <span class="rnk">${(i!=null&&i>=0)?i+1:'–'}</span>
+    <span class="sb ${x.sk}">${SPORTS[x.sk]}</span>
+    <span class="en">${x.name}${x.soft?' <span style="color:#d29922;font-size:11px">⚡early</span>':''}</span>
+    <span class="om"><span class="k" style="color:#8b949e;font-size:10px">FD</span> ${x.market||'—'}</span>
+    <span class="om">fair <b>${x.fair||'—'}</b></span>
+    <span class="ev ${evClass(x.ev)}">${fmtEV(x.ev)}</span></div>`;
+  let html = `<div class="legend"><span>Ranked by EV = model fair odds vs live FanDuel. <b style="color:#d29922">⚡early</b> = small sample, trust with caution.</span></div>`;
+  html += `<div class="tier">💰 Best value <span class="n">(actionable)</span></div>`;
+  html += real.slice(0,12).map((x,i)=>row(x,i)).join("") || `<div class="err">No actionable value right now.</div>`;
+  if(fades.length){ html += `<div class="tier">🚫 Biggest fades</div>` + fades.map(x=>row(x,-1)).join(""); }
+  if(dead.length){ html += `<div class="tier">⚡ Early-season noise <span class="n">(ignore — model lags the market)</span></div>` + dead.map(x=>row(x,-1)).join(""); }
+  if(mir.length){
+    html += `<div class="gauntlet"><h3>⚑ Filtered out — schedule mirages (CFB)</h3>`+
+      mir.map(x=>`<span class="g">${x.name} <b>${fmtEV(x.ev)}</b> (SRS mirage)</span>`).join("")+
+      `<div class="flag" style="margin-top:6px">Huge EV but SRS outside the champion band — padded stats, not value. Excluded from the ranking above.</div></div>`;
+  }
+  html += `<div class="note">The Best-EV view scans every sport's board, ranks the <b>actionable</b> +EV plays, pushes early-season NHL/NBA noise into its own "ignore" bucket, and filters CFB schedule-mirages entirely. A shortlist, not advice — size by conviction.</div>`;
+  document.getElementById("app").innerHTML = html;
+}
+
 function render(){
-  const d = DATA[cur];
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on", b.dataset.s===cur));
+  if(cur==="ev"){ renderEV(); return; }
+  const d = DATA[cur];
   if(!d){ document.getElementById("app").innerHTML = `<div class="err">No data for ${SPORTS[cur]} yet.</div>`; return; }
+  document.getElementById("meta").innerHTML =
+    `${d.sport} · ${d.season}${d.gp_min!=null?` · GP ${d.gp_min}–${d.gp_max}`:""} · updated ${new Date(d.generated).toLocaleString()}${d.odds_remaining?` · odds credits: ${d.odds_remaining}`:""}`;
+  if(d.status==="preseason"){
+    document.getElementById("app").innerHTML =
+      `<div class="preseason"><div class="big">🏀</div><b>${d.sport} — preseason</b><br><br>${d.note||"Season hasn't started yet."}<br><br>
+       <span style="font-size:12px">This tab will populate automatically on the first real games.</span></div>`;
+    return;
+  }
   const maxcat = MAXCAT[cur];
-  const early = d.gp_max < ({nfl:8, cfb:6, nhl:20}[cur]);
+  const early = d.gp_max < ({nfl:8, cfb:6, nhl:20, nba:15}[cur]);
   document.getElementById("meta").innerHTML =
     `${d.sport} · ${d.season} · GP ${d.gp_min}–${d.gp_max}${early?' <span class="warn">· small sample</span>':''} · `+
     `updated ${new Date(d.generated).toLocaleString()} · odds credits: ${d.odds_remaining||"n/a"}`;
@@ -135,7 +198,8 @@ function render(){
 
 async function load(){
   const tabs = document.getElementById("tabs");
-  tabs.innerHTML = Object.entries(SPORTS).map(([k,v])=>`<button class="tab" data-s="${k}">${v}</button>`).join("");
+  const items = [["ev","⭐ Best EV"]].concat(Object.entries(SPORTS));
+  tabs.innerHTML = items.map(([k,v])=>`<button class="tab" data-s="${k}">${v}</button>`).join("");
   tabs.querySelectorAll(".tab").forEach(b=> b.onclick=()=>{cur=b.dataset.s; render();});
   for(const k of Object.keys(SPORTS)){
     try{ const r = await fetch(`data/${k}.json?t=`+Date.now()); if(r.ok) DATA[k] = await r.json(); }

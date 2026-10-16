@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-16T20:29:33Z",
-  "odds_remaining": "80995",
+  "generated": "2026-10-16T20:51:50Z",
+  "odds_remaining": "80992",
   "gp_min": 5,
   "gp_max": 9,
   "cats": [
@@ -10,6 +10,12 @@
     "ES save% top-12",
     "Corsi top-16",
     "Goals Against top-14"
+  ],
+  "labels": [
+    "ES Diff",
+    "ES SV%",
+    "Corsi",
+    "GA"
   ],
   "teams": [
     {
