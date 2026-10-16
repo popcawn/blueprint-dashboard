@@ -473,6 +473,21 @@ def pick_gap(pool):
     runaway = len(ps) > 1 and ps[0]["score"] >= ps[1]["score"] and gap >= 6.0
     return ps[0], gap, runaway
 
+def log_history(name, data):
+    """Append a compact dated snapshot of the contenders to data/history/<name>.json (keep last 30 runs).
+       This is the week-over-week tracker — it's what surfaces season-long consistency + market drift."""
+    if data.get("status") == "preseason" or not data.get("teams"): return
+    hp = os.path.join(DATA, "history", f"{name}.json")
+    os.makedirs(os.path.dirname(hp), exist_ok=True)
+    try: hist = json.load(open(hp, encoding="utf-8"))
+    except Exception: hist = []
+    snap = {"date": data["generated"][:10], "gp": data.get("gp_max"),
+            "teams": {t["name"]: {"sc": t["score"], "idx": t["index"], "fp": t.get("fair_pct"),
+                                  "mkt": t.get("market"), "ev": t.get("ev")} for t in data["teams"]}}
+    if hist and hist[-1]["date"] == snap["date"]: hist[-1] = snap   # same-day re-run replaces
+    else: hist.append(snap)
+    json.dump(hist[-30:], open(hp, "w", encoding="utf-8"), indent=1)
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
@@ -482,6 +497,7 @@ def main():
             data = fn()
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
+            log_history(name, data)
             if data.get("status") == "preseason":
                 built[name] = "preseason (no games yet)"
             else:

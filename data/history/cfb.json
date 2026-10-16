@@ -1,0 +1,154 @@
+[
+ {
+  "date": "2026-10-12",
+  "gp": 7,
+  "teams": {
+   "Miami Hurricanes": {
+    "sc": 5,
+    "idx": 98.0,
+    "fp": 24.0,
+    "mkt": "+750",
+    "ev": 104
+   },
+   "Notre Dame Fighting Irish": {
+    "sc": 5,
+    "idx": 94.0,
+    "fp": 20.5,
+    "mkt": "+460",
+    "ev": 15
+   },
+   "New Mexico Lobos": {
+    "sc": 4,
+    "idx": 87.5,
+    "fp": null,
+    "mkt": "+125000",
+    "ev": null
+   },
+   "Utah Utes": {
+    "sc": 4,
+    "idx": 87.0,
+    "fp": null,
+    "mkt": "+6500",
+    "ev": null
+   },
+   "Georgia Bulldogs": {
+    "sc": 3,
+    "idx": 90.3,
+    "fp": 11.1,
+    "mkt": "+480",
+    "ev": -37
+   },
+   "Indiana Hoosiers": {
+    "sc": 3,
+    "idx": 87.1,
+    "fp": 11.5,
+    "mkt": "+1000",
+    "ev": 26
+   },
+   "Ohio State Buckeyes": {
+    "sc": 3,
+    "idx": 85.6,
+    "fp": 10.8,
+    "mkt": "+370",
+    "ev": -49
+   },
+   "BYU Cougars": {
+    "sc": 3,
+    "idx": 81.3,
+    "fp": null,
+    "mkt": "+10000",
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-16",
+  "gp": 7,
+  "teams": {
+   "Miami Hurricanes": {
+    "sc": 5,
+    "idx": 98.1,
+    "fp": 24.0,
+    "mkt": "+700",
+    "ev": 92
+   },
+   "Notre Dame Fighting Irish": {
+    "sc": 5,
+    "idx": 94.0,
+    "fp": 18.3,
+    "mkt": "+470",
+    "ev": 5
+   },
+   "Georgia Bulldogs": {
+    "sc": 5,
+    "idx": 90.4,
+    "fp": 18.4,
+    "mkt": "+480",
+    "ev": 7
+   },
+   "New Mexico Lobos": {
+    "sc": 4,
+    "idx": 87.7,
+    "fp": 5.2,
+    "mkt": "+75000",
+    "ev": 3780
+   },
+   "Utah Utes": {
+    "sc": 4,
+    "idx": 87.2,
+    "fp": 4.8,
+    "mkt": "+6000",
+    "ev": 192
+   },
+   "Indiana Hoosiers": {
+    "sc": 3,
+    "idx": 87.3,
+    "fp": 12.4,
+    "mkt": "+1000",
+    "ev": 36
+   },
+   "Ohio State Buckeyes": {
+    "sc": 3,
+    "idx": 85.7,
+    "fp": 10.5,
+    "mkt": "+380",
+    "ev": -50
+   },
+   "BYU Cougars": {
+    "sc": 3,
+    "idx": 81.5,
+    "fp": 6.5,
+    "mkt": "+8000",
+    "ev": 425
+   },
+   "James Madison Dukes": {
+    "sc": 2,
+    "idx": 81.1,
+    "fp": null,
+    "mkt": "+125000",
+    "ev": null
+   },
+   "North Dakota State Bison": {
+    "sc": 2,
+    "idx": 77.3,
+    "fp": null,
+    "mkt": "+125000",
+    "ev": null
+   },
+   "LSU Tigers": {
+    "sc": 2,
+    "idx": 76.4,
+    "fp": null,
+    "mkt": "+3000",
+    "ev": null
+   },
+   "TCU Horned Frogs": {
+    "sc": 2,
+    "idx": 61.5,
+    "fp": null,
+    "mkt": "+125000",
+    "ev": null
+   }
+  }
+ }
+]

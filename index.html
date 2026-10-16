@@ -82,7 +82,49 @@ const SPORTS = {nfl:"NFL", cfb:"CFB", nhl:"NHL", nba:"NBA"};
 const LABELS = [["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 function tierInfo(score, maxcat){ const d = maxcat - score; return LABELS[Math.min(Math.max(d,0),4)]; }
 const MAXCAT = {nfl:5, cfb:5, nhl:4, nba:4};
-let DATA = {}, cur = "ev";
+let DATA = {}, HIST = {}, cur = "ev";
+
+function spark(vals){
+  if(vals.length<2) return "";
+  const w=84,h=22, mn=Math.min(...vals), mx=Math.max(...vals), rng=(mx-mn)||1;
+  const pts=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-(v-mn)/rng*(h-3)-1.5).toFixed(1)}`).join(" ");
+  const up = vals[vals.length-1]>=vals[0];
+  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline points="${pts}" fill="none" stroke="${up?'#3fb950':'#f85149'}" stroke-width="1.5"/></svg>`;
+}
+function renderTracker(){
+  document.getElementById("meta").innerHTML = "Week-over-week tracker — index trajectory, top-tier streaks & market drift. Season-long consistency shows up here.";
+  let html="";
+  for(const [k,v] of Object.entries(SPORTS)){
+    const h = HIST[k]; if(!h || !h.length) continue;
+    const maxcat = MAXCAT[k];
+    html += `<div class="tier">${v} <span class="n">(${h.length} run${h.length>1?'s':''} tracked)</span></div>`;
+    if(h.length<2){ html += `<div class="note" style="margin:6px 0">Tracking started — trajectories & market drift appear after the next refresh.</div>`; }
+    const names = new Set(); h.forEach(s=>Object.keys(s.teams).forEach(n=>names.add(n)));
+    const rows=[];
+    for(const n of names){
+      const present = h.map(s=>s.teams[n]||null);
+      const last = present[present.length-1]; if(!last) continue;
+      const idxs = present.filter(x=>x).map(x=>x.idx);
+      const dIdx = idxs.length>1 ? idxs[idxs.length-1]-idxs[0] : 0;
+      let streak=0; for(let i=present.length-1;i>=0;i--){ if(present[i]&&present[i].sc>=maxcat-1) streak++; else break; }
+      const consistent = present.every(x=>x&&x.sc>=maxcat-1) && present.length>=2;
+      const mkts = present.map(x=>x&&x.mkt?parseInt(x.mkt):null).filter(v=>v!=null);
+      const drift = mkts.length>1 ? mkts[mkts.length-1]-mkts[0] : null; // <0 = line shortened = market catching up
+      rows.push({n,last,idxs,dIdx,streak,consistent,drift});
+    }
+    rows.sort((a,b)=>(b.consistent-a.consistent)||(b.streak-a.streak)||(b.last.idx-a.last.idx));
+    html += rows.slice(0,10).map(r=>`<div class="evrow">
+      <span class="sb ${k}">${r.consistent?'⭐':''}${r.last.sc}/${maxcat}</span>
+      <span class="en">${r.n}</span>
+      <span class="om">${spark(r.idxs)}</span>
+      <span class="om">idx <b>${r.last.idx}</b>${r.dIdx?` <span style="color:${r.dIdx>0?'#3fb950':'#f85149'};font-size:11px">${r.dIdx>0?'▲':'▼'}${Math.abs(r.dIdx).toFixed(0)}</span>`:''}</span>
+      ${r.drift!=null?`<span class="om" style="font-size:11px">${r.drift<0?'<span style="color:#3fb950">▼ line shortening</span>':r.drift>0?'<span style="color:#f85149">▲ drifting out</span>':'line flat'}</span>`:''}
+    </div>`).join("");
+  }
+  if(!html) html = `<div class="err">No tracked history yet — the bot logs a snapshot on each run.</div>`;
+  html += `<div class="note">⭐ = held a top-two tier every tracked run (the Valkyries/Brewers consistency signal). <b style="color:#3fb950">▼ line shortening</b> = FanDuel moving toward the model — your edge getting recognized. That season-long persistence is where the real value lived.</div>`;
+  document.getElementById("app").innerHTML = html;
+}
 
 function evClass(ev){ if(ev==null) return "zero"; if(ev>=15) return "pos"; if(ev<=-10) return "neg"; return "zero"; }
 function fmtEV(ev){ return ev==null ? "—" : (ev>0?"+":"")+ev+"%"; }
@@ -158,6 +200,7 @@ function renderEV(){
 function render(){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on", b.dataset.s===cur));
   if(cur==="ev"){ renderEV(); return; }
+  if(cur==="trk"){ renderTracker(); return; }
   const d = DATA[cur];
   if(!d){ document.getElementById("app").innerHTML = `<div class="err">No data for ${SPORTS[cur]} yet.</div>`; return; }
   document.getElementById("meta").innerHTML =
@@ -214,11 +257,13 @@ function render(){
 
 async function load(){
   const tabs = document.getElementById("tabs");
-  const items = [["ev","⭐ Best EV"]].concat(Object.entries(SPORTS));
+  const items = [["ev","⭐ Best EV"],["trk","📈 Tracker"]].concat(Object.entries(SPORTS));
   tabs.innerHTML = items.map(([k,v])=>`<button class="tab" data-s="${k}">${v}</button>`).join("");
   tabs.querySelectorAll(".tab").forEach(b=> b.onclick=()=>{cur=b.dataset.s; render();});
   for(const k of Object.keys(SPORTS)){
     try{ const r = await fetch(`data/${k}.json?t=`+Date.now()); if(r.ok) DATA[k] = await r.json(); }
+    catch(e){ /* leave undefined */ }
+    try{ const r = await fetch(`data/history/${k}.json?t=`+Date.now()); if(r.ok) HIST[k] = await r.json(); }
     catch(e){ /* leave undefined */ }
   }
   render();
