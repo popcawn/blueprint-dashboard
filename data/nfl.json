@@ -1,0 +1,817 @@
+{
+  "sport": "NFL",
+  "season": "2026",
+  "generated": "2026-10-16T20:14:02Z",
+  "odds_remaining": "80999",
+  "gp_min": 4,
+  "gp_max": 6,
+  "cats": [
+    "Win% \u2265.625",
+    "Pt Diff top-6",
+    "PPG top-10",
+    "Opp PPG top-10",
+    "PD/g \u2265+5"
+  ],
+  "teams": [
+    {
+      "name": "San Francisco 49ers",
+      "conf": "NFC",
+      "rec": "5-0",
+      "score": 5,
+      "index": 92.2,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+61 #1",
+        "30.8 #3",
+        "18.6 #3",
+        "+12.2"
+      ],
+      "fair_pct": 17.0,
+      "fair_odds": "+488",
+      "market": "+650",
+      "ev": 28
+    },
+    {
+      "name": "Kansas City Chiefs",
+      "conf": "AFC",
+      "rec": "4-0",
+      "score": 5,
+      "index": 84.7,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+41 #4",
+        "29.5 #5",
+        "19.2 #7",
+        "+10.2"
+      ],
+      "fair_pct": 17.0,
+      "fair_odds": "+488",
+      "market": "+900",
+      "ev": 70
+    },
+    {
+      "name": "Jacksonville Jaguars",
+      "conf": "AFC",
+      "rec": "4-1",
+      "score": 4,
+      "index": 85.1,
+      "q": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "0.800",
+        "+53 #2",
+        "24.6 #12",
+        "14.0 #2",
+        "+10.6"
+      ],
+      "fair_pct": 17.0,
+      "fair_odds": "+488",
+      "market": "+1200",
+      "ev": 121
+    },
+    {
+      "name": "Minnesota Vikings",
+      "conf": "NFC",
+      "rec": "5-0",
+      "score": 4,
+      "index": 83.8,
+      "q": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+45 #3",
+        "21.8 #21",
+        "12.8 #1",
+        "+9.0"
+      ],
+      "fair_pct": 17.0,
+      "fair_odds": "+488",
+      "market": "+2200",
+      "ev": 291
+    },
+    {
+      "name": "Baltimore Ravens",
+      "conf": "AFC",
+      "rec": "4-1",
+      "score": 4,
+      "index": 69.9,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "0.800",
+        "+27 #5",
+        "29.2 #6",
+        "23.8 #19",
+        "+5.4"
+      ],
+      "fair_pct": 13.2,
+      "fair_odds": "+660",
+      "market": "+800",
+      "ev": 18
+    },
+    {
+      "name": "Buffalo Bills",
+      "conf": "AFC",
+      "rec": "4-1",
+      "score": 2,
+      "index": 67.4,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.800",
+        "+23 #7",
+        "32.8 #1",
+        "28.2 #28",
+        "+4.6"
+      ],
+      "fair_pct": 6.6,
+      "fair_odds": "+1414",
+      "market": "+750",
+      "ev": -44
+    },
+    {
+      "name": "Seattle Seahawks",
+      "conf": "NFC",
+      "rec": "3-3",
+      "score": 2,
+      "index": 63.6,
+      "q": [
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.500",
+        "+26 #6",
+        "24.7 #11",
+        "20.3 #8",
+        "+4.3"
+      ],
+      "fair_pct": 6.0,
+      "fair_odds": "+1576",
+      "market": "+1400",
+      "ev": -10
+    },
+    {
+      "name": "New York Giants",
+      "conf": "NFC",
+      "rec": "3-1-1",
+      "score": 2,
+      "index": 55.3,
+      "q": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.700",
+        "+3 #13",
+        "21.8 #21",
+        "21.2 #10",
+        "+0.6"
+      ],
+      "fair_pct": 3.9,
+      "fair_odds": "+2449",
+      "market": "+12500",
+      "ev": 394
+    },
+    {
+      "name": "Denver Broncos",
+      "conf": "AFC",
+      "rec": "4-2",
+      "score": 2,
+      "index": 47.7,
+      "q": [
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.667",
+        "-11 #22",
+        "19.0 #26",
+        "20.8 #9",
+        "-1.8"
+      ],
+      "fair_pct": 2.3,
+      "fair_odds": "+4170",
+      "market": "+2000",
+      "ev": -51
+    },
+    {
+      "name": "Chicago Bears",
+      "conf": "NFC",
+      "rec": "3-2",
+      "score": 1,
+      "index": 65.1,
+      "q": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "+23 #7",
+        "23.8 #13",
+        "19.2 #5",
+        "+4.6"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+1700",
+      "ev": null
+    },
+    {
+      "name": "Cincinnati Bengals",
+      "conf": "AFC",
+      "rec": "3-2",
+      "score": 1,
+      "index": 62.7,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "+19 #9",
+        "25.6 #9",
+        "21.8 #11",
+        "+3.8"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+2500",
+      "ev": null
+    },
+    {
+      "name": "New England Patriots",
+      "conf": "AFC",
+      "rec": "3-2",
+      "score": 1,
+      "index": 61.2,
+      "q": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "+16 #10",
+        "22.0 #19",
+        "18.8 #4",
+        "+3.2"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+2500",
+      "ev": null
+    },
+    {
+      "name": "Detroit Lions",
+      "conf": "NFC",
+      "rec": "3-2",
+      "score": 1,
+      "index": 60.4,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "+16 #10",
+        "32.8 #1",
+        "29.6 #29",
+        "+3.2"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+2200",
+      "ev": null
+    },
+    {
+      "name": "Carolina Panthers",
+      "conf": "NFC",
+      "rec": "2-2",
+      "score": 1,
+      "index": 57.9,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.500",
+        "+12 #12",
+        "30.2 #4",
+        "27.2 #26",
+        "+3.0"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+5500",
+      "ev": null
+    },
+    {
+      "name": "Las Vegas Raiders",
+      "conf": "AFC",
+      "rec": "3-2",
+      "score": 1,
+      "index": 53.5,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "+3 #13",
+        "26.4 #8",
+        "25.8 #22",
+        "+0.6"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+8000",
+      "ev": null
+    },
+    {
+      "name": "Dallas Cowboys",
+      "conf": "NFC",
+      "rec": "2-3",
+      "score": 1,
+      "index": 49.8,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.400",
+        "+2 #15",
+        "27.6 #7",
+        "27.2 #25",
+        "+0.4"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+2700",
+      "ev": null
+    },
+    {
+      "name": "New York Jets",
+      "conf": "AFC",
+      "rec": "2-3",
+      "score": 1,
+      "index": 47.7,
+      "q": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.400",
+        "-3 #19",
+        "18.6 #27",
+        "19.2 #5",
+        "-0.6"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+40000",
+      "ev": null
+    },
+    {
+      "name": "Indianapolis Colts",
+      "conf": "AFC",
+      "rec": "2-3",
+      "score": 1,
+      "index": 40.9,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.400",
+        "-14 #24",
+        "24.8 #10",
+        "27.6 #27",
+        "-2.8"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+10000",
+      "ev": null
+    },
+    {
+      "name": "Pittsburgh Steelers",
+      "conf": "AFC",
+      "rec": "3-2",
+      "score": 0,
+      "index": 53.2,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "+2 #15",
+        "22.2 #18",
+        "21.8 #11",
+        "+0.4"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+10000",
+      "ev": null
+    },
+    {
+      "name": "Los Angeles Rams",
+      "conf": "NFC",
+      "rec": "2-3",
+      "score": 0,
+      "index": 48.4,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.400",
+        "-1 #17",
+        "23.8 #13",
+        "24.0 #20",
+        "-0.2"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+700",
+      "ev": null
+    },
+    {
+      "name": "Green Bay Packers",
+      "conf": "NFC",
+      "rec": "3-2",
+      "score": 0,
+      "index": 47.6,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "-8 #21",
+        "20.8 #24",
+        "22.4 #14",
+        "-1.6"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+4000",
+      "ev": null
+    },
+    {
+      "name": "Atlanta Falcons",
+      "conf": "NFC",
+      "rec": "2-3",
+      "score": 0,
+      "index": 47.3,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.400",
+        "-3 #19",
+        "23.8 #13",
+        "24.4 #21",
+        "-0.6"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+6000",
+      "ev": null
+    },
+    {
+      "name": "Houston Texans",
+      "conf": "AFC",
+      "rec": "1-4",
+      "score": 0,
+      "index": 45.0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.200",
+        "-2 #18",
+        "22.0 #19",
+        "22.4 #14",
+        "-0.4"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+3300",
+      "ev": null
+    },
+    {
+      "name": "Cleveland Browns",
+      "conf": "AFC",
+      "rec": "3-2",
+      "score": 0,
+      "index": 41.5,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.600",
+        "-19 #25",
+        "18.6 #27",
+        "22.4 #14",
+        "-3.8"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+25000",
+      "ev": null
+    },
+    {
+      "name": "Tampa Bay Buccaneers",
+      "conf": "NFC",
+      "rec": "1-4",
+      "score": 0,
+      "index": 39.4,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.200",
+        "-12 #23",
+        "20.0 #25",
+        "22.4 #14",
+        "-2.4"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+12500",
+      "ev": null
+    },
+    {
+      "name": "Philadelphia Eagles",
+      "conf": "NFC",
+      "rec": "2-3",
+      "score": 0,
+      "index": 38.0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.400",
+        "-20 #26",
+        "18.4 #29",
+        "22.4 #14",
+        "-4.0"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+8000",
+      "ev": null
+    },
+    {
+      "name": "Washington Commanders",
+      "conf": "NFC",
+      "rec": "1-3-1",
+      "score": 0,
+      "index": 28.2,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.300",
+        "-34 #28",
+        "23.0 #17",
+        "29.8 #30",
+        "-6.8"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+12500",
+      "ev": null
+    },
+    {
+      "name": "New Orleans Saints",
+      "conf": "NFC",
+      "rec": "1-4",
+      "score": 0,
+      "index": 27.2,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.200",
+        "-33 #27",
+        "23.6 #16",
+        "30.2 #31",
+        "-6.6"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+10000",
+      "ev": null
+    },
+    {
+      "name": "Los Angeles Chargers",
+      "conf": "AFC",
+      "rec": "0-5",
+      "score": 0,
+      "index": 17.9,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.000",
+        "-45 #29",
+        "16.8 #30",
+        "25.8 #22",
+        "-9.0"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+22500",
+      "ev": null
+    },
+    {
+      "name": "Arizona Cardinals",
+      "conf": "NFC",
+      "rec": "1-4",
+      "score": 0,
+      "index": 15.4,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.200",
+        "-54 #31",
+        "21.6 #23",
+        "32.4 #32",
+        "-10.8"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+100000",
+      "ev": null
+    },
+    {
+      "name": "Tennessee Titans",
+      "conf": "AFC",
+      "rec": "0-5",
+      "score": 0,
+      "index": 14.8,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.000",
+        "-51 #30",
+        "11.6 #32",
+        "21.8 #11",
+        "-10.2"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+100000",
+      "ev": null
+    },
+    {
+      "name": "Miami Dolphins",
+      "conf": "AFC",
+      "rec": "0-5",
+      "score": 0,
+      "index": 8.4,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.000",
+        "-62 #32",
+        "14.0 #31",
+        "26.4 #24",
+        "-12.4"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+100000",
+      "ev": null
+    }
+  ]
+}

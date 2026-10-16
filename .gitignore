@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local
+.odds-key
+*.log
+.DS_Store

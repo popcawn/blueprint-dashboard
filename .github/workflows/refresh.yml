@@ -1,0 +1,38 @@
+name: Refresh blueprint data
+
+on:
+  schedule:
+    # In-season refresh: Tuesday & Saturday ~14:00 UTC (after the weekend + Thu/Mon slates).
+    - cron: "0 14 * * 2"
+    - cron: "0 14 * * 6"
+  workflow_dispatch: {}   # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build blueprint data
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}   # add in repo Settings → Secrets → Actions
+        run: python scripts/build.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "blueprint-bot"
+          git config user.email "blueprint-bot@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "data: refresh $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

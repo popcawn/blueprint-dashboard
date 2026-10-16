@@ -1,0 +1,291 @@
+#!/usr/bin/env python3
+"""
+Blueprint Dashboard build script.
+Pulls live data (ESPN, free) + optional FanDuel futures (Odds API, needs ODDS_API_KEY),
+computes the NFL and CFB championship blueprints, and writes data/nfl.json + data/cfb.json.
+
+Run locally:  python scripts/build.py
+In CI:        ODDS_API_KEY=... python scripts/build.py   (key = repo secret)
+
+Ported from the Claude Code /nfl-blueprint and /cfb-blueprint engines:
+- NFL: 5 categories derived from 23 Super Bowl champions, AFC/NFC fair-odds split.
+- CFB: 5 user criteria, SOS-weighted fair odds (exponent 3, backtested), + SRS reality-check column.
+"""
+import json, os, sys, time, datetime, urllib.request
+
+YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
+ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
+HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA = os.path.join(HERE, "data")
+
+def get(url, timeout=50):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
+    return json.load(urllib.request.urlopen(req, timeout=timeout))
+
+def ranks(items, key, reverse):
+    order = sorted(items, key=lambda t: t[key], reverse=reverse)
+    out, prev, r = {}, None, 0
+    for i, t in enumerate(order):
+        v = t[key]
+        if v != prev:
+            r, prev = i + 1, v
+        out[t["name"]] = r
+    return out
+
+def norm(items, key, reverse):
+    vals = [t[key] for t in items]
+    lo, hi = min(vals), max(vals)
+    out = {}
+    for t in items:
+        n = 50 if hi == lo else (t[key] - lo) / (hi - lo) * 100
+        out[t["name"]] = n if reverse else 100 - n
+    return out
+
+def american(p):
+    if p <= 0: return None
+    return f"+{round(100*(1-p)/p)}" if p < 0.5 else f"-{round(100*p/(1-p))}"
+
+def fetch_futures(sport_key):
+    """Return {team: american_odds} from FanDuel, or {} if no key / error. Also returns remaining credits."""
+    if not ODDS_KEY:
+        return {}, None
+    url = (f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
+           f"?apiKey={ODDS_KEY}&regions=us&markets=outrights&oddsFormat=american&bookmakers=fanduel")
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "blueprint-dashboard"})
+        resp = urllib.request.urlopen(req, timeout=40)
+        remaining = resp.headers.get("x-requests-remaining")
+        d = json.load(resp)
+        fd = [b for b in d[0]["bookmakers"] if b["key"] == "fanduel"][0]
+        return {o["name"]: o["price"] for o in fd["markets"][0]["outcomes"]}, remaining
+    except Exception as e:
+        print(f"  odds pull failed ({sport_key}): {e}", file=sys.stderr)
+        return {}, None
+
+# ----------------------------------------------------------------------------- NFL
+NFL_AFC = {"Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers","Buffalo Bills",
+    "Miami Dolphins","New England Patriots","New York Jets","Houston Texans","Indianapolis Colts","Jacksonville Jaguars",
+    "Tennessee Titans","Denver Broncos","Kansas City Chiefs","Las Vegas Raiders","Los Angeles Chargers"}
+
+def build_nfl():
+    d = get(f"https://cdn.espn.com/core/nfl/standings?xhr=1&season={YEAR}")
+    teams = {}
+    def walk(o):
+        if isinstance(o, dict):
+            if isinstance(o.get("entries"), list):
+                for e in o["entries"]:
+                    nm = e.get("team", {}).get("displayName")
+                    if nm and nm not in teams:
+                        teams[nm] = {s.get("name"): s.get("value") for s in e.get("stats", [])}
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    walk(d)
+    rows = []
+    for nm, st in teams.items():
+        try:
+            w = int(float(st.get("wins", 0))); l = int(float(st.get("losses", 0))); ti = int(float(st.get("ties", 0)))
+            pf = float(st.get("pointsFor", 0)); pa = float(st.get("pointsAgainst", 0))
+        except Exception: continue
+        g = w + l + ti
+        if g == 0: continue
+        rows.append({"name": nm, "conf": "AFC" if nm in NFL_AFC else "NFC",
+            "rec": f"{w}-{l}" + (f"-{ti}" if ti else ""), "gp": g,
+            "winpct": (w + 0.5 * ti) / g, "ppg": pf / g, "oppppg": pa / g,
+            "ptdiff": pf - pa, "pdg": (pf - pa) / g})
+    rk_pd = ranks(rows, "ptdiff", True); rk_ppg = ranks(rows, "ppg", True); rk_opp = ranks(rows, "oppppg", False)
+    for t in rows:
+        t["rk_pd"], t["rk_ppg"], t["rk_opp"] = rk_pd[t["name"]], rk_ppg[t["name"]], rk_opp[t["name"]]
+        t["q"] = [t["winpct"] >= 0.625, t["rk_pd"] <= 6, t["rk_ppg"] <= 10, t["rk_opp"] <= 10, t["pdg"] >= 5.0]
+        t["score"] = sum(t["q"])
+    npd = norm(rows, "ptdiff", True); npg = norm(rows, "pdg", True); no = norm(rows, "oppppg", False)
+    nf = norm(rows, "ppg", True); nw = norm(rows, "winpct", True)
+    for t in rows:
+        t["index"] = round(npd[t["name"]]*.25 + npg[t["name"]]*.20 + no[t["name"]]*.20 + nf[t["name"]]*.20 + nw[t["name"]]*.15, 1)
+    # fair odds: AFC/NFC split, cap 17%
+    pool = [t for t in rows if t["score"] >= 2]
+    tm = {5:1.6,4:1.25,3:1.0,2:0.7}
+    for cf in ("AFC","NFC"):
+        cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
+        for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
+    for t in pool: t["p"] = t.get("_pc", 0) * 0.5
+    cap_odds(pool, 0.17)
+    fd, rem = fetch_futures("americanfootball_nfl_super_bowl_winner")
+    attach(rows, pool, fd)
+    rows.sort(key=lambda t: (-t["score"], -t["index"]))
+    return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem,
+            "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+            "cats": ["Win% ≥.625", "Pt Diff top-6", "PPG top-10", "Opp PPG top-10", "PD/g ≥+5"],
+            "teams": [nfl_row(t) for t in rows]}
+
+def nfl_row(t):
+    return {"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+        "q": [bool(x) for x in t["q"]],
+        "vals": [f"{t['winpct']:.3f}", f"{t['ptdiff']:+.0f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}",
+                 f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
+        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+        "market": t.get("market"), "ev": t.get("ev")}
+
+# ----------------------------------------------------------------------------- CFB
+def build_cfb():
+    # 1) byteam stats
+    bt = get(f"https://site.web.api.espn.com/apis/common/v3/sports/football/college-football/statistics/byteam?region=us&lang=en&contentorigin=espn&season={YEAR}&seasontype=2")
+    pc = [c for c in bt["categories"] if c["name"] == "passing"][0]
+    PI, YI = pc["names"].index("totalPointsPerGame"), pc["names"].index("yardsPerGame")
+    stats = {}
+    for t in bt["teams"]:
+        nm = t["team"]["displayName"]; own = opp = None
+        for c in t["categories"]:
+            if c.get("name") == "passing" and c.get("displayName") == "Own Passing": own = c["values"]
+            if c.get("name") == "passing" and c.get("displayName") == "Opponent Passing": opp = c["values"]
+        if own and opp and own[PI] is not None and opp[PI] is not None and opp[YI] is not None:
+            stats[nm] = {"ppg": own[PI], "oppppg": opp[PI], "oppypg": opp[YI], "margin": own[PI] - opp[PI]}
+    # 2) records / win%
+    sd = get(f"https://cdn.espn.com/core/college-football/standings?xhr=1&season={YEAR}")
+    recs, wp = {}, {}
+    def walk(o):
+        if isinstance(o, dict):
+            stx = o.get("standings") if isinstance(o.get("standings"), dict) else None
+            if stx and isinstance(stx.get("entries"), list):
+                for e in stx["entries"]:
+                    nm = e.get("team", {}).get("displayName"); ov = None
+                    for x in e.get("stats", []):
+                        if x.get("type") == "total" or x.get("name") == "overall": ov = x.get("displayValue")
+                    if nm and ov and "-" in str(ov):
+                        try:
+                            w, l = [int(z) for z in ov.split("-")[:2]]; recs[nm] = ov; wp[nm] = w/(w+l) if w+l else 0
+                        except Exception: pass
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    walk(sd)
+    # 3) scoreboards -> opponent lists (SOS) + game scores (SRS)
+    opp_list, games = {}, []
+    for wk in range(1, 17):
+        try:
+            d = get(f"https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates={YEAR}&seasontype=2&week={wk}&groups=80&limit=300")
+        except Exception: continue
+        for e in d.get("events", []):
+            try:
+                c = e["competitions"][0]
+                if not c.get("status", {}).get("type", {}).get("completed"): continue
+                cs = c["competitors"]
+                if len(cs) != 2: continue
+                a, b = cs[0]["team"]["displayName"], cs[1]["team"]["displayName"]
+                opp_list.setdefault(a, []).append(b); opp_list.setdefault(b, []).append(a)
+                games.append((a, b, int(cs[0]["score"]), int(cs[1]["score"])))
+            except Exception: continue
+    srs = compute_srs(games, set(stats.keys()))
+    # build teams
+    teams = []
+    for nm, s in stats.items():
+        if nm not in recs: continue
+        try:
+            w, l = [int(x) for x in recs[nm].split("-")[:2]]
+        except Exception: continue
+        gp = w + l
+        if gp == 0: continue
+        ops = opp_list.get(nm, [])
+        teams.append({"name": nm, "rec": recs[nm], "gp": gp, "winpct": w/gp,
+            "sos": sum(wp.get(x, 0.15) for x in ops)/len(ops) if ops else 0.30, **s})
+    rp = ranks(teams, "ppg", True); ro = ranks(teams, "oppppg", False); ry = ranks(teams, "oppypg", False); rm = ranks(teams, "margin", True)
+    for t in teams:
+        t["rk_ppg"], t["rk_oppppg"], t["rk_oppypg"], t["rk_margin"] = rp[t["name"]], ro[t["name"]], ry[t["name"]], rm[t["name"]]
+        t["q"] = [t["winpct"] >= 0.900, t["rk_ppg"] <= 15, t["rk_oppppg"] <= 10, t["rk_oppypg"] <= 10, t["rk_margin"] <= 5]
+        t["score"] = sum(t["q"])
+    nm_ = norm(teams, "margin", True); nw = norm(teams, "winpct", True); no = norm(teams, "oppppg", False)
+    ny = norm(teams, "oppypg", False); npp = norm(teams, "ppg", True)
+    for t in teams:
+        t["index"] = round(nm_[t["name"]]*.30 + nw[t["name"]]*.20 + no[t["name"]]*.18 + ny[t["name"]]*.17 + npp[t["name"]]*.15, 1)
+    avg = sum(t["sos"] for t in teams)/len(teams)
+    srs_rank = {t: i+1 for i, (t, _) in enumerate(sorted(srs.items(), key=lambda kv: -kv[1]))}
+    for t in teams:
+        t["sosrank"] = sorted(teams, key=lambda x: -x["sos"]).index(t) + 1
+        t["srsrank"] = srs_rank.get(t["name"], 999)
+    # fair odds: SOS-weighted ^3, cap 24%
+    pool = [t for t in teams if t["score"] >= 3 and "North Dakota State" not in t["name"]]
+    tm = {5:1.7,4:1.3,3:1.0}
+    tot = sum((t["index"]**3)/1e5*tm[t["score"]]*(t["sos"]/avg)**3 for t in pool)
+    for t in pool: t["p"] = ((t["index"]**3)/1e5*tm[t["score"]]*(t["sos"]/avg)**3) / tot if tot else 0
+    cap_odds(pool, 0.24)
+    fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
+    attach(teams, pool, fd, srs_rank)
+    teams.sort(key=lambda t: (-t["score"], -t["index"]))
+    # gauntlet watch: SRS top-10 not in pool
+    poolnames = {t["name"] for t in pool}
+    gauntlet = [{"name": t, "srsrank": srs_rank[t]} for t, _ in sorted(srs.items(), key=lambda kv: -kv[1])[:10] if t not in poolnames]
+    return {"sport": "CFB", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem,
+            "gp_min": min(t["gp"] for t in teams), "gp_max": max(t["gp"] for t in teams),
+            "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
+            "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet}
+
+def cfb_row(t):
+    sr = t["srsrank"]
+    # Backtested champion band: every clean CFP champion was SRS top-6.
+    srs_flag = "elite" if sr <= 6 else ("ok" if sr <= 15 else "mirage")
+    return {"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+        "q": [bool(x) for x in t["q"]], "sosrank": t["sosrank"], "srsrank": sr,
+        "srs_flag": srs_flag,
+        "vals": [f"{t['winpct']:.3f}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_oppppg']}",
+                 f"{t['oppypg']:.0f} #{t['rk_oppypg']}", f"{t['margin']:+.1f} #{t['rk_margin']}"],
+        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+        "market": t.get("market"), "ev": t.get("ev")}
+
+def compute_srs(games, fbs):
+    sched = {}
+    for an, bn, a, b in games:
+        sched.setdefault(an, []).append((a, b, bn)); sched.setdefault(bn, []).append((b, a, an))
+    teams = list(sched.keys())
+    if not teams: return {}
+    mov = {t: sum(pf-pa for pf, pa, o in sched[t])/len(sched[t]) for t in teams}
+    srs = dict(mov)
+    for _ in range(25):
+        new = {t: mov[t] + sum(srs.get(o, 0) for pf, pa, o in sched[t])/len(sched[t]) for t in teams}
+        m = sum(new.values())/len(new); srs = {t: new[t]-m for t in new}
+    return {t: round(srs[t], 2) for t in teams if t in fbs}
+
+# ----------------------------------------------------------------------------- shared
+def cap_odds(pool, cap):
+    for _ in range(10):
+        over = [t for t in pool if t["p"] > cap]
+        if not over: break
+        ex = sum(t["p"]-cap for t in over)
+        for t in over: t["p"] = cap
+        under = [t for t in pool if t["p"] < cap]; sub = sum(t["p"] for t in under)
+        for t in under: t["p"] += ex*t["p"]/sub if sub else 0
+    for t in pool: t["fair_odds"] = american(t["p"])
+
+def attach(allteams, pool, fd, srs_rank=None):
+    pmap = {t["name"]: t["p"] for t in pool}
+    for t in allteams:
+        mk = fd.get(t["name"])
+        t["market"] = (f"+{mk}" if mk > 0 else str(mk)) if mk is not None else None
+        p = pmap.get(t["name"], 0)
+        if mk is not None and p > 0:
+            dec = 1 + mk/100 if mk > 0 else 1 + 100/abs(mk)
+            t["ev"] = round((p*dec - 1)*100)
+        else:
+            t["ev"] = None
+
+def now_iso():
+    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+def main():
+    os.makedirs(DATA, exist_ok=True)
+    built = {}
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb)]:
+        try:
+            print(f"building {name}...")
+            data = fn()
+            with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2)
+            built[name] = f"{len(data['teams'])} teams, GP {data['gp_min']}-{data['gp_max']}, odds_remaining={data.get('odds_remaining')}"
+        except Exception as e:
+            print(f"  FAILED {name}: {e}", file=sys.stderr)
+            built[name] = f"FAILED: {e}"
+    with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
+        json.dump({"sports": ["nfl", "cfb"], "generated": now_iso()}, f, indent=2)
+    print("done:", json.dumps(built, indent=2))
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,363 @@
+{
+  "sport": "CFB",
+  "season": "2026",
+  "generated": "2026-10-16T20:14:08Z",
+  "odds_remaining": "80998",
+  "gp_min": 5,
+  "gp_max": 7,
+  "cats": [
+    "Win% \u2265.900",
+    "PPG top-15",
+    "Opp PPG top-10",
+    "Opp YPG top-10",
+    "Margin top-5"
+  ],
+  "teams": [
+    {
+      "name": "Miami Hurricanes",
+      "rec": "5-0",
+      "score": 5,
+      "index": 98.1,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 79,
+      "srsrank": 5,
+      "srs_flag": "elite",
+      "vals": [
+        "1.000",
+        "49.6 #1",
+        "9.8 #1",
+        "250 #5",
+        "+39.8 #1"
+      ],
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+700",
+      "ev": 92
+    },
+    {
+      "name": "Notre Dame Fighting Irish",
+      "rec": "6-0",
+      "score": 5,
+      "index": 94.0,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 94,
+      "srsrank": 2,
+      "srs_flag": "elite",
+      "vals": [
+        "1.000",
+        "44.0 #4",
+        "11.0 #4",
+        "214 #1",
+        "+33.0 #2"
+      ],
+      "fair_pct": 18.3,
+      "fair_odds": "+445",
+      "market": "+470",
+      "ev": 5
+    },
+    {
+      "name": "Georgia Bulldogs",
+      "rec": "6-0",
+      "score": 5,
+      "index": 90.4,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 81,
+      "srsrank": 3,
+      "srs_flag": "elite",
+      "vals": [
+        "1.000",
+        "46.2 #2",
+        "14.0 #10",
+        "262 #10",
+        "+32.2 #4"
+      ],
+      "fair_pct": 18.4,
+      "fair_odds": "+443",
+      "market": "+480",
+      "ev": 7
+    },
+    {
+      "name": "New Mexico Lobos",
+      "rec": "4-1",
+      "score": 4,
+      "index": 87.7,
+      "q": [
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 130,
+      "srsrank": 31,
+      "srs_flag": "mirage",
+      "vals": [
+        "0.800",
+        "43.4 #5",
+        "10.6 #3",
+        "256 #9",
+        "+32.8 #3"
+      ],
+      "fair_pct": 5.2,
+      "fair_odds": "+1835",
+      "market": "+75000",
+      "ev": 3780
+    },
+    {
+      "name": "Utah Utes",
+      "rec": "5-0",
+      "score": 4,
+      "index": 87.2,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "sosrank": 131,
+      "srsrank": 4,
+      "srs_flag": "elite",
+      "vals": [
+        "1.000",
+        "42.8 #6",
+        "13.0 #6",
+        "285 #18",
+        "+29.8 #5"
+      ],
+      "fair_pct": 4.8,
+      "fair_odds": "+1986",
+      "market": "+6000",
+      "ev": 192
+    },
+    {
+      "name": "Indiana Hoosiers",
+      "rec": "6-0",
+      "score": 3,
+      "index": 87.3,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "sosrank": 66,
+      "srsrank": 11,
+      "srs_flag": "ok",
+      "vals": [
+        "1.000",
+        "40.2 #14",
+        "11.8 #5",
+        "264 #11",
+        "+28.3 #7"
+      ],
+      "fair_pct": 12.4,
+      "fair_odds": "+710",
+      "market": "+1000",
+      "ev": 36
+    },
+    {
+      "name": "Ohio State Buckeyes",
+      "rec": "5-1",
+      "score": 3,
+      "index": 85.7,
+      "q": [
+        false,
+        true,
+        true,
+        true,
+        false
+      ],
+      "sosrank": 75,
+      "srsrank": 8,
+      "srs_flag": "ok",
+      "vals": [
+        "0.833",
+        "42.7 #7",
+        "13.2 #7",
+        "247 #4",
+        "+29.5 #6"
+      ],
+      "fair_pct": 10.5,
+      "fair_odds": "+856",
+      "market": "+370",
+      "ev": -51
+    },
+    {
+      "name": "BYU Cougars",
+      "rec": "5-0",
+      "score": 3,
+      "index": 81.5,
+      "q": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "sosrank": 101,
+      "srsrank": 28,
+      "srs_flag": "mirage",
+      "vals": [
+        "1.000",
+        "34.6 #46",
+        "13.4 #8",
+        "254 #7",
+        "+21.2 #12"
+      ],
+      "fair_pct": 6.5,
+      "fair_odds": "+1443",
+      "market": "+8000",
+      "ev": 425
+    },
+    {
+      "name": "James Madison Dukes",
+      "rec": "6-0",
+      "score": 2,
+      "index": 81.1,
+      "q": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "sosrank": 114,
+      "srsrank": 48,
+      "srs_flag": "mirage",
+      "vals": [
+        "1.000",
+        "41.8 #10",
+        "15.0 #16",
+        "347 #63",
+        "+26.8 #8"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+125000",
+      "ev": null
+    },
+    {
+      "name": "North Dakota State Bison",
+      "rec": "5-1",
+      "score": 2,
+      "index": 77.3,
+      "q": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "sosrank": 71,
+      "srsrank": 70,
+      "srs_flag": "mirage",
+      "vals": [
+        "0.833",
+        "29.2 #70",
+        "10.3 #2",
+        "239 #2",
+        "+18.8 #23"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+125000",
+      "ev": null
+    },
+    {
+      "name": "LSU Tigers",
+      "rec": "4-2",
+      "score": 2,
+      "index": 76.4,
+      "q": [
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "sosrank": 34,
+      "srsrank": 6,
+      "srs_flag": "elite",
+      "vals": [
+        "0.667",
+        "42.0 #9",
+        "18.5 #32",
+        "251 #6",
+        "+23.5 #11"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+3000",
+      "ev": null
+    },
+    {
+      "name": "TCU Horned Frogs",
+      "rec": "2-3",
+      "score": 2,
+      "index": 61.5,
+      "q": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "sosrank": 63,
+      "srsrank": 47,
+      "srs_flag": "mirage",
+      "vals": [
+        "0.400",
+        "25.4 #92",
+        "13.4 #8",
+        "255 #8",
+        "+12.0 #42"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+125000",
+      "ev": null
+    }
+  ],
+  "gauntlet": [
+    {
+      "name": "Alabama Crimson Tide",
+      "srsrank": 1
+    },
+    {
+      "name": "LSU Tigers",
+      "srsrank": 6
+    },
+    {
+      "name": "Missouri Tigers",
+      "srsrank": 7
+    },
+    {
+      "name": "Texas Longhorns",
+      "srsrank": 9
+    },
+    {
+      "name": "Mississippi State Bulldogs",
+      "srsrank": 10
+    }
+  ]
+}

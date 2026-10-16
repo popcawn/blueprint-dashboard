@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Championship Blueprint</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2a3240; --ink:#e6edf3; --mut:#8b949e;
+    --grn:#2ea043; --grn-d:#1a5a2a; --red:#da3633; --red-d:#5a1f1f; --yel:#d29922; --blu:#2f81f7;
+    --chip-on:#1a5a2a; --chip-off:#30363d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+  header{padding:18px 16px 10px;position:sticky;top:0;background:linear-gradient(#0d1117,#0d1117e8);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
+  h1{margin:0 0 10px;font-size:19px;letter-spacing:.3px}
+  h1 span{color:var(--mut);font-weight:400;font-size:14px}
+  .tabs{display:flex;gap:8px}
+  .tab{flex:0 0 auto;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--mut);cursor:pointer;font-weight:600;font-size:14px}
+  .tab.on{background:var(--blu);border-color:var(--blu);color:#fff}
+  .meta{color:var(--mut);font-size:12.5px;margin-top:9px;line-height:1.5}
+  .wrap{max-width:960px;margin:0 auto;padding:14px 16px 60px}
+  .tier{margin:18px 0 6px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .tier .n{color:var(--mut);font-weight:500;font-size:13px}
+  .card{background:var(--panel);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:11px 13px;margin:9px 0}
+  .card.t5{border-left-color:var(--grn)} .card.t4{border-left-color:var(--blu)}
+  .card.t3{border-left-color:var(--yel)} .card.t2{border-left-color:#6e7681} .card.t1{border-left-color:#30363d}
+  .row1{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .nm{font-weight:700;font-size:16px}
+  .conf{font-size:11px;color:var(--mut);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+  .rec{color:var(--mut);font-size:13px}
+  .idx{margin-left:auto;font-size:12px;color:var(--mut)}
+  .idx b{color:var(--ink);font-size:15px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 2px}
+  .chip{font-size:11px;padding:2px 7px;border-radius:5px;background:var(--chip-off);color:var(--mut);white-space:nowrap}
+  .chip.on{background:var(--chip-on);color:#b9f0c4}
+  .odds{display:flex;flex-wrap:wrap;gap:14px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:13px;align-items:center}
+  .odds .k{color:var(--mut);font-size:11px;display:block;margin-bottom:1px}
+  .ev{font-weight:700;padding:3px 9px;border-radius:6px}
+  .ev.pos{background:var(--grn-d);color:#7ee787} .ev.neg{background:var(--red-d);color:#ff9f9b} .ev.zero{background:#30363d;color:var(--mut)}
+  .srs{font-size:12px;padding:2px 7px;border-radius:5px;font-weight:600}
+  .srs.elite{background:var(--grn-d);color:#7ee787} .srs.ok{background:#30363d;color:#d8dee9} .srs.mirage{background:var(--red-d);color:#ff9f9b}
+  .flag{font-size:11px;color:var(--mut)}
+  .gauntlet{background:var(--panel2);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;margin:16px 0}
+  .gauntlet h3{margin:0 0 6px;font-size:13px}
+  .gauntlet .g{display:inline-block;margin:3px 8px 3px 0;font-size:13px}
+  .gauntlet .g b{color:#ff9f9b}
+  .note{color:var(--mut);font-size:12px;margin-top:20px;padding:12px;background:var(--panel);border-radius:8px;border:1px solid var(--line)}
+  .warn{color:var(--yel)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--mut);margin-top:8px}
+  .legend b{color:var(--ink)}
+  .err{color:#ff9f9b;padding:20px;text-align:center}
+  a{color:var(--blu)}
+</style>
+</head>
+<body>
+<header>
+  <h1>Championship Blueprint <span>— live title odds engine</span></h1>
+  <div class="tabs" id="tabs"></div>
+  <div class="meta" id="meta"></div>
+</header>
+<div class="wrap" id="app"><div class="err">Loading…</div></div>
+
+<script>
+const SPORTS = {nfl:"NFL", cfb:"CFB"};
+const TIERS = {5:["🏆 Best Chance","t5"],4:["🔵 Great Chance","t4"],3:["🟢 Good Chance","t3"],2:["🟡 Outside","t2"],1:["⚪ Longshot","t1"]};
+let DATA = {}, cur = "nfl";
+
+function evClass(ev){ if(ev==null) return "zero"; if(ev>=15) return "pos"; if(ev<=-10) return "neg"; return "zero"; }
+function fmtEV(ev){ return ev==null ? "—" : (ev>0?"+":"")+ev+"%"; }
+
+function card(t, sport){
+  const tier = TIERS[Math.max(t.score,1)][1];
+  const chips = t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}">${t.vals[i]}</span>`).join("");
+  let srs = "";
+  if(sport==="cfb" && t.srsrank!=null){
+    const cls = t.srs_flag, lbl = {elite:"SRS #"+t.srsrank+" ✓",ok:"SRS #"+t.srsrank,mirage:"SRS #"+t.srsrank+" ⚑"}[cls];
+    srs = `<div><span class="k">schedule-adj</span><span class="srs ${cls}">${lbl}</span></div>
+           <div><span class="k">SOS</span>#${t.sosrank}</div>`;
+  }
+  const conf = t.conf ? `<span class="conf">${t.conf}</span>` : "";
+  return `<div class="card ${tier}">
+    <div class="row1"><span class="nm">${t.name}</span>${conf}<span class="rec">${t.rec}</span>
+      <span class="idx">index <b>${t.index}</b></span></div>
+    <div class="chips">${chips}</div>
+    <div class="odds">
+      <div><span class="k">fair</span>${t.fair_odds||"—"}${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
+      <div><span class="k">FanDuel</span>${t.market||"—"}</div>
+      <div><span class="k">EV</span><span class="ev ${evClass(t.ev)}">${fmtEV(t.ev)}</span></div>
+      ${srs}
+    </div></div>`;
+}
+
+function render(){
+  const d = DATA[cur];
+  document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on", b.dataset.s===cur));
+  if(!d){ document.getElementById("app").innerHTML = `<div class="err">No data for ${SPORTS[cur]} yet.</div>`; return; }
+  const early = d.gp_max < (cur==="nfl"?8:6);
+  document.getElementById("meta").innerHTML =
+    `${d.sport} · ${d.season} · GP ${d.gp_min}–${d.gp_max}${early?' <span class="warn">· small sample</span>':''} · `+
+    `updated ${new Date(d.generated).toLocaleString()} · odds credits: ${d.odds_remaining||"n/a"}`;
+  let html = "";
+  if(cur==="cfb"){
+    html += `<div class="legend"><span><b class="srs elite" style="padding:1px 5px">SRS top-6</b> champion-grade</span>
+      <span><b class="srs mirage" style="padding:1px 5px">⚑</b> schedule-flattered mirage</span>
+      <span>chips = qualifying categories</span></div>`;
+  } else {
+    html += `<div class="legend"><span>chips = qualifying categories (green = qualifies)</span>
+      <span><b style="color:#7ee787">green EV</b> = value · <b style="color:#ff9f9b">red</b> = fade</span></div>`;
+  }
+  for(const sc of [5,4,3,2,1]){
+    const g = d.teams.filter(t=>t.score===sc);
+    if(!g.length) continue;
+    html += `<div class="tier">${TIERS[sc][0]} <span class="n">(${sc}/5)</span></div>`;
+    g.forEach(t=> html += card(t, cur));
+  }
+  if(cur==="cfb" && d.gauntlet && d.gauntlet.length){
+    html += `<div class="gauntlet"><h3>⚑ Gauntlet watch — elite schedule-adjusted teams the blueprint zeroes</h3>`+
+      d.gauntlet.map(g=>`<span class="g">${g.name} <b>SRS #${g.srsrank}</b></span>`).join("")+
+      `<div class="flag" style="margin-top:6px">These play brutal schedules; their weak blueprint score understates them — don't treat a 0% as a true longshot.</div></div>`;
+  }
+  const catline = d.cats.join(" · ");
+  html += `<div class="note"><b>Categories:</b> ${catline}.<br>
+    ${cur==="cfb"
+      ? "Fair odds are SOS-weighted (backtested: champion = model #1 in 5/5 seasons). The <b>schedule-adj (SRS)</b> column is a display-only reality-check — every real champion was SRS top-6, so a high-scoring team outside that band (⚑) is a schedule mirage."
+      : "Categories derived from 23 Super Bowl champions (2002–24). Point differential is the master signal. NFL is medium-low chalk — the blueprint IDs the contender pool, not a lock."}
+    ${early?'<br><span class="warn">⚠ Small sample — early-season numbers are noisy; the market is sharper than the model until mid-season. Big early EVs are usually model-lag, not value.</span>':''}</div>`;
+  document.getElementById("app").innerHTML = html;
+}
+
+async function load(){
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = Object.entries(SPORTS).map(([k,v])=>`<button class="tab" data-s="${k}">${v}</button>`).join("");
+  tabs.querySelectorAll(".tab").forEach(b=> b.onclick=()=>{cur=b.dataset.s; render();});
+  for(const k of Object.keys(SPORTS)){
+    try{ const r = await fetch(`data/${k}.json?t=`+Date.now()); if(r.ok) DATA[k] = await r.json(); }
+    catch(e){ /* leave undefined */ }
+  }
+  render();
+}
+load();
+</script>
+</body>
+</html>
