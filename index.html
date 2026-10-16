@@ -137,6 +137,11 @@ function renderEV(){
     <span class="om">fair <b>${x.fair||'—'}</b></span>
     <span class="ev ${evClass(x.ev)}">${fmtEV(x.ev)}</span></div>`;
   let html = `<div class="legend"><span>Ranked by EV = model fair odds vs live FanDuel. <b style="color:#d29922">⚡early</b> = small sample, trust with caution.</span></div>`;
+  const preds = Object.entries(DATA).filter(([k,d])=>d && d.prediction && d.prediction.why);
+  if(preds.length){
+    html += `<div class="tier">🎯 Predictions <span class="n">(model pick per sport)</span></div>`;
+    html += preds.map(([k,d])=>`<div class="pred"><h3><span class="sb ${k}">${SPORTS[k]}</span> &nbsp;${d.prediction.pick}</h3><p>${d.prediction.why}</p></div>`).join("");
+  }
   html += `<div class="tier">💰 Best value <span class="n">(actionable)</span></div>`;
   html += real.slice(0,12).map((x,i)=>row(x,i)).join("") || `<div class="err">No actionable value right now.</div>`;
   if(fades.length){ html += `<div class="tier">🚫 Biggest fades</div>` + fades.map(x=>row(x,-1)).join(""); }
