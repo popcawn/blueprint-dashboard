@@ -112,8 +112,16 @@ def build_nfl():
     cap_odds(pool, 0.17)
     fd, rem = fetch_futures("americanfootball_nfl_super_bowl_winner")
     attach(rows, pool, fd)
+    top, gap, run = pick_gap(pool)
+    pred = None
+    if top:
+        pred = {"pick": top["name"], "why":
+            f"<b>{top['name']}</b> are the blueprint's {'runaway ' if run else 'top '}pick — {top['rec']}, "
+            f"a {top['score']}/5 with a {top['ptdiff']:+.0f} point differential (#{top['rk_pd']}, the strongest "
+            f"Super-Bowl-champion signal) and an index of {top['index']}{', clear of the field' if run else ''}. "
+            f"A lone dominant #1 is the profile that historically wins — but the NFL is single-elimination, so it's a strong favorite, not a lock."}
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
-    return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem,
+    return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "cats": ["Win% ≥.625", "Pt Diff top-6", "PPG top-10", "Opp PPG top-10", "PD/g ≥+5"],
             "labels": ["Win%", "Pt Diff", "PPG", "Opp PPG", "PD/g"],
@@ -211,11 +219,21 @@ def build_cfb():
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
+    top, gap, run = pick_gap(pool)
+    pred = None
+    if top:
+        sr = top.get("srsrank", 999)
+        srs_note = (f"SRS #{sr} confirms the dominance is earned" if sr <= 6
+                    else f"though SRS #{sr} flags it as schedule-aided — a real but schedule-flattered #1")
+        pred = {"pick": top["name"], "why":
+            f"<b>{top['name']}</b> — {top['rec']}, a {top['score']}/5 with a {top['margin']:+.1f} scoring margin "
+            f"(#{top['rk_margin']}, the master title signal) and index {top['index']}. {srs_note}. "
+            f"In the 12-team CFP, a top team with a clean profile is the pick — but it's lower-chalk than it looks; read it as best contender, not a lock."}
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
     # gauntlet watch: SRS top-10 not in pool
     poolnames = {t["name"] for t in pool}
     gauntlet = [{"name": t, "srsrank": srs_rank[t]} for t, _ in sorted(srs.items(), key=lambda kv: -kv[1])[:10] if t not in poolnames]
-    return {"sport": "CFB", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem,
+    return {"sport": "CFB", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in teams), "gp_max": max(t["gp"] for t in teams),
             "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
             "labels": ["Win%", "PPG", "Opp PPG", "Opp YPG", "Margin"],
@@ -300,8 +318,18 @@ def build_nhl():
     cap_odds(pool, 0.13)
     fd, rem = fetch_futures("icehockey_nhl_championship_winner")
     attach(rows, pool, fd)
+    top, gap, run = pick_gap(pool)
+    gpmax = max(t["gp"] for t in rows)
+    pred = None
+    if top:
+        early = gpmax < 20
+        pred = {"pick": top["name"], "why":
+            f"<b>{top['name']}</b> — a {top['score']}/4 on the goaltending-and-defense profile that wins Cups "
+            f"(#{top['rk_sv']} even-strength save%, #{top['rk_ga']} goals-against) and index {top['index']}. "
+            + ("But it's only %d games in and the NHL is the lowest-chalk sport — early save-percentages regress hard, so this is 'best profile,' not a prediction yet." % gpmax
+               if early else "The NHL is the lowest-chalk sport (goalie variance), so read a top profile as 'legit Cup team,' not 'the winner.'")}
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
-    return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem,
+    return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "cats": ["ES goal diff top-11", "ES save% top-12", "Corsi top-16", "Goals Against top-14"],
             "labels": ["ES Diff", "ES SV%", "Corsi", "GA"],
@@ -392,8 +420,15 @@ def build_nba():
     cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
     fd, rem = fetch_futures("basketball_nba_championship_winner")
     attach(rows, pool, fd)
+    top, gap, run = pick_gap(pool)
+    pred = None
+    if top:
+        pred = {"pick": top["name"], "why":
+            f"<b>{top['name']}</b> — a {top['score']}/4 with a {top['pdg']:+.1f} net rating per game "
+            f"(#{top['rk_pd']}, the dominant NBA-champion signal) and index {top['index']}. "
+            f"The NBA is the chalkiest sport — favorites are reliable, so a clear statistical #1 is a genuine prediction, not just a contender."}
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
-    base.update({"odds_remaining": rem, "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+    base.update({"odds_remaining": rem, "prediction": pred, "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
         "cats": ["Win% ≥.600", "Net/g top-5", "PPG top-10", "Opp PPG top-10"],
         "labels": ["Win%", "Net/g", "PPG", "Opp PPG"],
         "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
@@ -428,6 +463,15 @@ def attach(allteams, pool, fd, srs_rank=None):
 
 def now_iso():
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+def pick_gap(pool):
+    """Pick the best TEAM (score, then index — fair odds get capped/flattened so can't break ties).
+       Return (top_team, index_gap_to_2nd, is_runaway)."""
+    ps = sorted(pool, key=lambda t: (-t["score"], -t["index"]))
+    if not ps: return None, 0, False
+    gap = ps[0]["index"] - (ps[1]["index"] if len(ps) > 1 else 0)
+    runaway = len(ps) > 1 and ps[0]["score"] >= ps[1]["score"] and gap >= 6.0
+    return ps[0], gap, runaway
 
 def main():
     os.makedirs(DATA, exist_ok=True)

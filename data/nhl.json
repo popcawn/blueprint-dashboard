@@ -1,8 +1,12 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-16T20:51:50Z",
-  "odds_remaining": "80992",
+  "generated": "2026-10-16T21:00:51Z",
+  "odds_remaining": "80986",
+  "prediction": {
+    "pick": "Dallas Stars",
+    "why": "<b>Dallas Stars</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#2 even-strength save%, #1 goals-against) and index 77.3. But it's only 9 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
+  },
   "gp_min": 5,
   "gp_max": 9,
   "cats": [
