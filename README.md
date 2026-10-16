@@ -31,15 +31,19 @@ python -m http.server 8777
 # open http://127.0.0.1:8777/index.html
 ```
 
-## Data sources
-- **NFL:** ESPN standings (`cdn.espn.com/core/nfl/standings`). Pure curl, no browser.
-- **CFB:** ESPN byteam stats + standings + weekly scoreboards (for SOS & SRS). Pure curl.
+## Data sources (all pure `curl` — no browser, CI-safe)
+- **NFL:** ESPN standings (`cdn.espn.com/core/nfl/standings`).
+- **CFB:** ESPN byteam stats + standings + weekly scoreboards (for SOS & SRS).
+- **NHL:** MoneyPuck season CSV (`moneypuck.com/.../seasonSummary/<year>/regular/teams.csv`) — 5v5 Corsi, GF/GA,
+  shots/saves (for ES save%). This replaced the Cloudflare-walled Natural Stat Trick, so **no Playwright needed.**
 - **Futures:** The Odds API `outrights` market, FanDuel book. Reports `x-requests-remaining`.
 
-## Phase 2 (not yet wired)
-- **NHL & MLB** need Natural Stat Trick / FanGraphs, which Cloudflare-block server-side `curl`.
-  Adding them means a headless browser (Playwright) step in the workflow. The engine logic is ready to port.
+## Sports
+- **Live:** NFL, CFB, NHL.
+- **MLB — deferred:** its FanGraphs inputs (WAR / pBABIP / DRS) are Cloudflare-blocked with no clean curl source,
+  *and* the 2026 regular season is over (nothing live to show until spring 2027). Add it then, with a MoneyPuck-style
+  source hunt or a Playwright step. Engine logic already exists in the `/blueprint` command.
 
 ## Refresh schedule
 `.github/workflows/refresh.yml` runs Tue & Sat 14:00 UTC in-season, plus manual dispatch.
-Each run costs ~1 Odds-API credit per sport (2/run).
+Each run costs ~1 Odds-API credit per sport (3/run now).

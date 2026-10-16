@@ -244,6 +244,74 @@ def compute_srs(games, fbs):
         m = sum(new.values())/len(new); srs = {t: new[t]-m for t in new}
     return {t: round(srs[t], 2) for t in teams if t in fbs}
 
+# ----------------------------------------------------------------------------- NHL (MoneyPuck, curl-friendly)
+NHL_TEAMS = {
+  "BOS":("Boston Bruins","E"),"BUF":("Buffalo Sabres","E"),"DET":("Detroit Red Wings","E"),
+  "FLA":("Florida Panthers","E"),"MTL":("Montreal Canadiens","E"),"OTT":("Ottawa Senators","E"),
+  "TBL":("Tampa Bay Lightning","E"),"TOR":("Toronto Maple Leafs","E"),"CAR":("Carolina Hurricanes","E"),
+  "CBJ":("Columbus Blue Jackets","E"),"NJD":("New Jersey Devils","E"),"NYI":("New York Islanders","E"),
+  "NYR":("New York Rangers","E"),"PHI":("Philadelphia Flyers","E"),"PIT":("Pittsburgh Penguins","E"),
+  "WSH":("Washington Capitals","E"),"ANA":("Anaheim Ducks","W"),"CGY":("Calgary Flames","W"),
+  "COL":("Colorado Avalanche","W"),"DAL":("Dallas Stars","W"),"EDM":("Edmonton Oilers","W"),
+  "LAK":("Los Angeles Kings","W"),"MIN":("Minnesota Wild","W"),"NSH":("Nashville Predators","W"),
+  "SJS":("San Jose Sharks","W"),"SEA":("Seattle Kraken","W"),"STL":("St Louis Blues","W"),
+  "VAN":("Vancouver Canucks","W"),"VGK":("Vegas Golden Knights","W"),"WPG":("Winnipeg Jets","W"),
+  "UTA":("Utah Mammoth","W"),"CHI":("Chicago Blackhawks","W")}
+
+def build_nhl():
+    import csv, io
+    req = urllib.request.Request(f"https://moneypuck.com/moneypuck/playerData/seasonSummary/{YEAR}/regular/teams.csv",
+                                 headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
+    text = urllib.request.urlopen(req, timeout=50).read().decode("utf-8", "replace")
+    rows_raw = list(csv.DictReader(io.StringIO(text)))
+    by = {}  # abbrev -> {situation: row}
+    for r in rows_raw:
+        by.setdefault(r["team"], {})[r["situation"]] = r
+    rows = []
+    for ab, sits in by.items():
+        if ab not in NHL_TEAMS or "5on5" not in sits or "all" not in sits: continue
+        f, a = sits["5on5"], sits["all"]
+        try:
+            gf, ga5 = float(f["goalsFor"]), float(f["goalsAgainst"])
+            sa, saved = float(f["shotsOnGoalAgainst"]), float(f["savedShotsOnGoalAgainst"])
+            corsi = float(f["corsiPercentage"]) * 100
+            total_ga = float(a["goalsAgainst"]); gp = int(float(f["games_played"]))
+        except Exception: continue
+        name, conf = NHL_TEAMS[ab]
+        rows.append({"name": name, "conf": conf, "rec": None, "gp": gp,
+            "esdiff": gf - ga5, "essv": (saved/sa*100) if sa else 0, "corsi": corsi, "totalGA": total_ga})
+    rk_ed = ranks(rows, "esdiff", True); rk_sv = ranks(rows, "essv", True)
+    rk_cf = ranks(rows, "corsi", True); rk_ga = ranks(rows, "totalGA", False)
+    for t in rows:
+        t["rk_ed"], t["rk_sv"], t["rk_cf"], t["rk_ga"] = rk_ed[t["name"]], rk_sv[t["name"]], rk_cf[t["name"]], rk_ga[t["name"]]
+        t["q"] = [t["rk_ed"] <= 11, t["rk_sv"] <= 12, t["rk_cf"] <= 16, t["rk_ga"] <= 14]
+        t["score"] = sum(t["q"])
+    ned = norm(rows, "esdiff", True); nsv = norm(rows, "essv", True); nga = norm(rows, "totalGA", False); ncf = norm(rows, "corsi", True)
+    for t in rows:
+        t["index"] = round(ned[t["name"]]*.30 + nsv[t["name"]]*.25 + nga[t["name"]]*.25 + ncf[t["name"]]*.20, 1)
+    pool = [t for t in rows if t["score"] >= 2]
+    tm = {4:1.6,3:1.15,2:0.8}
+    for cf in ("E","W"):
+        cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
+        for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
+    for t in pool: t["p"] = t.get("_pc", 0) * 0.5
+    cap_odds(pool, 0.13)
+    fd, rem = fetch_futures("icehockey_nhl_championship_winner")
+    attach(rows, pool, fd)
+    rows.sort(key=lambda t: (-t["score"], -t["index"]))
+    return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem,
+            "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+            "cats": ["ES goal diff top-11", "ES save% top-12", "Corsi top-16", "Goals Against top-14"],
+            "teams": [nhl_row(t) for t in rows if t["score"] >= 1]}
+
+def nhl_row(t):
+    return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
+        "q": [bool(x) for x in t["q"]],
+        "vals": [f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['essv']:.1f} #{t['rk_sv']}",
+                 f"{t['corsi']:.1f} #{t['rk_cf']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
+        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+        "market": t.get("market"), "ev": t.get("ev")}
+
 # ----------------------------------------------------------------------------- shared
 def cap_odds(pool, cap):
     for _ in range(10):
@@ -273,7 +341,7 @@ def now_iso():
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl)]:
         try:
             print(f"building {name}...")
             data = fn()
@@ -284,7 +352,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":

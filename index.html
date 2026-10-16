@@ -62,15 +62,17 @@
 <div class="wrap" id="app"><div class="err">Loading…</div></div>
 
 <script>
-const SPORTS = {nfl:"NFL", cfb:"CFB"};
-const TIERS = {5:["🏆 Best Chance","t5"],4:["🔵 Great Chance","t4"],3:["🟢 Good Chance","t3"],2:["🟡 Outside","t2"],1:["⚪ Longshot","t1"]};
+const SPORTS = {nfl:"NFL", cfb:"CFB", nhl:"NHL"};
+const LABELS = [["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
+function tierInfo(score, maxcat){ const d = maxcat - score; return LABELS[Math.min(Math.max(d,0),4)]; }
+const MAXCAT = {nfl:5, cfb:5, nhl:4};
 let DATA = {}, cur = "nfl";
 
 function evClass(ev){ if(ev==null) return "zero"; if(ev>=15) return "pos"; if(ev<=-10) return "neg"; return "zero"; }
 function fmtEV(ev){ return ev==null ? "—" : (ev>0?"+":"")+ev+"%"; }
 
 function card(t, sport){
-  const tier = TIERS[Math.max(t.score,1)][1];
+  const tier = tierInfo(t.score, MAXCAT[sport])[1];
   const chips = t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}">${t.vals[i]}</span>`).join("");
   let srs = "";
   if(sport==="cfb" && t.srsrank!=null){
@@ -95,7 +97,8 @@ function render(){
   const d = DATA[cur];
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on", b.dataset.s===cur));
   if(!d){ document.getElementById("app").innerHTML = `<div class="err">No data for ${SPORTS[cur]} yet.</div>`; return; }
-  const early = d.gp_max < (cur==="nfl"?8:6);
+  const maxcat = MAXCAT[cur];
+  const early = d.gp_max < ({nfl:8, cfb:6, nhl:20}[cur]);
   document.getElementById("meta").innerHTML =
     `${d.sport} · ${d.season} · GP ${d.gp_min}–${d.gp_max}${early?' <span class="warn">· small sample</span>':''} · `+
     `updated ${new Date(d.generated).toLocaleString()} · odds credits: ${d.odds_remaining||"n/a"}`;
@@ -108,10 +111,10 @@ function render(){
     html += `<div class="legend"><span>chips = qualifying categories (green = qualifies)</span>
       <span><b style="color:#7ee787">green EV</b> = value · <b style="color:#ff9f9b">red</b> = fade</span></div>`;
   }
-  for(const sc of [5,4,3,2,1]){
+  for(let sc=maxcat; sc>=0; sc--){
     const g = d.teams.filter(t=>t.score===sc);
     if(!g.length) continue;
-    html += `<div class="tier">${TIERS[sc][0]} <span class="n">(${sc}/5)</span></div>`;
+    html += `<div class="tier">${tierInfo(sc,maxcat)[0]} <span class="n">(${sc}/${maxcat})</span></div>`;
     g.forEach(t=> html += card(t, cur));
   }
   if(cur==="cfb" && d.gauntlet && d.gauntlet.length){
@@ -123,6 +126,8 @@ function render(){
   html += `<div class="note"><b>Categories:</b> ${catline}.<br>
     ${cur==="cfb"
       ? "Fair odds are SOS-weighted (backtested: champion = model #1 in 5/5 seasons). The <b>schedule-adj (SRS)</b> column is a display-only reality-check — every real champion was SRS top-6, so a high-scoring team outside that band (⚑) is a schedule mirage."
+      : cur==="nhl"
+      ? "Validated 4/4 vs the 2024-25 Florida & 2021-22 Colorado champions. Data from MoneyPuck (5v5 splits). The NHL is the <b>lowest-chalk sport</b> — goaltending variance dominates, so early save-percentages regress hard; read 4/4 as 'legit Cup team,' never 'the winner.'"
       : "Categories derived from 23 Super Bowl champions (2002–24). Point differential is the master signal. NFL is medium-low chalk — the blueprint IDs the contender pool, not a lock."}
     ${early?'<br><span class="warn">⚠ Small sample — early-season numbers are noisy; the market is sharper than the model until mid-season. Big early EVs are usually model-lag, not value.</span>':''}</div>`;
   document.getElementById("app").innerHTML = html;
