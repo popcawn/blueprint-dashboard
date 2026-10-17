@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-16T21:08:29Z",
-  "odds_remaining": "80984",
+  "generated": "2026-10-17T16:56:23Z",
+  "odds_remaining": "80469",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> \u2014 5-0, a 5/5 with a +39.8 scoring margin (#1, the master title signal) and index 98.1. SRS #5 confirms the dominance is earned. In the 12-team CFP, a top team with a clean profile is the pick \u2014 but it's lower-chalk than it looks; read it as best contender, not a lock."
@@ -36,7 +36,7 @@
         true,
         true
       ],
-      "sosrank": 79,
+      "sosrank": 81,
       "srsrank": 5,
       "srs_flag": "elite",
       "vals": [
@@ -63,7 +63,7 @@
         true,
         true
       ],
-      "sosrank": 94,
+      "sosrank": 100,
       "srsrank": 2,
       "srs_flag": "elite",
       "vals": [
@@ -73,10 +73,10 @@
         "214 #1",
         "+33.0 #2"
       ],
-      "fair_pct": 18.3,
-      "fair_odds": "+445",
-      "market": "+470",
-      "ev": 5
+      "fair_pct": 17.3,
+      "fair_odds": "+479",
+      "market": "+460",
+      "ev": -3
     },
     {
       "name": "Georgia Bulldogs",
@@ -90,7 +90,7 @@
         true,
         true
       ],
-      "sosrank": 81,
+      "sosrank": 82,
       "srsrank": 3,
       "srs_flag": "elite",
       "vals": [
@@ -100,10 +100,10 @@
         "262 #10",
         "+32.2 #4"
       ],
-      "fair_pct": 18.4,
-      "fair_odds": "+443",
+      "fair_pct": 18.8,
+      "fair_odds": "+433",
       "market": "+480",
-      "ev": 7
+      "ev": 9
     },
     {
       "name": "New Mexico Lobos",
@@ -127,10 +127,10 @@
         "256 #9",
         "+32.8 #3"
       ],
-      "fair_pct": 5.2,
-      "fair_odds": "+1835",
-      "market": "+75000",
-      "ev": 3780
+      "fair_pct": 5.3,
+      "fair_odds": "+1800",
+      "market": "+125000",
+      "ev": 6485
     },
     {
       "name": "Utah Utes",
@@ -154,10 +154,10 @@
         "285 #18",
         "+29.8 #5"
       ],
-      "fair_pct": 4.8,
-      "fair_odds": "+1986",
-      "market": "+6000",
-      "ev": 192
+      "fair_pct": 4.9,
+      "fair_odds": "+1947",
+      "market": "+6500",
+      "ev": 222
     },
     {
       "name": "Indiana Hoosiers",
@@ -171,7 +171,7 @@
         false,
         false
       ],
-      "sosrank": 66,
+      "sosrank": 65,
       "srsrank": 11,
       "srs_flag": "ok",
       "vals": [
@@ -181,10 +181,10 @@
         "264 #11",
         "+28.3 #7"
       ],
-      "fair_pct": 12.4,
-      "fair_odds": "+710",
+      "fair_pct": 12.6,
+      "fair_odds": "+695",
       "market": "+1000",
-      "ev": 36
+      "ev": 38
     },
     {
       "name": "Ohio State Buckeyes",
@@ -198,7 +198,7 @@
         true,
         false
       ],
-      "sosrank": 75,
+      "sosrank": 72,
       "srsrank": 8,
       "srs_flag": "ok",
       "vals": [
@@ -208,10 +208,10 @@
         "247 #4",
         "+29.5 #6"
       ],
-      "fair_pct": 10.5,
-      "fair_odds": "+856",
-      "market": "+380",
-      "ev": -50
+      "fair_pct": 10.7,
+      "fair_odds": "+839",
+      "market": "+350",
+      "ev": -52
     },
     {
       "name": "BYU Cougars",
@@ -225,8 +225,8 @@
         true,
         false
       ],
-      "sosrank": 101,
-      "srsrank": 28,
+      "sosrank": 102,
+      "srsrank": 26,
       "srs_flag": "mirage",
       "vals": [
         "1.000",
@@ -235,10 +235,10 @@
         "254 #7",
         "+21.2 #12"
       ],
-      "fair_pct": 6.5,
-      "fair_odds": "+1443",
+      "fair_pct": 6.6,
+      "fair_odds": "+1414",
       "market": "+8000",
-      "ev": 425
+      "ev": 435
     },
     {
       "name": "James Madison Dukes",
@@ -252,14 +252,14 @@
         false,
         false
       ],
-      "sosrank": 114,
+      "sosrank": 113,
       "srsrank": 48,
       "srs_flag": "mirage",
       "vals": [
         "1.000",
         "41.8 #10",
         "15.0 #16",
-        "347 #63",
+        "347 #62",
         "+26.8 #8"
       ],
       "fair_pct": null,
@@ -279,12 +279,12 @@
         true,
         false
       ],
-      "sosrank": 71,
-      "srsrank": 70,
+      "sosrank": 69,
+      "srsrank": 72,
       "srs_flag": "mirage",
       "vals": [
         "0.833",
-        "29.2 #70",
+        "29.2 #71",
         "10.3 #2",
         "239 #2",
         "+18.8 #23"
@@ -306,7 +306,7 @@
         true,
         false
       ],
-      "sosrank": 34,
+      "sosrank": 35,
       "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
@@ -338,7 +338,7 @@
       "srs_flag": "mirage",
       "vals": [
         "0.400",
-        "25.4 #92",
+        "25.4 #93",
         "13.4 #8",
         "255 #8",
         "+12.0 #42"
