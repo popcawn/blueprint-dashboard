@@ -511,31 +511,58 @@ READ_CTX = {
     "nba": "offense goes cold in a seven-game series — defense travels",
 }
 
+def _pick(opts, seed):
+    return opts[sum(ord(c) for c in seed) % len(opts)]
+
 def team_read(t, sport, n, maxcat):
     """The automated 'Cubs fool's-gold' call: read the COMPONENTS, not the composite.
-       Flags a top team hiding a playoff-fatal hole, vouches for balanced teams. Returns {v, why}."""
+       Varied, team-specific wording (seeded by name for determinism)."""
     if sport == "nfl":   cats = [("offense", t["rk_ppg"], False), ("defense", t["rk_opp"], True), ("point differential", t["rk_pd"], True)]
     elif sport == "cfb": cats = [("offense", t["rk_ppg"], False), ("scoring defense", t["rk_oppppg"], True), ("total defense", t["rk_oppypg"], True), ("margin", t["rk_margin"], True)]
     elif sport == "nhl": cats = [("goaltending", t["rk_sv"], True), ("possession", t["rk_cf"], False), ("goal differential", t["rk_ed"], True), ("goals-against", t["rk_ga"], True)]
     else:                cats = [("offense", t["rk_ppg"], False), ("defense", t["rk_opp"], True), ("net rating", t["rk_pd"], True)]
     worst = max(cats, key=lambda c: c[1]); best = min(cats, key=lambda c: c[1])
+    b, br, w, wr = best[0], best[1], worst[0], worst[1]
     top = t["score"] >= maxcat - 1
-    # --- sport-specific overrides first ---
-    if sport == "nhl" and t["rk_sv"] <= max(3, int(n * 0.12)) and t["rk_cf"] > n * 0.5:
-        return {"v": "caution", "why": f"Riding hot goaltending — #{t['rk_sv']} save% on only #{t['rk_cf']} possession (Corsi). That save% regresses; the underlying play doesn't back it up yet."}
+    nm = t["name"]; elite = max(5, int(n * 0.12))
+
+    # --- sport-specific overrides (the signature traps) ---
+    if sport == "nhl" and t["rk_sv"] <= elite and t["rk_cf"] > n * 0.5:
+        return {"v": "caution", "why": _pick([
+            f"That #{t['rk_sv']} save% is a mirage — they're #{t['rk_cf']} in possession (Corsi), so the goalie is bailing out thin even-strength play. Expect regression.",
+            f"Goalie-carried: #{t['rk_sv']} in net but only #{t['rk_cf']} driving play. Hot goaltending cools; the underlying numbers don't back the record yet.",
+            f"Live by the save, die by the save — #{t['rk_sv']} goaltending papering over #{t['rk_cf']} possession. A PDO correction is coming."], nm)}
     if sport == "cfb" and t.get("srsrank", 999) > 15 and top:
-        return {"v": "fools_gold", "why": f"Schedule mirage — gaudy stats (#{best[1]} {best[0]}) but opponent-adjusted SRS #{t['srsrank']}. The record is real; the dominance is padded against a soft slate. Fade."}
-    if sport == "cfb" and top and t.get("srsrank", 999) <= 6 and worst[1] <= max(10, int(n * 0.12)):
-        return {"v": "trust", "why": f"The real deal — complete profile (worst category: {worst[0]} #{worst[1]}) and SRS #{t['srsrank']} says it's earned against real teams, not padded. Trust it."}
-    # --- fool's gold: a top team with a hole in a category the playoffs punish ---
-    if top and worst[2] and worst[1] > n * 0.45:
-        return {"v": "fools_gold", "why": f"Carried by its {best[0]} (#{best[1]}), but {worst[0]} is #{worst[1]} of {n} — and {READ_CTX[sport]}. The index flatters a team with a playoff-fatal hole; fade it in a series."}
+        return {"v": "fools_gold", "why": _pick([
+            f"A schedule mirage: #{br} {b} on paper, but opponent-adjusted they're SRS #{t['srsrank']}. The record's real; the dominance is inflated against a soft slate. Fade.",
+            f"Beating up cupcakes — the #{br} {b} evaporates once you adjust for who they've played (SRS #{t['srsrank']}). Don't buy the gaudy line.",
+            f"Padded stats, thin résumé: SRS #{t['srsrank']} says this profile wouldn't hold against real teams. The blueprint's #0% isn't a longshot, it's a warning."], nm)}
+    if sport == "cfb" and top and t.get("srsrank", 999) <= 6 and wr <= elite:
+        return {"v": "trust", "why": _pick([
+            f"The genuine article — elite across the board (worst spot: {w} #{wr}) and SRS #{t['srsrank']} proves it's earned against real competition, not padded.",
+            f"No asterisk here: a complete profile that also owns a top-{t['srsrank']} schedule-adjusted rating. This is what a champion looks like in October.",
+            f"Dominant AND tested — #{br} {b}, nothing soft, and SRS #{t['srsrank']} confirms the dominance is real. Trust it all the way."], nm)}
+
+    # --- fool's gold: a top team with a hole in a playoff-critical category ---
+    if top and worst[2] and wr > n * 0.45:
+        return {"v": "fools_gold", "why": _pick([
+            f"Fool's gold — the #{br} {b} is dazzling, but a #{wr} {w} is the floor that caves when {READ_CTX[sport]}. The index is flattering a fatal flaw.",
+            f"Don't be fooled by the ranking: all {b} (#{br}), no {w} (#{wr} of {n}). {READ_CTX[sport].capitalize()} — this profile gets exposed in a series.",
+            f"A one-sided team wearing a contender's badge — #{br} {b} hides a #{wr} {w}, and {READ_CTX[sport]}. Great regular-season look, playoff trap."], nm)}
+
     # --- trust: balanced, no hole ---
-    if top and worst[1] <= max(10, int(n * 0.33)):
-        return {"v": "trust", "why": f"No hole — worst category is {worst[0]} at #{worst[1]}. The complete, balanced profile that survives a bracket. Trust it."}
-    # --- caution ---
-    tail = f" — and {worst[0]} is exactly what gets tested in the playoffs" if worst[2] else ""
-    return {"v": "caution", "why": f"Leans on its {best[0]} (#{best[1]}); the {worst[0]} (#{worst[1]}) is the question mark{tail}."}
+    if top and wr <= max(10, int(n * 0.33)):
+        return {"v": "trust", "why": _pick([
+            f"Complete on every front — #{br} {b} and nothing worse than #{wr} ({w}). No soft spot for a bracket to pry open. Trust it.",
+            f"The balanced, no-weakness profile that actually wins: #{br} {b}, and even its 'worst' category ({w}) sits at #{wr}.",
+            f"Sturdy everywhere — strengths lead with the #{br} {b}, and the floor ({w} #{wr}) is still solid. This one holds up when it tightens."], nm)}
+
+    # --- caution: varied by the team's identity ---
+    verb = _pick(["Built around its", "Powered by its", "Lives on its", "Rides its", "Hangs its hat on its", "Leans on its"], nm)
+    risk = _pick(["the swing factor", "where it gets tested", "the crack that widens under pressure",
+                  "the question mark", "the part that worries me in a series", "the soft spot"], nm + "r")
+    tail = " — the exact thing the playoffs punish" if worst[2] else ""
+    return {"v": "caution", "why": f"{verb} {b} (#{br}); the #{wr} {w} is {risk}{tail}."}
 
 def pick_gap(pool):
     """Pick the best TEAM (score, then index — fair odds get capped/flattened so can't break ties).

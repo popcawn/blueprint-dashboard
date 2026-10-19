@@ -313,8 +313,8 @@
     "sc": 5,
     "idx": 88.9,
     "fp": 17.0,
-    "mkt": "+900",
-    "ev": 70
+    "mkt": "+950",
+    "ev": 79
    },
    "Jacksonville Jaguars": {
     "sc": 5,
@@ -369,8 +369,8 @@
     "sc": 2,
     "idx": 51.5,
     "fp": 2.3,
-    "mkt": "+3300",
-    "ev": -22
+    "mkt": "+3000",
+    "ev": -29
    },
    "Denver Broncos": {
     "sc": 2,
@@ -425,7 +425,7 @@
     "sc": 1,
     "idx": 40.4,
     "fp": null,
-    "mkt": "+50000",
+    "mkt": "+40000",
     "ev": null
    },
    "New Orleans Saints": {
@@ -439,7 +439,7 @@
     "sc": 0,
     "idx": 46.9,
     "fp": null,
-    "mkt": "+12500",
+    "mkt": "+15000",
     "ev": null
    },
    "Houston Texans": {
@@ -460,7 +460,7 @@
     "sc": 0,
     "idx": 40.7,
     "fp": null,
-    "mkt": "+3300",
+    "mkt": "+3500",
     "ev": null
    },
    "Atlanta Falcons": {
@@ -474,7 +474,7 @@
     "sc": 0,
     "idx": 34.4,
     "fp": null,
-    "mkt": "+15000",
+    "mkt": "+12500",
     "ev": null
    },
    "Tampa Bay Buccaneers": {
@@ -488,14 +488,14 @@
     "sc": 0,
     "idx": 29.3,
     "fp": null,
-    "mkt": "+17500",
+    "mkt": "+15000",
     "ev": null
    },
    "Washington Commanders": {
     "sc": 0,
     "idx": 24.3,
     "fp": null,
-    "mkt": "+10000",
+    "mkt": "+7500",
     "ev": null
    },
    "Tennessee Titans": {
@@ -509,7 +509,7 @@
     "sc": 0,
     "idx": 17.7,
     "fp": null,
-    "mkt": "+40000",
+    "mkt": "+50000",
     "ev": null
    },
    "Los Angeles Chargers": {

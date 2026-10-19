@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-19T14:35:38Z",
-  "odds_remaining": "79509",
+  "generated": "2026-10-19T15:09:02Z",
+  "odds_remaining": "79492",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#3 even-strength save%, #2 goals-against) and index 75.6. But it's only 10 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
@@ -47,7 +47,7 @@
       "ev": 1538,
       "read": {
         "v": "caution",
-        "why": "Leans on its goals-against (#2); the possession (#16) is the question mark."
+        "why": "Built around its goals-against (#2); the #16 possession is the swing factor."
       }
     },
     {
@@ -74,7 +74,7 @@
       "ev": 32,
       "read": {
         "v": "caution",
-        "why": "Leans on its goal differential (#2); the goals-against (#13) is the question mark \u2014 and goals-against is exactly what gets tested in the playoffs."
+        "why": "Leans on its goal differential (#2); the #13 goals-against is the soft spot \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -101,7 +101,7 @@
       "ev": 138,
       "read": {
         "v": "caution",
-        "why": "Riding hot goaltending \u2014 #1 save% on only #17 possession (Corsi). That save% regresses; the underlying play doesn't back it up yet."
+        "why": "Goalie-carried: #1 in net but only #17 driving play. Hot goaltending cools; the underlying numbers don't back the record yet."
       }
     },
     {
@@ -128,7 +128,7 @@
       "ev": 550,
       "read": {
         "v": "caution",
-        "why": "Riding hot goaltending \u2014 #2 save% on only #18 possession (Corsi). That save% regresses; the underlying play doesn't back it up yet."
+        "why": "Goalie-carried: #2 in net but only #18 driving play. Hot goaltending cools; the underlying numbers don't back the record yet."
       }
     },
     {
@@ -155,7 +155,7 @@
       "ev": -38,
       "read": {
         "v": "caution",
-        "why": "Leans on its goal differential (#1); the goaltending (#13) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Hangs its hat on its goal differential (#1); the #13 goaltending is the part that worries me in a series \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -182,7 +182,7 @@
       "ev": -40,
       "read": {
         "v": "caution",
-        "why": "Leans on its goal differential (#3); the possession (#20) is the question mark."
+        "why": "Lives on its goal differential (#3); the #20 possession is the crack that widens under pressure."
       }
     },
     {
@@ -209,7 +209,7 @@
       "ev": -33,
       "read": {
         "v": "fools_gold",
-        "why": "Carried by its possession (#4), but goaltending is #19 of 32 \u2014 and goaltending decides best-of-seven series. The index flatters a team with a playoff-fatal hole; fade it in a series."
+        "why": "Fool's gold \u2014 the #4 possession is dazzling, but a #19 goaltending is the floor that caves when goaltending decides best-of-seven series. The index is flattering a fatal flaw."
       }
     },
     {
@@ -236,7 +236,7 @@
       "ev": -28,
       "read": {
         "v": "caution",
-        "why": "Leans on its goals-against (#4); the goal differential (#12) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+        "why": "Built around its goals-against (#4); the #12 goal differential is the swing factor \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -263,7 +263,7 @@
       "ev": 828,
       "read": {
         "v": "caution",
-        "why": "Leans on its goaltending (#7); the goal differential (#14) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+        "why": "Lives on its goaltending (#7); the #14 goal differential is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -290,7 +290,7 @@
       "ev": -63,
       "read": {
         "v": "fools_gold",
-        "why": "Carried by its possession (#2), but goaltending is #24 of 32 \u2014 and goaltending decides best-of-seven series. The index flatters a team with a playoff-fatal hole; fade it in a series."
+        "why": "Don't be fooled by the ranking: all possession (#2), no goaltending (#24 of 32). Goaltending decides best-of-seven series \u2014 this profile gets exposed in a series."
       }
     },
     {
@@ -317,7 +317,7 @@
       "ev": 134,
       "read": {
         "v": "caution",
-        "why": "Leans on its goaltending (#4); the possession (#22) is the question mark."
+        "why": "That #4 save% is a mirage \u2014 they're #22 in possession (Corsi), so the goalie is bailing out thin even-strength play. Expect regression."
       }
     },
     {
@@ -344,7 +344,7 @@
       "ev": -48,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#4); the goaltending (#20) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Leans on its possession (#4); the #20 goaltending is the soft spot \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -371,7 +371,7 @@
       "ev": 190,
       "read": {
         "v": "caution",
-        "why": "Leans on its goaltending (#5); the possession (#24) is the question mark."
+        "why": "Live by the save, die by the save \u2014 #5 goaltending papering over #24 possession. A PDO correction is coming."
       }
     },
     {
@@ -398,7 +398,7 @@
       "ev": 198,
       "read": {
         "v": "caution",
-        "why": "Leans on its goaltending (#11); the possession (#22) is the question mark."
+        "why": "Leans on its goaltending (#11); the #22 possession is the soft spot."
       }
     },
     {
@@ -425,7 +425,7 @@
       "ev": -75,
       "read": {
         "v": "caution",
-        "why": "Leans on its goal differential (#8); the possession (#26) is the question mark."
+        "why": "Leans on its goal differential (#8); the #26 possession is the soft spot."
       }
     },
     {
@@ -452,7 +452,7 @@
       "ev": -46,
       "read": {
         "v": "caution",
-        "why": "Leans on its goaltending (#8); the possession (#27) is the question mark."
+        "why": "Rides its goaltending (#8); the #27 possession is the question mark."
       }
     },
     {
@@ -479,7 +479,7 @@
       "ev": 109,
       "read": {
         "v": "caution",
-        "why": "Leans on its goals-against (#7); the possession (#27) is the question mark."
+        "why": "Built around its goals-against (#7); the #27 possession is the swing factor."
       }
     },
     {
@@ -506,7 +506,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#3); the goaltending (#18) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Lives on its possession (#3); the #18 goaltending is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -533,7 +533,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#1); the goaltending (#23) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Powered by its possession (#1); the #23 goaltending is where it gets tested \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -560,7 +560,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its goals-against (#4); the goal differential (#19) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+        "why": "Leans on its goals-against (#4); the #19 goal differential is the soft spot \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -587,7 +587,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its goal differential (#5); the possession (#29) is the question mark."
+        "why": "Lives on its goal differential (#5); the #29 possession is the crack that widens under pressure."
       }
     },
     {
@@ -614,7 +614,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#11); the goal differential (#26) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+        "why": "Leans on its possession (#11); the #26 goal differential is the soft spot \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -641,7 +641,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#6); the goaltending (#28) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Hangs its hat on its possession (#6); the #28 goaltending is the part that worries me in a series \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -668,7 +668,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#11); the goals-against (#27) is the question mark \u2014 and goals-against is exactly what gets tested in the playoffs."
+        "why": "Rides its possession (#11); the #27 goals-against is the question mark \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -695,7 +695,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#7); the goaltending (#29) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Leans on its possession (#7); the #29 goaltending is the soft spot \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -722,7 +722,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#11); the goaltending (#32) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Hangs its hat on its possession (#11); the #32 goaltending is the part that worries me in a series \u2014 the exact thing the playoffs punish."
       }
     },
     {
@@ -749,7 +749,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#8); the goaltending (#31) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+        "why": "Powered by its possession (#8); the #31 goaltending is where it gets tested \u2014 the exact thing the playoffs punish."
       }
     }
   ]
