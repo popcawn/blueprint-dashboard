@@ -5,7 +5,12 @@ on:
     # In-season refresh: Tuesday & Saturday ~14:00 UTC (after the weekend + Thu/Mon slates).
     - cron: "0 14 * * 2"
     - cron: "0 14 * * 6"
-  workflow_dispatch: {}   # manual "Run workflow" button
+  workflow_dispatch:         # manual trigger + the dashboard "Run" button
+    inputs:
+      leagues:
+        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba)"
+        required: false
+        default: "nfl,cfb,nhl,nba"
 
 permissions:
   contents: write
@@ -23,6 +28,7 @@ jobs:
       - name: Build blueprint data
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}   # add in repo Settings → Secrets → Actions
+          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba' }}
         run: python scripts/build.py
 
       - name: Commit updated data

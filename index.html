@@ -6,266 +6,230 @@
 <title>Championship Blueprint</title>
 <style>
   :root{
-    --bg:#0d1117; --panel:#161b22; --panel2:#1c2330; --line:#2a3240; --ink:#e6edf3; --mut:#8b949e;
-    --grn:#2ea043; --grn-d:#1a5a2a; --red:#da3633; --red-d:#5a1f1f; --yel:#d29922; --blu:#2f81f7;
-    --chip-on:#1a5a2a; --chip-off:#30363d;
+    --bg:#0b0f16; --panel:#141a23; --panel2:#1a2230; --line:#263040; --ink:#e6edf3; --mut:#8b98a8;
+    --grn:#2ea043; --grn-d:#113a1f; --red:#da3633; --red-d:#4a1a1a; --yel:#d29922; --blu:#2f81f7;
+    --chip-off:#222c38; --chip-on:#143a22;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
-  header{padding:18px 16px 10px;position:sticky;top:0;background:linear-gradient(#0d1117,#0d1117e8);backdrop-filter:blur(6px);z-index:5;border-bottom:1px solid var(--line)}
-  h1{margin:0 0 10px;font-size:19px;letter-spacing:.3px}
-  h1 span{color:var(--mut);font-weight:400;font-size:14px}
-  .tabs{display:flex;gap:8px}
-  .tab{flex:0 0 auto;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--mut);cursor:pointer;font-weight:600;font-size:14px}
-  .tab.on{background:var(--blu);border-color:var(--blu);color:#fff}
-  .meta{color:var(--mut);font-size:12.5px;margin-top:9px;line-height:1.5}
-  .wrap{max-width:960px;margin:0 auto;padding:14px 16px 60px}
-  .tier{margin:18px 0 6px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
-  .tier .n{color:var(--mut);font-weight:500;font-size:13px}
-  .card{background:var(--panel);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:11px 13px;margin:9px 0}
-  .card.t5{border-left-color:var(--grn)} .card.t4{border-left-color:var(--blu)}
-  .card.t3{border-left-color:var(--yel)} .card.t2{border-left-color:#6e7681} .card.t1{border-left-color:#30363d}
-  .row1{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
-  .nm{font-weight:700;font-size:16px}
-  .conf{font-size:11px;color:var(--mut);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
-  .rec{color:var(--mut);font-size:13px}
-  .idx{margin-left:auto;font-size:12px;color:var(--mut);text-align:right}
-  .idx b{color:var(--ink);font-size:15px}
-  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 2px}
-  .chip{font-size:11px;padding:2px 7px;border-radius:5px;background:var(--chip-off);color:var(--mut);white-space:nowrap}
-  .chip.on{background:var(--chip-on);color:#b9f0c4}
-  .chip b{font-weight:700;opacity:.7;margin-right:2px;font-size:10px;letter-spacing:.2px}
-  /* Best EV view */
-  .evrow{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:7px 0}
-  .evrow.mir{opacity:.55}
-  .rnk{color:var(--mut);font-size:12px;width:20px;text-align:right;flex:0 0 auto}
-  .sb{font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;flex:0 0 auto}
-  .sb.nfl{background:#1f2b45;color:#7fb0ff} .sb.cfb{background:#3a2d12;color:#f2c871}
-  .sb.nhl{background:#13303a;color:#7fd8e8} .sb.nba{background:#3a1430;color:#f29ad8}
-  .evrow .en{font-weight:700;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .evrow .om{color:var(--mut);font-size:12px;flex:0 0 auto}
-  .evrow .om b{color:var(--ink)}
-  .preseason{text-align:center;color:var(--mut);padding:40px 16px;font-size:15px}
-  .preseason .big{font-size:40px;margin-bottom:10px}
-  .odds{display:flex;flex-wrap:wrap;gap:14px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:13px;align-items:center}
-  .odds .k{color:var(--mut);font-size:11px;display:block;margin-bottom:1px}
-  .ev{font-weight:700;padding:3px 9px;border-radius:6px}
-  .ev.pos{background:var(--grn-d);color:#7ee787} .ev.neg{background:var(--red-d);color:#ff9f9b} .ev.zero{background:#30363d;color:var(--mut)}
-  .srs{font-size:12px;padding:2px 7px;border-radius:5px;font-weight:600}
-  .srs.elite{background:var(--grn-d);color:#7ee787} .srs.ok{background:#30363d;color:#d8dee9} .srs.mirage{background:var(--red-d);color:#ff9f9b}
-  .flag{font-size:11px;color:var(--mut)}
-  .gauntlet{background:var(--panel2);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;margin:16px 0}
-  .gauntlet h3{margin:0 0 6px;font-size:13px}
-  .gauntlet .g{display:inline-block;margin:3px 8px 3px 0;font-size:13px}
-  .gauntlet .g b{color:#ff9f9b}
-  .pred{background:linear-gradient(135deg,#17233a,#1d1430);border:1px solid #30406a;border-left:4px solid var(--blu);border-radius:10px;padding:12px 14px;margin:14px 0 6px}
-  .pred h3{margin:0 0 5px;font-size:12px;color:#7fb0ff;letter-spacing:.4px;text-transform:uppercase}
-  .pred p{margin:0;font-size:13.5px;line-height:1.5}
-  .note{color:var(--mut);font-size:12px;margin-top:20px;padding:12px;background:var(--panel);border-radius:8px;border:1px solid var(--line)}
-  .warn{color:var(--yel)}
-  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--mut);margin-top:8px}
-  .legend b{color:var(--ink)}
-  .err{color:#ff9f9b;padding:20px;text-align:center}
+  body{margin:0;background:radial-gradient(1200px 600px at 50% -200px,#121a28,transparent),var(--bg);color:var(--ink);
+    font:14.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
   a{color:var(--blu)}
+  header{position:sticky;top:0;z-index:8;background:#0b0f16ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 16px 10px}
+  .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+  h1{margin:0;font-size:17px;letter-spacing:.3px;font-weight:700}
+  h1 span{color:var(--mut);font-weight:400;font-size:13px}
+  .tabs{display:flex;gap:7px;margin-left:auto;flex-wrap:wrap}
+  .tab{padding:6px 15px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--mut);cursor:pointer;font-weight:600;font-size:13px}
+  .tab.on{background:var(--blu);border-color:var(--blu);color:#fff}
+  .runbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;max-width:1200px;margin:9px auto 0;font-size:12.5px;color:var(--mut)}
+  .runbar label{display:inline-flex;align-items:center;gap:4px;cursor:pointer;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+  .runbar input{accent-color:var(--blu);margin:0}
+  .btn{background:var(--blu);color:#fff;border:none;border-radius:6px;padding:5px 14px;font-weight:700;cursor:pointer;font-size:12.5px}
+  .btn:disabled{opacity:.5;cursor:default}
+  .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--mut)}
+  .runmsg{font-size:12px}
+  .wrap{max-width:1200px;margin:0 auto;padding:12px 16px 60px}
+  /* season header */
+  .shdr{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
+  .shdr .lg{font-size:20px;font-weight:800}
+  .shdr .pct{font-size:13px;color:var(--mut)}
+  .bar{flex:1 1 140px;max-width:260px;height:6px;background:var(--panel2);border-radius:4px;overflow:hidden}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--blu),#58a6ff)}
+  .meta{color:var(--mut);font-size:12px;width:100%}
+  .pred{background:linear-gradient(135deg,#15233d,#1d1430);border:1px solid #2f3f66;border-left:4px solid var(--blu);border-radius:10px;padding:11px 14px;margin:10px 0}
+  .pred h3{margin:0 0 4px;font-size:11px;color:#7fb0ff;letter-spacing:.5px;text-transform:uppercase}
+  .pred p{margin:0;font-size:13px;line-height:1.5}
+  .tier{margin:16px 0 2px;font-size:14px;font-weight:700}
+  .tier .n{color:var(--mut);font-weight:500;font-size:12px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:10px 12px}
+  .card.t5{border-left-color:var(--grn)} .card.t4{border-left-color:var(--blu)}
+  .card.t3{border-left-color:var(--yel)} .card.t2{border-left-color:#5a6675} .card.t1{border-left-color:#2a3340}
+  .row1{display:flex;align-items:flex-start;gap:8px}
+  .nm{font-weight:700;font-size:15px}
+  .conf{font-size:10px;color:var(--mut);border:1px solid var(--line);border-radius:4px;padding:1px 5px;position:relative;top:1px}
+  .rec{color:var(--mut);font-size:12px;position:relative;top:1px}
+  .idx{margin-left:auto;text-align:right;font-size:11px;color:var(--mut);flex:0 0 auto}
+  .idx b{color:var(--ink);font-size:15px}
+  .ev{font-weight:700;padding:2px 8px;border-radius:6px;font-size:12px}
+  .ev.pos{background:var(--grn-d);color:#7ee787} .ev.neg{background:var(--red-d);color:#ff9f9b} .ev.zero{background:#2a3340;color:var(--mut)}
+  .chips{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0 0}
+  .chip{font-size:10.5px;padding:2px 6px;border-radius:5px;background:var(--chip-off);color:var(--mut);white-space:nowrap}
+  .chip.on{background:var(--chip-on);color:#b9f0c4}
+  .chip b{font-weight:700;opacity:.65;margin-right:2px;font-size:9.5px}
+  .foot{display:flex;align-items:center;gap:12px;margin-top:8px;padding-top:7px;border-top:1px solid var(--line);font-size:12px;flex-wrap:wrap}
+  .foot .k{color:var(--mut);font-size:10px;display:block}
+  .srs{font-size:11.5px;padding:2px 6px;border-radius:5px;font-weight:600}
+  .srs.elite{background:var(--grn-d);color:#7ee787} .srs.ok{background:#2a3340;color:#d8dee9} .srs.mirage{background:var(--red-d);color:#ff9f9b}
+  .cons{margin-left:auto;display:flex;align-items:center;gap:6px;color:var(--mut);font-size:11px}
+  .streak{background:#2a3340;border-radius:5px;padding:1px 6px;font-weight:700;color:#e6edf3}
+  .streak.star{background:#2d2a14;color:#f2d479}
+  .gauntlet{background:var(--panel2);border:1px dashed var(--line);border-radius:10px;padding:11px 13px;margin:14px 0}
+  .gauntlet h3{margin:0 0 5px;font-size:12px}
+  .gauntlet .g{display:inline-block;margin:2px 8px 2px 0;font-size:12px} .gauntlet .g b{color:#ff9f9b}
+  .note{color:var(--mut);font-size:11.5px;margin-top:16px;padding:11px;background:var(--panel);border-radius:8px;border:1px solid var(--line);line-height:1.55}
+  .warn{color:var(--yel)}
+  .preseason{text-align:center;color:var(--mut);padding:50px 16px}.preseason .big{font-size:44px;margin-bottom:12px}
+  .err{color:#ff9f9b;padding:20px;text-align:center}
+  .pop{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:20;padding:16px}
+  .pop.on{display:flex} .pop .box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;max-width:460px;width:100%}
+  .pop input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:6px;color:var(--ink);padding:8px;margin:8px 0;font-size:13px}
+  .pop p{font-size:12.5px;color:var(--mut);line-height:1.5}
+  @media(max-width:560px){ .tabs{margin-left:0;width:100%} h1 span{display:none} }
 </style>
 </head>
 <body>
 <header>
-  <h1>Championship Blueprint <span>— live title odds engine</span></h1>
-  <div class="tabs" id="tabs"></div>
-  <div class="meta" id="meta"></div>
+  <div class="top">
+    <h1>Championship Blueprint <span>— live title odds</span></h1>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="runbar" id="runbar"></div>
 </header>
 <div class="wrap" id="app"><div class="err">Loading…</div></div>
 
+<div class="pop" id="pop"><div class="box">
+  <b>GitHub token</b>
+  <p>The Run button triggers the refresh bot via GitHub Actions. Paste a <b>fine-grained token</b> scoped to
+  <i>Actions: Read&nbsp;and&nbsp;write</i> on <b>popcawn/blueprint-dashboard</b> only. It's stored in this browser's
+  localStorage — never committed.</p>
+  <input id="tok" type="password" placeholder="github_pat_…" autocomplete="off">
+  <div style="display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn ghost" onclick="document.getElementById('pop').classList.remove('on')">Cancel</button>
+    <button class="btn" onclick="saveTok()">Save</button>
+  </div>
+</div></div>
+
 <script>
+const REPO = "popcawn/blueprint-dashboard";
 const SPORTS = {nfl:"NFL", cfb:"CFB", nhl:"NHL", nba:"NBA"};
-const LABELS = [["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
-function tierInfo(score, maxcat){ const d = maxcat - score; return LABELS[Math.min(Math.max(d,0),4)]; }
 const MAXCAT = {nfl:5, cfb:5, nhl:4, nba:4};
-let DATA = {}, HIST = {}, cur = "ev";
+const TOTAL  = {nfl:17, cfb:12, nhl:82, nba:82};
+const LBL = [["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
+const tier = (sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
+let DATA={}, HIST={}, cur="nfl";
 
-function spark(vals){
-  if(vals.length<2) return "";
-  const w=84,h=22, mn=Math.min(...vals), mx=Math.max(...vals), rng=(mx-mn)||1;
-  const pts=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-(v-mn)/rng*(h-3)-1.5).toFixed(1)}`).join(" ");
-  const up = vals[vals.length-1]>=vals[0];
-  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline points="${pts}" fill="none" stroke="${up?'#3fb950':'#f85149'}" stroke-width="1.5"/></svg>`;
+const evClass = ev => ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
+const fmtEV = ev => ev==null?"—":(ev>0?"+":"")+ev+"%";
+function spark(vals){ if(vals.length<2) return "";
+  const w=58,h=16,mn=Math.min(...vals),mx=Math.max(...vals),r=(mx-mn)||1;
+  const pts=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-(v-mn)/r*(h-3)-1.5).toFixed(1)}`).join(" ");
+  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline points="${pts}" fill="none" stroke="${vals[vals.length-1]>=vals[0]?'#3fb950':'#f85149'}" stroke-width="1.4"/></svg>`;
 }
-function renderTracker(){
-  document.getElementById("meta").innerHTML = "Week-over-week tracker — index trajectory, top-tier streaks & market drift. Season-long consistency shows up here.";
-  let html="";
-  for(const [k,v] of Object.entries(SPORTS)){
-    const h = HIST[k]; if(!h || !h.length) continue;
-    const maxcat = MAXCAT[k];
-    html += `<div class="tier">${v} <span class="n">(${h.length} run${h.length>1?'s':''} tracked)</span></div>`;
-    if(h.length<2){ html += `<div class="note" style="margin:6px 0">Tracking started — trajectories & market drift appear after the next refresh.</div>`; }
-    const names = new Set(); h.forEach(s=>Object.keys(s.teams).forEach(n=>names.add(n)));
-    const rows=[];
-    for(const n of names){
-      const present = h.map(s=>s.teams[n]||null);
-      const last = present[present.length-1]; if(!last) continue;
-      const idxs = present.filter(x=>x).map(x=>x.idx);
-      const dIdx = idxs.length>1 ? idxs[idxs.length-1]-idxs[0] : 0;
-      let streak=0; for(let i=present.length-1;i>=0;i--){ if(present[i]&&present[i].sc>=maxcat-1) streak++; else break; }
-      const consistent = present.every(x=>x&&x.sc>=maxcat-1) && present.length>=2;
-      const mkts = present.map(x=>x&&x.mkt?parseInt(x.mkt):null).filter(v=>v!=null);
-      const drift = mkts.length>1 ? mkts[mkts.length-1]-mkts[0] : null; // <0 = line shortened = market catching up
-      rows.push({n,last,idxs,dIdx,streak,consistent,drift});
-    }
-    rows.sort((a,b)=>(b.consistent-a.consistent)||(b.streak-a.streak)||(b.last.idx-a.last.idx));
-    html += rows.slice(0,10).map(r=>`<div class="evrow">
-      <span class="sb ${k}">${r.consistent?'⭐':''}${r.last.sc}/${maxcat}</span>
-      <span class="en">${r.n}</span>
-      <span class="om">${spark(r.idxs)}</span>
-      <span class="om">idx <b>${r.last.idx}</b>${r.dIdx?` <span style="color:${r.dIdx>0?'#3fb950':'#f85149'};font-size:11px">${r.dIdx>0?'▲':'▼'}${Math.abs(r.dIdx).toFixed(0)}</span>`:''}</span>
-      ${r.drift!=null?`<span class="om" style="font-size:11px">${r.drift<0?'<span style="color:#3fb950">▼ line shortening</span>':r.drift>0?'<span style="color:#f85149">▲ drifting out</span>':'line flat'}</span>`:''}
-    </div>`).join("");
-  }
-  if(!html) html = `<div class="err">No tracked history yet — the bot logs a snapshot on each run.</div>`;
-  html += `<div class="note">⭐ = held a top-two tier every tracked run (the Valkyries/Brewers consistency signal). <b style="color:#3fb950">▼ line shortening</b> = FanDuel moving toward the model — your edge getting recognized. That season-long persistence is where the real value lived.</div>`;
-  document.getElementById("app").innerHTML = html;
+function consistency(sport, name){            // index trajectory + top-two-tier streak (not line movement)
+  const h = HIST[sport]; if(!h || h.length<1) return {spark:"", streak:0, star:false};
+  const present = h.map(s=>s.teams[name]||null);
+  const idxs = present.filter(x=>x).map(x=>x.idx);
+  const mx = MAXCAT[sport]; let streak=0;
+  for(let i=present.length-1;i>=0;i--){ if(present[i]&&present[i].sc>=mx-1) streak++; else break; }
+  const star = streak>=2 && streak===present.filter(Boolean).length;
+  return {spark:spark(idxs), streak, star};
 }
-
-function evClass(ev){ if(ev==null) return "zero"; if(ev>=15) return "pos"; if(ev<=-10) return "neg"; return "zero"; }
-function fmtEV(ev){ return ev==null ? "—" : (ev>0?"+":"")+ev+"%"; }
 
 function card(t, sport){
-  const tier = tierInfo(t.score, MAXCAT[sport])[1];
+  const cl = tier(t.score, MAXCAT[sport])[1];
   const L = (DATA[sport] && DATA[sport].labels) || [];
   const chips = t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("");
-  let srs = "";
+  const ev = t.ev!=null ? `<div class="ev ${evClass(t.ev)}" style="margin-top:4px;display:inline-block">${fmtEV(t.ev)} EV</div>` : "";
+  let srs="";
   if(sport==="cfb" && t.srsrank!=null){
-    const cls = t.srs_flag, lbl = {elite:"SRS #"+t.srsrank+" ✓",ok:"SRS #"+t.srsrank,mirage:"SRS #"+t.srsrank+" ⚑"}[cls];
-    srs = `<div><span class="k">schedule-adj</span><span class="srs ${cls}">${lbl}</span></div>
-           <div><span class="k">SOS</span>#${t.sosrank}</div>`;
+    const lbl={elite:`SRS #${t.srsrank} ✓`,ok:`SRS #${t.srsrank}`,mirage:`SRS #${t.srsrank} ⚑`}[t.srs_flag];
+    srs=`<div><span class="k">schedule-adj</span><span class="srs ${t.srs_flag}">${lbl}</span></div><div><span class="k">SOS</span>#${t.sosrank}</div>`;
   }
+  const c = consistency(sport, t.name);
+  const cons = c.spark ? `<div class="cons" title="index trajectory + top-tier streak">${c.spark}${c.streak?`<span class="streak ${c.star?'star':''}">${c.star?'⭐':''}${c.streak}w</span>`:''}</div>` : "";
   const conf = t.conf ? `<span class="conf">${t.conf}</span>` : "";
-  const evtop = (t.ev!=null) ? `<div class="ev ${evClass(t.ev)}" style="font-size:12px;margin-top:4px;display:block;width:fit-content;margin-left:auto">${fmtEV(t.ev)} EV</div>` : "";
-  return `<div class="card ${tier}">
+  return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${conf}<span class="rec">${t.rec}</span>
-      <span class="idx">index <b>${t.index}</b>${evtop}</span></div>
+      <span class="idx">index <b>${t.index}</b>${ev}</span></div>
     <div class="chips">${chips}</div>
-    <div class="odds">
+    <div class="foot">
       <div><span class="k">fair</span>${t.fair_odds||"—"}${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
-      <div><span class="k">FanDuel</span>${t.market||"—"}</div>
-      ${srs}
+      <div><span class="k">FanDuel</span>${t.market||"—"}</div>${srs}${cons}
     </div></div>`;
-}
-
-function renderEV(){
-  document.getElementById("meta").innerHTML = "Best value across all sports · model fair odds vs live FanDuel · updated "+
-    (Object.values(DATA).find(d=>d&&d.generated)? new Date(Object.values(DATA).find(d=>d&&d.generated).generated).toLocaleString():"—");
-  let all = [];
-  for(const [k,d] of Object.entries(DATA)){
-    if(!d || !d.teams) continue;
-    const gp = d.gp_max||0;
-    for(const t of d.teams){
-      if(t.ev==null) continue;
-      all.push({sk:k, name:t.name, ev:t.ev, fair:t.fair_odds, market:t.market,
-        mirage:(k==="cfb" && t.srs_flag==="mirage"),
-        dead:((k==="nhl"&&gp<20)||(k==="nba"&&gp<15)),       // low-signal -> separate "ignore" bucket
-        soft:((k==="nfl"&&gp<8)||(k==="cfb"&&gp<6))});         // early but actionable -> keep, flag ⚡
-    }
-  }
-  const real  = all.filter(x=>!x.mirage && !x.dead && x.ev>0).sort((a,b)=>b.ev-a.ev);
-  const fades = all.filter(x=>!x.mirage && !x.dead && x.ev<=-15).sort((a,b)=>a.ev-b.ev).slice(0,5);
-  const dead  = all.filter(x=>x.dead && x.ev>0).sort((a,b)=>b.ev-a.ev).slice(0,6);
-  const mir   = all.filter(x=>x.mirage && x.ev>0).sort((a,b)=>b.ev-a.ev).slice(0,4);
-  const row = (x,i)=>`<div class="evrow ${x.mirage||x.dead?'mir':''}">
-    <span class="rnk">${(i!=null&&i>=0)?i+1:'–'}</span>
-    <span class="sb ${x.sk}">${SPORTS[x.sk]}</span>
-    <span class="en">${x.name}${x.soft?' <span style="color:#d29922;font-size:11px">⚡early</span>':''}</span>
-    <span class="om"><span class="k" style="color:#8b949e;font-size:10px">FD</span> ${x.market||'—'}</span>
-    <span class="om">fair <b>${x.fair||'—'}</b></span>
-    <span class="ev ${evClass(x.ev)}">${fmtEV(x.ev)}</span></div>`;
-  let html = `<div class="legend"><span>Ranked by EV = model fair odds vs live FanDuel. <b style="color:#d29922">⚡early</b> = small sample, trust with caution.</span></div>`;
-  const preds = Object.entries(DATA).filter(([k,d])=>d && d.prediction && d.prediction.why);
-  if(preds.length){
-    html += `<div class="tier">🎯 Predictions <span class="n">(model pick per sport)</span></div>`;
-    html += preds.map(([k,d])=>`<div class="pred"><h3><span class="sb ${k}">${SPORTS[k]}</span> &nbsp;${d.prediction.pick}</h3><p>${d.prediction.why}</p></div>`).join("");
-  }
-  html += `<div class="tier">💰 Best value <span class="n">(actionable)</span></div>`;
-  html += real.slice(0,12).map((x,i)=>row(x,i)).join("") || `<div class="err">No actionable value right now.</div>`;
-  if(fades.length){ html += `<div class="tier">🚫 Biggest fades</div>` + fades.map(x=>row(x,-1)).join(""); }
-  if(dead.length){ html += `<div class="tier">⚡ Early-season noise <span class="n">(ignore — model lags the market)</span></div>` + dead.map(x=>row(x,-1)).join(""); }
-  if(mir.length){
-    html += `<div class="gauntlet"><h3>⚑ Filtered out — schedule mirages (CFB)</h3>`+
-      mir.map(x=>`<span class="g">${x.name} <b>${fmtEV(x.ev)}</b> (SRS mirage)</span>`).join("")+
-      `<div class="flag" style="margin-top:6px">Huge EV but SRS outside the champion band — padded stats, not value. Excluded from the ranking above.</div></div>`;
-  }
-  html += `<div class="note">The Best-EV view scans every sport's board, ranks the <b>actionable</b> +EV plays, pushes early-season NHL/NBA noise into its own "ignore" bucket, and filters CFB schedule-mirages entirely. A shortlist, not advice — size by conviction.</div>`;
-  document.getElementById("app").innerHTML = html;
 }
 
 function render(){
   document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on", b.dataset.s===cur));
-  if(cur==="ev"){ renderEV(); return; }
-  if(cur==="trk"){ renderTracker(); return; }
-  const d = DATA[cur];
-  if(!d){ document.getElementById("app").innerHTML = `<div class="err">No data for ${SPORTS[cur]} yet.</div>`; return; }
-  document.getElementById("meta").innerHTML =
-    `${d.sport} · ${d.season}${d.gp_min!=null?` · GP ${d.gp_min}–${d.gp_max}`:""} · updated ${new Date(d.generated).toLocaleString()}${d.odds_remaining?` · odds credits: ${d.odds_remaining}`:""}`;
+  const d = DATA[cur], mx=MAXCAT[cur];
+  const app = document.getElementById("app");
+  if(!d){ app.innerHTML = `<div class="err">No data for ${SPORTS[cur]} yet.</div>`; return; }
   if(d.status==="preseason"){
-    document.getElementById("app").innerHTML =
-      `<div class="preseason"><div class="big">🏀</div><b>${d.sport} — preseason</b><br><br>${d.note||"Season hasn't started yet."}<br><br>
-       <span style="font-size:12px">This tab will populate automatically on the first real games.</span></div>`;
+    app.innerHTML = `<div class="preseason"><div class="big">🏀</div><b>${d.sport} — preseason</b><br><br>${d.note||""}<br><br><span style="font-size:12px">This page fills in on the first real games.</span></div>`;
     return;
   }
-  const maxcat = MAXCAT[cur];
-  const early = d.gp_max < ({nfl:8, cfb:6, nhl:20, nba:15}[cur]);
-  document.getElementById("meta").innerHTML =
-    `${d.sport} · ${d.season} · GP ${d.gp_min}–${d.gp_max}${early?' <span class="warn">· small sample</span>':''} · `+
-    `updated ${new Date(d.generated).toLocaleString()} · odds credits: ${d.odds_remaining||"n/a"}`;
-  let html = "";
-  if(d.prediction && d.prediction.why){
-    html += `<div class="pred"><h3>🎯 Our prediction</h3><p>${d.prediction.why}</p></div>`;
-  }
-  if(cur==="cfb"){
-    html += `<div class="legend"><span><b class="srs elite" style="padding:1px 5px">SRS top-6</b> champion-grade</span>
-      <span><b class="srs mirage" style="padding:1px 5px">⚑</b> schedule-flattered mirage</span>
-      <span>chips = qualifying categories</span></div>`;
-  } else {
-    html += `<div class="legend"><span>chips = qualifying categories (green = qualifies)</span>
-      <span><b style="color:#7ee787">green EV</b> = value · <b style="color:#ff9f9b">red</b> = fade</span></div>`;
-  }
-  for(let sc=maxcat; sc>=0; sc--){
-    const g = d.teams.filter(t=>t.score===sc);
-    if(!g.length) continue;
-    html += `<div class="tier">${tierInfo(sc,maxcat)[0]} <span class="n">(${sc}/${maxcat})</span></div>`;
-    g.forEach(t=> html += card(t, cur));
+  const pct = d.season_pct!=null ? d.season_pct : Math.round((d.gp_max||0)/TOTAL[cur]*100);
+  const early = pct < ({nfl:45, cfb:45, nhl:28, nba:28}[cur]);
+  let html = `<div class="shdr"><span class="lg">${d.sport}</span>
+    <span class="pct">${pct}% of season${early?' <span class="warn">· small sample</span>':''}</span>
+    <span class="bar"><i style="width:${pct}%"></i></span>
+    <span class="meta">GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleString()}${d.odds_remaining?` · odds credits ${d.odds_remaining}`:""}</span></div>`;
+  if(d.prediction && d.prediction.why) html += `<div class="pred"><h3>🎯 Our prediction</h3><p>${d.prediction.why}</p></div>`;
+  for(let sc=mx; sc>=0; sc--){
+    const g = d.teams.filter(t=>t.score===sc); if(!g.length) continue;
+    html += `<div class="tier">${tier(sc,mx)[0]} <span class="n">(${sc}/${mx})</span></div><div class="cards">`;
+    g.forEach(t=> html += card(t, cur)); html += `</div>`;
   }
   if(cur==="cfb" && d.gauntlet && d.gauntlet.length){
     html += `<div class="gauntlet"><h3>⚑ Gauntlet watch — elite schedule-adjusted teams the blueprint zeroes</h3>`+
       d.gauntlet.map(g=>`<span class="g">${g.name} <b>SRS #${g.srsrank}</b></span>`).join("")+
-      `<div class="flag" style="margin-top:6px">These play brutal schedules; their weak blueprint score understates them — don't treat a 0% as a true longshot.</div></div>`;
+      `<div style="font-size:11px;margin-top:5px">Brutal schedules suppress their score — don't treat a 0% as a true longshot.</div></div>`;
   }
-  const catline = d.cats.join(" · ");
-  const WEIGHTS = {nfl:"Pt Diff 25 · PD/g 20 · Defense 20 · Offense 20 · Win% 15",
-    cfb:"Margin 30 · Win% 20 · Opp PPG 18 · Opp YPG 17 · PPG 15 (×SOS³ for odds)",
-    nhl:"ES Diff 30 · ES Save% 25 · Goals Against 25 · Corsi 20",
-    nba:"Net/g 35 · Defense 25 · Offense 25 · Win% 15"};
-  html += `<div class="note"><b>Categories:</b> ${catline}.<br>
-    <b>Scoring:</b> the tier (X/${maxcat}) counts qualifying categories equally; the <b>index</b> is weighted — ${WEIGHTS[cur]} — and sub-ranks teams + drives fair odds.<br>
-    ${cur==="cfb"
-      ? "Fair odds are SOS-weighted (backtested: champion = model #1 in 5/5 seasons). The <b>schedule-adj (SRS)</b> column is a display-only reality-check — every real champion was SRS top-6, so a high-scoring team outside that band (⚑) is a schedule mirage."
-      : cur==="nhl"
-      ? "Validated 4/4 vs the 2024-25 Florida & 2021-22 Colorado champions. Data from MoneyPuck (5v5 splits). The NHL is the <b>lowest-chalk sport</b> — goaltending variance dominates, so early save-percentages regress hard; read 4/4 as 'legit Cup team,' never 'the winner.'"
-      : "Categories derived from 23 Super Bowl champions (2002–24). Point differential is the master signal. NFL is medium-low chalk — the blueprint IDs the contender pool, not a lock."}
-    ${early?'<br><span class="warn">⚠ Small sample — early-season numbers are noisy; the market is sharper than the model until mid-season. Big early EVs are usually model-lag, not value.</span>':''}</div>`;
-  document.getElementById("app").innerHTML = html;
+  const W={nfl:"Pt Diff 25 · PD/g 20 · Def 20 · Off 20 · Win% 15",cfb:"Margin 30 · Win% 20 · OppPPG 18 · OppYPG 17 · PPG 15 (×SOS³ odds)",
+    nhl:"ES Diff 30 · ES Save% 25 · Goals-Against 25 · Corsi 20",nba:"Net/g 30 · Def 22 · Off 20 · Win% 13 · Depth 15"};
+  html += `<div class="note"><b>Scoring:</b> the tier (X/${mx}) counts qualifying categories equally; the <b>index</b> is weighted — ${W[cur]} — and sub-ranks teams + drives fair odds. <b>⭐Nw</b> = held a top-two tier N weeks running (consistency), with the index sparkline.
+    ${cur==="cfb"?" SRS column is a display-only reality-check (champions were all SRS top-6; ⚑ = schedule mirage).":""}
+    ${cur==="nhl"?" Depth note: NHL depth is already baked into the team-level ES goal diff / Corsi / GA — four lines rolling shows up as those numbers, so no separate depth metric is needed.":""}
+    ${cur==="nba"?" <b>Depth</b> (count of 10+ PPG players — balanced rosters win titles) is rewarded directly in the index.":""}
+    ${early?'<br><span class="warn">⚠ Small sample this early — the market is sharper than the model; big EVs are usually model-lag, not value.</span>':''}</div>`;
+  app.innerHTML = html;
 }
 
-async function load(){
-  const tabs = document.getElementById("tabs");
-  const items = [["ev","⭐ Best EV"],["trk","📈 Tracker"]].concat(Object.entries(SPORTS));
-  tabs.innerHTML = items.map(([k,v])=>`<button class="tab" data-s="${k}">${v}</button>`).join("");
-  tabs.querySelectorAll(".tab").forEach(b=> b.onclick=()=>{cur=b.dataset.s; render();});
+/* ---- Run button: trigger the Actions bot via workflow_dispatch ---- */
+function tok(){ try{return localStorage.getItem("gh_token")||""}catch(e){return ""} }
+function saveTok(){ try{localStorage.setItem("gh_token",document.getElementById("tok").value.trim())}catch(e){} document.getElementById("pop").classList.remove("on"); }
+function selectedLeagues(){ return [...document.querySelectorAll(".lgchk:checked")].map(c=>c.value); }
+async function runBlueprint(){
+  const leagues = selectedLeagues();
+  const msg = document.getElementById("runmsg");
+  if(!leagues.length){ msg.textContent="select a league"; return; }
+  if(!tok()){ document.getElementById("pop").classList.add("on"); document.getElementById("tok").value=tok(); return; }
+  const btn=document.getElementById("runbtn"); btn.disabled=true; msg.innerHTML="⏳ triggering bot…";
+  try{
+    const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/refresh.yml/dispatches`,{
+      method:"POST", headers:{Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json","Content-Type":"application/json"},
+      body: JSON.stringify({ref:"main", inputs:{leagues: leagues.join(",")}})});
+    if(r.status===204){ msg.innerHTML="✅ running — auto-refreshes when done"; pollFresh(); }
+    else if(r.status===401||r.status===403){ msg.innerHTML='<span style="color:#ff9f9b">token invalid/expired</span>'; document.getElementById("pop").classList.add("on"); }
+    else { msg.innerHTML=`<span style="color:#ff9f9b">dispatch failed (${r.status})</span>`; }
+  }catch(e){ msg.innerHTML='<span style="color:#ff9f9b">network error</span>'; }
+  btn.disabled=false;
+}
+async function pollFresh(){
+  let before=null; try{before=(await (await fetch("data/index.json?t="+Date.now())).json()).generated}catch(e){}
+  let n=0; const iv=setInterval(async()=>{
+    n++; if(n>24){ clearInterval(iv); document.getElementById("runmsg").textContent="still building… refresh later"; return; }
+    try{ const g=(await (await fetch("data/index.json?t="+Date.now())).json()).generated;
+      if(g && g!==before){ clearInterval(iv); document.getElementById("runmsg").innerHTML="✅ updated"; await loadData(); render(); }
+    }catch(e){}
+  }, 8000);
+}
+
+async function loadData(){
   for(const k of Object.keys(SPORTS)){
-    try{ const r = await fetch(`data/${k}.json?t=`+Date.now()); if(r.ok) DATA[k] = await r.json(); }
-    catch(e){ /* leave undefined */ }
-    try{ const r = await fetch(`data/history/${k}.json?t=`+Date.now()); if(r.ok) HIST[k] = await r.json(); }
-    catch(e){ /* leave undefined */ }
+    try{ const r=await fetch(`data/${k}.json?t=`+Date.now()); if(r.ok) DATA[k]=await r.json(); }catch(e){}
+    try{ const r=await fetch(`data/history/${k}.json?t=`+Date.now()); if(r.ok) HIST[k]=await r.json(); }catch(e){}
   }
+}
+async function load(){
+  document.getElementById("tabs").innerHTML = Object.entries(SPORTS).map(([k,v])=>`<button class="tab" data-s="${k}">${v}</button>`).join("");
+  document.querySelectorAll(".tab").forEach(b=> b.onclick=()=>{cur=b.dataset.s; render();});
+  document.getElementById("runbar").innerHTML =
+    `<span>Run blueprint:</span>`+Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" checked>${v}</label>`).join("")+
+    `<button class="btn" id="runbtn" onclick="runBlueprint()">▶ Run</button>
+     <button class="btn ghost" title="GitHub token" onclick="document.getElementById('pop').classList.add('on');document.getElementById('tok').value=tok()">⚙</button>
+     <span class="runmsg" id="runmsg"></span>`;
+  await loadData();
   render();
 }
 load();

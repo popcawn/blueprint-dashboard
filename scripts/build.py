@@ -15,8 +15,15 @@ import json, os, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82}   # regular-season games per team (for season %)
+
+def season_pct(rows, sport):
+    if not rows: return 0
+    avg = sum(t["gp"] for t in rows) / len(rows)
+    return max(1, min(100, round(avg / SEASON_GAMES[sport] * 100)))
 
 def get(url, timeout=50):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
@@ -123,6 +130,7 @@ def build_nfl():
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+            "season_pct": season_pct(rows, "nfl"),
             "cats": ["Win% ≥.625", "Pt Diff top-6", "PPG top-10", "Opp PPG top-10", "PD/g ≥+5"],
             "labels": ["Win%", "Pt Diff", "PPG", "Opp PPG", "PD/g"],
             "teams": [nfl_row(t) for t in rows]}
@@ -235,6 +243,7 @@ def build_cfb():
     gauntlet = [{"name": t, "srsrank": srs_rank[t]} for t, _ in sorted(srs.items(), key=lambda kv: -kv[1])[:10] if t not in poolnames]
     return {"sport": "CFB", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in teams), "gp_max": max(t["gp"] for t in teams),
+            "season_pct": season_pct(teams, "cfb"),
             "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
             "labels": ["Win%", "PPG", "Opp PPG", "Opp YPG", "Margin"],
             "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet}
@@ -331,6 +340,7 @@ def build_nhl():
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+            "season_pct": season_pct(rows, "nhl"),
             "cats": ["ES goal diff top-11", "ES save% top-12", "Corsi top-16", "Goals Against top-14"],
             "labels": ["ES Diff", "ES SV%", "Corsi", "GA"],
             "teams": [nhl_row(t) for t in rows if t["score"] >= 1]}
@@ -347,6 +357,27 @@ def nhl_row(t):
 NBA_EAST = {"Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors",
     "Chicago Bulls","Cleveland Cavaliers","Detroit Pistons","Indiana Pacers","Milwaukee Bucks",
     "Atlanta Hawks","Charlotte Hornets","Miami Heat","Orlando Magic","Washington Wizards"}
+
+def nba_depth(season):
+    """Scoring depth = # of players on a team averaging >=10 PPG (balanced rosters win in the NBA).
+       Defensive: returns {team_displayName: count} or {} if ESPN's athlete feed isn't available yet."""
+    try:
+        d = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/statistics/byathlete?region=us&lang=en&contentorigin=espn&season={season}&seasontype=2&limit=600")
+    except Exception:
+        return {}
+    out = {}
+    for a in d.get("athletes", []):
+        try:
+            tm = a.get("athlete", {}).get("team", {}).get("displayName")
+            ppg = None
+            for c in a.get("categories", []):
+                nm = c.get("names", [])
+                for cand in ("avgPoints", "points"):
+                    if cand in nm: ppg = c["values"][nm.index(cand)]; break
+            if tm and ppg is not None and ppg >= 10: out[tm] = out.get(tm, 0) + 1
+        except Exception:
+            continue
+    return out
 
 def nba_scoring(season):
     """Pull per-team PPG / Opp PPG from ESPN byteam. Returns {name:(ppg,oppppg)} or {} if the season hasn't started."""
@@ -393,12 +424,13 @@ def build_nba():
         elif isinstance(o, list):
             for v in o: walk(v)
     walk(sd)
+    depth = nba_depth(season)
     rows = []
     for nm, (ppg, opp) in scoring.items():
         w, l = wl.get(nm, (0, 0)); g = w + l
         if g == 0: continue
         rows.append({"name": nm, "conf": "E" if nm in NBA_EAST else "W", "rec": f"{w}-{l}", "gp": g,
-            "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp})
+            "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp, "depth": depth.get(nm, 0)})
     if not rows:
         base.update({"status": "preseason", "odds_remaining": None,
             "note": "NBA regular season tips off in late October — the blueprint goes live on the first real games.", "teams": []})
@@ -408,9 +440,12 @@ def build_nba():
         t["rk_pd"], t["rk_ppg"], t["rk_opp"] = rk_pd[t["name"]], rk_ppg[t["name"]], rk_opp[t["name"]]
         t["q"] = [t["winpct"] >= 0.600, t["rk_pd"] <= 5, t["rk_ppg"] <= 10, t["rk_opp"] <= 10]
         t["score"] = sum(t["q"])
-    npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nf = norm(rows, "ppg", True); nw = norm(rows, "winpct", True)
-    for t in rows:
-        t["index"] = round(npd[t["name"]]*.35 + no[t["name"]]*.25 + nf[t["name"]]*.25 + nw[t["name"]]*.15, 1)
+    npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nf = norm(rows, "ppg", True)
+    nw = norm(rows, "winpct", True); ndp = norm(rows, "depth", True)
+    has_depth = any(t["depth"] for t in rows)
+    for t in rows:  # Depth (scoring balance) rewarded in the index; neutral if the feed is unavailable
+        t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.22 + nf[t["name"]]*.20 + nw[t["name"]]*.13
+                           + (ndp[t["name"]]*.15 if has_depth else npd[t["name"]]*.15), 1)
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.7,3:1.2,2:0.8}
     for cf in ("E","W"):
@@ -428,7 +463,8 @@ def build_nba():
             f"(#{top['rk_pd']}, the dominant NBA-champion signal) and index {top['index']}. "
             f"The NBA is the chalkiest sport — favorites are reliable, so a clear statistical #1 is a genuine prediction, not just a contender."}
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
-    base.update({"odds_remaining": rem, "prediction": pred, "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+    base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "nba"),
+        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth,
         "cats": ["Win% ≥.600", "Net/g top-5", "PPG top-10", "Opp PPG top-10"],
         "labels": ["Win%", "Net/g", "PPG", "Opp PPG"],
         "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
@@ -492,6 +528,8 @@ def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
     for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba)]:
+        if name not in LEAGUES:
+            continue
         try:
             print(f"building {name}...")
             data = fn()

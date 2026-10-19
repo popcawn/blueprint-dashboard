@@ -1,14 +1,15 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-16T21:08:29Z",
-  "odds_remaining": "80983",
+  "generated": "2026-10-19T13:51:17Z",
+  "odds_remaining": "79555",
   "prediction": {
-    "pick": "Dallas Stars",
-    "why": "<b>Dallas Stars</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#2 even-strength save%, #1 goals-against) and index 77.3. But it's only 9 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
+    "pick": "New York Islanders",
+    "why": "<b>New York Islanders</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#3 even-strength save%, #2 goals-against) and index 75.6. But it's only 10 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
   },
-  "gp_min": 5,
-  "gp_max": 9,
+  "gp_min": 6,
+  "gp_max": 10,
+  "season_pct": 10,
   "cats": [
     "ES goal diff top-11",
     "ES save% top-12",
@@ -23,57 +24,11 @@
   ],
   "teams": [
     {
-      "name": "Dallas Stars",
-      "conf": "W",
-      "rec": "7 GP",
-      "score": 4,
-      "index": 77.3,
-      "q": [
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "+4 #8",
-        "94.2 #2",
-        "50.0 #16",
-        "12 #1"
-      ],
-      "fair_pct": 12.5,
-      "fair_odds": "+697",
-      "market": "+1800",
-      "ev": 138
-    },
-    {
       "name": "New York Islanders",
       "conf": "E",
-      "rec": "7 GP",
-      "score": 4,
-      "index": 74.1,
-      "q": [
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "+5 #7",
-        "93.8 #3",
-        "50.0 #16",
-        "16 #2"
-      ],
-      "fair_pct": 11.0,
-      "fair_odds": "+813",
-      "market": "+12500",
-      "ev": 1280
-    },
-    {
-      "name": "Utah Mammoth",
-      "conf": "W",
       "rec": "8 GP",
       "score": 4,
-      "index": 71.3,
+      "index": 75.6,
       "q": [
         true,
         true,
@@ -81,298 +36,229 @@
         true
       ],
       "vals": [
-        "+6 #6",
-        "92.0 #6",
-        "56.0 #4",
-        "21 #11"
+        "+7 #5",
+        "94.0 #3",
+        "51.0 #16",
+        "17 #2"
       ],
-      "fair_pct": 9.8,
-      "fair_odds": "+916",
-      "market": "+1600",
-      "ev": 67
-    },
-    {
-      "name": "Boston Bruins",
-      "conf": "E",
-      "rec": "7 GP",
-      "score": 3,
-      "index": 82.3,
-      "q": [
-        true,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "+11 #2",
-        "95.0 #1",
-        "49.0 #19",
-        "16 #2"
-      ],
-      "fair_pct": 10.8,
-      "fair_odds": "+827",
-      "market": "+8000",
-      "ev": 773
-    },
-    {
-      "name": "Colorado Avalanche",
-      "conf": "W",
-      "rec": "7 GP",
-      "score": 3,
-      "index": 73.3,
-      "q": [
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+13 #1",
-        "90.9 #13",
-        "53.0 #9",
-        "21 #11"
-      ],
-      "fair_pct": 7.7,
-      "fair_odds": "+1201",
-      "market": "+700",
-      "ev": -38
+      "fair_pct": 13.0,
+      "fair_odds": "+669",
+      "market": "+12500",
+      "ev": 1538
     },
     {
       "name": "Vegas Golden Knights",
       "conf": "W",
-      "rec": "9 GP",
-      "score": 3,
-      "index": 71.0,
+      "rec": "10 GP",
+      "score": 4,
+      "index": 72.6,
       "q": [
         true,
-        true,
-        true,
-        false
-      ],
-      "vals": [
-        "+9 #4",
-        "92.0 #5",
-        "53.0 #9",
-        "22 #18"
-      ],
-      "fair_pct": 7.0,
-      "fair_odds": "+1331",
-      "market": "+1100",
-      "ev": -16
-    },
-    {
-      "name": "Carolina Hurricanes",
-      "conf": "E",
-      "rec": "8 GP",
-      "score": 3,
-      "index": 65.4,
-      "q": [
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+4 #8",
-        "88.4 #26",
-        "60.0 #2",
-        "19 #5"
-      ],
-      "fair_pct": 5.4,
-      "fair_odds": "+1748",
-      "market": "+650",
-      "ev": -59
-    },
-    {
-      "name": "Detroit Red Wings",
-      "conf": "E",
-      "rec": "7 GP",
-      "score": 3,
-      "index": 64.1,
-      "q": [
-        false,
         true,
         true,
         true
       ],
       "vals": [
-        "+1 #14",
-        "91.9 #7",
-        "53.0 #9",
-        "20 #7"
+        "+12 #2",
+        "92.4 #5",
+        "53.0 #8",
+        "24 #13"
       ],
-      "fair_pct": 5.1,
-      "fair_odds": "+1863",
-      "market": "+15000",
-      "ev": 669
+      "fair_pct": 12.0,
+      "fair_odds": "+732",
+      "market": "+1000",
+      "ev": 32
     },
     {
-      "name": "Pittsburgh Penguins",
-      "conf": "E",
-      "rec": "7 GP",
-      "score": 3,
-      "index": 61.0,
-      "q": [
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+4 #8",
-        "90.4 #16",
-        "51.0 #13",
-        "21 #11"
-      ],
-      "fair_pct": 4.4,
-      "fair_odds": "+2178",
-      "market": "+6000",
-      "ev": 168
-    },
-    {
-      "name": "Minnesota Wild",
+      "name": "Dallas Stars",
       "conf": "W",
       "rec": "8 GP",
       "score": 3,
-      "index": 60.4,
+      "index": 80.8,
       "q": [
-        false,
         true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+7 #5",
+        "94.8 #1",
+        "50.0 #17",
+        "12 #1"
+      ],
+      "fair_pct": 11.9,
+      "fair_odds": "+740",
+      "market": "+1900",
+      "ev": 138
+    },
+    {
+      "name": "Boston Bruins",
+      "conf": "E",
+      "rec": "9 GP",
+      "score": 3,
+      "index": 77.9,
+      "q": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+11 #3",
+        "94.6 #2",
+        "49.0 #18",
+        "19 #3"
+      ],
+      "fair_pct": 10.7,
+      "fair_odds": "+838",
+      "market": "+6000",
+      "ev": 550
+    },
+    {
+      "name": "Colorado Avalanche",
+      "conf": "W",
+      "rec": "8 GP",
+      "score": 3,
+      "index": 71.5,
+      "q": [
+        true,
+        false,
         true,
         true
       ],
       "vals": [
-        "+1 #14",
-        "91.1 #11",
-        "51.0 #13",
-        "20 #7"
+        "+15 #1",
+        "91.1 #13",
+        "52.0 #11",
+        "23 #9"
       ],
-      "fair_pct": 4.3,
-      "fair_odds": "+2225",
-      "market": "+1200",
-      "ev": -44
+      "fair_pct": 8.3,
+      "fair_odds": "+1112",
+      "market": "+650",
+      "ev": -38
     },
     {
       "name": "Edmonton Oilers",
       "conf": "W",
-      "rec": "7 GP",
-      "score": 2,
-      "index": 63.9,
-      "q": [
-        true,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "+8 #5",
-        "91.0 #12",
-        "49.0 #19",
-        "22 #18"
-      ],
-      "fair_pct": 3.5,
-      "fair_odds": "+2722",
-      "market": "+950",
-      "ev": -63
-    },
-    {
-      "name": "Seattle Kraken",
-      "conf": "W",
       "rec": "8 GP",
-      "score": 2,
-      "index": 63.7,
+      "score": 3,
+      "index": 63.1,
       "q": [
         true,
         true,
         false,
-        false
+        true
       ],
       "vals": [
-        "+10 #3",
-        "92.5 #4",
-        "43.0 #28",
-        "23 #22"
+        "+11 #3",
+        "91.1 #12",
+        "48.0 #20",
+        "24 #13"
       ],
-      "fair_pct": 3.5,
-      "fair_odds": "+2749",
-      "market": "+15000",
-      "ev": 430
+      "fair_pct": 5.7,
+      "fair_odds": "+1663",
+      "market": "+950",
+      "ev": -40
     },
     {
       "name": "Tampa Bay Lightning",
       "conf": "E",
-      "rec": "7 GP",
-      "score": 2,
-      "index": 63.6,
+      "rec": "8 GP",
+      "score": 3,
+      "index": 62.9,
       "q": [
-        false,
+        true,
         false,
         true,
         true
       ],
       "vals": [
-        "+2 #12",
-        "89.8 #19",
+        "+4 #9",
+        "90.0 #19",
         "56.0 #4",
-        "19 #5"
+        "21 #4"
       ],
-      "fair_pct": 3.5,
-      "fair_odds": "+2789",
+      "fair_pct": 5.6,
+      "fair_odds": "+1682",
       "market": "+1100",
-      "ev": -58
+      "ev": -33
     },
     {
-      "name": "Florida Panthers",
-      "conf": "E",
-      "rec": "8 GP",
-      "score": 2,
-      "index": 62.3,
+      "name": "Minnesota Wild",
+      "conf": "W",
+      "rec": "9 GP",
+      "score": 3,
+      "index": 62.5,
       "q": [
         false,
         true,
         true,
-        false
+        true
       ],
       "vals": [
-        "-1 #20",
-        "91.3 #10",
-        "57.0 #3",
-        "22 #18"
+        "+2 #12",
+        "91.5 #9",
+        "53.0 #8",
+        "21 #4"
       ],
-      "fair_pct": 3.3,
-      "fair_odds": "+2973",
-      "market": "+800",
-      "ev": -71
+      "fair_pct": 5.5,
+      "fair_odds": "+1714",
+      "market": "+1200",
+      "ev": -28
+    },
+    {
+      "name": "Detroit Red Wings",
+      "conf": "E",
+      "rec": "8 GP",
+      "score": 3,
+      "index": 61.6,
+      "q": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "+1 #14",
+        "92.4 #7",
+        "52.0 #11",
+        "23 #9"
+      ],
+      "fair_pct": 5.3,
+      "fair_odds": "+1797",
+      "market": "+17500",
+      "ev": 828
+    },
+    {
+      "name": "Carolina Hurricanes",
+      "conf": "E",
+      "rec": "10 GP",
+      "score": 3,
+      "index": 60.1,
+      "q": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "+3 #10",
+        "88.8 #24",
+        "60.0 #2",
+        "24 #13"
+      ],
+      "fair_pct": 4.9,
+      "fair_odds": "+1942",
+      "market": "+650",
+      "ev": -63
     },
     {
       "name": "Columbus Blue Jackets",
       "conf": "E",
-      "rec": "5 GP",
+      "rec": "7 GP",
       "score": 2,
-      "index": 56.5,
-      "q": [
-        false,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+2 #12",
-        "89.8 #20",
-        "50.0 #16",
-        "21 #11"
-      ],
-      "fair_pct": 2.4,
-      "fair_odds": "+4020",
-      "market": "+6500",
-      "ev": 60
-    },
-    {
-      "name": "New York Rangers",
-      "conf": "E",
-      "rec": "9 GP",
-      "score": 2,
-      "index": 54.5,
+      "index": 58.1,
       "q": [
         false,
         true,
@@ -381,21 +267,113 @@
       ],
       "vals": [
         "+1 #14",
-        "91.5 #8",
-        "44.0 #26",
-        "21 #11"
+        "92.8 #4",
+        "47.0 #22",
+        "23 #9"
+      ],
+      "fair_pct": 3.1,
+      "fair_odds": "+3150",
+      "market": "+7500",
+      "ev": 134
+    },
+    {
+      "name": "Utah Mammoth",
+      "conf": "W",
+      "rec": "9 GP",
+      "score": 2,
+      "index": 56.9,
+      "q": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "+3 #10",
+        "89.8 #20",
+        "56.0 #4",
+        "27 #20"
+      ],
+      "fair_pct": 2.9,
+      "fair_odds": "+3357",
+      "market": "+1700",
+      "ev": -48
+    },
+    {
+      "name": "New York Rangers",
+      "conf": "E",
+      "rec": "10 GP",
+      "score": 2,
+      "index": 56.8,
+      "q": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+1 #14",
+        "92.4 #5",
+        "46.0 #24",
+        "22 #7"
+      ],
+      "fair_pct": 2.9,
+      "fair_odds": "+3378",
+      "market": "+10000",
+      "ev": 190
+    },
+    {
+      "name": "Winnipeg Jets",
+      "conf": "W",
+      "rec": "8 GP",
+      "score": 2,
+      "index": 53.2,
+      "q": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+1 #14",
+        "91.4 #11",
+        "47.0 #22",
+        "24 #13"
+      ],
+      "fair_pct": 2.4,
+      "fair_odds": "+4129",
+      "market": "+12500",
+      "ev": 198
+    },
+    {
+      "name": "Washington Capitals",
+      "conf": "E",
+      "rec": "8 GP",
+      "score": 2,
+      "index": 52.3,
+      "q": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "+5 #8",
+        "90.4 #17",
+        "45.0 #26",
+        "24 #13"
       ],
       "fair_pct": 2.2,
-      "fair_odds": "+4491",
-      "market": "+8000",
-      "ev": 76
+      "fair_odds": "+4355",
+      "market": "+1000",
+      "ev": -75
     },
     {
       "name": "Ottawa Senators",
       "conf": "E",
-      "rec": "8 GP",
+      "rec": "9 GP",
       "score": 2,
-      "index": 53.4,
+      "index": 51.0,
       "q": [
         false,
         true,
@@ -404,44 +382,44 @@
       ],
       "vals": [
         "+0 #18",
-        "91.4 #9",
-        "43.0 #28",
-        "20 #7"
+        "91.7 #8",
+        "44.0 #27",
+        "23 #9"
       ],
-      "fair_pct": 2.0,
-      "fair_odds": "+4780",
-      "market": "+2200",
-      "ev": -53
+      "fair_pct": 2.1,
+      "fair_odds": "+4705",
+      "market": "+2500",
+      "ev": -46
     },
     {
-      "name": "Los Angeles Kings",
+      "name": "Nashville Predators",
       "conf": "W",
-      "rec": "5 GP",
+      "rec": "8 GP",
       "score": 2,
-      "index": 48.8,
+      "index": 47.3,
       "q": [
         false,
-        false,
         true,
+        false,
         true
       ],
       "vals": [
-        "-6 #25",
-        "89.0 #24",
-        "53.0 #9",
-        "21 #11"
+        "-4 #24",
+        "91.5 #10",
+        "44.0 #27",
+        "22 #7"
       ],
-      "fair_pct": 1.6,
-      "fair_odds": "+6236",
-      "market": "+4000",
-      "ev": -35
+      "fair_pct": 1.7,
+      "fair_odds": "+5918",
+      "market": "+12500",
+      "ev": 109
     },
     {
-      "name": "New Jersey Devils",
+      "name": "Florida Panthers",
       "conf": "E",
-      "rec": "7 GP",
+      "rec": "9 GP",
       "score": 1,
-      "index": 64.0,
+      "index": 60.7,
       "q": [
         false,
         false,
@@ -449,10 +427,33 @@
         false
       ],
       "vals": [
-        "+1 #14",
-        "89.4 #22",
-        "63.0 #1",
-        "23 #22"
+        "+2 #12",
+        "90.3 #18",
+        "58.0 #3",
+        "25 #18"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+850",
+      "ev": null
+    },
+    {
+      "name": "New Jersey Devils",
+      "conf": "E",
+      "rec": "8 GP",
+      "score": 1,
+      "index": 56.2,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "-1 #19",
+        "89.0 #23",
+        "62.0 #1",
+        "27 #20"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -460,11 +461,11 @@
       "ev": null
     },
     {
-      "name": "Winnipeg Jets",
+      "name": "Anaheim Ducks",
       "conf": "W",
       "rec": "7 GP",
       "score": 1,
-      "index": 54.7,
+      "index": 53.1,
       "q": [
         false,
         false,
@@ -472,33 +473,10 @@
         true
       ],
       "vals": [
-        "+0 #18",
-        "90.3 #17",
-        "49.0 #19",
-        "21 #11"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+10000",
-      "ev": null
-    },
-    {
-      "name": "Anaheim Ducks",
-      "conf": "W",
-      "rec": "6 GP",
-      "score": 1,
-      "index": 53.5,
-      "q": [
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "-2 #22",
-        "89.9 #18",
-        "47.0 #22",
-        "17 #4"
+        "-1 #19",
+        "90.6 #16",
+        "49.0 #18",
+        "21 #4"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -506,11 +484,11 @@
       "ev": null
     },
     {
-      "name": "Washington Capitals",
-      "conf": "E",
-      "rec": "7 GP",
+      "name": "Seattle Kraken",
+      "conf": "W",
+      "rec": "9 GP",
       "score": 1,
-      "index": 52.6,
+      "index": 47.1,
       "q": [
         true,
         false,
@@ -518,45 +496,22 @@
         false
       ],
       "vals": [
-        "+3 #11",
-        "89.5 #21",
-        "46.0 #25",
-        "22 #18"
+        "+7 #5",
+        "90.7 #15",
+        "42.0 #29",
+        "31 #25"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1100",
+      "market": "+17500",
       "ev": null
     },
     {
-      "name": "Nashville Predators",
+      "name": "Los Angeles Kings",
       "conf": "W",
-      "rec": "7 GP",
+      "rec": "6 GP",
       "score": 1,
-      "index": 45.5,
-      "q": [
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "-7 #27",
-        "90.8 #14",
-        "44.0 #26",
-        "20 #7"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+12500",
-      "ev": null
-    },
-    {
-      "name": "St Louis Blues",
-      "conf": "W",
-      "rec": "7 GP",
-      "score": 1,
-      "index": 45.2,
+      "index": 43.5,
       "q": [
         false,
         false,
@@ -564,22 +519,22 @@
         false
       ],
       "vals": [
-        "-3 #23",
-        "87.7 #27",
-        "51.0 #13",
-        "23 #22"
+        "-7 #26",
+        "89.3 #22",
+        "52.0 #11",
+        "25 #18"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+4000",
       "ev": null
     },
     {
       "name": "Montreal Canadiens",
       "conf": "E",
-      "rec": "7 GP",
+      "rec": "8 GP",
       "score": 1,
-      "index": 44.6,
+      "index": 41.4,
       "q": [
         false,
         false,
@@ -588,9 +543,9 @@
       ],
       "vals": [
         "-3 #23",
-        "87.1 #29",
-        "56.0 #4",
-        "27 #26"
+        "87.6 #28",
+        "55.0 #6",
+        "30 #24"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -598,11 +553,11 @@
       "ev": null
     },
     {
-      "name": "Buffalo Sabres",
+      "name": "Pittsburgh Penguins",
       "conf": "E",
-      "rec": "8 GP",
+      "rec": "9 GP",
       "score": 1,
-      "index": 44.0,
+      "index": 40.8,
       "q": [
         false,
         false,
@@ -610,10 +565,33 @@
         false
       ],
       "vals": [
-        "-1 #20",
-        "87.1 #30",
-        "55.0 #7",
-        "29 #28"
+        "-1 #19",
+        "88.2 #26",
+        "52.0 #11",
+        "32 #27"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+7500",
+      "ev": null
+    },
+    {
+      "name": "Buffalo Sabres",
+      "conf": "E",
+      "rec": "9 GP",
+      "score": 1,
+      "index": 40.0,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "-1 #19",
+        "87.6 #29",
+        "54.0 #7",
+        "33 #28"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -621,11 +599,34 @@
       "ev": null
     },
     {
+      "name": "St Louis Blues",
+      "conf": "W",
+      "rec": "8 GP",
+      "score": 1,
+      "index": 33.0,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "-6 #25",
+        "86.2 #32",
+        "52.0 #11",
+        "28 #22"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+10000",
+      "ev": null
+    },
+    {
       "name": "Calgary Flames",
       "conf": "W",
-      "rec": "7 GP",
+      "rec": "8 GP",
       "score": 1,
-      "index": 17.3,
+      "index": 17.6,
       "q": [
         false,
         false,
@@ -634,9 +635,9 @@
       ],
       "vals": [
         "-16 #31",
-        "85.0 #32",
-        "54.0 #8",
-        "35 #31"
+        "86.2 #31",
+        "53.0 #8",
+        "37 #31"
       ],
       "fair_pct": null,
       "fair_odds": null,
