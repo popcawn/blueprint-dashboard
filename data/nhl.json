@@ -1,11 +1,11 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-19T18:44:15Z",
-  "odds_remaining": "79421",
+  "generated": "2026-10-19T23:42:48Z",
+  "odds_remaining": "79162",
   "prediction": {
-    "pick": "New York Islanders",
-    "why": "<b>New York Islanders</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#3 even-strength save%, #2 goals-against) and index 75.6. But it's only 10 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
+    "pick": "Vegas Golden Knights",
+    "why": "<b>Vegas Golden Knights</b> is the pick \u2014 the top team the model actually trusts (fair +732). No goaltending asterisk, no possession hole \u2014 #8 driving play and #5 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
   },
   "gp_min": 6,
   "gp_max": 10,
@@ -97,8 +97,8 @@
       ],
       "fair_pct": 11.9,
       "fair_odds": "+740",
-      "market": "+1800",
-      "ev": 126,
+      "market": "+1900",
+      "ev": 138,
       "read": {
         "v": "caution",
         "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
@@ -232,8 +232,8 @@
       ],
       "fair_pct": 5.5,
       "fair_odds": "+1714",
-      "market": "+1300",
-      "ev": -23,
+      "market": "+1200",
+      "ev": -28,
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#9) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
@@ -259,8 +259,8 @@
       ],
       "fair_pct": 5.3,
       "fair_odds": "+1797",
-      "market": "+22500",
-      "ev": 1091,
+      "market": "+15000",
+      "ev": 696,
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#7) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
@@ -313,8 +313,8 @@
       ],
       "fair_pct": 3.1,
       "fair_odds": "+3150",
-      "market": "+7500",
-      "ev": 134,
+      "market": "+8000",
+      "ev": 149,
       "read": {
         "v": "caution",
         "why": "Goalie-carried: #4 in net, only #22 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
@@ -448,8 +448,8 @@
       ],
       "fair_pct": 2.1,
       "fair_odds": "+4705",
-      "market": "+2200",
-      "ev": -52,
+      "market": "+2500",
+      "ev": -46,
       "read": {
         "v": "caution",
         "why": "Carried by its #18 goal differential, but the #27 spot is the one a seven-game series finds."
@@ -529,7 +529,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+2200",
+      "market": "+2500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -583,7 +583,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+15000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -664,7 +664,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": "+7000",
       "ev": null,
       "read": {
         "v": "caution",

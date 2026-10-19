@@ -216,8 +216,8 @@
     "sc": 3,
     "idx": 80.8,
     "fp": 11.9,
-    "mkt": "+1800",
-    "ev": 126
+    "mkt": "+1900",
+    "ev": 138
    },
    "Boston Bruins": {
     "sc": 3,
@@ -251,15 +251,15 @@
     "sc": 3,
     "idx": 62.5,
     "fp": 5.5,
-    "mkt": "+1300",
-    "ev": -23
+    "mkt": "+1200",
+    "ev": -28
    },
    "Detroit Red Wings": {
     "sc": 3,
     "idx": 61.6,
     "fp": 5.3,
-    "mkt": "+22500",
-    "ev": 1091
+    "mkt": "+15000",
+    "ev": 696
    },
    "Carolina Hurricanes": {
     "sc": 3,
@@ -272,8 +272,8 @@
     "sc": 2,
     "idx": 58.1,
     "fp": 3.1,
-    "mkt": "+7500",
-    "ev": 134
+    "mkt": "+8000",
+    "ev": 149
    },
    "Utah Mammoth": {
     "sc": 2,
@@ -307,8 +307,8 @@
     "sc": 2,
     "idx": 51.0,
     "fp": 2.1,
-    "mkt": "+2200",
-    "ev": -52
+    "mkt": "+2500",
+    "ev": -46
    },
    "Nashville Predators": {
     "sc": 2,
@@ -328,7 +328,7 @@
     "sc": 1,
     "idx": 56.2,
     "fp": null,
-    "mkt": "+2200",
+    "mkt": "+2500",
     "ev": null
    },
    "Anaheim Ducks": {
@@ -342,7 +342,7 @@
     "sc": 1,
     "idx": 47.1,
     "fp": null,
-    "mkt": "+12500",
+    "mkt": "+15000",
     "ev": null
    },
    "Los Angeles Kings": {
@@ -363,7 +363,7 @@
     "sc": 1,
     "idx": 40.8,
     "fp": null,
-    "mkt": "+8000",
+    "mkt": "+7000",
     "ev": null
    },
    "Buffalo Sabres": {

@@ -120,14 +120,7 @@ def build_nfl():
     cap_odds(pool, 0.17)
     fd, rem = fetch_futures("americanfootball_nfl_super_bowl_winner")
     attach(rows, pool, fd)
-    top, gap, run = pick_gap(pool)
-    pred = None
-    if top:
-        pred = {"pick": top["name"], "why":
-            f"<b>{top['name']}</b> are the blueprint's {'runaway ' if run else 'top '}pick — {top['rec']}, "
-            f"a {top['score']}/5 with a {top['ptdiff']:+.0f} point differential (#{top['rk_pd']}, the strongest "
-            f"Super-Bowl-champion signal) and an index of {top['index']}{', clear of the field' if run else ''}. "
-            f"A lone dominant #1 is the profile that historically wins — but the NFL is single-elimination, so it's a strong favorite, not a lock."}
+    pred = make_prediction(rows, 5)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
@@ -229,16 +222,7 @@ def build_cfb():
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
-    top, gap, run = pick_gap(pool)
-    pred = None
-    if top:
-        sr = top.get("srsrank", 999)
-        srs_note = (f"SRS #{sr} confirms the dominance is earned" if sr <= 6
-                    else f"though SRS #{sr} flags it as schedule-aided — a real but schedule-flattered #1")
-        pred = {"pick": top["name"], "why":
-            f"<b>{top['name']}</b> — {top['rec']}, a {top['score']}/5 with a {top['margin']:+.1f} scoring margin "
-            f"(#{top['rk_margin']}, the master title signal) and index {top['index']}. {srs_note}. "
-            f"In the 12-team CFP, a top team with a clean profile is the pick — but it's lower-chalk than it looks; read it as best contender, not a lock."}
+    pred = make_prediction(teams, 5)
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
     # gauntlet watch: SRS top-10 not in pool
     poolnames = {t["name"] for t in pool}
@@ -330,16 +314,9 @@ def build_nhl():
     cap_odds(pool, 0.13)
     fd, rem = fetch_futures("icehockey_nhl_championship_winner")
     attach(rows, pool, fd)
-    top, gap, run = pick_gap(pool)
-    gpmax = max(t["gp"] for t in rows)
-    pred = None
-    if top:
-        early = gpmax < 20
-        pred = {"pick": top["name"], "why":
-            f"<b>{top['name']}</b> — a {top['score']}/4 on the goaltending-and-defense profile that wins Cups "
-            f"(#{top['rk_sv']} even-strength save%, #{top['rk_ga']} goals-against) and index {top['index']}. "
-            + ("But it's only %d games in and the NHL is the lowest-chalk sport — early save-percentages regress hard, so this is 'best profile,' not a prediction yet." % gpmax
-               if early else "The NHL is the lowest-chalk sport (goalie variance), so read a top profile as 'legit Cup team,' not 'the winner.'")}
+    pred = make_prediction(rows, 4)
+    if pred and max(t["gp"] for t in rows) < 20:
+        pred["why"] += " (It's early and the NHL is the lowest-chalk sport — treat it as 'best profile,' not a lock.)"
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
@@ -459,13 +436,7 @@ def build_nba():
     cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
     fd, rem = fetch_futures("basketball_nba_championship_winner")
     attach(rows, pool, fd)
-    top, gap, run = pick_gap(pool)
-    pred = None
-    if top:
-        pred = {"pick": top["name"], "why":
-            f"<b>{top['name']}</b> — a {top['score']}/4 with a {top['pdg']:+.1f} net rating per game "
-            f"(#{top['rk_pd']}, the dominant NBA-champion signal) and index {top['index']}. "
-            f"The NBA is the chalkiest sport — favorites are reliable, so a clear statistical #1 is a genuine prediction, not just a contender."}
+    pred = make_prediction(rows, 4)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "nba"),
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth,
@@ -591,14 +562,29 @@ def team_read(t, sport, n, maxcat):
         return {"v": "fools_gold", "why": f"One-sided — #{off} offense but a defense outside the top half. In a bracket of elite teams, the shootout eventually goes the other way. Fade."}
     return {"v": "caution", "why": f"Leads with its #{br} {b}; the #{wr} {w} is the crack a playoff-caliber opponent widens — and SRS #{sr} says the schedule hasn't fully tested it yet."}
 
+def make_prediction(scored, maxcat):
+    """Predict a CHAMPION consistent with the Read — prefer the team the model TRUSTS, not just
+       the top tier. If nothing is clean, say so. Guarantees the banner never confidently picks a
+       team its own card flags as caution/fool's gold."""
+    cand = [t for t in scored if t["score"] >= maxcat - 1 and t.get("read")] or [t for t in scored if t.get("read")]
+    if not cand: return None
+    vw = {"trust": 2, "caution": 1, "fools_gold": 0}
+    top = sorted(cand, key=lambda t: (vw.get(t["read"]["v"], 1), t["score"], t["index"]), reverse=True)[0]
+    rd = top["read"]; odds = top.get("fair_odds")
+    any_trust = any(t["read"]["v"] == "trust" for t in cand)
+    if rd["v"] == "trust":
+        lead = f"<b>{top['name']}</b> is the pick — the top team the model actually trusts{f' (fair {odds})' if odds else ''}. "
+    elif not any_trust:
+        lead = f"<b>{top['name']}</b> is the pick by default — no team on the board is clean right now, so this is the least-flawed. "
+    else:
+        lead = f"<b>{top['name']}</b> is the pick{f' (fair {odds})' if odds else ''}. "
+    return {"pick": top["name"], "why": lead + rd["why"]}
+
 def pick_gap(pool):
-    """Pick the best TEAM (score, then index — fair odds get capped/flattened so can't break ties).
-       Return (top_team, index_gap_to_2nd, is_runaway)."""
     ps = sorted(pool, key=lambda t: (-t["score"], -t["index"]))
     if not ps: return None, 0, False
     gap = ps[0]["index"] - (ps[1]["index"] if len(ps) > 1 else 0)
-    runaway = len(ps) > 1 and ps[0]["score"] >= ps[1]["score"] and gap >= 6.0
-    return ps[0], gap, runaway
+    return ps[0], gap, len(ps) > 1 and ps[0]["score"] >= ps[1]["score"] and gap >= 6.0
 
 def log_history(name, data):
     """Append a compact dated snapshot of the contenders to data/history/<name>.json (keep last 30 runs).

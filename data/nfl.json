@@ -1,11 +1,11 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-19T18:44:09Z",
-  "odds_remaining": "79423",
+  "generated": "2026-10-19T23:42:41Z",
+  "odds_remaining": "79164",
   "prediction": {
     "pick": "San Francisco 49ers",
-    "why": "<b>San Francisco 49ers</b> are the blueprint's top pick \u2014 5-0, a 5/5 with a +61 point differential (#1, the strongest Super-Bowl-champion signal) and an index of 91.0. A lone dominant #1 is the profile that historically wins \u2014 but the NFL is single-elimination, so it's a strong favorite, not a lock."
+    "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
   },
   "gp_min": 5,
   "gp_max": 6,
@@ -76,8 +76,8 @@
       ],
       "fair_pct": 17.0,
       "fair_odds": "+488",
-      "market": "+950",
-      "ev": 79,
+      "market": "+900",
+      "ev": 70,
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -221,8 +221,8 @@
       ],
       "fair_pct": 4.0,
       "fair_odds": "+2375",
-      "market": "+950",
-      "ev": -58,
+      "market": "+900",
+      "ev": -60,
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #7 unit, but the #15 area is where a good playoff team picks it apart."
@@ -395,7 +395,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4500",
+      "market": "+4000",
       "ev": null,
       "read": {
         "v": "fools_gold",
@@ -482,7 +482,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": "+10000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -656,7 +656,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1000",
+      "market": "+1100",
       "ev": null,
       "read": {
         "v": "caution",
@@ -714,7 +714,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": "+7000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -743,7 +743,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+15000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -801,7 +801,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+15000",
+      "market": "+17500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -830,7 +830,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7500",
+      "market": "+8000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -888,7 +888,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+50000",
+      "market": "+40000",
       "ev": null,
       "read": {
         "v": "caution",
