@@ -100,9 +100,9 @@ def build_nfl():
             "rec": f"{w}-{l}" + (f"-{ti}" if ti else ""), "gp": g,
             "winpct": (w + 0.5 * ti) / g, "ppg": pf / g, "oppppg": pa / g,
             "ptdiff": pf - pa, "pdg": (pf - pa) / g})
-    rk_pd = ranks(rows, "ptdiff", True); rk_ppg = ranks(rows, "ppg", True); rk_opp = ranks(rows, "oppppg", False)
+    rk_pd = ranks(rows, "ptdiff", True); rk_ppg = ranks(rows, "ppg", True); rk_opp = ranks(rows, "oppppg", False); rk_win = ranks(rows, "winpct", True)
     for t in rows:
-        t["rk_pd"], t["rk_ppg"], t["rk_opp"] = rk_pd[t["name"]], rk_ppg[t["name"]], rk_opp[t["name"]]
+        t["rk_pd"], t["rk_ppg"], t["rk_opp"], t["rk_win"] = rk_pd[t["name"]], rk_ppg[t["name"]], rk_opp[t["name"]], rk_win[t["name"]]
         t["q"] = [t["winpct"] >= 0.625, t["rk_pd"] <= 6, t["rk_ppg"] <= 10, t["rk_opp"] <= 10, t["pdg"] >= 5.0]
         t["score"] = sum(t["q"])
     npd = norm(rows, "ptdiff", True); npg = norm(rows, "pdg", True); no = norm(rows, "oppppg", False)
@@ -515,54 +515,81 @@ def _pick(opts, seed):
     return opts[sum(ord(c) for c in seed) % len(opts)]
 
 def team_read(t, sport, n, maxcat):
-    """The automated 'Cubs fool's-gold' call: read the COMPONENTS, not the composite.
-       Varied, team-specific wording (seeded by name for determinism)."""
-    if sport == "nfl":   cats = [("offense", t["rk_ppg"], False), ("defense", t["rk_opp"], True), ("point differential", t["rk_pd"], True)]
-    elif sport == "cfb": cats = [("offense", t["rk_ppg"], False), ("scoring defense", t["rk_oppppg"], True), ("total defense", t["rk_oppypg"], True), ("margin", t["rk_margin"], True)]
-    elif sport == "nhl": cats = [("goaltending", t["rk_sv"], True), ("possession", t["rk_cf"], False), ("goal differential", t["rk_ed"], True), ("goals-against", t["rk_ga"], True)]
-    else:                cats = [("offense", t["rk_ppg"], False), ("defense", t["rk_opp"], True), ("net rating", t["rk_pd"], True)]
-    worst = max(cats, key=lambda c: c[1]); best = min(cats, key=lambda c: c[1])
-    b, br, w, wr = best[0], best[1], worst[0], worst[1]
-    top = t["score"] >= maxcat - 1
-    nm = t["name"]; elite = max(5, int(n * 0.12))
+    """Playoff-translation read: judges each team by what ACTUALLY wins in the playoffs —
+       NFL margin+defense (and close-game luck), NHL possession vs goaltending variance,
+       NBA half-court defense vs pace-padded scoring, CFB dominance-vs-schedule."""
+    nm = t["name"]; top = t["score"] >= maxcat - 1
+    el = max(5, int(n * 0.15)); good = max(10, int(n * 0.40)); half = n * 0.5
 
-    # --- sport-specific overrides (the signature traps) ---
-    if sport == "nhl" and t["rk_sv"] <= elite and t["rk_cf"] > n * 0.5:
-        return {"v": "caution", "why": _pick([
-            f"That #{t['rk_sv']} save% is a mirage — they're #{t['rk_cf']} in possession (Corsi), so the goalie is bailing out thin even-strength play. Expect regression.",
-            f"Goalie-carried: #{t['rk_sv']} in net but only #{t['rk_cf']} driving play. Hot goaltending cools; the underlying numbers don't back the record yet.",
-            f"Live by the save, die by the save — #{t['rk_sv']} goaltending papering over #{t['rk_cf']} possession. A PDO correction is coming."], nm)}
-    if sport == "cfb" and t.get("srsrank", 999) > 15 and top:
+    if sport == "nfl":
+        pd, off, dfn, win = t["rk_pd"], t["rk_ppg"], t["rk_opp"], t.get("rk_win", t["rk_pd"])
+        if win <= el and pd - win >= max(6, int(n * 0.22)):          # record outrunning margin
+            return {"v": "caution", "why": _pick([
+                f"A record that outruns the margin — #{win} by win%, only #{pd} in point differential. Close-game records don't persist, and single-elimination January is where they come due.",
+                f"Winning the games it shouldn't — #{win} record on a #{pd} scoring margin. The blueprint buys margin of victory, not one-score luck; regression is the base case."], nm)}
+        if off <= el and dfn > half:                                  # shootout offense, no defense
+            return {"v": "fools_gold", "why": _pick([
+                f"All gas, no brakes — #{off} offense but a #{dfn} defense. Playoff football tightens and defense travels; the first time they're held near their floor, they're done.",
+                f"Shootout-or-bust: a #{off} offense papering over a #{dfn} defense. You can't out-score a real team in January when you can't get a stop. Fade."], nm)}
+        if top and pd <= 6 and dfn <= good:                           # the complete, cold-weather profile
+            return {"v": "trust", "why": _pick([
+                f"Built for January — a real #{pd} point margin AND a #{dfn} defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
+                f"The two traits that survive single-elimination: dominant margin (#{pd}) and a top-{dfn} defense. Complete and earned — trust it."], nm)}
+        if dfn <= el and off > good:                                  # defense-led grinder
+            return {"v": "caution", "why": _pick([
+                f"Defense-first — a #{dfn} unit keeps every game winnable, which is exactly what holds up in January. The only question is whether a #{off} offense scratches out enough.",
+                f"Wins ugly, and that plays in the playoffs — elite #{dfn} defense, but a #{off} offense that can't go cold at the wrong time."], nm)}
+        return {"v": "caution", "why": f"A middling profile — leads with its #{min(pd,off,dfn)} unit, but the #{max(pd,off,dfn)} area is where a good playoff team picks it apart."}
+
+    if sport == "nhl":
+        ed, sv, cf, ga = t["rk_ed"], t["rk_sv"], t["rk_cf"], t["rk_ga"]
+        if sv <= el and cf > half:                                    # hot goalie / PDO
+            return {"v": "caution", "why": _pick([
+                f"That #{sv} save% is riding variance — they're #{cf} in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
+                f"Goalie-carried: #{sv} in net, only #{cf} driving play. A hot crease wins you a round and loses you the next — the numbers underneath don't back it yet."], nm)}
+        if cf <= el and sv > n * 0.45:                                # possession monster, shaky net
+            return {"v": "caution", "why": _pick([
+                f"Drives play like a champion (#{cf} Corsi) but the goaltending (#{sv}) has to show up. Elite underlying game held hostage to the crease — one hot goalie from a deep run, one cold week from a first-round exit.",
+                f"Controls the puck (#{cf}) but can't fully trust the net (#{sv}). The dangerous kind of team: the process says contender, the goaltending says coin flip."], nm)}
+        if top and ga > half and ed <= good:                          # run-and-gun, leaky
+            return {"v": "fools_gold", "why": _pick([
+                f"Outscores its problems in the regular season, but playoff hockey tightens and a #{ga} goals-against is exactly what gets punished when goals dry up in May.",
+                f"A run-and-gun look that doesn't translate — #{ed} goal differential built on offense, but #{ga} goal-prevention. Low-event playoff series expose it. Fade."], nm)}
+        if top and cf <= good and sv <= good:                         # the real Cup shape
+            return {"v": "trust", "why": _pick([
+                f"Drives play AND gets saves — underlying numbers (#{cf} Corsi) and goaltending (#{sv}) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
+                f"No goaltending asterisk, no possession hole — #{cf} driving play and #{sv} in net. The team you want when the games get low-scoring and tight. Trust it."], nm)}
+        return {"v": "caution", "why": f"Carried by its #{ed} goal differential, but the #{max(sv,cf,ga)} spot is the one a seven-game series finds."}
+
+    if sport == "nba":
+        net, off, dfn = t["rk_pd"], t["rk_ppg"], t["rk_opp"]
+        if off <= el and dfn > half:                                  # pace-padded scoring
+            return {"v": "fools_gold", "why": _pick([
+                f"Scoreboard-stuffing against regular-season pace — but playoff games crawl into the half-court, and a #{dfn} defense can't get the stop when it matters. Points don't travel; defense does.",
+                f"All offense (#{off}), no stops (#{dfn} defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."], nm)}
+        if dfn <= el:                                                 # defense travels
+            return {"v": "trust", "why": _pick([
+                f"Elite defense (#{dfn}) — the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+                f"Defense wins in May — a #{dfn} unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."], nm)}
+        if top and net <= el:
+            return {"v": "trust", "why": f"A #{net} net rating — the single best predictor of a title run — with no obvious end to attack. Balanced and battle-ready."}
+        return {"v": "caution", "why": f"Net-rating-driven (#{net}) but leans one way; the #{max(off,dfn)} end is where a playoff defense makes it uncomfortable."}
+
+    # CFB — dominance vs schedule
+    cats = [("offense", t["rk_ppg"]), ("scoring defense", t["rk_oppppg"]), ("total defense", t["rk_oppypg"]), ("margin", t["rk_margin"])]
+    worst = max(cats, key=lambda c: c[1]); best = min(cats, key=lambda c: c[1]); b, br, w, wr = best[0], best[1], worst[0], worst[1]
+    sr = t.get("srsrank", 999)
+    if sr > 15 and top:
         return {"v": "fools_gold", "why": _pick([
-            f"A schedule mirage: #{br} {b} on paper, but opponent-adjusted they're SRS #{t['srsrank']}. The record's real; the dominance is inflated against a soft slate. Fade.",
-            f"Beating up cupcakes — the #{br} {b} evaporates once you adjust for who they've played (SRS #{t['srsrank']}). Don't buy the gaudy line.",
-            f"Padded stats, thin résumé: SRS #{t['srsrank']} says this profile wouldn't hold against real teams. The blueprint's #0% isn't a longshot, it's a warning."], nm)}
-    if sport == "cfb" and top and t.get("srsrank", 999) <= 6 and wr <= elite:
+            f"A schedule mirage — #{br} {b} on paper, but opponent-adjusted they're SRS #{sr}. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
+            f"Padded against cupcakes — the #{br} {b} evaporates once you adjust for who they've played (SRS #{sr}). Not a longshot, a warning. Fade."], nm)}
+    if top and sr <= 6 and wr <= good:
         return {"v": "trust", "why": _pick([
-            f"The genuine article — elite across the board (worst spot: {w} #{wr}) and SRS #{t['srsrank']} proves it's earned against real competition, not padded.",
-            f"No asterisk here: a complete profile that also owns a top-{t['srsrank']} schedule-adjusted rating. This is what a champion looks like in October.",
-            f"Dominant AND tested — #{br} {b}, nothing soft, and SRS #{t['srsrank']} confirms the dominance is real. Trust it all the way."], nm)}
-
-    # --- fool's gold: a top team with a hole in a playoff-critical category ---
-    if top and worst[2] and wr > n * 0.45:
-        return {"v": "fools_gold", "why": _pick([
-            f"Fool's gold — the #{br} {b} is dazzling, but a #{wr} {w} is the floor that caves when {READ_CTX[sport]}. The index is flattering a fatal flaw.",
-            f"Don't be fooled by the ranking: all {b} (#{br}), no {w} (#{wr} of {n}). {READ_CTX[sport].capitalize()} — this profile gets exposed in a series.",
-            f"A one-sided team wearing a contender's badge — #{br} {b} hides a #{wr} {w}, and {READ_CTX[sport]}. Great regular-season look, playoff trap."], nm)}
-
-    # --- trust: balanced, no hole ---
-    if top and wr <= max(10, int(n * 0.33)):
-        return {"v": "trust", "why": _pick([
-            f"Complete on every front — #{br} {b} and nothing worse than #{wr} ({w}). No soft spot for a bracket to pry open. Trust it.",
-            f"The balanced, no-weakness profile that actually wins: #{br} {b}, and even its 'worst' category ({w}) sits at #{wr}.",
-            f"Sturdy everywhere — strengths lead with the #{br} {b}, and the floor ({w} #{wr}) is still solid. This one holds up when it tightens."], nm)}
-
-    # --- caution: varied by the team's identity ---
-    verb = _pick(["Built around its", "Powered by its", "Lives on its", "Rides its", "Hangs its hat on its", "Leans on its"], nm)
-    risk = _pick(["the swing factor", "where it gets tested", "the crack that widens under pressure",
-                  "the question mark", "the part that worries me in a series", "the soft spot"], nm + "r")
-    tail = " — the exact thing the playoffs punish" if worst[2] else ""
-    return {"v": "caution", "why": f"{verb} {b} (#{br}); the #{wr} {w} is {risk}{tail}."}
+            f"The genuine article — complete (worst spot: {w} #{wr}) and SRS #{sr} proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
+            f"Dominant AND tested — #{br} {b}, no soft category, and a top-{sr} schedule-adjusted rating. This is the one to trust all the way."], nm)}
+    if top and off <= el and (t["rk_oppppg"] > half or t["rk_oppypg"] > half):
+        return {"v": "fools_gold", "why": f"One-sided — #{off} offense but a defense outside the top half. In a bracket of elite teams, the shootout eventually goes the other way. Fade."}
+    return {"v": "caution", "why": f"Leads with its #{br} {b}; the #{wr} {w} is the crack a playoff-caliber opponent widens — and SRS #{sr} says the schedule hasn't fully tested it yet."}
 
 def pick_gap(pool):
     """Pick the best TEAM (score, then index — fair odds get capped/flattened so can't break ties).

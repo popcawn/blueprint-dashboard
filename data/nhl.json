@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-19T15:09:02Z",
-  "odds_remaining": "79492",
+  "generated": "2026-10-19T18:44:15Z",
+  "odds_remaining": "79421",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#3 even-strength save%, #2 goals-against) and index 75.6. But it's only 10 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
@@ -47,7 +47,7 @@
       "ev": 1538,
       "read": {
         "v": "caution",
-        "why": "Built around its goals-against (#2); the #16 possession is the swing factor."
+        "why": "Carried by its #5 goal differential, but the #16 spot is the one a seven-game series finds."
       }
     },
     {
@@ -73,8 +73,8 @@
       "market": "+1000",
       "ev": 32,
       "read": {
-        "v": "caution",
-        "why": "Leans on its goal differential (#2); the #13 goals-against is the soft spot \u2014 the exact thing the playoffs punish."
+        "v": "trust",
+        "why": "No goaltending asterisk, no possession hole \u2014 #8 driving play and #5 in net. The team you want when the games get low-scoring and tight. Trust it."
       }
     },
     {
@@ -97,11 +97,11 @@
       ],
       "fair_pct": 11.9,
       "fair_odds": "+740",
-      "market": "+1900",
-      "ev": 138,
+      "market": "+1800",
+      "ev": 126,
       "read": {
         "v": "caution",
-        "why": "Goalie-carried: #1 in net but only #17 driving play. Hot goaltending cools; the underlying numbers don't back the record yet."
+        "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
       }
     },
     {
@@ -124,11 +124,11 @@
       ],
       "fair_pct": 10.7,
       "fair_odds": "+838",
-      "market": "+6000",
-      "ev": 550,
+      "market": "+6500",
+      "ev": 604,
       "read": {
         "v": "caution",
-        "why": "Goalie-carried: #2 in net but only #18 driving play. Hot goaltending cools; the underlying numbers don't back the record yet."
+        "why": "That #2 save% is riding variance \u2014 they're #18 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
       }
     },
     {
@@ -155,7 +155,7 @@
       "ev": -38,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its goal differential (#1); the #13 goaltending is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #1 goal differential, but the #13 spot is the one a seven-game series finds."
       }
     },
     {
@@ -182,7 +182,7 @@
       "ev": -40,
       "read": {
         "v": "caution",
-        "why": "Lives on its goal differential (#3); the #20 possession is the crack that widens under pressure."
+        "why": "Carried by its #3 goal differential, but the #20 spot is the one a seven-game series finds."
       }
     },
     {
@@ -208,8 +208,8 @@
       "market": "+1100",
       "ev": -33,
       "read": {
-        "v": "fools_gold",
-        "why": "Fool's gold \u2014 the #4 possession is dazzling, but a #19 goaltending is the floor that caves when goaltending decides best-of-seven series. The index is flattering a fatal flaw."
+        "v": "caution",
+        "why": "Controls the puck (#4) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -232,11 +232,11 @@
       ],
       "fair_pct": 5.5,
       "fair_odds": "+1714",
-      "market": "+1200",
-      "ev": -28,
+      "market": "+1300",
+      "ev": -23,
       "read": {
-        "v": "caution",
-        "why": "Built around its goals-against (#4); the #12 goal differential is the swing factor \u2014 the exact thing the playoffs punish."
+        "v": "trust",
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#9) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
       }
     },
     {
@@ -259,11 +259,11 @@
       ],
       "fair_pct": 5.3,
       "fair_odds": "+1797",
-      "market": "+17500",
-      "ev": 828,
+      "market": "+22500",
+      "ev": 1091,
       "read": {
-        "v": "caution",
-        "why": "Lives on its goaltending (#7); the #14 goal differential is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
+        "v": "trust",
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#7) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
       }
     },
     {
@@ -286,11 +286,11 @@
       ],
       "fair_pct": 4.9,
       "fair_odds": "+1942",
-      "market": "+650",
-      "ev": -63,
+      "market": "+700",
+      "ev": -61,
       "read": {
-        "v": "fools_gold",
-        "why": "Don't be fooled by the ranking: all possession (#2), no goaltending (#24 of 32). Goaltending decides best-of-seven series \u2014 this profile gets exposed in a series."
+        "v": "caution",
+        "why": "Controls the puck (#2) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -317,7 +317,7 @@
       "ev": 134,
       "read": {
         "v": "caution",
-        "why": "That #4 save% is a mirage \u2014 they're #22 in possession (Corsi), so the goalie is bailing out thin even-strength play. Expect regression."
+        "why": "Goalie-carried: #4 in net, only #22 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
       }
     },
     {
@@ -340,11 +340,11 @@
       ],
       "fair_pct": 2.9,
       "fair_odds": "+3357",
-      "market": "+1700",
-      "ev": -48,
+      "market": "+1600",
+      "ev": -51,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#4); the #20 goaltending is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "Controls the puck (#4) but can't fully trust the net (#20). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -367,11 +367,11 @@
       ],
       "fair_pct": 2.9,
       "fair_odds": "+3378",
-      "market": "+10000",
-      "ev": 190,
+      "market": "+8000",
+      "ev": 133,
       "read": {
         "v": "caution",
-        "why": "Live by the save, die by the save \u2014 #5 goaltending papering over #24 possession. A PDO correction is coming."
+        "why": "Goalie-carried: #5 in net, only #24 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
       }
     },
     {
@@ -394,11 +394,11 @@
       ],
       "fair_pct": 2.4,
       "fair_odds": "+4129",
-      "market": "+12500",
-      "ev": 198,
+      "market": "+10000",
+      "ev": 139,
       "read": {
         "v": "caution",
-        "why": "Leans on its goaltending (#11); the #22 possession is the soft spot."
+        "why": "Carried by its #14 goal differential, but the #22 spot is the one a seven-game series finds."
       }
     },
     {
@@ -425,7 +425,7 @@
       "ev": -75,
       "read": {
         "v": "caution",
-        "why": "Leans on its goal differential (#8); the #26 possession is the soft spot."
+        "why": "Carried by its #8 goal differential, but the #26 spot is the one a seven-game series finds."
       }
     },
     {
@@ -448,11 +448,11 @@
       ],
       "fair_pct": 2.1,
       "fair_odds": "+4705",
-      "market": "+2500",
-      "ev": -46,
+      "market": "+2200",
+      "ev": -52,
       "read": {
         "v": "caution",
-        "why": "Rides its goaltending (#8); the #27 possession is the question mark."
+        "why": "Carried by its #18 goal differential, but the #27 spot is the one a seven-game series finds."
       }
     },
     {
@@ -479,7 +479,7 @@
       "ev": 109,
       "read": {
         "v": "caution",
-        "why": "Built around its goals-against (#7); the #27 possession is the swing factor."
+        "why": "Carried by its #24 goal differential, but the #27 spot is the one a seven-game series finds."
       }
     },
     {
@@ -506,7 +506,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Lives on its possession (#3); the #18 goaltending is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
+        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#18) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
       }
     },
     {
@@ -529,11 +529,11 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+2500",
+      "market": "+2200",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its possession (#1); the #23 goaltending is where it gets tested \u2014 the exact thing the playoffs punish."
+        "why": "Controls the puck (#1) but can't fully trust the net (#23). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -560,7 +560,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its goals-against (#4); the #19 goal differential is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #19 goal differential, but the #18 spot is the one a seven-game series finds."
       }
     },
     {
@@ -583,11 +583,11 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+17500",
+      "market": "+12500",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Lives on its goal differential (#5); the #29 possession is the crack that widens under pressure."
+        "why": "Carried by its #5 goal differential, but the #29 spot is the one a seven-game series finds."
       }
     },
     {
@@ -610,11 +610,11 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4000",
+      "market": "+4500",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#11); the #26 goal differential is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #26 goal differential, but the #22 spot is the one a seven-game series finds."
       }
     },
     {
@@ -641,7 +641,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its possession (#6); the #28 goaltending is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #23 goal differential, but the #28 spot is the one a seven-game series finds."
       }
     },
     {
@@ -664,11 +664,11 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7500",
+      "market": "+8000",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Rides its possession (#11); the #27 goals-against is the question mark \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #19 goal differential, but the #27 spot is the one a seven-game series finds."
       }
     },
     {
@@ -695,7 +695,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its possession (#7); the #29 goaltending is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #19 goal differential, but the #29 spot is the one a seven-game series finds."
       }
     },
     {
@@ -722,7 +722,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its possession (#11); the #32 goaltending is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #25 goal differential, but the #32 spot is the one a seven-game series finds."
       }
     },
     {
@@ -749,7 +749,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its possession (#8); the #31 goaltending is where it gets tested \u2014 the exact thing the playoffs punish."
+        "why": "Carried by its #31 goal differential, but the #31 spot is the one a seven-game series finds."
       }
     }
   ]

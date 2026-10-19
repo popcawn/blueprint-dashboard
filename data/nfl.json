@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-19T15:08:55Z",
-  "odds_remaining": "79494",
+  "generated": "2026-10-19T18:44:09Z",
+  "odds_remaining": "79423",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> are the blueprint's top pick \u2014 5-0, a 5/5 with a +61 point differential (#1, the strongest Super-Bowl-champion signal) and an index of 91.0. A lone dominant #1 is the profile that historically wins \u2014 but the NFL is single-elimination, so it's a strong favorite, not a lock."
@@ -51,7 +51,7 @@
       "ev": 19,
       "read": {
         "v": "trust",
-        "why": "Complete on every front \u2014 #1 point differential and nothing worse than #4 (defense). No soft spot for a bracket to pry open. Trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -80,7 +80,7 @@
       "ev": 79,
       "read": {
         "v": "trust",
-        "why": "Sturdy everywhere \u2014 strengths lead with the #2 defense, and the floor (offense #5) is still solid. This one holds up when it tightens."
+        "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
       }
     },
     {
@@ -109,7 +109,7 @@
       "ev": 137,
       "read": {
         "v": "trust",
-        "why": "The balanced, no-weakness profile that actually wins: #3 defense, and even its 'worst' category (offense) sits at #8."
+        "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
       }
     },
     {
@@ -137,8 +137,8 @@
       "market": "+2000",
       "ev": 251,
       "read": {
-        "v": "caution",
-        "why": "Powered by its defense (#1); the #22 offense is where it gets tested."
+        "v": "trust",
+        "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -166,8 +166,8 @@
       "market": "+1400",
       "ev": 32,
       "read": {
-        "v": "caution",
-        "why": "Leans on its point differential (#5); the #12 offense is the soft spot."
+        "v": "trust",
+        "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-6 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -195,8 +195,8 @@
       "market": "+700",
       "ev": -47,
       "read": {
-        "v": "caution",
-        "why": "Powered by its offense (#1); the #28 defense is where it gets tested \u2014 the exact thing the playoffs punish."
+        "v": "fools_gold",
+        "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade."
       }
     },
     {
@@ -225,7 +225,7 @@
       "ev": -58,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its offense (#7); the #15 defense is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #7 unit, but the #15 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -254,7 +254,7 @@
       "ev": -16,
       "read": {
         "v": "caution",
-        "why": "Leans on its defense (#5); the #19 offense is the soft spot."
+        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #5 defense, but a #19 offense that can't go cold at the wrong time."
       }
     },
     {
@@ -283,7 +283,7 @@
       "ev": -45,
       "read": {
         "v": "caution",
-        "why": "Leans on its point differential (#6); the #13 offense is the soft spot."
+        "why": "A middling profile \u2014 leads with its #6 unit, but the #13 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -312,7 +312,7 @@
       "ev": -29,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its defense (#10); the #23 offense is the part that worries me in a series."
+        "why": "A record that outruns the margin \u2014 #5 by win%, only #14 in point differential. Close-game records don't persist, and single-elimination January is where they come due."
       }
     },
     {
@@ -341,7 +341,7 @@
       "ev": -72,
       "read": {
         "v": "caution",
-        "why": "Lives on its defense (#10); the #26 offense is the crack that widens under pressure."
+        "why": "A record that outruns the margin \u2014 #5 by win%, only #21 in point differential. Close-game records don't persist, and single-elimination January is where they come due."
       }
     },
     {
@@ -370,7 +370,7 @@
       "ev": 149,
       "read": {
         "v": "caution",
-        "why": "Leans on its defense (#7); the #28 offense is the soft spot."
+        "why": "Winning the games it shouldn't \u2014 #5 record on a #23 scoring margin. The blueprint buys margin of victory, not one-score luck; regression is the base case."
       }
     },
     {
@@ -398,8 +398,8 @@
       "market": "+4500",
       "ev": null,
       "read": {
-        "v": "caution",
-        "why": "Hangs its hat on its offense (#4); the #21 defense is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "v": "fools_gold",
+        "why": "All gas, no brakes \u2014 #4 offense but a #21 defense. Playoff football tightens and defense travels; the first time they're held near their floor, they're done."
       }
     },
     {
@@ -428,7 +428,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its offense (#9); the #14 defense is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #9 unit, but the #14 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -456,8 +456,8 @@
       "market": "+2200",
       "ev": null,
       "read": {
-        "v": "caution",
-        "why": "Lives on its offense (#2); the #29 defense is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
+        "v": "fools_gold",
+        "why": "All gas, no brakes \u2014 #2 offense but a #29 defense. Playoff football tightens and defense travels; the first time they're held near their floor, they're done."
       }
     },
     {
@@ -486,7 +486,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its defense (#12); the #18 offense is where it gets tested."
+        "why": "Winning the games it shouldn't \u2014 #5 record on a #13 scoring margin. The blueprint buys margin of victory, not one-score luck; regression is the base case."
       }
     },
     {
@@ -515,7 +515,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Lives on its offense (#6); the #26 defense is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #6 unit, but the #26 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -544,7 +544,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its defense (#7); the #27 offense is where it gets tested."
+        "why": "A middling profile \u2014 leads with its #7 unit, but the #27 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -573,7 +573,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Lives on its offense (#10); the #30 defense is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #10 unit, but the #30 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -602,7 +602,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its point differential (#18); the #19 offense is the soft spot."
+        "why": "A middling profile \u2014 leads with its #18 unit, but the #19 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -631,7 +631,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its offense (#14); the #20 defense is where it gets tested \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #14 unit, but the #20 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -660,7 +660,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Lives on its defense (#17); the #21 offense is the crack that widens under pressure."
+        "why": "A middling profile \u2014 leads with its #17 unit, but the #21 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -689,7 +689,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its offense (#11); the #25 defense is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #11 unit, but the #25 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -718,7 +718,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its offense (#16); the #23 defense is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #16 unit, but the #23 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -747,7 +747,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its offense (#14); the #27 defense is the part that worries me in a series \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #14 unit, but the #27 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -776,7 +776,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Built around its defense (#17); the #25 offense is the swing factor."
+        "why": "A middling profile \u2014 leads with its #17 unit, but the #25 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -805,7 +805,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Hangs its hat on its defense (#16); the #28 offense is the part that worries me in a series."
+        "why": "A middling profile \u2014 leads with its #16 unit, but the #28 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -834,7 +834,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leans on its offense (#17); the #32 defense is the soft spot \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #17 unit, but the #32 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -863,7 +863,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its defense (#13); the #31 offense is where it gets tested."
+        "why": "A middling profile \u2014 leads with its #13 unit, but the #31 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -892,7 +892,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Powered by its offense (#24); the #30 defense is where it gets tested \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #24 unit, but the #30 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -921,7 +921,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Built around its defense (#22); the #31 point differential is the swing factor \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #22 unit, but the #31 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -950,7 +950,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Lives on its defense (#24); the #32 point differential is the crack that widens under pressure \u2014 the exact thing the playoffs punish."
+        "why": "A middling profile \u2014 leads with its #24 unit, but the #32 area is where a good playoff team picks it apart."
       }
     }
   ]
