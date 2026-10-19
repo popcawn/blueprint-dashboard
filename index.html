@@ -6,13 +6,15 @@
 <title>Championship Blueprint</title>
 <style>
   :root{
-    --bg:#0b0f16; --panel:#141a23; --panel2:#1a2230; --line:#263040; --ink:#e6edf3; --mut:#8b98a8;
-    --grn:#2ea043; --grn-d:#113a1f; --red:#da3633; --red-d:#4a1a1a; --yel:#d29922; --blu:#2f81f7;
-    --chip-off:#222c38; --chip-on:#143a22;
+    --bg:#0a0d12; --panel:#141b26; --panel2:#1b2431; --line:#2a3548; --ink:#eef3fa; --mut:#a6b7ca; --mut2:#74869d;
+    --grn:#33d986; --grn-d:#0f2a1e; --red:#ff5d6c; --red-d:#2e1619; --yel:#ffcf4d; --blu:#4da3ff; --star:#ffd54a;
+    --chip-off:#1b2431; --chip-on:#103324; --radius:15px;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7);
   }
   *{box-sizing:border-box}
-  body{margin:0;background:radial-gradient(1200px 600px at 50% -200px,#121a28,transparent),var(--bg);color:var(--ink);
-    font:14.5px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+  body{margin:0;min-height:100vh;color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
+    background:radial-gradient(1200px 640px at 50% -160px,#16233620,transparent 70%),radial-gradient(760px 420px at 100% -40px,#1b283912,transparent 70%),var(--bg);
+    font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   a{color:var(--blu)}
   header{position:sticky;top:0;z-index:8;background:#0b0f16ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:14px 16px 10px}
   .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
@@ -41,8 +43,16 @@
   .pred p{margin:0;font-size:13px;line-height:1.5}
   .tier{margin:16px 0 2px;font-size:14px;font-weight:700}
   .tier .n{color:var(--mut);font-weight:500;font-size:12px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px}
-  .card{background:var(--panel);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:10px 12px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:13px}
+  .card{background:linear-gradient(180deg,var(--panel),#121826);border:1px solid var(--line);border-left-width:4px;border-radius:var(--radius);padding:13px 15px;box-shadow:var(--shadow)}
+  /* the Read — the hero of each card */
+  .read{display:flex;gap:9px;align-items:flex-start;margin:11px 0 2px;padding:9px 11px;border-radius:11px;line-height:1.42}
+  .read.trust{background:#0f2a1e66;border:1px solid #1e5a3e}
+  .read.caution{background:#2b240d66;border:1px solid #6b5a1e}
+  .read.fools_gold{background:#2e161966;border:1px solid #6e2b2f}
+  .rv{flex:0 0 auto;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:7px;white-space:nowrap;margin-top:1px}
+  .rv.trust{background:var(--grn);color:#052615} .rv.caution{background:var(--yel);color:#2a2102} .rv.fools_gold{background:var(--red);color:#2a0608}
+  .rwhy{font-size:13px;color:var(--ink)}
   .card.t5{border-left-color:var(--grn)} .card.t4{border-left-color:var(--blu)}
   .card.t3{border-left-color:var(--yel)} .card.t2{border-left-color:#5a6675} .card.t1{border-left-color:#2a3340}
   .row1{display:flex;align-items:flex-start;gap:8px}
@@ -139,9 +149,12 @@ function card(t, sport){
   const c = consistency(sport, t.name);
   const cons = c.spark ? `<div class="cons" title="index trajectory + top-tier streak">${c.spark}${c.streak?`<span class="streak ${c.star?'star':''}">${c.star?'⭐':''}${c.streak}w</span>`:''}</div>` : "";
   const conf = t.conf ? `<span class="conf">${t.conf}</span>` : "";
+  const RV = {trust:"TRUST", caution:"CAUTION", fools_gold:"FOOL'S GOLD"};
+  const read = t.read ? `<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${RV[t.read.v]||''}</span><span class="rwhy">${t.read.why}</span></div>` : "";
   return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${conf}<span class="rec">${t.rec}</span>
       <span class="idx">index <b>${t.index}</b>${ev}</span></div>
+    ${read}
     <div class="chips">${chips}</div>
     <div class="foot">
       <div><span class="k">fair</span>${t.fair_odds||"—"}${t.fair_pct?` · ${t.fair_pct}%`:""}</div>

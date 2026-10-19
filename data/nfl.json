@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-19T13:51:10Z",
-  "odds_remaining": "79557",
+  "generated": "2026-10-19T14:35:32Z",
+  "odds_remaining": "79511",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> are the blueprint's top pick \u2014 5-0, a 5/5 with a +61 point differential (#1, the strongest Super-Bowl-champion signal) and an index of 91.0. A lone dominant #1 is the profile that historically wins \u2014 but the NFL is single-elimination, so it's a strong favorite, not a lock."
@@ -48,7 +48,11 @@
       "fair_pct": 17.0,
       "fair_odds": "+488",
       "market": "+600",
-      "ev": 19
+      "ev": 19,
+      "read": {
+        "v": "trust",
+        "why": "No hole \u2014 worst category is defense at #4. The complete, balanced profile that survives a bracket. Trust it."
+      }
     },
     {
       "name": "Kansas City Chiefs",
@@ -72,8 +76,12 @@
       ],
       "fair_pct": 17.0,
       "fair_odds": "+488",
-      "market": "+950",
-      "ev": 79
+      "market": "+900",
+      "ev": 70,
+      "read": {
+        "v": "trust",
+        "why": "No hole \u2014 worst category is offense at #5. The complete, balanced profile that survives a bracket. Trust it."
+      }
     },
     {
       "name": "Jacksonville Jaguars",
@@ -98,7 +106,11 @@
       "fair_pct": 16.9,
       "fair_odds": "+492",
       "market": "+1300",
-      "ev": 137
+      "ev": 137,
+      "read": {
+        "v": "trust",
+        "why": "No hole \u2014 worst category is offense at #8. The complete, balanced profile that survives a bracket. Trust it."
+      }
     },
     {
       "name": "Minnesota Vikings",
@@ -122,8 +134,12 @@
       ],
       "fair_pct": 16.7,
       "fair_odds": "+498",
-      "market": "+1900",
-      "ev": 235
+      "market": "+2000",
+      "ev": 251,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#1); the offense (#22) is the question mark."
+      }
     },
     {
       "name": "Chicago Bears",
@@ -148,7 +164,11 @@
       "fair_pct": 8.8,
       "fair_odds": "+1032",
       "market": "+1400",
-      "ev": 32
+      "ev": 32,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its point differential (#5); the offense (#12) is the question mark."
+      }
     },
     {
       "name": "Buffalo Bills",
@@ -173,7 +193,11 @@
       "fair_pct": 6.6,
       "fair_odds": "+1420",
       "market": "+700",
-      "ev": -47
+      "ev": -47,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#1); the defense (#28) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Baltimore Ravens",
@@ -198,7 +222,11 @@
       "fair_pct": 4.0,
       "fair_odds": "+2375",
       "market": "+950",
-      "ev": -58
+      "ev": -58,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#7); the defense (#15) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "New England Patriots",
@@ -223,7 +251,11 @@
       "fair_pct": 4.0,
       "fair_odds": "+2387",
       "market": "+2000",
-      "ev": -16
+      "ev": -16,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#5); the offense (#19) is the question mark."
+      }
     },
     {
       "name": "Seattle Seahawks",
@@ -248,7 +280,11 @@
       "fair_pct": 3.9,
       "fair_odds": "+2468",
       "market": "+1300",
-      "ev": -45
+      "ev": -45,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its point differential (#6); the offense (#13) is the question mark."
+      }
     },
     {
       "name": "Green Bay Packers",
@@ -273,7 +309,11 @@
       "fair_pct": 2.3,
       "fair_odds": "+4273",
       "market": "+3300",
-      "ev": -22
+      "ev": -22,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#10); the offense (#23) is the question mark."
+      }
     },
     {
       "name": "Denver Broncos",
@@ -298,7 +338,11 @@
       "fair_pct": 1.5,
       "fair_odds": "+6686",
       "market": "+1800",
-      "ev": -72
+      "ev": -72,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#10); the offense (#26) is the question mark."
+      }
     },
     {
       "name": "Cleveland Browns",
@@ -323,7 +367,11 @@
       "fair_pct": 1.2,
       "fair_odds": "+7961",
       "market": "+20000",
-      "ev": 149
+      "ev": 149,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#7); the offense (#28) is the question mark."
+      }
     },
     {
       "name": "Carolina Panthers",
@@ -348,7 +396,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+4500",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#4); the defense (#21) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Cincinnati Bengals",
@@ -373,7 +425,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+2200",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#9); the defense (#14) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Detroit Lions",
@@ -398,7 +454,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+2200",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#2); the defense (#29) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Pittsburgh Steelers",
@@ -423,7 +483,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+8000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#12); the offense (#18) is the question mark."
+      }
     },
     {
       "name": "Las Vegas Raiders",
@@ -448,7 +512,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+10000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#6); the defense (#26) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "New York Jets",
@@ -473,7 +541,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+50000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#7); the offense (#27) is the question mark."
+      }
     },
     {
       "name": "New Orleans Saints",
@@ -498,7 +570,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+10000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#10); the defense (#30) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "New York Giants",
@@ -523,7 +599,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+12500",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its point differential (#18); the offense (#19) is the question mark."
+      }
     },
     {
       "name": "Houston Texans",
@@ -548,7 +628,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+2700",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#14); the defense (#20) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Los Angeles Rams",
@@ -573,7 +657,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+1000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#17); the offense (#21) is the question mark."
+      }
     },
     {
       "name": "Dallas Cowboys",
@@ -598,7 +686,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+3300",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#11); the defense (#25) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Atlanta Falcons",
@@ -623,7 +715,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+8000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#16); the defense (#23) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Indianapolis Colts",
@@ -648,7 +744,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+15000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#14); the defense (#27) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Tampa Bay Buccaneers",
@@ -672,8 +772,12 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
-      "ev": null
+      "market": "+12500",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#17); the offense (#25) is the question mark."
+      }
     },
     {
       "name": "Philadelphia Eagles",
@@ -697,8 +801,12 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
-      "ev": null
+      "market": "+17500",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#16); the offense (#28) is the question mark."
+      }
     },
     {
       "name": "Washington Commanders",
@@ -723,7 +831,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+10000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#17); the defense (#32) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Tennessee Titans",
@@ -748,7 +860,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+100000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#13); the offense (#31) is the question mark."
+      }
     },
     {
       "name": "Arizona Cardinals",
@@ -773,7 +889,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+40000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#24); the defense (#30) is the question mark \u2014 and defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Los Angeles Chargers",
@@ -798,7 +918,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+75000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#22); the point differential (#31) is the question mark \u2014 and point differential is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Miami Dolphins",
@@ -823,7 +947,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+100000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its defense (#24); the point differential (#32) is the question mark \u2014 and point differential is exactly what gets tested in the playoffs."
+      }
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-19T13:51:16Z",
-  "odds_remaining": "79556",
+  "generated": "2026-10-19T14:35:37Z",
+  "odds_remaining": "79510",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> \u2014 6-0, a 4/5 with a +34.5 scoring margin (#1, the master title signal) and index 95.4. SRS #5 confirms the dominance is earned. In the 12-team CFP, a top team with a clean profile is the pick \u2014 but it's lower-chalk than it looks; read it as best contender, not a lock."
@@ -50,7 +50,11 @@
       "fair_pct": 24.0,
       "fair_odds": "+317",
       "market": "+650",
-      "ev": 80
+      "ev": 80,
+      "read": {
+        "v": "trust",
+        "why": "The real deal \u2014 complete profile (worst category: total defense #16) and SRS #5 says it's earned against real teams, not padded. Trust it."
+      }
     },
     {
       "name": "Notre Dame Fighting Irish",
@@ -76,8 +80,12 @@
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+550",
-      "ev": 56
+      "market": "+600",
+      "ev": 68,
+      "read": {
+        "v": "trust",
+        "why": "The real deal \u2014 complete profile (worst category: offense #6) and SRS #3 says it's earned against real teams, not padded. Trust it."
+      }
     },
     {
       "name": "New Mexico Lobos",
@@ -104,7 +112,11 @@
       "fair_pct": 7.0,
       "fair_odds": "+1329",
       "market": "+125000",
-      "ev": 8653
+      "ev": 8653,
+      "read": {
+        "v": "fools_gold",
+        "why": "Schedule mirage \u2014 gaudy stats (#1 scoring defense) but opponent-adjusted SRS #44. The record is real; the dominance is padded against a soft slate. Fade."
+      }
     },
     {
       "name": "Ohio State Buckeyes",
@@ -131,7 +143,11 @@
       "fair_pct": 24.0,
       "fair_odds": "+317",
       "market": "+440",
-      "ev": 30
+      "ev": 30,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its scoring defense (#5); the offense (#12) is the question mark."
+      }
     },
     {
       "name": "James Madison Dukes",
@@ -158,7 +174,11 @@
       "fair_pct": 21.0,
       "fair_odds": "+376",
       "market": "+125000",
-      "ev": 26175
+      "ev": 26175,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#3); the total defense (#65) is the question mark \u2014 and total defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Georgia Bulldogs",
@@ -185,7 +205,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+500",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its offense (#2); the scoring defense (#17) is the question mark \u2014 and scoring defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Utah Utes",
@@ -211,8 +235,12 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4500",
-      "ev": null
+      "market": "+5000",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its margin (#7); the total defense (#27) is the question mark \u2014 and total defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Indiana Hoosiers",
@@ -239,7 +267,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+850",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its scoring defense (#4); the offense (#25) is the question mark."
+      }
     },
     {
       "name": "LSU Tigers",
@@ -266,7 +298,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+1600",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its total defense (#3); the scoring defense (#17) is the question mark \u2014 and scoring defense is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "North Dakota State Bison",
@@ -293,7 +329,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+125000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its scoring defense (#2); the offense (#70) is the question mark."
+      }
     },
     {
       "name": "TCU Horned Frogs",
@@ -320,7 +360,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+125000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its scoring defense (#3); the offense (#95) is the question mark."
+      }
     },
     {
       "name": "Florida International Panthers",
@@ -347,7 +391,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its scoring defense (#9); the offense (#122) is the question mark."
+      }
     }
   ],
   "gauntlet": [

@@ -109,6 +109,7 @@ def build_nfl():
     nf = norm(rows, "ppg", True); nw = norm(rows, "winpct", True)
     for t in rows:
         t["index"] = round(npd[t["name"]]*.25 + npg[t["name"]]*.20 + no[t["name"]]*.20 + nf[t["name"]]*.20 + nw[t["name"]]*.15, 1)
+    for t in rows: t["read"] = team_read(t, "nfl", len(rows), 5)
     # fair odds: AFC/NFC split, cap 17%
     pool = [t for t in rows if t["score"] >= 2]
     tm = {5:1.6,4:1.25,3:1.0,2:0.7}
@@ -141,7 +142,7 @@ def nfl_row(t):
         "vals": [f"{t['winpct']:.3f}", f"{t['ptdiff']:+.0f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}",
                  f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev")}
+        "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
 # ----------------------------------------------------------------------------- CFB
 def build_cfb():
@@ -219,6 +220,7 @@ def build_cfb():
     for t in teams:
         t["sosrank"] = sorted(teams, key=lambda x: -x["sos"]).index(t) + 1
         t["srsrank"] = srs_rank.get(t["name"], 999)
+    for t in teams: t["read"] = team_read(t, "cfb", len(teams), 5)
     # fair odds: SOS-weighted ^3, cap 24%
     pool = [t for t in teams if t["score"] >= 3 and "North Dakota State" not in t["name"]]
     tm = {5:1.7,4:1.3,3:1.0}
@@ -258,7 +260,7 @@ def cfb_row(t):
         "vals": [f"{t['winpct']:.3f}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_oppppg']}",
                  f"{t['oppypg']:.0f} #{t['rk_oppypg']}", f"{t['margin']:+.1f} #{t['rk_margin']}"],
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev")}
+        "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
 def compute_srs(games, fbs):
     sched = {}
@@ -318,6 +320,7 @@ def build_nhl():
     ned = norm(rows, "esdiff", True); nsv = norm(rows, "essv", True); nga = norm(rows, "totalGA", False); ncf = norm(rows, "corsi", True)
     for t in rows:
         t["index"] = round(ned[t["name"]]*.30 + nsv[t["name"]]*.25 + nga[t["name"]]*.25 + ncf[t["name"]]*.20, 1)
+    for t in rows: t["read"] = team_read(t, "nhl", len(rows), 4)
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.6,3:1.15,2:0.8}
     for cf in ("E","W"):
@@ -351,7 +354,7 @@ def nhl_row(t):
         "vals": [f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['essv']:.1f} #{t['rk_sv']}",
                  f"{t['corsi']:.1f} #{t['rk_cf']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev")}
+        "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
 # ----------------------------------------------------------------------------- NBA (ESPN; live once the season tips off ~late Oct)
 NBA_EAST = {"Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors",
@@ -446,6 +449,7 @@ def build_nba():
     for t in rows:  # Depth (scoring balance) rewarded in the index; neutral if the feed is unavailable
         t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.22 + nf[t["name"]]*.20 + nw[t["name"]]*.13
                            + (ndp[t["name"]]*.15 if has_depth else npd[t["name"]]*.15), 1)
+    for t in rows: t["read"] = team_read(t, "nba", len(rows), 4)
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.7,3:1.2,2:0.8}
     for cf in ("E","W"):
@@ -471,7 +475,7 @@ def build_nba():
             "q": [bool(x) for x in t["q"]],
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
     return base
 
 # ----------------------------------------------------------------------------- shared
@@ -499,6 +503,39 @@ def attach(allteams, pool, fd, srs_rank=None):
 
 def now_iso():
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+READ_CTX = {
+    "nfl": "single-elimination January football punishes a leaky defense",
+    "cfb": "a 12-team playoff gauntlet runs a one-sided team off the field",
+    "nhl": "goaltending decides best-of-seven series",
+    "nba": "offense goes cold in a seven-game series — defense travels",
+}
+
+def team_read(t, sport, n, maxcat):
+    """The automated 'Cubs fool's-gold' call: read the COMPONENTS, not the composite.
+       Flags a top team hiding a playoff-fatal hole, vouches for balanced teams. Returns {v, why}."""
+    if sport == "nfl":   cats = [("offense", t["rk_ppg"], False), ("defense", t["rk_opp"], True), ("point differential", t["rk_pd"], True)]
+    elif sport == "cfb": cats = [("offense", t["rk_ppg"], False), ("scoring defense", t["rk_oppppg"], True), ("total defense", t["rk_oppypg"], True), ("margin", t["rk_margin"], True)]
+    elif sport == "nhl": cats = [("goaltending", t["rk_sv"], True), ("possession", t["rk_cf"], False), ("goal differential", t["rk_ed"], True), ("goals-against", t["rk_ga"], True)]
+    else:                cats = [("offense", t["rk_ppg"], False), ("defense", t["rk_opp"], True), ("net rating", t["rk_pd"], True)]
+    worst = max(cats, key=lambda c: c[1]); best = min(cats, key=lambda c: c[1])
+    top = t["score"] >= maxcat - 1
+    # --- sport-specific overrides first ---
+    if sport == "nhl" and t["rk_sv"] <= max(3, int(n * 0.12)) and t["rk_cf"] > n * 0.5:
+        return {"v": "caution", "why": f"Riding hot goaltending — #{t['rk_sv']} save% on only #{t['rk_cf']} possession (Corsi). That save% regresses; the underlying play doesn't back it up yet."}
+    if sport == "cfb" and t.get("srsrank", 999) > 15 and top:
+        return {"v": "fools_gold", "why": f"Schedule mirage — gaudy stats (#{best[1]} {best[0]}) but opponent-adjusted SRS #{t['srsrank']}. The record is real; the dominance is padded against a soft slate. Fade."}
+    if sport == "cfb" and top and t.get("srsrank", 999) <= 6 and worst[1] <= max(10, int(n * 0.12)):
+        return {"v": "trust", "why": f"The real deal — complete profile (worst category: {worst[0]} #{worst[1]}) and SRS #{t['srsrank']} says it's earned against real teams, not padded. Trust it."}
+    # --- fool's gold: a top team with a hole in a category the playoffs punish ---
+    if top and worst[2] and worst[1] > n * 0.45:
+        return {"v": "fools_gold", "why": f"Carried by its {best[0]} (#{best[1]}), but {worst[0]} is #{worst[1]} of {n} — and {READ_CTX[sport]}. The index flatters a team with a playoff-fatal hole; fade it in a series."}
+    # --- trust: balanced, no hole ---
+    if top and worst[1] <= max(10, int(n * 0.33)):
+        return {"v": "trust", "why": f"No hole — worst category is {worst[0]} at #{worst[1]}. The complete, balanced profile that survives a bracket. Trust it."}
+    # --- caution ---
+    tail = f" — and {worst[0]} is exactly what gets tested in the playoffs" if worst[2] else ""
+    return {"v": "caution", "why": f"Leans on its {best[0]} (#{best[1]}); the {worst[0]} (#{worst[1]}) is the question mark{tail}."}
 
 def pick_gap(pool):
     """Pick the best TEAM (score, then index — fair odds get capped/flattened so can't break ties).

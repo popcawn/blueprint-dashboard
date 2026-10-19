@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-19T13:51:17Z",
-  "odds_remaining": "79555",
+  "generated": "2026-10-19T14:35:38Z",
+  "odds_remaining": "79509",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> \u2014 a 4/4 on the goaltending-and-defense profile that wins Cups (#3 even-strength save%, #2 goals-against) and index 75.6. But it's only 10 games in and the NHL is the lowest-chalk sport \u2014 early save-percentages regress hard, so this is 'best profile,' not a prediction yet."
@@ -44,7 +44,11 @@
       "fair_pct": 13.0,
       "fair_odds": "+669",
       "market": "+12500",
-      "ev": 1538
+      "ev": 1538,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goals-against (#2); the possession (#16) is the question mark."
+      }
     },
     {
       "name": "Vegas Golden Knights",
@@ -67,7 +71,11 @@
       "fair_pct": 12.0,
       "fair_odds": "+732",
       "market": "+1000",
-      "ev": 32
+      "ev": 32,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goal differential (#2); the goals-against (#13) is the question mark \u2014 and goals-against is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Dallas Stars",
@@ -90,7 +98,11 @@
       "fair_pct": 11.9,
       "fair_odds": "+740",
       "market": "+1900",
-      "ev": 138
+      "ev": 138,
+      "read": {
+        "v": "caution",
+        "why": "Riding hot goaltending \u2014 #1 save% on only #17 possession (Corsi). That save% regresses; the underlying play doesn't back it up yet."
+      }
     },
     {
       "name": "Boston Bruins",
@@ -113,7 +125,11 @@
       "fair_pct": 10.7,
       "fair_odds": "+838",
       "market": "+6000",
-      "ev": 550
+      "ev": 550,
+      "read": {
+        "v": "caution",
+        "why": "Riding hot goaltending \u2014 #2 save% on only #18 possession (Corsi). That save% regresses; the underlying play doesn't back it up yet."
+      }
     },
     {
       "name": "Colorado Avalanche",
@@ -136,7 +152,11 @@
       "fair_pct": 8.3,
       "fair_odds": "+1112",
       "market": "+650",
-      "ev": -38
+      "ev": -38,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goal differential (#1); the goaltending (#13) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Edmonton Oilers",
@@ -159,7 +179,11 @@
       "fair_pct": 5.7,
       "fair_odds": "+1663",
       "market": "+950",
-      "ev": -40
+      "ev": -40,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goal differential (#3); the possession (#20) is the question mark."
+      }
     },
     {
       "name": "Tampa Bay Lightning",
@@ -182,7 +206,11 @@
       "fair_pct": 5.6,
       "fair_odds": "+1682",
       "market": "+1100",
-      "ev": -33
+      "ev": -33,
+      "read": {
+        "v": "fools_gold",
+        "why": "Carried by its possession (#4), but goaltending is #19 of 32 \u2014 and goaltending decides best-of-seven series. The index flatters a team with a playoff-fatal hole; fade it in a series."
+      }
     },
     {
       "name": "Minnesota Wild",
@@ -205,7 +233,11 @@
       "fair_pct": 5.5,
       "fair_odds": "+1714",
       "market": "+1200",
-      "ev": -28
+      "ev": -28,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goals-against (#4); the goal differential (#12) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Detroit Red Wings",
@@ -228,7 +260,11 @@
       "fair_pct": 5.3,
       "fair_odds": "+1797",
       "market": "+17500",
-      "ev": 828
+      "ev": 828,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goaltending (#7); the goal differential (#14) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Carolina Hurricanes",
@@ -251,7 +287,11 @@
       "fair_pct": 4.9,
       "fair_odds": "+1942",
       "market": "+650",
-      "ev": -63
+      "ev": -63,
+      "read": {
+        "v": "fools_gold",
+        "why": "Carried by its possession (#2), but goaltending is #24 of 32 \u2014 and goaltending decides best-of-seven series. The index flatters a team with a playoff-fatal hole; fade it in a series."
+      }
     },
     {
       "name": "Columbus Blue Jackets",
@@ -274,7 +314,11 @@
       "fair_pct": 3.1,
       "fair_odds": "+3150",
       "market": "+7500",
-      "ev": 134
+      "ev": 134,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goaltending (#4); the possession (#22) is the question mark."
+      }
     },
     {
       "name": "Utah Mammoth",
@@ -297,7 +341,11 @@
       "fair_pct": 2.9,
       "fair_odds": "+3357",
       "market": "+1700",
-      "ev": -48
+      "ev": -48,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#4); the goaltending (#20) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "New York Rangers",
@@ -320,7 +368,11 @@
       "fair_pct": 2.9,
       "fair_odds": "+3378",
       "market": "+10000",
-      "ev": 190
+      "ev": 190,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goaltending (#5); the possession (#24) is the question mark."
+      }
     },
     {
       "name": "Winnipeg Jets",
@@ -343,7 +395,11 @@
       "fair_pct": 2.4,
       "fair_odds": "+4129",
       "market": "+12500",
-      "ev": 198
+      "ev": 198,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goaltending (#11); the possession (#22) is the question mark."
+      }
     },
     {
       "name": "Washington Capitals",
@@ -366,7 +422,11 @@
       "fair_pct": 2.2,
       "fair_odds": "+4355",
       "market": "+1000",
-      "ev": -75
+      "ev": -75,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goal differential (#8); the possession (#26) is the question mark."
+      }
     },
     {
       "name": "Ottawa Senators",
@@ -389,7 +449,11 @@
       "fair_pct": 2.1,
       "fair_odds": "+4705",
       "market": "+2500",
-      "ev": -46
+      "ev": -46,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goaltending (#8); the possession (#27) is the question mark."
+      }
     },
     {
       "name": "Nashville Predators",
@@ -412,7 +476,11 @@
       "fair_pct": 1.7,
       "fair_odds": "+5918",
       "market": "+12500",
-      "ev": 109
+      "ev": 109,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goals-against (#7); the possession (#27) is the question mark."
+      }
     },
     {
       "name": "Florida Panthers",
@@ -435,7 +503,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+850",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#3); the goaltending (#18) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "New Jersey Devils",
@@ -458,7 +530,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+2500",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#1); the goaltending (#23) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Anaheim Ducks",
@@ -480,8 +556,12 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+5000",
-      "ev": null
+      "market": "+4500",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goals-against (#4); the goal differential (#19) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Seattle Kraken",
@@ -504,7 +584,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+17500",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its goal differential (#5); the possession (#29) is the question mark."
+      }
     },
     {
       "name": "Los Angeles Kings",
@@ -527,7 +611,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+4000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#11); the goal differential (#26) is the question mark \u2014 and goal differential is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Montreal Canadiens",
@@ -550,7 +638,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#6); the goaltending (#28) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Pittsburgh Penguins",
@@ -573,7 +665,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+7500",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#11); the goals-against (#27) is the question mark \u2014 and goals-against is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Buffalo Sabres",
@@ -596,7 +692,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+3000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#7); the goaltending (#29) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "St Louis Blues",
@@ -619,7 +719,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+10000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#11); the goaltending (#32) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     },
     {
       "name": "Calgary Flames",
@@ -642,7 +746,11 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": "+50000",
-      "ev": null
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Leans on its possession (#8); the goaltending (#31) is the question mark \u2014 and goaltending is exactly what gets tested in the playoffs."
+      }
     }
   ]
 }
