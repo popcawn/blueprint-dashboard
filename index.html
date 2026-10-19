@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Championship Blueprint</title>
+<title>🏆 Champions</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏆%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -24,7 +25,7 @@
   .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
   .tb{max-width:1500px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:11px clamp(14px,3vw,30px)}
   .brand{display:flex;align-items:center;gap:9px;font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:-.3px;color:var(--ink)}
-  .brand i{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 6px 16px -6px var(--accent);display:inline-block}
+  .brand .trophy{font-size:22px;line-height:1;filter:drop-shadow(0 4px 10px rgba(201,138,0,.4))}
   .brand span{color:var(--ink3);font-weight:500;font-size:13px;font-family:var(--sans)}
   .sportbar{display:flex;gap:4px;padding:4px;background:var(--panel2);border:1px solid var(--line);border-radius:999px}
   .sportbar button{padding:6px 15px;border:0;border-radius:999px;background:none;color:var(--ink2);font-weight:700;font-size:13.5px;cursor:pointer;font-family:var(--sans)}
@@ -98,7 +99,7 @@
 </head>
 <body>
 <header class="topbar"><div class="tb">
-  <a class="brand"><i></i>Blueprint <span>title odds</span></a>
+  <a class="brand"><span class="trophy">🏆</span>Champions <span>title odds</span></a>
   <nav class="sportbar" id="tabs"></nav>
   <div class="strip" id="strip"></div>
 </div></header>
