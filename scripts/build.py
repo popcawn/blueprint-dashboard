@@ -25,6 +25,23 @@ def season_pct(rows, sport):
     avg = sum(t["gp"] for t in rows) / len(rows)
     return max(1, min(100, round(avg / SEASON_GAMES[sport] * 100)))
 
+# Signal reliability: stat stabilization is an ABSOLUTE game count (~15-20), not a %,
+# so short football seasons never reach a big sample (lean on point differential) while
+# NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
+#  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10)}
+
+def signal_status(sport, gp):
+    trust, firm = SIGNAL_THRESH[sport]
+    if gp >= trust:
+        return {"status": "trust", "emoji": "🟢", "label": "Trust the board",
+                "note": f"{gp} games in — stats have stabilized; the read is actionable."}
+    if gp >= firm:
+        return {"status": "firming", "emoji": "🟡", "label": "Firming up",
+                "note": f"{gp} games in — directional, but records still carry schedule noise. Lean on point differential."}
+    return {"status": "early", "emoji": "🔴", "label": "Too early",
+            "note": f"only {gp} games — records are mostly schedule luck; don't bet the board on stats alone yet."}
+
 def get(url, timeout=50):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
     return json.load(urllib.request.urlopen(req, timeout=timeout))
@@ -360,23 +377,38 @@ def nba_depth(season):
     return out
 
 def nba_scoring(season):
-    """Pull per-team PPG / Opp PPG from ESPN byteam. Returns {name:(ppg,oppppg)} or {} if the season hasn't started."""
+    """Pull per-team PPG / Opp PPG from ESPN byteam. Returns {name:(ppg,oppppg)} or {} if the season hasn't started.
+       ESPN empties the per-team `names` arrays — the field order lives in the top-level `categories` glossary
+       and the per-team `values` align to it by index. The 'offensive' category's avgPoints (idx 0) = PPG;
+       the 'Opponent Offensive' split's same index = Opp PPG."""
     try:
         bt = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/statistics/byteam?region=us&lang=en&contentorigin=espn&season={season}&seasontype=2")
     except Exception:
         return {}
+    # glossary: for each category, the entry that still carries names defines the value order
+    gloss = {}
+    for c in bt.get("categories", []):
+        if c.get("names"):
+            gloss[c["name"]] = {n: i for i, n in enumerate(c["names"])}
+    oi = None
+    for cat in ("offensive", "general"):
+        for fld in ("avgPoints", "points"):
+            if cat in gloss and fld in gloss[cat]:
+                oi = (cat, gloss[cat][fld]); break
+        if oi: break
+    if not oi:
+        return {}
+    cat, idx = oi
     out = {}
     for t in bt.get("teams", []):
         nm = t.get("team", {}).get("displayName")
         own = opp = None
         for c in t.get("categories", []):
-            names = c.get("names", []); vals = c.get("values", []); dn = (c.get("displayName") or "").lower()
-            idx = None
-            for cand in ("avgPoints", "points", "avgPointsFor"):
-                if cand in names: idx = names.index(cand); break
-            if idx is None or idx >= len(vals): continue
+            if c.get("name") != cat: continue
+            vals = c.get("values", []); dn = (c.get("displayName") or "").lower()
+            if idx >= len(vals): continue
             if "opponent" in dn: opp = vals[idx]
-            elif own is None: own = vals[idx]
+            else: own = vals[idx]
         if nm and own is not None and opp is not None:
             out[nm] = (own, opp)
     return out
@@ -610,6 +642,8 @@ def main():
         try:
             print(f"building {name}...")
             data = fn()
+            if data.get("status") != "preseason" and data.get("gp_max") is not None:
+                data["signal"] = signal_status(name, data["gp_max"])
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)

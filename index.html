@@ -54,6 +54,12 @@
   .sbar .bar{flex:1 1 180px;max-width:340px;height:7px;background:var(--line);border-radius:5px;overflow:hidden}
   .sbar .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
   .sbar .m{color:var(--ink3);font-size:12px}
+  .sig{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;cursor:help}
+  .sig.trust{background:rgba(11,154,94,.12);color:var(--good);border-color:rgba(11,154,94,.35)}
+  .sig.firming{background:rgba(214,160,20,.14);color:#b98700;border-color:rgba(214,160,20,.4)}
+  .sig.early{background:rgba(217,58,72,.12);color:var(--bad);border-color:rgba(217,58,72,.35)}
+  .signote{font-size:11.5px;color:var(--ink3);margin:2px 0 8px}
+  .signote.early{color:var(--bad)} .signote.firming{color:#b98700}
   .tier{margin:18px 0 9px;font-family:var(--head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2)}
   .tier .n{color:var(--ink3);font-weight:500;font-size:11px;letter-spacing:.04em}
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(365px,1fr));gap:13px}
@@ -177,8 +183,9 @@ function render(){
       <div style="display:flex;gap:7px;align-items:center"><button class="btn" id="runbtn" onclick="runBlueprint()">▶ Run</button>
       <button class="btn ghost" title="GitHub token" onclick="document.getElementById('pop').classList.add('on');document.getElementById('tok').value=tok()">⚙</button></div>
       <span class="runmsg" id="runmsg"></span></div></div></div>
-    <div class="sbar"><span class="bar"><i style="width:${pct}%"></i></span>
-      <span class="m">${d.sport} · ${pct}% of season${early?' <span class="warn">· small sample</span>':''} · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>`;
+    <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
+      <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>
+    ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}`;
   for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
     html+=`<div class="tier">${tier(sc,mx)[0]} <span class="n">(${sc}/${mx})</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }
   if(cur==="cfb"&&d.gauntlet&&d.gauntlet.length){
