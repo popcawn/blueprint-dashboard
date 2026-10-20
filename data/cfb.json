@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-20T13:45:01Z",
-  "odds_remaining": "78826",
+  "generated": "2026-10-20T18:12:52Z",
+  "odds_remaining": "78501",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +317). Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
@@ -49,8 +49,8 @@
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+700",
-      "ev": 92,
+      "market": "+750",
+      "ev": 104,
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
@@ -235,7 +235,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4500",
+      "market": "+4000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -427,5 +427,11 @@
       "name": "Ole Miss Rebels",
       "srsrank": 10
     }
-  ]
+  ],
+  "signal": {
+    "status": "trust",
+    "emoji": "\ud83d\udfe2",
+    "label": "Trust the board",
+    "note": "8 games in \u2014 stats have stabilized; the read is actionable."
+  }
 }
