@@ -512,6 +512,29 @@ def _pos(ath):
     if isinstance(p, dict): return p.get("abbreviation") or p.get("name")
     return p if isinstance(p, str) else None
 
+def roster_snapshot(path, tid, keep_pos):
+    """Depth at the positions in keep_pos (name + age) + IR, so the read can judge roster construction —
+       star dependence, aging players, thin/unproven groups. The model knows the named players' caliber.
+       Returns a compact string or ''."""
+    try:
+        d = get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/teams/{tid}/roster")
+    except Exception:
+        return ""
+    groups = {}; ir = []
+    for g in d.get("athletes", []):
+        active = g.get("position") not in ("injuredReserveOrOut", "suspended", "practiceSquad")
+        for p in g.get("items", []):
+            pos = (p.get("position") or {}).get("abbreviation")
+            if pos not in keep_pos: continue
+            nm = p.get("displayName"); age = p.get("age")
+            if not active: ir.append(f"{nm}({pos}, IR)")
+            else: groups.setdefault(pos, []).append(f"{nm}{f' {age}' if age else ''}")
+    if not groups and not ir: return ""
+    order = [p for p in keep_pos if p in groups] or list(groups)
+    s = "Roster depth — " + "; ".join(f"{pos}: {', '.join(groups[pos][:5])}" for pos in order)
+    if ir: s += " | out long-term (IR): " + ", ".join(ir[:6])
+    return s
+
 def nba_ppg_by_name(season):
     """{player displayName: PPG} for NBA injury weighting (feed has no athlete id → match by name).
        Current season for this year's role + prior season as fallback (early PPG is thin / rookies miss)."""
@@ -557,7 +580,7 @@ def espn_injuries(path, ppg_by_name=None):
         if team and lst: out[team] = lst
     return out
 
-def beat_sheet(t, labels, news, inj_list):
+def beat_sheet(t, labels, news, inj_list, roster=""):
     """Compact, blueprint-anchored fact sheet handed to the model. Facts only — no narrative."""
     vals = t.get("vals", [])
     cats = "; ".join(f"{labels[i]} {vals[i]}" for i in range(min(len(labels), len(vals))))
@@ -568,14 +591,15 @@ def beat_sheet(t, labels, news, inj_list):
         (f"Futures: fair {t.get('fair_odds')} vs FanDuel {t.get('market')}, EV {t.get('ev')}%" if t.get("market") else "Futures: n/a"),
     ]
     if t.get("ftt"): lines.append(f"40-before-20: {t['ftt']}")
+    if roster: lines.append(roster)
     news_blob = " ".join(news).lower()
     def _sev(x): return {"Out": 0, "Injured Reserve": 0, "Doubtful": 1, "Questionable": 2}.get(x[1], 3)
     def _val(x): return float(x[2].split()[0]) if (x[2] and x[2].endswith("ppg")) else 0
     def _innews(x): return 0 if (x[0] and x[0].lower() in news_blob) else 1   # a hurt player the beat is writing about = the one that matters
     rel = [x for x in inj_list if x[1] in ("Out", "Doubtful", "Questionable", "Injured Reserve") or _val(x) >= 8]
     if rel:
-        # storyline injuries first, then by severity, then by scoring value (NBA)
-        shown = sorted(rel, key=lambda x: (_innews(x), _sev(x), -_val(x)))[:5]
+        # storyline injuries first, then by severity, then by scoring value (NBA) — show the full starting-level picture
+        shown = sorted(rel, key=lambda x: (_innews(x), _sev(x), -_val(x)))[:7]
         lines.append("Injuries (most notable first): " + "; ".join(f"{p} ({s}{f', {note}' if note else ''})" for p, s, note in shown))
     if news:
         lines.append("Headlines: " + " | ".join(news))
@@ -594,7 +618,10 @@ def llm_read(sheet, sport):
         "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. Lead with the reason for the verdict. "
         "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
         "bottom-tier). BAD: 'a top-4 defense (18.3 PPG allowed)'. GOOD: 'an elite defense'. The card already shows the numbers. "
-        "Name the single current fact (one injury or storyline) that matters most for a title run. Use ONLY the facts provided — invent nothing, no quotes. "
+        "Judge the ROSTER, not just the box score: use the depth chart and injuries to flag star-dependence, an aging key player, a thin or "
+        "unproven position group, or a position group hit by multiple injuries (e.g. a banged-up receiver corps). You MAY apply well-known, "
+        "established reputation about the specific players named in the data (a star's caliber, a veteran past his prime) — but NEVER invent "
+        "players, injuries, stats, prices, quotes, or events that are not in the data. "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
     )
     body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 120,
@@ -627,12 +654,14 @@ def attach_beat_reads(name, data):
     ppg = nba_ppg_by_name(YEAR + 1) if name == "nba" else None
     injuries = espn_injuries(path, ppg)
     ids = espn_team_ids(path)
+    keep_pos = {"nfl": ["QB", "RB", "FB", "WR", "TE"]}.get(name)   # offense skill depth exposes roster weaknesses
     done = 0
     for t in sorted(teams, key=lambda x: -x.get("index", 0)):
         if t.get("score", 0) < min_score or done >= 15: continue
         tid = ids.get(t["name"])
         news = espn_news(path, tid) if tid else []
-        br = llm_read(beat_sheet(t, labels, news, injuries.get(t["name"], [])), name)
+        roster = roster_snapshot(path, tid, keep_pos) if (keep_pos and tid) else ""
+        br = llm_read(beat_sheet(t, labels, news, injuries.get(t["name"], []), roster), name)
         if br and t.get("read"):
             t["read"]["beat"] = br["beat"]
             if br.get("tier"): t["read"]["tier"] = br["tier"]
