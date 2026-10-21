@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-20T11:56:25Z",
-  "odds_remaining": "78875",
+  "generated": "2026-10-20T18:12:49Z",
+  "odds_remaining": "78502",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
@@ -163,8 +163,8 @@
       ],
       "fair_pct": 8.9,
       "fair_odds": "+1029",
-      "market": "+1400",
-      "ev": 33,
+      "market": "+1500",
+      "ev": 42,
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-6 defense. Complete and earned \u2014 trust it."
@@ -279,8 +279,8 @@
       ],
       "fair_pct": 3.9,
       "fair_odds": "+2465",
-      "market": "+1300",
-      "ev": -45,
+      "market": "+1200",
+      "ev": -49,
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #6 unit, but the #13 area is where a good playoff team picks it apart."
@@ -424,7 +424,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+2500",
+      "market": "+2200",
       "ev": null,
       "read": {
         "v": "caution",
@@ -511,7 +511,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+8000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -540,7 +540,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+35000",
+      "market": "+40000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -743,7 +743,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+15000",
+      "market": "+17500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -801,7 +801,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+15000",
+      "market": "+12500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -917,7 +917,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+40000",
+      "market": "+70000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -953,5 +953,11 @@
         "why": "A middling profile \u2014 leads with its #24 unit, but the #32 area is where a good playoff team picks it apart."
       }
     }
-  ]
+  ],
+  "signal": {
+    "status": "firming",
+    "emoji": "\ud83d\udfe1",
+    "label": "Firming up",
+    "note": "6 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
+  }
 }

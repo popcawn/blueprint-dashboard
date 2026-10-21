@@ -1,15 +1,15 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-19T23:42:48Z",
-  "odds_remaining": "79162",
+  "generated": "2026-10-20T18:12:52Z",
+  "odds_remaining": "78500",
   "prediction": {
     "pick": "Vegas Golden Knights",
-    "why": "<b>Vegas Golden Knights</b> is the pick \u2014 the top team the model actually trusts (fair +732). No goaltending asterisk, no possession hole \u2014 #8 driving play and #5 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
+    "why": "<b>Vegas Golden Knights</b> is the pick \u2014 the top team the model actually trusts (fair +684). No goaltending asterisk, no possession hole \u2014 #8 driving play and #5 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
   },
   "gp_min": 6,
-  "gp_max": 10,
-  "season_pct": 10,
+  "gp_max": 11,
+  "season_pct": 11,
   "cats": [
     "ES goal diff top-11",
     "ES save% top-12",
@@ -38,16 +38,16 @@
       "vals": [
         "+7 #5",
         "94.0 #3",
-        "51.0 #16",
+        "51.0 #15",
         "17 #2"
       ],
       "fair_pct": 13.0,
       "fair_odds": "+669",
-      "market": "+12500",
-      "ev": 1538,
+      "market": "+15000",
+      "ev": 1863,
       "read": {
         "v": "caution",
-        "why": "Carried by its #5 goal differential, but the #16 spot is the one a seven-game series finds."
+        "why": "Carried by its #5 goal differential, but the #15 spot is the one a seven-game series finds."
       }
     },
     {
@@ -66,12 +66,12 @@
         "+12 #2",
         "92.4 #5",
         "53.0 #8",
-        "24 #13"
+        "24 #10"
       ],
-      "fair_pct": 12.0,
-      "fair_odds": "+732",
+      "fair_pct": 12.8,
+      "fair_odds": "+684",
       "market": "+1000",
-      "ev": 32,
+      "ev": 40,
       "read": {
         "v": "trust",
         "why": "No goaltending asterisk, no possession hole \u2014 #8 driving play and #5 in net. The team you want when the games get low-scoring and tight. Trust it."
@@ -95,10 +95,10 @@
         "50.0 #17",
         "12 #1"
       ],
-      "fair_pct": 11.9,
-      "fair_odds": "+740",
-      "market": "+1900",
-      "ev": 138,
+      "fair_pct": 12.6,
+      "fair_odds": "+691",
+      "market": "+2000",
+      "ev": 166,
       "read": {
         "v": "caution",
         "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
@@ -122,40 +122,13 @@
         "49.0 #18",
         "19 #3"
       ],
-      "fair_pct": 10.7,
-      "fair_odds": "+838",
-      "market": "+6500",
-      "ev": 604,
+      "fair_pct": 10.4,
+      "fair_odds": "+866",
+      "market": "+4500",
+      "ev": 376,
       "read": {
         "v": "caution",
         "why": "That #2 save% is riding variance \u2014 they're #18 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
-      }
-    },
-    {
-      "name": "Colorado Avalanche",
-      "conf": "W",
-      "rec": "8 GP",
-      "score": 3,
-      "index": 71.5,
-      "q": [
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+15 #1",
-        "91.1 #13",
-        "52.0 #11",
-        "23 #9"
-      ],
-      "fair_pct": 8.3,
-      "fair_odds": "+1112",
-      "market": "+650",
-      "ev": -38,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #1 goal differential, but the #13 spot is the one a seven-game series finds."
       }
     },
     {
@@ -174,12 +147,12 @@
         "+11 #3",
         "91.1 #12",
         "48.0 #20",
-        "24 #13"
+        "24 #10"
       ],
-      "fair_pct": 5.7,
-      "fair_odds": "+1663",
+      "fair_pct": 6.0,
+      "fair_odds": "+1561",
       "market": "+950",
-      "ev": -40,
+      "ev": -37,
       "read": {
         "v": "caution",
         "why": "Carried by its #3 goal differential, but the #20 spot is the one a seven-game series finds."
@@ -198,18 +171,18 @@
         true
       ],
       "vals": [
-        "+4 #9",
-        "90.0 #19",
-        "56.0 #4",
+        "+4 #10",
+        "90.0 #18",
+        "56.0 #5",
         "21 #4"
       ],
-      "fair_pct": 5.6,
-      "fair_odds": "+1682",
+      "fair_pct": 5.5,
+      "fair_odds": "+1734",
       "market": "+1100",
-      "ev": -33,
+      "ev": -35,
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#4) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+        "why": "Controls the puck (#5) but can't fully trust the net (#18). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -225,15 +198,15 @@
         true
       ],
       "vals": [
-        "+2 #12",
+        "+2 #13",
         "91.5 #9",
         "53.0 #8",
         "21 #4"
       ],
-      "fair_pct": 5.5,
-      "fair_odds": "+1714",
+      "fair_pct": 5.9,
+      "fair_odds": "+1609",
       "market": "+1200",
-      "ev": -28,
+      "ev": -24,
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#9) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
@@ -252,18 +225,18 @@
         true
       ],
       "vals": [
-        "+1 #14",
-        "92.4 #7",
-        "52.0 #11",
-        "23 #9"
+        "+1 #15",
+        "92.4 #6",
+        "52.0 #12",
+        "23 #7"
       ],
-      "fair_pct": 5.3,
-      "fair_odds": "+1797",
-      "market": "+15000",
-      "ev": 696,
+      "fair_pct": 5.1,
+      "fair_odds": "+1853",
+      "market": "+17500",
+      "ev": 801,
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#7) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#12 Corsi) and goaltending (#6) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
       }
     },
     {
@@ -279,18 +252,72 @@
         true
       ],
       "vals": [
-        "+3 #10",
-        "88.8 #24",
+        "+3 #11",
+        "88.8 #25",
         "60.0 #2",
-        "24 #13"
+        "24 #10"
       ],
-      "fair_pct": 4.9,
-      "fair_odds": "+1942",
-      "market": "+700",
-      "ev": -61,
+      "fair_pct": 4.8,
+      "fair_odds": "+2003",
+      "market": "+650",
+      "ev": -64,
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#2) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+        "why": "Controls the puck (#2) but can't fully trust the net (#25). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+      }
+    },
+    {
+      "name": "New York Rangers",
+      "conf": "E",
+      "rec": "11 GP",
+      "score": 3,
+      "index": 56.9,
+      "q": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+3 #11",
+        "92.3 #7",
+        "46.0 #25",
+        "24 #10"
+      ],
+      "fair_pct": 4.0,
+      "fair_odds": "+2378",
+      "market": "+6500",
+      "ev": 166,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #11 goal differential, but the #25 spot is the one a seven-game series finds."
+      }
+    },
+    {
+      "name": "Colorado Avalanche",
+      "conf": "W",
+      "rec": "9 GP",
+      "score": 2,
+      "index": 69.6,
+      "q": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "+15 #1",
+        "90.9 #13",
+        "53.0 #8",
+        "26 #18"
+      ],
+      "fair_pct": 5.6,
+      "fair_odds": "+1679",
+      "market": "+700",
+      "ev": -55,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #1 goal differential, but the #18 spot is the one a seven-game series finds."
       }
     },
     {
@@ -306,15 +333,15 @@
         true
       ],
       "vals": [
-        "+1 #14",
+        "+1 #15",
         "92.8 #4",
         "47.0 #22",
-        "23 #9"
+        "23 #7"
       ],
-      "fair_pct": 3.1,
-      "fair_odds": "+3150",
-      "market": "+8000",
-      "ev": 149,
+      "fair_pct": 3.0,
+      "fair_odds": "+3245",
+      "market": "+7500",
+      "ev": 127,
       "read": {
         "v": "caution",
         "why": "Goalie-carried: #4 in net, only #22 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
@@ -323,9 +350,9 @@
     {
       "name": "Utah Mammoth",
       "conf": "W",
-      "rec": "9 GP",
+      "rec": "10 GP",
       "score": 2,
-      "index": 56.9,
+      "index": 55.9,
       "q": [
         true,
         false,
@@ -333,45 +360,18 @@
         false
       ],
       "vals": [
-        "+3 #10",
-        "89.8 #20",
-        "56.0 #4",
-        "27 #20"
+        "+5 #8",
+        "89.5 #20",
+        "57.0 #4",
+        "31 #23"
       ],
       "fair_pct": 2.9,
-      "fair_odds": "+3357",
+      "fair_odds": "+3334",
       "market": "+1600",
-      "ev": -51,
+      "ev": -50,
       "read": {
         "v": "caution",
         "why": "Controls the puck (#4) but can't fully trust the net (#20). The dangerous kind of team: the process says contender, the goaltending says coin flip."
-      }
-    },
-    {
-      "name": "New York Rangers",
-      "conf": "E",
-      "rec": "10 GP",
-      "score": 2,
-      "index": 56.8,
-      "q": [
-        false,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "+1 #14",
-        "92.4 #5",
-        "46.0 #24",
-        "22 #7"
-      ],
-      "fair_pct": 2.9,
-      "fair_odds": "+3378",
-      "market": "+8000",
-      "ev": 133,
-      "read": {
-        "v": "caution",
-        "why": "Goalie-carried: #5 in net, only #24 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
       }
     },
     {
@@ -387,18 +387,18 @@
         true
       ],
       "vals": [
-        "+1 #14",
+        "+1 #15",
         "91.4 #11",
         "47.0 #22",
-        "24 #13"
+        "24 #10"
       ],
-      "fair_pct": 2.4,
-      "fair_odds": "+4129",
+      "fair_pct": 2.5,
+      "fair_odds": "+3883",
       "market": "+10000",
-      "ev": 139,
+      "ev": 154,
       "read": {
         "v": "caution",
-        "why": "Carried by its #14 goal differential, but the #22 spot is the one a seven-game series finds."
+        "why": "Carried by its #15 goal differential, but the #22 spot is the one a seven-game series finds."
       }
     },
     {
@@ -415,14 +415,14 @@
       ],
       "vals": [
         "+5 #8",
-        "90.4 #17",
+        "90.4 #16",
         "45.0 #26",
-        "24 #13"
+        "24 #10"
       ],
       "fair_pct": 2.2,
-      "fair_odds": "+4355",
-      "market": "+1000",
-      "ev": -75,
+      "fair_odds": "+4486",
+      "market": "+1100",
+      "ev": -74,
       "read": {
         "v": "caution",
         "why": "Carried by its #8 goal differential, but the #26 spot is the one a seven-game series finds."
@@ -444,12 +444,12 @@
         "+0 #18",
         "91.7 #8",
         "44.0 #27",
-        "23 #9"
+        "23 #7"
       ],
-      "fair_pct": 2.1,
-      "fair_odds": "+4705",
+      "fair_pct": 2.0,
+      "fair_odds": "+4846",
       "market": "+2500",
-      "ev": -46,
+      "ev": -47,
       "read": {
         "v": "caution",
         "why": "Carried by its #18 goal differential, but the #27 spot is the one a seven-game series finds."
@@ -471,12 +471,12 @@
         "-4 #24",
         "91.5 #10",
         "44.0 #27",
-        "22 #7"
+        "22 #6"
       ],
-      "fair_pct": 1.7,
-      "fair_odds": "+5918",
+      "fair_pct": 1.8,
+      "fair_odds": "+5568",
       "market": "+12500",
-      "ev": 109,
+      "ev": 122,
       "read": {
         "v": "caution",
         "why": "Carried by its #24 goal differential, but the #27 spot is the one a seven-game series finds."
@@ -495,10 +495,10 @@
         false
       ],
       "vals": [
-        "+2 #12",
-        "90.3 #18",
+        "+2 #13",
+        "90.3 #17",
         "58.0 #3",
-        "25 #18"
+        "25 #16"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -506,7 +506,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#18) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
+        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#17) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
       }
     },
     {
@@ -523,7 +523,7 @@
       ],
       "vals": [
         "-1 #19",
-        "89.0 #23",
+        "89.0 #24",
         "62.0 #1",
         "27 #20"
       ],
@@ -533,34 +533,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#1) but can't fully trust the net (#23). The dangerous kind of team: the process says contender, the goaltending says coin flip."
-      }
-    },
-    {
-      "name": "Anaheim Ducks",
-      "conf": "W",
-      "rec": "7 GP",
-      "score": 1,
-      "index": 53.1,
-      "q": [
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "-1 #19",
-        "90.6 #16",
-        "49.0 #18",
-        "21 #4"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+4500",
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #19 goal differential, but the #18 spot is the one a seven-game series finds."
+        "why": "Controls the puck (#1) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -579,11 +552,11 @@
         "+7 #5",
         "90.7 #15",
         "42.0 #29",
-        "31 #25"
+        "31 #23"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+15000",
+      "market": "+12500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -605,12 +578,12 @@
       "vals": [
         "-7 #26",
         "89.3 #22",
-        "52.0 #11",
-        "25 #18"
+        "52.0 #12",
+        "25 #16"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4500",
+      "market": "+4000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -630,10 +603,10 @@
         false
       ],
       "vals": [
-        "-3 #23",
-        "87.6 #28",
+        "-3 #21",
+        "87.6 #29",
         "55.0 #6",
-        "30 #24"
+        "30 #22"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -641,34 +614,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #23 goal differential, but the #28 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "Pittsburgh Penguins",
-      "conf": "E",
-      "rec": "9 GP",
-      "score": 1,
-      "index": 40.8,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "-1 #19",
-        "88.2 #26",
-        "52.0 #11",
-        "32 #27"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+7000",
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #19 goal differential, but the #27 spot is the one a seven-game series finds."
+        "why": "Carried by its #21 goal differential, but the #29 spot is the one a seven-game series finds."
       }
     },
     {
@@ -685,9 +631,9 @@
       ],
       "vals": [
         "-1 #19",
-        "87.6 #29",
+        "87.6 #30",
         "54.0 #7",
-        "33 #28"
+        "33 #27"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -695,7 +641,34 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #19 goal differential, but the #29 spot is the one a seven-game series finds."
+        "why": "Carried by its #19 goal differential, but the #30 spot is the one a seven-game series finds."
+      }
+    },
+    {
+      "name": "Pittsburgh Penguins",
+      "conf": "E",
+      "rec": "10 GP",
+      "score": 1,
+      "index": 33.0,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "-3 #21",
+        "87.9 #28",
+        "51.0 #15",
+        "37 #30"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+8000",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #21 goal differential, but the #30 spot is the one a seven-game series finds."
       }
     },
     {
@@ -713,8 +686,8 @@
       "vals": [
         "-6 #25",
         "86.2 #32",
-        "52.0 #11",
-        "28 #22"
+        "52.0 #12",
+        "28 #21"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -741,7 +714,7 @@
         "-16 #31",
         "86.2 #31",
         "53.0 #8",
-        "37 #31"
+        "37 #30"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -752,5 +725,11 @@
         "why": "Carried by its #31 goal differential, but the #31 spot is the one a seven-game series finds."
       }
     }
-  ]
+  ],
+  "signal": {
+    "status": "early",
+    "emoji": "\ud83d\udd34",
+    "label": "Too early",
+    "note": "only 11 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
+  }
 }
