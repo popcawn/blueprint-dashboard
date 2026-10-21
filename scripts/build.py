@@ -568,13 +568,15 @@ def beat_sheet(t, labels, news, inj_list):
         (f"Futures: fair {t.get('fair_odds')} vs FanDuel {t.get('market')}, EV {t.get('ev')}%" if t.get("market") else "Futures: n/a"),
     ]
     if t.get("ftt"): lines.append(f"40-before-20: {t['ftt']}")
-    def _sev(x): return {"Out": 0, "Doubtful": 1, "Questionable": 2}.get(x[1], 3)
-    def _val(x):
-        return float(x[2].split()[0]) if (x[2] and x[2].endswith("ppg")) else 0
-    rel = [x for x in inj_list if x[1] in ("Out", "Doubtful", "Questionable") or _val(x) >= 8]
+    news_blob = " ".join(news).lower()
+    def _sev(x): return {"Out": 0, "Injured Reserve": 0, "Doubtful": 1, "Questionable": 2}.get(x[1], 3)
+    def _val(x): return float(x[2].split()[0]) if (x[2] and x[2].endswith("ppg")) else 0
+    def _innews(x): return 0 if (x[0] and x[0].lower() in news_blob) else 1   # a hurt player the beat is writing about = the one that matters
+    rel = [x for x in inj_list if x[1] in ("Out", "Doubtful", "Questionable", "Injured Reserve") or _val(x) >= 8]
     if rel:
-        shown = sorted(rel, key=lambda x: (_sev(x), -_val(x)))[:4]
-        lines.append("Injuries: " + "; ".join(f"{p} ({s}{f', {note}' if note else ''})" for p, s, note in shown))
+        # storyline injuries first, then by severity, then by scoring value (NBA)
+        shown = sorted(rel, key=lambda x: (_innews(x), _sev(x), -_val(x)))[:5]
+        lines.append("Injuries (most notable first): " + "; ".join(f"{p} ({s}{f', {note}' if note else ''})" for p, s, note in shown))
     if news:
         lines.append("Headlines: " + " | ".join(news))
     return "\n".join(lines)
@@ -590,8 +592,9 @@ def llm_read(sheet, sport):
         "Sort this team on the spectrum pretender -> contender -> champion. "
         f"Playoff reality for this sport: {ctx}. "
         "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. Lead with the reason for the verdict. "
-        "Do NOT restate the raw category numbers (they are already shown on the card) — give the judgment they imply, plus the "
-        "single current fact (one injury or storyline) that matters most. Use ONLY the facts provided — invent nothing, no quotes. "
+        "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
+        "bottom-tier). BAD: 'a top-4 defense (18.3 PPG allowed)'. GOOD: 'an elite defense'. The card already shows the numbers. "
+        "Name the single current fact (one injury or storyline) that matters most for a title run. Use ONLY the facts provided — invent nothing, no quotes. "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
     )
     body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 120,
