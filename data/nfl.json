@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-21T18:03:42Z",
-  "odds_remaining": "76792",
+  "generated": "2026-10-21T18:08:24Z",
+  "odds_remaining": "76788",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
@@ -52,7 +52,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it.",
-        "beat": "The blueprint's two playoff-surviving traits both check out: a #1 point differential (+67, +11.2/g) and a top-4 scoring defense (18.3 PPG allowed, #4), with a 6-0 start and the verdict to trust it. Injuries to Deebo Samuel and Garret Wallow are real but don't touch the margin or defensive profile that matter most in January.",
+        "beat": "Best-in-class point differential (+67, #1) and a top-four defense (18.3 PPG allowed) are exactly what survives January. Deebo Samuel's absence is the main injury concern to monitor.",
         "tier": "champion"
       }
     },
@@ -83,8 +83,8 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "Tier 5 with a #2 defense that travels and a #2 point differential is exactly the January shape the blueprint rewards, and at +900 against a fair +488 the price is a clear value spot. The three questionable tags on Rashee Rice, Josh Simmons, and Jaylon Moore are the only thing that could puncture this, so monitor the offensive line before kickoff.",
-        "tier": "champion"
+        "beat": "Unbeaten with the No. 2 scoring defense and No. 2 point margin, a top-tier January profile, though a shaky offensive line could expose them if games tighten. Watch Josh Simmons and Jaylon Moore (both Questionable, OT).",
+        "tier": "contender"
       }
     },
     {
@@ -114,7 +114,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "The blueprint's tier-5 index (76.1) and a #3 scoring defense (17.3 PPG allowed) with a +50 point differential (#3) fit a team built to win slowed-down January games, but the offense ranks only #8 at 25.7 PPG, so they haven't proven they can win shootouts. Three questionable starters (LS Ross Matiscik, CB Montaric Brown, S Antonio Johnson) are the thing to watch before they're trusted as a title pick.",
+        "beat": "Top-three scoring defense and point differential make them legitimate, but their offense ranks only eighth in points per game, and three defensive pieces (LS, CB, S) are questionable.",
         "tier": "contender"
       }
     },
@@ -145,7 +145,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it.",
-        "beat": "Minnesota owns the league's best scoring defense (12.8 PPG allowed, #1) and a +45 point differential (#4), the two traits that travel into single-elimination January games. The offense ranks only #22 in points per game, and four starters are listed as Questionable, so the title case rests on the defense staying healthy.",
+        "beat": "Elite defense and a top-4 point differential validate the trust verdict, but the 21.8 points per game offense ranks 22nd, a real playoff risk. Four Questionable tags, including Darrisaw on the offensive line, bear watching.",
         "tier": "contender"
       }
     },
@@ -176,7 +176,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-6 defense. Complete and earned \u2014 trust it.",
-        "beat": "The Bears profile as a true contender: a +31 point differential (#5) and a top-6 scoring defense (19.8 PPG allowed) are exactly the traits that survive January single-elimination. The offense (#12 in PPG) and four Questionable tags on LB, RB, and G are the threats to watch before the playoffs.",
+        "beat": "Plus-31 point differential and a top-6 scoring defense are the traits that travel to January, though the offense ranks 12th in points per game. Four starters are questionable, including linebacker T.J. Edwards and guard Jonah Jackson.",
         "tier": "contender"
       }
     },
@@ -207,7 +207,7 @@
       "read": {
         "v": "fools_gold",
         "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade.",
-        "beat": "Buffalo's #1 scoring offense (32.8 PPG) is masking a #28 defense allowing 28.5 a game, the classic shootout-or-bust profile that tends to crack in January. With the market pricing them at +700 against our +1432 fair line, backing them means paying a steep premium for a team that can't get stops.",
+        "beat": "Elite offense can't hide a #28 defense that cannot get stops, and January single-elimination games punish that. Fade at +700 with Ed Oliver (DT) questionable.",
         "tier": "pretender"
       }
     },
