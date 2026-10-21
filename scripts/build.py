@@ -482,30 +482,40 @@ def nba_wl_log(tid, season):
     return [x[1] for x in g]
 
 # ----------------------------------------------------------------------------- beat-reporter reads
-def nba_team_news(tid, n=4):
+SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba"}
+
+def espn_news(path, tid, n=4):
     """Recent ESPN headlines+blurbs for one team — the storyline fuel for the beat-reporter read."""
     try:
-        d = get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?team={tid}&limit={n+3}")
+        d = get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/news?team={tid}&limit={n+4}")
     except Exception:
         return []
     out = []
     for a in d.get("articles", []):
         h = (a.get("headline") or "").strip()
-        if not h or "Where to watch" in h: continue
+        if not h or "Where to watch" in h or h.lower().startswith("fantasy"): continue
         desc = (a.get("description") or "").strip()
         out.append(h + (f" — {desc}" if desc else ""))
         if len(out) >= n: break
     return out
 
-def nba_injuries_weighted(season):
-    """League injuries matched to each player's PPG (via byathlete, by athlete id) so the read knows
-       whether a star or a bench piece is out. Returns {team_displayName: [ (player, status, ppg) ]}."""
+def espn_team_ids(path, limit=400):
+    """{displayName: id} for a league, to fetch per-team news."""
     try:
-        inj = get("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries").get("injuries", [])
+        d = get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/teams?limit={limit}")
+        return {t["team"]["displayName"]: t["team"]["id"] for t in d["sports"][0]["leagues"][0]["teams"]}
     except Exception:
         return {}
-    ppg = {}   # ESPN's injury feed has no athlete id, so match PPG by displayName.
-    # Current season for role, prior season as fallback (early-season current PPG is thin / rookies miss).
+
+def _pos(ath):
+    p = ath.get("position")
+    if isinstance(p, dict): return p.get("abbreviation") or p.get("name")
+    return p if isinstance(p, str) else None
+
+def nba_ppg_by_name(season):
+    """{player displayName: PPG} for NBA injury weighting (feed has no athlete id → match by name).
+       Current season for this year's role + prior season as fallback (early PPG is thin / rookies miss)."""
+    ppg = {}
     def _load(seas, fill_only):
         try:
             d = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/statistics/byathlete?region=us&lang=en&contentorigin=espn&season={seas}&seasontype=2&limit=600")
@@ -524,47 +534,63 @@ def nba_injuries_weighted(season):
                     v = c.get("values", [])
                     if oi < len(v): ppg[nm] = v[oi]
                     break
-    _load(season, False)      # current season (this year's role)
-    _load(season - 1, True)   # prior season fallback for names not yet present
+    _load(season, False)
+    _load(season - 1, True)
+    return ppg
+
+def espn_injuries(path, ppg_by_name=None):
+    """League injuries, each as (player, status, note). note = '<n> ppg' for a matched NBA scorer,
+       else the player's position (QB/RW/...). Skips 'Active' (not actually hurt). {team: [...]}"""
+    try:
+        inj = get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/injuries").get("injuries", [])
+    except Exception:
+        return {}
     out = {}
     for t in inj:
         team = t.get("displayName"); lst = []
         for it in t.get("injuries", []):
-            nm = it.get("athlete", {}).get("displayName")
-            lst.append((nm, it.get("status"), ppg.get(nm)))
+            ath = it.get("athlete", {}); nm = ath.get("displayName"); st = it.get("status")
+            if not nm or st in (None, "Active"): continue
+            if ppg_by_name is not None and nm in ppg_by_name: note = f"{ppg_by_name[nm]:.0f} ppg"
+            else: note = _pos(ath)
+            lst.append((nm, st, note))
         if team and lst: out[team] = lst
     return out
 
-def beat_sheet(t, news, injuries):
+def beat_sheet(t, labels, news, inj_list):
     """Compact, blueprint-anchored fact sheet handed to the model. Facts only — no narrative."""
-    L = ["Win%", "Net/g", "PPG", "Opp PPG"]
-    cats = "; ".join(f"{L[i]} {t['vals'][i]}" for i in range(len(t["vals"])))
+    vals = t.get("vals", [])
+    cats = "; ".join(f"{labels[i]} {vals[i]}" for i in range(min(len(labels), len(vals))))
     lines = [
-        f"Team: {t['name']} ({t['conf']}), {t['rec']}",
-        f"Blueprint: tier {t['score']}/4, index {t['index']}, box-score verdict '{t['read']['v']}' ({t['read']['why']})",
+        f"Team: {t['name']}{f' ({t['conf']})' if t.get('conf') else ''}, {t.get('rec','')}",
+        f"Blueprint: tier {t['score']}, index {t['index']}, box-score verdict '{t['read']['v']}' ({t['read']['why']})",
         f"Category ranks: {cats}",
-        f"Futures: fair {t.get('fair_odds')} vs FanDuel {t.get('market')}, EV {t.get('ev')}%" if t.get("market") else "Futures: n/a",
-        f"40-before-20: {t.get('ftt')}",
+        (f"Futures: fair {t.get('fair_odds')} vs FanDuel {t.get('market')}, EV {t.get('ev')}%" if t.get("market") else "Futures: n/a"),
     ]
-    inj = injuries.get(t["name"], [])
-    rel = [x for x in inj if (x[2] and x[2] >= 8) or x[1] in ("Out", "Doubtful")]
+    if t.get("ftt"): lines.append(f"40-before-20: {t['ftt']}")
+    def _sev(x): return {"Out": 0, "Doubtful": 1, "Questionable": 2}.get(x[1], 3)
+    def _val(x):
+        return float(x[2].split()[0]) if (x[2] and x[2].endswith("ppg")) else 0
+    rel = [x for x in inj_list if x[1] in ("Out", "Doubtful", "Questionable") or _val(x) >= 8]
     if rel:
-        shown = sorted(rel, key=lambda x: -(x[2] or 0))[:4]
-        lines.append("Injuries: " + "; ".join(f"{p} ({s}{f', {ppg:.0f} ppg' if ppg else ''})" for p, s, ppg in shown))
+        shown = sorted(rel, key=lambda x: (_sev(x), -_val(x)))[:4]
+        lines.append("Injuries: " + "; ".join(f"{p} ({s}{f', {note}' if note else ''})" for p, s, note in shown))
     if news:
         lines.append("Headlines: " + " | ".join(news))
     return "\n".join(lines)
 
-def llm_read(sheet):
+def llm_read(sheet, sport):
     """Claude writes a BRIEF, blueprint-accurate beat-reporter read from the fact sheet.
        Returns {beat, tier} or None (→ caller keeps the deterministic template read). Facts-only."""
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key: return None
+    ctx = READ_CTX.get(sport, "the playoffs punish a one-dimensional team")
     system = (
-        "You are a scout writing a BRIEF read for an NBA championship-blueprint tool. The reader is deciding "
-        "who to back to win the title, so your job is to sort this team on the spectrum pretender -> contender -> champion. "
-        "Write in the voice of a beat reporter who covers only this team: specific and opinionated, but 2 sentences MAX, ~45 words. "
-        "Anchor to the blueprint signal given (tier, box-score verdict, the defense-travels playoff logic) and let the current "
+        f"You are a scout writing a BRIEF read for a {sport.upper()} championship-blueprint tool. The reader is deciding "
+        "who to back to win the title, so sort this team on the spectrum pretender -> contender -> champion. "
+        f"Playoff reality for this sport: {ctx}. "
+        "Write like a beat reporter who covers only this team: specific and opinionated, but 2 sentences MAX, ~45 words. "
+        "Anchor to the blueprint signal given (tier, box-score verdict, the playoff-translation logic) and let the current "
         "facts (injuries, headlines) confirm or threaten it. Use ONLY the facts provided — invent nothing, no quotes, no fake sources. "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"<=2 sentences"}.'
     )
@@ -581,6 +607,29 @@ def llm_read(sheet):
     except Exception:
         return None
     return None
+
+def attach_beat_reads(name, data):
+    """Generate beat-reporter reads for the top contenders of one sport, in place on data['teams'].
+       No-op unless ANTHROPIC_API_KEY is set; all data is CI-safe curl + one Haiku call per team."""
+    if not os.environ.get("ANTHROPIC_API_KEY"): return
+    teams = data.get("teams", []); labels = data.get("labels", [])
+    if not teams: return
+    maxcat = len(data.get("cats", [])) or 4
+    min_score = max(2, maxcat - 2)        # NBA/NHL(4)->2, NFL/CFB(5)->3
+    path = SPORT_PATH[name]
+    ppg = nba_ppg_by_name(YEAR + 1) if name == "nba" else None
+    injuries = espn_injuries(path, ppg)
+    ids = espn_team_ids(path)
+    done = 0
+    for t in sorted(teams, key=lambda x: -x.get("index", 0)):
+        if t.get("score", 0) < min_score or done >= 15: continue
+        tid = ids.get(t["name"])
+        news = espn_news(path, tid) if tid else []
+        br = llm_read(beat_sheet(t, labels, news, injuries.get(t["name"], [])), name)
+        if br and t.get("read"):
+            t["read"]["beat"] = br["beat"]
+            if br.get("tier"): t["read"]["tier"] = br["tier"]
+        done += 1
 
 def build_nba():
     season = YEAR + 1  # ESPN tags the NBA season by its end year (2026-27 -> 2027)
@@ -637,18 +686,6 @@ def build_nba():
             log = nba_wl_log(_ids.get(t["name"]), season) if _ids.get(t["name"]) else None
             st = forty_twenty(t["w"], t["l"], log) if log else "pending"
         t["ftt"] = st
-    # Beat-reporter reads (LLM) for contenders — brief, blueprint-anchored, pretender/contender/champion.
-    # Runs only when ANTHROPIC_API_KEY is set; otherwise the deterministic template read stands.
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        if _ids is None: _ids = nba_team_ids()
-        injuries = nba_injuries_weighted(season)
-        for t in sorted(rows, key=lambda x: -x["index"]):
-            if t["score"] < 2: continue
-            tid = _ids.get(t["name"])
-            br = llm_read(beat_sheet(t, nba_team_news(tid) if tid else [], injuries))
-            if br:
-                t["read"]["beat"] = br["beat"]
-                if br.get("tier"): t["read"]["tier"] = br["tier"]
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.7,3:1.2,2:0.8}
     for cf in ("E","W"):
@@ -835,6 +872,7 @@ def main():
             if data.get("status") != "preseason" and data.get("gp_max") is not None:
                 data["signal"] = signal_status(name, data["gp_max"])
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4)
+                attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY)
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
