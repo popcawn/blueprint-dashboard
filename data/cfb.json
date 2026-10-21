@@ -1,15 +1,15 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-20T18:12:52Z",
-  "odds_remaining": "78501",
+  "generated": "2026-10-21T18:04:02Z",
+  "odds_remaining": "76791",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +317). Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
   },
   "gp_min": 6,
   "gp_max": 8,
-  "season_pct": 54,
+  "season_pct": 55,
   "cats": [
     "Win% \u2265.900",
     "PPG top-15",
@@ -37,23 +37,25 @@
         false,
         true
       ],
-      "sosrank": 75,
+      "sosrank": 76,
       "srsrank": 5,
       "srs_flag": "elite",
       "vals": [
         "1.000",
         "48.5 #1",
         "14.0 #7",
-        "282 #16",
+        "282 #15",
         "+34.5 #1"
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+750",
-      "ev": 104,
+      "market": "+700",
+      "ev": 92,
       "read": {
         "v": "trust",
-        "why": "Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
+        "why": "Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way.",
+        "beat": "Miami's blueprint index of 95.4 and a 'trust' verdict mark this as a team that is both dominant and tested, not just a 6-0 start. Ranking #1 in points scored (48.5) and margin (+34.5) while holding opponents to 14.0 PPG (#7) suggests a one-sided team that can survive a 12-team playoff gauntlet, and the FanDuel +700 price sits well below its fair +317 line.",
+        "tier": "champion"
       }
     },
     {
@@ -68,7 +70,7 @@
         true,
         true
       ],
-      "sosrank": 70,
+      "sosrank": 71,
       "srsrank": 3,
       "srs_flag": "elite",
       "vals": [
@@ -84,7 +86,9 @@
       "ev": 44,
       "read": {
         "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
+        "beat": "Notre Dame's blueprint is genuinely complete, with the nation's No. 1 defense by opponent yards per game (235) and a No. 3 SRS that says the wins are real. But it sits at tier 4 rather than champion because the offense ranks only No. 6 in points, and the Finebaum warning that a loss to Miami sends the Irish out of the CFP shows how little margin a 12-team gauntlet leaves.",
+        "tier": "contender"
       }
     },
     {
@@ -100,7 +104,7 @@
         true
       ],
       "sosrank": 138,
-      "srsrank": 44,
+      "srsrank": 46,
       "srs_flag": "mirage",
       "vals": [
         "0.833",
@@ -109,13 +113,15 @@
         "263 #6",
         "+29.2 #2"
       ],
-      "fair_pct": 7.0,
-      "fair_odds": "+1329",
+      "fair_pct": 6.7,
+      "fair_odds": "+1401",
       "market": "+100000",
-      "ev": 6904,
+      "ev": 6571,
       "read": {
         "v": "fools_gold",
-        "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #44. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile."
+        "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #46. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
+        "beat": "The blueprint flags New Mexico's 5-1 start as fools_gold: the #1 scoring defense looks elite, but opponent-adjusted they sit at SRS #46 against a soft slate. A 12-team playoff gauntlet is unlikely to be survivable for a profile built this way, and the +100000 futures price reflects that.",
+        "tier": "pretender"
       }
     },
     {
@@ -130,7 +136,7 @@
         true,
         false
       ],
-      "sosrank": 60,
+      "sosrank": 61,
       "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
@@ -142,11 +148,13 @@
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+470",
-      "ev": 37,
+      "market": "+500",
+      "ev": 44,
       "read": {
         "v": "caution",
-        "why": "Leads with its #5 scoring defense; the #12 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #6 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #5 scoring defense; the #12 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #6 says the schedule hasn't fully tested it yet.",
+        "beat": "Ohio State's #5 scoring defense and +25.9 margin make it a real title threat, but the #12 offense is the crack a playoff-caliber opponent will widen, and the schedule hasn't fully tested it. With Julian Sayin out for some time and Jordan Rodgers flagging a vanished margin for error, the quarterback question is the main threat to a deep run.",
+        "tier": "contender"
       }
     },
     {
@@ -161,23 +169,25 @@
         false,
         true
       ],
-      "sosrank": 88,
-      "srsrank": 42,
+      "sosrank": 82,
+      "srsrank": 41,
       "srs_flag": "mirage",
       "vals": [
         "1.000",
         "42.9 #3",
-        "16.0 #19",
+        "16.0 #18",
         "351 #65",
         "+26.9 #5"
       ],
-      "fair_pct": 21.0,
-      "fair_odds": "+376",
-      "market": "+60000",
-      "ev": 12523,
+      "fair_pct": 21.3,
+      "fair_odds": "+369",
+      "market": "+100000",
+      "ev": 21257,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 offense; the #65 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 offense; the #65 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #41 says the schedule hasn't fully tested it yet.",
+        "beat": "James Madison leads with a #3 offense and a +26.9 margin, but the #65 total defense (351 YPG allowed) is the crack a playoff-caliber opponent widens, and an SRS of #41 says the schedule hasn't tested it yet. Their 49-22 win over Georgia State and undefeated 7-0 start don't erase that defensive exposure, so they're a pretender until a stronger opponent proves otherwise.",
+        "tier": "pretender"
       }
     },
     {
@@ -192,14 +202,14 @@
         false,
         true
       ],
-      "sosrank": 84,
+      "sosrank": 85,
       "srsrank": 4,
       "srs_flag": "elite",
       "vals": [
         "0.857",
         "43.0 #2",
-        "15.9 #17",
-        "276 #14",
+        "15.9 #16",
+        "276 #13",
         "+27.1 #4"
       ],
       "fair_pct": null,
@@ -208,7 +218,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 offense; the #17 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #2 offense; the #16 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -229,13 +239,13 @@
       "vals": [
         "1.000",
         "40.2 #8",
-        "14.8 #12",
+        "14.8 #11",
         "303 #27",
         "+25.3 #7"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4000",
+      "market": "+4500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -259,18 +269,18 @@
       "srs_flag": "ok",
       "vals": [
         "0.857",
-        "36.6 #25",
+        "36.6 #24",
         "12.9 #4",
-        "271 #10",
+        "271 #9",
         "+23.7 #9"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+800",
+      "market": "+750",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #4 scoring defense; the #25 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #11 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #4 scoring defense; the #24 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #11 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -285,13 +295,13 @@
         true,
         false
       ],
-      "sosrank": 13,
+      "sosrank": 14,
       "srsrank": 1,
       "srs_flag": "elite",
       "vals": [
         "0.714",
         "40.4 #7",
-        "15.9 #17",
+        "15.9 #16",
         "256 #3",
         "+24.6 #8"
       ],
@@ -301,7 +311,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 total defense; the #17 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #1 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 total defense; the #16 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #1 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -316,8 +326,8 @@
         true,
         false
       ],
-      "sosrank": 87,
-      "srsrank": 72,
+      "sosrank": 88,
+      "srsrank": 71,
       "srs_flag": "mirage",
       "vals": [
         "0.857",
@@ -332,7 +342,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 scoring defense; the #70 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #72 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #2 scoring defense; the #70 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #71 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -352,7 +362,7 @@
       "srs_flag": "mirage",
       "vals": [
         "0.500",
-        "24.0 #95",
+        "24.0 #97",
         "12.2 #3",
         "264 #7",
         "+11.8 #41"
@@ -363,38 +373,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 scoring defense; the #95 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #38 says the schedule hasn't fully tested it yet."
-      }
-    },
-    {
-      "name": "Florida International Panthers",
-      "rec": "3-3",
-      "score": 2,
-      "index": 58.4,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        false
-      ],
-      "sosrank": 66,
-      "srsrank": 101,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.500",
-        "19.7 #122",
-        "14.7 #9",
-        "266 #9",
-        "+5.0 #73"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": null,
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #9 scoring defense; the #122 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #101 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 scoring defense; the #97 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #38 says the schedule hasn't fully tested it yet."
       }
     }
   ],
@@ -433,5 +412,19 @@
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
     "note": "8 games in \u2014 stats have stabilized; the read is actionable."
-  }
+  },
+  "value_plays": [
+    {
+      "name": "Miami Hurricanes",
+      "ev": 92,
+      "market": "+700",
+      "fair_odds": "+317"
+    },
+    {
+      "name": "Notre Dame Fighting Irish",
+      "ev": 44,
+      "market": "+500",
+      "fair_odds": "+317"
+    }
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-10-21T14:14:29Z",
-  "odds_remaining": "77240",
+  "generated": "2026-10-21T18:04:34Z",
+  "odds_remaining": "76789",
   "prediction": {
     "pick": "Oklahoma City Thunder",
     "why": "<b>Oklahoma City Thunder</b> is the pick \u2014 the top team the model actually trusts (fair +317). Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
@@ -48,8 +48,11 @@
       "ev": -23,
       "read": {
         "v": "trust",
-        "why": "Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
-      }
+        "why": "Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
+        "beat": "Oklahoma City's #1 net rating (+12.0) and #2 defense (104.0 Opp PPG) are exactly the profile that travels into a seven-game series, and the 1-0 start with Wembanyama's 8% shooting night backs the blueprint's 'trust' verdict. Oweh's absence is a minor depth note, not a threat to the core.",
+        "tier": "champion"
+      },
+      "ftt": "pending"
     },
     {
       "name": "Detroit Pistons",
@@ -71,12 +74,15 @@
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+2700",
-      "ev": 572,
+      "market": "+3000",
+      "ev": 644,
       "read": {
         "v": "fools_gold",
-        "why": "All offense (#1), no stops (#4 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
-      }
+        "why": "All offense (#1), no stops (#4 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade.",
+        "beat": "Detroit's #1 offense (121 PPG) and +8.0 net rating are real, but the blueprint flags this as fools_gold: a #4 defense with no stops is the profile that dies in a grinding seven-game series. Opening-night 1-0 and a 22-point comeback comparison don't change that; at +317 against +3000 the price is attractive, but the playoff translation says fade.",
+        "tier": "pretender"
+      },
+      "ftt": "pending"
     },
     {
       "name": "Philadelphia 76ers",
@@ -102,8 +108,11 @@
       "ev": 164,
       "read": {
         "v": "trust",
-        "why": "Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
-      }
+        "why": "Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+        "beat": "The #1 defense (100.0 Opp PPG) is the playoff-proof trait the blueprint trusts, and a 1-0 start with +6.0 net rating backs it up. Missing Barlow and Hukporti are minor depth losses, but the offense at #4 is good rather than elite, so this profile fits a contender, not yet a champion.",
+        "tier": "contender"
+      },
+      "ftt": "pending"
     },
     {
       "name": "New York Knicks",
@@ -129,8 +138,11 @@
       "ev": 115,
       "read": {
         "v": "trust",
-        "why": "Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
-      }
+        "why": "Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+        "beat": "The Knicks' #3 defense (106.0 Opp PPG) is the playoff-proof trait that travels when offense goes cold in a seven-game series, and the blueprint's 'trust' verdict backs that. Opening-night 0-1 and Mike Brown's admission that a win over the 76ers wouldn't have felt good keep them from clearing the bar for champion yet.",
+        "tier": "contender"
+      },
+      "ftt": "pending"
     },
     {
       "name": "Boston Celtics",
@@ -156,8 +168,11 @@
       "ev": 25,
       "read": {
         "v": "fools_gold",
-        "why": "Scoreboard-stuffing against regular-season pace \u2014 but playoff games crawl into the half-court, and a #6 defense can't get the stop when it matters. Points don't travel; defense does."
-      }
+        "why": "Scoreboard-stuffing against regular-season pace \u2014 but playoff games crawl into the half-court, and a #6 defense can't get the stop when it matters. Points don't travel; defense does.",
+        "beat": "Boston's 113.0 PPG (#3) reads like scoreboard-stuffing, and the blueprint's playoff logic says a #6 defense (121.0 Opp PPG) won't get the stops that matter in a seven-game grind. Opening night's 0-1 start, a 22-point blown lead to Detroit, and Devin Carter's absence add to the case that defense is the problem.",
+        "tier": "pretender"
+      },
+      "ftt": "pending"
     },
     {
       "name": "San Antonio Spurs",
@@ -179,12 +194,15 @@
       ],
       "fair_pct": 0.6,
       "fair_odds": "+16782",
-      "market": "+310",
+      "market": "+300",
       "ev": -98,
       "read": {
         "v": "fools_gold",
-        "why": "All offense (#5), no stops (#5 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
-      }
+        "why": "All offense (#5), no stops (#5 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade.",
+        "beat": "A 0-1 start with a -12.0 net rating (#6) and 116 points allowed (#5 worst) fits the blueprint's fools_gold verdict: all offense, no stops, and nothing to grind out a seven-game series. Wembanyama's 8% shooting opener and the Thunder rout confirm the fade, and Tobias Harris's day-to-day status only adds to the depth concern.",
+        "tier": "pretender"
+      },
+      "ftt": "pending"
     }
   ],
   "signal": {
@@ -192,5 +210,19 @@
     "emoji": "\ud83d\udd34",
     "label": "Too early",
     "note": "only 1 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
-  }
+  },
+  "value_plays": [
+    {
+      "name": "Philadelphia 76ers",
+      "ev": 164,
+      "market": "+1000",
+      "fair_odds": "+317"
+    },
+    {
+      "name": "New York Knicks",
+      "ev": 115,
+      "market": "+1000",
+      "fair_odds": "+411"
+    }
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-20T18:12:49Z",
-  "odds_remaining": "78502",
+  "generated": "2026-10-21T18:03:42Z",
+  "odds_remaining": "76792",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
@@ -51,7 +51,9 @@
       "ev": 19,
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it.",
+        "beat": "The blueprint's two playoff-surviving traits both check out: a #1 point differential (+67, +11.2/g) and a top-4 scoring defense (18.3 PPG allowed, #4), with a 6-0 start and the verdict to trust it. Injuries to Deebo Samuel and Garret Wallow are real but don't touch the margin or defensive profile that matter most in January.",
+        "tier": "champion"
       }
     },
     {
@@ -80,7 +82,9 @@
       "ev": 70,
       "read": {
         "v": "trust",
-        "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
+        "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
+        "beat": "Tier 5 with a #2 defense that travels and a #2 point differential is exactly the January shape the blueprint rewards, and at +900 against a fair +488 the price is a clear value spot. The three questionable tags on Rashee Rice, Josh Simmons, and Jaylon Moore are the only thing that could puncture this, so monitor the offensive line before kickoff.",
+        "tier": "champion"
       }
     },
     {
@@ -109,7 +113,9 @@
       "ev": 135,
       "read": {
         "v": "trust",
-        "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
+        "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
+        "beat": "The blueprint's tier-5 index (76.1) and a #3 scoring defense (17.3 PPG allowed) with a +50 point differential (#3) fit a team built to win slowed-down January games, but the offense ranks only #8 at 25.7 PPG, so they haven't proven they can win shootouts. Three questionable starters (LS Ross Matiscik, CB Montaric Brown, S Antonio Johnson) are the thing to watch before they're trusted as a title pick.",
+        "tier": "contender"
       }
     },
     {
@@ -134,11 +140,13 @@
       ],
       "fair_pct": 16.9,
       "fair_odds": "+491",
-      "market": "+1900",
-      "ev": 238,
+      "market": "+2000",
+      "ev": 255,
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it.",
+        "beat": "Minnesota owns the league's best scoring defense (12.8 PPG allowed, #1) and a +45 point differential (#4), the two traits that travel into single-elimination January games. The offense ranks only #22 in points per game, and four starters are listed as Questionable, so the title case rests on the defense staying healthy.",
+        "tier": "contender"
       }
     },
     {
@@ -167,7 +175,9 @@
       "ev": 42,
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-6 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-6 defense. Complete and earned \u2014 trust it.",
+        "beat": "The Bears profile as a true contender: a +31 point differential (#5) and a top-6 scoring defense (19.8 PPG allowed) are exactly the traits that survive January single-elimination. The offense (#12 in PPG) and four Questionable tags on LB, RB, and G are the threats to watch before the playoffs.",
+        "tier": "contender"
       }
     },
     {
@@ -192,11 +202,13 @@
       ],
       "fair_pct": 6.5,
       "fair_odds": "+1432",
-      "market": "+750",
-      "ev": -45,
+      "market": "+700",
+      "ev": -48,
       "read": {
         "v": "fools_gold",
-        "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade."
+        "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade.",
+        "beat": "Buffalo's #1 scoring offense (32.8 PPG) is masking a #28 defense allowing 28.5 a game, the classic shootout-or-bust profile that tends to crack in January. With the market pricing them at +700 against our +1432 fair line, backing them means paying a steep premium for a team that can't get stops.",
+        "tier": "pretender"
       }
     },
     {
@@ -221,8 +233,8 @@
       ],
       "fair_pct": 4.0,
       "fair_odds": "+2385",
-      "market": "+950",
-      "ev": -58,
+      "market": "+1000",
+      "ev": -56,
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #7 unit, but the #15 area is where a good playoff team picks it apart."
@@ -279,8 +291,8 @@
       ],
       "fair_pct": 3.9,
       "fair_odds": "+2465",
-      "market": "+1200",
-      "ev": -49,
+      "market": "+1300",
+      "ev": -45,
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #6 unit, but the #13 area is where a good playoff team picks it apart."
@@ -366,8 +378,8 @@
       ],
       "fair_pct": 1.2,
       "fair_odds": "+7953",
-      "market": "+20000",
-      "ev": 150,
+      "market": "+22500",
+      "ev": 181,
       "read": {
         "v": "caution",
         "why": "Winning the games it shouldn't \u2014 #5 record on a #23 scoring margin. The blueprint buys margin of victory, not one-score luck; regression is the base case."
@@ -453,7 +465,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+2000",
+      "market": "+1800",
       "ev": null,
       "read": {
         "v": "fools_gold",
@@ -482,7 +494,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+8000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -511,7 +523,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": "+10000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -540,7 +552,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+40000",
+      "market": "+35000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -569,7 +581,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+12500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -598,7 +610,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+15000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -627,7 +639,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+2700",
+      "market": "+2500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -685,7 +697,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+3300",
+      "market": "+3500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -714,7 +726,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": "+7500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -772,7 +784,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+10000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -888,7 +900,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+40000",
+      "market": "+35000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -917,7 +929,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+70000",
+      "market": "+75000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -959,5 +971,37 @@
     "emoji": "\ud83d\udfe1",
     "label": "Firming up",
     "note": "6 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
-  }
+  },
+  "value_plays": [
+    {
+      "name": "Minnesota Vikings",
+      "ev": 255,
+      "market": "+2000",
+      "fair_odds": "+491"
+    },
+    {
+      "name": "Jacksonville Jaguars",
+      "ev": 135,
+      "market": "+1300",
+      "fair_odds": "+497"
+    },
+    {
+      "name": "Kansas City Chiefs",
+      "ev": 70,
+      "market": "+900",
+      "fair_odds": "+488"
+    },
+    {
+      "name": "Chicago Bears",
+      "ev": 42,
+      "market": "+1500",
+      "fair_odds": "+1029"
+    },
+    {
+      "name": "San Francisco 49ers",
+      "ev": 19,
+      "market": "+600",
+      "fair_odds": "+488"
+    }
+  ]
 }
