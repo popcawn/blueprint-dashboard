@@ -31,6 +31,29 @@ def season_pct(rows, sport):
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
 SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10)}
 
+def _price_num(mk):
+    """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
+    if not mk: return None
+    try: return int(str(mk).replace("+", ""))
+    except Exception: return None
+
+def value_plays(teams, maxcat):
+    """QUALIFIED VALUE = complete profile (score >= maxcat-1) + a 🟢 trust read + positive EV
+       + a believable price (<= +2500). Backtested on 5 odds-era seasons (2021-22..2025-26):
+       isolates the value-DOG champions (GSW '22 +68%, DEN '23 +100%, NYK '26 +140/+174%) and
+       correctly stays empty when the champ is chalk (BOS '24, OKC '25 — fade or bet the favorite).
+       This replaces raw 'best EV', which lights up junk longshots (e.g. a 40000-1 phantom line)."""
+    out = []
+    for t in teams:
+        if t.get("score", 0) < maxcat - 1: continue
+        if (t.get("read") or {}).get("v") != "trust": continue
+        if t.get("ev") is None or t["ev"] <= 0: continue
+        p = _price_num(t.get("market"))
+        if p is None or p > 2500: continue
+        out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+    out.sort(key=lambda x: -x["ev"])
+    return out
+
 def signal_status(sport, gp):
     trust, firm = SIGNAL_THRESH[sport]
     if gp >= trust:
@@ -413,6 +436,51 @@ def nba_scoring(season):
             out[nm] = (own, opp)
     return out
 
+def forty_twenty(w, l, log=None):
+    """Champion pedigree flag — reached 40 wins before 20 losses? 8/10 recent champions did,
+       but NYK '26 (40th win @ game 62, 22 L) and MIL '21 (@ game 64, 24 L) won WITHOUT it,
+       so it's a POSITIVE signal, not a disqualifier. Resolvable only ~game 50+; 'pending' until then.
+       From current W-L alone it resolves every case except (w>=40 and l>=20), which needs the log."""
+    if log:
+        cw = cl = 0
+        for win in log:
+            if win: cw += 1
+            else: cl += 1
+            if cw == 40: return "pass" if cl < 20 else "fail"
+            if cl == 20 and cw < 40: return "fail"
+        return "pending"
+    if w >= 40 and l < 20: return "pass"
+    if l >= 20 and w < 40: return "fail"
+    if w < 40 and l < 20: return "pending"
+    return "ambiguous"   # w>=40 and l>=20 -> order matters, need the game log
+
+def nba_team_ids():
+    try:
+        d = get("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams?limit=40")
+        return {t["team"]["displayName"]: t["team"]["id"] for t in d["sports"][0]["leagues"][0]["teams"]}
+    except Exception:
+        return {}
+
+def nba_wl_log(tid, season):
+    try:
+        d = get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/{tid}/schedule?season={season}")
+    except Exception:
+        return None
+    g = []
+    for ev in d.get("events", []):
+        if str(ev.get("seasonType", {}).get("type")) != "2": continue
+        comp = ev.get("competitions", [{}])[0]
+        if not comp.get("status", {}).get("type", {}).get("completed"): continue
+        dt = None
+        try: dt = datetime.datetime.fromisoformat(ev["date"].replace("Z", "+00:00")).date()
+        except Exception: pass
+        win = None
+        for c in comp.get("competitors", []):
+            if str(c.get("team", {}).get("id")) == str(tid): win = c.get("winner")
+        if win is not None: g.append((dt, win))
+    g.sort(key=lambda x: x[0] or datetime.date.min)
+    return [x[1] for x in g]
+
 def build_nba():
     season = YEAR + 1  # ESPN tags the NBA season by its end year (2026-27 -> 2027)
     base = {"sport": "NBA", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso()}
@@ -442,7 +510,7 @@ def build_nba():
         w, l = wl.get(nm, (0, 0)); g = w + l
         if g == 0: continue
         rows.append({"name": nm, "conf": "E" if nm in NBA_EAST else "W", "rec": f"{w}-{l}", "gp": g,
-            "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp, "depth": depth.get(nm, 0)})
+            "w": w, "l": l, "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp, "depth": depth.get(nm, 0)})
     if not rows:
         base.update({"status": "preseason", "odds_remaining": None,
             "note": "NBA regular season tips off in late October — the blueprint goes live on the first real games.", "teams": []})
@@ -459,6 +527,15 @@ def build_nba():
         t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.22 + nf[t["name"]]*.20 + nw[t["name"]]*.13
                            + (ndp[t["name"]]*.15 if has_depth else npd[t["name"]]*.15), 1)
     for t in rows: t["read"] = team_read(t, "nba", len(rows), 4)
+    # 40-wins-before-20-losses pedigree flag (display-only positive signal, not a gate)
+    _ids = None
+    for t in rows:
+        st = forty_twenty(t["w"], t["l"])
+        if st == "ambiguous":
+            if _ids is None: _ids = nba_team_ids()
+            log = nba_wl_log(_ids.get(t["name"]), season) if _ids.get(t["name"]) else None
+            st = forty_twenty(t["w"], t["l"], log) if log else "pending"
+        t["ftt"] = st
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.7,3:1.2,2:0.8}
     for cf in ("E","W"):
@@ -478,7 +555,7 @@ def build_nba():
             "q": [bool(x) for x in t["q"]],
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read"), "ftt": t.get("ftt")} for t in rows if t["score"] >= 1]})
     return base
 
 # ----------------------------------------------------------------------------- shared
@@ -644,6 +721,7 @@ def main():
             data = fn()
             if data.get("status") != "preseason" and data.get("gp_max") is not None:
                 data["signal"] = signal_status(name, data["gp_max"])
+                data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4)
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
