@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-21T18:04:10Z",
-  "odds_remaining": "76790",
+  "generated": "2026-10-21T18:08:44Z",
+  "odds_remaining": "76786",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -48,7 +48,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #8 goal differential, but the #14 spot is the one a seven-game series finds.",
-        "beat": "Dallas sits in tier 4 with a #1 goals-against and #2 even-strength save percentage, and a #8 goal differential that is legitimate, but the #14 Corsi at 51.0 is the flag a seven-game series exposes. Goaltending is carrying this roster, and Esa Lindell's absence on the back end adds another reason to treat them as a strong contender rather than a title favorite.",
+        "beat": "Elite goaltending (94.0 ES SV%) and the league's fewest goals against make Dallas a real threat, but a weak Corsi and Esa Lindell's absence leave the blueprint short of champion-level depth.",
         "tier": "contender"
       }
     },
@@ -77,8 +77,8 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "The blueprint reads this as the rare combination that survives four rounds: #11 Corsi backed by #3 save percentage and #2 goals against, with ES Diff +8 at #4. Ritchie and Maccelli are out, but the Islanders still won back-to-back games, and at +12500 against a fair +669 the market is underpricing a team whose goaltending should travel into the playoffs.",
-        "tier": "champion"
+        "beat": "Strong goaltending and a top-two goals-against make the Islanders a real playoff threat, though their middling Corsi keeps them short of champion status. Watch the injuries to Ritchie and Maccelli.",
+        "tier": "contender"
       }
     },
     {
@@ -106,7 +106,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#6) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "The blueprint's 'trust' verdict is the rare pairing of a top-8 Corsi (53.0) and top-6 even-strength save percentage (92.1), the combination that holds up over four playoff rounds, so Minnesota sits squarely in contender territory. The one-goal overtime loss to Edmonton and the out-of-lineup Olli Maatta are minor caveats, not threats to that shape.",
+        "beat": "Minnesota pairs top-tier goaltending (#6 save percentage) with a strong possession profile (#8 Corsi), the combination that survives four playoff rounds. Olli Maatta is out on defense, a depth concern to monitor.",
         "tier": "contender"
       }
     },
@@ -135,7 +135,7 @@
       "read": {
         "v": "caution",
         "why": "That #1 save% is riding variance \u2014 they're #19 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
-        "beat": "Boston's elite 94.1 even-strength save percentage is riding variance, since a #19 Corsi ranking shows the team is getting outplayed at five-on-five and playoff save percentages regress to the underlying game. The blueprint's 78.6 index and caution verdict, plus the +920 fair price versus +5000 on FanDuel, make this a value bet on a team that looks better than its play supports.",
+        "beat": "Their elite save percentage is outrunning a bottom-five possession game, and playoff goaltending regresses to underlying play. Watch the goalie's workload, since that's the one thing keeping the 7-2-1 start afloat.",
         "tier": "pretender"
       }
     },
@@ -164,7 +164,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #4 goal differential, but the #13 spot is the one a seven-game series finds.",
-        "beat": "Tampa's +8 even-strength goal differential (#4) and #5 Corsi and goals-against say this team controls play, but its 90.9 even-strength save percentage (#13) is the weak link a seven-game series exposes. The +1100 FanDuel price is roughly 6% below fair value, so it's a contender worth tracking, not a must-back champion.",
+        "beat": "Elite five-on-five play and a strong defense make Tampa a real threat, but a #13 save percentage is the flaw a seven-game series exposes. Kucherov's three-point night was a bright spot in an early 6-2 win over Vegas.",
         "tier": "contender"
       }
     },
@@ -193,7 +193,7 @@
       "read": {
         "v": "fools_gold",
         "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #19 goals-against is exactly what gets punished when goals dry up in May.",
-        "beat": "Colorado's +14 even-strength goal differential leads the league, but a 91.0 even-strength save percentage ranks only 11th and the 30 goals allowed rank 19th, the exact profile playoff hockey punishes when scoring tightens. The blueprint calls this fools' gold, and Tuesday's 4-3 loss to New Jersey, with Zachary L'Heureux out, did nothing to challenge that read.",
+        "beat": "Colorado's dominant even-strength run is real, but a bottom-tier goals-against and sub-elite save percentage are exactly what playoff goaltending punishes, so this looks like fool's gold. L'Heureux's absence adds depth concerns.",
         "tier": "pretender"
       }
     },
@@ -222,7 +222,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#2) but can't fully trust the net (#25). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Carolina controls play at the NHL's second-best Corsi rate (60.0) and sits ninth in even-strength goal differential, but its 88.6 even-strength save percentage ranks 25th, so the net is the question mark. Priced at +650 against a fair +1711, the market is pricing a title favorite; the blueprint says that's a goaltending coin flip, not a champion, so don't back them as one.",
+        "beat": "Elite puck control and a top-10 even-strength margin make Carolina a real threat, but a bottom-tier save percentage keeps them from being trusted in a seven-game series. Mark Jankowski's injury is a minor concern next to the goaltending question.",
         "tier": "contender"
       }
     },
@@ -251,8 +251,8 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#5) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "The blueprint's rare combination holds: Detroit ranks #11 in Corsi (52.0) and #5 in even-strength save percentage (92.2%), the driver-plus-goalie profile that survives four rounds, and at +1899 against a +17500 book it's the most mispriced ticket on the board. Caveat: the Larkin trade-request headlines and a 3-3-3 start are the noise to watch.",
-        "tier": "champion"
+        "beat": "Detroit's goaltending and possession numbers are legitimate, but the 3-3-3 start and even-strength goal differential keep them short of a title-favorite profile. Dylan Larkin's public trade request is the storyline to watch.",
+        "tier": "contender"
       }
     },
     {
@@ -280,7 +280,7 @@
       "read": {
         "v": "caution",
         "why": "Drives play like a champion (#3 Corsi) but the goaltending (#17) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit.",
-        "beat": "Florida's #3 Corsi (58.0) says champion-level drive, but a #17 ES save percentage (90.3) and #14 ES differential keep them a contender whose title odds hinge on goaltending. The +900 futures price looks rich against a +2445 fair line, so the blueprint says don't chase it until the crease settles.",
+        "beat": "Elite Corsi and a stout GA keep Florida a real threat, but a .903 save percentage (#17) is the sort of crease problem that sinks a best-of-seven. Tkachuk's Ottawa return is a sideshow; goaltending is the story.",
         "tier": "contender"
       }
     },
@@ -309,7 +309,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #4 goal differential, but the #19 spot is the one a seven-game series finds.",
-        "beat": "Vegas ranks #4 in even-strength goal differential (+8) and ties tier 2 at index 63.5, but its #19 goals-against and #16 ES save percentage are the weak spots a seven-game series exposes. Wotherspoon being out on defense and the 6-2 loss to Tampa don't help, and at +2587 fair versus +1100 offered, the market is overpricing them.",
+        "beat": "Vegas's +8 five-on-five differential and top-tier shot share are real, but a #19 goals-against and a .907 even-strength save percentage are exactly what sinks seven-game series. Wotherspoon's absence adds blue-line depth concerns.",
         "tier": "contender"
       }
     },
@@ -338,7 +338,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #3 goal differential, but the #19 spot is the one a seven-game series finds.",
-        "beat": "Edmonton's blueprint lands at tier 2 with a caution verdict: the #3 even-strength goal differential (+9) is real, but a #13 save percentage (90.9) and #19 Corsi (48.0) are the weak links a seven-game series exposes. The fair price of +2638 versus FanDuel's +900 makes the bet a negative-EV pass despite the 7-1-1 start, with Dickinson's absence adding depth concern at center.",
+        "beat": "Elite even-strength goal differential is real, but a #19 Corsi and #13 save percentage are the weak spots a seven-game series exposes. Jason Dickinson is out at center.",
         "tier": "contender"
       }
     },
@@ -367,7 +367,7 @@
       "read": {
         "v": "caution",
         "why": "Goalie-carried: #4 in net, only #25 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
-        "beat": "Tier 2 with a 61.6 index and a #4 ES save percentage (92.3) plus #7 goals against make the Rangers a real playoff threat, but the #25 Corsi (46.0) says the goaltending is doing heavy lifting. Their 6-0-0 home start and the +2945 fair price make them worth backing, though they need the shot share to catch up before this is a title pick.",
+        "beat": "Goaltending is carrying a club that's been out-chanced all season, so this is a contender only if the Rangers' crease holds up, and the underlying play still needs to catch up. Watch Dylan Garand's workload.",
         "tier": "contender"
       }
     },
@@ -396,7 +396,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#4) but can't fully trust the net (#21). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Utah controls play (Corsi #4, ES Diff #10), but a #21 even-strength save percentage and #22 goals-against make this a goaltending question, not a finished product. Playoff series are won in the crease, so the +2931 price is a fair shot, not a value bet worth chasing at +1600.",
+        "beat": "Elite puck control and a positive five-on-five differential make them a real playoff threat, but their .895 even-strength save percentage and 31 goals against say the net is the question. Keep them at contender until the goaltending steadies.",
         "tier": "contender"
       }
     },
@@ -425,7 +425,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #15 goal differential, but the #19 spot is the one a seven-game series finds.",
-        "beat": "Tier 2 with a 58.6 index and a #15 even-strength goal differential points to a real playoff team, but the Corsi rank of #19 and a 4-3-2 start mean the territorial play isn't there yet. Elite-ish goaltending (ES SV% 91.8, #7) and a #10 GA rank are what keep them alive in a seven-game series, so back them only at the long price, not as a favorite.",
+        "beat": "Goaltending is the reason: a top-seven save percentage keeps them alive, but the Corsi rank at #19 and a losing streak signal they can be exposed in a seven-game series. Namestnikov (C) is out.",
         "tier": "contender"
       }
     },
@@ -454,7 +454,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #16 goal differential, but the #27 spot is the one a seven-game series finds.",
-        "beat": "Tier 2 with a 'caution' verdict means Ottawa's #16 goal differential is being carried by a #5 goals-against and an #8 save percentage that a seven-game series may not sustain, while a #27 Corsi of 44.0 shows they are getting outshot. Chabot's absence on the back end and a futures price (+2500) that offers negative expected value against our +4132 fair line make this a team to avoid backing for the title.",
+        "beat": "Ottawa's goaltending and goals-against are real, but its 44.0 Corsi and zero even-strength differential look like a team living on save percentage. Chabot's absence adds blue-line depth concern.",
         "tier": "pretender"
       }
     },
