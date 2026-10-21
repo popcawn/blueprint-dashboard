@@ -1,9 +1,196 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-10-20T18:12:52Z",
-  "status": "preseason",
-  "odds_remaining": null,
-  "note": "NBA regular season tips off in late October \u2014 the blueprint goes live on the first real games.",
-  "teams": []
+  "generated": "2026-10-21T14:14:29Z",
+  "odds_remaining": "77240",
+  "prediction": {
+    "pick": "Oklahoma City Thunder",
+    "why": "<b>Oklahoma City Thunder</b> is the pick \u2014 the top team the model actually trusts (fair +317). Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+  },
+  "season_pct": 1,
+  "gp_min": 1,
+  "gp_max": 1,
+  "has_depth": false,
+  "cats": [
+    "Win% \u2265.600",
+    "Net/g top-5",
+    "PPG top-10",
+    "Opp PPG top-10"
+  ],
+  "labels": [
+    "Win%",
+    "Net/g",
+    "PPG",
+    "Opp PPG"
+  ],
+  "teams": [
+    {
+      "name": "Oklahoma City Thunder",
+      "conf": "W",
+      "rec": "1-0",
+      "score": 4,
+      "index": 91.0,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+12.0 #1",
+        "116.0 #2",
+        "104.0 #2"
+      ],
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+220",
+      "ev": -23,
+      "read": {
+        "v": "trust",
+        "why": "Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+      }
+    },
+    {
+      "name": "Detroit Pistons",
+      "conf": "E",
+      "rec": "1-0",
+      "score": 4,
+      "index": 78.9,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+8.0 #2",
+        "121.0 #1",
+        "113.0 #4"
+      ],
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+2700",
+      "ev": 572,
+      "read": {
+        "v": "fools_gold",
+        "why": "All offense (#1), no stops (#4 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
+      }
+    },
+    {
+      "name": "Philadelphia 76ers",
+      "conf": "E",
+      "rec": "1-0",
+      "score": 4,
+      "index": 74.5,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+6.0 #3",
+        "106.0 #4",
+        "100.0 #1"
+      ],
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+1000",
+      "ev": 164,
+      "read": {
+        "v": "trust",
+        "why": "Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+      }
+    },
+    {
+      "name": "New York Knicks",
+      "conf": "E",
+      "rec": "0-1",
+      "score": 3,
+      "index": 27.0,
+      "q": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.000",
+        "-6.0 #4",
+        "100.0 #6",
+        "106.0 #3"
+      ],
+      "fair_pct": 19.6,
+      "fair_odds": "+411",
+      "market": "+1000",
+      "ev": 115,
+      "read": {
+        "v": "trust",
+        "why": "Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+      }
+    },
+    {
+      "name": "Boston Celtics",
+      "conf": "E",
+      "rec": "0-1",
+      "score": 3,
+      "index": 19.9,
+      "q": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.000",
+        "-8.0 #5",
+        "113.0 #3",
+        "121.0 #6"
+      ],
+      "fair_pct": 7.8,
+      "fair_odds": "+1176",
+      "market": "+1500",
+      "ev": 25,
+      "read": {
+        "v": "fools_gold",
+        "why": "Scoreboard-stuffing against regular-season pace \u2014 but playoff games crawl into the half-court, and a #6 defense can't get the stop when it matters. Points don't travel; defense does."
+      }
+    },
+    {
+      "name": "San Antonio Spurs",
+      "conf": "W",
+      "rec": "0-1",
+      "score": 2,
+      "index": 9.0,
+      "q": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "0.000",
+        "-12.0 #6",
+        "104.0 #5",
+        "116.0 #5"
+      ],
+      "fair_pct": 0.6,
+      "fair_odds": "+16782",
+      "market": "+310",
+      "ev": -98,
+      "read": {
+        "v": "fools_gold",
+        "why": "All offense (#5), no stops (#5 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
+      }
+    }
+  ],
+  "signal": {
+    "status": "early",
+    "emoji": "\ud83d\udd34",
+    "label": "Too early",
+    "note": "only 1 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
+  }
 }

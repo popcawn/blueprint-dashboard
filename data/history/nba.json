@@ -1,0 +1,50 @@
+[
+ {
+  "date": "2026-10-21",
+  "gp": 1,
+  "teams": {
+   "Oklahoma City Thunder": {
+    "sc": 4,
+    "idx": 91.0,
+    "fp": 24.0,
+    "mkt": "+220",
+    "ev": -23
+   },
+   "Detroit Pistons": {
+    "sc": 4,
+    "idx": 78.9,
+    "fp": 24.0,
+    "mkt": "+2700",
+    "ev": 572
+   },
+   "Philadelphia 76ers": {
+    "sc": 4,
+    "idx": 74.5,
+    "fp": 24.0,
+    "mkt": "+1000",
+    "ev": 164
+   },
+   "New York Knicks": {
+    "sc": 3,
+    "idx": 27.0,
+    "fp": 19.6,
+    "mkt": "+1000",
+    "ev": 115
+   },
+   "Boston Celtics": {
+    "sc": 3,
+    "idx": 19.9,
+    "fp": 7.8,
+    "mkt": "+1500",
+    "ev": 25
+   },
+   "San Antonio Spurs": {
+    "sc": 2,
+    "idx": 9.0,
+    "fp": 0.6,
+    "mkt": "+310",
+    "ev": -98
+   }
+  }
+ }
+]
