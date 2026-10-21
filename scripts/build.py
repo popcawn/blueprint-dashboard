@@ -594,13 +594,17 @@ def llm_read(sheet, sport):
         "facts (injuries, headlines) confirm or threaten it. Use ONLY the facts provided — invent nothing, no quotes, no fake sources. "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"<=2 sentences"}.'
     )
-    body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 200, "system": system,
+    body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 220,
+                       "thinking": {"type": "disabled"},   # plain JSON task — no thinking (default effort = medium, so 'disabled' is accepted)
+                       "system": system,
                        "messages": [{"role": "user", "content": sheet}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body,
         headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
     try:
         r = json.load(urllib.request.urlopen(req, timeout=45))
-        txt = r["content"][0]["text"].strip()
+        # take the first text block (a thinking block, if any, comes first and has no answer)
+        txt = next((b.get("text", "") for b in r.get("content", []) if b.get("type") == "text"), "").strip()
+        if not txt: return None
         if txt.startswith("```"): txt = txt.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0]
         o = json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
         if o.get("why"): return {"beat": o["why"].strip(), "tier": o.get("tier")}
