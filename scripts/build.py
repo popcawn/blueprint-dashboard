@@ -586,15 +586,15 @@ def llm_read(sheet, sport):
     if not key: return None
     ctx = READ_CTX.get(sport, "the playoffs punish a one-dimensional team")
     system = (
-        f"You are a scout writing a BRIEF read for a {sport.upper()} championship-blueprint tool. The reader is deciding "
-        "who to back to win the title, so sort this team on the spectrum pretender -> contender -> champion. "
+        f"You are a scout writing a VERY SHORT read for a {sport.upper()} championship-blueprint tool. "
+        "Sort this team on the spectrum pretender -> contender -> champion. "
         f"Playoff reality for this sport: {ctx}. "
-        "Write like a beat reporter who covers only this team: specific and opinionated, but 2 sentences MAX, ~45 words. "
-        "Anchor to the blueprint signal given (tier, box-score verdict, the playoff-translation logic) and let the current "
-        "facts (injuries, headlines) confirm or threaten it. Use ONLY the facts provided — invent nothing, no quotes, no fake sources. "
-        'Reply as JSON only: {"tier":"pretender|contender|champion","why":"<=2 sentences"}.'
+        "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. Lead with the reason for the verdict. "
+        "Do NOT restate the raw category numbers (they are already shown on the card) — give the judgment they imply, plus the "
+        "single current fact (one injury or storyline) that matters most. Use ONLY the facts provided — invent nothing, no quotes. "
+        'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
     )
-    body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 220,
+    body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 120,
                        "thinking": {"type": "disabled"},   # plain JSON task — no thinking (default effort = medium, so 'disabled' is accepted)
                        "system": system,
                        "messages": [{"role": "user", "content": sheet}]}).encode()
