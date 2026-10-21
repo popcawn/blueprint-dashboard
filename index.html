@@ -153,7 +153,10 @@ function card(t,sp){
   const c=consistency(sp,t.name);
   const cons=c.spark?`<div class="cons" title="index trajectory + top-tier streak">${c.spark}${c.streak?`<span class="streak ${c.star?'star':''}">${c.star?'⭐':''}${c.streak}w</span>`:''}</div>`:"";
   const RV={trust:"TRUST",caution:"CAUTION",fools_gold:"FOOL'S GOLD"};
-  const read=t.read?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${RV[t.read.v]||''}</span><span class="rwhy">${t.read.why}</span></div>`:"";
+  const TIER={pretender:"PRETENDER",contender:"CONTENDER",champion:"CHAMPION"};
+  const rlabel=t.read&&t.read.tier?(TIER[t.read.tier]||RV[t.read.v]):(t.read?RV[t.read.v]:"");
+  const rtxt=t.read?(t.read.beat||t.read.why):"";
+  const read=t.read?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
   return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${VPSET.has(t.name)?'<span class="vbadge" title="Qualified value: complete profile + trust read + positive EV at a believable price">✓ VALUE</span>':''}
       <span class="idx">index <b>${t.index}</b>${ev}</span></div>

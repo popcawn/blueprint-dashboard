@@ -481,6 +481,107 @@ def nba_wl_log(tid, season):
     g.sort(key=lambda x: x[0] or datetime.date.min)
     return [x[1] for x in g]
 
+# ----------------------------------------------------------------------------- beat-reporter reads
+def nba_team_news(tid, n=4):
+    """Recent ESPN headlines+blurbs for one team — the storyline fuel for the beat-reporter read."""
+    try:
+        d = get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news?team={tid}&limit={n+3}")
+    except Exception:
+        return []
+    out = []
+    for a in d.get("articles", []):
+        h = (a.get("headline") or "").strip()
+        if not h or "Where to watch" in h: continue
+        desc = (a.get("description") or "").strip()
+        out.append(h + (f" — {desc}" if desc else ""))
+        if len(out) >= n: break
+    return out
+
+def nba_injuries_weighted(season):
+    """League injuries matched to each player's PPG (via byathlete, by athlete id) so the read knows
+       whether a star or a bench piece is out. Returns {team_displayName: [ (player, status, ppg) ]}."""
+    try:
+        inj = get("https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries").get("injuries", [])
+    except Exception:
+        return {}
+    ppg = {}   # ESPN's injury feed has no athlete id, so match PPG by displayName.
+    # Current season for role, prior season as fallback (early-season current PPG is thin / rookies miss).
+    def _load(seas, fill_only):
+        try:
+            d = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/statistics/byathlete?region=us&lang=en&contentorigin=espn&season={seas}&seasontype=2&limit=600")
+        except Exception:
+            return
+        gl = {}
+        for c in d.get("categories", []):
+            if c.get("names"): gl[c["name"]] = {nmx: i for i, nmx in enumerate(c["names"])}
+        oi = gl.get("offensive", {}).get("avgPoints")
+        if oi is None: return
+        for a in d.get("athletes", []):
+            nm = a.get("athlete", {}).get("displayName")
+            if not nm or (fill_only and nm in ppg): continue
+            for c in a.get("categories", []):
+                if c.get("name") == "offensive":
+                    v = c.get("values", [])
+                    if oi < len(v): ppg[nm] = v[oi]
+                    break
+    _load(season, False)      # current season (this year's role)
+    _load(season - 1, True)   # prior season fallback for names not yet present
+    out = {}
+    for t in inj:
+        team = t.get("displayName"); lst = []
+        for it in t.get("injuries", []):
+            nm = it.get("athlete", {}).get("displayName")
+            lst.append((nm, it.get("status"), ppg.get(nm)))
+        if team and lst: out[team] = lst
+    return out
+
+def beat_sheet(t, news, injuries):
+    """Compact, blueprint-anchored fact sheet handed to the model. Facts only — no narrative."""
+    L = ["Win%", "Net/g", "PPG", "Opp PPG"]
+    cats = "; ".join(f"{L[i]} {t['vals'][i]}" for i in range(len(t["vals"])))
+    lines = [
+        f"Team: {t['name']} ({t['conf']}), {t['rec']}",
+        f"Blueprint: tier {t['score']}/4, index {t['index']}, box-score verdict '{t['read']['v']}' ({t['read']['why']})",
+        f"Category ranks: {cats}",
+        f"Futures: fair {t.get('fair_odds')} vs FanDuel {t.get('market')}, EV {t.get('ev')}%" if t.get("market") else "Futures: n/a",
+        f"40-before-20: {t.get('ftt')}",
+    ]
+    inj = injuries.get(t["name"], [])
+    rel = [x for x in inj if (x[2] and x[2] >= 8) or x[1] in ("Out", "Doubtful")]
+    if rel:
+        shown = sorted(rel, key=lambda x: -(x[2] or 0))[:4]
+        lines.append("Injuries: " + "; ".join(f"{p} ({s}{f', {ppg:.0f} ppg' if ppg else ''})" for p, s, ppg in shown))
+    if news:
+        lines.append("Headlines: " + " | ".join(news))
+    return "\n".join(lines)
+
+def llm_read(sheet):
+    """Claude writes a BRIEF, blueprint-accurate beat-reporter read from the fact sheet.
+       Returns {beat, tier} or None (→ caller keeps the deterministic template read). Facts-only."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key: return None
+    system = (
+        "You are a scout writing a BRIEF read for an NBA championship-blueprint tool. The reader is deciding "
+        "who to back to win the title, so your job is to sort this team on the spectrum pretender -> contender -> champion. "
+        "Write in the voice of a beat reporter who covers only this team: specific and opinionated, but 2 sentences MAX, ~45 words. "
+        "Anchor to the blueprint signal given (tier, box-score verdict, the defense-travels playoff logic) and let the current "
+        "facts (injuries, headlines) confirm or threaten it. Use ONLY the facts provided — invent nothing, no quotes, no fake sources. "
+        'Reply as JSON only: {"tier":"pretender|contender|champion","why":"<=2 sentences"}.'
+    )
+    body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 200, "system": system,
+                       "messages": [{"role": "user", "content": sheet}]}).encode()
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body,
+        headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+    try:
+        r = json.load(urllib.request.urlopen(req, timeout=45))
+        txt = r["content"][0]["text"].strip()
+        if txt.startswith("```"): txt = txt.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0]
+        o = json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
+        if o.get("why"): return {"beat": o["why"].strip(), "tier": o.get("tier")}
+    except Exception:
+        return None
+    return None
+
 def build_nba():
     season = YEAR + 1  # ESPN tags the NBA season by its end year (2026-27 -> 2027)
     base = {"sport": "NBA", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso()}
@@ -536,6 +637,18 @@ def build_nba():
             log = nba_wl_log(_ids.get(t["name"]), season) if _ids.get(t["name"]) else None
             st = forty_twenty(t["w"], t["l"], log) if log else "pending"
         t["ftt"] = st
+    # Beat-reporter reads (LLM) for contenders — brief, blueprint-anchored, pretender/contender/champion.
+    # Runs only when ANTHROPIC_API_KEY is set; otherwise the deterministic template read stands.
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        if _ids is None: _ids = nba_team_ids()
+        injuries = nba_injuries_weighted(season)
+        for t in sorted(rows, key=lambda x: -x["index"]):
+            if t["score"] < 2: continue
+            tid = _ids.get(t["name"])
+            br = llm_read(beat_sheet(t, nba_team_news(tid) if tid else [], injuries))
+            if br:
+                t["read"]["beat"] = br["beat"]
+                if br.get("tier"): t["read"]["tier"] = br["tier"]
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.7,3:1.2,2:0.8}
     for cf in ("E","W"):
