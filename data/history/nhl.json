@@ -773,8 +773,8 @@
     "sc": 4,
     "idx": 81.1,
     "fp": 13.0,
-    "mkt": "+12500",
-    "ev": 1538
+    "mkt": "+10000",
+    "ev": 1213
    },
    "Minnesota Wild": {
     "sc": 4,
@@ -787,8 +787,8 @@
     "sc": 3,
     "idx": 78.6,
     "fp": 9.7,
-    "mkt": "+4500",
-    "ev": 348
+    "mkt": "+5000",
+    "ev": 397
    },
    "Tampa Bay Lightning": {
     "sc": 3,
@@ -801,8 +801,8 @@
     "sc": 3,
     "idx": 71.5,
     "fp": 7.8,
-    "mkt": "+650",
-    "ev": -41
+    "mkt": "+700",
+    "ev": -37
    },
    "Carolina Hurricanes": {
     "sc": 3,
@@ -815,8 +815,8 @@
     "sc": 3,
     "idx": 62.8,
     "fp": 5.0,
-    "mkt": "+17500",
-    "ev": 775
+    "mkt": "+20000",
+    "ev": 899
    },
    "Ottawa Senators": {
     "sc": 3,
@@ -829,22 +829,22 @@
     "sc": 2,
     "idx": 63.5,
     "fp": 3.8,
-    "mkt": "+1200",
-    "ev": -50
+    "mkt": "+1000",
+    "ev": -58
    },
    "Edmonton Oilers": {
     "sc": 2,
     "idx": 63.1,
     "fp": 3.7,
-    "mkt": "+900",
-    "ev": -63
+    "mkt": "+950",
+    "ev": -61
    },
    "New York Rangers": {
     "sc": 2,
     "idx": 61.6,
     "fp": 3.3,
-    "mkt": "+7000",
-    "ev": 132
+    "mkt": "+7500",
+    "ev": 148
    },
    "Utah Mammoth": {
     "sc": 2,
@@ -871,15 +871,15 @@
     "sc": 2,
     "idx": 51.3,
     "fp": 2.0,
-    "mkt": "+12500",
-    "ev": 153
+    "mkt": "+15000",
+    "ev": 204
    },
    "Los Angeles Kings": {
     "sc": 2,
     "idx": 49.9,
     "fp": 1.9,
-    "mkt": "+4500",
-    "ev": -15
+    "mkt": "+4000",
+    "ev": -24
    },
    "St Louis Blues": {
     "sc": 2,
@@ -899,7 +899,7 @@
     "sc": 1,
     "idx": 52.9,
     "fp": null,
-    "mkt": "+950",
+    "mkt": "+900",
     "ev": null
    },
    "Seattle Kraken": {
@@ -927,7 +927,7 @@
     "sc": 1,
     "idx": 44.6,
     "fp": null,
-    "mkt": "+5000",
+    "mkt": "+4500",
     "ev": null
    },
    "Buffalo Sabres": {
@@ -941,14 +941,14 @@
     "sc": 1,
     "idx": 37.6,
     "fp": null,
-    "mkt": "+7500",
+    "mkt": "+8000",
     "ev": null
    },
    "Philadelphia Flyers": {
     "sc": 1,
     "idx": 28.2,
     "fp": null,
-    "mkt": "+12500",
+    "mkt": "+15000",
     "ev": null
    },
    "Calgary Flames": {

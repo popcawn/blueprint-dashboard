@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-10-22T12:39:53Z",
-  "odds_remaining": "75314",
+  "generated": "2026-10-22T18:12:44Z",
+  "odds_remaining": "73938",
   "prediction": {
     "pick": "Toronto Raptors",
     "why": "<b>Toronto Raptors</b> is the pick \u2014 the top team the model actually trusts (fair +317). Elite defense (#2) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -49,7 +49,7 @@
       "read": {
         "v": "trust",
         "why": "Elite defense (#2) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "Elite defense and a dominant opening rout look playoff-ready, but one game proves little, and relying on an aging Kawhi Leonard and an injured big man, Nate Bittle, leaves the frontcourt depth thin.",
+        "beat": "Elite defense and a dominant opener give real playoff footing, but the roster leans on Kawhi Leonard's health and a seven-game series will test the depth behind him.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -79,8 +79,8 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #1 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite defense and a strong early result make Portland a real threat, but Shaedon Sharpe's absence thins the scoring depth, and a 1-0 start is too small a sample to crown them.",
-        "tier": "contender"
+        "beat": "Opening-night rout of Phoenix shows a stingy defense, but a 1-0 start with Shaedon Sharpe out and a roster still gelling around Lillard's return doesn't prove playoff-series durability yet.",
+        "tier": "pretender"
       },
       "ftt": "pending"
     },
@@ -109,7 +109,7 @@
       "read": {
         "v": "trust",
         "why": "A #3 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Elite-level offense and a top-tier defense make Minnesota a real threat, but the star-driven scoring and DiVincenzo's absence leave the depth behind the top group unproven for a seven-game grind.",
+        "beat": "Elite net rating and a strong opening win, but the offense leans heavily on Anthony Edwards, and losing DiVincenzo thins the wing depth that playoff defense needs. Champion-level only if the supporting cast holds up.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -139,7 +139,7 @@
       "read": {
         "v": "trust",
         "why": "A #5 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "An elite net rating and a stellar opener paint a strong picture, but a title needs playoff defense that travels, and the Lakers' leaky-to-middling defensive profile keeps them short of a true champion label. Luka Doncic carries heavy star-dependence, and Collin Sexton's day-to-day status adds depth questions.",
+        "beat": "An elite net rating and strong defense make them dangerous, but Luka Doncic carries heavy star-dependence and Collin Sexton and Jake LaRavia are both banged up, leaving depth thin for a seven-game grind.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -169,7 +169,7 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "Elite defense travels, but Brandon Ingram and Bradley Beal are both out, so the offense leans heavily on Darius Garland. Strong start, yet the roster is thin for a seven-game grind.",
+        "beat": "Elite defense travels, but the roster is thin: Ingram, Beal and Strus all sidelined, leaving the offense star-dependent on Garland. Strong start, not yet a champion-caliber core.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -194,12 +194,12 @@
       ],
       "fair_pct": 5.8,
       "fair_odds": "+1620",
-      "market": "+60000",
-      "ev": 3394,
+      "market": "+75000",
+      "ev": 4266,
       "read": {
         "v": "trust",
         "why": "Elite defense (#5) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "Opening-night glory came from a career-best scoring explosion off the bench, not a proven roster. Their elite defense is real, but star-dependence and a shaky, unproven depth chart keep them short of contender status.",
+        "beat": "One game in, a 45-point night from Ty Jerome is a hot streak, not a roster proof. Memphis has a top-tier defense, but its scoring leans heavily on one player's shooting, and playoff offense goes cold. Contender credentials need more evidence.",
         "tier": "pretender"
       },
       "ftt": "pending"
@@ -229,7 +229,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#7) but leans one way; the #11 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Houston's offense is elite and its scoring machine looks real, but a defense that ranks middling in a playoff series is the worry. One opening win is too little to call them a champion.",
+        "beat": "Elite offense and a top-tier net rating carry the verdict, but a leaky defense that gave up 110 in a 1-0 season start is the playoff question. Defense travels in seven-game series, so Houston must tighten up on that end.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -259,7 +259,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#8) but leans one way; the #14 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Shai Gilgeous-Alexander gives OKC a top-tier star and an elite defense that travels in a seven-game series. Thin depth at center and guard after multiple injuries keeps them short of champion status.",
+        "beat": "Shai Gilgeous-Alexander gives OKC a superstar engine and an elite defense that travels in a seven-game series, though losing Topic, Sorber and Oweh thins the depth behind the core.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -284,12 +284,12 @@
       ],
       "fair_pct": 5.3,
       "fair_odds": "+1803",
-      "market": "+17500",
-      "ev": 825,
+      "market": "+20000",
+      "ev": 956,
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#8) but leans one way; the #14 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Washington leans on its high-scoring offense and Anthony Davis, while the defense ranks in the league's leakiest tier and two rotation players are out. Season-opener results don't yet prove a playoff defense can hold up.",
+        "beat": "Anthony Davis's star-driven offense carries this roster, while a leaky defense ranked near the bottom and three rotation players out is a serious playoff concern.",
         "tier": "pretender"
       },
       "ftt": "pending"
@@ -319,8 +319,8 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #5 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "A strong early defense is encouraging, but losing Coby White and Kon Knueppel's status leave the offense thin and star-dependent. One opening win is too little to trust for a seven-game playoff grind.",
-        "tier": "pretender"
+        "beat": "Elite defense travels, but leaning on Kon Knueppel and Coby White while Kylan Boswell sits out leaves the backcourt thin and star-dependent against playoff-caliber offenses. Good enough to contend, not yet built to win it all.",
+        "tier": "contender"
       },
       "ftt": "pending"
     },
@@ -349,7 +349,7 @@
       "read": {
         "v": "trust",
         "why": "Elite defense (#4) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "An elite defense travels into a series, but the roster leans on Joel Embiid, and a thin injured front court and an offense that is only middling keep this from being a sure champion.",
+        "beat": "Elite defense is the playoff-proof trait, but the roster leans heavily on Joel Embiid, and with depth injuries and offense only middling, it can't yet be called a sure champion.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -374,12 +374,12 @@
       ],
       "fair_pct": 4.2,
       "fair_odds": "+2289",
-      "market": "+5500",
-      "ev": 134,
+      "market": "+5000",
+      "ev": 113,
       "read": {
         "v": "fools_gold",
         "why": "All offense (#2), no stops (#22 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade.",
-        "beat": "Atlanta's offense is elite, but its defense is leaky, a profile that stalls in seven-game playoff half-court grinds. Its depth is thin with Gueye and Veesaar sidelined, and Alexander-Walker's scoring spike is a one-game sample.",
+        "beat": "Atlanta's offense is elite but its defense is leaky, a profile that struggles to grind out half-court playoff series when easy buckets dry up. Early-season 1-0 start means little on that front.",
         "tier": "pretender"
       },
       "ftt": "pending"
@@ -404,13 +404,13 @@
       ],
       "fair_pct": 3.5,
       "fair_odds": "+2728",
-      "market": "+3500",
-      "ev": 27,
+      "market": "+4000",
+      "ev": 45,
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#14) but leans one way; the #16 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Haliburton's return and Siakam's scoring give Indiana star power, but a leaky defense and a thin, injury-hit depth chart keep them short of the elite tier.",
-        "tier": "contender"
+        "beat": "Star-driven with a leaky defense that ranks near the bottom, and the Pacers' title hopes lean on Haliburton returning from a torn Achilles. Playoff series exposure of that defense is the concern, so they sit at pretender for now.",
+        "tier": "pretender"
       },
       "ftt": "pending"
     },

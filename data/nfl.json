@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-21T18:23:33Z",
-  "odds_remaining": "76721",
+  "generated": "2026-10-22T18:11:55Z",
+  "odds_remaining": "73941",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
@@ -52,7 +52,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it.",
-        "beat": "Elite margin and a top-five defense make them dangerous, but a banged-up receiver corps with Evans questionable, Samuel out, and Kirk on IR, plus Bosa and Kittle's age, leaves them thinner than a true champion.",
+        "beat": "Dominant margins and an elite defense back a strong case, but the receiver corps is badly depleted, with Kirk on IR and Evans and Samuel hurt, and the offense leans on McCaffrey and Kittle. Trust the blueprint, but this is a contender, not a finished champion.",
         "tier": "contender"
       }
     },
@@ -83,7 +83,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "Elite defense and a strong point margin make them real, but the receiver corps is thin with multiple injuries and Kelce is aging, so star-dependence on Mahomes keeps them short of a clear champion.",
+        "beat": "Elite defense and a strong margin make them dangerous, but Mahomes is 31 with Kelce aging at 37 and questionable, and the receiver corps is thinned by injuries, so the offense has real playoff-depth questions.",
         "tier": "contender"
       }
     },
@@ -114,7 +114,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "Elite defense and a strong point margin make them real, but a thin receiver corps with several injured pass-catchers and a walking-wounded tackle group leave a January playoff run exposed.",
+        "beat": "Elite points allowed and a top-five scoring margin make this a real January defense, but the receiver corps is thin after several long-term losses and a flagged cornerback and safety add depth worries. Lawrence's play is the key to whether the offense holds up in the playoffs.",
         "tier": "contender"
       }
     },
@@ -145,7 +145,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it.",
-        "beat": "An elite defense and a dominant margin make them credible, but their offense sits middling and the receiver corps is banged up, with Jordan Addison and T.J. Hockenson both questionable and depth thin behind Justin Jefferson.",
+        "beat": "Elite defense and a dominant margin are real, but the offense leans on Justin Jefferson, who is questionable, and the backfield is thinned by Jordan Mason's season-long injury. Single-elimination January football can expose that.",
         "tier": "contender"
       }
     },
@@ -176,7 +176,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-6 defense. Complete and earned \u2014 trust it.",
-        "beat": "Strong margins and an elite defense make them legit, but the offense is middling and thin at receiver and running back with a banged-up secondary, so they profile as a contender rather than a champion.",
+        "beat": "Dominant margins and an elite defense give real playoff teeth, but the offense leans on a thin, injury-hit backfield and receiver group, and a veteran-led depth chart leaves them one bad game from exposure.",
         "tier": "contender"
       }
     },
@@ -207,7 +207,7 @@
       "read": {
         "v": "fools_gold",
         "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade.",
-        "beat": "Josh Allen's elite offense makes Buffalo a real threat, but a leaky defense that can't get stops is a serious January liability, and Ed Oliver's questionable status adds to the front-seven concern.",
+        "beat": "Josh Allen and an elite offense carry this team, but a leaky defense that can't get stops is a real January liability. Only a pretender-level stop unit holds them back from a true title threat.",
         "tier": "contender"
       }
     },
@@ -320,8 +320,8 @@
       ],
       "fair_pct": 2.3,
       "fair_odds": "+4238",
-      "market": "+3000",
-      "ev": -29,
+      "market": "+2700",
+      "ev": -35,
       "read": {
         "v": "caution",
         "why": "A record that outruns the margin \u2014 #5 by win%, only #14 in point differential. Close-game records don't persist, and single-elimination January is where they come due."
@@ -378,8 +378,8 @@
       ],
       "fair_pct": 1.2,
       "fair_odds": "+7953",
-      "market": "+22500",
-      "ev": 181,
+      "market": "+20000",
+      "ev": 150,
       "read": {
         "v": "caution",
         "why": "Winning the games it shouldn't \u2014 #5 record on a #23 scoring margin. The blueprint buys margin of victory, not one-score luck; regression is the base case."
@@ -552,7 +552,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+35000",
+      "market": "+30000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -755,7 +755,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+17500",
+      "market": "+15000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -784,7 +784,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+12500",
       "ev": null,
       "read": {
         "v": "caution",

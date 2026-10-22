@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-21T18:23:44Z",
-  "odds_remaining": "76720",
+  "generated": "2026-10-22T18:12:10Z",
+  "odds_remaining": "73940",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +317). Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
@@ -54,7 +54,7 @@
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "Miami's offense is elite and its schedule-tested r\u00e9sum\u00e9 is strong, but the card shows no injury or depth detail, so I can't confirm the roster holds up through a 12-team gauntlet. Dominant so far, not yet proven to survive three playoff wins.",
+        "beat": "Elite offense and unbeaten, but the schedule-adjusted tier and playoff gauntlet give no proof yet of surviving a true title-level opponent, so it's a contender rather than a sure champion.",
         "tier": "contender"
       }
     },
@@ -87,7 +87,7 @@
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "beat": "Notre Dame's defense is elite and it has beaten real opponents, but its offense is only top-tier and it still has a Miami test ahead. A late slip would cost them, so it is a true contender rather than a sure champion.",
+        "beat": "Notre Dame's defense is elite and the margins are dominant, but the offense is merely good, so it can be run off the field by a balanced playoff team. Strong enough to make the bracket and compete, not yet built to win four straight games.",
         "tier": "contender"
       }
     },
@@ -104,7 +104,7 @@
         true
       ],
       "sosrank": 138,
-      "srsrank": 46,
+      "srsrank": 44,
       "srs_flag": "mirage",
       "vals": [
         "0.833",
@@ -113,14 +113,14 @@
         "263 #6",
         "+29.2 #2"
       ],
-      "fair_pct": 6.7,
-      "fair_odds": "+1401",
+      "fair_pct": 7.5,
+      "fair_odds": "+1228",
       "market": "+100000",
-      "ev": 6571,
+      "ev": 7439,
       "read": {
         "v": "fools_gold",
-        "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #46. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
-        "beat": "A stingy defense and a strong record, but the schedule has been soft and the opponent-adjusted profile is middling, so the dominance looks inflated and a 12-team gauntlet would expose it.",
+        "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #44. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
+        "beat": "New Mexico's unbeaten-looking start is built on a soft schedule and a defense that has feasted on weak attacks. Their offense is middling against real competition, so a 12-team playoff gauntlet would likely expose them quickly.",
         "tier": "pretender"
       }
     },
@@ -153,7 +153,7 @@
       "read": {
         "v": "caution",
         "why": "Leads with its #5 scoring defense; the #12 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #6 says the schedule hasn't fully tested it yet.",
-        "beat": "Ohio State's elite defense and strong overall r\u00e9sum\u00e9 make it a real threat, but starting quarterback Julian Sayin's injury leaves an unproven passing game with no margin for error, and the offense is only middling.",
+        "beat": "Elite defense and a strong margin, but the offense is only middling with QB Julian Sayin out and a thin, injury-hit backfield after Ja'Kobi Jackson's surgery. The unproven replacements leave little room for error in a 12-team gauntlet.",
         "tier": "contender"
       }
     },
@@ -179,14 +179,14 @@
         "351 #65",
         "+26.9 #5"
       ],
-      "fair_pct": 21.3,
-      "fair_odds": "+369",
-      "market": "+100000",
-      "ev": 21257,
+      "fair_pct": 20.5,
+      "fair_odds": "+389",
+      "market": "+70000",
+      "ev": 14249,
       "read": {
         "v": "caution",
         "why": "Leads with its #3 offense; the #65 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #41 says the schedule hasn't fully tested it yet.",
-        "beat": "Elite offense and undefeated record, but a leaky total defense and a schedule that hasn't yet tested it make a 12-team playoff gauntlet a serious risk.",
+        "beat": "Undefeated and explosive, but the defense is leaky and the schedule hasn't tested it yet, so a 12-team playoff gauntlet would likely expose the back end before the offense can carry them.",
         "tier": "pretender"
       }
     },
@@ -214,7 +214,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+480",
+      "market": "+460",
       "ev": null,
       "read": {
         "v": "caution",
@@ -264,7 +264,7 @@
         true,
         false
       ],
-      "sosrank": 32,
+      "sosrank": 31,
       "srsrank": 11,
       "srs_flag": "ok",
       "vals": [
@@ -276,7 +276,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+750",
+      "market": "+800",
       "ev": null,
       "read": {
         "v": "caution",
@@ -357,12 +357,12 @@
         true,
         false
       ],
-      "sosrank": 34,
+      "sosrank": 33,
       "srsrank": 38,
       "srs_flag": "mirage",
       "vals": [
         "0.500",
-        "24.0 #97",
+        "24.0 #98",
         "12.2 #3",
         "264 #7",
         "+11.8 #41"
@@ -373,7 +373,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 scoring defense; the #97 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #38 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 scoring defense; the #98 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #38 says the schedule hasn't fully tested it yet."
       }
     }
   ],
