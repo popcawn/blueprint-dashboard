@@ -561,9 +561,35 @@ def nba_ppg_by_name(season):
     _load(season - 1, True)
     return ppg
 
+_LONG_KW = ("season-ending", "out for the season", "season ending", "torn", " acl", "ruptur",
+            "out indefinitely", "placed on injured reserve", "miss the remainder", "miss significant")
+
+def _injury_timeline(it):
+    """Classify an injury as title-relevant (season-ending / long recovery that may return) or not.
+       Returns a short timeline label, or None to DROP it (short-term / game-to-game)."""
+    s = (it.get("status") or "")
+    d = it.get("details") or {}
+    comment = ((it.get("shortComment") or "") + " " + (it.get("longComment") or "")).lower()
+    is_ir = "reserve" in s.lower()
+    season_ending = any(k in comment for k in _LONG_KW)
+    days = None
+    rd = d.get("returnDate")
+    if rd:
+        try: days = (datetime.date.fromisoformat(rd[:10]) - datetime.date.today()).days
+        except Exception: days = None
+    long_out = (s == "Out") and (days is None or days >= 28)   # 4+ weeks / indefinite
+    if not (is_ir or season_ending or long_out):
+        return None   # Questionable / Doubtful / Day-To-Day / short 'Out' -> not a title-run factor
+    if season_ending: return "out for the season"
+    if days is not None and days >= 0:
+        wks = max(2, round(days / 7))
+        return f"on IR, eyeing return in ~{wks} wks" if is_ir else f"out ~{wks}+ wks"
+    return "on IR, no timeline" if is_ir else "out indefinitely"
+
 def espn_injuries(path, ppg_by_name=None):
-    """League injuries, each as (player, status, note). note = '<n> ppg' for a matched NBA scorer,
-       else the player's position (QB/RW/...). Skips 'Active' (not actually hurt). {team: [...]}"""
+    """Only SEASON-ENDING or long-recovery injuries (what matters for a title run). Short-term game
+       statuses (Questionable/Doubtful/Day-To-Day) are dropped. Each: (player, status, note) where
+       note carries the recovery timeline + position/PPG. {team: [...]}"""
     try:
         inj = get(f"https://site.api.espn.com/apis/site/v2/sports/{path}/injuries").get("injuries", [])
     except Exception:
@@ -572,11 +598,13 @@ def espn_injuries(path, ppg_by_name=None):
     for t in inj:
         team = t.get("displayName"); lst = []
         for it in t.get("injuries", []):
-            ath = it.get("athlete", {}); nm = ath.get("displayName"); st = it.get("status")
-            if not nm or st in (None, "Active"): continue
-            if ppg_by_name is not None and nm in ppg_by_name: note = f"{ppg_by_name[nm]:.0f} ppg"
-            else: note = _pos(ath)
-            lst.append((nm, st, note))
+            ath = it.get("athlete", {}); nm = ath.get("displayName")
+            if not nm: continue
+            tl = _injury_timeline(it)
+            if not tl: continue
+            who = (f"{ppg_by_name[nm]:.0f} ppg" if (ppg_by_name is not None and nm in ppg_by_name) else _pos(ath))
+            note = f"{who}, {tl}" if who else tl
+            lst.append((nm, it.get("status"), note))
         if team and lst: out[team] = lst
     return out
 
@@ -593,14 +621,14 @@ def beat_sheet(t, labels, news, inj_list, roster=""):
     if t.get("ftt"): lines.append(f"40-before-20: {t['ftt']}")
     if roster: lines.append(roster)
     news_blob = " ".join(news).lower()
-    def _sev(x): return {"Out": 0, "Injured Reserve": 0, "Doubtful": 1, "Questionable": 2}.get(x[1], 3)
-    def _val(x): return float(x[2].split()[0]) if (x[2] and x[2].endswith("ppg")) else 0
+    def _val(x):   # NBA scoring value if the note carries it ("28 ppg, ...")
+        try: return float(x[2].split()[0]) if (x[2] and "ppg" in x[2]) else 0
+        except Exception: return 0
     def _innews(x): return 0 if (x[0] and x[0].lower() in news_blob) else 1   # a hurt player the beat is writing about = the one that matters
-    rel = [x for x in inj_list if x[1] in ("Out", "Doubtful", "Questionable", "Injured Reserve") or _val(x) >= 8]
-    if rel:
-        # storyline injuries first, then by severity, then by scoring value (NBA) — show the full starting-level picture
-        shown = sorted(rel, key=lambda x: (_innews(x), _sev(x), -_val(x)))[:7]
-        lines.append("Injuries (most notable first): " + "; ".join(f"{p} ({s}{f', {note}' if note else ''})" for p, s, note in shown))
+    # inj_list is already filtered to season-ending / long-recovery injuries only
+    if inj_list:
+        shown = sorted(inj_list, key=lambda x: (_innews(x), -_val(x)))[:5]
+        lines.append("Season-ending / long-term injuries: " + "; ".join(f"{p} ({note or s})" for p, s, note in shown))
     if news:
         lines.append("Headlines: " + " | ".join(news))
     return "\n".join(lines)
@@ -618,8 +646,10 @@ def llm_read(sheet, sport):
         "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. Lead with the reason for the verdict. "
         "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
         "bottom-tier). BAD: 'a top-4 defense (18.3 PPG allowed)'. GOOD: 'an elite defense'. The card already shows the numbers. "
-        "Judge the ROSTER, not just the box score: use the depth chart and injuries to flag star-dependence, an aging key player, a thin or "
-        "unproven position group, or a position group hit by multiple injuries (e.g. a banged-up receiver corps). You MAY apply well-known, "
+        "Judge the ROSTER, not just the box score: use the depth chart to flag star-dependence, an aging key player, or a thin / unproven "
+        "position group. Any injuries listed are ALREADY filtered to season-ending or long-recovery only — weigh them as title-run factors "
+        "(a key player lost for the year, or one who may return from a long absence but rusty for the playoff push). Do NOT mention minor, "
+        "day-to-day, or game-time-decision injuries — they are not in the data and are irrelevant to a title. You MAY apply well-known, "
         "established reputation about the specific players named in the data (a star's caliber, a veteran past his prime) — but NEVER invent "
         "players, injuries, stats, prices, quotes, or events that are not in the data. "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
