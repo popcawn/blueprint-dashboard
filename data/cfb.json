@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-22T18:12:10Z",
-  "odds_remaining": "73940",
+  "generated": "2026-10-23T18:00:43Z",
+  "odds_remaining": "72632",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +317). Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
@@ -37,7 +37,7 @@
         false,
         true
       ],
-      "sosrank": 76,
+      "sosrank": 77,
       "srsrank": 5,
       "srs_flag": "elite",
       "vals": [
@@ -54,7 +54,7 @@
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "Elite offense and unbeaten, but the schedule-adjusted tier and playoff gauntlet give no proof yet of surviving a true title-level opponent, so it's a contender rather than a sure champion.",
+        "beat": "Dominant offense and a clean unbeaten record, but the blueprint doesn't show roster depth or injury data, and an undefeated start against a shorter schedule still leaves the playoff gauntlet unproven.",
         "tier": "contender"
       }
     },
@@ -87,7 +87,7 @@
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "beat": "Notre Dame's defense is elite and the margins are dominant, but the offense is merely good, so it can be run off the field by a balanced playoff team. Strong enough to make the bracket and compete, not yet built to win four straight games.",
+        "beat": "Notre Dame's defense is elite and the margins are dominant, but the offense is merely good, leaving it short of the complete, proven profile a champion needs against top playoff gauntlets.",
         "tier": "contender"
       }
     },
@@ -113,30 +113,30 @@
         "263 #6",
         "+29.2 #2"
       ],
-      "fair_pct": 7.5,
-      "fair_odds": "+1228",
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
       "market": "+100000",
-      "ev": 7439,
+      "ev": 23924,
       "read": {
         "v": "fools_gold",
         "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #44. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
-        "beat": "New Mexico's unbeaten-looking start is built on a soft schedule and a defense that has feasted on weak attacks. Their offense is middling against real competition, so a 12-team playoff gauntlet would likely expose them quickly.",
+        "beat": "Their stingy defense looks elite, but opponent-adjusted they've beaten a soft schedule, and a 12-team gauntlet would expose that thin resume quickly.",
         "tier": "pretender"
       }
     },
     {
       "name": "Ohio State Buckeyes",
       "rec": "6-1",
-      "score": 3,
+      "score": 4,
       "index": 85.5,
       "q": [
         false,
         true,
         true,
         true,
-        false
+        true
       ],
-      "sosrank": 61,
+      "sosrank": 64,
       "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
@@ -144,50 +144,17 @@
         "39.3 #12",
         "13.4 #5",
         "264 #8",
-        "+25.9 #6"
+        "+25.9 #5"
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
       "market": "+500",
       "ev": 44,
       "read": {
-        "v": "caution",
-        "why": "Leads with its #5 scoring defense; the #12 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #6 says the schedule hasn't fully tested it yet.",
-        "beat": "Elite defense and a strong margin, but the offense is only middling with QB Julian Sayin out and a thin, injury-hit backfield after Ja'Kobi Jackson's surgery. The unproven replacements leave little room for error in a 12-team gauntlet.",
+        "v": "trust",
+        "why": "Dominant AND tested \u2014 #5 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
+        "beat": "Ohio State has an elite defense and a dominant margin, but its offense is only middling and it is thin at running back, with Ja'Kobi Jackson out for weeks, so a deep playoff run is far from locked.",
         "tier": "contender"
-      }
-    },
-    {
-      "name": "James Madison Dukes",
-      "rec": "7-0",
-      "score": 3,
-      "index": 83.9,
-      "q": [
-        true,
-        true,
-        false,
-        false,
-        true
-      ],
-      "sosrank": 82,
-      "srsrank": 41,
-      "srs_flag": "mirage",
-      "vals": [
-        "1.000",
-        "42.9 #3",
-        "16.0 #18",
-        "351 #65",
-        "+26.9 #5"
-      ],
-      "fair_pct": 20.5,
-      "fair_odds": "+389",
-      "market": "+70000",
-      "ev": 14249,
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #3 offense; the #65 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #41 says the schedule hasn't fully tested it yet.",
-        "beat": "Undefeated and explosive, but the defense is leaky and the schedule hasn't tested it yet, so a 12-team playoff gauntlet would likely expose the back end before the offense can carry them.",
-        "tier": "pretender"
       }
     },
     {
@@ -214,7 +181,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+460",
+      "market": "+470",
       "ev": null,
       "read": {
         "v": "caution",
@@ -233,7 +200,7 @@
         false,
         false
       ],
-      "sosrank": 134,
+      "sosrank": 133,
       "srsrank": 8,
       "srs_flag": "ok",
       "vals": [
@@ -241,7 +208,7 @@
         "40.2 #8",
         "14.8 #11",
         "303 #27",
-        "+25.3 #7"
+        "+25.3 #6"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -249,7 +216,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #7 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #6 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -264,7 +231,7 @@
         true,
         false
       ],
-      "sosrank": 31,
+      "sosrank": 30,
       "srsrank": 11,
       "srs_flag": "ok",
       "vals": [
@@ -272,11 +239,11 @@
         "36.6 #24",
         "12.9 #4",
         "271 #9",
-        "+23.7 #9"
+        "+23.7 #8"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+800",
+      "market": "+750",
       "ev": null,
       "read": {
         "v": "caution",
@@ -303,7 +270,7 @@
         "40.4 #7",
         "15.9 #16",
         "256 #3",
-        "+24.6 #8"
+        "+24.6 #7"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -362,7 +329,7 @@
       "srs_flag": "mirage",
       "vals": [
         "0.500",
-        "24.0 #98",
+        "24.0 #99",
         "12.2 #3",
         "264 #7",
         "+11.8 #41"
@@ -373,7 +340,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 scoring defense; the #98 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #38 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 scoring defense; the #99 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #38 says the schedule hasn't fully tested it yet."
       }
     }
   ],
@@ -399,11 +366,11 @@
       "srsrank": 8
     },
     {
-      "name": "Tennessee Volunteers",
+      "name": "Ole Miss Rebels",
       "srsrank": 9
     },
     {
-      "name": "Ole Miss Rebels",
+      "name": "Tennessee Volunteers",
       "srsrank": 10
     }
   ],
@@ -422,6 +389,12 @@
     },
     {
       "name": "Notre Dame Fighting Irish",
+      "ev": 44,
+      "market": "+500",
+      "fair_odds": "+317"
+    },
+    {
+      "name": "Ohio State Buckeyes",
       "ev": 44,
       "market": "+500",
       "fair_odds": "+317"
