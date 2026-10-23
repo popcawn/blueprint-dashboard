@@ -565,26 +565,30 @@ _LONG_KW = ("season-ending", "out for the season", "season ending", "torn", " ac
             "out indefinitely", "placed on injured reserve", "miss the remainder", "miss significant")
 
 def _injury_timeline(it):
-    """Classify an injury as title-relevant (season-ending / long recovery that may return) or not.
-       Returns a short timeline label, or None to DROP it (short-term / game-to-game)."""
+    """Classify an injury by FORWARD availability — title-relevant only if the player stays out a long
+       time (season-ending, or multi-week recovery). The IR label alone is not enough: an IR player
+       being activated this week (near returnDate) is effectively healthy going forward, so DROP it.
+       Returns a short timeline label, or None to drop."""
     s = (it.get("status") or "")
     d = it.get("details") or {}
     comment = ((it.get("shortComment") or "") + " " + (it.get("longComment") or "")).lower()
     is_ir = "reserve" in s.lower()
+    not_playing = is_ir or s == "Out"
     season_ending = any(k in comment for k in _LONG_KW)
     days = None
     rd = d.get("returnDate")
     if rd:
         try: days = (datetime.date.fromisoformat(rd[:10]) - datetime.date.today()).days
         except Exception: days = None
-    long_out = (s == "Out") and (days is None or days >= 28)   # 4+ weeks / indefinite
-    if not (is_ir or season_ending or long_out):
-        return None   # Questionable / Doubtful / Day-To-Day / short 'Out' -> not a title-run factor
-    if season_ending: return "out for the season"
-    if days is not None and days >= 0:
-        wks = max(2, round(days / 7))
-        return f"on IR, eyeing return in ~{wks} wks" if is_ir else f"out ~{wks}+ wks"
-    return "on IR, no timeline" if is_ir else "out indefinitely"
+    if season_ending:
+        return "out for the season"
+    if days is not None:
+        # a concrete return date: title-relevant only if it's still 4+ weeks away
+        if days >= 28 and not_playing:
+            return f"{'on IR, ' if is_ir else ''}out ~{round(days / 7)}+ wks"
+        return None   # near-term return (incl. IR players activating soon) -> not a title factor
+    # no return date + genuinely out -> indefinite / likely serious
+    return "out indefinitely" if not_playing else None
 
 def espn_injuries(path, ppg_by_name=None):
     """Only SEASON-ENDING or long-recovery injuries (what matters for a title run). Short-term game
