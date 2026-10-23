@@ -11,7 +11,7 @@ Ported from the Claude Code /nfl-blueprint and /cfb-blueprint engines:
 - NFL: 5 categories derived from 23 Super Bowl champions, AFC/NFC fair-odds split.
 - CFB: 5 user criteria, SOS-weighted fair odds (exponent 3, backtested), + SRS reality-check column.
 """
-import json, os, sys, time, datetime, urllib.request
+import json, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
@@ -637,39 +637,17 @@ def beat_sheet(t, labels, news, inj_list, roster=""):
         lines.append("Headlines: " + " | ".join(news))
     return "\n".join(lines)
 
-def llm_read(sheet, sport):
-    """Claude writes a BRIEF, blueprint-accurate beat-reporter read from the fact sheet.
-       Returns {beat, tier} or None (→ caller keeps the deterministic template read). Facts-only."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key: return None
-    ctx = READ_CTX.get(sport, "the playoffs punish a one-dimensional team")
-    system = (
-        f"You are a scout writing a VERY SHORT read for a {sport.upper()} championship-blueprint tool. "
-        "Sort this team on the spectrum pretender -> contender -> champion. "
-        f"Playoff reality for this sport: {ctx}. "
-        "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. "
-        "There is NO template. Write each read as its own thing, shaped by whatever is actually true and most telling about THIS team — "
-        "some reads are a single clean point, some a contrast, some a warning, some a surprise. Never force a structure, never open two reads "
-        "the same way, and don't reach for 'but' out of habit — use it only when the contrast genuinely drives the take. "
-        "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
-        "bottom-tier). BAD: 'a top-4 defense (18.3 PPG allowed)'. GOOD: 'an elite defense'. The card already shows the numbers. "
-        "Judge the ROSTER, not just the box score: use the depth chart to flag star-dependence, an aging key player, or a thin / unproven "
-        "position group. Any injuries listed are ALREADY filtered to season-ending or long-recovery only — weigh them as title-run factors "
-        "(a key player lost for the year, or one who may return from a long absence but rusty for the playoff push). Do NOT mention minor, "
-        "day-to-day, or game-time-decision injuries — they are not in the data and are irrelevant to a title. You MAY apply well-known, "
-        "established reputation about the specific players named in the data (a star's caliber, a veteran past his prime) — but NEVER invent "
-        "players, injuries, stats, prices, quotes, or events that are not in the data. "
-        'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
-    )
+_BANNED = re.compile(r"\b(but|however|though)\b", re.I)   # crutch words that make reads read alike
+
+def _anthropic_read(system, sheet):
     body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 120,
                        "thinking": {"type": "disabled"},   # plain JSON task — no thinking (default effort = medium, so 'disabled' is accepted)
                        "system": system,
                        "messages": [{"role": "user", "content": sheet}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body,
-        headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+        headers={"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01", "content-type": "application/json"})
     try:
         r = json.load(urllib.request.urlopen(req, timeout=45))
-        # take the first text block (a thinking block, if any, comes first and has no answer)
         txt = next((b.get("text", "") for b in r.get("content", []) if b.get("type") == "text"), "").strip()
         if not txt: return None
         if txt.startswith("```"): txt = txt.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0]
@@ -678,6 +656,38 @@ def llm_read(sheet, sport):
     except Exception:
         return None
     return None
+
+def llm_read(sheet, sport):
+    """Claude writes a BRIEF, blueprint-accurate beat-reporter read from the fact sheet.
+       Returns {beat, tier} or None (→ caller keeps the deterministic template read). Facts-only."""
+    if not os.environ.get("ANTHROPIC_API_KEY"): return None
+    ctx = READ_CTX.get(sport, "the playoffs punish a one-dimensional team")
+    system = (
+        f"You are a scout writing a VERY SHORT read for a {sport.upper()} championship-blueprint tool. "
+        "Sort this team on the spectrum pretender -> contender -> champion. "
+        f"Playoff reality for this sport: {ctx}. "
+        "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. "
+        "There is NO template. Write each read as its own thing, shaped by whatever is actually true and most telling about THIS team — "
+        "some reads are a single clean point, some a contrast, some a warning, some a surprise. Never force a structure. "
+        "Do NOT use the words 'but', 'however', or 'though' anywhere. When a strength and a flaw both matter, show the tension another way: a "
+        "semicolon, a second sentence, leading with the flaw, or a turn like 'the catch is' / 'the question is' / 'what keeps them short'. "
+        "Never pivot a sentence on 'but'. "
+        "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
+        "bottom-tier). Write 'an elite defense', never 'a top-4 defense (18.3 PPG allowed)'. The card already shows the numbers. "
+        "Judge the ROSTER, not just the box score: use the depth chart to flag star-dependence, an aging key player, or a thin / unproven "
+        "position group. Any injuries listed are ALREADY filtered to season-ending or long-recovery only — weigh them as title-run factors "
+        "(a key player lost for the year, or one returning from a long absence rusty for the playoff push). Do NOT mention minor, "
+        "day-to-day, or game-time-decision injuries — they are not in the data and are irrelevant to a title. You MAY apply well-known, "
+        "established reputation about the specific players named in the data (a star's caliber, a veteran past his prime); never invent "
+        "players, injuries, stats, prices, quotes, or events that are not in the data. "
+        'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
+    )
+    out = _anthropic_read(system, sheet)
+    if out and _BANNED.search(out["beat"]):   # it slipped a crutch word in — one rewrite pass
+        strict = system + " Your previous draft used a forbidden word (but/however/though). Rewrite it with NONE of those words."
+        retry = _anthropic_read(strict, sheet)
+        if retry: out = retry
+    return out
 
 def attach_beat_reads(name, data):
     """Generate beat-reporter reads for the top contenders of one sport, in place on data['teams'].
