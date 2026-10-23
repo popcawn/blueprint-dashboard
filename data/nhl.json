@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-23T18:00:50Z",
-  "odds_remaining": "72631",
+  "generated": "2026-10-23T20:47:05Z",
+  "odds_remaining": "72419",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -48,7 +48,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Elite goaltending and a top-tier defense carry this roster, but losing Barzal and Romanov, plus Ritchie and Maccelli out, leaves the depth thin and the team leaning heavily on its goalie.",
+        "beat": "Elite goaltending and a strong defense carry real Cup shape, but losing top center Mathew Barzal and winger Matias Maccelli, plus defenseman Alexander Romanov, thins the depth before the playoffs.",
         "tier": "contender"
       }
     },
@@ -77,7 +77,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #9 goal differential, but the #13 spot is the one a seven-game series finds.",
-        "beat": "Elite goaltending and the league's stingiest defense anchor a strong team, but a crowded injured-reserve list at center and on the blue line leaves real depth questions for a seven-game grind.",
+        "beat": "Elite goaltending and a stingy defense carry this group, but a cluster of centers and a defenseman on injured reserve leaves the middle thin for a long series. Lindell's absence adds to the blue-line concern.",
         "tier": "contender"
       }
     },
@@ -106,7 +106,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#5) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Strong goaltending and a sound defense give Minnesota real playoff teeth, but the injury-thinned forward group and the loss of Filip Gustavsson, their starter, keep them short of champion-level depth.",
+        "beat": "Strong goaltending and a solid defense give Minnesota a real Cup shape, but Filip Gustavsson's injury and the Foligno brothers and Brock Faber on IR leave the depth thin and the goaltending unproven behind a backup.",
         "tier": "contender"
       }
     },
@@ -135,7 +135,7 @@
       "read": {
         "v": "caution",
         "why": "That #1 save% is riding variance \u2014 they're #20 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
-        "beat": "Boston's stingy goal prevention and goaltending look elite, but their even-strength possession is middling, so the sharp numbers are propped up by a hot netminder. Playoff series will expose that thin underlying game.",
+        "beat": "Boston's goaltending is shining, but its even-strength play looks thin, and a leaky-possession team riding a hot goalie is vulnerable in a seven-game series. Lean on the roster's depth and reliability before calling them a contender.",
         "tier": "pretender"
       }
     },
@@ -164,7 +164,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #5 goal differential, but the #14 spot is the one a seven-game series finds.",
-        "beat": "Elite five-on-five play and a stingy defense make them a real threat, but goaltending has been middling at even strength and the team leans on Kucherov's star power, so the series-saving save is the open question.",
+        "beat": "Elite five-on-five play and a stingy defense make Tampa a real threat, but its goaltending has been middling and Kucherov's star power carries a lot of the load. Gourde's injury thins the middle.",
         "tier": "contender"
       }
     },
@@ -193,7 +193,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #2 goal differential, but the #13 spot is the one a seven-game series finds.",
-        "beat": "Colorado's elite five-on-five play and strong possession are real, but a leaky goaltending profile and losing three centers and wingers to injury make its depth a playoff question.",
+        "beat": "Elite five-on-five play and strong puck possession make Colorado a real threat, but a leaky goaltending group and injuries to two centers and a winger raise doubts about a seven-game grind.",
         "tier": "contender"
       }
     },
@@ -222,7 +222,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#7) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Detroit drives play and gets saves, but its even-strength scoring margin is middling and injuries to two centers and a defenseman thin the depth behind its stars. Strong enough to threaten, not yet proven as a championship roster.",
+        "beat": "Detroit's goaltending and play-driving both look strong, but the injured reserve list is thin at center and defense, so depth is the question. Raymond's two-goal night helps, yet this roster still needs its banged-up group healthy to matter in a seven-game series.",
         "tier": "contender"
       }
     },
@@ -251,7 +251,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #22 goal differential, but the #16 spot is the one a seven-game series finds.",
-        "beat": "Goal differential lags badly despite a strong goaltending-driven defense, and the roster is thin with Fiala, Turcotte, Jenik and Dvorak all on Injured Reserve. Panarin is carrying the offense, which is star-dependence a seven-game series will expose.",
+        "beat": "Goaltending and a solid penalty-kill-style defense keep them afloat, but a negative even-strength goal differential, middling shot share, and injuries to Fiala and multiple centers make them star-dependent on Panarin.",
         "tier": "pretender"
       }
     },
@@ -280,7 +280,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#1) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Carolina dominates possession and even-strength play with an elite process, but a leaky goaltending situation and injuries to top forwards and a defenseman keep this from a sure bet. Goaltending decides series, and that is the open question.",
+        "beat": "Carolina dominates possession and even-strength play with an elite roster core, but its goaltending is leaky and three key players sit on injured reserve, so it's a real threat that can't yet be trusted to win a seven-game series.",
         "tier": "contender"
       }
     },
@@ -309,7 +309,7 @@
       "read": {
         "v": "caution",
         "why": "Goalie-carried: #4 in net, only #21 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
-        "beat": "Winnipeg's strong goaltending is carrying a team that struggles to control play, with a thin, injury-hit center group and Morrissey sidelined on defense. The headline trade sending Hellebuyck to New Jersey is a major reason to doubt their crease going forward.",
+        "beat": "Goaltending is carrying this club, and the underlying play is weak: possession sits near the league bottom and the top-line roster is thinned by a run of center and defense injuries. Hot netminding alone won't survive a seven-game series.",
         "tier": "pretender"
       }
     },
@@ -338,7 +338,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #12 goal differential, but the #21 spot is the one a seven-game series finds.",
-        "beat": "Ottawa's goaltending and defense look solid, but its starting netminder Linus Ullmark is on injured reserve, Thomas Chabot is out, and its forward depth is thinned by two more injured wingers. Shaky puck possession and a banged-up roster won't survive a seven-game series.",
+        "beat": "Goaltending is the playoff decider, and with Linus Ullmark on injured reserve and Thomas Chabot out, Ottawa's top-end protection is missing. Their strong save numbers and goal differential can't hide a shot-share problem and thin depth.",
         "tier": "pretender"
       }
     },
@@ -367,7 +367,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #7 goal differential, but the #22 spot is the one a seven-game series finds.",
-        "beat": "Vegas has an elite goal differential and strong territorial play, but a leaky defense and shaky goaltending in close games are the concerns a seven-game series exposes. Defensive depth is also thin with Wotherspoon out.",
+        "beat": "Vegas has an elite attack and strong overall play, but its goals-against is leaky and goaltending has been middling, the weak spot a seven-game series exposes. One injured defenseman adds depth concern.",
         "tier": "contender"
       }
     },
@@ -396,7 +396,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#3) but can't fully trust the net (#22). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Utah controls play well, but its goaltending is leaky and it blew a late lead to Seattle, so a deep playoff run is far from assured. Expect it to be a coin flip in a seven-game series.",
+        "beat": "Utah controls play well, but its goaltending is leaky and it has lost leads late, so the net can't carry a best-of-seven. Two injured depth players add thinness without changing the verdict.",
         "tier": "pretender"
       }
     },
@@ -425,7 +425,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #12 goal differential, but the #25 spot is the one a seven-game series finds.",
-        "beat": "Shesterkin, the team's elite goalie, is on injured reserve with Korpisalo also out, leaving a thin, unproven crease in a sport where goaltending decides series. Possession is bottom-tier, so the goals-against success looks fragile.",
+        "beat": "Goaltending is the problem: starter Igor Shesterkin is on injured reserve with backup Joonas Korpisalo also out, and the possession numbers sit near the bottom, so the solid goals-against won't hold up in a seven-game series.",
         "tier": "pretender"
       }
     },
@@ -454,7 +454,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #19 goal differential, but the #18 spot is the one a seven-game series finds.",
-        "beat": "Columbus has a middling goal-differential profile and a leaky, lower-tier possession game, with a stronger goal-prevention record than its shot share suggests. Its seven-game playoff case rests on goaltending holding up, which the record only partly supports.",
+        "beat": "Columbus has a middling goal-differential profile and a leaky, bottom-tier shot-share, with only a decent goalie effort holding it together. Expect a seven-game series to expose its even-strength play.",
         "tier": "pretender"
       }
     },
