@@ -606,6 +606,9 @@ def espn_injuries(path, ppg_by_name=None):
             if not nm: continue
             tl = _injury_timeline(it)
             if not tl: continue
+            if ppg_by_name is not None:   # NBA: only impactful players (starters / key rotation), not deep bench
+                pv = ppg_by_name.get(nm)
+                if pv is None or pv < 10: continue
             who = (f"{ppg_by_name[nm]:.0f} ppg" if (ppg_by_name is not None and nm in ppg_by_name) else _pos(ath))
             note = f"{who}, {tl}" if who else tl
             lst.append((nm, it.get("status"), note))
@@ -675,9 +678,10 @@ def llm_read(sheet, sport):
         "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
         "bottom-tier). Write 'an elite defense', never 'a top-4 defense (18.3 PPG allowed)'. The card already shows the numbers. "
         "Judge the ROSTER, not just the box score: use the depth chart to flag star-dependence, an aging key player, or a thin / unproven "
-        "position group. Any injuries listed are ALREADY filtered to season-ending or long-recovery only — weigh them as title-run factors "
-        "(a key player lost for the year, or one returning from a long absence rusty for the playoff push). Do NOT mention minor, "
-        "day-to-day, or game-time-decision injuries — they are not in the data and are irrelevant to a title. You MAY apply well-known, "
+        "position group. INJURIES ARE OPTIONAL — most reads should not mention one. Raise an injury ONLY if it genuinely threatens the title: "
+        "an impactful starter or key contributor whose absence the team has NOT absorbed and cannot easily cover. If the team is winning and "
+        "dominant despite the absence, they have absorbed it — stay silent on it. A deep team filling a short-term void is not a title factor; "
+        "a thin team losing its one difference-maker is. Never mention minor or day-to-day injuries. You MAY apply well-known, "
         "established reputation about the specific players named in the data (a star's caliber, a veteran past his prime); never invent "
         "players, injuries, stats, prices, quotes, or events that are not in the data. "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
