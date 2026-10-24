@@ -640,7 +640,7 @@ def beat_sheet(t, labels, news, inj_list, roster=""):
         lines.append("Headlines: " + " | ".join(news))
     return "\n".join(lines)
 
-_BANNED = re.compile(r"\b(but|however|though)\b", re.I)   # crutch words that make reads read alike
+_BANNED = re.compile(r"\b(but|however|though)\b|the catch is|the question is", re.I)   # crutch phrases that make reads read alike
 
 def _anthropic_read(system, sheet):
     body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 120,
@@ -672,9 +672,11 @@ def llm_read(sheet, sport):
         "Write like a sharp beat reporter: ONE or TWO short sentences, 30 words HARD MAX. "
         "There is NO template. Write each read as its own thing, shaped by whatever is actually true and most telling about THIS team — "
         "some reads are a single clean point, some a contrast, some a warning, some a surprise. Never force a structure. "
-        "Do NOT use the words 'but', 'however', or 'though' anywhere. When a strength and a flaw both matter, show the tension another way: a "
-        "semicolon, a second sentence, leading with the flaw, or a turn like 'the catch is' / 'the question is' / 'what keeps them short'. "
-        "Never pivot a sentence on 'but'. "
+        "BANNED words/phrases — do not use ANY of them: 'but', 'however', 'though', 'the catch is', 'the question is', 'what keeps them'. "
+        "They are crutches that make every read sound alike. Many of the best reads are a SINGLE declarative statement with no pivot at all "
+        "(e.g. 'A complete team built for a deep run — believe it' or 'All offense, no stops; this one gets exposed in May'). When a strength "
+        "and a flaw both matter, show it with a semicolon or a second sentence, phrased fresh — never the same construction twice. "
+        "Avoid stock scouting clichés too: no 'defense that travels', 'built for January', 'playoff series expose'. Say it in your own plain words. "
         "NEVER cite a number, rank, stat line, or betting price — translate them into plain words (elite / top-five / middling / leaky / "
         "bottom-tier). Write 'an elite defense', never 'a top-4 defense (18.3 PPG allowed)'. The card already shows the numbers. "
         "Do NOT manufacture a flaw for every team. When a real, material weakness exists (star-dependence, an aging key player, a thin / "
