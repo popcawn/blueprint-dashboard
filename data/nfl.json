@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-24T15:12:50Z",
-  "odds_remaining": "69541",
+  "generated": "2026-10-24T17:04:28Z",
+  "odds_remaining": "69192",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
@@ -52,7 +52,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it.",
-        "beat": "A dominant, complete team with an elite defense and a point margin nobody in the league matches; the injury list is thin on the stars that matter. Believe it.",
+        "beat": "Undefeated with the league's best point margin and a top-four defense, the 49ers are the complete package. Losing Mike Evans and Nick Bosa for a week barely dents a roster this deep.",
         "tier": "champion"
       }
     },
@@ -83,7 +83,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "Undefeated with an elite defense and a Mahomes-led offense, but the lost starting tackle and linebacker leave thinner depth than the record suggests.",
+        "beat": "Undefeated with a stingy defense and Mahomes running the show; a complete team, but a deep run hinges on Kansas City keeping its back end and linebacker corps tight after losing Cooper McDonald for the season.",
         "tier": "contender"
       }
     },
@@ -114,7 +114,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "A top-three defense and a top-three point margin make them a real January threat; losing left tackle Anton Harrison for the season is a notable blow to protecting the quarterback in a long playoff run.",
+        "beat": "Top-tier defense and a plus point margin make them a real January threat, but losing left tackle Anton Harrison for the season to a torn ACL leaves a hole up front that playoff pressure will test.",
         "tier": "contender"
       }
     },
@@ -145,7 +145,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-8 defense. Complete and earned \u2014 trust it.",
-        "beat": "Dominant margin and a top-eight defense give them a real playoff profile; losing Kmet hurts the tight end group, but the offense has been producing anyway. Believe them, not as favorites.",
+        "beat": "A dominant point margin and top-eight defense give this team real January credentials. Losing tight end Cole Kmet for the season hurts, but the Bears have depth to absorb it.",
         "tier": "contender"
       }
     },
@@ -176,7 +176,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it.",
-        "beat": "Five-for-five with an elite defense and a dominant margin; the offense scores middlingly, so the stops must keep carrying the load into January.",
+        "beat": "Unbeaten with a dominant margin and an elite defense that gives up the fewest points in the league; the offense scores only middling, so January may depend on the defense holding.",
         "tier": "contender"
       }
     },
@@ -207,7 +207,7 @@
       "read": {
         "v": "fools_gold",
         "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade.",
-        "beat": "An offense that scores at the league's peak but can't stop anyone will be outgunned in a January game; the defense is the flaw that sinks this one.",
+        "beat": "Points galore, but a leaky defense that can't get stops is a shootout bet that tends to fold in January; the offense alone won't carry them through a playoff run.",
         "tier": "pretender"
       }
     },
@@ -697,7 +697,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7500",
+      "market": "+7000",
       "ev": null,
       "read": {
         "v": "caution",

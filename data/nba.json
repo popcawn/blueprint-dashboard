@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-10-24T12:22:46Z",
-  "odds_remaining": "69866",
+  "generated": "2026-10-24T17:05:40Z",
+  "odds_remaining": "69189",
   "prediction": {
     "pick": "Toronto Raptors",
     "why": "<b>Toronto Raptors</b> is the pick \u2014 the top team the model actually trusts (fair +388). Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -49,7 +49,7 @@
       "read": {
         "v": "trust",
         "why": "Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "An elite defense that travels, with the two-game start backing it up. The question is whether the offense holds its level once the playoff grind starts, since series defense alone rarely wins it all.",
+        "beat": "Elite defense and a 2-0 start make them a serious threat; the title case rests on that defense holding up in May, with the offense still unproven against playoff-caliber teams.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -74,12 +74,12 @@
       ],
       "fair_pct": 20.1,
       "fair_odds": "+398",
-      "market": "+5000",
-      "ev": 925,
+      "market": "+5500",
+      "ev": 1025,
       "read": {
         "v": "trust",
         "why": "A #1 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Two dominant wins and the league's best net rating make Atlanta a real title threat. The question is whether a 2-0 start with a blowout in a weak matchup holds against elite playoff defenses.",
+        "beat": "Elite offense and a top-tier net rating after two games, with a 128-81 rout that looks real. Still early, and the defense has been merely solid, so it needs to hold up against better teams.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -104,12 +104,12 @@
       ],
       "fair_pct": 14.6,
       "fair_odds": "+583",
-      "market": "+5500",
-      "ev": 720,
+      "market": "+6000",
+      "ev": 793,
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #5 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite offense and a top-five defense that travels, but Shaedon Sharpe's season-ending absence removes a 21-point scorer. The question is whether Deni Avdija and the rest can absorb that scoring when playoff defenses tighten.",
+        "beat": "Elite points and a top-five defense give them a real title profile; losing Shaedon Sharpe, a 21-point scorer, leaves their depth thinner than it looks. Trust the defense in May.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -134,12 +134,12 @@
       ],
       "fair_pct": 14.3,
       "fair_odds": "+599",
-      "market": "+2500",
-      "ev": 272,
+      "market": "+2200",
+      "ev": 229,
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite defense that travels and wins even when the offense sputters, which is exactly what playoff series demand. The catch is that Donte DiVincenzo's season-long absence removes a real scoring and two-way piece, so depth gets tested.",
+        "beat": "Elite defense and a top-tier net rating make them a real threat, but Donte DiVincenzo's season-ending absence thins a group that needs depth to survive a seven-game grind.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -164,12 +164,12 @@
       ],
       "fair_pct": 6.7,
       "fair_odds": "+1383",
-      "market": "+4000",
-      "ev": 176,
+      "market": "+4500",
+      "ev": 210,
       "read": {
         "v": "trust",
         "why": "A #5 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Elite offense and a top-five net rating make them a real threat, but their defense is only middling, and that leak is what playoff series expose. The question is whether the scoring holds up when the games tighten.",
+        "beat": "Elite offense and a top-five net rating after two wins, with Reaves and Kessler both producing big nights. The defense is merely middling, so they must tighten up before May.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -194,12 +194,12 @@
       ],
       "fair_pct": 5.8,
       "fair_odds": "+1638",
-      "market": "+2700",
-      "ev": 61,
+      "market": "+3000",
+      "ev": 78,
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#9) but leans one way; the #10 end is where a playoff defense makes it uncomfortable.",
-        "beat": "A top-ten defense with a strong net rating, but the leaky end of that group is exactly what playoff defenses expose. Their offense can carry them, yet the margin for a seven-game series is thin.",
+        "beat": "Houston's offense scores freely and its defense has been leaky so far; a close win over Wembanyama's Spurs shows late-game nerve, but the rim protection and stops need to hold up in a seven-game series.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -229,8 +229,8 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #1 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite defense that allowed the fewest points in the league, paired with a star who just ended a record scoring streak, makes them a real threat. The catch is that their offense ranks middling, so when shots stop falling in a seven-game series, the defense has to carry them.",
-        "tier": "contender"
+        "beat": "An elite defense paired with a top-tier engine in Gilgeous-Alexander makes this the complete package; they can win ugly and they can win pretty. Believe it.",
+        "tier": "champion"
       },
       "ftt": "pending"
     },
@@ -259,7 +259,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#8) but leans one way; the #11 end is where a playoff defense makes it uncomfortable.",
-        "beat": "A 2-0 start with a comeback win over Golden State is encouraging, but the season is two games old. The catch is the offense sits middling, and a defense that's merely good won't carry a seven-game series.",
+        "beat": "A 2-0 start built on a rally, with a middling defense and an offense that scores in the middle of the league's pack; Boozer's late heroics are real, but a season-long sample this early is still thin.",
         "tier": "pretender"
       },
       "ftt": "pending"
@@ -289,7 +289,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#6) but leans one way; the #14 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Two blowout-style wins and an elite offense make them dangerous, but the defense ranks as leaky, and that is the part that travels in a seven-game series. The question is whether that end holds up when the playoff pace tightens.",
+        "beat": "Scoring like a top-five offense with a middling defense is a real contender profile, but the leaky back end is what playoff series punish. Trust the offense; doubt the stops until proven otherwise.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -319,8 +319,8 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#11) but leans one way; the #16 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Philadelphia is 2-0 with a strong defense, but its offense is only middling and the net rating sits in the middle of the league. Playoff series tend to turn on whether the offense holds up, and the team's scoring is the question to watch.",
-        "tier": "contender"
+        "beat": "Two wins, a middling offense, and a defense that's been good but not yet tested in a long series; the flaws only show up in May. Believe in the chemistry, not the title price.",
+        "tier": "pretender"
       },
       "ftt": "pending"
     },
@@ -484,7 +484,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+3000",
+      "market": "+2700",
       "ev": null,
       "read": {
         "v": "trust",
@@ -501,16 +501,16 @@
   },
   "value_plays": [
     {
-      "name": "Minnesota Timberwolves",
-      "ev": 272,
-      "market": "+2500",
-      "fair_odds": "+599"
-    },
-    {
       "name": "Toronto Raptors",
       "ev": 248,
       "market": "+1600",
       "fair_odds": "+388"
+    },
+    {
+      "name": "Minnesota Timberwolves",
+      "ev": 229,
+      "market": "+2200",
+      "fair_odds": "+599"
     }
   ]
 }

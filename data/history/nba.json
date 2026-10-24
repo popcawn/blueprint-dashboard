@@ -305,36 +305,36 @@
     "sc": 4,
     "idx": 94.4,
     "fp": 20.1,
-    "mkt": "+5000",
-    "ev": 925
+    "mkt": "+5500",
+    "ev": 1025
    },
    "Portland Trail Blazers": {
     "sc": 4,
     "idx": 92.0,
     "fp": 14.6,
-    "mkt": "+5500",
-    "ev": 720
+    "mkt": "+6000",
+    "ev": 793
    },
    "Minnesota Timberwolves": {
     "sc": 4,
     "idx": 91.3,
     "fp": 14.3,
-    "mkt": "+2500",
-    "ev": 272
+    "mkt": "+2200",
+    "ev": 229
    },
    "Los Angeles Lakers": {
     "sc": 3,
     "idx": 79.8,
     "fp": 6.7,
-    "mkt": "+4000",
-    "ev": 176
+    "mkt": "+4500",
+    "ev": 210
    },
    "Houston Rockets": {
     "sc": 3,
     "idx": 75.7,
     "fp": 5.8,
-    "mkt": "+2700",
-    "ev": 61
+    "mkt": "+3000",
+    "ev": 78
    },
    "Oklahoma City Thunder": {
     "sc": 2,
@@ -403,7 +403,7 @@
     "sc": 1,
     "idx": 40.4,
     "fp": null,
-    "mkt": "+3000",
+    "mkt": "+2700",
     "ev": null
    }
   }
