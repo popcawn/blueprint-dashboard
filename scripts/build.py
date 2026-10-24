@@ -531,7 +531,7 @@ def roster_snapshot(path, tid, keep_pos):
             else: groups.setdefault(pos, []).append(f"{nm}{f' {age}' if age else ''}")
     if not groups and not ir: return ""
     order = [p for p in keep_pos if p in groups] or list(groups)
-    s = "Roster depth — " + "; ".join(f"{pos}: {', '.join(groups[pos][:5])}" for pos in order)
+    s = "Roster (names listed ALPHABETICALLY, not by depth — the established starter is set) — " + "; ".join(f"{pos}: {', '.join(groups[pos][:5])}" for pos in order)
     if ir: s += " | out long-term (IR): " + ", ".join(ir[:6])
     return s
 
@@ -679,7 +679,10 @@ def llm_read(sheet, sport):
         "bottom-tier). Write 'an elite defense', never 'a top-4 defense (18.3 PPG allowed)'. The card already shows the numbers. "
         "Do NOT manufacture a flaw for every team. When a real, material weakness exists (star-dependence, an aging key player, a thin / "
         "unproven group), name it; when a team is genuinely complete and elite, a short confident read is the right call — e.g. 'A complete "
-        "team built for a deep run — believe it.' Not every team needs a caveat. INJURIES ARE OPTIONAL — most reads should not mention one. Raise an injury ONLY if it genuinely threatens the title: "
+        "team built for a deep run — believe it.' Not every team needs a caveat. "
+        "The roster list is ALPHABETICAL, not a depth chart: NEVER infer a starting competition, an 'unsettled' spot, or a 'question at QB' "
+        "from multiple players being listed. Assume each team's established starter is locked in — call a position a battle ONLY if the "
+        "headlines explicitly say so. INJURIES ARE OPTIONAL — most reads should not mention one. Raise an injury ONLY if it genuinely threatens the title: "
         "an impactful starter or key contributor whose absence the team has NOT absorbed and cannot easily cover. If the team is winning and "
         "dominant despite the absence, they have absorbed it — stay silent on it. A deep team filling a short-term void is not a title factor; "
         "a thin team losing its one difference-maker is. Never mention minor or day-to-day injuries. You MAY apply well-known, "
