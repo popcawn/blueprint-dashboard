@@ -1,15 +1,15 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-23T21:15:52Z",
-  "odds_remaining": "71244",
+  "generated": "2026-10-24T12:08:53Z",
+  "odds_remaining": "69876",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +317). Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way."
   },
   "gp_min": 6,
   "gp_max": 8,
-  "season_pct": 55,
+  "season_pct": 56,
   "cats": [
     "Win% \u2265.900",
     "PPG top-15",
@@ -37,7 +37,7 @@
         false,
         true
       ],
-      "sosrank": 77,
+      "sosrank": 73,
       "srsrank": 5,
       "srs_flag": "elite",
       "vals": [
@@ -54,7 +54,7 @@
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #1 offense, no soft category, and a top-5 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "Miami's offense is elite and its margins are dominant, but a 6-0 start is still a short sample against a 12-team gauntlet. Watch whether that scoring holds against the best defenses still ahead.",
+        "beat": "An elite offense that has scored at a historic clip and a schedule that has held up, which is why Miami belongs in the title conversation. The catch is that a 12-team gauntlet asks for defensive stops in the late rounds, and this group has been merely solid rather than dominant at keeping opponents off the field.",
         "tier": "contender"
       }
     },
@@ -70,7 +70,7 @@
         true,
         true
       ],
-      "sosrank": 71,
+      "sosrank": 66,
       "srsrank": 3,
       "srs_flag": "elite",
       "vals": [
@@ -87,7 +87,7 @@
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "beat": "Notre Dame's defense is elite and the margins are real, but the offense sits in the middle of the pack, which is the kind of gap that gets exposed over three playoff games. They have the profile of a team that can win a round or two, not one built to run the bracket.",
+        "beat": "An elite defense that has allowed the fewest yards in the country and a dominant margin make this look built for January. The catch is the offense sits only in the top tier of scoring, so a team that has to win a shootout could struggle against a playoff-caliber opponent.",
         "tier": "contender"
       }
     },
@@ -104,7 +104,7 @@
         true
       ],
       "sosrank": 138,
-      "srsrank": 44,
+      "srsrank": 42,
       "srs_flag": "mirage",
       "vals": [
         "0.833",
@@ -115,12 +115,12 @@
       ],
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+100000",
-      "ev": 23924,
+      "market": "+75000",
+      "ev": 17924,
       "read": {
         "v": "fools_gold",
-        "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #44. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
-        "beat": "Their gaudy defensive numbers come from a soft Mountain West slate, and the schedule mirage won't survive a 12-team gauntlet of real opponents. Their unbeaten-looking record is genuine, but the dominance is not.",
+        "why": "A schedule mirage \u2014 #1 scoring defense on paper, but opponent-adjusted they're SRS #42. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
+        "beat": "Their 5-1 start and gaudy defensive numbers are built on a soft Mountain West slate, and the question is whether that defense survives a 12-team gauntlet of real offenses.",
         "tier": "pretender"
       }
     },
@@ -136,7 +136,7 @@
         true,
         true
       ],
-      "sosrank": 64,
+      "sosrank": 63,
       "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
@@ -153,7 +153,7 @@
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #5 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "An elite defense and a dominant margin make Ohio State a real threat, but its offense sits middling on scoring and rests on a thinning skill group. Ja'Kobi Jackson's foot surgery is short-term, so it shouldn't derail a title run.",
+        "beat": "An elite defense and a dominant scoring margin make Ohio State a real threat, but the offense sits in the middle of the pack, and the running back depth takes a hit with Ja'Kobi Jackson's foot surgery. Expect a few weeks without him, and a 12-team gauntlet punishes any slow start.",
         "tier": "contender"
       }
     },
@@ -169,7 +169,7 @@
         false,
         true
       ],
-      "sosrank": 85,
+      "sosrank": 87,
       "srsrank": 4,
       "srs_flag": "elite",
       "vals": [
@@ -200,19 +200,19 @@
         false,
         false
       ],
-      "sosrank": 133,
+      "sosrank": 134,
       "srsrank": 8,
       "srs_flag": "ok",
       "vals": [
         "1.000",
         "40.2 #8",
-        "14.8 #11",
+        "14.8 #12",
         "303 #27",
         "+25.3 #6"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4500",
+      "market": "+4000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -243,7 +243,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+750",
+      "market": "+800",
       "ev": null,
       "read": {
         "v": "caution",
@@ -262,7 +262,7 @@
         true,
         false
       ],
-      "sosrank": 14,
+      "sosrank": 13,
       "srsrank": 1,
       "srs_flag": "elite",
       "vals": [
@@ -293,12 +293,12 @@
         true,
         false
       ],
-      "sosrank": 88,
-      "srsrank": 71,
+      "sosrank": 92,
+      "srsrank": 72,
       "srs_flag": "mirage",
       "vals": [
         "0.857",
-        "29.4 #70",
+        "29.4 #69",
         "11.3 #2",
         "246 #2",
         "+18.1 #17"
@@ -309,7 +309,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 scoring defense; the #70 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #71 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #2 scoring defense; the #69 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #72 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -366,11 +366,11 @@
       "srsrank": 8
     },
     {
-      "name": "Ole Miss Rebels",
+      "name": "Tennessee Volunteers",
       "srsrank": 9
     },
     {
-      "name": "Tennessee Volunteers",
+      "name": "Ole Miss Rebels",
       "srsrank": 10
     }
   ],

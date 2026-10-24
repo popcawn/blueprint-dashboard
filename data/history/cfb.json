@@ -572,5 +572,81 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-10-24",
+  "gp": 8,
+  "teams": {
+   "Miami Hurricanes": {
+    "sc": 4,
+    "idx": 95.4,
+    "fp": 24.0,
+    "mkt": "+700",
+    "ev": 92
+   },
+   "Notre Dame Fighting Irish": {
+    "sc": 4,
+    "idx": 88.9,
+    "fp": 24.0,
+    "mkt": "+500",
+    "ev": 44
+   },
+   "New Mexico Lobos": {
+    "sc": 4,
+    "idx": 88.6,
+    "fp": 24.0,
+    "mkt": "+75000",
+    "ev": 17924
+   },
+   "Ohio State Buckeyes": {
+    "sc": 4,
+    "idx": 85.5,
+    "fp": 24.0,
+    "mkt": "+500",
+    "ev": 44
+   },
+   "Georgia Bulldogs": {
+    "sc": 2,
+    "idx": 85.6,
+    "fp": null,
+    "mkt": "+470",
+    "ev": null
+   },
+   "Utah Utes": {
+    "sc": 2,
+    "idx": 85.4,
+    "fp": null,
+    "mkt": "+4000",
+    "ev": null
+   },
+   "Indiana Hoosiers": {
+    "sc": 2,
+    "idx": 83.2,
+    "fp": null,
+    "mkt": "+800",
+    "ev": null
+   },
+   "LSU Tigers": {
+    "sc": 2,
+    "idx": 81.5,
+    "fp": null,
+    "mkt": "+1500",
+    "ev": null
+   },
+   "North Dakota State Bison": {
+    "sc": 2,
+    "idx": 79.6,
+    "fp": null,
+    "mkt": "+125000",
+    "ev": null
+   },
+   "TCU Horned Frogs": {
+    "sc": 2,
+    "idx": 65.3,
+    "fp": null,
+    "mkt": "+125000",
+    "ev": null
+   }
+  }
  }
 ]

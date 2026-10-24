@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-23T21:15:40Z",
-  "odds_remaining": "71245",
+  "generated": "2026-10-24T12:08:31Z",
+  "odds_remaining": "69877",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it."
@@ -52,8 +52,8 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-4 defense. Complete and earned \u2014 trust it.",
-        "beat": "An elite margin and a stingy defense make them one of the league's real threats, but the depth chart leans on aging stars like McCaffrey and Kittle and the QB spot remains unsettled. Strong enough to fear, not yet proven as a champion.",
-        "tier": "contender"
+        "beat": "Undefeated with a dominant margin and an elite defense, the 49ers look built for January football. The question is depth at receiver, where Mike Evans is out and several young pass catchers are on injured reserve.",
+        "tier": "champion"
       }
     },
     {
@@ -83,7 +83,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #2 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "Elite defense and a plus-margin 5-0 start make them dangerous, but Josh Simmons' absence on the line and Cooper McDonald's season-ending loss at linebacker are real January concerns, and the offense leans on an aging Kelce.",
+        "beat": "Elite points allowed and a strong point margin travel well, but Mahomes is 31 and the offense still leans on Kelce, now 37, with Josh Simmons out and McDonald's season over. Playoff football punishes that thin spot at tackle and linebacker more than a 5-0 start can show.",
         "tier": "contender"
       }
     },
@@ -114,7 +114,7 @@
       "read": {
         "v": "trust",
         "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "beat": "Elite defense and a real point margin built for slow January games, but losing left tackle Anton Harrison for the season leaves the offensive line and quarterback protection exposed, and the receiver depth is thin behind several season-ending injuries.",
+        "beat": "An elite defense that travels is real January currency, and the 4-2 start is legitimate. The catch is that Anton Harrison's season-ending knee injury guts the left tackle spot, and the quarterback depth behind Trevor Lawrence is unproven once Quinn Ewers and Nick Mullens are out of the picture.",
         "tier": "contender"
       }
     },
@@ -145,7 +145,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-8 defense. Complete and earned \u2014 trust it.",
-        "beat": "A dominant margin and a top-tier defense make them a real title threat, but the offense leans on a quarterback still developing, and Cole Kmet's season-ending loss thins the tight end group before January.",
+        "beat": "Dominant margin and a top-eight defense are real playoff traits, but the loss of tight end Cole Kmet for the season thins the offense; the question is whether Caleb Williams can carry a roster with limited depth behind him.",
         "tier": "contender"
       }
     },
@@ -176,7 +176,7 @@
       "read": {
         "v": "trust",
         "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-1 defense. Complete and earned \u2014 trust it.",
-        "beat": "An elite defense and a 5-0 start are real, but the offense scores middling and the quarterback room is unproven behind a 33-year-old backup. Losing Donovan Jackson for the year thins the line, so this is a strong team that must prove its offense holds up in January.",
+        "beat": "An elite defense and a dominant margin are real, but the offense leans on Kyler Murray and Justin Jefferson while the line just lost Donovan Jackson for the year. The catch is that a unit with middling scoring in January can be trapped by a good defense.",
         "tier": "contender"
       }
     },
@@ -207,8 +207,8 @@
       "read": {
         "v": "fools_gold",
         "why": "Shootout-or-bust: a #1 offense papering over a #28 defense. You can't out-score a real team in January when you can't get a stop. Fade.",
-        "beat": "Josh Allen gives Buffalo a championship-caliber engine, but a defense that can't get stops is the kind of leak single-elimination January games expose. Their ceiling is real; their playoff floor is shaky.",
-        "tier": "contender"
+        "beat": "An elite offense has carried the Bills, but their defense ranks among the league's leakiest, and January single-elimination games expose that gap. The fade case is sound, and the defensive problem is what separates them from real contenders.",
+        "tier": "pretender"
       }
     },
     {
@@ -262,8 +262,8 @@
       ],
       "fair_pct": 3.8,
       "fair_odds": "+2550",
-      "market": "+1300",
-      "ev": -47,
+      "market": "+1200",
+      "ev": -51,
       "read": {
         "v": "caution",
         "why": "Wins ugly, and that plays in the playoffs \u2014 elite #5 defense, but a #13 offense that can't go cold at the wrong time."
@@ -813,7 +813,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+17500",
+      "market": "+15000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -842,7 +842,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+10000",
       "ev": null,
       "read": {
         "v": "caution",
