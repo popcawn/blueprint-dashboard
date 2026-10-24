@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-24T12:09:05Z",
-  "odds_remaining": "69875",
+  "generated": "2026-10-24T12:22:08Z",
+  "odds_remaining": "69867",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -48,7 +48,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Elite goaltending and a stingy defense give them a real Cup shape; the catch is that Romanov's season-ending absence thins the blueline behind a defense that has to keep leaning on its goalie.",
+        "beat": "Elite goaltending and a sound defense give the Islanders a real Cup shape, but Calum Ritchie's season-ending loss and Alexander Romanov's long layoff thin the depth. The catch is whether the blue line holds up without Romanov over four rounds.",
         "tier": "contender"
       }
     },
@@ -77,7 +77,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#12 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Elite goaltending and a stingy defense make them a real Cup shape, but losing Oskar Back for the year thins the center depth, and the catch is that Duchene's long absence leaves the top-six unproven until he returns.",
+        "beat": "Elite goaltending and the league's stingiest defense make them tough to beat in a series, but their possession numbers sit middling, so they must keep pucks out without dominating play. Losing Duchene and Back for the year thins their center depth, which matters over four rounds.",
         "tier": "contender"
       }
     },
@@ -106,7 +106,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#5) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Drive play and goaltending both hold up, which is the rare combo that survives four rounds, yet the sample is only 11 games. The catch is that road form has been shaky, and a late-season stretch will show whether the blend is real.",
+        "beat": "Drives play and gets saves, with an elite goaltending mark and a top-ten shot share. The catch is their even-strength scoring margin sits only middling, so they've been winning tight games rather than running teams off the ice.",
         "tier": "contender"
       }
     },
@@ -135,8 +135,8 @@
       "read": {
         "v": "caution",
         "why": "That #1 save% is riding variance \u2014 they're #20 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
-        "beat": "Boston's elite goaltending and suffocating even-strength play are masking a team that struggles to control possession. The catch is that playoff series tend to expose thin possession, and this roster's depth behind its top unit is largely unproven.",
-        "tier": "pretender"
+        "beat": "Elite even-strength goal differential and goaltending have Boston winning now, but they're possessing the puck near the bottom of the league. The catch is that a hot goalie can carry a team only so far, and playoff series tend to expose that gap in the shot battle.",
+        "tier": "contender"
       }
     },
     {
@@ -164,7 +164,7 @@
       "read": {
         "v": "fools_gold",
         "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #18 goals-against is exactly what gets punished when goals dry up in May.",
-        "beat": "Colorado owns an elite even-strength goal differential, but goals-against sits leaky and the save percentage is middling, so the tension is that dominance may not survive playoff goaltending. MacKinnon's superstar gravity carries the top end, and that is the piece the read should trust most.",
+        "beat": "Elite even-strength goal differential says this team dominates when it matters most. The catch is a leaky goals-against and middling shot share; playoff goaltending and tight games will test whether that dominance holds.",
         "tier": "contender"
       }
     },
@@ -193,7 +193,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#7) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Detroit drives play and gets saves, a rare pairing that travels into the playoffs. The catch is Marco Kasper's season-ending loss thins the center depth, and the even-strength scoring margin is only middling, so this is a real contender rather than a finished champion.",
+        "beat": "Detroit drives play and gets saves, a rare pairing that travels deep into the playoffs. The catch is they've been only middling on the scoreboard, so the early returns are encouraging rather than proven.",
         "tier": "contender"
       }
     },
@@ -222,7 +222,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#5) but can't fully trust the net (#21). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "An elite puck-possession group and a top-tier defense make this a real playoff team, but the net has been leaky; the question is whether a goalie-driven series swings against them. Gourde's season-ending absence thins the middle depth behind the top stars.",
+        "beat": "Controls the puck and generates chances better than nearly anyone, with an elite defense keeping the attack in check. The catch is the goaltending, which has been leaky enough that the process is ahead of the results and playoff series will hinge on the net.",
         "tier": "contender"
       }
     },
@@ -251,7 +251,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #22 goal differential, but the #16 spot is the one a seven-game series finds.",
-        "beat": "Goaltending is holding this team together, with an elite save percentage masking a shaky even-strength goal differential near the league's bottom. The catch is that the underlying play doesn't match the results, and a seven-game series exposes teams that outshoot their talent less than they outplay their luck.",
+        "beat": "Goaltending and a stingy defense are keeping them afloat, but their goal differential is among the league's worst. The catch is that a seven-game series exposes that gap; Panarin's hot streak can't mask it forever.",
         "tier": "pretender"
       }
     },
@@ -280,7 +280,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#1) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Carolina dominates possession and five-on-five play, but a leaky save percentage means the net is the question; the catch is that Jordan Staal's extended absence thins the middle just as playoff games tighten.",
+        "beat": "Carolina dominates possession and five-on-five play, but the goaltending has been leaky all year, and that is exactly what sinks best-of-seven series. Believe in the process; doubt the crease until it proves otherwise.",
         "tier": "contender"
       }
     },
@@ -309,7 +309,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#1) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Possession is elite and the Hellebuyck trade adds a Vezina-caliber goalie, but the crease has been leaky all year. Until the new netminder proves he can steal series, this is a dangerous contender, not a favorite.",
+        "beat": "Controls play like few teams in the league, but the net has been leaky, so the question is whether the Hellebuyck trade fixes the goaltending that has kept them from being more than a coin flip.",
         "tier": "contender"
       }
     },
@@ -338,7 +338,7 @@
       "read": {
         "v": "caution",
         "why": "Goalie-carried: #4 in net, only #21 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
-        "beat": "Their goaltending is the only thing holding this team up, and the crease alone can't carry a series. Corsi says they're getting outplayed, the injury list strips out depth, and they're on a losing streak. Hot goaltending wins you a round, not a title.",
+        "beat": "Goaltending is carrying a team that doesn't control play; the shot share is poor and the defense is missing Morrissey, so the hot crease has to keep stealing series. The catch is that the Hellebuyck trade leaves the Jets without their longtime anchor, and nothing here suggests a deep run is built to last.",
         "tier": "pretender"
       }
     },
@@ -367,7 +367,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #12 goal differential, but the #21 spot is the one a seven-game series finds.",
-        "beat": "Goaltending is the series-decider, and with Ullmark out for the season, Ottawa's strong save percentage rests on a thinner crease. Possession ranks near the bottom, and losing Eklund removes depth that a seven-game grind demands.",
+        "beat": "Their goal differential looks sharp, but the team can't control play, and losing Ullmark for the season leaves them without a proven starter in a series that turns on goaltending. The catch is they still have to win without him.",
         "tier": "pretender"
       }
     },
@@ -396,7 +396,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #6 goal differential, but the #22 spot is the one a seven-game series finds.",
-        "beat": "Vegas controls play at five-on-five and nearly every shot metric, but the defense leaks goals and the goaltending has been middling, which is the flaw a seven-game series exposes. The catch is that the team is built to win the territory battle, so if the saves don't come, the advantage won't matter.",
+        "beat": "Strong five-on-five play and a top-tier goal differential make them a real threat, but goals allowed sits near the bottom of the league and a seven-game series exposes that leak. The catch is goaltending: their save percentage is middling, so the net has to hold for a deep run.",
         "tier": "contender"
       }
     },
@@ -425,7 +425,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#3) but can't fully trust the net (#22). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Utah controls the puck with the league's best possession numbers, yet its goaltending leaks and the defense is middling-to-leaky. Losing Maveric Lamoureux for most of the year thins the blue line, and the catch is a team that can't stop shots in the playoffs will be exposed by a single hot goalie.",
+        "beat": "Utah controls play better than almost anyone, but the goaltending is leaky and the net is the problem. The catch is that a team that can't stop shots late in tight games won't survive seven-game series against elite opposition.",
         "tier": "pretender"
       }
     },
@@ -453,7 +453,9 @@
       "ev": 85,
       "read": {
         "v": "caution",
-        "why": "Carried by its #12 goal differential, but the #25 spot is the one a seven-game series finds."
+        "why": "Carried by its #12 goal differential, but the #25 spot is the one a seven-game series finds.",
+        "beat": "Goal differential says contender, but Shesterkin is out for the season and the defense has been carrying a shot-suppression gap. Their Corsi sits near the bottom, and a seven-game series exposes that; the catch is the goaltending hole, which no short-term fix covers.",
+        "tier": "pretender"
       }
     },
     {
