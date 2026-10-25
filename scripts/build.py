@@ -723,6 +723,13 @@ def attach_beat_reads(name, data):
             t["read"]["beat"] = br["beat"]
             if br.get("tier"): t["read"]["tier"] = br["tier"]
         done += 1
+    # Reconcile the banner prediction with the read TIERS so it never contradicts the cards:
+    # the pick is the team the reads actually crown (champion > contender > pretender), best index among them.
+    tagged = [t for t in teams if (t.get("read") or {}).get("beat") and t["read"].get("tier")]
+    if tagged:
+        tr = {"champion": 0, "contender": 1, "pretender": 2}
+        best = sorted(tagged, key=lambda t: (tr.get(t["read"]["tier"], 3), -t.get("index", 0)))[0]
+        data["prediction"] = {"pick": best["name"], "why": f"<b>{best['name']}</b> is the pick — {best['read']['beat']}"}
 
 def build_nba():
     season = YEAR + 1  # ESPN tags the NBA season by its end year (2026-27 -> 2027)
