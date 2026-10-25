@@ -174,6 +174,7 @@ def nfl_row(t):
         "q": [bool(x) for x in t["q"]],
         "vals": [f"{t['winpct']:.3f}", f"{t['ptdiff']:+.0f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}",
                  f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
+        "rtg": round(t['pdg'], 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
@@ -283,6 +284,7 @@ def cfb_row(t):
         "srs_flag": srs_flag,
         "vals": [f"{t['winpct']:.3f}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_oppppg']}",
                  f"{t['oppypg']:.0f} #{t['rk_oppypg']}", f"{t['margin']:+.1f} #{t['rk_margin']}"],
+        "rtg": round(t['margin'], 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
@@ -370,6 +372,7 @@ def nhl_row(t):
         "q": [bool(x) for x in t["q"]],
         "vals": [f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['essv']:.1f} #{t['rk_sv']}",
                  f"{t['corsi']:.1f} #{t['rk_cf']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
+        "rtg": round(t['esdiff'] / t['gp'], 2) if t.get('gp') else 0,
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
@@ -804,6 +807,7 @@ def build_nba():
         "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
             "q": [bool(x) for x in t["q"]],
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
+            "rtg": round(t['pdg'], 1),
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
             "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read"), "ftt": t.get("ftt")} for t in rows if t["score"] >= 1]})
     return base

@@ -65,6 +65,16 @@
   .ftt.pending{background:var(--panel2);color:var(--ink3)}
   .signote{font-size:11.5px;color:var(--ink3);margin:2px 0 8px}
   .signote.early{color:var(--bad)} .signote.firming{color:#b98700}
+  .matchup{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0 6px}
+  .muhead{font-weight:800;font-size:13px;letter-spacing:.02em;color:var(--ink2);margin-bottom:8px}
+  .murow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .murow select{font-family:var(--sans);font-size:13px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--ink);max-width:46%}
+  .muvs{color:var(--ink3);font-weight:700;font-size:12px}
+  .muout{margin-top:10px}
+  .mures{font-size:15px;color:var(--ink)} .mures b{color:var(--accent)}
+  .muwhy{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.45}
+  .munote{font-size:11px;color:var(--ink3);margin-top:5px}
+  .muwarn{font-size:12px;color:var(--bad)}
   .tier{margin:18px 0 9px;font-family:var(--head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2)}
   .tier .n{color:var(--ink3);font-weight:500;font-size:11px;letter-spacing:.04em}
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(365px,1fr));gap:13px}
@@ -133,6 +143,28 @@ const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82};
 const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
+/* matchup simulator — backtested SDs (NFL 24.5, CFB 20.0 out-of-sample); NBA/NHL estimated */
+const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.6}, MU_HFA={nfl:2.0,cfb:3.0,nba:2.8,nhl:0.35}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals"};
+function _erf(x){const t=1/(1+0.3275911*Math.abs(x));const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return x>=0?y:-y;}
+const _phi=x=>0.5*(1+_erf(x/Math.SQRT2));
+function simMatchup(){
+  const d=DATA[cur], by={}; (d.teams||[]).forEach(t=>by[t.name]=t);
+  const A=by[document.getElementById('muA').value], B=by[document.getElementById('muB').value], out=document.getElementById('muout');
+  if(!A||!B||A.name===B.name){out.innerHTML='<span class="muwarn">Pick two different teams.</span>';return;}
+  if(A.rtg==null||B.rtg==null){out.innerHTML='<span class="muwarn">Ratings not in this data yet — run the board once to enable.</span>';return;}
+  const sd=MU_SD[cur],hfa=MU_HFA[cur],h=document.getElementById('muH').value,unit=MU_UNIT[cur];
+  let hf=0; if(h==='A')hf=hfa; if(h==='B')hf=-hfa;
+  const margin=(A.rtg-B.rtg)+hf, pA=_phi(margin/sd);
+  const fav=pA>=0.5?A:B, dog=pA>=0.5?B:A, pFav=Math.max(pA,1-pA), spread=Math.abs(margin), dp=unit==='goals'?1:0;
+  const tw={champion:'a complete team',contender:'a real contender',pretender:'a flawed team'};
+  const fv=tw[fav.read&&fav.read.tier]||'the stronger side', dv=tw[dog.read&&dog.read.tier]||'the weaker side';
+  let why=`${fav.name} is ${fv}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${dv}).`;
+  why+= pFav<0.58?' Close to a coin-flip — a live underdog.':(pFav>0.72?' A clear edge.':'');
+  const site=h==='0'?'neutral':((h==='A'?A.name:B.name)+' home');
+  out.innerHTML=`<div class="mures"><b>${fav.name}</b> wins <b>${Math.round(pFav*100)}%</b> · projected by <b>~${spread.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span></div>
+    <div class="muwhy">${why}</div>
+    <div class="munote">One game is high-variance — the underdog still wins ~${Math.round((1-pFav)*100)}%. Model backtested for NFL (58.5%) & CFB (70.5% out-of-sample)${cur==='nba'||cur==='nhl'?'; NBA/NHL ratings are estimated':''}.</div>`;
+}
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
 const shortNm=n=>n? n.split(" ").slice(-1)[0] : "—";
@@ -194,6 +226,15 @@ function render(){
     <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
       <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>
     ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}`;
+  if(teams.length>1){
+    const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
+    const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
+    html+=`<div class="matchup"><div class="muhead">⚔️ Matchup simulator — who wins, and why</div>
+      <div class="murow"><select id="muA">${opt(ml[0].name)}</select><span class="muvs">vs</span><select id="muB">${opt(ml[1].name)}</select>
+      <select id="muH"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
+      <button class="btn" onclick="simMatchup()">Simulate</button></div>
+      <div class="muout" id="muout"></div></div>`;
+  }
   for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
     html+=`<div class="tier">${tier(sc,mx)[0]} <span class="n">(${sc}/${mx})</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }
   if(cur==="cfb"&&d.gauntlet&&d.gauntlet.length){
