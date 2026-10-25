@@ -1,15 +1,15 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-24T17:04:58Z",
-  "odds_remaining": "69190",
+  "generated": "2026-10-25T14:31:57Z",
+  "odds_remaining": "66825",
   "prediction": {
     "pick": "New York Islanders",
-    "why": "<b>New York Islanders</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
+    "why": "<b>New York Islanders</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#9 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
   },
-  "gp_min": 8,
-  "gp_max": 12,
-  "season_pct": 13,
+  "gp_min": 9,
+  "gp_max": 13,
+  "season_pct": 14,
   "cats": [
     "ES goal diff top-11",
     "ES save% top-12",
@@ -28,7 +28,7 @@
       "conf": "E",
       "rec": "10 GP",
       "score": 4,
-      "index": 77.0,
+      "index": 73.6,
       "q": [
         true,
         true,
@@ -38,7 +38,7 @@
       "vals": [
         "+7 #5",
         "93.6 #2",
-        "53.0 #8",
+        "53.0 #9",
         "22 #2"
       ],
       "fair_pct": 13.0,
@@ -47,8 +47,8 @@
       "ev": 1538,
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Elite goaltending and a stingy defense give them a real Cup shape; Romanov's long absence on the blue line is a thinning cost that could matter over four rounds.",
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#9 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
+        "beat": "Goaltending and a stingy defense are carrying them, and that combination travels deep into May; the offense isn't a strength, and the lost starters on the back end matter only if the goalie slips.",
         "tier": "contender"
       }
     },
@@ -57,7 +57,7 @@
       "conf": "W",
       "rec": "10 GP",
       "score": 4,
-      "index": 76.6,
+      "index": 73.3,
       "q": [
         true,
         true,
@@ -65,28 +65,28 @@
         true
       ],
       "vals": [
-        "+5 #9",
+        "+5 #10",
         "93.2 #3",
         "52.0 #12",
         "16 #1"
       ],
       "fair_pct": 13.0,
       "fair_odds": "+669",
-      "market": "+1700",
-      "ev": 134,
+      "market": "+1800",
+      "ev": 147,
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#12 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Elite goaltending and the league's stingiest goals-against make them a real Cup threat; their possession numbers are middling, and losing Duchene and Back leaves less depth to lean on if the scoring dries up.",
+        "beat": "Allowing the fewest goals in the league and a strong save rate is the real foundation, though even-strength scoring margin is only top-half. Duchene's long-term absence is absorbed for now, and the team has the goaltending to win a series.",
         "tier": "contender"
       }
     },
     {
       "name": "Minnesota Wild",
       "conf": "W",
-      "rec": "11 GP",
+      "rec": "12 GP",
       "score": 4,
-      "index": 69.0,
+      "index": 69.1,
       "q": [
         true,
         true,
@@ -94,86 +94,115 @@
         true
       ],
       "vals": [
-        "+5 #9",
-        "92.6 #5",
-        "53.0 #8",
-        "27 #4"
+        "+8 #4",
+        "92.8 #4",
+        "54.0 #7",
+        "28 #4"
       ],
-      "fair_pct": 11.4,
-      "fair_odds": "+781",
-      "market": "+1300",
-      "ev": 59,
+      "fair_pct": 12.9,
+      "fair_odds": "+676",
+      "market": "+1200",
+      "ev": 68,
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#8 Corsi) and goaltending (#5) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Strong on both ends, with a stingy defense and sound goaltending that could survive four rounds; the road-loss skid is a minor blemish, not a flaw that changes the picture.",
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#4) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
+        "beat": "Drives play and stops pucks at the same time, with an elite defense and goaltending, a combination that tends to survive four playoff rounds; the sample is only 12 games, so keep it measured.",
         "tier": "contender"
-      }
-    },
-    {
-      "name": "Boston Bruins",
-      "conf": "E",
-      "rec": "11 GP",
-      "score": 3,
-      "index": 83.6,
-      "q": [
-        true,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "+16 #1",
-        "94.7 #1",
-        "48.0 #20",
-        "22 #2"
-      ],
-      "fair_pct": 13.0,
-      "fair_odds": "+669",
-      "market": "+4000",
-      "ev": 433,
-      "read": {
-        "v": "caution",
-        "why": "That #1 save% is riding variance \u2014 they're #20 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
-        "beat": "Their goalie is bailing out a team that can't control the puck; the even-strength dominance is real, but the shot share says the save rate won't hold in May.",
-        "tier": "pretender"
       }
     },
     {
       "name": "Colorado Avalanche",
       "conf": "W",
       "rec": "11 GP",
-      "score": 3,
-      "index": 68.3,
+      "score": 4,
+      "index": 63.8,
       "q": [
         true,
         true,
         true,
-        false
+        true
       ],
       "vals": [
-        "+16 #1",
-        "91.2 #12",
+        "+16 #2",
+        "91.2 #10",
         "51.0 #14",
-        "33 #18"
+        "33 #13"
       ],
-      "fair_pct": 7.9,
-      "fair_odds": "+1164",
+      "fair_pct": 10.1,
+      "fair_odds": "+885",
       "market": "+700",
-      "ev": -37,
+      "ev": -19,
       "read": {
-        "v": "fools_gold",
-        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #18 goals-against is exactly what gets punished when goals dry up in May.",
-        "beat": "Elite five-on-five goal differential and MacKinnon driving offense make them real; leaky goals-against and middling shot share mean the goalie has to carry them in May.",
+        "v": "caution",
+        "why": "Carried by its #2 goal differential, but the #14 spot is the one a seven-game series finds.",
+        "beat": "Goal differential says elite, but the goaltending-driven save percentage is only good and the shot share is middling, so a seven-game series could expose them.",
+        "tier": "contender"
+      }
+    },
+    {
+      "name": "Boston Bruins",
+      "conf": "E",
+      "rec": "12 GP",
+      "score": 3,
+      "index": 82.2,
+      "q": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+20 #1",
+        "95.0 #1",
+        "49.0 #17",
+        "26 #3"
+      ],
+      "fair_pct": 13.0,
+      "fair_odds": "+669",
+      "market": "+3500",
+      "ev": 368,
+      "read": {
+        "v": "caution",
+        "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
+        "beat": "Their goaltending and even-strength results are running far ahead of how they actually control play, so this is a hot start built on a save rate that won't hold against playoff-caliber shooting.",
+        "tier": "pretender"
+      }
+    },
+    {
+      "name": "Carolina Hurricanes",
+      "conf": "E",
+      "rec": "13 GP",
+      "score": 3,
+      "index": 64.5,
+      "q": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "+11 #3",
+        "89.9 #19",
+        "59.0 #2",
+        "32 #8"
+      ],
+      "fair_pct": 6.4,
+      "fair_odds": "+1467",
+      "market": "+700",
+      "ev": -49,
+      "read": {
+        "v": "caution",
+        "why": "Controls the puck (#2) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
+        "beat": "Dominant possession and an elite five-on-five edge, but save percentage sits in the bottom tier of the league, so the net is the open question. Kochetkov's shutout helps; a stretch of soft goals would sink them.",
         "tier": "contender"
       }
     },
     {
       "name": "Detroit Red Wings",
       "conf": "E",
-      "rec": "10 GP",
+      "rec": "11 GP",
       "score": 3,
-      "index": 65.7,
+      "index": 58.6,
       "q": [
         false,
         true,
@@ -181,28 +210,57 @@
         true
       ],
       "vals": [
-        "+3 #12",
-        "92.1 #7",
+        "+2 #14",
+        "91.9 #6",
         "54.0 #7",
-        "28 #5"
+        "32 #8"
       ],
-      "fair_pct": 6.3,
-      "fair_odds": "+1484",
-      "market": "+17500",
-      "ev": 1011,
+      "fair_pct": 4.8,
+      "fair_odds": "+1990",
+      "market": "+20000",
+      "ev": 862,
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#7) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Strong on both sides of the puck, with a top-tier defense and goaltending that holds up; a genuine Cup shape, though a 10-game sample and a lost top center in Kasper leave the depth untested.",
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#6) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
+        "beat": "Strong on both sides of the puck with a goalie holding up his end, the rare mix that survives four rounds; the 4-4-3 start is noise, not the story. Kasper's season-ending absence is absorbed by the depth.",
         "tier": "contender"
+      }
+    },
+    {
+      "name": "Ottawa Senators",
+      "conf": "E",
+      "rec": "12 GP",
+      "score": 3,
+      "index": 53.1,
+      "q": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "+6 #6",
+        "91.9 #7",
+        "47.0 #22",
+        "34 #14"
+      ],
+      "fair_pct": 3.6,
+      "fair_odds": "+2709",
+      "market": "+2700",
+      "ev": 0,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #6 goal differential, but the #22 spot is the one a seven-game series finds.",
+        "beat": "Goal differential and goaltending look sharp, but the shot share is poor and Linus Ullmark is out for the season, leaving a thin net for a seven-game series.",
+        "tier": "pretender"
       }
     },
     {
       "name": "Tampa Bay Lightning",
       "conf": "E",
-      "rec": "10 GP",
+      "rec": "11 GP",
       "score": 3,
-      "index": 61.9,
+      "index": 52.5,
       "q": [
         true,
         false,
@@ -211,85 +269,27 @@
       ],
       "vals": [
         "+6 #6",
-        "89.6 #21",
-        "56.0 #5",
-        "29 #7"
+        "89.2 #23",
+        "55.0 #6",
+        "34 #14"
       ],
-      "fair_pct": 5.3,
-      "fair_odds": "+1794",
+      "fair_pct": 3.4,
+      "fair_odds": "+2807",
       "market": "+1100",
-      "ev": -37,
+      "ev": -59,
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#5) but can't fully trust the net (#21). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Possession and defense are elite, but the goaltending has been leaky at even strength, and that is the one thing a best-of-seven series punishes most.",
-        "tier": "contender"
-      }
-    },
-    {
-      "name": "Los Angeles Kings",
-      "conf": "W",
-      "rec": "8 GP",
-      "score": 3,
-      "index": 53.2,
-      "q": [
-        false,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "-4 #22",
-        "91.7 #8",
-        "50.0 #16",
-        "29 #7"
-      ],
-      "fair_pct": 3.7,
-      "fair_odds": "+2574",
-      "market": "+4000",
-      "ev": 53,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #22 goal differential, but the #16 spot is the one a seven-game series finds.",
-        "beat": "Goaltending is holding the Kings together while their even-strength play lags badly, a combination that rarely survives a best-of-seven. Their 2-4-2 start says the same thing.",
-        "tier": "pretender"
-      }
-    },
-    {
-      "name": "Carolina Hurricanes",
-      "conf": "E",
-      "rec": "12 GP",
-      "score": 2,
-      "index": 64.2,
-      "q": [
-        true,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "+9 #3",
-        "88.8 #24",
-        "60.0 #1",
-        "32 #16"
-      ],
-      "fair_pct": 4.1,
-      "fair_odds": "+2340",
-      "market": "+700",
-      "ev": -67,
-      "read": {
-        "v": "caution",
-        "why": "Controls the puck (#1) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Controls play like few teams in the league, but a goalie save rate near the bottom makes this a shaky bet for a long playoff run.",
+        "why": "Carried by its #6 goal differential, but the #23 spot is the one a seven-game series finds.",
+        "beat": "Dominant five-on-five play and a top-tier goal differential make them real, but a goalie posting a below-average save percentage is the kind of soft spot a seven-game series exploits.",
         "tier": "contender"
       }
     },
     {
       "name": "New Jersey Devils",
       "conf": "E",
-      "rec": "10 GP",
+      "rec": "11 GP",
       "score": 2,
-      "index": 61.0,
+      "index": 58.6,
       "q": [
         false,
         false,
@@ -297,19 +297,19 @@
         true
       ],
       "vals": [
-        "+1 #17",
-        "89.8 #19",
+        "+2 #14",
+        "90.0 #17",
         "60.0 #1",
-        "31 #14"
+        "32 #8"
       ],
-      "fair_pct": 3.5,
-      "fair_odds": "+2745",
+      "fair_pct": 3.3,
+      "fair_odds": "+2905",
       "market": "+1300",
-      "ev": -51,
+      "ev": -53,
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#1) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Dominant possession, and the Devils just traded for a three-time Vezina winner to fix the net that's leaking saves; if Hellebuyck settles in, this becomes a real title threat.",
+        "why": "Controls the puck (#1) but can't fully trust the net (#17). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
+        "beat": "Dominant possession and a strong defensive shell make them a real threat; the goaltending is the open question, and Hellebuyck's arrival is the fix worth watching.",
         "tier": "contender"
       }
     },
@@ -318,7 +318,7 @@
       "conf": "W",
       "rec": "10 GP",
       "score": 2,
-      "index": 60.1,
+      "index": 57.0,
       "q": [
         false,
         true,
@@ -327,56 +327,27 @@
       ],
       "vals": [
         "+3 #12",
-        "92.8 #4",
-        "47.0 #21",
-        "29 #7"
+        "92.8 #5",
+        "47.0 #22",
+        "29 #5"
       ],
-      "fair_pct": 3.8,
-      "fair_odds": "+2566",
+      "fair_pct": 3.6,
+      "fair_odds": "+2664",
       "market": "+10000",
-      "ev": 279,
+      "ev": 265,
       "read": {
         "v": "caution",
-        "why": "Goalie-carried: #4 in net, only #21 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
-        "beat": "Their goaltending is carrying a shaky team: a 4-game losing streak, middling even-strength play, and a Hellebuyck trade that leaves the crease unsettled; they're better in a short series than their play suggests.",
-        "tier": "pretender"
-      }
-    },
-    {
-      "name": "Ottawa Senators",
-      "conf": "E",
-      "rec": "11 GP",
-      "score": 2,
-      "index": 57.1,
-      "q": [
-        false,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "+3 #12",
-        "92.1 #6",
-        "47.0 #21",
-        "30 #13"
-      ],
-      "fair_pct": 2.9,
-      "fair_odds": "+3369",
-      "market": "+2700",
-      "ev": -19,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #12 goal differential, but the #21 spot is the one a seven-game series finds.",
-        "beat": "Ottawa's goal differential is strong, but it's built on a sound goalie-less backbone and an out-for-season Ullmark. Their possession numbers are bottom-tier, and a goalie-dependent playoff series punishes that.",
+        "why": "Goalie-carried: #5 in net, only #22 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
+        "beat": "Their goaltending has carried a shaky team, and the franchise's best netminder just left, so this roster can't survive a seven-game series on its own.",
         "tier": "pretender"
       }
     },
     {
       "name": "Vegas Golden Knights",
       "conf": "W",
-      "rec": "12 GP",
+      "rec": "13 GP",
       "score": 2,
-      "index": 56.1,
+      "index": 51.9,
       "q": [
         true,
         false,
@@ -385,27 +356,56 @@
       ],
       "vals": [
         "+6 #6",
-        "90.2 #16",
-        "53.0 #8",
-        "36 #22"
+        "90.3 #15",
+        "53.0 #9",
+        "38 #21"
       ],
-      "fair_pct": 3.1,
-      "fair_odds": "+3178",
-      "market": "+1100",
-      "ev": -63,
+      "fair_pct": 2.7,
+      "fair_odds": "+3561",
+      "market": "+1000",
+      "ev": -70,
       "read": {
         "v": "caution",
-        "why": "Carried by its #6 goal differential, but the #22 spot is the one a seven-game series finds.",
-        "beat": "Elite five-on-five play and a top-tier goal differential, but the team allows too many goals and the save percentage is middling, which a seven-game series will punish.",
-        "tier": "contender"
+        "why": "Carried by its #6 goal differential, but the #21 spot is the one a seven-game series finds.",
+        "beat": "Dominant five-on-five play masks a leaky defense and shaky goaltending, and the team just dropped three straight in a tight loss. Playoff series won't be kind to that.",
+        "tier": "pretender"
+      }
+    },
+    {
+      "name": "Columbus Blue Jackets",
+      "conf": "E",
+      "rec": "9 GP",
+      "score": 2,
+      "index": 51.6,
+      "q": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "-1 #18",
+        "91.7 #8",
+        "49.0 #17",
+        "30 #6"
+      ],
+      "fair_pct": 2.3,
+      "fair_odds": "+4301",
+      "market": "+8000",
+      "ev": 84,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #18 goal differential, but the #17 spot is the one a seven-game series finds.",
+        "beat": "Their goaltending is holding a leaky-looking roster together, but goal differential and shot share both trail the pack. A tight win over a struggling Vegas side is encouraging; it isn't proof they can survive a seven-game grind.",
+        "tier": "pretender"
       }
     },
     {
       "name": "Utah Mammoth",
       "conf": "W",
-      "rec": "11 GP",
+      "rec": "12 GP",
       "score": 2,
-      "index": 55.7,
+      "index": 49.6,
       "q": [
         true,
         false,
@@ -414,27 +414,27 @@
       ],
       "vals": [
         "+4 #11",
-        "89.3 #22",
+        "89.3 #21",
         "57.0 #3",
-        "36 #22"
+        "40 #25"
       ],
-      "fair_pct": 3.0,
-      "fair_odds": "+3249",
-      "market": "+1700",
-      "ev": -46,
+      "fair_pct": 2.4,
+      "fair_odds": "+4095",
+      "market": "+1800",
+      "ev": -55,
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#3) but can't fully trust the net (#22). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Controls play at an elite rate, but the goaltending is leaky and they just blew a multi-goal lead, so the net must be fixed before May.",
-        "tier": "contender"
+        "why": "Controls the puck (#3) but can't fully trust the net (#21). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
+        "beat": "Shot-share is elite, but a leaky goaltending tandem and a bottom-tier goals-against mean a best-of-seven series will likely expose them. Pretender until the net catches up.",
+        "tier": "pretender"
       }
     },
     {
-      "name": "New York Rangers",
-      "conf": "E",
-      "rec": "12 GP",
+      "name": "Los Angeles Kings",
+      "conf": "W",
+      "rec": "9 GP",
       "score": 2,
-      "index": 55.2,
+      "index": 46.1,
       "q": [
         false,
         true,
@@ -442,155 +442,101 @@
         true
       ],
       "vals": [
-        "+3 #12",
-        "91.6 #9",
-        "46.0 #25",
-        "29 #7"
+        "-5 #24",
+        "91.4 #9",
+        "49.0 #17",
+        "32 #8"
       ],
-      "fair_pct": 2.6,
-      "fair_odds": "+3739",
-      "market": "+6000",
-      "ev": 59,
+      "fair_pct": 1.9,
+      "fair_odds": "+5124",
+      "market": "+4500",
+      "ev": -12,
       "read": {
         "v": "caution",
-        "why": "Carried by its #12 goal differential, but the #25 spot is the one a seven-game series finds.",
-        "beat": "Shesterkin is gone for the season, and a team leaning on goaltending to survive seven-game series now has to find a replacement starter; the shot-share numbers are poor too, so this roster looks like it wins by luck.",
+        "why": "Carried by its #24 goal differential, but the #17 spot is the one a seven-game series finds.",
+        "beat": "A losing record and a minus goal differential, propped up by solid goaltending that won't hold up for a full playoff grind; the numbers say this team is lucky to be where it is.",
         "tier": "pretender"
+      }
+    },
+    {
+      "name": "Florida Panthers",
+      "conf": "E",
+      "rec": "11 GP",
+      "score": 2,
+      "index": 42.1,
+      "q": [
+        false,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "-5 #24",
+        "88.4 #30",
+        "56.0 #5",
+        "34 #14"
+      ],
+      "fair_pct": 1.2,
+      "fair_odds": "+8003",
+      "market": "+900",
+      "ev": -88,
+      "read": {
+        "v": "caution",
+        "why": "Drives play like a champion (#5 Corsi) but the goaltending (#30) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
       }
     },
     {
       "name": "Seattle Kraken",
       "conf": "W",
-      "rec": "11 GP",
+      "rec": "12 GP",
       "score": 2,
-      "index": 51.2,
+      "index": 40.1,
       "q": [
         true,
         true,
-        false,
-        false
-      ],
-      "vals": [
-        "+9 #3",
-        "91.5 #10",
-        "42.0 #29",
-        "37 #27"
-      ],
-      "fair_pct": 2.3,
-      "fair_odds": "+4212",
-      "market": "+12500",
-      "ev": 192,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #3 goal differential, but the #29 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "St Louis Blues",
-      "conf": "W",
-      "rec": "10 GP",
-      "score": 2,
-      "index": 41.0,
-      "q": [
-        false,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "-4 #22",
-        "88.3 #29",
-        "50.0 #16",
-        "31 #14"
-      ],
-      "fair_pct": 1.2,
-      "fair_odds": "+8297",
-      "market": "+8000",
-      "ev": -4,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #22 goal differential, but the #29 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "Columbus Blue Jackets",
-      "conf": "E",
-      "rec": "8 GP",
-      "score": 1,
-      "index": 53.1,
-      "q": [
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "-1 #19",
-        "91.1 #13",
-        "49.0 #18",
-        "29 #7"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+8000",
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #19 goal differential, but the #18 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "Edmonton Oilers",
-      "conf": "W",
-      "rec": "10 GP",
-      "score": 1,
-      "index": 51.5,
-      "q": [
-        true,
-        false,
         false,
         false
       ],
       "vals": [
         "+6 #6",
-        "89.9 #18",
-        "47.0 #21",
-        "32 #16"
+        "91.0 #12",
+        "42.0 #29",
+        "42 #30"
       ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+900",
-      "ev": null,
+      "fair_pct": 1.3,
+      "fair_odds": "+7838",
+      "market": "+15000",
+      "ev": 90,
       "read": {
         "v": "caution",
-        "why": "Carried by its #6 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "Carried by its #6 goal differential, but the #30 spot is the one a seven-game series finds."
       }
     },
     {
-      "name": "Washington Capitals",
-      "conf": "E",
-      "rec": "9 GP",
-      "score": 1,
-      "index": 50.4,
+      "name": "Nashville Predators",
+      "conf": "W",
+      "rec": "10 GP",
+      "score": 2,
+      "index": 37.8,
       "q": [
         false,
-        false,
+        true,
         false,
         true
       ],
       "vals": [
-        "+3 #12",
-        "89.8 #19",
-        "47.0 #21",
-        "29 #7"
+        "-8 #27",
+        "91.1 #11",
+        "44.0 #28",
+        "31 #7"
       ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+1500",
-      "ev": null,
+      "fair_pct": 1.1,
+      "fair_odds": "+9377",
+      "market": "+12500",
+      "ev": 33,
       "read": {
         "v": "caution",
-        "why": "Carried by its #12 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "Carried by its #27 goal differential, but the #28 spot is the one a seven-game series finds."
       }
     },
     {
@@ -598,7 +544,7 @@
       "conf": "E",
       "rec": "10 GP",
       "score": 1,
-      "index": 49.6,
+      "index": 46.6,
       "q": [
         false,
         false,
@@ -606,10 +552,10 @@
         false
       ],
       "vals": [
-        "-1 #19",
-        "88.6 #26",
+        "-1 #18",
+        "88.6 #28",
         "57.0 #3",
-        "35 #21"
+        "35 #17"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -617,96 +563,15 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#26) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
+        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#28) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
       }
     },
     {
-      "name": "Florida Panthers",
-      "conf": "E",
-      "rec": "11 GP",
-      "score": 1,
-      "index": 44.7,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "-5 #24",
-        "88.4 #28",
-        "56.0 #5",
-        "34 #20"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+950",
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Drives play like a champion (#5 Corsi) but the goaltending (#28) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
-      }
-    },
-    {
-      "name": "Pittsburgh Penguins",
-      "conf": "E",
-      "rec": "11 GP",
-      "score": 1,
-      "index": 43.6,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "+0 #18",
-        "88.8 #23",
-        "51.0 #14",
-        "37 #27"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+8000",
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #18 goal differential, but the #27 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "Buffalo Sabres",
+      "name": "Washington Capitals",
       "conf": "E",
       "rec": "10 GP",
       "score": 1,
-      "index": 39.6,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "-3 #21",
-        "87.6 #31",
-        "53.0 #8",
-        "36 #22"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+3300",
-      "ev": null,
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #21 goal differential, but the #31 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "Nashville Predators",
-      "conf": "W",
-      "rec": "9 GP",
-      "score": 1,
-      "index": 39.2,
+      "index": 43.0,
       "q": [
         false,
         false,
@@ -714,53 +579,107 @@
         true
       ],
       "vals": [
-        "-9 #28",
-        "90.2 #15",
-        "45.0 #28",
-        "28 #5"
+        "+3 #12",
+        "89.2 #22",
+        "47.0 #22",
+        "32 #8"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+1500",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #28 goal differential, but the #28 spot is the one a seven-game series finds."
+        "why": "Carried by its #12 goal differential, but the #22 spot is the one a seven-game series finds."
       }
     },
     {
-      "name": "Philadelphia Flyers",
+      "name": "Pittsburgh Penguins",
       "conf": "E",
       "rec": "12 GP",
       "score": 1,
-      "index": 29.0,
+      "index": 40.5,
       "q": [
         false,
-        true,
         false,
+        true,
         false
       ],
       "vals": [
-        "-14 #30",
-        "91.3 #11",
-        "41.0 #31",
-        "36 #22"
+        "-1 #18",
+        "89.1 #24",
+        "52.0 #12",
+        "39 #22"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+15000",
+      "market": "+7000",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #30 goal differential, but the #31 spot is the one a seven-game series finds."
+        "why": "Carried by its #18 goal differential, but the #24 spot is the one a seven-game series finds."
+      }
+    },
+    {
+      "name": "St Louis Blues",
+      "conf": "W",
+      "rec": "11 GP",
+      "score": 1,
+      "index": 37.2,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "-6 #26",
+        "89.3 #20",
+        "50.0 #16",
+        "35 #17"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+8000",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #26 goal differential, but the #20 spot is the one a seven-game series finds."
+      }
+    },
+    {
+      "name": "Buffalo Sabres",
+      "conf": "E",
+      "rec": "11 GP",
+      "score": 1,
+      "index": 34.0,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "-3 #23",
+        "87.6 #32",
+        "53.0 #9",
+        "40 #25"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+3300",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #23 goal differential, but the #32 spot is the one a seven-game series finds."
       }
     },
     {
       "name": "Calgary Flames",
       "conf": "W",
-      "rec": "9 GP",
+      "rec": "10 GP",
       "score": 1,
-      "index": 22.8,
+      "index": 23.3,
       "q": [
         false,
         false,
@@ -768,10 +687,10 @@
         false
       ],
       "vals": [
-        "-17 #32",
-        "87.1 #32",
-        "52.0 #12",
-        "38 #29"
+        "-16 #31",
+        "88.0 #31",
+        "51.0 #14",
+        "39 #22"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -779,7 +698,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #32 goal differential, but the #32 spot is the one a seven-game series finds."
+        "why": "Carried by its #31 goal differential, but the #31 spot is the one a seven-game series finds."
       }
     }
   ],
@@ -787,20 +706,20 @@
     "status": "firming",
     "emoji": "\ud83d\udfe1",
     "label": "Firming up",
-    "note": "12 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
+    "note": "13 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
   "value_plays": [
     {
       "name": "Dallas Stars",
-      "ev": 134,
-      "market": "+1700",
+      "ev": 147,
+      "market": "+1800",
       "fair_odds": "+669"
     },
     {
       "name": "Minnesota Wild",
-      "ev": 59,
-      "market": "+1300",
-      "fair_odds": "+781"
+      "ev": 68,
+      "market": "+1200",
+      "fair_odds": "+676"
     }
   ]
 }
