@@ -15,10 +15,10 @@ import json, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -485,7 +485,7 @@ def nba_wl_log(tid, season):
     return [x[1] for x in g]
 
 # ----------------------------------------------------------------------------- beat-reporter reads
-SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba"}
+SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba", "wnba": "basketball/wnba"}
 
 def espn_news(path, tid, n=4):
     """Recent ESPN headlines+blurbs for one team — the storyline fuel for the beat-reporter read."""
@@ -843,6 +843,7 @@ READ_CTX = {
     "cfb": "a 12-team playoff gauntlet runs a one-sided team off the field",
     "nhl": "goaltending decides best-of-seven series",
     "nba": "offense goes cold in a seven-game series — defense travels",
+    "wnba": "offense goes cold in a playoff series — defense travels",
 }
 
 def _pick(opts, seed):
@@ -895,7 +896,7 @@ def team_read(t, sport, n, maxcat):
                 f"No goaltending asterisk, no possession hole — #{cf} driving play and #{sv} in net. The team you want when the games get low-scoring and tight. Trust it."], nm)}
         return {"v": "caution", "why": f"Carried by its #{ed} goal differential, but the #{max(sv,cf,ga)} spot is the one a seven-game series finds."}
 
-    if sport == "nba":
+    if sport in ("nba", "wnba"):
         net, off, dfn = t["rk_pd"], t["rk_ppg"], t["rk_opp"]
         if off <= el and dfn > half:                                  # pace-padded scoring
             return {"v": "fools_gold", "why": _pick([
@@ -964,10 +965,90 @@ def log_history(name, data):
     else: hist.append(snap)
     json.dump(hist[-30:], open(hp, "w", encoding="utf-8"), indent=1)
 
+def wnba_scoring(season):
+    """Per-team PPG / Opp PPG from ESPN WNBA byteam (same glossary-index trick as NBA)."""
+    try:
+        bt = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/statistics/byteam?region=us&lang=en&contentorigin=espn&season={season}&seasontype=2")
+    except Exception:
+        return {}
+    gloss = {c["name"]: {n: i for i, n in enumerate(c["names"])} for c in bt.get("categories", []) if c.get("names")}
+    oi = None
+    for cat in ("offensive", "general"):
+        for fld in ("avgPoints", "points"):
+            if cat in gloss and fld in gloss[cat]: oi = (cat, gloss[cat][fld]); break
+        if oi: break
+    if not oi: return {}
+    cat, idx = oi; out = {}
+    for t in bt.get("teams", []):
+        nm = t.get("team", {}).get("displayName"); own = opp = None
+        for c in t.get("categories", []):
+            if c.get("name") != cat: continue
+            vals = c.get("values", []); dn = (c.get("displayName") or "").lower()
+            if idx >= len(vals): continue
+            if "opponent" in dn: opp = vals[idx]
+            else: own = vals[idx]
+        if nm and own is not None and opp is not None: out[nm] = (own, opp)
+    return out
+
+def build_wnba():
+    season = YEAR   # ESPN tags the WNBA season by its own year
+    base = {"sport": "WNBA", "season": str(season), "generated": now_iso()}
+    scoring = wnba_scoring(season)
+    if not scoring:
+        base.update({"status": "preseason", "odds_remaining": None,
+            "note": "The WNBA tips off in May — the blueprint goes live on the first games.", "teams": []})
+        return base
+    sd = get(f"https://cdn.espn.com/core/wnba/standings?xhr=1&season={season}")
+    wl = {}
+    def walk(o):
+        if isinstance(o, dict):
+            if isinstance(o.get("entries"), list):
+                for e in o["entries"]:
+                    nm = e.get("team", {}).get("displayName"); st = {s.get("name"): s.get("value") for s in e.get("stats", [])}
+                    if nm:
+                        try: wl[nm] = (int(float(st.get("wins", 0))), int(float(st.get("losses", 0))))
+                        except Exception: pass
+            for v in o.values(): walk(v)
+        elif isinstance(o, list):
+            for v in o: walk(v)
+    walk(sd)
+    rows = []
+    for nm, (ppg, opp) in scoring.items():
+        w, l = wl.get(nm, (0, 0)); g = w + l
+        if g == 0: continue
+        rows.append({"name": nm, "rec": f"{w}-{l}", "gp": g, "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp})
+    if not rows:
+        base.update({"status": "preseason", "odds_remaining": None, "note": "The WNBA tips off in May.", "teams": []}); return base
+    rk_pd = ranks(rows, "pdg", True); rk_opp = ranks(rows, "oppppg", False); rk_ppg = ranks(rows, "ppg", True)
+    for t in rows:
+        t["rk_pd"], t["rk_opp"], t["rk_ppg"] = rk_pd[t["name"]], rk_opp[t["name"]], rk_ppg[t["name"]]
+        t["q"] = [t["winpct"] >= 0.680, t["rk_pd"] <= 4, t["rk_opp"] <= 6]   # Win% / Net top-4 / Def top-6
+        t["score"] = sum(t["q"])
+    npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nw = norm(rows, "winpct", True)
+    for t in rows: t["index"] = round(npd[t["name"]]*.45 + no[t["name"]]*.30 + nw[t["name"]]*.25, 1)
+    for t in rows: t["read"] = team_read(t, "wnba", len(rows), 3)
+    pool = [t for t in rows if t["score"] >= 1]; tm = {3: 1.7, 2: 1.2, 1: 0.8}
+    tot = sum((t["index"]**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
+    for t in pool: t["p"] = ((t["index"]**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
+    cap_odds(pool, 0.24)
+    attach(rows, pool, {})   # WNBA has no futures market
+    pred = make_prediction(rows, 3)
+    rows.sort(key=lambda t: (-t["score"], -t["index"]))
+    base.update({"odds_remaining": None, "prediction": pred, "season_pct": season_pct(rows, "wnba"),
+        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+        "cats": ["Win% ≥.680", "Net/g top-4", "Def top-6"], "labels": ["Win%", "Net/g", "Opp PPG"],
+        "teams": [{"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+            "q": [bool(x) for x in t["q"]],
+            "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
+            "rtg": round(t["pdg"], 1),
+            "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+    return base
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba)]:
         if name not in LEAGUES:
             continue
         try:
@@ -988,7 +1069,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":

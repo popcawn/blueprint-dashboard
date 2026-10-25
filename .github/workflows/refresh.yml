@@ -7,9 +7,9 @@ on:
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
-        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba)"
+        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba)"
         required: false
-        default: "nfl,cfb,nhl,nba"
+        default: "nfl,cfb,nhl,nba,wnba"
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}        # add in repo Settings → Secrets → Actions
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}  # enables the beat-reporter reads (optional; falls back to template)
-          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba' }}
+          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba,wnba' }}
         run: python scripts/build.py
 
       - name: Commit updated data

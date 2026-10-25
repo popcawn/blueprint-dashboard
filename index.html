@@ -138,13 +138,13 @@
 
 <script>
 const REPO="popcawn/blueprint-dashboard";
-const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA"};
-const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82};
+const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA",wnba:"WNBA"};
+const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4,wnba:3}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82,wnba:44};
 const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
 /* matchup simulator — backtested SDs (NFL 24.5, CFB 20.0 out-of-sample); NBA/NHL estimated */
-const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.6}, MU_HFA={nfl:2.0,cfb:3.0,nba:2.8,nhl:0.35}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals"};
+const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.6,wnba:14.0}, MU_HFA={nfl:2.0,cfb:3.0,nba:2.8,nhl:0.35,wnba:2.5}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts"};
 function _erf(x){const t=1/(1+0.3275911*Math.abs(x));const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return x>=0?y:-y;}
 const _phi=x=>0.5*(1+_erf(x/Math.SQRT2));
 function simMatchup(){
