@@ -1,15 +1,15 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-10-24T12:22:46Z",
-  "odds_remaining": "69866",
+  "generated": "2026-10-25T17:19:33Z",
+  "odds_remaining": "66448",
   "prediction": {
     "pick": "Toronto Raptors",
-    "why": "<b>Toronto Raptors</b> is the pick \u2014 the top team the model actually trusts (fair +388). Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+    "why": "<b>Toronto Raptors</b> is the pick \u2014 the top team the model actually trusts (fair +317). Elite defense (#2) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
   },
-  "season_pct": 2,
-  "gp_min": 1,
-  "gp_max": 2,
+  "season_pct": 3,
+  "gp_min": 2,
+  "gp_max": 3,
   "has_depth": false,
   "cats": [
     "Win% \u2265.600",
@@ -29,7 +29,7 @@
       "conf": "E",
       "rec": "2-0",
       "score": 4,
-      "index": 95.0,
+      "index": 96.1,
       "q": [
         true,
         true,
@@ -38,48 +38,18 @@
       ],
       "vals": [
         "1.000",
-        "+26.5 #2",
-        "123.5 #5",
-        "97.0 #3"
+        "+26.5 #1",
+        "123.5 #6",
+        "97.0 #2"
       ],
-      "fair_pct": 20.5,
-      "fair_odds": "+388",
-      "market": "+1600",
-      "ev": 248,
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+1500",
+      "ev": 284,
       "read": {
         "v": "trust",
-        "why": "Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "An elite defense that travels, with the two-game start backing it up. The question is whether the offense holds its level once the playoff grind starts, since series defense alone rarely wins it all.",
-        "tier": "contender"
-      },
-      "ftt": "pending"
-    },
-    {
-      "name": "Atlanta Hawks",
-      "conf": "E",
-      "rec": "2-0",
-      "score": 4,
-      "index": 94.4,
-      "q": [
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "1.000",
-        "+27.0 #1",
-        "130.0 #1",
-        "103.0 #6"
-      ],
-      "fair_pct": 20.1,
-      "fair_odds": "+398",
-      "market": "+5000",
-      "ev": 925,
-      "read": {
-        "v": "trust",
-        "why": "A #1 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Two dominant wins and the league's best net rating make Atlanta a real title threat. The question is whether a 2-0 start with a blowout in a weak matchup holds against elite playoff defenses.",
+        "why": "Elite defense (#2) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+        "beat": "Elite defense and a perfect start make them a real contender; the offense has been merely solid, so expect scoring to waver in a long series.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -89,7 +59,7 @@
       "conf": "W",
       "rec": "2-0",
       "score": 4,
-      "index": 92.0,
+      "index": 93.2,
       "q": [
         true,
         true,
@@ -98,18 +68,18 @@
       ],
       "vals": [
         "1.000",
-        "+24.5 #3",
-        "126.0 #2",
-        "101.5 #5"
+        "+24.5 #2",
+        "126.0 #1",
+        "101.5 #4"
       ],
-      "fair_pct": 14.6,
-      "fair_odds": "+583",
+      "fair_pct": 16.6,
+      "fair_odds": "+504",
       "market": "+5500",
-      "ev": 720,
+      "ev": 827,
       "read": {
         "v": "trust",
-        "why": "Defense wins in May \u2014 a #5 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite offense and a top-five defense that travels, but Shaedon Sharpe's season-ending absence removes a 21-point scorer. The question is whether Deni Avdija and the rest can absorb that scoring when playoff defenses tighten.",
+        "why": "Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
+        "beat": "Elite offense and a top-five defense make them a real threat, but losing Shaedon Sharpe's 21 points a night leaves a scoring hole that a deep playoff run will expose.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -119,7 +89,7 @@
       "conf": "W",
       "rec": "2-0",
       "score": 4,
-      "index": 91.3,
+      "index": 91.0,
       "q": [
         true,
         true,
@@ -128,18 +98,18 @@
       ],
       "vals": [
         "1.000",
-        "+23.5 #4",
-        "123.0 #6",
-        "99.5 #4"
+        "+23.5 #3",
+        "123.0 #7",
+        "99.5 #3"
       ],
-      "fair_pct": 14.3,
-      "fair_odds": "+599",
-      "market": "+2500",
-      "ev": 272,
+      "fair_pct": 15.4,
+      "fair_odds": "+549",
+      "market": "+2200",
+      "ev": 254,
       "read": {
         "v": "trust",
-        "why": "Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite defense that travels and wins even when the offense sputters, which is exactly what playoff series demand. The catch is that Donte DiVincenzo's season-long absence removes a real scoring and two-way piece, so depth gets tested.",
+        "why": "Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
+        "beat": "An elite defense that wins the glass and keeps games in hand, with Donte DiVincenzo's long-term absence a real dent in the wing depth. Scoring has to hold up when the shots stop falling.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -148,119 +118,59 @@
       "name": "Los Angeles Lakers",
       "conf": "W",
       "rec": "2-0",
-      "score": 3,
-      "index": 79.8,
+      "score": 4,
+      "index": 77.3,
       "q": [
         true,
         true,
         true,
-        false
+        true
       ],
       "vals": [
         "1.000",
         "+15.0 #5",
-        "126.0 #2",
-        "111.0 #13"
+        "126.0 #1",
+        "111.0 #10"
       ],
-      "fair_pct": 6.7,
-      "fair_odds": "+1383",
+      "fair_pct": 9.4,
+      "fair_odds": "+959",
       "market": "+4000",
-      "ev": 176,
+      "ev": 287,
       "read": {
         "v": "trust",
         "why": "A #5 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Elite offense and a top-five net rating make them a real threat, but their defense is only middling, and that leak is what playoff series expose. The question is whether the scoring holds up when the games tighten.",
+        "beat": "Elite scoring and a top-five net rating make them a real threat, but the defense is only middling, and that is where May series get decided.",
         "tier": "contender"
       },
       "ftt": "pending"
     },
     {
-      "name": "Houston Rockets",
-      "conf": "W",
-      "rec": "2-0",
-      "score": 3,
-      "index": 75.7,
+      "name": "Atlanta Hawks",
+      "conf": "E",
+      "rec": "2-1",
+      "score": 4,
+      "index": 73.8,
       "q": [
         true,
-        false,
+        true,
         true,
         true
       ],
       "vals": [
-        "1.000",
-        "+11.0 #9",
-        "121.0 #7",
-        "110.0 #10"
+        "0.667",
+        "+15.7 #4",
+        "124.7 #3",
+        "109.0 #8"
       ],
-      "fair_pct": 5.8,
-      "fair_odds": "+1638",
-      "market": "+2700",
-      "ev": 61,
-      "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#9) but leans one way; the #10 end is where a playoff defense makes it uncomfortable.",
-        "beat": "A top-ten defense with a strong net rating, but the leaky end of that group is exactly what playoff defenses expose. Their offense can carry them, yet the margin for a seven-game series is thin.",
-        "tier": "contender"
-      },
-      "ftt": "pending"
-    },
-    {
-      "name": "Oklahoma City Thunder",
-      "conf": "W",
-      "rec": "2-0",
-      "score": 2,
-      "index": 79.9,
-      "q": [
-        true,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "1.000",
-        "+12.0 #7",
-        "106.0 #23",
-        "94.0 #1"
-      ],
-      "fair_pct": 4.5,
-      "fair_odds": "+2117",
-      "market": "+210",
-      "ev": -86,
+      "fair_pct": 13.3,
+      "fair_odds": "+654",
+      "market": "+4500",
+      "ev": 510,
       "read": {
         "v": "trust",
-        "why": "Defense wins in May \u2014 a #1 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite defense that allowed the fewest points in the league, paired with a star who just ended a record scoring streak, makes them a real threat. The catch is that their offense ranks middling, so when shots stop falling in a seven-game series, the defense has to carry them.",
+        "why": "A #4 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
+        "beat": "Elite net rating and a top-tier offense make them a real title threat; they can score with anyone and defend well enough to matter. A 2-1 start with a home-opener loss to Houston is too early to call them a finished champion.",
         "tier": "contender"
-      },
-      "ftt": "pending"
-    },
-    {
-      "name": "Memphis Grizzlies",
-      "conf": "W",
-      "rec": "2-0",
-      "score": 2,
-      "index": 77.1,
-      "q": [
-        true,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "1.000",
-        "+11.5 #8",
-        "117.0 #11",
-        "105.5 #8"
-      ],
-      "fair_pct": 4.1,
-      "fair_odds": "+2367",
-      "market": "+100000",
-      "ev": 3958,
-      "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#8) but leans one way; the #11 end is where a playoff defense makes it uncomfortable.",
-        "beat": "A 2-0 start with a comeback win over Golden State is encouraging, but the season is two games old. The catch is the offense sits middling, and a defense that's merely good won't carry a seven-game series.",
-        "tier": "pretender"
       },
       "ftt": "pending"
     },
@@ -269,7 +179,7 @@
       "conf": "E",
       "rec": "2-0",
       "score": 2,
-      "index": 76.9,
+      "index": 72.8,
       "q": [
         true,
         false,
@@ -279,27 +189,27 @@
       "vals": [
         "1.000",
         "+12.5 #6",
-        "124.5 #4",
-        "112.0 #14"
+        "124.5 #5",
+        "112.0 #12"
       ],
-      "fair_pct": 5.1,
-      "fair_odds": "+1856",
-      "market": "+3000",
-      "ev": 58,
+      "fair_pct": 6.0,
+      "fair_odds": "+1569",
+      "market": "+2500",
+      "ev": 56,
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#6) but leans one way; the #14 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Two blowout-style wins and an elite offense make them dangerous, but the defense ranks as leaky, and that is the part that travels in a seven-game series. The question is whether that end holds up when the playoff pace tightens.",
+        "why": "Net-rating-driven (#6) but leans one way; the #12 end is where a playoff defense makes it uncomfortable.",
+        "beat": "Scoring is elite and the defense has been leaky, a combination that tends to crack when playoff games slow down. Duren's two-week absence is a real hole at center that the depth may not cover.",
         "tier": "contender"
       },
       "ftt": "pending"
     },
     {
-      "name": "Philadelphia 76ers",
-      "conf": "E",
+      "name": "Memphis Grizzlies",
+      "conf": "W",
       "rec": "2-0",
       "score": 2,
-      "index": 72.7,
+      "index": 69.7,
       "q": [
         true,
         false,
@@ -308,18 +218,108 @@
       ],
       "vals": [
         "1.000",
-        "+7.0 #11",
-        "110.0 #16",
-        "103.0 #6"
+        "+11.5 #8",
+        "117.0 #12",
+        "105.5 #5"
       ],
-      "fair_pct": 4.3,
-      "fair_odds": "+2215",
-      "market": "+1000",
-      "ev": -52,
+      "fair_pct": 3.3,
+      "fair_odds": "+2969",
+      "market": "+75000",
+      "ev": 2347,
+      "read": {
+        "v": "trust",
+        "why": "Elite defense (#5) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+        "beat": "Two games in, a perfect start and a late comeback sit on an elite defense, but it is too early to call this more than a hot start.",
+        "tier": "pretender"
+      },
+      "ftt": "pending"
+    },
+    {
+      "name": "Oklahoma City Thunder",
+      "conf": "W",
+      "rec": "2-0",
+      "score": 2,
+      "index": 68.5,
+      "q": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+12.0 #7",
+        "106.0 #28",
+        "94.0 #1"
+      ],
+      "fair_pct": 3.1,
+      "fair_odds": "+3133",
+      "market": "+220",
+      "ev": -90,
+      "read": {
+        "v": "trust",
+        "why": "Defense wins in May \u2014 a #1 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
+        "beat": "An elite defense that leads the league in fewest points allowed, with a star in Gilgeous-Alexander who can carry the offense when shots stop falling. Scoring is the weak spot; it needs to hold up when the playoffs grind it down.",
+        "tier": "contender"
+      },
+      "ftt": "pending"
+    },
+    {
+      "name": "Houston Rockets",
+      "conf": "W",
+      "rec": "3-0",
+      "score": 2,
+      "index": 67.4,
+      "q": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "1.000",
+        "+9.7 #9",
+        "121.0 #8",
+        "111.3 #11"
+      ],
+      "fair_pct": 2.9,
+      "fair_odds": "+3294",
+      "market": "+2200",
+      "ev": -32,
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#11) but leans one way; the #16 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Philadelphia is 2-0 with a strong defense, but its offense is only middling and the net rating sits in the middle of the league. Playoff series tend to turn on whether the offense holds up, and the team's scoring is the question to watch.",
+        "why": "Net-rating-driven (#9) but leans one way; the #11 end is where a playoff defense makes it uncomfortable.",
+        "beat": "Scoring is strong and the offense travels, but the defense ranks only near the middle of the league, which is the part a seven-game series punishes. Durant's late-career tenure is the other pressure point.",
+        "tier": "contender"
+      },
+      "ftt": "pending"
+    },
+    {
+      "name": "Philadelphia 76ers",
+      "conf": "E",
+      "rec": "3-0",
+      "score": 2,
+      "index": 64.2,
+      "q": [
+        true,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "1.000",
+        "+8.3 #11",
+        "115.7 #13",
+        "107.3 #7"
+      ],
+      "fair_pct": 4.1,
+      "fair_odds": "+2334",
+      "market": "+1000",
+      "ev": -55,
+      "read": {
+        "v": "caution",
+        "why": "Net-rating-driven (#11) but leans one way; the #13 end is where a playoff defense makes it uncomfortable.",
+        "beat": "Unbeaten start, a top-ten net rating and a stingy defense give real substance; the offense sits in the bottom tier of scoring, which is the part a seven-game series punishes.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -328,36 +328,66 @@
       "name": "LA Clippers",
       "conf": "W",
       "rec": "1-1",
-      "score": 1,
-      "index": 66.4,
+      "score": 2,
+      "index": 58.6,
       "q": [
         false,
         false,
         true,
-        false
+        true
       ],
       "vals": [
         "0.500",
         "+8.5 #10",
         "119.0 #9",
-        "110.5 #12"
+        "110.5 #9"
       ],
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 1.9,
+      "fair_odds": "+5064",
       "market": null,
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#10) but leans one way; the #12 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#10) but leans one way; the #9 end is where a playoff defense makes it uncomfortable.",
+        "beat": "Solid, middle-of-the-pack teams are rarely title material; this group leans on scoring and has lost Brandon Ingram and Max Strus for the season, so the depth to absorb that is the real question.",
+        "tier": "contender"
+      },
+      "ftt": "pending"
+    },
+    {
+      "name": "Washington Wizards",
+      "conf": "E",
+      "rec": "2-1",
+      "score": 1,
+      "index": 49.7,
+      "q": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.667",
+        "+2.0 #12",
+        "118.0 #11",
+        "116.0 #17"
+      ],
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+20000",
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Net-rating-driven (#12) but leans one way; the #17 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending"
     },
     {
       "name": "New Orleans Pelicans",
       "conf": "W",
-      "rec": "0-2",
+      "rec": "0-3",
       "score": 1,
-      "index": 46.3,
+      "index": 33.3,
       "q": [
         false,
         false,
@@ -366,17 +396,17 @@
       ],
       "vals": [
         "0.000",
-        "-2.0 #14",
-        "119.5 #8",
-        "121.5 #24"
+        "-3.3 #17",
+        "124.7 #3",
+        "128.0 #28"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+100000",
+      "market": "+75000",
       "ev": null,
       "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#14) but leans one way; the #24 end is where a playoff defense makes it uncomfortable."
+        "v": "fools_gold",
+        "why": "All offense (#3), no stops (#28 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
       },
       "ftt": "pending"
     },
@@ -385,7 +415,7 @@
       "conf": "E",
       "rec": "0-2",
       "score": 1,
-      "index": 45.9,
+      "index": 26.2,
       "q": [
         false,
         false,
@@ -394,54 +424,54 @@
       ],
       "vals": [
         "0.000",
-        "-5.0 #16",
-        "101.5 #27",
-        "106.5 #9"
+        "-5.0 #18",
+        "101.5 #30",
+        "106.5 #6"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1100",
+      "market": "+1000",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#16) but leans one way; the #27 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#18) but leans one way; the #30 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending"
     },
     {
-      "name": "Brooklyn Nets",
+      "name": "Charlotte Hornets",
       "conf": "E",
-      "rec": "0-1",
+      "rec": "2-1",
       "score": 1,
-      "index": 43.1,
+      "index": 23.8,
       "q": [
+        true,
         false,
         false,
-        false,
-        true
+        false
       ],
       "vals": [
-        "0.000",
-        "-7.0 #19",
-        "103.0 #26",
-        "110.0 #10"
+        "0.667",
+        "-11.7 #25",
+        "102.0 #29",
+        "113.7 #15"
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+100000",
+      "market": "+12500",
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#19) but leans one way; the #26 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#25) but leans one way; the #29 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending"
     },
     {
       "name": "Milwaukee Bucks",
       "conf": "E",
-      "rec": "0-2",
+      "rec": "0-3",
       "score": 1,
-      "index": 42.7,
+      "index": 21.1,
       "q": [
         false,
         false,
@@ -450,9 +480,9 @@
       ],
       "vals": [
         "0.000",
-        "-5.0 #16",
-        "118.0 #10",
-        "123.0 #25"
+        "-10.0 #23",
+        "119.0 #9",
+        "129.0 #30"
       ],
       "fair_pct": null,
       "fair_odds": null,
@@ -460,35 +490,7 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#16) but leans one way; the #25 end is where a playoff defense makes it uncomfortable."
-      },
-      "ftt": "pending"
-    },
-    {
-      "name": "Denver Nuggets",
-      "conf": "W",
-      "rec": "0-1",
-      "score": 1,
-      "index": 40.4,
-      "q": [
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "0.000",
-        "-12.0 #23",
-        "84.0 #29",
-        "96.0 #2"
-      ],
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+3000",
-      "ev": null,
-      "read": {
-        "v": "trust",
-        "why": "Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+        "why": "Net-rating-driven (#23) but leans one way; the #30 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending"
     }
@@ -497,20 +499,20 @@
     "status": "early",
     "emoji": "\ud83d\udd34",
     "label": "Too early",
-    "note": "only 2 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
+    "note": "only 3 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
   },
   "value_plays": [
     {
-      "name": "Minnesota Timberwolves",
-      "ev": 272,
-      "market": "+2500",
-      "fair_odds": "+599"
+      "name": "Toronto Raptors",
+      "ev": 284,
+      "market": "+1500",
+      "fair_odds": "+317"
     },
     {
-      "name": "Toronto Raptors",
-      "ev": 248,
-      "market": "+1600",
-      "fair_odds": "+388"
+      "name": "Minnesota Timberwolves",
+      "ev": 254,
+      "market": "+2200",
+      "fair_odds": "+549"
     }
   ]
 }
