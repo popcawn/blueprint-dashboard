@@ -1,0 +1,520 @@
+{
+  "sport": "MLB",
+  "season": "2026",
+  "generated": "2026-10-25T20:53:28Z",
+  "odds_remaining": null,
+  "prediction": {
+    "pick": "Brewers",
+    "why": "<b>Brewers</b> is the pick \u2014 the top team the model actually trusts (fair +456). Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+  },
+  "season_pct": 100,
+  "gp_min": 161,
+  "gp_max": 162,
+  "cats": [
+    "Win% >.543",
+    "Run diff top-10",
+    "Runs top-11",
+    "ERA top-10"
+  ],
+  "labels": [
+    "Win%",
+    "Run diff",
+    "Runs",
+    "ERA"
+  ],
+  "teams": [
+    {
+      "name": "Brewers",
+      "rec": "103-59",
+      "score": 4,
+      "index": 95.3,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.636",
+        "+214 #1",
+        "832 #2",
+        "3.51 #2"
+      ],
+      "rtg": 1.32,
+      "fair_pct": 18.0,
+      "fair_odds": "+456",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "trust",
+        "why": "Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+      }
+    },
+    {
+      "name": "Dodgers",
+      "rec": "100-62",
+      "score": 4,
+      "index": 89.4,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.617",
+        "+201 #2",
+        "801 #4",
+        "3.55 #4"
+      ],
+      "rtg": 1.24,
+      "fair_pct": 18.0,
+      "fair_odds": "+456",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "trust",
+        "why": "Elite run prevention (#4) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+      }
+    },
+    {
+      "name": "Yankees",
+      "rec": "93-68",
+      "score": 4,
+      "index": 78.9,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.578",
+        "+138 #4",
+        "739 #9",
+        "3.23 #1"
+      ],
+      "rtg": 0.86,
+      "fair_pct": 15.8,
+      "fair_odds": "+532",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "trust",
+        "why": "Elite run prevention (#1) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+      }
+    },
+    {
+      "name": "Braves",
+      "rec": "94-68",
+      "score": 4,
+      "index": 73.5,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.580",
+        "+116 #5",
+        "742 #8",
+        "3.63 #5"
+      ],
+      "rtg": 0.72,
+      "fair_pct": 12.8,
+      "fair_odds": "+682",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "trust",
+        "why": "A #5 staff that travels into October, plus enough offense. Built for a short series, not just 162 games. Trust it."
+      }
+    },
+    {
+      "name": "Cubs",
+      "rec": "89-73",
+      "score": 3,
+      "index": 79.2,
+      "q": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "vals": [
+        "0.549",
+        "+147 #3",
+        "850 #1",
+        "4.12 #14"
+      ],
+      "rtg": 0.91,
+      "fair_pct": 11.3,
+      "fair_odds": "+786",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "All bats (#1), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+      }
+    },
+    {
+      "name": "Rays",
+      "rec": "98-64",
+      "score": 3,
+      "index": 71.6,
+      "q": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "0.605",
+        "+86 #6",
+        "736 #12",
+        "3.70 #7"
+      ],
+      "rtg": 0.53,
+      "fair_pct": 8.3,
+      "fair_odds": "+1099",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#6) but tilts one way; the #12 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "Padres",
+      "rec": "91-71",
+      "score": 3,
+      "index": 60.5,
+      "q": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "0.562",
+        "+41 #10",
+        "722 #15",
+        "3.99 #10"
+      ],
+      "rtg": 0.25,
+      "fair_pct": 5.0,
+      "fair_odds": "+1887",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#10) but tilts one way; the #15 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "Red Sox",
+      "rec": "87-75",
+      "score": 2,
+      "index": 63.1,
+      "q": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "0.537",
+        "+78 #7",
+        "689 #23",
+        "3.54 #3"
+      ],
+      "rtg": 0.48,
+      "fair_pct": 3.8,
+      "fair_odds": "+2527",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#7) but tilts one way; the #23 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "White Sox",
+      "rec": "84-78",
+      "score": 2,
+      "index": 62.6,
+      "q": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "vals": [
+        "0.519",
+        "+56 #9",
+        "776 #5",
+        "4.12 #14"
+      ],
+      "rtg": 0.35,
+      "fair_pct": 3.7,
+      "fair_odds": "+2591",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "All bats (#5), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+      }
+    },
+    {
+      "name": "Tigers",
+      "rec": "76-86",
+      "score": 2,
+      "index": 59.7,
+      "q": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "0.469",
+        "+71 #8",
+        "723 #14",
+        "3.67 #6"
+      ],
+      "rtg": 0.44,
+      "fair_pct": 3.2,
+      "fair_odds": "+3002",
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#8) but tilts one way; the #14 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "Pirates",
+      "rec": "82-80",
+      "score": 1,
+      "index": 58.4,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.506",
+        "+28 #11",
+        "767 #6",
+        "4.14 #16"
+      ],
+      "rtg": 0.17,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "A #6 offense papering over #16 pitching. October is started by aces and decided in the bullpen \u2014 bats go cold and the staff can't cover. Fade."
+      }
+    },
+    {
+      "name": "Phillies",
+      "rec": "88-74",
+      "score": 1,
+      "index": 55.8,
+      "q": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.543",
+        "+15 #12",
+        "713 #19",
+        "4.04 #11"
+      ],
+      "rtg": 0.09,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#12) but tilts one way; the #19 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "D-backs",
+      "rec": "86-76",
+      "score": 1,
+      "index": 55.5,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.531",
+        "+9 #14",
+        "739 #9",
+        "4.18 #18"
+      ],
+      "rtg": 0.06,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "All bats (#9), no arms (#18 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+      }
+    },
+    {
+      "name": "Nationals",
+      "rec": "77-85",
+      "score": 1,
+      "index": 54.2,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.475",
+        "+6 #15",
+        "821 #3",
+        "4.67 #26"
+      ],
+      "rtg": 0.04,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "All bats (#3), no arms (#26 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+      }
+    },
+    {
+      "name": "Guardians",
+      "rec": "85-77",
+      "score": 1,
+      "index": 53.5,
+      "q": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "0.525",
+        "+11 #13",
+        "678 #24",
+        "3.77 #8"
+      ],
+      "rtg": 0.07,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#13) but tilts one way; the #24 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "Twins",
+      "rec": "77-85",
+      "score": 1,
+      "index": 42.3,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.475",
+        "-58 #23",
+        "739 #9",
+        "4.56 #25"
+      ],
+      "rtg": -0.36,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "All bats (#9), no arms (#25 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+      }
+    },
+    {
+      "name": "Blue Jays",
+      "rec": "79-83",
+      "score": 1,
+      "index": 42.1,
+      "q": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "0.488",
+        "-46 #21",
+        "648 #30",
+        "3.90 #9"
+      ],
+      "rtg": -0.28,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "caution",
+        "why": "Run-diff-driven (#21) but tilts one way; the #30 side is where a playoff series exposes it."
+      }
+    },
+    {
+      "name": "Rockies",
+      "rec": "58-104",
+      "score": 1,
+      "index": 13.9,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.358",
+        "-192 #29",
+        "752 #7",
+        "5.59 #30"
+      ],
+      "rtg": -1.19,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": null,
+      "ev": null,
+      "read": {
+        "v": "fools_gold",
+        "why": "A #7 offense papering over #30 pitching. October is started by aces and decided in the bullpen \u2014 bats go cold and the staff can't cover. Fade."
+      }
+    }
+  ],
+  "signal": {
+    "status": "trust",
+    "emoji": "\ud83d\udfe2",
+    "label": "Trust the board",
+    "note": "162 games in \u2014 stats have stabilized; the read is actionable."
+  },
+  "value_plays": []
+}

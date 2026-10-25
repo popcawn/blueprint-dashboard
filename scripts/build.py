@@ -15,10 +15,10 @@ import json, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -485,7 +485,7 @@ def nba_wl_log(tid, season):
     return [x[1] for x in g]
 
 # ----------------------------------------------------------------------------- beat-reporter reads
-SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba", "wnba": "basketball/wnba"}
+SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba", "wnba": "basketball/wnba", "mlb": "baseball/mlb"}
 
 def espn_news(path, tid, n=4):
     """Recent ESPN headlines+blurbs for one team — the storyline fuel for the beat-reporter read."""
@@ -844,6 +844,7 @@ READ_CTX = {
     "nhl": "goaltending decides best-of-seven series",
     "nba": "offense goes cold in a seven-game series — defense travels",
     "wnba": "offense goes cold in a playoff series — defense travels",
+    "mlb": "October is decided by pitching and timely hitting — bats go cold in a short series",
 }
 
 def _pick(opts, seed):
@@ -909,6 +910,20 @@ def team_read(t, sport, n, maxcat):
         if top and net <= el:
             return {"v": "trust", "why": f"A #{net} net rating — the single best predictor of a title run — with no obvious end to attack. Balanced and battle-ready."}
         return {"v": "caution", "why": f"Net-rating-driven (#{net}) but leans one way; the #{max(off,dfn)} end is where a playoff defense makes it uncomfortable."}
+
+    if sport == "mlb":
+        rd, off, pit = t["rk_rd"], t["rk_runs"], t["rk_era"]
+        if pit > good and (off <= good or rd <= el):                  # offense-carried, pitching lags (the Cubs shape)
+            return {"v": "fools_gold", "why": _pick([
+                f"A #{off} offense papering over #{pit} pitching. October is started by aces and decided in the bullpen — bats go cold and the staff can't cover. Fade.",
+                f"All bats (#{off}), no arms (#{pit} ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."], nm)}
+        if pit <= el and off <= good:                                 # complete, October-proof
+            return {"v": "trust", "why": _pick([
+                f"Elite run prevention (#{pit}) with a real lineup — the complete, October-proof shape. Pitching wins in the playoffs and this team has it.",
+                f"A #{pit} staff that travels into October, plus enough offense. Built for a short series, not just 162 games. Trust it."], nm)}
+        if top and rd <= el:
+            return {"v": "trust", "why": f"A #{rd} run differential — the master signal of a title team. Balanced and built for a deep run."}
+        return {"v": "caution", "why": f"Run-diff-driven (#{rd}) but tilts one way; the #{max(off, pit)} side is where a playoff series exposes it."}
 
     # CFB — dominance vs schedule
     cats = [("offense", t["rk_ppg"]), ("scoring defense", t["rk_oppppg"]), ("total defense", t["rk_oppypg"]), ("margin", t["rk_margin"])]
@@ -1045,10 +1060,71 @@ def build_wnba():
             "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
     return base
 
+def mlb_data(season):
+    """Win% / run diff / runs / ERA per team from statsapi.mlb.com (CI-safe, no Cloudflare), joined by id.
+       The full 7-cat blueprint needs FanGraphs (WAR/DRS/pBABIP) which isn't curl-able — this is the proxy."""
+    try:
+        st = get(f"https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season={season}&standingsTypes=regularSeason")
+    except Exception:
+        return {}
+    by = {}
+    for rec in st.get("records", []):
+        for t in rec.get("teamRecords", []):
+            tid = t["team"]["id"]; w = t.get("wins", 0); l = t.get("losses", 0); g = w + l
+            if g == 0: continue
+            by[tid] = {"name": t["team"]["name"], "w": w, "l": l, "gp": g, "winpct": w/g, "rd": t.get("runDifferential", 0)}
+    for grp, fld, key in [("hitting", "runs", "runs"), ("pitching", "era", "era")]:
+        try:
+            d = get(f"https://statsapi.mlb.com/api/v1/teams/stats?season={season}&group={grp}&stats=season&sportId=1")
+            for s in d.get("stats", [{}])[0].get("splits", []):
+                tid = s["team"]["id"]
+                if tid in by: by[tid][key] = float(s["stat"].get(fld, 0) or 0)
+        except Exception:
+            pass
+    return {v["name"]: v for v in by.values() if "runs" in v and "era" in v}
+
+def build_mlb():
+    season = YEAR
+    base = {"sport": "MLB", "season": str(season), "generated": now_iso()}
+    data = mlb_data(season)
+    if not data:
+        base.update({"status": "preseason", "odds_remaining": None,
+            "note": "MLB opens in late March — the blueprint goes live on the first games.", "teams": []})
+        return base
+    rows = [{"name": nm, "rec": f"{d['w']}-{d['l']}", "gp": d["gp"], "winpct": d["winpct"],
+             "rd": d["rd"], "rdg": d["rd"]/d["gp"], "runs": d["runs"], "era": d["era"]} for nm, d in data.items()]
+    rk_rd = ranks(rows, "rd", True); rk_runs = ranks(rows, "runs", True); rk_era = ranks(rows, "era", False)
+    for t in rows:
+        t["rk_rd"], t["rk_runs"], t["rk_era"] = rk_rd[t["name"]], rk_runs[t["name"]], rk_era[t["name"]]
+        t["q"] = [t["winpct"] > 0.543, t["rk_rd"] <= 10, t["rk_runs"] <= 11, t["rk_era"] <= 10]
+        t["score"] = sum(t["q"])
+    nrd = norm(rows, "rd", True); nru = norm(rows, "runs", True); ner = norm(rows, "era", False); nw = norm(rows, "winpct", True)
+    for t in rows: t["index"] = round(nrd[t["name"]]*.35 + ner[t["name"]]*.25 + nru[t["name"]]*.20 + nw[t["name"]]*.20, 1)
+    for t in rows: t["read"] = team_read(t, "mlb", len(rows), 4)
+    pool = [t for t in rows if t["score"] >= 2]; tm = {4: 1.7, 3: 1.2, 2: 0.8}
+    tot = sum((t["index"]**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
+    for t in pool: t["p"] = ((t["index"]**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
+    cap_odds(pool, 0.18)   # MLB is low-chalk (huge playoff variance) -> let the field stay wide
+    fd, rem = fetch_futures("baseball_mlb_world_series_winner")
+    attach(rows, pool, fd)
+    pred = make_prediction(rows, 4)
+    rows.sort(key=lambda t: (-t["score"], -t["index"]))
+    base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "mlb"),
+        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+        "cats": ["Win% >.543", "Run diff top-10", "Runs top-11", "ERA top-10"],
+        "labels": ["Win%", "Run diff", "Runs", "ERA"],
+        "teams": [{"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+            "q": [bool(x) for x in t["q"]],
+            "vals": [f"{t['winpct']:.3f}", f"{t['rd']:+.0f} #{t['rk_rd']}", f"{t['runs']:.0f} #{t['rk_runs']}", f"{t['era']:.2f} #{t['rk_era']}"],
+            "rtg": round(t["rdg"], 2),
+            "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+    return base
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb)]:
         if name not in LEAGUES:
             continue
         try:
@@ -1069,7 +1145,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":
