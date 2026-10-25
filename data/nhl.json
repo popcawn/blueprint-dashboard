@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-25T14:31:57Z",
-  "odds_remaining": "66825",
+  "generated": "2026-10-25T17:18:56Z",
+  "odds_remaining": "66449",
   "prediction": {
     "pick": "New York Islanders",
     "why": "<b>New York Islanders</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#9 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -48,7 +48,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#9 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Goaltending and a stingy defense are carrying them, and that combination travels deep into May; the offense isn't a strength, and the lost starters on the back end matter only if the goalie slips.",
+        "beat": "Elite goaltending and a top-five even-strength margin make this a real Cup shape; the defense-first structure holds up. Losing Romanov for the season thins the blue line, so the depth has a visible hole.",
         "tier": "contender"
       }
     },
@@ -72,13 +72,13 @@
       ],
       "fair_pct": 13.0,
       "fair_odds": "+669",
-      "market": "+1800",
-      "ev": 147,
+      "market": "+1700",
+      "ev": 134,
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#12 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Allowing the fewest goals in the league and a strong save rate is the real foundation, though even-strength scoring margin is only top-half. Duchene's long-term absence is absorbed for now, and the team has the goaltending to win a series.",
-        "tier": "contender"
+        "beat": "Elite goaltending and the league's stingiest defense, with a 93 save rate, paired with a team that still generates chances; the Duchene absence is a depth dent, not a title threat.",
+        "tier": "champion"
       }
     },
     {
@@ -101,12 +101,12 @@
       ],
       "fair_pct": 12.9,
       "fair_odds": "+676",
-      "market": "+1200",
-      "ev": 68,
+      "market": "+1300",
+      "ev": 80,
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#4) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Drives play and stops pucks at the same time, with an elite defense and goaltending, a combination that tends to survive four playoff rounds; the sample is only 12 games, so keep it measured.",
+        "beat": "A complete two-way team with top-tier goaltending and a strong defensive record; they check every box a deep run demands. Believe it.",
         "tier": "contender"
       }
     },
@@ -135,7 +135,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #2 goal differential, but the #14 spot is the one a seven-game series finds.",
-        "beat": "Goal differential says elite, but the goaltending-driven save percentage is only good and the shot share is middling, so a seven-game series could expose them.",
+        "beat": "Dominant five-on-five play with an elite goal differential, but the goaltending sits only middling, and that is what decides a seven-game series.",
         "tier": "contender"
       }
     },
@@ -164,7 +164,7 @@
       "read": {
         "v": "caution",
         "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
-        "beat": "Their goaltending and even-strength results are running far ahead of how they actually control play, so this is a hot start built on a save rate that won't hold against playoff-caliber shooting.",
+        "beat": "Elite even-strength goaltending and results are masking a team that doesn't control play; the save percentage is running hot and will likely come back to earth in May.",
         "tier": "pretender"
       }
     },
@@ -193,7 +193,7 @@
       "read": {
         "v": "caution",
         "why": "Controls the puck (#2) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Dominant possession and an elite five-on-five edge, but save percentage sits in the bottom tier of the league, so the net is the open question. Kochetkov's shutout helps; a stretch of soft goals would sink them.",
+        "beat": "Dominant five-on-five play and a top-tier shot-share make them real, but their save percentage has been leaky and that will matter once series go seven games.",
         "tier": "contender"
       }
     },
@@ -222,7 +222,7 @@
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#7 Corsi) and goaltending (#6) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "beat": "Strong on both sides of the puck with a goalie holding up his end, the rare mix that survives four rounds; the 4-4-3 start is noise, not the story. Kasper's season-ending absence is absorbed by the depth.",
+        "beat": "Sound on both sides of the puck, with elite goaltending and a strong territorial game; the 4-4-3 start and a 4-1 loss to Calgary keep them short of the top tier for now.",
         "tier": "contender"
       }
     },
@@ -246,12 +246,12 @@
       ],
       "fair_pct": 3.6,
       "fair_odds": "+2709",
-      "market": "+2700",
-      "ev": 0,
+      "market": "+2500",
+      "ev": -7,
       "read": {
         "v": "caution",
         "why": "Carried by its #6 goal differential, but the #22 spot is the one a seven-game series finds.",
-        "beat": "Goal differential and goaltending look sharp, but the shot share is poor and Linus Ullmark is out for the season, leaving a thin net for a seven-game series.",
+        "beat": "Goal differential is elite, but the team wins with little control of play and its starting goalie is out for the season. Goaltending decides series, and this group has no answer for that.",
         "tier": "pretender"
       }
     },
@@ -280,7 +280,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #6 goal differential, but the #23 spot is the one a seven-game series finds.",
-        "beat": "Dominant five-on-five play and a top-tier goal differential make them real, but a goalie posting a below-average save percentage is the kind of soft spot a seven-game series exploits.",
+        "beat": "Dominant five-on-five play carries them, but their save percentage sits near the bottom of the league, and a seven-game series will punish that goaltending.",
         "tier": "contender"
       }
     },
@@ -304,12 +304,12 @@
       ],
       "fair_pct": 3.3,
       "fair_odds": "+2905",
-      "market": "+1300",
-      "ev": -53,
+      "market": "+1200",
+      "ev": -57,
       "read": {
         "v": "caution",
         "why": "Controls the puck (#1) but can't fully trust the net (#17). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Dominant possession and a strong defensive shell make them a real threat; the goaltending is the open question, and Hellebuyck's arrival is the fix worth watching.",
+        "beat": "Elite puck control gives them the process to go deep, but goaltending is the open question, and the Hellebuyck arrival is the fix still being tested.",
         "tier": "contender"
       }
     },
@@ -333,12 +333,12 @@
       ],
       "fair_pct": 3.6,
       "fair_odds": "+2664",
-      "market": "+10000",
-      "ev": 265,
+      "market": "+12500",
+      "ev": 356,
       "read": {
         "v": "caution",
         "why": "Goalie-carried: #5 in net, only #22 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
-        "beat": "Their goaltending has carried a shaky team, and the franchise's best netminder just left, so this roster can't survive a seven-game series on its own.",
+        "beat": "Their goaltending has carried a shaky team, and the headlines show Hellebuyck was traded away, leaving the net to unproven hands. Possession numbers are poor and Morrissey's loss stings, so this is a playoff-round team at best.",
         "tier": "pretender"
       }
     },
@@ -367,7 +367,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #6 goal differential, but the #21 spot is the one a seven-game series finds.",
-        "beat": "Dominant five-on-five play masks a leaky defense and shaky goaltending, and the team just dropped three straight in a tight loss. Playoff series won't be kind to that.",
+        "beat": "Strong five-on-five play and a top-tier goal differential, but leaky goals against and a shaky goaltending save rate make them a team that can be out-shot into trouble in a seven-game series.",
         "tier": "pretender"
       }
     },
@@ -391,12 +391,12 @@
       ],
       "fair_pct": 2.3,
       "fair_odds": "+4301",
-      "market": "+8000",
-      "ev": 84,
+      "market": "+7000",
+      "ev": 61,
       "read": {
         "v": "caution",
         "why": "Carried by its #18 goal differential, but the #17 spot is the one a seven-game series finds.",
-        "beat": "Their goaltending is holding a leaky-looking roster together, but goal differential and shot share both trail the pack. A tight win over a struggling Vegas side is encouraging; it isn't proof they can survive a seven-game grind.",
+        "beat": "Elite goaltending and a stingy defense keep them in games, but the even-strength run differential and shot share point to a team winning close ones rather than dominating. Seven-game series expose that gap.",
         "tier": "pretender"
       }
     },
@@ -420,12 +420,12 @@
       ],
       "fair_pct": 2.4,
       "fair_odds": "+4095",
-      "market": "+1800",
-      "ev": -55,
+      "market": "+1600",
+      "ev": -59,
       "read": {
         "v": "caution",
         "why": "Controls the puck (#3) but can't fully trust the net (#21). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "beat": "Shot-share is elite, but a leaky goaltending tandem and a bottom-tier goals-against mean a best-of-seven series will likely expose them. Pretender until the net catches up.",
+        "beat": "Possession-heavy and stingy on the scoreboard, but the goalie tending is leaky and the blue line lost a key defenseman, so this team wins games without yet winning series.",
         "tier": "pretender"
       }
     },
@@ -454,7 +454,7 @@
       "read": {
         "v": "caution",
         "why": "Carried by its #24 goal differential, but the #17 spot is the one a seven-game series finds.",
-        "beat": "A losing record and a minus goal differential, propped up by solid goaltending that won't hold up for a full playoff grind; the numbers say this team is lucky to be where it is.",
+        "beat": "Goal differential is poor and the team is 2-5-2; goaltending has kept them afloat, which a seven-game series will not reliably allow.",
         "tier": "pretender"
       }
     },
@@ -478,8 +478,8 @@
       ],
       "fair_pct": 1.2,
       "fair_odds": "+8003",
-      "market": "+900",
-      "ev": -88,
+      "market": "+950",
+      "ev": -87,
       "read": {
         "v": "caution",
         "why": "Drives play like a champion (#5 Corsi) but the goaltending (#30) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
@@ -505,8 +505,8 @@
       ],
       "fair_pct": 1.3,
       "fair_odds": "+7838",
-      "market": "+15000",
-      "ev": 90,
+      "market": "+12500",
+      "ev": 59,
       "read": {
         "v": "caution",
         "why": "Carried by its #6 goal differential, but the #30 spot is the one a seven-game series finds."
@@ -532,8 +532,8 @@
       ],
       "fair_pct": 1.1,
       "fair_odds": "+9377",
-      "market": "+12500",
-      "ev": 33,
+      "market": "+10000",
+      "ev": 7,
       "read": {
         "v": "caution",
         "why": "Carried by its #27 goal differential, but the #28 spot is the one a seven-game series finds."
@@ -586,7 +586,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1500",
+      "market": "+1400",
       "ev": null,
       "read": {
         "v": "caution",
@@ -613,7 +613,7 @@
       ],
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7000",
+      "market": "+8000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -711,14 +711,14 @@
   "value_plays": [
     {
       "name": "Dallas Stars",
-      "ev": 147,
-      "market": "+1800",
+      "ev": 134,
+      "market": "+1700",
       "fair_odds": "+669"
     },
     {
       "name": "Minnesota Wild",
-      "ev": 68,
-      "market": "+1200",
+      "ev": 80,
+      "market": "+1300",
       "fair_odds": "+676"
     }
   ]

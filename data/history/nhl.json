@@ -1365,15 +1365,15 @@
     "sc": 4,
     "idx": 73.3,
     "fp": 13.0,
-    "mkt": "+1800",
-    "ev": 147
+    "mkt": "+1700",
+    "ev": 134
    },
    "Minnesota Wild": {
     "sc": 4,
     "idx": 69.1,
     "fp": 12.9,
-    "mkt": "+1200",
-    "ev": 68
+    "mkt": "+1300",
+    "ev": 80
    },
    "Colorado Avalanche": {
     "sc": 4,
@@ -1407,8 +1407,8 @@
     "sc": 3,
     "idx": 53.1,
     "fp": 3.6,
-    "mkt": "+2700",
-    "ev": 0
+    "mkt": "+2500",
+    "ev": -7
    },
    "Tampa Bay Lightning": {
     "sc": 3,
@@ -1421,15 +1421,15 @@
     "sc": 2,
     "idx": 58.6,
     "fp": 3.3,
-    "mkt": "+1300",
-    "ev": -53
+    "mkt": "+1200",
+    "ev": -57
    },
    "Winnipeg Jets": {
     "sc": 2,
     "idx": 57.0,
     "fp": 3.6,
-    "mkt": "+10000",
-    "ev": 265
+    "mkt": "+12500",
+    "ev": 356
    },
    "Vegas Golden Knights": {
     "sc": 2,
@@ -1442,15 +1442,15 @@
     "sc": 2,
     "idx": 51.6,
     "fp": 2.3,
-    "mkt": "+8000",
-    "ev": 84
+    "mkt": "+7000",
+    "ev": 61
    },
    "Utah Mammoth": {
     "sc": 2,
     "idx": 49.6,
     "fp": 2.4,
-    "mkt": "+1800",
-    "ev": -55
+    "mkt": "+1600",
+    "ev": -59
    },
    "Los Angeles Kings": {
     "sc": 2,
@@ -1463,22 +1463,22 @@
     "sc": 2,
     "idx": 42.1,
     "fp": 1.2,
-    "mkt": "+900",
-    "ev": -88
+    "mkt": "+950",
+    "ev": -87
    },
    "Seattle Kraken": {
     "sc": 2,
     "idx": 40.1,
     "fp": 1.3,
-    "mkt": "+15000",
-    "ev": 90
+    "mkt": "+12500",
+    "ev": 59
    },
    "Nashville Predators": {
     "sc": 2,
     "idx": 37.8,
     "fp": 1.1,
-    "mkt": "+12500",
-    "ev": 33
+    "mkt": "+10000",
+    "ev": 7
    },
    "Montreal Canadiens": {
     "sc": 1,
@@ -1491,14 +1491,14 @@
     "sc": 1,
     "idx": 43.0,
     "fp": null,
-    "mkt": "+1500",
+    "mkt": "+1400",
     "ev": null
    },
    "Pittsburgh Penguins": {
     "sc": 1,
     "idx": 40.5,
     "fp": null,
-    "mkt": "+7000",
+    "mkt": "+8000",
     "ev": null
    },
    "St Louis Blues": {
