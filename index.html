@@ -88,6 +88,15 @@
   .idx b{color:var(--ink);font-size:16px;font-family:var(--mono)}
   .ev{font-weight:800;padding:2px 9px;border-radius:7px;font-size:12.5px;font-family:var(--mono)}
   .ev.pos{background:var(--goodbg);color:var(--good)} .ev.neg{background:var(--badbg);color:var(--bad)} .ev.zero{background:var(--panel2);color:var(--ink3)}
+  .vd{display:inline-block;margin-top:4px;margin-left:6px;font-weight:800;padding:2px 9px;border-radius:7px;font-size:12px;font-family:var(--mono);white-space:nowrap}
+  .vd.best,.vd.value{background:var(--goodbg);color:var(--good)}
+  .vd.best{box-shadow:inset 0 0 0 1.5px var(--good)}
+  .vd.small{background:var(--goodbg);color:var(--good);opacity:.68;font-weight:700}
+  .vd.longshot{background:#fbe3f0;color:#be185d}
+  .vd.fair{background:var(--panel2);color:var(--ink3);font-weight:700}
+  .vd.fade{background:var(--badbg);color:var(--bad)}
+  .vd.bigfade{background:var(--bad);color:#fff}
+  .vd.trap{background:#fde6c7;color:#b45309}
   .read{display:flex;gap:9px;align-items:flex-start;margin:11px 0 3px;padding:10px 12px;border-radius:12px}
   .read.trust{background:var(--goodbg);border:1px solid #bfe6d0} .read.caution{background:var(--warnbg);border:1px solid #ecd9a6} .read.fools_gold{background:var(--badbg);border:1px solid #f3c2c7}
   .rv{flex:0 0 auto;font-size:10px;font-weight:800;letter-spacing:.05em;padding:3px 8px;border-radius:7px;white-space:nowrap;margin-top:1px;color:#fff}
@@ -185,6 +194,12 @@ function simMatchup(){
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
+const VICON={best:"⭐",value:"⭐",longshot:"🎯",small:"",fair:"",fade:"🚫",bigfade:"🚫",trap:"⚠"};
+function verdictPill(v){ if(!v) return "";
+  const ev=v.ev>0?`+${v.ev}%`:`${v.ev}%`, showEv=v.kind!=="fair";
+  const ic=VICON[v.kind]?VICON[v.kind]+" ":"";
+  return `<span class="vd ${v.kind}" title="Market EV verdict — fair model odds vs the FanDuel price">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
+}
 const shortNm=n=>n? n.split(" ").slice(-1)[0] : "—";
 function spark(v){ if(v.length<2)return""; const w=56,h=15,mn=Math.min(...v),mx=Math.max(...v),r=(mx-mn)||1;
   const p=v.map((x,i)=>`${(i/(v.length-1)*w).toFixed(1)},${(h-(x-mn)/r*(h-3)-1.5).toFixed(1)}`).join(" ");
@@ -197,7 +212,7 @@ function consistency(sp,nm){ const h=HIST[sp]; if(!h||!h.length)return{spark:"",
 function card(t,sp){
   const cl=tier(t.score,MAXCAT[sp])[1], L=(DATA[sp]&&DATA[sp].labels)||[];
   const chips=t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("");
-  const ev=t.ev!=null?`<div class="ev ${evClass(t.ev)}" style="margin-top:4px;display:inline-block">${fmtEV(t.ev)} EV</div>`:"";
+  const ev=verdictPill(t.verdict);
   let srs=""; if(sp==="cfb"&&t.srsrank!=null){ const l={elite:`SRS #${t.srsrank} ✓`,ok:`SRS #${t.srsrank}`,mirage:`SRS #${t.srsrank} ⚑`}[t.srs_flag];
     srs=`<div><span class="k">schedule-adj</span><span class="srs ${t.srs_flag}">${l}</span></div><div><span class="k">SOS</span>#${t.sosrank}</div>`;}
   const c=consistency(sp,t.name);

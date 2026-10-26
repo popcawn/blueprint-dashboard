@@ -180,7 +180,7 @@ def nfl_row(t):
                  f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
         "rtg": round(t['pdg'], 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
+        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 
 # ----------------------------------------------------------------------------- CFB
 def build_cfb():
@@ -298,7 +298,7 @@ def cfb_row(t):
         # out-of-sample (70.8% vs 70.0%, Brier .1916 vs .1969) by deflating soft-schedule margins.
         "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
+        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 
 def compute_srs(games, fbs):
     sched = {}
@@ -390,7 +390,7 @@ def nhl_row(t):
         # toward their possession level, matching "that gap closes in a seven-game series."
         "rtg": round(0.4 * (t['esdiff'] / t['gp']) + 0.6 * ((t['corsi'] - 50) * 0.11), 2) if t.get('gp') else 0,
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
+        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 
 # ----------------------------------------------------------------------------- NBA (ESPN; live once the season tips off ~late Oct)
 NBA_EAST = {"Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors",
@@ -828,7 +828,7 @@ def build_nba():
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t['pdg'], 1),
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read"), "ftt": t.get("ftt")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt")} for t in rows if t["score"] >= 1]})
     return base
 
 # ----------------------------------------------------------------------------- shared
@@ -846,6 +846,7 @@ def attach(allteams, pool, fd, srs_rank=None):
     pmap = {t["name"]: t["p"] for t in pool}
     for t in allteams:
         mk = fd.get(t["name"])
+        t["mk"] = mk
         t["market"] = (f"+{mk}" if mk > 0 else str(mk)) if mk is not None else None
         p = pmap.get(t["name"], 0)
         if mk is not None and p > 0:
@@ -853,6 +854,38 @@ def attach(allteams, pool, fd, srs_rank=None):
             t["ev"] = round((p*dec - 1)*100)
         else:
             t["ev"] = None
+    assign_verdicts(allteams)
+
+def assign_verdicts(teams):
+    """Market EV verdict per team (the BEST VALUE / value / fade spectrum from the chat runs).
+       'trap' = positive EV on a team the playoff-translation read distrusts (fool's gold /
+       pretender / SRS mirage) — a mirage price, not a bet. BEST VALUE = highest-EV real value."""
+    best = None
+    for t in teams:
+        ev = t.get("ev"); mk = t.get("mk"); rd = t.get("read") or {}
+        if ev is None or mk is None:
+            t["verdict"] = None; continue
+        unsustain = (rd.get("v") == "fools_gold" or rd.get("tier") == "pretender"
+                     or (t.get("srsrank") is not None and t["srsrank"] > 15))
+        if ev >= 10 and unsustain:
+            v = {"kind": "trap", "label": "trap"}
+        elif ev >= 10 and mk >= 4000:
+            v = {"kind": "longshot", "label": "longshot value"}
+        elif ev >= 10:
+            v = {"kind": "value", "label": "value"}
+            if best is None or ev > best[0]: best = (ev, t)
+        elif ev >= 3:
+            v = {"kind": "small", "label": "small value"}
+        elif ev > -10:
+            v = {"kind": "fair", "label": "≈ fair"}
+        elif ev > -40:
+            v = {"kind": "fade", "label": "fade"}
+        else:
+            v = {"kind": "bigfade", "label": "big fade"}
+        v["ev"] = ev
+        t["verdict"] = v
+    if best is not None:
+        best[1]["verdict"] = {"kind": "best", "label": "BEST VALUE", "ev": best[0]}
 
 def now_iso():
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -1076,7 +1109,7 @@ def build_wnba():
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t["pdg"], 1),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
     return base
 
 def mlb_data(season):
@@ -1171,7 +1204,7 @@ def build_mlb():
                      f"{t['pbabip']:.3f} #{t['rk_pb']}", f"{t['deff']:.3f} #{t['rk_def']}", (f"{t['oaa']:+.0f} #{t['rk_drs']}" if t['oaa'] is not None else "n/a")],
             "rtg": round(t["rdg"], 2),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
     return base
 
 def main():
