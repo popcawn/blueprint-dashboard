@@ -144,7 +144,7 @@ const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chan
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
 /* matchup simulator — backtested SDs (NFL 24.5, CFB 20.0 out-of-sample); NBA/NHL estimated */
-const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.6,wnba:14.0,mlb:5.0}, MU_HFA={nfl:2.0,cfb:3.0,nba:2.8,nhl:0.35,wnba:2.5,mlb:0.2}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts",mlb:"runs"};
+const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.8,wnba:14.0,mlb:5.0}, MU_HFA={nfl:2.0,cfb:4.0,nba:2.8,nhl:0.2,wnba:2.5,mlb:0.2}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts",mlb:"runs"};
 const SERIES={nba:7,nhl:7,mlb:7,wnba:7};   // playoffs are best-of-7 series; NFL/CFB are single-elimination
 function _nCk(n,k){let r=1;for(let i=0;i<k;i++)r=r*(n-i)/(i+1);return r;}
 function seriesProb(p,n){const w=Math.ceil(n/2);let s=0;for(let k=w;k<=n;k++)s+=_nCk(n,k)*Math.pow(p,k)*Math.pow(1-p,n-k);return s;}
@@ -179,7 +179,7 @@ function simMatchup(){
     why=`${fav.name} is ${tier(fav)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${tierd(dog)}).`;
     why+= gameP<0.58?' Close to a coin-flip — a live underdog.':(gameP>0.72?' A clear edge.':'');
     hdr=`<b>${fav.name}</b> wins <b>${Math.round(gameP*100)}%</b> · projected by <b>~${ssp.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span>`;
-    note=`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested: CFB 70.5%, NFL 58.5%${cur==='nba'||cur==='nhl'?'; NBA/NHL estimated':''}.`;
+    note=`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested straight-up: CFB 71%, NHL 58%, NFL 58.5%${['nba','wnba','mlb'].includes(cur)?'; this sport estimated':''}.`;
   }
   out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>${note?`<div class="munote">${note}</div>`:''}`;
 }

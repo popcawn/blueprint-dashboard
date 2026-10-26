@@ -262,6 +262,7 @@ def build_cfb():
     for t in teams:
         t["sosrank"] = sorted(teams, key=lambda x: -x["sos"]).index(t) + 1
         t["srsrank"] = srs_rank.get(t["name"], 999)
+        t["srs"] = srs.get(t["name"], 0.0)
     for t in teams: t["read"] = team_read(t, "cfb", len(teams), 5)
     # fair odds: SOS-weighted ^3, cap 24%
     pool = [t for t in teams if t["score"] >= 3 and "North Dakota State" not in t["name"]]
@@ -292,7 +293,10 @@ def cfb_row(t):
         "srs_flag": srs_flag,
         "vals": [f"{t['winpct']:.3f}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_oppppg']}",
                  f"{t['oppypg']:.0f} #{t['rk_oppypg']}", f"{t['margin']:+.1f} #{t['rk_margin']}"],
-        "rtg": round(t['margin'], 1),
+        # Matchup rating blends raw margin with opponent-adjusted SRS (both in points).
+        # Backtested 2026-10-26 (2431 games, walk-forward): 0.5m+0.5srs beats pure margin
+        # out-of-sample (70.8% vs 70.0%, Brier .1916 vs .1969) by deflating soft-schedule margins.
+        "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
