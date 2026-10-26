@@ -1,11 +1,11 @@
 {
   "sport": "WNBA",
   "season": "2026",
-  "generated": "2026-10-25T20:36:13Z",
+  "generated": "2026-10-26T01:04:07Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Golden State Valkyries",
-    "why": "<b>Golden State Valkyries</b> is the pick \u2014 the top team the model actually trusts (fair +317). Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+    "why": "<b>Golden State Valkyries</b> is the pick \u2014 Elite defense that leads the league, paired with a Finals run that has them pushing a series to a sixth game; the one thing they can't fully absorb is the loss of Rupert, so depth matters."
   },
   "season_pct": 100,
   "gp_min": 44,
@@ -43,7 +43,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+        "why": "Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+        "beat": "Elite defense that leads the league, paired with a Finals run that has them pushing a series to a sixth game; the one thing they can't fully absorb is the loss of Rupert, so depth matters.",
+        "tier": "champion"
       }
     },
     {
@@ -68,7 +70,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+        "why": "Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
+        "beat": "Elite net margin and a top-three defense give them a real shot in May, but their offense has to produce when shots stop falling; two long-term absences add depth worries.",
+        "tier": "contender"
       }
     },
     {
@@ -93,7 +97,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "Elite defense (#4) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+        "why": "Elite defense (#4) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
+        "beat": "An elite defense that holds up in January and May alike, and they're deep enough to survive losing Brionna Jones for the season. They're tied 2-2 with Golden State in the Finals, so the title is theirs to take.",
+        "tier": "contender"
       }
     },
     {
@@ -118,7 +124,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "A #4 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
+        "why": "A #4 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
+        "beat": "An elite net rating with a top-tier defense and A'ja Wilson leading the way; they have the balance to win in May and nothing obvious to exploit.",
+        "tier": "champion"
       }
     },
     {
