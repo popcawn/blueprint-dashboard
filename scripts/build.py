@@ -380,7 +380,11 @@ def nhl_row(t):
         "q": [bool(x) for x in t["q"]],
         "vals": [f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['essv']:.1f} #{t['rk_sv']}",
                  f"{t['corsi']:.1f} #{t['rk_cf']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
-        "rtg": round(t['esdiff'] / t['gp'], 2) if t.get('gp') else 0,
+        # Possession-regressed rating: raw ES goal diff over a small sample is inflated by
+        # save% variance (hot goaltending), which the blueprint Read flags as a pretender signal.
+        # Corsi (shot share) is the sustainable part, so blend them — hot-goalie teams get pulled
+        # toward their possession level, matching "that gap closes in a seven-game series."
+        "rtg": round(0.4 * (t['esdiff'] / t['gp']) + 0.6 * ((t['corsi'] - 50) * 0.11), 2) if t.get('gp') else 0,
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")}
 
