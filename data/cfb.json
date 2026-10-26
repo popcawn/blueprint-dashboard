@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-26T00:46:32Z",
-  "odds_remaining": null,
+  "generated": "2026-10-26T02:15:53Z",
+  "odds_remaining": "64958",
   "prediction": {
-    "pick": "Notre Dame Fighting Irish",
-    "why": "<b>Notre Dame Fighting Irish</b> is the pick \u2014 the top team the model actually trusts (fair +317). The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+    "pick": "Miami Hurricanes",
+    "why": "<b>Miami Hurricanes</b> is the pick \u2014 A juggernaut offense that scores at will and wins every game by wide margins; the defense yields yards more than points, and the schedule hasn't yet forced it to prove it can stop a top-tier attack."
   },
   "gp_min": 7,
   "gp_max": 9,
@@ -51,11 +51,13 @@
       "rtg": 27.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": null,
-      "ev": null,
+      "market": "+470",
+      "ev": 37,
       "read": {
         "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
+        "beat": "An elite defense that gives up almost nothing, paired with an offense that is good but not explosive; the stop unit carries real January weight.",
+        "tier": "contender"
       }
     },
     {
@@ -84,11 +86,13 @@
       "rtg": 25.9,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": null,
-      "ev": null,
+      "market": "+500",
+      "ev": 44,
       "read": {
         "v": "trust",
-        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way."
+        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
+        "beat": "Dominant on both sides and tested against a real schedule, with an elite defense that gives them a clear path. Still needs to prove it on the road against USC before the bracket gets serious.",
+        "tier": "contender"
       }
     },
     {
@@ -117,11 +121,13 @@
       "rtg": 33.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": null,
-      "ev": null,
+      "market": "+650",
+      "ev": 80,
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet.",
+        "beat": "A juggernaut offense that scores at will and wins every game by wide margins; the defense yields yards more than points, and the schedule hasn't yet forced it to prove it can stop a top-tier attack.",
+        "tier": "champion"
       }
     },
     {
@@ -150,11 +156,13 @@
       "rtg": 25.7,
       "fair_pct": 14.1,
       "fair_odds": "+609",
-      "market": null,
-      "ev": null,
+      "market": "+75000",
+      "ev": 10491,
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet.",
+        "beat": "An elite defense can carry a Group of Five team only so far; the offense ranks middling, and the schedule has not yet tested them against a playoff-caliber opponent.",
+        "tier": "pretender"
       }
     },
     {
@@ -183,11 +191,13 @@
       "rtg": 22.9,
       "fair_pct": 13.9,
       "fair_odds": "+620",
-      "market": null,
-      "ev": null,
+      "market": "+4000",
+      "ev": 470,
       "read": {
         "v": "caution",
-        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet.",
+        "beat": "Unbeaten with a stout scoring margin, but the defense yields yards in bunches and its schedule has not yet forced it through a true test. Believe in the run, not the title.",
+        "tier": "contender"
       }
     },
     {
@@ -216,7 +226,7 @@
       "rtg": 27.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": null,
+      "market": "+420",
       "ev": null,
       "read": {
         "v": "caution",
@@ -249,7 +259,7 @@
       "rtg": 21.6,
       "fair_pct": null,
       "fair_odds": null,
-      "market": null,
+      "market": "+850",
       "ev": null,
       "read": {
         "v": "caution",
@@ -282,7 +292,7 @@
       "rtg": 24.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": null,
+      "market": "+1000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -315,7 +325,7 @@
       "rtg": 19.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": null,
+      "market": "+8000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -348,7 +358,7 @@
       "rtg": 15.2,
       "fair_pct": null,
       "fair_odds": null,
-      "market": null,
+      "market": "+125000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -381,7 +391,7 @@
       "rtg": 9.6,
       "fair_pct": null,
       "fair_odds": null,
-      "market": null,
+      "market": "+125000",
       "ev": null,
       "read": {
         "v": "caution",
@@ -421,5 +431,18 @@
     "label": "Trust the board",
     "note": "9 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Ohio State Buckeyes",
+      "ev": 44,
+      "market": "+500",
+      "fair_odds": "+317"
+    },
+    {
+      "name": "Notre Dame Fighting Irish",
+      "ev": 37,
+      "market": "+470",
+      "fair_odds": "+317"
+    }
+  ]
 }
