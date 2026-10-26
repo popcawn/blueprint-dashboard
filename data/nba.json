@@ -1,11 +1,11 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-10-25T18:40:25Z",
-  "odds_remaining": "66263",
+  "generated": "2026-10-26T00:38:24Z",
+  "odds_remaining": "65031",
   "prediction": {
     "pick": "Toronto Raptors",
-    "why": "<b>Toronto Raptors</b> is the pick \u2014 Undefeated with an elite defense and a plus-26 net margin, and Barnes is carrying the load. Offense is good but not spectacular, and the lead rests on stops, which is what travels in May."
+    "why": "<b>Toronto Raptors</b> is the pick \u2014 Elite defense and a perfect start make them a real threat; Kawhi's knee swelling is the one thing I'd track before trusting them in May."
   },
   "season_pct": 3,
   "gp_min": 2,
@@ -42,14 +42,15 @@
         "123.5 #6",
         "97.0 #2"
       ],
+      "rtg": 26.5,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+1400",
-      "ev": 260,
+      "market": "+1500",
+      "ev": 284,
       "read": {
         "v": "trust",
         "why": "Elite defense (#2) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "Undefeated with an elite defense and a plus-26 net margin, and Barnes is carrying the load. Offense is good but not spectacular, and the lead rests on stops, which is what travels in May.",
+        "beat": "Elite defense and a perfect start make them a real threat; Kawhi's knee swelling is the one thing I'd track before trusting them in May.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -72,6 +73,7 @@
         "126.0 #1",
         "101.5 #4"
       ],
+      "rtg": 24.5,
       "fair_pct": 16.6,
       "fair_odds": "+504",
       "market": "+5500",
@@ -79,7 +81,7 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "Elite scoring and a top-five defense make them a real threat, but Shaedon Sharpe's season-ending loss leaves them without their 21-point scorer for a long May run.",
+        "beat": "Portland scores at a historic clip and defends well enough to keep games close when the shots dry up. Losing Shaedon Sharpe removes a 21-point scorer, and that scoring hole is a real concern for a title run.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -102,6 +104,7 @@
         "123.0 #7",
         "99.5 #3"
       ],
+      "rtg": 23.5,
       "fair_pct": 15.4,
       "fair_odds": "+549",
       "market": "+2200",
@@ -109,7 +112,7 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "An elite defense and a top-three net rating make them a real threat; losing Donte DiVincenzo thins the depth, and offense that goes cold in May is the risk.",
+        "beat": "Elite defense and a dominant start make them a real threat; losing Donte DiVincenzo thins the depth, and the offense has to carry more when shots go cold in May.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -117,7 +120,7 @@
     {
       "name": "Los Angeles Lakers",
       "conf": "W",
-      "rec": "2-0",
+      "rec": "3-0",
       "score": 4,
       "index": 77.3,
       "q": [
@@ -132,14 +135,15 @@
         "126.0 #1",
         "111.0 #10"
       ],
+      "rtg": 15.0,
       "fair_pct": 9.4,
       "fair_odds": "+959",
-      "market": "+4000",
-      "ev": 287,
+      "market": "+3500",
+      "ev": 240,
       "read": {
         "v": "trust",
         "why": "A #5 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Elite offense and a top-five net rating make them a real threat; their points allowed are only middling, so the defense is the part to watch in a seven-game series.",
+        "beat": "Undefeated start fueled by a historic offense and a top-five net rating, but a defense that only ranks in the middle of the pack makes the bar for a title run higher than the scoring suggests.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -162,6 +166,7 @@
         "124.7 #3",
         "109.0 #8"
       ],
+      "rtg": 15.7,
       "fair_pct": 13.3,
       "fair_odds": "+654",
       "market": "+4500",
@@ -169,7 +174,7 @@
       "read": {
         "v": "trust",
         "why": "A #4 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready.",
-        "beat": "Top-five net rating and a scoring machine that also keeps opponents in check; the early 2-1 start is small-sample, so the real test is whether the defense holds when playoff games tighten.",
+        "beat": "An elite net rating and a big-time scoring attack make Atlanta a real threat; the offense can go cold in a seven-game series, and the defense is only good, not elite, so it needs to hold up.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -192,6 +197,7 @@
         "124.5 #5",
         "112.0 #12"
       ],
+      "rtg": 12.5,
       "fair_pct": 6.0,
       "fair_odds": "+1569",
       "market": "+2500",
@@ -199,7 +205,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#6) but leans one way; the #12 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Scoring is elite and the defense is merely middling, so this is a strong team that a seven-game series could expose. Duren's hamstring injury is a short-term hit, and a deep roster should absorb it.",
+        "beat": "Undefeated and scoring at a top-five clip, but the defense is only middling, and a seven-game series tends to strip offense first. Duren's hamstring is a real concern at center, since rim protection is what leaky perimeter defense needs most.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -222,14 +228,15 @@
         "117.0 #12",
         "105.5 #5"
       ],
+      "rtg": 11.5,
       "fair_pct": 3.3,
       "fair_odds": "+2969",
-      "market": "+75000",
-      "ev": 2347,
+      "market": "+60000",
+      "ev": 1858,
       "read": {
         "v": "trust",
         "why": "Elite defense (#5) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile.",
-        "beat": "An elite defense carries the profile, and a 17-0 rally over Golden State shows they can close games; the 2-0 start is still a small sample, so the real test is what this defense does in May.",
+        "beat": "An elite defense that allows little, paired with a comeback streak; one early 2-0 start is a small sample, so the playoff case rests on that defense holding up over time.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -252,6 +259,7 @@
         "106.0 #28",
         "94.0 #1"
       ],
+      "rtg": 12.0,
       "fair_pct": 3.1,
       "fair_odds": "+3133",
       "market": "+220",
@@ -259,7 +267,7 @@
       "read": {
         "v": "trust",
         "why": "Defense wins in May \u2014 a #1 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it.",
-        "beat": "Elite defense that shuts opponents down, paired with a top-tier star in Gilgeous-Alexander; the offense is the question, scoring middling in a seven-game series where shots go cold. Win that grind and they're the real deal.",
+        "beat": "Elite defense and a star in Gilgeous-Alexander give them a real path, but their offense is middling and must hold up when shots stop falling in May.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -282,6 +290,7 @@
         "121.0 #8",
         "111.3 #11"
       ],
+      "rtg": 9.7,
       "fair_pct": 2.9,
       "fair_odds": "+3294",
       "market": "+2200",
@@ -289,7 +298,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#9) but leans one way; the #11 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Scoring is sharp and the net margin is strong, but the defense sits near the league's leaky end, and that is the part a seven-game series punishes. Durant's late-career brilliance carries real weight; don't mistake a hot start for a finished roster.",
+        "beat": "Scoring like a title team but the defense sits in the bottom third of the league. Playoff series slow the offense down, and Houston will have to stop people to go deep.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -312,6 +321,7 @@
         "115.7 #13",
         "107.3 #7"
       ],
+      "rtg": 8.3,
       "fair_pct": 4.1,
       "fair_odds": "+2334",
       "market": "+1000",
@@ -319,8 +329,8 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#11) but leans one way; the #13 end is where a playoff defense makes it uncomfortable.",
-        "beat": "Undefeated start with a top-tier defense, but the offense is middling and that scoring profile tends to dry up in a long series. Embiid carries a heavy load.",
-        "tier": "contender"
+        "beat": "Undefeated start, but the offense ranks middling and the defense is good rather than elite, and Embiid sitting with a foot issue is a real worry for a playoff roster built around him.",
+        "tier": "pretender"
       },
       "ftt": "pending"
     },
@@ -342,6 +352,7 @@
         "119.0 #9",
         "110.5 #9"
       ],
+      "rtg": 8.5,
       "fair_pct": 1.9,
       "fair_odds": "+5064",
       "market": null,
@@ -349,7 +360,7 @@
       "read": {
         "v": "caution",
         "why": "Net-rating-driven (#10) but leans one way; the #9 end is where a playoff defense makes it uncomfortable.",
-        "beat": "A top-ten net rating with an offense that scores and a defense that merely hangs around. Losing Brandon Ingram and Max Strus for the season leaves them thinner on the perimeter than they should be for a title run.",
+        "beat": "Net-rating-driven and offense-heavy, with a middling defense that has to tighten up for May. Losing Brandon Ingram and Max Strus for the season leaves real scoring to replace, and the season is only two games old.",
         "tier": "contender"
       },
       "ftt": "pending"
@@ -372,9 +383,10 @@
         "118.0 #11",
         "116.0 #17"
       ],
+      "rtg": 2.0,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+20000",
+      "market": "+22500",
       "ev": null,
       "read": {
         "v": "caution",
@@ -400,6 +412,7 @@
         "124.7 #3",
         "128.0 #28"
       ],
+      "rtg": -3.3,
       "fair_pct": null,
       "fair_odds": null,
       "market": "+75000",
@@ -428,9 +441,10 @@
         "101.5 #30",
         "106.5 #6"
       ],
+      "rtg": -5.0,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1000",
+      "market": "+1100",
       "ev": null,
       "read": {
         "v": "caution",
@@ -456,6 +470,7 @@
         "102.0 #29",
         "113.7 #15"
       ],
+      "rtg": -11.7,
       "fair_pct": null,
       "fair_odds": null,
       "market": "+12500",
@@ -484,6 +499,7 @@
         "119.0 #9",
         "129.0 #30"
       ],
+      "rtg": -10.0,
       "fair_pct": null,
       "fair_odds": null,
       "market": "+100000",
@@ -504,8 +520,8 @@
   "value_plays": [
     {
       "name": "Toronto Raptors",
-      "ev": 260,
-      "market": "+1400",
+      "ev": 284,
+      "market": "+1500",
       "fair_odds": "+317"
     },
     {
