@@ -1,7 +1,7 @@
 {
   "sport": "MLB",
   "season": "2026",
-  "generated": "2026-10-25T20:53:28Z",
+  "generated": "2026-10-26T00:46:32Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Brewers",
@@ -25,6 +25,7 @@
   "teams": [
     {
       "name": "Brewers",
+      "conf": "NL",
       "rec": "103-59",
       "score": 4,
       "index": 95.3,
@@ -52,6 +53,7 @@
     },
     {
       "name": "Dodgers",
+      "conf": "NL",
       "rec": "100-62",
       "score": 4,
       "index": 89.4,
@@ -79,6 +81,7 @@
     },
     {
       "name": "Yankees",
+      "conf": "AL",
       "rec": "93-68",
       "score": 4,
       "index": 78.9,
@@ -106,6 +109,7 @@
     },
     {
       "name": "Braves",
+      "conf": "NL",
       "rec": "94-68",
       "score": 4,
       "index": 73.5,
@@ -133,6 +137,7 @@
     },
     {
       "name": "Cubs",
+      "conf": "NL",
       "rec": "89-73",
       "score": 3,
       "index": 79.2,
@@ -160,6 +165,7 @@
     },
     {
       "name": "Rays",
+      "conf": "AL",
       "rec": "98-64",
       "score": 3,
       "index": 71.6,
@@ -187,6 +193,7 @@
     },
     {
       "name": "Padres",
+      "conf": "NL",
       "rec": "91-71",
       "score": 3,
       "index": 60.5,
@@ -214,6 +221,7 @@
     },
     {
       "name": "Red Sox",
+      "conf": "AL",
       "rec": "87-75",
       "score": 2,
       "index": 63.1,
@@ -241,6 +249,7 @@
     },
     {
       "name": "White Sox",
+      "conf": "AL",
       "rec": "84-78",
       "score": 2,
       "index": 62.6,
@@ -268,6 +277,7 @@
     },
     {
       "name": "Tigers",
+      "conf": "AL",
       "rec": "76-86",
       "score": 2,
       "index": 59.7,
@@ -295,6 +305,7 @@
     },
     {
       "name": "Pirates",
+      "conf": "NL",
       "rec": "82-80",
       "score": 1,
       "index": 58.4,
@@ -322,6 +333,7 @@
     },
     {
       "name": "Phillies",
+      "conf": "NL",
       "rec": "88-74",
       "score": 1,
       "index": 55.8,
@@ -349,6 +361,7 @@
     },
     {
       "name": "D-backs",
+      "conf": "NL",
       "rec": "86-76",
       "score": 1,
       "index": 55.5,
@@ -376,6 +389,7 @@
     },
     {
       "name": "Nationals",
+      "conf": "NL",
       "rec": "77-85",
       "score": 1,
       "index": 54.2,
@@ -403,6 +417,7 @@
     },
     {
       "name": "Guardians",
+      "conf": "AL",
       "rec": "85-77",
       "score": 1,
       "index": 53.5,
@@ -430,6 +445,7 @@
     },
     {
       "name": "Twins",
+      "conf": "AL",
       "rec": "77-85",
       "score": 1,
       "index": 42.3,
@@ -457,6 +473,7 @@
     },
     {
       "name": "Blue Jays",
+      "conf": "AL",
       "rec": "79-83",
       "score": 1,
       "index": 42.1,
@@ -484,6 +501,7 @@
     },
     {
       "name": "Rockies",
+      "conf": "NL",
       "rec": "58-104",
       "score": 1,
       "index": 13.9,

@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-25T20:33:17Z",
-  "odds_remaining": "65851",
+  "generated": "2026-10-26T00:46:32Z",
+  "odds_remaining": null,
   "prediction": {
-    "pick": "Miami Hurricanes",
-    "why": "<b>Miami Hurricanes</b> is the pick \u2014 Elite offense that scores at will and a top-tier margin; the defense allows yards in bulk, so the schedule ahead has to prove it can hold up against real playoff-caliber attacks."
+    "pick": "Notre Dame Fighting Irish",
+    "why": "<b>Notre Dame Fighting Irish</b> is the pick \u2014 the top team the model actually trusts (fair +317). The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
   },
   "gp_min": 7,
   "gp_max": 9,
@@ -27,6 +27,7 @@
   "teams": [
     {
       "name": "Notre Dame Fighting Irish",
+      "conf": "Ind",
       "rec": "6-1",
       "score": 4,
       "index": 89.4,
@@ -50,17 +51,16 @@
       "rtg": 27.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+480",
-      "ev": 39,
+      "market": null,
+      "ev": null,
       "read": {
         "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "beat": "An elite defense and a top-two scoring margin make this a real playoff team; the offense sits middling, so it has to win ugly against good opponents.",
-        "tier": "contender"
+        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       }
     },
     {
       "name": "Ohio State Buckeyes",
+      "conf": "B1G",
       "rec": "6-1",
       "score": 4,
       "index": 85.9,
@@ -84,17 +84,16 @@
       "rtg": 25.9,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+550",
-      "ev": 56,
+      "market": null,
+      "ev": null,
       "read": {
         "v": "trust",
-        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "Elite on both sides of the ball and tested against a real schedule, so trust them to go deep. The Buckeyes can win a title, but this is a contender's r\u00e9sum\u00e9, not yet a champion's.",
-        "tier": "contender"
+        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way."
       }
     },
     {
       "name": "Miami Hurricanes",
+      "conf": "ACC",
       "rec": "7-0",
       "score": 3,
       "index": 94.2,
@@ -118,17 +117,16 @@
       "rtg": 33.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+650",
-      "ev": 80,
+      "market": null,
+      "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet.",
-        "beat": "Elite offense that scores at will and a top-tier margin; the defense allows yards in bulk, so the schedule ahead has to prove it can hold up against real playoff-caliber attacks.",
-        "tier": "contender"
+        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
       }
     },
     {
       "name": "New Mexico Lobos",
+      "conf": "G5",
       "rec": "6-1",
       "score": 3,
       "index": 86.2,
@@ -152,17 +150,16 @@
       "rtg": 25.7,
       "fair_pct": 14.1,
       "fair_odds": "+609",
-      "market": "+125000",
-      "ev": 17543,
+      "market": null,
+      "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet.",
-        "beat": "An elite defense and a top-five margin, but an offense that scores middling points and a schedule that hasn't pressed them yet make a title run a long shot.",
-        "tier": "pretender"
+        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet."
       }
     },
     {
       "name": "Utah Utes",
+      "conf": "Big 12",
       "rec": "7-0",
       "score": 3,
       "index": 83.0,
@@ -186,17 +183,16 @@
       "rtg": 22.9,
       "fair_pct": 13.9,
       "fair_odds": "+620",
-      "market": "+4000",
-      "ev": 470,
+      "market": null,
+      "ev": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet.",
-        "beat": "Undefeated with a strong scoring margin, but the yardage allowed is leaky and the schedule has not yet forced it through a true gauntlet.",
-        "tier": "contender"
+        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet."
       }
     },
     {
       "name": "Georgia Bulldogs",
+      "conf": "SEC",
       "rec": "6-1",
       "score": 2,
       "index": 86.2,
@@ -220,7 +216,7 @@
       "rtg": 27.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+410",
+      "market": null,
       "ev": null,
       "read": {
         "v": "caution",
@@ -229,6 +225,7 @@
     },
     {
       "name": "Indiana Hoosiers",
+      "conf": "B1G",
       "rec": "7-1",
       "score": 2,
       "index": 82.3,
@@ -252,7 +249,7 @@
       "rtg": 21.6,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+800",
+      "market": null,
       "ev": null,
       "read": {
         "v": "caution",
@@ -261,6 +258,7 @@
     },
     {
       "name": "LSU Tigers",
+      "conf": "SEC",
       "rec": "6-2",
       "score": 2,
       "index": 82.2,
@@ -284,7 +282,7 @@
       "rtg": 24.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1000",
+      "market": null,
       "ev": null,
       "read": {
         "v": "caution",
@@ -293,6 +291,7 @@
     },
     {
       "name": "UCLA Bruins",
+      "conf": "B1G",
       "rec": "7-0",
       "score": 2,
       "index": 81.6,
@@ -316,7 +315,7 @@
       "rtg": 19.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": null,
       "ev": null,
       "read": {
         "v": "caution",
@@ -325,6 +324,7 @@
     },
     {
       "name": "North Dakota State Bison",
+      "conf": "G5",
       "rec": "6-2",
       "score": 2,
       "index": 74.4,
@@ -348,7 +348,7 @@
       "rtg": 15.2,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+125000",
+      "market": null,
       "ev": null,
       "read": {
         "v": "caution",
@@ -357,6 +357,7 @@
     },
     {
       "name": "TCU Horned Frogs",
+      "conf": "Big 12",
       "rec": "3-4",
       "score": 2,
       "index": 61.6,
@@ -380,7 +381,7 @@
       "rtg": 9.6,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+125000",
+      "market": null,
       "ev": null,
       "read": {
         "v": "caution",
@@ -420,18 +421,5 @@
     "label": "Trust the board",
     "note": "9 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": [
-    {
-      "name": "Ohio State Buckeyes",
-      "ev": 56,
-      "market": "+550",
-      "fair_odds": "+317"
-    },
-    {
-      "name": "Notre Dame Fighting Irish",
-      "ev": 39,
-      "market": "+480",
-      "fair_odds": "+317"
-    }
-  ]
+  "value_plays": []
 }

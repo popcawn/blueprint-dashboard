@@ -194,19 +194,23 @@ def build_cfb():
             stats[nm] = {"ppg": own[PI], "oppppg": opp[PI], "oppypg": opp[YI], "margin": own[PI] - opp[PI]}
     # 2) records / win%
     sd = get(f"https://cdn.espn.com/core/college-football/standings?xhr=1&season={YEAR}")
-    recs, wp = {}, {}
+    recs, wp, conf = {}, {}, {}
+    CFB_CONF = {"Southeastern": "SEC", "Big Ten": "B1G", "Big 12": "Big 12", "Atlantic Coast": "ACC", "Pac-12": "Pac-12", "FBS Independents": "Ind"}
     def walk(o):
         if isinstance(o, dict):
             stx = o.get("standings") if isinstance(o.get("standings"), dict) else None
             if stx and isinstance(stx.get("entries"), list):
+                gname = o.get("name") or ""; tag = next((v for k, v in CFB_CONF.items() if k in gname), "G5")
                 for e in stx["entries"]:
                     nm = e.get("team", {}).get("displayName"); ov = None
                     for x in e.get("stats", []):
                         if x.get("type") == "total" or x.get("name") == "overall": ov = x.get("displayValue")
-                    if nm and ov and "-" in str(ov):
-                        try:
-                            w, l = [int(z) for z in ov.split("-")[:2]]; recs[nm] = ov; wp[nm] = w/(w+l) if w+l else 0
-                        except Exception: pass
+                    if nm:
+                        conf[nm] = tag
+                        if ov and "-" in str(ov):
+                            try:
+                                w, l = [int(z) for z in ov.split("-")[:2]]; recs[nm] = ov; wp[nm] = w/(w+l) if w+l else 0
+                            except Exception: pass
             for v in o.values(): walk(v)
         elif isinstance(o, list):
             for v in o: walk(v)
@@ -238,7 +242,7 @@ def build_cfb():
         gp = w + l
         if gp == 0: continue
         ops = opp_list.get(nm, [])
-        teams.append({"name": nm, "rec": recs[nm], "gp": gp, "winpct": w/gp,
+        teams.append({"name": nm, "conf": conf.get(nm, "G5"), "rec": recs[nm], "gp": gp, "winpct": w/gp,
             "sos": sum(wp.get(x, 0.15) for x in ops)/len(ops) if ops else 0.30, **s})
     rp = ranks(teams, "ppg", True); ro = ranks(teams, "oppppg", False); ry = ranks(teams, "oppypg", False); rm = ranks(teams, "margin", True)
     for t in teams:
@@ -279,7 +283,7 @@ def cfb_row(t):
     sr = t["srsrank"]
     # Backtested champion band: every clean CFP champion was SRS top-6.
     srs_flag = "elite" if sr <= 6 else ("ok" if sr <= 15 else "mirage")
-    return {"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+    return {"name": t["name"], "conf": t.get("conf"), "rec": t["rec"], "score": t["score"], "index": t["index"],
         "q": [bool(x) for x in t["q"]], "sosrank": t["sosrank"], "srsrank": sr,
         "srs_flag": srs_flag,
         "vals": [f"{t['winpct']:.3f}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_oppppg']}",
@@ -380,6 +384,9 @@ def nhl_row(t):
 NBA_EAST = {"Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors",
     "Chicago Bulls","Cleveland Cavaliers","Detroit Pistons","Indiana Pacers","Milwaukee Bucks",
     "Atlanta Hawks","Charlotte Hornets","Miami Heat","Orlando Magic","Washington Wizards"}
+MLB_AL = {"Orioles","Red Sox","Yankees","Rays","Blue Jays","Guardians","Royals","Tigers","Twins",
+    "White Sox","Astros","Angels","Athletics","Mariners","Rangers"}   # statsapi short names; rest = NL
+# WNBA has NO conferences since 2022 (single 1-8 seeding by record) — no conf tag.
 
 def nba_depth(season):
     """Scoring depth = # of players on a team averaging >=10 PPG (balanced rosters win in the NBA).
@@ -1091,8 +1098,8 @@ def build_mlb():
         base.update({"status": "preseason", "odds_remaining": None,
             "note": "MLB opens in late March — the blueprint goes live on the first games.", "teams": []})
         return base
-    rows = [{"name": nm, "rec": f"{d['w']}-{d['l']}", "gp": d["gp"], "winpct": d["winpct"],
-             "rd": d["rd"], "rdg": d["rd"]/d["gp"], "runs": d["runs"], "era": d["era"]} for nm, d in data.items()]
+    rows = [{"name": nm, "conf": "AL" if nm in MLB_AL else "NL", "rec": f"{d['w']}-{d['l']}", "gp": d["gp"],
+             "winpct": d["winpct"], "rd": d["rd"], "rdg": d["rd"]/d["gp"], "runs": d["runs"], "era": d["era"]} for nm, d in data.items()]
     rk_rd = ranks(rows, "rd", True); rk_runs = ranks(rows, "runs", True); rk_era = ranks(rows, "era", False)
     for t in rows:
         t["rk_rd"], t["rk_runs"], t["rk_era"] = rk_rd[t["name"]], rk_runs[t["name"]], rk_era[t["name"]]
@@ -1113,7 +1120,7 @@ def build_mlb():
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
         "cats": ["Win% >.543", "Run diff top-10", "Runs top-11", "ERA top-10"],
         "labels": ["Win%", "Run diff", "Runs", "ERA"],
-        "teams": [{"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
+        "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
             "q": [bool(x) for x in t["q"]],
             "vals": [f"{t['winpct']:.3f}", f"{t['rd']:+.0f} #{t['rk_rd']}", f"{t['runs']:.0f} #{t['rk_runs']}", f"{t['era']:.2f} #{t['rk_era']}"],
             "rtg": round(t["rdg"], 2),
