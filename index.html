@@ -163,12 +163,17 @@ function simMatchup(){
   let hdr, note, why;
   const mN=A.rtg-B.rtg, fav0=mN>=0?A:B, dog0=mN>=0?B:A, spread=Math.abs(mN);
   if(sn){
-    // playoffs: the better team earns home-court (hosts 4 of 7)
-    const ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa);
+    // playoffs: better team gets home-court (hosts 4 of 7); predict winner + series length
+    const ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa), pe=(4*ph+3*pa)/7;
+    let bestT=fav0, bestG=4, bestP=0;
+    for(let k=4;k<=sn;k++){
+      const pf=_nCk(k-1,3)*Math.pow(pe,4)*Math.pow(1-pe,k-4), pd=_nCk(k-1,3)*Math.pow(1-pe,4)*Math.pow(pe,k-4);
+      if(pf>bestP){bestP=pf;bestG=k;bestT=fav0;} if(pd>bestP){bestP=pd;bestG=k;bestT=dog0;}
+    }
     why=`${fav0.name} is ${tier(fav0)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog0.name} (${tierd(dog0)}).`;
     why+= showP<0.58?' Close to a coin-flip — a live underdog.':(showP>0.72?' A clear edge.':'');
-    hdr=`<b>${fav0.name}</b> wins the best-of-${sn} <b>${Math.round(showP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(home-court: ${fav0.name}, ~${spread.toFixed(dp)} ${unit}/g edge)</span>`;
-    note=`Higher seed hosts 4 of ${sn} — the underdog's path is taking 4 games, ~${Math.round((1-showP)*100)}%.`;
+    hdr=`<b>${fav0.name}</b> win the series <b>${Math.round(showP*100)}%</b> — prediction: <b>${bestT.name} in ${bestG}</b>`;
+    note='';
   } else {
     const Hel=document.getElementById('muH'), h=Hel?Hel.value:'0';
     let hf=0; if(h==='A')hf=hfa; if(h==='B')hf=-hfa;
@@ -177,10 +182,9 @@ function simMatchup(){
     why=`${fav.name} is ${tier(fav)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${tierd(dog)}).`;
     why+= gameP<0.58?' Close to a coin-flip — a live underdog.':(gameP>0.72?' A clear edge.':'');
     hdr=`<b>${fav.name}</b> wins <b>${Math.round(gameP*100)}%</b> · projected by <b>~${ssp.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span>`;
-    note=`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%.`;
+    note=`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested: CFB 70.5%, NFL 58.5%${cur==='nba'||cur==='nhl'?'; NBA/NHL estimated':''}.`;
   }
-  out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>
-    <div class="munote">${note} Backtested out-of-sample: CFB 70.5%, WNBA ~65%, NFL 58.5%, MLB 56.5%${cur==='nba'||cur==='nhl'?'; NBA/NHL ratings estimated':''}.</div>`;
+  out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>${note?`<div class="munote">${note}</div>`:''}`;
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
