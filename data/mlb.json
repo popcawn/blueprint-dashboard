@@ -1,11 +1,11 @@
 {
   "sport": "MLB",
   "season": "2026",
-  "generated": "2026-10-26T00:46:32Z",
+  "generated": "2026-10-26T01:04:15Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Brewers",
-    "why": "<b>Brewers</b> is the pick \u2014 the top team the model actually trusts (fair +456). Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+    "why": "<b>Brewers</b> is the pick \u2014 Elite run prevention paired with a real lineup, the exact shape that survives October. Pitching wins in the playoffs and this team has it in abundance; believe it."
   },
   "season_pct": 100,
   "gp_min": 161,
@@ -48,7 +48,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+        "why": "Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it.",
+        "beat": "Elite run prevention paired with a real lineup, the exact shape that survives October. Pitching wins in the playoffs and this team has it in abundance; believe it.",
+        "tier": "champion"
       }
     },
     {
@@ -76,7 +78,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "Elite run prevention (#4) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+        "why": "Elite run prevention (#4) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it.",
+        "beat": "A complete, October-proof roster with elite run prevention and a real lineup behind it; the pitching depth is exactly what wins short series. Believe it.",
+        "tier": "champion"
       }
     },
     {
@@ -104,7 +108,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "Elite run prevention (#1) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+        "why": "Elite run prevention (#1) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it.",
+        "beat": "Elite run prevention paired with a real lineup is exactly the October-proof shape; this pitching staff is the kind that wins short series. Believe it.",
+        "tier": "champion"
       }
     },
     {
@@ -132,7 +138,9 @@
       "ev": null,
       "read": {
         "v": "trust",
-        "why": "A #5 staff that travels into October, plus enough offense. Built for a short series, not just 162 games. Trust it."
+        "why": "A #5 staff that travels into October, plus enough offense. Built for a short series, not just 162 games. Trust it.",
+        "beat": "A top-five pitching staff with enough bats to push a short series; the rotation is the reason to trust them in October.",
+        "tier": "contender"
       }
     },
     {
@@ -160,7 +168,9 @@
       "ev": null,
       "read": {
         "v": "fools_gold",
-        "why": "All bats (#1), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+        "why": "All bats (#1), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap.",
+        "beat": "Elite at scoring runs, but a middling pitching staff gives a short October series plenty of ways to go wrong. The bats will carry them only so far.",
+        "tier": "pretender"
       }
     },
     {
@@ -188,7 +198,9 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Run-diff-driven (#6) but tilts one way; the #12 side is where a playoff series exposes it."
+        "why": "Run-diff-driven (#6) but tilts one way; the #12 side is where a playoff series exposes it.",
+        "beat": "Strong run prevention and a plus run differential, but the offense sits middling, and October short series reward hitters who stay hot. Pitching carries them here; the bats must wake up.",
+        "tier": "contender"
       }
     },
     {
@@ -216,7 +228,9 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Run-diff-driven (#10) but tilts one way; the #15 side is where a playoff series exposes it."
+        "why": "Run-diff-driven (#10) but tilts one way; the #15 side is where a playoff series exposes it.",
+        "beat": "A solid pitching-and-run-prevention club that scores middling, so its October ceiling depends on bats that have to show up in a short series.",
+        "tier": "contender"
       }
     },
     {
@@ -244,7 +258,9 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Run-diff-driven (#7) but tilts one way; the #23 side is where a playoff series exposes it."
+        "why": "Run-diff-driven (#7) but tilts one way; the #23 side is where a playoff series exposes it.",
+        "beat": "Elite run prevention and a top-tier run differential make them a real October threat, but an offense that scores near the bottom of the league can go cold in a short series. Pitching carries them; the bats must show up.",
+        "tier": "contender"
       }
     },
     {
@@ -272,7 +288,9 @@
       "ev": null,
       "read": {
         "v": "fools_gold",
-        "why": "All bats (#5), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
+        "why": "All bats (#5), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap.",
+        "beat": "All offense and no arms: a strong lineup stuck behind a leaky staff, the kind that gets out-pitched in a short October series. Believe the bats, not the run prevention.",
+        "tier": "pretender"
       }
     },
     {
@@ -300,7 +318,9 @@
       "ev": null,
       "read": {
         "v": "caution",
-        "why": "Run-diff-driven (#8) but tilts one way; the #14 side is where a playoff series exposes it."
+        "why": "Run-diff-driven (#8) but tilts one way; the #14 side is where a playoff series exposes it.",
+        "beat": "Strong run prevention and a positive run differential, but a middling-to-weak offense and a losing record say this roster is still short of playoff-level bats.",
+        "tier": "pretender"
       }
     },
     {
