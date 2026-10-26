@@ -148,6 +148,8 @@ const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.6,wnba:14.0,mlb:5.0}, MU_HFA={nfl:
 const SERIES={nba:7,nhl:7,mlb:7,wnba:7};   // playoffs are best-of-7 series; NFL/CFB are single-elimination
 function _nCk(n,k){let r=1;for(let i=0;i<k;i++)r=r*(n-i)/(i+1);return r;}
 function seriesProb(p,n){const w=Math.ceil(n/2);let s=0;for(let k=w;k<=n;k++)s+=_nCk(n,k)*Math.pow(p,k)*Math.pow(1-p,n-k);return s;}
+// best-of-7 where the better team hosts 4 (prob ph) and visits 3 (prob pa): win >=4 of 7
+function seriesProbHome(ph,pa){let s=0;for(let h=0;h<=4;h++)for(let a=0;a<=3;a++)if(h+a>=4)s+=_nCk(4,h)*Math.pow(ph,h)*Math.pow(1-ph,4-h)*_nCk(3,a)*Math.pow(pa,a)*Math.pow(1-pa,3-a);return s;}
 function _erf(x){const t=1/(1+0.3275911*Math.abs(x));const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return x>=0?y:-y;}
 const _phi=x=>0.5*(1+_erf(x/Math.SQRT2));
 function simMatchup(){
@@ -155,22 +157,28 @@ function simMatchup(){
   const A=by[document.getElementById('muA').value], B=by[document.getElementById('muB').value], out=document.getElementById('muout');
   if(!A||!B||A.name===B.name){out.innerHTML='<span class="muwarn">Pick two different teams.</span>';return;}
   if(A.rtg==null||B.rtg==null){out.innerHTML='<span class="muwarn">Ratings not in this data yet — run the board once to enable.</span>';return;}
-  const sd=MU_SD[cur],hfa=MU_HFA[cur],h=document.getElementById('muH').value,unit=MU_UNIT[cur];
-  let hf=0; if(h==='A')hf=hfa; if(h==='B')hf=-hfa;
-  const margin=(A.rtg-B.rtg)+hf, pA=_phi(margin/sd);
-  const fav=pA>=0.5?A:B, dog=pA>=0.5?B:A, gameP=Math.max(pA,1-pA), spread=Math.abs(margin), dp=unit==='goals'?1:0;
-  const sn=SERIES[cur]||0, showP=sn?seriesProb(gameP,sn):gameP;   // playoffs are a series, not one game
+  const sd=MU_SD[cur],hfa=MU_HFA[cur],unit=MU_UNIT[cur],sn=SERIES[cur]||0,dp=unit==='goals'?1:0;
   const tw={champion:'a complete team',contender:'a real contender',pretender:'a flawed team'};
-  const fv=tw[fav.read&&fav.read.tier]||'the stronger side', dv=tw[dog.read&&dog.read.tier]||'the weaker side';
-  let why=`${fav.name} is ${fv}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${dv}).`;
-  why+= showP<0.58?' Close to a coin-flip — a live underdog.':(showP>0.72?' A clear edge.':'');
-  const site=h==='0'?'neutral':((h==='A'?A.name:B.name)+' home');
-  const hdr = sn
-    ? `<b>${fav.name}</b> wins the best-of-${sn} <b>${Math.round(showP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(single game ${Math.round(gameP*100)}%, ~${spread.toFixed(dp)} ${unit}/g, ${site})</span>`
-    : `<b>${fav.name}</b> wins <b>${Math.round(showP*100)}%</b> · projected by <b>~${spread.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span>`;
-  const note = sn
-    ? `A best-of-${sn} rewards the better team — the underdog's path is taking 4 of ${sn}, ~${Math.round((1-showP)*100)}%.`
-    : `One game is high-variance — the underdog still wins ~${Math.round((1-showP)*100)}%.`;
+  const tier=t=>tw[t.read&&t.read.tier]||'the stronger side', tierd=t=>tw[t.read&&t.read.tier]||'the weaker side';
+  let hdr, note, why;
+  const mN=A.rtg-B.rtg, fav0=mN>=0?A:B, dog0=mN>=0?B:A, spread=Math.abs(mN);
+  if(sn){
+    // playoffs: the better team earns home-court (hosts 4 of 7)
+    const ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa);
+    why=`${fav0.name} is ${tier(fav0)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog0.name} (${tierd(dog0)}).`;
+    why+= showP<0.58?' Close to a coin-flip — a live underdog.':(showP>0.72?' A clear edge.':'');
+    hdr=`<b>${fav0.name}</b> wins the best-of-${sn} <b>${Math.round(showP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(home-court: ${fav0.name}, ~${spread.toFixed(dp)} ${unit}/g edge)</span>`;
+    note=`Higher seed hosts 4 of ${sn} — the underdog's path is taking 4 games, ~${Math.round((1-showP)*100)}%.`;
+  } else {
+    const Hel=document.getElementById('muH'), h=Hel?Hel.value:'0';
+    let hf=0; if(h==='A')hf=hfa; if(h==='B')hf=-hfa;
+    const margin=mN+hf, pA=_phi(margin/sd), fav=margin>=0?A:B, dog=margin>=0?B:A, gameP=Math.max(pA,1-pA), ssp=Math.abs(margin);
+    const site=h==='0'?'neutral':((h==='A'?A.name:B.name)+' home');
+    why=`${fav.name} is ${tier(fav)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${tierd(dog)}).`;
+    why+= gameP<0.58?' Close to a coin-flip — a live underdog.':(gameP>0.72?' A clear edge.':'');
+    hdr=`<b>${fav.name}</b> wins <b>${Math.round(gameP*100)}%</b> · projected by <b>~${ssp.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span>`;
+    note=`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%.`;
+  }
   out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>
     <div class="munote">${note} Backtested out-of-sample: CFB 70.5%, WNBA ~65%, NFL 58.5%, MLB 56.5%${cur==='nba'||cur==='nhl'?'; NBA/NHL ratings estimated':''}.</div>`;
 }
@@ -240,7 +248,7 @@ function render(){
     const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
     html+=`<div class="matchup"><div class="muhead">⚔️ Matchup simulator — who wins, and why</div>
       <div class="murow"><select id="muA">${opt(ml[0].name)}</select><span class="muvs">vs</span><select id="muB">${opt(ml[1].name)}</select>
-      <select id="muH"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
+      ${SERIES[cur]?'':'<select id="muH"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>'}
       <button class="btn" onclick="simMatchup()">Simulate</button></div>
       <div class="muout" id="muout"></div></div>`;
   }
