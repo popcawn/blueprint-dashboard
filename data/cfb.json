@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-26T02:15:53Z",
-  "odds_remaining": "64958",
+  "generated": "2026-10-26T13:47:55Z",
+  "odds_remaining": "64587",
   "prediction": {
-    "pick": "Miami Hurricanes",
-    "why": "<b>Miami Hurricanes</b> is the pick \u2014 A juggernaut offense that scores at will and wins every game by wide margins; the defense yields yards more than points, and the schedule hasn't yet forced it to prove it can stop a top-tier attack."
+    "pick": "Ohio State Buckeyes",
+    "why": "<b>Ohio State Buckeyes</b> is the pick \u2014 Elite on both sides of the ball and battle-tested against a real schedule; a balanced, complete roster that looks built to win in January."
   },
   "gp_min": 7,
   "gp_max": 9,
@@ -51,12 +51,12 @@
       "rtg": 27.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+470",
-      "ev": 37,
+      "market": "+460",
+      "ev": 34,
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "beat": "An elite defense that gives up almost nothing, paired with an offense that is good but not explosive; the stop unit carries real January weight.",
+        "beat": "An elite defense and a plus-27 margin make this a real contender; the offense is good but not explosive enough to call it a champion yet.",
         "tier": "contender"
       }
     },
@@ -91,8 +91,8 @@
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "Dominant on both sides and tested against a real schedule, with an elite defense that gives them a clear path. Still needs to prove it on the road against USC before the bracket gets serious.",
-        "tier": "contender"
+        "beat": "Elite on both sides of the ball and battle-tested against a real schedule; a balanced, complete roster that looks built to win in January.",
+        "tier": "champion"
       }
     },
     {
@@ -126,8 +126,8 @@
       "read": {
         "v": "caution",
         "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet.",
-        "beat": "A juggernaut offense that scores at will and wins every game by wide margins; the defense yields yards more than points, and the schedule hasn't yet forced it to prove it can stop a top-tier attack.",
-        "tier": "champion"
+        "beat": "Scoring at an elite, top-of-the-country clip with a stingy-enough defense; the yardage allowed is a real crack that a playoff opponent could exploit, and the schedule hasn't fully tested it yet.",
+        "tier": "contender"
       }
     },
     {
@@ -161,7 +161,7 @@
       "read": {
         "v": "caution",
         "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet.",
-        "beat": "An elite defense can carry a Group of Five team only so far; the offense ranks middling, and the schedule has not yet tested them against a playoff-caliber opponent.",
+        "beat": "An elite defense carries this 6-1 Lobos team, but the offense ranks middling and the schedule hasn't tested them yet; a Group of Five club this far from a playoff berth belongs in the pretender column.",
         "tier": "pretender"
       }
     },
@@ -196,7 +196,7 @@
       "read": {
         "v": "caution",
         "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet.",
-        "beat": "Unbeaten with a stout scoring margin, but the defense yields yards in bunches and its schedule has not yet forced it through a true test. Believe in the run, not the title.",
+        "beat": "Undefeated with a strong scoring margin, but the defense yields yards at a leaky clip and has not yet faced a truly elite offense. A solid resume, not yet proven against playoff-level competition.",
         "tier": "contender"
       }
     },
@@ -440,8 +440,8 @@
     },
     {
       "name": "Notre Dame Fighting Irish",
-      "ev": 37,
-      "market": "+470",
+      "ev": 34,
+      "market": "+460",
       "fair_odds": "+317"
     }
   ]
