@@ -165,14 +165,11 @@ function simMatchup(){
   if(sn){
     // playoffs: better team gets home-court (hosts 4 of 7); predict winner + series length
     const ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa), pe=(4*ph+3*pa)/7;
-    let bestT=fav0, bestG=4, bestP=0;
-    for(let k=4;k<=sn;k++){
-      const pf=_nCk(k-1,3)*Math.pow(pe,4)*Math.pow(1-pe,k-4), pd=_nCk(k-1,3)*Math.pow(1-pe,4)*Math.pow(pe,k-4);
-      if(pf>bestP){bestP=pf;bestG=k;bestT=fav0;} if(pd>bestP){bestP=pd;bestG=k;bestT=dog0;}
-    }
+    // competitive best-of-7s cluster at 6-7 games — only a real gap projects a shorter series
+    const len = pe>=0.64 ? `${fav0.name} in 5` : (pe>=0.54 ? `${fav0.name} in 6` : 'a toss-up, likely 6-7 games');
     why=`${fav0.name} is ${tier(fav0)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog0.name} (${tierd(dog0)}).`;
     why+= showP<0.58?' Close to a coin-flip — a live underdog.':(showP>0.72?' A clear edge.':'');
-    hdr=`<b>${fav0.name}</b> win the series <b>${Math.round(showP*100)}%</b> — prediction: <b>${bestT.name} in ${bestG}</b>`;
+    hdr=`<b>${fav0.name}</b> win the series <b>${Math.round(showP*100)}%</b> — projected: <b>${len}</b>`;
     note='';
   } else {
     const Hel=document.getElementById('muH'), h=Hel?Hel.value:'0';
