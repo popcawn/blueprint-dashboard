@@ -69,6 +69,10 @@ def get(url, timeout=50):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
     return json.load(urllib.request.urlopen(req, timeout=timeout))
 
+def get_text(url, timeout=30):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
+    return urllib.request.urlopen(req, timeout=timeout).read().decode("utf-8", "replace")
+
 def ranks(items, key, reverse):
     order = sorted(items, key=lambda t: t[key], reverse=reverse)
     out, prev, r = {}, None, 0
@@ -1068,8 +1072,9 @@ def build_wnba():
     return base
 
 def mlb_data(season):
-    """Win% / run diff / runs / ERA per team from statsapi.mlb.com (CI-safe, no Cloudflare), joined by id.
-       The full 7-cat blueprint needs FanGraphs (WAR/DRS/pBABIP) which isn't curl-able — this is the proxy."""
+    """Blueprint stats via CI-safe curl: statsapi (Win%/RunDiff/RBI/ERA, + pBABIP and DEF computed) joined
+       by id with Baseball Savant OAA (the DRS metric). WAR is the one blueprint category with no curl-able
+       source (FanGraphs is Cloudflare-blocked) — ERA stands in for it. /blueprint has the true 7 via Chrome."""
     try:
         st = get(f"https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season={season}&standingsTypes=regularSeason")
     except Exception:
@@ -1079,16 +1084,36 @@ def mlb_data(season):
         for t in rec.get("teamRecords", []):
             tid = t["team"]["id"]; w = t.get("wins", 0); l = t.get("losses", 0); g = w + l
             if g == 0: continue
-            by[tid] = {"name": t["team"]["name"], "w": w, "l": l, "gp": g, "winpct": w/g, "rd": t.get("runDifferential", 0)}
-    for grp, fld, key in [("hitting", "runs", "runs"), ("pitching", "era", "era")]:
+            by[tid] = {"name": t["team"]["name"], "w": w, "l": l, "gp": g, "winpct": w/g, "rd": t.get("runDifferential", 0), "oaa": None}
+    for grp in ("hitting", "pitching", "fielding"):
         try:
             d = get(f"https://statsapi.mlb.com/api/v1/teams/stats?season={season}&group={grp}&stats=season&sportId=1")
             for s in d.get("stats", [{}])[0].get("splits", []):
                 tid = s["team"]["id"]
-                if tid in by: by[tid][key] = float(s["stat"].get(fld, 0) or 0)
+                if tid not in by: continue
+                stt = s["stat"]
+                if grp == "hitting":
+                    by[tid]["rbi"] = float(stt.get("rbi", 0) or 0)
+                elif grp == "pitching":
+                    by[tid]["era"] = float(stt.get("era", 9) or 9)
+                    H, HR, SO, AB, SF = [float(stt.get(k, 0) or 0) for k in ("hits", "homeRuns", "strikeOuts", "atBats", "sacFlies")]
+                    den = AB - SO - HR + SF; by[tid]["pbabip"] = round((H - HR)/den, 3) if den else 0.300
+                elif grp == "fielding":
+                    by[tid]["deff"] = float(stt.get("fielding", 0) or 0)
         except Exception:
             pass
-    return {v["name"]: v for v in by.values() if "runs" in v and "era" in v}
+    try:   # Baseball Savant Outs Above Average = DRS (the one external source; graceful if it fails)
+        txt = get_text(f"https://baseballsavant.mlb.com/leaderboard/outs_above_average?type=Fielding_Team&year={season}&csv=true")
+        lines = txt.strip().split("\n"); hdr = [h.strip('"') for h in lines[0].replace("﻿", "").split(",")]
+        oi, ti = hdr.index("outs_above_average"), hdr.index("team_id")
+        for ln in lines[1:]:
+            c = ln.split(",")
+            try: tid = int(c[ti].strip('"'))
+            except Exception: continue
+            if tid in by: by[tid]["oaa"] = float(c[oi])
+    except Exception:
+        pass
+    return {v["name"]: v for v in by.values() if "era" in v and "rbi" in v}
 
 def build_mlb():
     season = YEAR
@@ -1099,30 +1124,43 @@ def build_mlb():
             "note": "MLB opens in late March — the blueprint goes live on the first games.", "teams": []})
         return base
     rows = [{"name": nm, "conf": "AL" if nm in MLB_AL else "NL", "rec": f"{d['w']}-{d['l']}", "gp": d["gp"],
-             "winpct": d["winpct"], "rd": d["rd"], "rdg": d["rd"]/d["gp"], "runs": d["runs"], "era": d["era"]} for nm, d in data.items()]
-    rk_rd = ranks(rows, "rd", True); rk_runs = ranks(rows, "runs", True); rk_era = ranks(rows, "era", False)
+             "winpct": d["winpct"], "rd": d["rd"], "rdg": d["rd"]/d["gp"], "rbi": d.get("rbi", 0), "era": d.get("era", 9),
+             "pbabip": d.get("pbabip", 0.300), "deff": d.get("deff", 0), "oaa": d.get("oaa")} for nm, d in data.items()]
+    oaa_rows = [t for t in rows if t["oaa"] is not None]; has_oaa = len(oaa_rows) >= 10
+    rk_rd = ranks(rows, "rd", True); rk_rbi = ranks(rows, "rbi", True); rk_era = ranks(rows, "era", False)
+    rk_pb = ranks(rows, "pbabip", False); rk_def = ranks(rows, "deff", True)
+    rk_drs = ranks(oaa_rows, "oaa", True) if has_oaa else {}
     for t in rows:
-        t["rk_rd"], t["rk_runs"], t["rk_era"] = rk_rd[t["name"]], rk_runs[t["name"]], rk_era[t["name"]]
-        t["q"] = [t["winpct"] > 0.543, t["rk_rd"] <= 10, t["rk_runs"] <= 11, t["rk_era"] <= 10]
+        t["rk_rd"], t["rk_rbi"], t["rk_era"] = rk_rd[t["name"]], rk_rbi[t["name"]], rk_era[t["name"]]
+        t["rk_pb"], t["rk_def"], t["rk_drs"] = rk_pb[t["name"]], rk_def[t["name"]], rk_drs.get(t["name"], 99)
+        # Win% / RBI / RunDiff / ERA(≈WAR) / pBABIP / DEF / DRS(OAA)
+        t["q"] = [t["winpct"] > 0.543, t["rk_rbi"] <= 11, t["rk_rd"] <= 10, t["rk_era"] <= 10,
+                  t["rk_pb"] <= 17, t["rk_def"] <= 15, t["rk_drs"] <= 15]
+        t["rk_runs"] = t["rk_rbi"]   # alias for team_read
         t["score"] = sum(t["q"])
-    nrd = norm(rows, "rd", True); nru = norm(rows, "runs", True); ner = norm(rows, "era", False); nw = norm(rows, "winpct", True)
-    for t in rows: t["index"] = round(nrd[t["name"]]*.35 + ner[t["name"]]*.25 + nru[t["name"]]*.20 + nw[t["name"]]*.20, 1)
-    for t in rows: t["read"] = team_read(t, "mlb", len(rows), 4)
-    pool = [t for t in rows if t["score"] >= 2]; tm = {4: 1.7, 3: 1.2, 2: 0.8}
+    nrd = norm(rows, "rd", True); nrb = norm(rows, "rbi", True); ner = norm(rows, "era", False)
+    npb = norm(rows, "pbabip", False); ndf = norm(rows, "deff", True); nw = norm(rows, "winpct", True)
+    ndr = norm(oaa_rows, "oaa", True) if has_oaa else {}
+    for t in rows:
+        t["index"] = round(nrd[t["name"]]*.22 + ner[t["name"]]*.16 + ndr.get(t["name"], 50)*.14 + nrb[t["name"]]*.13
+                           + nw[t["name"]]*.12 + npb[t["name"]]*.12 + ndf[t["name"]]*.11, 1)
+    for t in rows: t["read"] = team_read(t, "mlb", len(rows), 7)
+    pool = [t for t in rows if t["score"] >= 3]; tm = {7: 1.9, 6: 1.6, 5: 1.3, 4: 1.0, 3: 0.7}
     tot = sum((t["index"]**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
     for t in pool: t["p"] = ((t["index"]**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
     cap_odds(pool, 0.18)   # MLB is low-chalk (huge playoff variance) -> let the field stay wide
     fd, rem = fetch_futures("baseball_mlb_world_series_winner")
     attach(rows, pool, fd)
-    pred = make_prediction(rows, 4)
+    pred = make_prediction(rows, 7)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
-    base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "mlb"),
+    base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "mlb"), "mlb_waronly": True,
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
-        "cats": ["Win% >.543", "Run diff top-10", "Runs top-11", "ERA top-10"],
-        "labels": ["Win%", "Run diff", "Runs", "ERA"],
+        "cats": ["Win% >.543", "RBI top-11", "Run diff top-10", "ERA top-10 (≈WAR)", "pBABIP top-17", "DEF top-15", "DRS top-15"],
+        "labels": ["Win%", "RBI", "Run diff", "ERA", "pBABIP", "DEF", "DRS"],
         "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
             "q": [bool(x) for x in t["q"]],
-            "vals": [f"{t['winpct']:.3f}", f"{t['rd']:+.0f} #{t['rk_rd']}", f"{t['runs']:.0f} #{t['rk_runs']}", f"{t['era']:.2f} #{t['rk_era']}"],
+            "vals": [f"{t['winpct']:.3f}", f"{t['rbi']:.0f} #{t['rk_rbi']}", f"{t['rd']:+.0f} #{t['rk_rd']}", f"{t['era']:.2f} #{t['rk_era']}",
+                     f"{t['pbabip']:.3f} #{t['rk_pb']}", f"{t['deff']:.3f} #{t['rk_def']}", (f"{t['oaa']:+.0f} #{t['rk_drs']}" if t['oaa'] is not None else "n/a")],
             "rtg": round(t["rdg"], 2),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
             "market": t.get("market"), "ev": t.get("ev"), "read": t.get("read")} for t in rows if t["score"] >= 1]})

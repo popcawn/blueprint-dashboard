@@ -139,7 +139,7 @@
 <script>
 const REPO="popcawn/blueprint-dashboard";
 const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA",wnba:"WNBA",mlb:"MLB"};
-const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4,wnba:3,mlb:4}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82,wnba:44,mlb:162};
+const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4,wnba:3,mlb:7}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82,wnba:44,mlb:162};
 const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
