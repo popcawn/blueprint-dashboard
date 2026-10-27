@@ -50,6 +50,8 @@
   .btn:hover{filter:brightness(1.06)} .btn:disabled{opacity:.5}
   .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--ink2);box-shadow:none;padding:9px 12px}
   .runmsg{font-size:12px;color:var(--ink3)}
+  .runprog{width:190px;max-width:100%;height:6px;background:var(--line);border-radius:5px;overflow:hidden;margin-top:2px}
+  .runprog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:5px;transition:width .45s ease}
   .sbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 4px}
   .sbar .bar{flex:1 1 180px;max-width:340px;height:7px;background:var(--line);border-radius:5px;overflow:hidden}
   .sbar .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
@@ -77,18 +79,19 @@
   .muwarn{font-size:12px;color:var(--bad)}
   .tier{margin:18px 0 9px;font-family:var(--head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2)}
   .tier .n{color:var(--ink3);font-weight:500;font-size:11px;letter-spacing:.04em}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(365px,1fr));gap:13px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:13px}
   .card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--tc,var(--line2));border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
   .card.t5{--tc:var(--good)} .card.t4{--tc:var(--accent)} .card.t3{--tc:var(--star)} .card.t2{--tc:#9aa7bb} .card.t1{--tc:#c7d0dd}
-  .row1{display:flex;align-items:baseline;gap:8px}
-  .nm{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:-.2px}
+  .row1{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .nm{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:-.2px;min-width:0;overflow-wrap:anywhere}
   .conf{font-size:10px;color:var(--ink3);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0}
   .rec{color:var(--ink3);font-size:13px;white-space:nowrap;flex-shrink:0}
   .idx{margin-left:auto;text-align:right;font-size:11px;color:var(--ink3)}
   .idx b{color:var(--ink);font-size:16px;font-family:var(--mono)}
   .ev{font-weight:800;padding:2px 9px;border-radius:7px;font-size:12.5px;font-family:var(--mono)}
   .ev.pos{background:var(--goodbg);color:var(--good)} .ev.neg{background:var(--badbg);color:var(--bad)} .ev.zero{background:var(--panel2);color:var(--ink3)}
-  .vd{display:inline-block;margin-top:4px;margin-left:6px;font-weight:800;padding:2px 9px;border-radius:7px;font-size:12px;font-family:var(--mono);white-space:nowrap}
+  .vdrow{margin:7px 0 1px}
+  .vd{display:inline-block;font-weight:800;padding:2px 9px;border-radius:7px;font-size:12px;font-family:var(--mono);white-space:nowrap}
   .vd.best,.vd.value{background:var(--goodbg);color:var(--good)}
   .vd.best{box-shadow:inset 0 0 0 1.5px var(--good)}
   .vd.small{background:var(--goodbg);color:var(--good);opacity:.68;font-weight:700}
@@ -124,7 +127,16 @@
   .pop.on{display:flex} .pop .box{background:var(--panel);border-radius:16px;padding:20px;max-width:470px;width:100%;box-shadow:var(--shadow)}
   .pop input{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:9px 0;font-size:13px}
   .pop p{font-size:12.5px;color:var(--ink2);line-height:1.5}
-  @media(max-width:620px){ .brand span{display:none} .strip{width:100%;margin-left:0} .sportbar{order:3} }
+  @media(max-width:620px){
+    .brand span{display:none}
+    .strip{width:100%;margin-left:0}
+    .sportbar{order:3;width:100%;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .sportbar::-webkit-scrollbar{display:none}
+    .sportbar button{flex:0 0 auto}
+    .runbox{align-items:flex-start;width:100%}
+    .runbox .lgs{width:100%}
+    .runprog{width:100%}
+  }
 </style>
 </head>
 <body>
@@ -224,7 +236,8 @@ function card(t,sp){
   const read=t.read?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
   return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${VPSET.has(t.name)?'<span class="vbadge" title="Qualified value: complete profile + trust read + positive EV at a believable price">✓ VALUE</span>':''}
-      <span class="idx">index <b>${t.index}</b>${ev}</span></div>
+      <span class="idx">index <b>${t.index}</b></span></div>
+    ${ev?`<div class="vdrow">${ev}</div>`:""}
     ${read}<div class="chips">${chips}</div>
     <div class="foot"><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
       <div><span class="k">FanDuel</span><b>${t.market||"—"}</b></div>${srs}${cons}</div></div>`;
@@ -255,7 +268,8 @@ function render(){
     <div class="runbox"><div class="lgs">${checks}</div>
       <div style="display:flex;gap:7px;align-items:center"><button class="btn" id="runbtn" onclick="runBlueprint()">▶ Run</button>
       <button class="btn ghost" title="GitHub token" onclick="document.getElementById('pop').classList.add('on');document.getElementById('tok').value=tok()">⚙</button></div>
-      <span class="runmsg" id="runmsg"></span></div></div></div>
+      <span class="runmsg" id="runmsg"></span>
+      <div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div></div></div>
     <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
       <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>
     ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}`;
@@ -288,16 +302,23 @@ async function runBlueprint(){
   try{ const r=await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/refresh.yml/dispatches`,{method:"POST",
       headers:{Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json","Content-Type":"application/json"},
       body:JSON.stringify({ref:"main",inputs:{leagues:lg.join(",")}})});
-    if(r.status===204){msg.innerHTML="✅ running — auto-refreshes";pollFresh();}
+    if(r.status===204){msg.innerHTML="⏳ building the board… (~1–2 min)";startProg();pollFresh();}
     else if(r.status===401||r.status===403){msg.innerHTML='<span style="color:var(--bad)">token invalid</span>';document.getElementById("pop").classList.add("on");}
     else msg.innerHTML=`<span style="color:var(--bad)">failed (${r.status})</span>`;
   }catch(e){msg.innerHTML='<span style="color:var(--bad)">network error</span>';}
   btn.disabled=false;
 }
+let progTimer=null;
+function startProg(){ const p=document.getElementById("runprog"),i=document.getElementById("runprogi"),t0=Date.now();
+  p.hidden=false; i.style.width="4%"; clearInterval(progTimer);
+  progTimer=setInterval(()=>{ const t=(Date.now()-t0)/1000; i.style.width=Math.min(92,92*(1-Math.exp(-t/40))).toFixed(1)+"%"; },450); }
+function endProg(ok){ const p=document.getElementById("runprog"),i=document.getElementById("runprogi"); clearInterval(progTimer);
+  if(ok){ i.style.width="100%"; setTimeout(()=>{p.hidden=true;i.style.width="0";},1500); }
+  else { p.hidden=true; i.style.width="0"; } }
 async function pollFresh(){ let before=null; try{before=(await(await fetch("data/index.json?t="+Date.now())).json()).generated}catch(e){}
-  let n=0; const iv=setInterval(async()=>{ n++; if(n>24){clearInterval(iv);document.getElementById("runmsg").textContent="still building…";return;}
+  let n=0; const iv=setInterval(async()=>{ n++; if(n>30){clearInterval(iv);endProg(false);document.getElementById("runmsg").textContent="still building — check back shortly";return;}
     try{const g=(await(await fetch("data/index.json?t="+Date.now())).json()).generated;
-      if(g&&g!==before){clearInterval(iv);document.getElementById("runmsg").innerHTML="✅ updated";await loadData();render();}}catch(e){} },8000);
+      if(g&&g!==before){clearInterval(iv);endProg(true);document.getElementById("runmsg").innerHTML="✅ updated";await loadData();render();}}catch(e){} },8000);
 }
 async function loadData(){ for(const k of Object.keys(SPORTS)){
   try{const r=await fetch(`data/${k}.json?t=`+Date.now());if(r.ok)DATA[k]=await r.json();}catch(e){}
