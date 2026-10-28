@@ -664,11 +664,18 @@ def beat_sheet(t, labels, news, inj_list, roster=""):
 
 _BANNED = re.compile(r"\b(but|however|though)\b|the catch is|the question is", re.I)   # crutch phrases that make reads read alike
 
-def _anthropic_read(system, sheet):
-    body = json.dumps({"model": "claude-haiku-5-5", "max_tokens": 120,
+# Beat-reporter reads: Sonnet writes them (far less likely to mislabel a position or invent an injury
+# than Haiku), Haiku fact-checks them (a cheaper discriminative task). Override via env if desired.
+GEN_MODEL = os.environ.get("READ_GEN_MODEL", "claude-sonnet-5-5")
+VERIFY_MODEL = os.environ.get("READ_VERIFY_MODEL", "claude-haiku-5-5")
+
+def _anthropic_json(system, user, max_tokens=120, model=VERIFY_MODEL):
+    """One model call returning the parsed JSON object the model replies with (or None)."""
+    if not os.environ.get("ANTHROPIC_API_KEY"): return None
+    body = json.dumps({"model": model, "max_tokens": max_tokens,
                        "thinking": {"type": "disabled"},   # plain JSON task — no thinking (default effort = medium, so 'disabled' is accepted)
                        "system": system,
-                       "messages": [{"role": "user", "content": sheet}]}).encode()
+                       "messages": [{"role": "user", "content": user}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body,
         headers={"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01", "content-type": "application/json"})
     try:
@@ -676,11 +683,44 @@ def _anthropic_read(system, sheet):
         txt = next((b.get("text", "") for b in r.get("content", []) if b.get("type") == "text"), "").strip()
         if not txt: return None
         if txt.startswith("```"): txt = txt.strip("`").split("\n", 1)[-1].rsplit("```", 1)[0]
-        o = json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
-        if o.get("why"): return {"beat": o["why"].strip(), "tier": o.get("tier")}
+        return json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
     except Exception:
         return None
+
+def _anthropic_read(system, sheet):
+    o = _anthropic_json(system, sheet, model=GEN_MODEL)
+    if o and o.get("why"): return {"beat": o["why"].strip(), "tier": o.get("tier")}
     return None
+
+# Any wording that asserts an injury — only allowed when the fact sheet actually lists one.
+_INJURY_RE = re.compile(
+    r"\b(acl|mcl|ucl|pcl|torn|tear|ruptur\w*|achilles|hamstring|quad|groin|concussion|fractur\w*|"
+    r"broke\w*|surger\w*|injur\w*|sidelined|out for the (?:season|year)|season[- ]ending|"
+    r"placed on ir|\bir\b|disabled list|day[- ]to[- ]day|ligament|sprain\w*|strain\w*)\b", re.I)
+
+_VERIFY_SYS = (
+    "You are a STRICT fact-checker for a one-line sports 'read'. You get FACTS and a DRAFT read. "
+    "Flag the draft if it makes ANY claim not directly supported by the facts: a named player not in the facts; "
+    "a player's position, role, or team not stated in the facts; an injury (its existence, type, severity, or who) "
+    "not in the facts; any stat, rank, record, price, quote, or event not in the facts; or any characterization "
+    "that contradicts the facts. Plain blueprint-level description that matches the facts (elite / middling / leaky "
+    "defense, complete vs one-dimensional, pretender / contender / champion, strong or soft record) is allowed. "
+    'Reply JSON only: {"ok": true|false, "problems": ["short phrase", ...]}. ok must be false if ANY claim is unsupported.')
+
+def validate_read(beat, sheet):
+    """Fact-check a generated read against its OWN fact sheet. Returns (ok, problems).
+       Two layers: a deterministic backstop for the worst class (a phantom injury — the exact failure
+       that produced 'torn ACL to Allen'/'Chase and Higgins at tight end'), plus a strict Haiku
+       fact-check pass for everything else (unsupported players, positions, roles, events)."""
+    problems = []
+    low = sheet.lower()
+    if _INJURY_RE.search(beat) and "injur" not in low:
+        problems.append("states an injury the facts do not list")
+    chk = _anthropic_json(_VERIFY_SYS, f"FACTS:\n{sheet}\n\nDRAFT READ:\n{beat}")
+    if chk is not None and chk.get("ok") is False:
+        ps = [p.strip() for p in (chk.get("problems") or []) if isinstance(p, str) and p.strip()]
+        problems.extend(ps[:3] or ["a claim in the read is not supported by the facts"])
+    return (not problems, problems)
 
 def llm_read(sheet, sport):
     """Claude writes a BRIEF, blueprint-accurate beat-reporter read from the fact sheet.
@@ -709,9 +749,12 @@ def llm_read(sheet, sport):
         "headlines explicitly say so. INJURIES ARE OPTIONAL — most reads should not mention one. Raise an injury ONLY if it genuinely threatens the title: "
         "an impactful starter or key contributor whose absence the team has NOT absorbed and cannot easily cover. If the team is winning and "
         "dominant despite the absence, they have absorbed it — stay silent on it. A deep team filling a short-term void is not a title factor; "
-        "a thin team losing its one difference-maker is. Never mention minor or day-to-day injuries. You MAY apply well-known, "
-        "established reputation about the specific players named in the data (a star's caliber, a veteran past his prime); never invent "
-        "players, injuries, stats, prices, quotes, or events that are not in the data. "
+        "a thin team losing its one difference-maker is. Never mention minor or day-to-day injuries. "
+        "GROUNDING — every concrete claim must trace to the FACTS you are given: if you name a player, that exact name "
+        "must appear in the facts; NEVER state a player's position, role, or team unless the facts give it; NEVER describe "
+        "an injury (its existence, type, severity, or who) unless the facts list it. Do not invent players, injuries, stats, "
+        "prices, quotes, or events, and do not fill gaps from memory — when unsure, describe only the blueprint profile in "
+        "plain words (a named player you cannot ground is never worth the risk; leave them out). "
         'Reply as JSON only: {"tier":"pretender|contender|champion","why":"..."}.'
     )
     out = _anthropic_read(system, sheet)
@@ -719,11 +762,25 @@ def llm_read(sheet, sport):
         strict = system + " Your previous draft used a forbidden word (but/however/though). Rewrite it with NONE of those words."
         retry = _anthropic_read(strict, sheet)
         if retry: out = retry
+    if not out:
+        return None
+    # VALIDATION FILTER — fact-check the read against its own sheet; one targeted rewrite, else drop it
+    # so the caller keeps the deterministic (always-accurate) template read instead of a hallucination.
+    ok, problems = validate_read(out["beat"], sheet)
+    if not ok:
+        fix = (system + " Your previous draft made claims NOT supported by the facts: " + "; ".join(problems) +
+               ". Rewrite using ONLY what the facts state. Name no player, position, role, or injury that is not in "
+               "the facts; if that leaves nothing specific, describe only the blueprint profile in plain words.")
+        retry = _anthropic_read(fix, sheet)
+        if retry and validate_read(retry["beat"], sheet)[0]:
+            return retry
+        return None   # could not produce a fact-checked read → fall back to the template read
     return out
 
 def attach_beat_reads(name, data):
     """Generate beat-reporter reads for the top contenders of one sport, in place on data['teams'].
-       No-op unless ANTHROPIC_API_KEY is set; all data is CI-safe curl + one Haiku call per team."""
+       No-op unless ANTHROPIC_API_KEY is set. CI-safe curl + per team: one Sonnet write then a Haiku
+       fact-check (+ one rewrite if it fails); an unverifiable read is dropped for the template read."""
     if not os.environ.get("ANTHROPIC_API_KEY"): return
     teams = data.get("teams", []); labels = data.get("labels", [])
     if not teams: return
