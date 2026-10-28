@@ -2432,8 +2432,8 @@
     "sc": 2,
     "idx": 61.5,
     "fp": 3.1,
-    "mkt": "+1700",
-    "ev": -45
+    "mkt": "+1800",
+    "ev": -42
    },
    "Pittsburgh Steelers": {
     "sc": 2,
@@ -2467,7 +2467,7 @@
     "sc": 1,
     "idx": 51.6,
     "fp": null,
-    "mkt": "+8000",
+    "mkt": "+10000",
     "ev": null
    },
    "Atlanta Falcons": {
@@ -2488,7 +2488,7 @@
     "sc": 1,
     "idx": 44.3,
     "fp": null,
-    "mkt": "+7000",
+    "mkt": "+6500",
     "ev": null
    },
    "Las Vegas Raiders": {
@@ -2509,21 +2509,21 @@
     "sc": 0,
     "idx": 50.9,
     "fp": null,
-    "mkt": "+10000",
+    "mkt": "+8000",
     "ev": null
    },
    "Baltimore Ravens": {
     "sc": 0,
     "idx": 50.5,
     "fp": null,
-    "mkt": "+1300",
+    "mkt": "+1200",
     "ev": null
    },
    "Green Bay Packers": {
     "sc": 0,
     "idx": 49.0,
     "fp": null,
-    "mkt": "+3300",
+    "mkt": "+3500",
     "ev": null
    },
    "Houston Texans": {
@@ -2537,14 +2537,14 @@
     "sc": 0,
     "idx": 38.5,
     "fp": null,
-    "mkt": "+70000",
+    "mkt": "+75000",
     "ev": null
    },
    "Indianapolis Colts": {
     "sc": 0,
     "idx": 31.7,
     "fp": null,
-    "mkt": "+70000",
+    "mkt": "+60000",
     "ev": null
    },
    "New Orleans Saints": {
@@ -2593,7 +2593,7 @@
     "sc": 0,
     "idx": 6.2,
     "fp": null,
-    "mkt": "+50000",
+    "mkt": "+75000",
     "ev": null
    }
   }

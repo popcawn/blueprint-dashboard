@@ -1,11 +1,11 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-28T14:49:42Z",
-  "odds_remaining": "60967",
+  "generated": "2026-10-28T19:11:10Z",
+  "odds_remaining": "60669",
   "prediction": {
-    "pick": "Boston Bruins",
-    "why": "<b>Boston Bruins</b> is the pick \u2014 That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
+    "pick": "Minnesota Wild",
+    "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
   },
   "gp_min": 10,
   "gp_max": 14,
@@ -53,8 +53,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "tier": "contender"
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#3) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
       }
     },
     {
@@ -78,17 +77,16 @@
       "rtg": 0.23,
       "fair_pct": 8.2,
       "fair_odds": "+1119",
-      "market": "+15000",
-      "ev": 1139,
+      "market": "+12500",
+      "ev": 934,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1139
+        "ev": 934
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #10 goal differential, but the #14 spot is the one a seven-game series finds.",
-        "tier": "pretender"
+        "why": "Carried by its #10 goal differential, but the #14 spot is the one a seven-game series finds."
       }
     },
     {
@@ -121,8 +119,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game.",
-        "tier": "contender"
+        "why": "That #1 save% is riding variance \u2014 they're #17 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
       }
     },
     {
@@ -146,17 +143,16 @@
       "rtg": 1.03,
       "fair_pct": 8.1,
       "fair_odds": "+1130",
-      "market": "+700",
-      "ev": -35,
+      "market": "+650",
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -35
+        "ev": -39
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#1) but can't fully trust the net (#16). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "tier": "contender"
+        "why": "Controls the puck (#1) but can't fully trust the net (#16). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -180,17 +176,16 @@
       "rtg": 0.79,
       "fair_pct": 5.9,
       "fair_odds": "+1588",
-      "market": "+1300",
-      "ev": -17,
+      "market": "+1200",
+      "ev": -23,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -17
+        "ev": -23
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#2) but can't fully trust the net (#17). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "tier": "contender"
+        "why": "Controls the puck (#2) but can't fully trust the net (#17). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -223,8 +218,7 @@
       },
       "read": {
         "v": "fools_gold",
-        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #20 goals-against is exactly what gets punished when goals dry up in May.",
-        "tier": "pretender"
+        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #20 goals-against is exactly what gets punished when goals dry up in May."
       }
     },
     {
@@ -257,8 +251,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#8) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "tier": "contender"
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#8) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
       }
     },
     {
@@ -282,17 +275,16 @@
       "rtg": 0.0,
       "fair_pct": 4.2,
       "fair_odds": "+2305",
-      "market": "+2500",
-      "ev": 8,
+      "market": "+2700",
+      "ev": 16,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 8
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 16
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #5 goal differential, but the #24 spot is the one a seven-game series finds.",
-        "tier": "contender"
+        "why": "Carried by its #5 goal differential, but the #24 spot is the one a seven-game series finds."
       }
     },
     {
@@ -321,8 +313,7 @@
       "verdict": null,
       "read": {
         "v": "trust",
-        "why": "Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#12) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
-        "tier": "contender"
+        "why": "Drives play AND gets saves \u2014 underlying numbers (#6 Corsi) and goaltending (#12) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
       }
     },
     {
@@ -346,17 +337,16 @@
       "rtg": 0.55,
       "fair_pct": 3.9,
       "fair_odds": "+2457",
-      "market": "+1100",
-      "ev": -53,
+      "market": "+1000",
+      "ev": -57,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -53
+        "ev": -57
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#4) but can't fully trust the net (#26). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "tier": "contender"
+        "why": "Controls the puck (#4) but can't fully trust the net (#26). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -380,17 +370,16 @@
       "rtg": 0.3,
       "fair_pct": 7.1,
       "fair_odds": "+1300",
-      "market": "+1600",
-      "ev": 21,
+      "market": "+1700",
+      "ev": 29,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 21
+        "ev": 29
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #12 goal differential, but the #13 spot is the one a seven-game series finds.",
-        "tier": "pretender"
+        "why": "Carried by its #12 goal differential, but the #13 spot is the one a seven-game series finds."
       }
     },
     {
@@ -423,8 +412,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #5 goal differential, but the #19 spot is the one a seven-game series finds.",
-        "tier": "contender"
+        "why": "Carried by its #5 goal differential, but the #19 spot is the one a seven-game series finds."
       }
     },
     {
@@ -457,8 +445,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Goalie-carried: #5 in net, only #17 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet.",
-        "tier": "pretender"
+        "why": "Goalie-carried: #5 in net, only #17 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
       }
     },
     {
@@ -491,8 +478,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#3) but can't fully trust the net (#23). The dangerous kind of team: the process says contender, the goaltending says coin flip.",
-        "tier": "pretender"
+        "why": "Controls the puck (#3) but can't fully trust the net (#23). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -525,8 +511,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #18 goal differential, but the #17 spot is the one a seven-game series finds.",
-        "tier": "pretender"
+        "why": "Carried by its #18 goal differential, but the #17 spot is the one a seven-game series finds."
       }
     },
     {
@@ -550,12 +535,12 @@
       "rtg": -0.33,
       "fair_pct": 2.3,
       "fair_odds": "+4289",
-      "market": "+15000",
-      "ev": 244,
+      "market": "+12500",
+      "ev": 187,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 244
+        "ev": 187
       },
       "read": {
         "v": "caution",
@@ -645,7 +630,7 @@
       "rtg": -0.08,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1500",
+      "market": "+1700",
       "ev": null,
       "verdict": null,
       "read": {
@@ -674,7 +659,7 @@
       "rtg": 0.24,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+950",
+      "market": "+900",
       "ev": null,
       "verdict": null,
       "read": {
@@ -761,7 +746,7 @@
       "rtg": 0.09,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+3300",
+      "market": "+3500",
       "ev": null,
       "verdict": null,
       "read": {
