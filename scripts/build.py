@@ -269,11 +269,16 @@ def build_cfb():
         t["srsrank"] = srs_rank.get(t["name"], 999)
         t["srs"] = srs.get(t["name"], 0.0)
     for t in teams: t["read"] = team_read(t, "cfb", len(teams), 5)
-    # fair odds: SOS-weighted ^3, cap 24%
+    # fair odds: weight = index^3 * SOS^3 (NO tier multiplier), cap 24%. Backtested 2026-10-28 on all
+    # 12 CFP-era seasons (2014-2025, rebuilt from game data via cfb-sos-backtest.mjs): dropping the
+    # tier multiplier lifts the champion to the model's #1 fair-odds pick in 10/12 seasons (avg rank
+    # 1.42), vs 8/12 (avg 1.83) with tier x index^3. The tier boost was docking elite 3/5 champions
+    # (2020 Alabama #4->#1, 2024 Ohio State #2->#1) below less-complete 4-5/5 teams; index^3 already
+    # rewards quality, so the extra tier weight was redundant and harmful. Robust across k=1-3 and
+    # both SOS methods. Remaining misses: 2016 Clemson, 2019 LSU (genuinely low-index champions).
     pool = [t for t in teams if t["score"] >= 3 and "North Dakota State" not in t["name"]]
-    tm = {5:1.7,4:1.3,3:1.0}
-    tot = sum((t["index"]**3)/1e5*tm[t["score"]]*(t["sos"]/avg)**3 for t in pool)
-    for t in pool: t["p"] = ((t["index"]**3)/1e5*tm[t["score"]]*(t["sos"]/avg)**3) / tot if tot else 0
+    tot = sum((t["index"]**3)/1e5*(t["sos"]/avg)**3 for t in pool)
+    for t in pool: t["p"] = ((t["index"]**3)/1e5*(t["sos"]/avg)**3) / tot if tot else 0
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
