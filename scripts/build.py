@@ -345,19 +345,30 @@ def build_nhl():
             sa, saved = float(f["shotsOnGoalAgainst"]), float(f["savedShotsOnGoalAgainst"])
             corsi = float(f["corsiPercentage"]) * 100
             total_ga = float(a["goalsAgainst"]); gp = int(float(f["games_played"]))
+            gf_all = float(a["goalsFor"]); axgf, axga = float(a["xGoalsFor"]), float(a["xGoalsAgainst"])
         except Exception: continue
         name, conf = NHL_TEAMS[ab]
         rows.append({"name": name, "conf": conf, "rec": None, "gp": gp,
-            "esdiff": gf - ga5, "essv": (saved/sa*100) if sa else 0, "corsi": corsi, "totalGA": total_ga})
-    rk_ed = ranks(rows, "esdiff", True); rk_sv = ranks(rows, "essv", True)
+            "esdiff": gf - ga5, "essv": (saved/sa*100) if sa else 0, "corsi": corsi, "totalGA": total_ga,
+            "gdpg": (gf_all - total_ga)/gp if gp else 0,                       # overall goal diff / game — best champ signal
+            "xgpct": (axgf/(axgf+axga)*100) if (axgf+axga) else 0})            # all-situations expected-goals share
+    rk_ed = ranks(rows, "esdiff", True); rk_sv = ranks(rows, "essv", True)   # rk_sv/rk_cf still feed the hot-goalie Read
     rk_cf = ranks(rows, "corsi", True); rk_ga = ranks(rows, "totalGA", False)
+    rk_gd = ranks(rows, "gdpg", True); rk_xg = ranks(rows, "xgpct", True)
     for t in rows:
         t["rk_ed"], t["rk_sv"], t["rk_cf"], t["rk_ga"] = rk_ed[t["name"]], rk_sv[t["name"]], rk_cf[t["name"]], rk_ga[t["name"]]
-        t["q"] = [t["rk_ed"] <= 11, t["rk_sv"] <= 12, t["rk_cf"] <= 16, t["rk_ga"] <= 14]
+        t["rk_gd"], t["rk_xg"] = rk_gd[t["name"]], rk_xg[t["name"]]
+        # Categories reweighted 2026-10-28 after an 18-season champion backtest (2008-2026): overall
+        # goal diff/game and all-situations xG% rank Cup winners FAR better than ES save% & raw Corsi
+        # (which were the two WORST single predictors; ES save% ranked champs avg #9.5). Dropping them
+        # also aligns the index with the Read, which flags hot-goaltending (sv%) as unsustainable.
+        t["q"] = [t["rk_gd"] <= 10, t["rk_xg"] <= 12, t["rk_ed"] <= 11, t["rk_ga"] <= 12]
         t["score"] = sum(t["q"])
-    ned = norm(rows, "esdiff", True); nsv = norm(rows, "essv", True); nga = norm(rows, "totalGA", False); ncf = norm(rows, "corsi", True)
+    # Index backtest (18 champs): new weights put the champ at avg rank #4.8 (was #5.9), top-5 9/14
+    # (was 7), top-8 12/14 (was 9). Still lowest-chalk — a contender filter, not a reliable picker.
+    ngd = norm(rows, "gdpg", True); nxg = norm(rows, "xgpct", True); ned = norm(rows, "esdiff", True); nga = norm(rows, "totalGA", False)
     for t in rows:
-        t["index"] = round(ned[t["name"]]*.30 + nsv[t["name"]]*.25 + nga[t["name"]]*.25 + ncf[t["name"]]*.20, 1)
+        t["index"] = round(ngd[t["name"]]*.40 + nxg[t["name"]]*.25 + ned[t["name"]]*.20 + nga[t["name"]]*.15, 1)
     for t in rows: t["read"] = team_read(t, "nhl", len(rows), 4)
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.6,3:1.15,2:0.8}
@@ -375,15 +386,15 @@ def build_nhl():
     return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "season_pct": season_pct(rows, "nhl"),
-            "cats": ["ES goal diff top-11", "ES save% top-12", "Corsi top-16", "Goals Against top-14"],
-            "labels": ["ES Diff", "ES SV%", "Corsi", "GA"],
+            "cats": ["Goal diff/game top-10", "xGoals% top-12", "ES goal diff top-11", "Goals Against top-12"],
+            "labels": ["GD/g", "xG%", "ES Diff", "GA"],
             "teams": [nhl_row(t) for t in rows if t["score"] >= 1]}
 
 def nhl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
         "q": [bool(x) for x in t["q"]],
-        "vals": [f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['essv']:.1f} #{t['rk_sv']}",
-                 f"{t['corsi']:.1f} #{t['rk_cf']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
+        "vals": [f"{t['gdpg']:+.2f} #{t['rk_gd']}", f"{t['xgpct']:.1f} #{t['rk_xg']}",
+                 f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
         # Possession-regressed rating: raw ES goal diff over a small sample is inflated by
         # save% variance (hot goaltending), which the blueprint Read flags as a pretender signal.
         # Corsi (shot share) is the sustainable part, so blend them — hot-goalie teams get pulled
