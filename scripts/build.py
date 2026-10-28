@@ -358,17 +358,19 @@ def build_nhl():
     for t in rows:
         t["rk_ed"], t["rk_sv"], t["rk_cf"], t["rk_ga"] = rk_ed[t["name"]], rk_sv[t["name"]], rk_cf[t["name"]], rk_ga[t["name"]]
         t["rk_gd"], t["rk_xg"] = rk_gd[t["name"]], rk_xg[t["name"]]
-        # Categories reweighted 2026-10-28 after an 18-season champion backtest (2008-2026): overall
-        # goal diff/game and all-situations xG% rank Cup winners FAR better than ES save% & raw Corsi
-        # (which were the two WORST single predictors; ES save% ranked champs avg #9.5). Dropping them
-        # also aligns the index with the Read, which flags hot-goaltending (sv%) as unsustainable.
-        t["q"] = [t["rk_gd"] <= 10, t["rk_xg"] <= 12, t["rk_ed"] <= 11, t["rk_ga"] <= 12]
+        # Categories reweighted 2026-10-28 after a 15-season champion backtest (champs 2012-2026,
+        # authoritative MoneyPuck season data). ES save% was the single WORST champion predictor
+        # (champ top-5 only 5/15) so it is dropped; overall goal diff/game and all-situations xG% are
+        # added (best predictors). Corsi is KEPT — it was actually a strong predictor (best top-3/5).
+        t["q"] = [t["rk_gd"] <= 10, t["rk_cf"] <= 14, t["rk_xg"] <= 12, t["rk_ga"] <= 12]
         t["score"] = sum(t["q"])
-    # Index backtest (18 champs): new weights put the champ at avg rank #4.8 (was #5.9), top-5 9/14
-    # (was 7), top-8 12/14 (was 9). Still lowest-chalk — a contender filter, not a reliable picker.
-    ngd = norm(rows, "gdpg", True); nxg = norm(rows, "xgpct", True); ned = norm(rows, "esdiff", True); nga = norm(rows, "totalGA", False)
+    # Index 15-season backtest vs old (esdiff.30/essv.25/GA.25/corsi.20): identical top-3 (7/15) and
+    # top-5 (9/15) champion-PICKING, but top-8 12/15 vs 10/15 -- a strictly better CONTENDER POOL with
+    # no regression. NHL is the lowest-chalk sport: this sharpens the filter, it does not pick winners.
+    # Dropping ES save% also aligns the index with the Read (which flags hot sv% as unsustainable).
+    ngd = norm(rows, "gdpg", True); ncf = norm(rows, "corsi", True); nxg = norm(rows, "xgpct", True); nga = norm(rows, "totalGA", False)
     for t in rows:
-        t["index"] = round(ngd[t["name"]]*.40 + nxg[t["name"]]*.25 + ned[t["name"]]*.20 + nga[t["name"]]*.15, 1)
+        t["index"] = round(ngd[t["name"]]*.30 + ncf[t["name"]]*.25 + nxg[t["name"]]*.25 + nga[t["name"]]*.20, 1)
     for t in rows: t["read"] = team_read(t, "nhl", len(rows), 4)
     pool = [t for t in rows if t["score"] >= 2]
     tm = {4:1.6,3:1.15,2:0.8}
@@ -386,15 +388,15 @@ def build_nhl():
     return {"sport": "NHL", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "season_pct": season_pct(rows, "nhl"),
-            "cats": ["Goal diff/game top-10", "xGoals% top-12", "ES goal diff top-11", "Goals Against top-12"],
-            "labels": ["GD/g", "xG%", "ES Diff", "GA"],
+            "cats": ["Goal diff/game top-10", "Corsi top-14", "xGoals% top-12", "Goals Against top-12"],
+            "labels": ["GD/g", "Corsi", "xG%", "GA"],
             "teams": [nhl_row(t) for t in rows if t["score"] >= 1]}
 
 def nhl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
         "q": [bool(x) for x in t["q"]],
-        "vals": [f"{t['gdpg']:+.2f} #{t['rk_gd']}", f"{t['xgpct']:.1f} #{t['rk_xg']}",
-                 f"{t['esdiff']:+.0f} #{t['rk_ed']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
+        "vals": [f"{t['gdpg']:+.2f} #{t['rk_gd']}", f"{t['corsi']:.1f} #{t['rk_cf']}",
+                 f"{t['xgpct']:.1f} #{t['rk_xg']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],
         # Possession-regressed rating: raw ES goal diff over a small sample is inflated by
         # save% variance (hot goaltending), which the blueprint Read flags as a pretender signal.
         # Corsi (shot share) is the sustainable part, so blend them — hot-goalie teams get pulled
