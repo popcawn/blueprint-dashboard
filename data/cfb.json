@@ -54,8 +54,8 @@
       "market": "+500",
       "ev": 44,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 44
       },
       "read": {
@@ -134,8 +134,8 @@
       "market": "+650",
       "ev": 80,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "value",
+        "label": "value",
         "ev": 80
       },
       "read": {
@@ -214,8 +214,8 @@
       "market": "+4000",
       "ev": 470,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "trap",
+        "label": "trap",
         "ev": 470
       },
       "read": {

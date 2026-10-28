@@ -208,11 +208,21 @@ function simMatchup(){
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
-const VICON={best:"⭐",value:"⭐",longshot:"🎯",small:"",fair:"",fade:"🚫",bigfade:"🚫",trap:"⚠"};
+const VICON={best:"⭐",value:"✓",longshot:"🎯",small:"",fair:"",fade:"🚫",bigfade:"🚫",trap:"⚠"};
+const VDESC={
+  best:"The board's Value play — the single best bet vs the market (complete profile, trusted read, believable price ≤ +2500). Same team as the header 'Value play'.",
+  value:"A trusted value bet: positive EV at a believable price (≤ +2500).",
+  longshot:"Positive EV but a longshot price (> +2500) — a lottery ticket, not a core bet. Never crowned BEST VALUE even if the EV is huge.",
+  small:"A small positive edge over the FanDuel price.",
+  fair:"Priced about right — model and market roughly agree.",
+  fade:"FanDuel's price is worse than the model's — lean away.",
+  bigfade:"Heavily overpriced vs the model — fade.",
+  trap:"Positive EV the model DISTRUSTS (fool's gold / pretender / soft schedule) — a mirage price, not a bet."
+};
 function verdictPill(v){ if(!v) return "";
   const ev=v.ev>0?`+${v.ev}%`:`${v.ev}%`, showEv=v.kind!=="fair";
   const ic=VICON[v.kind]?VICON[v.kind]+" ":"";
-  return `<span class="vd ${v.kind}" title="Market EV verdict — fair model odds vs the FanDuel price">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
+  return `<span class="vd ${v.kind}" title="${VDESC[v.kind]||'Market EV verdict — fair model odds vs the FanDuel price'}">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
 }
 const shortNm=n=>n? n.split(" ").slice(-1)[0] : "—";
 function spark(v){ if(v.length<2)return""; const w=56,h=15,mn=Math.min(...v),mx=Math.max(...v),r=(mx-mn)||1;
@@ -261,8 +271,8 @@ function render(){
   strip.innerHTML=[
     `<div class="stat"><small>Season</small><b>${pct}%</b></div>`,
     `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
-    `<div class="stat"><small>Top pick</small><b>${shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
-    `<div class="stat" title="Complete profile + trust read + positive EV at a believable (<=+2500) price. Backtested to isolate value-dog champions; empty in chalk years."><small>Value play</small><b class="${bv?'g':''}">${bv?shortNm(bv.name)+" "+fmtEV(bv.ev):"none"}</b></div>`,
+    `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b>${shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
+    `<div class="stat" title="The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."><small>Value play</small><b class="${bv?'g':''}">${bv?shortNm(bv.name)+" "+fmtEV(bv.ev):"none"}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
   let html=`<div class="hero"><div class="heror">
@@ -289,7 +299,7 @@ function render(){
   if(cur==="cfb"&&d.gauntlet&&d.gauntlet.length){
     html+=`<div class="gauntlet"><h3>⚑ Gauntlet watch</h3>`+d.gauntlet.map(g=>`<span class="g">${g.name} <b>SRS #${g.srsrank}</b></span>`).join("")+`<div style="font-size:11px;margin-top:5px">Brutal schedules suppress their score — a 0% here isn't a true longshot.</div></div>`; }
   const W={nfl:"Pt Diff 25 · PD/g 20 · Def 20 · Off 20 · Win% 15",cfb:"Margin 30 · Win% 20 · OppPPG 18 · OppYPG 17 · PPG 15 (×SOS³)",nhl:"ES Diff 30 · Save% 25 · Goals-Against 25 · Corsi 20",nba:"Net/g 30 · Def 22 · Off 20 · Win% 13 · Depth 15"};
-  html+=`<div class="note"><b>The Read</b> is the automated trust call — it reads the component ranks, not the composite, and flags a top team hiding a playoff-fatal hole (🔴) vs a complete one (🟢). <b>Index weights:</b> ${W[cur]} (the tier counts categories equally). <b>⭐Nw</b> = top-two tier N weeks running.${cur==="nhl"?" NHL depth is already in the team-level numbers.":cur==="nba"?" Depth (10+ PPG scorers) is rewarded in the index.":""}${early?' <span class="warn">⚠ Early sample — market sharper than model; big EVs are usually model-lag.</span>':''}</div>`;
+  html+=`<div class="note"><b>Top pick vs Value play:</b> <b>Top pick</b> = the strongest team (most likely champion) — a strength call, not a bet. <b>Value play</b> = the best bet vs the FanDuel price (the one card tagged <span class="vd best" style="padding:1px 6px">⭐ BEST VALUE</span>). They're usually <i>different</i> teams: the best team is normally priced too short to also be the best bet. A big-EV longshot (price > +2500) shows as <span class="vd longshot" style="padding:1px 6px">🎯 longshot value</span> and is never crowned. <b>The Read</b> is the automated trust call — it reads the component ranks, not the composite, and flags a top team hiding a playoff-fatal hole (🔴) vs a complete one (🟢). <b>Index weights:</b> ${W[cur]} (the tier counts categories equally). <b>⭐Nw</b> = top-two tier N weeks running.${cur==="nhl"?" NHL depth is already in the team-level numbers.":cur==="nba"?" Depth (10+ PPG scorers) is rewarded in the index.":""}${early?' <span class="warn">⚠ Early sample — market sharper than model; big EVs are usually model-lag.</span>':''}</div>`;
   app.innerHTML=html;
 }
 

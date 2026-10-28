@@ -857,10 +857,13 @@ def attach(allteams, pool, fd, srs_rank=None):
     assign_verdicts(allteams)
 
 def assign_verdicts(teams):
-    """Market EV verdict per team (the BEST VALUE / value / fade spectrum from the chat runs).
+    """Market EV verdict per team — the value/fade spectrum from the chat runs. ONE price cap is
+       used everywhere: <= +2500 is a 'believable' price (the same cap value_plays uses), so a
+       positive-EV team priced LONGER than that is 'longshot value', never 'value'/'BEST VALUE'.
        'trap' = positive EV on a team the playoff-translation read distrusts (fool's gold /
-       pretender / SRS mirage) — a mirage price, not a bet. BEST VALUE = highest-EV real value."""
-    best = None
+       pretender / SRS mirage) — a mirage price, not a bet. The single BEST VALUE crown is NOT set
+       here: crown_best_value() awards it to the top QUALIFIED value play (value_plays[0]) so the
+       card crown and the header 'Value play' are always the same team."""
     for t in teams:
         ev = t.get("ev"); mk = t.get("mk"); rd = t.get("read") or {}
         if ev is None or mk is None:
@@ -869,11 +872,10 @@ def assign_verdicts(teams):
                      or (t.get("srsrank") is not None and t["srsrank"] > 15))
         if ev >= 10 and unsustain:
             v = {"kind": "trap", "label": "trap"}
-        elif ev >= 10 and mk >= 4000:
+        elif ev >= 10 and mk > 2500:
             v = {"kind": "longshot", "label": "longshot value"}
         elif ev >= 10:
             v = {"kind": "value", "label": "value"}
-            if best is None or ev > best[0]: best = (ev, t)
         elif ev >= 3:
             v = {"kind": "small", "label": "small value"}
         elif ev > -10:
@@ -884,8 +886,19 @@ def assign_verdicts(teams):
             v = {"kind": "bigfade", "label": "big fade"}
         v["ev"] = ev
         t["verdict"] = v
-    if best is not None:
-        best[1]["verdict"] = {"kind": "best", "label": "BEST VALUE", "ev": best[0]}
+
+
+def crown_best_value(teams, vp):
+    """Award the single BEST VALUE to the top qualified value play (vp[0]) — the exact team the
+       header shows as 'Value play'. Guarantees the card crown and the header can never name
+       different teams. No qualified value play => no card crowned (header shows 'none')."""
+    if not vp:
+        return
+    top = vp[0]
+    for t in teams:
+        if t.get("name") == top["name"]:
+            t["verdict"] = {"kind": "best", "label": "BEST VALUE", "ev": top["ev"]}
+            break
 
 def now_iso():
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -1219,6 +1232,7 @@ def main():
             if data.get("status") != "preseason" and data.get("gp_max") is not None:
                 data["signal"] = signal_status(name, data["gp_max"])
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4)
+                crown_best_value(data.get("teams", []), data["value_plays"])
                 attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY)
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)

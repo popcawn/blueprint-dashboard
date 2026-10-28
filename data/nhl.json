@@ -47,8 +47,8 @@
       "market": "+1700",
       "ev": 134,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 134
       },
       "read": {
@@ -117,8 +117,8 @@
       "market": "+12500",
       "ev": 1166,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "trap",
+        "label": "trap",
         "ev": 1166
       },
       "read": {
@@ -152,8 +152,8 @@
       "market": "+3500",
       "ev": 368,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "longshot",
+        "label": "longshot value",
         "ev": 368
       },
       "read": {
@@ -397,8 +397,8 @@
       "market": "+12500",
       "ev": 380,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "trap",
+        "label": "trap",
         "ev": 380
       },
       "read": {
@@ -467,8 +467,8 @@
       "market": "+7500",
       "ev": 109,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "trap",
+        "label": "trap",
         "ev": 109
       },
       "read": {
