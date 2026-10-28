@@ -91,6 +91,7 @@
   .conf{font-size:10px;color:var(--ink3);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0}
   .rec{color:var(--ink3);font-size:13px;white-space:nowrap;flex-shrink:0}
   .idx{margin-left:auto;text-align:right;font-size:11px;color:var(--ink3)}
+  .irank{font-weight:800;font-size:11px;color:var(--ink);background:var(--panel2,#eef1f6);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
   .idx b{color:var(--ink);font-size:16px;font-family:var(--mono)}
   .ev{font-weight:800;padding:2px 9px;border-radius:7px;font-size:12.5px;font-family:var(--mono)}
   .ev.pos{background:var(--goodbg);color:var(--good)} .ev.neg{background:var(--badbg);color:var(--bad)} .ev.zero{background:var(--panel2);color:var(--ink3)}
@@ -266,7 +267,7 @@ function card(t,sp){
   const read=showRead?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
   return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${VPSET.has(t.name)?'<span class="vbadge" title="Qualified value: complete profile + trust read + positive EV at a believable price">✓ VALUE</span>':''}
-      <span class="idx">index <b>${t.index}</b></span></div>
+      <span class="idx">${t._irank?`<span class="irank" title="Overall rank by index (strength). The calibration line's 'top-N' is measured here.">#${t._irank}</span> `:""}index <b>${t.index}</b></span></div>
     ${ev?`<div class="vdrow">${ev}</div>`:""}
     ${read}<div class="chips">${chips}</div>
     <div class="foot"><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
@@ -284,6 +285,8 @@ function render(){
   const pct=d.season_pct!=null?d.season_pct:Math.round((d.gp_max||0)/TOTAL[cur]*100);
   const early=pct<({nfl:45,cfb:45,nhl:28,nba:28,wnba:32,mlb:30}[cur]||0);
   const teams=d.teams, contenders=teams.filter(t=>t.score>=2).length;
+  // overall rank by index (strength) — what the calibration line's "top-N" refers to
+  teams.slice().filter(t=>t.index!=null).sort((a,b)=>b.index-a.index).forEach((t,i)=>t._irank=i+1);
   const vp=(d.value_plays||[]); VPSET=new Set(vp.map(x=>x.name));
   const bv=vp[0], traps=teams.filter(t=>t.read&&t.read.v==="fools_gold").length;
   strip.innerHTML=[
