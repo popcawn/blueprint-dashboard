@@ -77,11 +77,12 @@
   .muwhy{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.45}
   .munote{font-size:11px;color:var(--ink3);margin-top:5px}
   .muwarn{font-size:12px;color:var(--bad)}
-  .tier{margin:18px 0 9px;font-family:var(--head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink2)}
-  .tier .n{color:var(--ink3);font-weight:500;font-size:11px;letter-spacing:.04em}
+  .tier{display:flex;align-items:center;gap:9px;margin:32px 0 13px;padding:9px 14px;font-family:var(--head);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);border-left:5px solid var(--tc,var(--line2));background:linear-gradient(90deg,color-mix(in srgb,var(--tc,var(--line2)) 15%,transparent),transparent);border-radius:0 10px 10px 0}
+  .tier:first-of-type{margin-top:6px}
+  .tier .n{color:var(--ink3);font-weight:600;font-size:12px;letter-spacing:.03em;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:13px;align-items:start}
   .card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--tc,var(--line2));border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
-  .card.t5{--tc:var(--good)} .card.t4{--tc:var(--accent)} .card.t3{--tc:var(--star)} .card.t2{--tc:#9aa7bb} .card.t1{--tc:#c7d0dd}
+  .t5{--tc:var(--good)} .t4{--tc:var(--accent)} .t3{--tc:var(--star)} .t2{--tc:#9aa7bb} .t1{--tc:#c7d0dd}
   .row1{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
   .nm{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:-.2px;min-width:0;overflow-wrap:anywhere}
   .conf{font-size:10px;color:var(--ink3);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0}
@@ -300,7 +301,7 @@ function render(){
       <div class="muout" id="muout"></div></div>`;
   }
   for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
-    html+=`<div class="tier">${tier(sc,mx)[0]} <span class="n">(${sc}/${mx})</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }
+    html+=`<div class="tier ${tier(sc,mx)[1]}">${tier(sc,mx)[0]} <span class="n">${sc}/${mx}</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }
   if(cur==="cfb"&&d.gauntlet&&d.gauntlet.length){
     html+=`<div class="gauntlet"><h3>⚑ Gauntlet watch</h3>`+d.gauntlet.map(g=>`<span class="g">${g.name} <b>SRS #${g.srsrank}</b></span>`).join("")+`<div style="font-size:11px;margin-top:5px">Brutal schedules suppress their score — a 0% here isn't a true longshot.</div></div>`; }
   const W={nfl:"Pt Diff 25 · PD/g 20 · Def 20 · Off 20 · Win% 15",cfb:"Margin 30 · Win% 20 · OppPPG 18 · OppYPG 17 · PPG 15 (×SOS³)",nhl:"ES Diff 30 · Save% 25 · Goals-Against 25 · Corsi 20",nba:"Net/g 30 · Def 22 · Off 20 · Win% 13 · Depth 15",wnba:"Net/g 45 · Def 30 · Win% 25",mlb:"Run diff 22 · ERA 16 · DRS 14 · RBI 13 · Win% 12 · pBABIP 12 · DEF 11"};
