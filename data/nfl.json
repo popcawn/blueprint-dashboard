@@ -1,11 +1,11 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-28T14:49:05Z",
-  "odds_remaining": "60971",
+  "generated": "2026-10-28T15:43:57Z",
+  "odds_remaining": "60962",
   "prediction": {
     "pick": "San Francisco 49ers",
-    "why": "<b>San Francisco 49ers</b> is the pick \u2014 The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it."
+    "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it."
   },
   "gp_min": 6,
   "gp_max": 7,
@@ -57,8 +57,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it.",
-        "tier": "champion"
+        "why": "The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -93,8 +92,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "tier": "contender"
+        "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
       }
     },
     {
@@ -120,17 +118,16 @@
       "rtg": 6.8,
       "fair_pct": 13.2,
       "fair_odds": "+655",
-      "market": "+1600",
-      "ev": 125,
+      "market": "+1700",
+      "ev": 138,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 125
+        "ev": 138
       },
       "read": {
         "v": "trust",
-        "why": "Built for January \u2014 a real #5 point margin AND a #8 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "tier": "contender"
+        "why": "Built for January \u2014 a real #5 point margin AND a #8 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
       }
     },
     {
@@ -165,8 +162,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#2) and a top-1 defense. Complete and earned \u2014 trust it.",
-        "tier": "contender"
+        "why": "The two traits that survive single-elimination: dominant margin (#2) and a top-1 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -201,8 +197,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "Built for January \u2014 a real #6 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down.",
-        "tier": "contender"
+        "why": "Built for January \u2014 a real #6 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
       }
     },
     {
@@ -237,8 +232,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #7 unit, but the #9 area is where a good playoff team picks it apart.",
-        "tier": "contender"
+        "why": "A middling profile \u2014 leads with its #7 unit, but the #9 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -273,8 +267,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #4 defense, but a #13 offense that can't go cold at the wrong time.",
-        "tier": "contender"
+        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #4 defense, but a #13 offense that can't go cold at the wrong time."
       }
     },
     {
@@ -335,12 +328,12 @@
       "rtg": 3.2,
       "fair_pct": 3.1,
       "fair_odds": "+3177",
-      "market": "+1800",
-      "ev": -42,
+      "market": "+1700",
+      "ev": -45,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -42
+        "ev": -45
       },
       "read": {
         "v": "fools_gold",
@@ -370,12 +363,12 @@
       "rtg": 2.1,
       "fair_pct": 3.0,
       "fair_odds": "+3264",
-      "market": "+6500",
-      "ev": 96,
+      "market": "+6000",
+      "ev": 81,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 96
+        "ev": 81
       },
       "read": {
         "v": "caution",
@@ -471,7 +464,7 @@
       "rtg": 1.3,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+3500",
+      "market": "+4000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -533,7 +526,7 @@
       "rtg": -0.3,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+6000",
+      "market": "+5500",
       "ev": null,
       "verdict": null,
       "read": {
@@ -626,7 +619,7 @@
       "rtg": -2.0,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+15000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -812,7 +805,7 @@
       "rtg": -1.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+100000",
+      "market": "+70000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -843,7 +836,7 @@
       "rtg": -3.7,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+60000",
+      "market": "+70000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1060,7 +1053,7 @@
       "rtg": -10.2,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+60000",
+      "market": "+50000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1084,8 +1077,8 @@
     },
     {
       "name": "Cincinnati Bengals",
-      "ev": 125,
-      "market": "+1600",
+      "ev": 138,
+      "market": "+1700",
       "fair_odds": "+655"
     },
     {
