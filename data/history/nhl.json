@@ -1887,8 +1887,8 @@
     "sc": 4,
     "idx": 66.4,
     "fp": 8.2,
-    "mkt": "+15000",
-    "ev": 1139
+    "mkt": "+12500",
+    "ev": 934
    },
    "Boston Bruins": {
     "sc": 3,
@@ -1901,15 +1901,15 @@
     "sc": 3,
     "idx": 73.9,
     "fp": 8.1,
-    "mkt": "+700",
-    "ev": -35
+    "mkt": "+650",
+    "ev": -39
    },
    "New Jersey Devils": {
     "sc": 3,
     "idx": 66.5,
     "fp": 5.9,
-    "mkt": "+1300",
-    "ev": -17
+    "mkt": "+1200",
+    "ev": -23
    },
    "Colorado Avalanche": {
     "sc": 3,
@@ -1929,8 +1929,8 @@
     "sc": 3,
     "idx": 59.1,
     "fp": 4.2,
-    "mkt": "+2500",
-    "ev": 8
+    "mkt": "+2700",
+    "ev": 16
    },
    "Montreal Canadiens": {
     "sc": 3,
@@ -1943,15 +1943,15 @@
     "sc": 3,
     "idx": 57.9,
     "fp": 3.9,
-    "mkt": "+1100",
-    "ev": -53
+    "mkt": "+1000",
+    "ev": -57
    },
    "Dallas Stars": {
     "sc": 2,
     "idx": 66.0,
     "fp": 7.1,
-    "mkt": "+1600",
-    "ev": 21
+    "mkt": "+1700",
+    "ev": 29
    },
    "Vegas Golden Knights": {
     "sc": 2,
@@ -1985,8 +1985,8 @@
     "sc": 2,
     "idx": 45.1,
     "fp": 2.3,
-    "mkt": "+15000",
-    "ev": 244
+    "mkt": "+12500",
+    "ev": 187
    },
    "Nashville Predators": {
     "sc": 2,
@@ -2006,14 +2006,14 @@
     "sc": 1,
     "idx": 48.4,
     "fp": null,
-    "mkt": "+1500",
+    "mkt": "+1700",
     "ev": null
    },
    "Florida Panthers": {
     "sc": 1,
     "idx": 48.3,
     "fp": null,
-    "mkt": "+950",
+    "mkt": "+900",
     "ev": null
    },
    "Pittsburgh Penguins": {
@@ -2034,7 +2034,7 @@
     "sc": 1,
     "idx": 38.5,
     "fp": null,
-    "mkt": "+3300",
+    "mkt": "+3500",
     "ev": null
    },
    "Calgary Flames": {

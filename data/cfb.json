@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-28T14:49:32Z",
-  "odds_remaining": "60968",
+  "generated": "2026-10-28T19:11:07Z",
+  "odds_remaining": "60670",
   "prediction": {
-    "pick": "Miami Hurricanes",
-    "why": "<b>Miami Hurricanes</b> is the pick \u2014 Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
+    "pick": "Notre Dame Fighting Irish",
+    "why": "<b>Notre Dame Fighting Irish</b> is the pick \u2014 the top team the model actually trusts (fair +317). The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
   },
   "gp_min": 7,
   "gp_max": 9,
@@ -60,8 +60,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "tier": "contender"
+        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       }
     },
     {
@@ -99,8 +98,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
-        "tier": "champion"
+        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way."
       }
     },
     {
@@ -129,17 +127,16 @@
       "rtg": 39.8,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+600",
-      "ev": 68,
+      "market": "+650",
+      "ev": 80,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 68
+        "ev": 80
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet.",
-        "tier": "champion"
+        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -168,17 +165,16 @@
       "rtg": 25.1,
       "fair_pct": 14.1,
       "fair_odds": "+609",
-      "market": "+75000",
-      "ev": 10491,
+      "market": "+70000",
+      "ev": 9786,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 10491
+        "ev": 9786
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #43 says the schedule hasn't fully tested it yet.",
-        "tier": "pretender"
+        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #43 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -216,8 +212,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #10 says the schedule hasn't fully tested it yet.",
-        "tier": "contender"
+        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #10 says the schedule hasn't fully tested it yet."
       }
     },
     {
