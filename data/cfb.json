@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-27T19:02:47Z",
-  "odds_remaining": "61998",
+  "generated": "2026-10-28T14:49:32Z",
+  "odds_remaining": "60968",
   "prediction": {
     "pick": "Miami Hurricanes",
-    "why": "<b>Miami Hurricanes</b> is the pick \u2014 Elite offense leading the nation with a dominant margin; the defense is solid rather than stingy, so it's a real title threat that has yet to face a playoff-caliber test."
+    "why": "<b>Miami Hurricanes</b> is the pick \u2014 Scoring at a historic clip with the nation's best margin; the defense is good rather than elite, and it hasn't yet faced a playoff-caliber offense to prove it holds up."
   },
   "gp_min": 7,
   "gp_max": 9,
@@ -51,17 +51,17 @@
       "rtg": 37.8,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+500",
-      "ev": 44,
+      "market": "+550",
+      "ev": 56,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 44
+        "ev": 56
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff.",
-        "beat": "Elite defense, top-tier point margin, and a strong schedule r\u00e9sum\u00e9 make them a real playoff threat; the offense is good rather than dominant, so they're a contender, not a clear favorite to win it all.",
+        "beat": "A complete, elite-on-defense team that's beaten real opponents by wide margins; the offense sits middling, so it's a genuine contender rather than a finished champion.",
         "tier": "contender"
       }
     },
@@ -78,7 +78,7 @@
         true,
         true
       ],
-      "sosrank": 41,
+      "sosrank": 43,
       "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
@@ -101,7 +101,7 @@
       "read": {
         "v": "trust",
         "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way.",
-        "beat": "Elite on both sides of the ball, with a stingy defense and a top-tier margin against real competition; this is the one to trust all the way.",
+        "beat": "Elite on both sides of the ball and tested against a real schedule; the offense scores at will and the defense rarely cracks. Believe it.",
         "tier": "champion"
       }
     },
@@ -118,7 +118,7 @@
         false,
         true
       ],
-      "sosrank": 73,
+      "sosrank": 72,
       "srsrank": 4,
       "srs_flag": "elite",
       "vals": [
@@ -131,17 +131,17 @@
       "rtg": 39.8,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+650",
-      "ev": 80,
+      "market": "+600",
+      "ev": 68,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 80
+        "ev": 68
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet.",
-        "beat": "Elite offense leading the nation with a dominant margin; the defense is solid rather than stingy, so it's a real title threat that has yet to face a playoff-caliber test.",
+        "beat": "Scoring at a historic clip with the nation's best margin; the defense is good rather than elite, and it hasn't yet faced a playoff-caliber offense to prove it holds up.",
         "tier": "champion"
       }
     },
@@ -158,8 +158,8 @@
         true,
         true
       ],
-      "sosrank": 130,
-      "srsrank": 42,
+      "sosrank": 129,
+      "srsrank": 43,
       "srs_flag": "mirage",
       "vals": [
         "0.857",
@@ -168,7 +168,7 @@
         "261 #5",
         "+25.7 #5"
       ],
-      "rtg": 25.3,
+      "rtg": 25.1,
       "fair_pct": 14.1,
       "fair_odds": "+609",
       "market": "+75000",
@@ -180,8 +180,8 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #42 says the schedule hasn't fully tested it yet.",
-        "beat": "A defense that ranks among the nation's best has carried this 6-1 start, but the offense is middling and the schedule has not yet tested them against a playoff-caliber opponent.",
+        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #43 says the schedule hasn't fully tested it yet.",
+        "beat": "A defense that ranks among the nation's best, paired with an offense that struggles to score, is a profile that gets outscored once it meets a real playoff opponent; the schedule has not yet tested that gap.",
         "tier": "pretender"
       }
     },
@@ -199,7 +199,7 @@
         false
       ],
       "sosrank": 126,
-      "srsrank": 9,
+      "srsrank": 10,
       "srs_flag": "ok",
       "vals": [
         "1.000",
@@ -208,21 +208,21 @@
         "312 #27",
         "+22.9 #8"
       ],
-      "rtg": 30.6,
+      "rtg": 30.5,
       "fair_pct": 13.9,
       "fair_odds": "+620",
       "market": "+4000",
       "ev": 470,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
+        "kind": "longshot",
+        "label": "longshot value",
         "ev": 470
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet.",
-        "beat": "Undefeated with a strong margin, but a total defense that leaks yards against a schedule that hasn't really tested it; a playoff-caliber opponent could expose that.",
-        "tier": "pretender"
+        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #10 says the schedule hasn't fully tested it yet.",
+        "beat": "Undefeated with an elite scoring margin, but the defense allows yards in bulk and the schedule hasn't yet tested that soft spot against a playoff-caliber offense.",
+        "tier": "contender"
       }
     },
     {
@@ -230,7 +230,7 @@
       "conf": "SEC",
       "rec": "6-1",
       "score": 2,
-      "index": 86.7,
+      "index": 86.2,
       "q": [
         false,
         true,
@@ -238,17 +238,17 @@
         false,
         true
       ],
-      "sosrank": 88,
+      "sosrank": 92,
       "srsrank": 5,
       "srs_flag": "elite",
       "vals": [
         "0.857",
         "43.0 #3",
-        "15.4 #14",
-        "275 #12",
-        "+27.6 #3"
+        "15.9 #16",
+        "276 #12",
+        "+27.1 #3"
       ],
-      "rtg": 36.7,
+      "rtg": 36.4,
       "fair_pct": null,
       "fair_odds": null,
       "market": "+400",
@@ -256,7 +256,7 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 offense; the #14 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #5 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 offense; the #16 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #5 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -272,7 +272,7 @@
         true,
         false
       ],
-      "sosrank": 33,
+      "sosrank": 38,
       "srsrank": 11,
       "srs_flag": "ok",
       "vals": [
@@ -282,10 +282,10 @@
         "265 #8",
         "+21.6 #9"
       ],
-      "rtg": 29.8,
+      "rtg": 29.7,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+750",
+      "market": "+800",
       "ev": null,
       "verdict": null,
       "read": {
@@ -340,7 +340,7 @@
         true,
         false
       ],
-      "sosrank": 113,
+      "sosrank": 112,
       "srsrank": 12,
       "srs_flag": "ok",
       "vals": [
@@ -353,7 +353,7 @@
       "rtg": 28.4,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+8000",
+      "market": "+7500",
       "ev": null,
       "verdict": null,
       "read": {
@@ -375,7 +375,7 @@
         false
       ],
       "sosrank": 61,
-      "srsrank": 70,
+      "srsrank": 71,
       "srs_flag": "mirage",
       "vals": [
         "0.750",
@@ -392,7 +392,7 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 total defense; the #77 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #70 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #2 total defense; the #77 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #71 says the schedule hasn't fully tested it yet."
       }
     },
     {
@@ -408,7 +408,7 @@
         true,
         false
       ],
-      "sosrank": 46,
+      "sosrank": 48,
       "srsrank": 41,
       "srs_flag": "mirage",
       "vals": [
@@ -453,7 +453,7 @@
     },
     {
       "name": "Tennessee Volunteers",
-      "srsrank": 10
+      "srsrank": 9
     }
   ],
   "signal": {
@@ -465,8 +465,8 @@
   "value_plays": [
     {
       "name": "Notre Dame Fighting Irish",
-      "ev": 44,
-      "market": "+500",
+      "ev": 56,
+      "market": "+550",
       "fair_odds": "+317"
     },
     {
