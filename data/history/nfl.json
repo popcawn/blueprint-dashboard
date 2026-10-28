@@ -2390,8 +2390,8 @@
     "sc": 5,
     "idx": 74.2,
     "fp": 13.2,
-    "mkt": "+1600",
-    "ev": 125
+    "mkt": "+1700",
+    "ev": 138
    },
    "Minnesota Vikings": {
     "sc": 4,
@@ -2432,15 +2432,15 @@
     "sc": 2,
     "idx": 61.5,
     "fp": 3.1,
-    "mkt": "+1800",
-    "ev": -42
+    "mkt": "+1700",
+    "ev": -45
    },
    "Pittsburgh Steelers": {
     "sc": 2,
     "idx": 59.4,
     "fp": 3.0,
-    "mkt": "+6500",
-    "ev": 96
+    "mkt": "+6000",
+    "ev": 81
    },
    "Denver Broncos": {
     "sc": 2,
@@ -2460,7 +2460,7 @@
     "sc": 1,
     "idx": 51.9,
     "fp": null,
-    "mkt": "+3500",
+    "mkt": "+4000",
     "ev": null
    },
    "New York Giants": {
@@ -2474,7 +2474,7 @@
     "sc": 1,
     "idx": 46.2,
     "fp": null,
-    "mkt": "+6000",
+    "mkt": "+5500",
     "ev": null
    },
    "Cleveland Browns": {
@@ -2495,7 +2495,7 @@
     "sc": 1,
     "idx": 40.0,
     "fp": null,
-    "mkt": "+12500",
+    "mkt": "+15000",
     "ev": null
    },
    "Los Angeles Rams": {
@@ -2537,14 +2537,14 @@
     "sc": 0,
     "idx": 38.5,
     "fp": null,
-    "mkt": "+100000",
+    "mkt": "+70000",
     "ev": null
    },
    "Indianapolis Colts": {
     "sc": 0,
     "idx": 31.7,
     "fp": null,
-    "mkt": "+60000",
+    "mkt": "+70000",
     "ev": null
    },
    "New Orleans Saints": {
@@ -2593,7 +2593,7 @@
     "sc": 0,
     "idx": 6.2,
     "fp": null,
-    "mkt": "+60000",
+    "mkt": "+50000",
     "ev": null
    }
   }
