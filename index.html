@@ -67,6 +67,9 @@
   .ftt.pending{background:var(--panel2);color:var(--ink3)}
   .signote{font-size:11.5px;color:var(--ink3);margin:2px 0 8px}
   .signote.early{color:var(--bad)} .signote.firming{color:#b98700}
+  .cal{margin:9px 0 3px;padding:8px 13px;font-size:12.5px;line-height:1.5;color:var(--ink2);border-radius:0 9px 9px 0;border-left:4px solid var(--good);background:var(--goodbg)}
+  .cal.ok{border-left-color:var(--warn);background:var(--warnbg)} .cal.low{border-left-color:var(--bad);background:var(--badbg)}
+  .cal b{color:var(--ink);font-weight:700} .cal .lbl{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:10px;opacity:.7;margin-right:6px}
   .matchup{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0 6px}
   .muhead{font-weight:800;font-size:13px;letter-spacing:.02em;color:var(--ink2);margin-bottom:8px}
   .murow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -161,6 +164,15 @@
 <script>
 const REPO="popcawn/blueprint-dashboard";
 const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA",wnba:"WNBA",mlb:"MLB"};
+// Per-sport backtest calibration — how reliably the board's ranking has identified the champion.
+const CAL={
+  cfb:{c:"",   t:"Backtested 2014–25: the champion was the model's <b>#1 pick in 10 of 12</b> CFP-era seasons. The most reliable board — trust the top pick."},
+  nba:{c:"",   t:"Backtested 2011–25: the champion finished <b>top-3 by index in 13 of 15</b> seasons (avg #2.9). Highly reliable."},
+  nfl:{c:"ok", t:"Backtested 2010–25: the champion finished <b>top-8 by index in 14 of 16</b> seasons (top-5 in 11, avg #4.8). Single-elimination — trust the shortlist, not the single pick."},
+  nhl:{c:"low",t:"Backtested 2012–26: the champion made the model's <b>top-5 in only 9 of 15</b> seasons (avg #5.7) — the lowest-chalk sport. A contender filter, <b>not</b> a winner picker."},
+  mlb:{c:"low",t:"Not yet backtested here, and the MLB postseason is near-random — this flags the best <i>regular-season</i> team, not the likely champion."},
+  wnba:{c:"ok",t:"Not yet backtested here and there is no betting market — read it as 'who's the best team,' not a validated champion picker."}
+};
 const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4,wnba:3,mlb:7}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82,wnba:44,mlb:162};
 const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
@@ -290,7 +302,8 @@ function render(){
       <div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div></div></div>
     <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
       <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>
-    ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}`;
+    ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}
+    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}`;
   if(teams.length>1){
     const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
     const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
