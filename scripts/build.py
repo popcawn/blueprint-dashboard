@@ -154,14 +154,19 @@ def build_nfl():
     for t in rows:
         t["index"] = round(npd[t["name"]]*.25 + npg[t["name"]]*.20 + no[t["name"]]*.20 + nf[t["name"]]*.20 + nw[t["name"]]*.15, 1)
     for t in rows: t["read"] = team_read(t, "nfl", len(rows), 5)
-    # fair odds: AFC/NFC split, cap 17%
+    # fair odds: AFC/NFC split, cap 22%. Raised from 17% after a 16-season calibration backtest
+    # (2010-2025): the model's #1 fair-odds team won the SB in 4/16 seasons (~25%), so a 17% cap
+    # systematically UNDER-rated dominant favorites and made the model fade eventual champions
+    # (e.g. 2025 Seattle: 17% fair vs the market's 20.4% = a wrong fade; at 22% it's correctly valued).
+    # Champion IDENTIFICATION (categories/index) was already near-optimal -- reweighting it did NOT
+    # survive split-half validation, and turnover differential did not help -- so the cap was the fix.
     pool = [t for t in rows if t["score"] >= 2]
     tm = {5:1.6,4:1.25,3:1.0,2:0.7}
     for cf in ("AFC","NFC"):
         cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
         for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
-    cap_odds(pool, 0.17)
+    cap_odds(pool, 0.22)
     fd, rem = fetch_futures("americanfootball_nfl_super_bowl_winner")
     attach(rows, pool, fd)
     pred = make_prediction(rows, 5)
