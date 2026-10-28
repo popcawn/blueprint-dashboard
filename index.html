@@ -245,7 +245,12 @@ function card(t,sp){
   const TIER={pretender:"PRETENDER",contender:"CONTENDER",champion:"CHAMPION"};
   const rlabel=t.read&&t.read.tier?(TIER[t.read.tier]||RV[t.read.v]):(t.read?RV[t.read.v]:"");
   const rtxt=t.read?(t.read.beat||t.read.why):"";
-  const read=t.read?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
+  // A read only earns its place when it's a WARNING — a flaw/caveat the ranking would otherwise hide
+  // (caution, fool's gold, or a pretender call). A genuinely good, complete team needs no read: the
+  // tier + value tag already say "believe it". Clean trust/champion teams show nothing here.
+  const rv=t.read&&t.read.v, rtier=t.read&&t.read.tier;
+  const showRead=!!t.read && (rv==="caution"||rv==="fools_gold"||rtier==="pretender");
+  const read=showRead?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
   return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${VPSET.has(t.name)?'<span class="vbadge" title="Qualified value: complete profile + trust read + positive EV at a believable price">✓ VALUE</span>':''}
       <span class="idx">index <b>${t.index}</b></span></div>
