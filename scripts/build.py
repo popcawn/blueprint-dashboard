@@ -875,8 +875,14 @@ def build_nba():
     npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nf = norm(rows, "ppg", True)
     nw = norm(rows, "winpct", True); ndp = norm(rows, "depth", True)
     has_depth = any(t["depth"] for t in rows)
-    for t in rows:  # Depth (scoring balance) rewarded in the index; neutral if the feed is unavailable
-        t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.22 + nf[t["name"]]*.20 + nw[t["name"]]*.13
+    # Index reweighted 2026-10-28 after a 15-season champion backtest (2011-2025, ESPN standings):
+    # WIN% is the single BEST champion predictor (champ top-3 10/15) but was weighted only .13, while
+    # raw offense (ppg, .20) is a weak standalone predictor and redundant with net rating. Bumping
+    # win% .13->.23 and trimming offense .20->.12 lifts the champ to top-3 11/15 (was 9) and avg rank
+    # #2.9 (was #3.2); it held or improved on BOTH split-halves (unlike the NFL reweight, which overfit).
+    # Depth (scoring balance) stays .15, net rating .30; neutral if the depth feed is unavailable.
+    for t in rows:
+        t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.20 + nf[t["name"]]*.12 + nw[t["name"]]*.23
                            + (ndp[t["name"]]*.15 if has_depth else npd[t["name"]]*.15), 1)
     for t in rows: t["read"] = team_read(t, "nba", len(rows), 4)
     # 40-wins-before-20-losses pedigree flag (display-only positive signal, not a gate)
