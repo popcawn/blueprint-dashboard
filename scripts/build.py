@@ -279,6 +279,7 @@ def build_cfb():
     pool = [t for t in teams if t["score"] >= 3 and "North Dakota State" not in t["name"]]
     tot = sum((t["index"]**3)/1e5*(t["sos"]/avg)**3 for t in pool)
     for t in pool: t["p"] = ((t["index"]**3)/1e5*(t["sos"]/avg)**3) / tot if tot else 0
+    for t in pool: t["mw"] = t["p"]   # uncapped weight: THE backtested order (10/12) — the 24% cap ties the top teams
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
@@ -308,7 +309,8 @@ def cfb_row(t):
         # out-of-sample (70.8% vs 70.0%, Brier .1916 vs .1969) by deflating soft-schedule margins.
         "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
+        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
+        "mw": round(t["mw"]*100, 2) if t.get("mw") else None}
 
 def compute_srs(games, fbs):
     sched = {}

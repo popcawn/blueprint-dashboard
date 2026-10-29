@@ -67,6 +67,23 @@
   .ftt.pending{background:var(--panel2);color:var(--ink3)}
   .signote{font-size:11.5px;color:var(--ink3);margin:2px 0 8px}
   .signote.early{color:var(--bad)} .signote.firming{color:#b98700}
+  .t8{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 14px 11px;margin:12px 0 2px}
+  .t8h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}
+  .t8h b{font-family:var(--head);font-size:14.5px}.t8h span{font-size:12px;color:var(--ink3)}.t8h .r{margin-left:auto}
+  .t8g{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+  .t8c{border:1px solid var(--line);border-radius:11px;padding:8px 9px 7px;background:var(--panel2);min-width:0}
+  .t8c.g{border-color:#8fd3b2;background:linear-gradient(180deg,#f0faf4,#fff)}
+  .t8top{display:flex;align-items:center;gap:5px}.t8rk{font:700 19px var(--head);line-height:1}
+  .t8mv{font-size:10.5px;font-weight:800;border-radius:5px;padding:0 4px}
+  .t8mv.up{color:var(--good);background:var(--goodbg)}.t8mv.dn{color:var(--bad);background:var(--badbg)}.t8mv.nw{color:var(--accent);background:#e7efff}
+  .t8ev{margin-left:auto;font-weight:800;font-size:11.5px;border-radius:999px;padding:0 7px;white-space:nowrap}
+  .t8ev.g{background:var(--good);color:#fff}.t8ev.w{background:var(--warnbg);color:var(--warn)}.t8ev.r{background:var(--badbg);color:var(--bad)}.t8ev.n{background:#e9edf3;color:var(--ink3)}
+  .t8nm{font-weight:800;font-size:13.5px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .t8m{font-size:11px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .t8tr{display:flex;gap:2px;margin-top:6px}.t8tr i{flex:1;height:4px;border-radius:2px;background:#dfe5ee}
+  .t8tr i.a{background:var(--good)}.t8tr i.b{background:#7cc9a4}.t8tr i.c{background:#bfe3d0}
+  @media(max-width:1100px){.t8g{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  @media(max-width:560px){.t8g{grid-template-columns:repeat(2,minmax(0,1fr))}.t8h .r{margin-left:0}}
   .cal{margin:9px 0 3px;padding:8px 13px;font-size:12.5px;line-height:1.5;color:var(--ink2);border-radius:0 9px 9px 0;border-left:4px solid var(--good);background:var(--goodbg)}
   .cal.ok{border-left-color:var(--warn);background:var(--warnbg)} .cal.low{border-left-color:var(--bad);background:var(--badbg)}
   .cal b{color:var(--ink);font-weight:700} .cal .lbl{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:10px;opacity:.7;margin-right:6px}
@@ -247,6 +264,26 @@ function consistency(sp,nm){ const h=HIST[sp]; if(!h||!h.length)return{spark:"",
   for(let i=pr.length-1;i>=0;i--){ if(pr[i]&&pr[i].sc>=mx-1)st++; else break; }
   return{spark:spark(idx),streak:st,star:st>=2&&st===pr.filter(Boolean).length};}
 
+// Top-8 strip: the backtested shortlist (top 8 by index; CFB by index × schedule, the order that
+// picked 10/12 champions) with each team's EV beside it — green = value (incl. small value).
+const T8EV={best:"g",value:"g",small:"g",longshot:"g",trap:"w",fair:"n",fade:"r",bigfade:"r"};
+function top8(d,sp){
+  const ord=sp==="cfb"
+    ? d.teams.filter(t=>t.index!=null).sort((a,b)=>((b.mw||-1)-(a.mw||-1))||(b.index-a.index))
+    : d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
+  const top=ord.slice(0,8); if(top.length<3)return "";
+  const h=(HIST[sp]||[]).slice(-6);
+  const rk=h.map(s=>{const r={};Object.entries(s.teams).sort((a,b)=>sp==="cfb"?((b[1].fp||0)-(a[1].fp||0))||(b[1].idx-a[1].idx):b[1].idx-a[1].idx).forEach(([n],i)=>r[n]=i+1);return r;});
+  const cells=top.map((t,i)=>{const n=i+1, was=rk.length>1?rk[0][t.name]:undefined;
+    const mv=rk.length<2?"":was==null||was>8?`<span class="t8mv nw">NEW</span>`:was>n?`<span class="t8mv up">▲${was-n}</span>`:was<n?`<span class="t8mv dn">▼${n-was}</span>`:"";
+    const k=t.verdict?T8EV[t.verdict.kind]||"n":"n";
+    const tr=rk.length?`<div class="t8tr">${rk.map(r=>{const x=r[t.name];return `<i class="${x<=3?'a':x<=5?'b':x<=8?'c':''}"></i>`;}).join("")}</div>`:"";
+    return `<div class="t8c ${k==="g"?"g":""}" title="${t.name} · FanDuel ${t.market||"—"} · fair ${t.fair_odds||"—"}${t.verdict?" · "+t.verdict.label:""}">
+      <div class="t8top"><span class="t8rk">#${n}</span>${mv}<span class="t8ev ${k}">${t.ev!=null?fmtEV(t.ev):"—"}</span></div>
+      <div class="t8nm">${shortNm(t.name)}</div><div class="t8m">${t.market?`FD ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
+  return `<div class="t8"><div class="t8h"><b>🏁 Top 8</b><span>${sp==="cfb"?"model rank (index × schedule)":"rank by index"} · EV vs FanDuel beside each · green = value</span>${rk.length>1?`<span class="r">▲▼ vs ${rk.length} runs ago · bars = last ${rk.length} runs (dark top-3 · mid top-5 · light top-8)</span>`:""}</div><div class="t8g">${cells}</div></div>`;
+}
+
 function card(t,sp){
   const cl=tier(t.score,MAXCAT[sp])[1], L=(DATA[sp]&&DATA[sp].labels)||[];
   const chips=t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("");
@@ -305,7 +342,7 @@ function render(){
     <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
       <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>
     ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}
-    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}`;
+    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${top8(d,cur)}`;
   if(teams.length>1){
     const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
     const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
