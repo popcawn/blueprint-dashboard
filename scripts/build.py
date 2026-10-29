@@ -526,6 +526,34 @@ def nba_wl_log(tid, season):
     g.sort(key=lambda x: x[0] or datetime.date.min)
     return [x[1] for x in g]
 
+VS500_MIN_GP = 25   # record vs .500+ teams is noise until every team has ~25 games
+
+def nba_vs500(season, winpct):
+    """{team displayName: (w, l)} vs opponents currently above .500, from ESPN team schedules.
+       Backtested 2026-10-29 over 15 champions (2011-2025): this single stat put the champion top-3 in
+       12/15 seasons (index 10/15), better in BOTH halves (6/7 & 6/8 vs 5/7 & 5/8) — the one stat out of
+       53 tested (and 888k blends, all overfit) that held up out of sample."""
+    ids = nba_team_ids()
+    name_of = {str(v): k for k, v in ids.items()}
+    out = {}
+    for nm, tid in ids.items():
+        try:
+            d = get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/{tid}/schedule?season={season}")
+        except Exception:
+            continue
+        w = l = 0
+        for ev in d.get("events", []):
+            if str(ev.get("seasonType", {}).get("type")) != "2": continue
+            comp = ev.get("competitions", [{}])[0]
+            if not comp.get("status", {}).get("type", {}).get("completed"): continue
+            me = [c for c in comp.get("competitors", []) if str(c.get("team", {}).get("id")) == str(tid)]
+            op = [c for c in comp.get("competitors", []) if str(c.get("team", {}).get("id")) != str(tid)]
+            if not me or not op or winpct.get(name_of.get(str(op[0]["team"]["id"])), 0) <= .5: continue
+            if me[0].get("winner"): w += 1
+            else: l += 1
+        out[nm] = (w, l)
+    return out
+
 # ----------------------------------------------------------------------------- beat-reporter reads
 SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba", "wnba": "basketball/wnba", "mlb": "baseball/mlb"}
 
@@ -884,6 +912,20 @@ def build_nba():
     for t in rows:
         t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.20 + nf[t["name"]]*.12 + nw[t["name"]]*.23
                            + (ndp[t["name"]]*.15 if has_depth else npd[t["name"]]*.15), 1)
+    # From game 25: index = 50% the above + 50% record vs .500+ teams (see nba_vs500 for the backtest;
+    # this exact 0-100 blend reproduces it: champ top-3 12/15, top-5 14/15, avg rank 2.67 vs 3.00).
+    vs500_on = min(t["gp"] for t in rows) >= VS500_MIN_GP
+    vs = nba_vs500(season, {t["name"]: t["winpct"] for t in rows}) if vs500_on else {}
+    vs500_on = vs500_on and bool(vs)
+    if vs500_on:
+        for t in rows:
+            w_, l_ = vs.get(t["name"], (0, 0))
+            t["vs500_rec"] = f"{w_}-{l_}"; t["vs500"] = w_/(w_+l_) if w_+l_ else None
+        known = [t["vs500"] for t in rows if t["vs500"] is not None]
+        for t in rows:
+            if t["vs500"] is None: t["vs500"] = sum(known)/len(known)   # no games vs .500+ yet -> league average
+        nv = norm(rows, "vs500", True)
+        for t in rows: t["index"] = round(t["index"]*.5 + nv[t["name"]]*.5, 1)
     for t in rows: t["read"] = team_read(t, "nba", len(rows), 4)
     # 40-wins-before-20-losses pedigree flag (display-only positive signal, not a gate)
     _ids = None
@@ -906,7 +948,7 @@ def build_nba():
     pred = make_prediction(rows, 4)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "nba"),
-        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth,
+        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth, "vs500_on": vs500_on,
         "cats": ["Win% ≥.600", "Net/g top-5", "PPG top-10", "Opp PPG top-10"],
         "labels": ["Win%", "Net/g", "PPG", "Opp PPG"],
         "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
@@ -914,7 +956,7 @@ def build_nba():
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t['pdg'], 1),
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec")} for t in rows if t["score"] >= 1]})
     return base
 
 # ----------------------------------------------------------------------------- shared
