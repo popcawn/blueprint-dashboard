@@ -1,11 +1,11 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-28T19:11:01Z",
-  "odds_remaining": "60671",
+  "generated": "2026-10-29T19:19:28Z",
+  "odds_remaining": "58828",
   "prediction": {
     "pick": "San Francisco 49ers",
-    "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +488). The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it."
+    "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +472). The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it."
   },
   "gp_min": 6,
   "gp_max": 7,
@@ -46,14 +46,14 @@
         "+8.3"
       ],
       "rtg": 8.3,
-      "fair_pct": 17.0,
-      "fair_odds": "+488",
+      "fair_pct": 17.5,
+      "fair_odds": "+472",
       "market": "+600",
-      "ev": 19,
+      "ev": 22,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 19
+        "ev": 22
       },
       "read": {
         "v": "trust",
@@ -81,14 +81,14 @@
         "+8.3"
       ],
       "rtg": 8.3,
-      "fair_pct": 16.2,
-      "fair_odds": "+516",
-      "market": "+1100",
-      "ev": 95,
+      "fair_pct": 16.1,
+      "fair_odds": "+520",
+      "market": "+1200",
+      "ev": 110,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 95
+        "ev": 110
       },
       "read": {
         "v": "trust",
@@ -117,13 +117,13 @@
       ],
       "rtg": 6.8,
       "fair_pct": 13.2,
-      "fair_odds": "+655",
+      "fair_odds": "+659",
       "market": "+1700",
-      "ev": 138,
+      "ev": 137,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 138
+        "ev": 137
       },
       "read": {
         "v": "trust",
@@ -152,13 +152,13 @@
       ],
       "rtg": 8.5,
       "fair_pct": 14.4,
-      "fair_odds": "+593",
+      "fair_odds": "+597",
       "market": "+2200",
-      "ev": 232,
+      "ev": 230,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 232
+        "ev": 230
       },
       "read": {
         "v": "trust",
@@ -186,14 +186,14 @@
         "+6.7"
       ],
       "rtg": 6.7,
-      "fair_pct": 11.3,
-      "fair_odds": "+789",
+      "fair_pct": 11.2,
+      "fair_odds": "+794",
       "market": "+1100",
-      "ev": 35,
+      "ev": 34,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 35
+        "ev": 34
       },
       "read": {
         "v": "trust",
@@ -221,14 +221,14 @@
         "+5.3"
       ],
       "rtg": 5.3,
-      "fair_pct": 8.3,
-      "fair_odds": "+1108",
-      "market": "+1400",
-      "ev": 24,
+      "fair_pct": 8.2,
+      "fair_odds": "+1115",
+      "market": "+1000",
+      "ev": -9,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 24
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -9
       },
       "read": {
         "v": "caution",
@@ -257,7 +257,7 @@
       ],
       "rtg": 6.1,
       "fair_pct": 6.9,
-      "fair_odds": "+1341",
+      "fair_odds": "+1350",
       "market": "+1000",
       "ev": -24,
       "verdict": {
@@ -291,8 +291,8 @@
         "+4.3"
       ],
       "rtg": 4.3,
-      "fair_pct": 4.5,
-      "fair_odds": "+2142",
+      "fair_pct": 4.4,
+      "fair_odds": "+2155",
       "market": "+600",
       "ev": -69,
       "verdict": {
@@ -326,8 +326,8 @@
         "+3.2"
       ],
       "rtg": 3.2,
-      "fair_pct": 3.1,
-      "fair_odds": "+3177",
+      "fair_pct": 3.0,
+      "fair_odds": "+3196",
       "market": "+1800",
       "ev": -42,
       "verdict": {
@@ -362,13 +362,13 @@
       ],
       "rtg": 2.1,
       "fair_pct": 3.0,
-      "fair_odds": "+3264",
+      "fair_odds": "+3284",
       "market": "+6000",
-      "ev": 81,
+      "ev": 80,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 81
+        "ev": 80
       },
       "read": {
         "v": "caution",
@@ -397,7 +397,7 @@
       ],
       "rtg": 0.4,
       "fair_pct": 2.1,
-      "fair_odds": "+4582",
+      "fair_odds": "+4610",
       "market": "+2000",
       "ev": -55,
       "verdict": {
@@ -588,7 +588,7 @@
       "rtg": -1.2,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+6500",
+      "market": "+7000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -712,7 +712,7 @@
       "rtg": 0.3,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1200",
+      "market": "+1300",
       "ev": null,
       "verdict": null,
       "read": {
@@ -929,7 +929,7 @@
       "rtg": -6.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+22500",
+      "market": "+25000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1071,33 +1071,33 @@
   "value_plays": [
     {
       "name": "Minnesota Vikings",
-      "ev": 232,
+      "ev": 230,
       "market": "+2200",
-      "fair_odds": "+593"
+      "fair_odds": "+597"
     },
     {
       "name": "Cincinnati Bengals",
-      "ev": 138,
+      "ev": 137,
       "market": "+1700",
-      "fair_odds": "+655"
+      "fair_odds": "+659"
     },
     {
       "name": "Jacksonville Jaguars",
-      "ev": 95,
-      "market": "+1100",
-      "fair_odds": "+516"
+      "ev": 110,
+      "market": "+1200",
+      "fair_odds": "+520"
     },
     {
       "name": "Kansas City Chiefs",
-      "ev": 35,
+      "ev": 34,
       "market": "+1100",
-      "fair_odds": "+789"
+      "fair_odds": "+794"
     },
     {
       "name": "San Francisco 49ers",
-      "ev": 19,
+      "ev": 22,
       "market": "+600",
-      "fair_odds": "+488"
+      "fair_odds": "+472"
     }
   ]
 }

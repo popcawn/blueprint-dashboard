@@ -914,5 +914,137 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-10-29",
+  "gp": 5,
+  "teams": {
+   "Houston Rockets": {
+    "sc": 4,
+    "idx": 87.2,
+    "fp": 13.3,
+    "mkt": "+1800",
+    "ev": 153
+   },
+   "Toronto Raptors": {
+    "sc": 4,
+    "idx": 84.7,
+    "fp": 24.0,
+    "mkt": "+1700",
+    "ev": 332
+   },
+   "Memphis Grizzlies": {
+    "sc": 4,
+    "idx": 80.4,
+    "fp": 10.4,
+    "mkt": "+40000",
+    "ev": 4089
+   },
+   "Minnesota Timberwolves": {
+    "sc": 4,
+    "idx": 75.7,
+    "fp": 8.7,
+    "mkt": "+1900",
+    "ev": 74
+   },
+   "Portland Trail Blazers": {
+    "sc": 3,
+    "idx": 94.1,
+    "fp": 11.8,
+    "mkt": "+3000",
+    "ev": 266
+   },
+   "Los Angeles Lakers": {
+    "sc": 2,
+    "idx": 73.6,
+    "fp": 3.8,
+    "mkt": "+3000",
+    "ev": 17
+   },
+   "Detroit Pistons": {
+    "sc": 2,
+    "idx": 71.3,
+    "fp": 7.2,
+    "mkt": "+2200",
+    "ev": 66
+   },
+   "Boston Celtics": {
+    "sc": 2,
+    "idx": 70.3,
+    "fp": 6.9,
+    "mkt": "+1100",
+    "ev": -17
+   },
+   "Oklahoma City Thunder": {
+    "sc": 2,
+    "idx": 66.3,
+    "fp": 2.8,
+    "mkt": "+380",
+    "ev": -87
+   },
+   "Philadelphia 76ers": {
+    "sc": 2,
+    "idx": 65.1,
+    "fp": 5.5,
+    "mkt": "+900",
+    "ev": -45
+   },
+   "Cleveland Cavaliers": {
+    "sc": 2,
+    "idx": 58.6,
+    "fp": 4.0,
+    "mkt": "+2500",
+    "ev": 4
+   },
+   "Charlotte Hornets": {
+    "sc": 2,
+    "idx": 42.7,
+    "fp": 1.5,
+    "mkt": "+10000",
+    "ev": 56
+   },
+   "San Antonio Spurs": {
+    "sc": 1,
+    "idx": 65.1,
+    "fp": null,
+    "mkt": "+280",
+    "ev": null
+   },
+   "Atlanta Hawks": {
+    "sc": 1,
+    "idx": 56.3,
+    "fp": null,
+    "mkt": "+4500",
+    "ev": null
+   },
+   "Dallas Mavericks": {
+    "sc": 1,
+    "idx": 56.2,
+    "fp": null,
+    "mkt": "+40000",
+    "ev": null
+   },
+   "New York Knicks": {
+    "sc": 1,
+    "idx": 50.0,
+    "fp": null,
+    "mkt": "+950",
+    "ev": null
+   },
+   "LA Clippers": {
+    "sc": 1,
+    "idx": 44.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Warriors": {
+    "sc": 1,
+    "idx": 43.7,
+    "fp": null,
+    "mkt": "+8000",
+    "ev": null
+   }
+  }
  }
 ]
