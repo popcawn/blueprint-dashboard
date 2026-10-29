@@ -266,9 +266,8 @@ function card(t,sp){
   const showRead=!!t.read && (rv==="caution"||rv==="fools_gold"||rtier==="pretender");
   const read=showRead?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
   return `<div class="card ${cl}">
-    <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${VPSET.has(t.name)?'<span class="vbadge" title="Qualified value: complete profile + trust read + positive EV at a believable price">✓ VALUE</span>':''}
+    <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${ev}
       <span class="idx">${t._irank?`<span class="irank" title="Overall rank by index (strength). The calibration line's 'top-N' is measured here.">#${t._irank}</span> `:""}index <b>${t.index}</b></span></div>
-    ${ev?`<div class="vdrow">${ev}</div>`:""}
     ${read}<div class="chips">${chips}</div>
     <div class="foot"><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
       <div><span class="k">FanDuel</span><b>${t.market||"—"}</b></div>${srs}${cons}</div></div>`;
