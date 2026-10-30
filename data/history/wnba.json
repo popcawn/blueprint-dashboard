@@ -238,5 +238,53 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-10-30",
+  "gp": 44,
+  "teams": {
+   "Golden State Valkyries": {
+    "sc": 3,
+    "idx": 98.6,
+    "fp": 24.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Minnesota Lynx": {
+    "sc": 3,
+    "idx": 86.7,
+    "fp": 24.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 3,
+    "idx": 81.5,
+    "fp": 21.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 18.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 1,
+    "idx": 69.8,
+    "fp": 6.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Washington Mystics": {
+    "sc": 1,
+    "idx": 66.9,
+    "fp": 5.6,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]
