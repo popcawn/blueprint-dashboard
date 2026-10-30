@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-10-30T18:55:25Z",
-  "odds_remaining": "57285",
+  "generated": "2026-10-30T20:01:06Z",
+  "odds_remaining": "57220",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +669). No goaltending asterisk, no possession hole \u2014 #1 driving play and #11 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -44,12 +44,12 @@
       "rtg": 1.09,
       "fair_pct": 13.0,
       "fair_odds": "+669",
-      "market": "+650",
-      "ev": -2,
+      "market": "+700",
+      "ev": 4,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -2
+        "kind": "small",
+        "label": "small value",
+        "ev": 4
       },
       "read": {
         "v": "trust",
@@ -729,6 +729,12 @@
       "name": "Minnesota Wild",
       "ev": 69,
       "market": "+1200",
+      "fair_odds": "+669"
+    },
+    {
+      "name": "Carolina Hurricanes",
+      "ev": 4,
+      "market": "+700",
       "fair_odds": "+669"
     }
   ]
