@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-10-30T18:55:19Z",
-  "odds_remaining": "57286",
+  "generated": "2026-10-31T18:00:13Z",
+  "odds_remaining": "56593",
   "prediction": {
     "pick": "San Francisco 49ers",
     "why": "<b>San Francisco 49ers</b> is the pick \u2014 the top team the model actually trusts (fair +472). The two traits that survive single-elimination: dominant margin (#1) and a top-6 defense. Complete and earned \u2014 trust it."
@@ -223,12 +223,12 @@
       "rtg": 5.3,
       "fair_pct": 8.2,
       "fair_odds": "+1115",
-      "market": "+1000",
-      "ev": -9,
+      "market": "+1100",
+      "ev": -1,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -9
+        "ev": -1
       },
       "read": {
         "v": "caution",
@@ -328,12 +328,12 @@
       "rtg": 3.2,
       "fair_pct": 3.0,
       "fair_odds": "+3196",
-      "market": "+1900",
-      "ev": -39,
+      "market": "+1800",
+      "ev": -42,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -39
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -42
       },
       "read": {
         "v": "fools_gold",
@@ -557,7 +557,7 @@
       "rtg": -0.3,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+5500",
+      "market": "+6000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -650,7 +650,7 @@
       "rtg": -2.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+8000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -681,7 +681,7 @@
       "rtg": 1.6,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1200",
+      "market": "+1300",
       "ev": null,
       "verdict": null,
       "read": {
@@ -743,7 +743,7 @@
       "rtg": 0.3,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1200",
+      "market": "+1300",
       "ev": null,
       "verdict": null,
       "read": {
@@ -836,7 +836,7 @@
       "rtg": -3.7,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+60000",
+      "market": "+50000",
       "ev": null,
       "verdict": null,
       "read": {
