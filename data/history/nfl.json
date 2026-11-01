@@ -3292,228 +3292,228 @@
   "date": "2026-11-01",
   "gp": 8,
   "teams": {
-   "San Francisco 49ers": {
-    "sc": 5,
-    "idx": 83.7,
-    "fp": 17.5,
-    "mkt": "+650",
-    "ev": 31
-   },
    "Jacksonville Jaguars": {
     "sc": 5,
-    "idx": 79.4,
-    "fp": 16.1,
+    "idx": 88.6,
+    "fp": 20.2,
     "mkt": "+1100",
-    "ev": 94
+    "ev": 143
    },
-   "Cincinnati Bengals": {
+   "San Francisco 49ers": {
     "sc": 5,
-    "idx": 74.2,
-    "fp": 13.2,
-    "mkt": "+1500",
-    "ev": 111
+    "idx": 78.4,
+    "fp": 18.4,
+    "mkt": "+600",
+    "ev": 29
+   },
+   "Buffalo Bills": {
+    "sc": 4,
+    "idx": 74.9,
+    "fp": 9.6,
+    "mkt": "+550",
+    "ev": -38
    },
    "Minnesota Vikings": {
     "sc": 4,
-    "idx": 85.1,
-    "fp": 14.4,
-    "mkt": "+2000",
-    "ev": 201
+    "idx": 74.2,
+    "fp": 12.2,
+    "mkt": "+2200",
+    "ev": 181
    },
-   "Kansas City Chiefs": {
+   "Cincinnati Bengals": {
     "sc": 4,
-    "idx": 76.3,
-    "fp": 11.2,
-    "mkt": "+1000",
-    "ev": 23
+    "idx": 71.0,
+    "fp": 8.1,
+    "mkt": "+1700",
+    "ev": 47
    },
    "Chicago Bears": {
     "sc": 4,
-    "idx": 70.7,
-    "fp": 8.2,
-    "mkt": "+1100",
-    "ev": -1
+    "idx": 66.3,
+    "fp": 8.7,
+    "mkt": "+1000",
+    "ev": -4
+   },
+   "Kansas City Chiefs": {
+    "sc": 3,
+    "idx": 72.0,
+    "fp": 6.8,
+    "mkt": "+1000",
+    "ev": -25
    },
    "Seattle Seahawks": {
     "sc": 3,
-    "idx": 71.8,
-    "fp": 6.9,
+    "idx": 66.8,
+    "fp": 7.1,
     "mkt": "+1000",
-    "ev": -24
-   },
-   "Buffalo Bills": {
-    "sc": 2,
-    "idx": 68.0,
-    "fp": 4.4,
-    "mkt": "+600",
-    "ev": -69
-   },
-   "Detroit Lions": {
-    "sc": 2,
-    "idx": 61.5,
-    "fp": 3.0,
-    "mkt": "+1700",
-    "ev": -45
+    "ev": -22
    },
    "Pittsburgh Steelers": {
     "sc": 2,
-    "idx": 59.4,
-    "fp": 3.0,
-    "mkt": "+5500",
-    "ev": 66
+    "idx": 65.5,
+    "fp": 3.6,
+    "mkt": "+4500",
+    "ev": 65
+   },
+   "Detroit Lions": {
+    "sc": 2,
+    "idx": 59.3,
+    "fp": 3.5,
+    "mkt": "+1600",
+    "ev": -41
    },
    "Denver Broncos": {
     "sc": 2,
-    "idx": 53.2,
-    "fp": 2.1,
-    "mkt": "+2000",
-    "ev": -55
+    "idx": 50.9,
+    "fp": 1.7,
+    "mkt": "+1800",
+    "ev": -68
+   },
+   "Tampa Bay Buccaneers": {
+    "sc": 1,
+    "idx": 55.0,
+    "fp": null,
+    "mkt": "+8000",
+    "ev": null
    },
    "New England Patriots": {
     "sc": 1,
-    "idx": 58.3,
+    "idx": 54.7,
     "fp": null,
     "mkt": "+2200",
     "ev": null
    },
    "Green Bay Packers": {
     "sc": 1,
-    "idx": 53.7,
+    "idx": 50.9,
     "fp": null,
-    "mkt": "+3300",
+    "mkt": "+3000",
     "ev": null
    },
-   "Dallas Cowboys": {
+   "Los Angeles Rams": {
     "sc": 1,
-    "idx": 51.9,
+    "idx": 49.2,
     "fp": null,
-    "mkt": "+3500",
+    "mkt": "+1300",
     "ev": null
    },
    "New York Giants": {
     "sc": 1,
-    "idx": 51.6,
+    "idx": 48.9,
     "fp": null,
     "mkt": "+10000",
     "ev": null
    },
-   "Atlanta Falcons": {
+   "Dallas Cowboys": {
     "sc": 1,
-    "idx": 46.2,
+    "idx": 45.3,
     "fp": null,
-    "mkt": "+6000",
-    "ev": null
-   },
-   "Cleveland Browns": {
-    "sc": 1,
-    "idx": 45.0,
-    "fp": null,
-    "mkt": "+15000",
+    "mkt": "+4000",
     "ev": null
    },
    "Las Vegas Raiders": {
     "sc": 1,
-    "idx": 40.0,
+    "idx": 41.0,
     "fp": null,
     "mkt": "+12500",
     "ev": null
    },
    "Carolina Panthers": {
     "sc": 1,
-    "idx": 39.5,
-    "fp": null,
-    "mkt": "+7500",
-    "ev": null
-   },
-   "Los Angeles Rams": {
-    "sc": 0,
-    "idx": 53.0,
-    "fp": null,
-    "mkt": "+1200",
-    "ev": null
-   },
-   "Tampa Bay Buccaneers": {
-    "sc": 0,
-    "idx": 50.9,
+    "idx": 36.9,
     "fp": null,
     "mkt": "+8000",
     "ev": null
    },
-   "Baltimore Ravens": {
-    "sc": 0,
-    "idx": 50.5,
+   "Cleveland Browns": {
+    "sc": 1,
+    "idx": 33.6,
     "fp": null,
-    "mkt": "+1600",
+    "mkt": "+15000",
     "ev": null
    },
    "Houston Texans": {
     "sc": 0,
-    "idx": 42.6,
+    "idx": 39.3,
+    "fp": null,
+    "mkt": "+3000",
+    "ev": null
+   },
+   "Atlanta Falcons": {
+    "sc": 0,
+    "idx": 35.7,
+    "fp": null,
+    "mkt": "+6500",
+    "ev": null
+   },
+   "Baltimore Ravens": {
+    "sc": 0,
+    "idx": 35.1,
     "fp": null,
     "mkt": "+3500",
     "ev": null
    },
    "New York Jets": {
     "sc": 0,
-    "idx": 38.5,
+    "idx": 33.5,
     "fp": null,
-    "mkt": "+50000",
-    "ev": null
-   },
-   "Indianapolis Colts": {
-    "sc": 0,
-    "idx": 31.7,
-    "fp": null,
-    "mkt": "+60000",
+    "mkt": "+100000",
     "ev": null
    },
    "New Orleans Saints": {
     "sc": 0,
-    "idx": 28.6,
-    "fp": null,
-    "mkt": "+15000",
-    "ev": null
-   },
-   "Washington Commanders": {
-    "sc": 0,
-    "idx": 21.8,
+    "idx": 26.6,
     "fp": null,
     "mkt": "+12500",
     "ev": null
    },
-   "Philadelphia Eagles": {
+   "Washington Commanders": {
     "sc": 0,
     "idx": 20.4,
     "fp": null,
-    "mkt": "+35000",
+    "mkt": "+10000",
     "ev": null
    },
-   "Tennessee Titans": {
+   "Philadelphia Eagles": {
     "sc": 0,
-    "idx": 18.3,
+    "idx": 19.7,
     "fp": null,
-    "mkt": "+100000",
+    "mkt": "+22500",
     "ev": null
    },
    "Arizona Cardinals": {
     "sc": 0,
-    "idx": 11.0,
+    "idx": 16.1,
     "fp": null,
     "mkt": "+100000",
     "ev": null
    },
+   "Tennessee Titans": {
+    "sc": 0,
+    "idx": 15.7,
+    "fp": null,
+    "mkt": "+100000",
+    "ev": null
+   },
+   "Indianapolis Colts": {
+    "sc": 0,
+    "idx": 15.0,
+    "fp": null,
+    "mkt": "+75000",
+    "ev": null
+   },
    "Miami Dolphins": {
     "sc": 0,
-    "idx": 9.8,
+    "idx": 9.7,
     "fp": null,
     "mkt": "+100000",
     "ev": null
    },
    "Los Angeles Chargers": {
     "sc": 0,
-    "idx": 6.2,
+    "idx": 5.9,
     "fp": null,
-    "mkt": "+40000",
+    "mkt": "+30000",
     "ev": null
    }
   }
