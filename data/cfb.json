@@ -1,15 +1,15 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-10-29T19:19:39Z",
-  "odds_remaining": "58827",
+  "generated": "2026-11-01T13:14:12Z",
+  "odds_remaining": "99713",
   "prediction": {
     "pick": "Notre Dame Fighting Irish",
-    "why": "<b>Notre Dame Fighting Irish</b> is the pick \u2014 the top team the model actually trusts (fair +317). The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+    "why": "<b>Notre Dame Fighting Irish</b> is the pick \u2014 the top team the model actually trusts (fair +541). The genuine article \u2014 complete (worst spot: offense #5) and SRS #5 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
   },
-  "gp_min": 7,
+  "gp_min": 8,
   "gp_max": 9,
-  "season_pct": 61,
+  "season_pct": 68,
   "cats": [
     "Win% \u2265.900",
     "PPG top-15",
@@ -28,9 +28,9 @@
     {
       "name": "Notre Dame Fighting Irish",
       "conf": "Ind",
-      "rec": "6-1",
+      "rec": "7-1",
       "score": 4,
-      "index": 89.4,
+      "index": 91.7,
       "q": [
         false,
         true,
@@ -38,75 +38,38 @@
         true,
         true
       ],
-      "sosrank": 75,
-      "srsrank": 3,
+      "sosrank": 108,
+      "srsrank": 5,
       "srs_flag": "elite",
       "vals": [
-        "0.857",
-        "41.1 #6",
-        "13.4 #4",
-        "235 #1",
-        "+27.7 #2"
+        "0.875",
+        "40.4 #5",
+        "13.4 #5",
+        "236 #1",
+        "+27.0 #2"
       ],
-      "rtg": 37.8,
-      "fair_pct": 24.0,
-      "fair_odds": "+317",
+      "rtg": 36.0,
+      "fair_pct": 15.6,
+      "fair_odds": "+541",
       "market": "+500",
-      "ev": 44,
+      "ev": -6,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 44
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -6
       },
       "read": {
         "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
-      }
-    },
-    {
-      "name": "Ohio State Buckeyes",
-      "conf": "B1G",
-      "rec": "6-1",
-      "score": 4,
-      "index": 85.9,
-      "q": [
-        false,
-        true,
-        true,
-        true,
-        true
-      ],
-      "sosrank": 41,
-      "srsrank": 6,
-      "srs_flag": "elite",
-      "vals": [
-        "0.857",
-        "39.3 #10",
-        "13.4 #4",
-        "264 #6",
-        "+25.9 #4"
-      ],
-      "rtg": 34.6,
-      "fair_pct": 24.0,
-      "fair_odds": "+317",
-      "market": "+500",
-      "ev": 44,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 44
+        "why": "The genuine article \u2014 complete (worst spot: offense #5) and SRS #5 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "read": {
-        "v": "trust",
-        "why": "Dominant AND tested \u2014 #4 scoring defense, no soft category, and a top-6 schedule-adjusted rating. This is the one to trust all the way."
-      }
+      "mw": 14.57
     },
     {
       "name": "Miami Hurricanes",
       "conf": "ACC",
-      "rec": "7-0",
+      "rec": "8-0",
       "score": 3,
-      "index": 94.2,
+      "index": 92.1,
       "q": [
         true,
         true,
@@ -114,199 +77,247 @@
         false,
         true
       ],
-      "sosrank": 71,
-      "srsrank": 4,
+      "sosrank": 70,
+      "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
         "1.000",
-        "49.0 #1",
-        "15.3 #11",
-        "299 #21",
-        "+33.7 #1"
+        "47.6 #1",
+        "17.8 #21",
+        "313 #28",
+        "+29.9 #1"
       ],
-      "rtg": 39.8,
+      "rtg": 36.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+650",
-      "ev": 80,
+      "market": "+600",
+      "ev": 68,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 80
+        "ev": 68
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #21 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #4 says the schedule hasn't fully tested it yet."
-      }
-    },
-    {
-      "name": "New Mexico Lobos",
-      "conf": "G5",
-      "rec": "6-1",
-      "score": 3,
-      "index": 86.2,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        true
-      ],
-      "sosrank": 131,
-      "srsrank": 47,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.857",
-        "37.0 #19",
-        "11.3 #1",
-        "261 #5",
-        "+25.7 #5"
-      ],
-      "rtg": 24.8,
-      "fair_pct": 13.7,
-      "fair_odds": "+631",
-      "market": "+75000",
-      "ev": 10172,
-      "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 10172
+        "why": "Leads with its #1 offense; the #28 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #6 says the schedule hasn't fully tested it yet."
       },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #19 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #47 says the schedule hasn't fully tested it yet."
-      }
-    },
-    {
-      "name": "Utah Utes",
-      "conf": "Big 12",
-      "rec": "7-0",
-      "score": 3,
-      "index": 83.0,
-      "q": [
-        true,
-        true,
-        true,
-        false,
-        false
-      ],
-      "sosrank": 127,
-      "srsrank": 10,
-      "srs_flag": "ok",
-      "vals": [
-        "1.000",
-        "37.4 #14",
-        "14.6 #9",
-        "312 #27",
-        "+22.9 #8"
-      ],
-      "rtg": 30.5,
-      "fair_pct": 14.3,
-      "fair_odds": "+598",
-      "market": "+4000",
-      "ev": 487,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 487
-      },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #8 margin; the #27 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #10 says the schedule hasn't fully tested it yet."
-      }
+      "mw": 23.31
     },
     {
       "name": "Georgia Bulldogs",
       "conf": "SEC",
-      "rec": "6-1",
-      "score": 2,
-      "index": 86.2,
+      "rec": "7-1",
+      "score": 3,
+      "index": 88.5,
       "q": [
         false,
         true,
         false,
-        false,
+        true,
         true
       ],
-      "sosrank": 91,
-      "srsrank": 5,
+      "sosrank": 98,
+      "srsrank": 3,
       "srs_flag": "elite",
       "vals": [
-        "0.857",
-        "43.0 #3",
-        "15.9 #16",
-        "276 #12",
-        "+27.1 #3"
+        "0.875",
+        "41.0 #4",
+        "14.9 #11",
+        "273 #9",
+        "+26.1 #3"
       ],
-      "rtg": 36.3,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+420",
-      "ev": null,
-      "verdict": null,
+      "rtg": 36.2,
+      "fair_pct": 16.7,
+      "fair_odds": "+499",
+      "market": "+350",
+      "ev": -25,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -25
+      },
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 offense; the #16 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #5 says the schedule hasn't fully tested it yet."
-      }
+        "why": "Leads with its #3 margin; the #11 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #3 says the schedule hasn't fully tested it yet."
+      },
+      "mw": 15.58
     },
     {
-      "name": "Indiana Hoosiers",
-      "conf": "B1G",
+      "name": "New Mexico Lobos",
+      "conf": "G5",
       "rec": "7-1",
-      "score": 2,
-      "index": 82.3,
+      "score": 3,
+      "index": 86.7,
       "q": [
         false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 134,
+      "srsrank": 53,
+      "srs_flag": "mirage",
+      "vals": [
+        "0.875",
+        "35.0 #27",
+        "11.9 #1",
+        "258 #4",
+        "+23.1 #5"
+      ],
+      "rtg": 22.3,
+      "fair_pct": 8.7,
+      "fair_odds": "+1051",
+      "market": "+50000",
+      "ev": 4253,
+      "verdict": {
+        "kind": "trap",
+        "label": "trap",
+        "ev": 4253
+      },
+      "read": {
+        "v": "caution",
+        "why": "Leads with its #1 scoring defense; the #27 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #53 says the schedule hasn't fully tested it yet."
+      },
+      "mw": 8.11
+    },
+    {
+      "name": "UCLA Bruins",
+      "conf": "B1G",
+      "rec": "8-0",
+      "score": 3,
+      "index": 85.8,
+      "q": [
+        true,
         false,
         true,
         true,
         false
       ],
-      "sosrank": 38,
-      "srsrank": 11,
+      "sosrank": 125,
+      "srsrank": 15,
       "srs_flag": "ok",
       "vals": [
-        "0.875",
-        "33.6 #38",
-        "12.0 #2",
-        "265 #8",
-        "+21.6 #9"
+        "1.000",
+        "33.5 #36",
+        "13.4 #5",
+        "261 #7",
+        "+20.1 #11"
       ],
-      "rtg": 29.7,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+800",
-      "ev": null,
-      "verdict": null,
+      "rtg": 28.2,
+      "fair_pct": 11.0,
+      "fair_odds": "+808",
+      "market": "+6000",
+      "ev": 572,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 572
+      },
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 scoring defense; the #38 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #11 says the schedule hasn't fully tested it yet."
-      }
+        "why": "Leads with its #5 scoring defense; the #36 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #15 says the schedule hasn't fully tested it yet."
+      },
+      "mw": 10.28
     },
     {
       "name": "LSU Tigers",
       "conf": "SEC",
       "rec": "6-2",
-      "score": 2,
-      "index": 82.2,
+      "score": 3,
+      "index": 84.6,
       "q": [
         false,
         true,
         false,
         true,
-        false
+        true
       ],
-      "sosrank": 27,
+      "sosrank": 26,
       "srsrank": 1,
       "srs_flag": "elite",
       "vals": [
         "0.750",
         "40.1 #7",
-        "16.0 #17",
+        "16.0 #16",
         "258 #4",
-        "+24.1 #6"
+        "+24.1 #4"
       ],
-      "rtg": 37.2,
+      "rtg": 37.6,
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+950",
+      "ev": 152,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 152
+      },
+      "read": {
+        "v": "caution",
+        "why": "Leads with its #4 total defense; the #16 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #1 says the schedule hasn't fully tested it yet."
+      },
+      "mw": 28.15
+    },
+    {
+      "name": "Utah Utes",
+      "conf": "Big 12",
+      "rec": "8-0",
+      "score": 2,
+      "index": 84.3,
+      "q": [
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "sosrank": 105,
+      "srsrank": 9,
+      "srs_flag": "ok",
+      "vals": [
+        "1.000",
+        "38.9 #11",
+        "15.9 #15",
+        "330 #41",
+        "+23.0 #6"
+      ],
+      "rtg": 31.3,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+3000",
+      "ev": null,
+      "verdict": null,
+      "read": {
+        "v": "caution",
+        "why": "Leads with its #6 margin; the #41 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet."
+      },
+      "mw": null
+    },
+    {
+      "name": "Indiana Hoosiers",
+      "conf": "B1G",
+      "rec": "8-1",
+      "score": 2,
+      "index": 83.6,
+      "q": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "sosrank": 50,
+      "srsrank": 17,
+      "srs_flag": "mirage",
+      "vals": [
+        "0.889",
+        "32.4 #42",
+        "12.4 #3",
+        "259 #6",
+        "+20.0 #12"
+      ],
+      "rtg": 27.7,
       "fair_pct": null,
       "fair_odds": null,
       "market": "+1000",
@@ -314,49 +325,16 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #4 total defense; the #17 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #1 says the schedule hasn't fully tested it yet."
-      }
-    },
-    {
-      "name": "UCLA Bruins",
-      "conf": "B1G",
-      "rec": "7-0",
-      "score": 2,
-      "index": 81.6,
-      "q": [
-        true,
-        false,
-        false,
-        true,
-        false
-      ],
-      "sosrank": 111,
-      "srsrank": 12,
-      "srs_flag": "ok",
-      "vals": [
-        "1.000",
-        "34.4 #36",
-        "15.3 #11",
-        "273 #10",
-        "+19.1 #13"
-      ],
-      "rtg": 28.4,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+8000",
-      "ev": null,
-      "verdict": null,
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #10 total defense; the #36 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #12 says the schedule hasn't fully tested it yet."
-      }
+        "why": "Leads with its #3 scoring defense; the #42 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #17 says the schedule hasn't fully tested it yet."
+      },
+      "mw": null
     },
     {
       "name": "North Dakota State Bison",
       "conf": "G5",
-      "rec": "6-2",
+      "rec": "7-2",
       "score": 2,
-      "index": 74.4,
+      "index": 78.2,
       "q": [
         false,
         false,
@@ -364,17 +342,17 @@
         true,
         false
       ],
-      "sosrank": 58,
-      "srsrank": 70,
+      "sosrank": 71,
+      "srsrank": 72,
       "srs_flag": "mirage",
       "vals": [
-        "0.750",
-        "27.8 #77",
-        "12.5 #3",
-        "250 #2",
-        "+15.2 #22"
+        "0.778",
+        "28.1 #72",
+        "11.9 #2",
+        "249 #2",
+        "+16.2 #16"
       ],
-      "rtg": 15.1,
+      "rtg": 15.7,
       "fair_pct": null,
       "fair_odds": null,
       "market": "+125000",
@@ -382,68 +360,35 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 total defense; the #77 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #70 says the schedule hasn't fully tested it yet."
-      }
-    },
-    {
-      "name": "TCU Horned Frogs",
-      "conf": "Big 12",
-      "rec": "3-4",
-      "score": 2,
-      "index": 61.6,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        false
-      ],
-      "sosrank": 47,
-      "srsrank": 41,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.429",
-        "23.4 #101",
-        "13.9 #6",
-        "264 #6",
-        "+9.6 #50"
-      ],
-      "rtg": 17.3,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+125000",
-      "ev": null,
-      "verdict": null,
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #6 scoring defense; the #101 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #41 says the schedule hasn't fully tested it yet."
-      }
+        "why": "Leads with its #2 scoring defense; the #72 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #72 says the schedule hasn't fully tested it yet."
+      },
+      "mw": null
     }
   ],
   "gauntlet": [
-    {
-      "name": "LSU Tigers",
-      "srsrank": 1
-    },
     {
       "name": "Alabama Crimson Tide",
       "srsrank": 2
     },
     {
-      "name": "Georgia Bulldogs",
-      "srsrank": 5
-    },
-    {
       "name": "Texas Longhorns",
-      "srsrank": 7
+      "srsrank": 4
     },
     {
       "name": "Ole Miss Rebels",
+      "srsrank": 7
+    },
+    {
+      "name": "Ohio State Buckeyes",
       "srsrank": 8
     },
     {
-      "name": "Tennessee Volunteers",
+      "name": "Utah Utes",
       "srsrank": 9
+    },
+    {
+      "name": "Tennessee Volunteers",
+      "srsrank": 10
     }
   ],
   "signal": {
@@ -452,18 +397,5 @@
     "label": "Trust the board",
     "note": "9 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": [
-    {
-      "name": "Notre Dame Fighting Irish",
-      "ev": 44,
-      "market": "+500",
-      "fair_odds": "+317"
-    },
-    {
-      "name": "Ohio State Buckeyes",
-      "ev": 44,
-      "market": "+500",
-      "fair_odds": "+317"
-    }
-  ]
+  "value_plays": []
 }
