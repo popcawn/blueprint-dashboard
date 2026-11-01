@@ -283,7 +283,14 @@ def build_cfb():
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
-    pred = make_prediction(teams, 5)
+    # the pick IS the backtested #1 (uncapped index x schedule) — not the cleanest-read team
+    ranked = sorted(pool, key=lambda t: -t["mw"])
+    if ranked:
+        a = ranked[0]; odds = a.get("fair_odds")
+        tie = f" Dead even with <b>{ranked[1]['name']}</b> at the 24% cap — {a['name']} edges it on schedule." if len(ranked) > 1 and ranked[1]["p"] >= a["p"] - 1e-9 else ""
+        pred = {"pick": a["name"], "why": f"<b>{a['name']}</b> is the pick — the model's #1 by index × schedule{f' (fair {odds})' if odds else ''}, the order that picked 10 of 12 CFP champions.{tie} {a['read']['why']}"}
+    else:
+        pred = make_prediction(teams, 5)
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
     # gauntlet watch: SRS top-10 not in pool
     poolnames = {t["name"] for t in pool}
@@ -858,7 +865,7 @@ def attach_beat_reads(name, data):
     # Reconcile the banner prediction with the read TIERS so it never contradicts the cards:
     # the pick is the team the reads actually crown (champion > contender > pretender), best index among them.
     tagged = [t for t in teams if (t.get("read") or {}).get("beat") and t["read"].get("tier")]
-    if tagged:
+    if tagged and name != "cfb":   # CFB's pick is the backtested index x schedule #1 (build_cfb)
         tr = {"champion": 0, "contender": 1, "pretender": 2}
         best = sorted(tagged, key=lambda t: (tr.get(t["read"]["tier"], 3), -t.get("index", 0)))[0]
         data["prediction"] = {"pick": best["name"], "why": f"<b>{best['name']}</b> is the pick — {best['read']['beat']}"}
@@ -1134,6 +1141,8 @@ def team_read(t, sport, n, maxcat):
             f"Dominant AND tested — #{br} {b}, no soft category, and a top-{sr} schedule-adjusted rating. This is the one to trust all the way."], nm)}
     if top and off <= el and (t["rk_oppppg"] > half or t["rk_oppypg"] > half):
         return {"v": "fools_gold", "why": f"One-sided — #{off} offense but a defense outside the top half. In a bracket of elite teams, the shootout eventually goes the other way. Fade."}
+    if sr <= 6:                                                   # one soft spot, but proven against real teams
+        return {"v": "caution", "why": f"Leads with its #{br} {b}; the #{wr} {w} is the one soft spot — but SRS #{sr} says it's done this against a real schedule, not cupcakes."}
     return {"v": "caution", "why": f"Leads with its #{br} {b}; the #{wr} {w} is the crack a playoff-caliber opponent widens — and SRS #{sr} says the schedule hasn't fully tested it yet."}
 
 def make_prediction(scored, maxcat):

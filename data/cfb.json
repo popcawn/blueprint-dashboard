@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-01T18:39:56Z",
-  "odds_remaining": "99283",
+  "generated": "2026-11-01T23:48:22Z",
+  "odds_remaining": "99042",
   "prediction": {
-    "pick": "Notre Dame Fighting Irish",
-    "why": "<b>Notre Dame Fighting Irish</b> is the pick \u2014 the top team the model actually trusts (fair +541). The genuine article \u2014 complete (worst spot: offense #5) and SRS #5 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+    "pick": "LSU Tigers",
+    "why": "<b>LSU Tigers</b> is the pick \u2014 the model's #1 by index \u00d7 schedule (fair +317), the order that picked 10 of 12 CFP champions. Dead even with <b>Miami Hurricanes</b> at the 24% cap \u2014 LSU Tigers edges it on schedule. Leads with its #4 total defense; the #16 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
   },
   "gp_min": 8,
   "gp_max": 9,
@@ -99,7 +99,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #28 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #6 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
       },
       "mw": 23.31
     },
@@ -138,7 +138,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 margin; the #11 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #3 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 margin; the #11 scoring defense is the one soft spot \u2014 but SRS #3 says it's done this against a real schedule, not cupcakes."
       },
       "mw": 15.58
     },
@@ -168,12 +168,12 @@
       "rtg": 22.3,
       "fair_pct": 8.7,
       "fair_odds": "+1051",
-      "market": "+70000",
-      "ev": 5991,
+      "market": "+100000",
+      "ev": 8598,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 5991
+        "ev": 8598
       },
       "read": {
         "v": "caution",
@@ -207,12 +207,12 @@
       "rtg": 28.2,
       "fair_pct": 11.0,
       "fair_odds": "+808",
-      "market": "+6000",
-      "ev": 572,
+      "market": "+4500",
+      "ev": 407,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 572
+        "ev": 407
       },
       "read": {
         "v": "caution",
@@ -246,16 +246,16 @@
       "rtg": 37.6,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+900",
-      "ev": 140,
+      "market": "+850",
+      "ev": 128,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 140
+        "ev": 128
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #4 total defense; the #16 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #1 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #4 total defense; the #16 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
       },
       "mw": 28.15
     },

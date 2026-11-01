@@ -268,9 +268,7 @@ function consistency(sp,nm){ const h=HIST[sp]; if(!h||!h.length)return{spark:"",
 // picked 10/12 champions) with each team's EV beside it — green = value (incl. small value).
 const T8EV={best:"g",value:"g",small:"g",longshot:"g",trap:"w",fair:"n",fade:"r",bigfade:"r"};
 function top8(d,sp){
-  const ord=sp==="cfb"
-    ? d.teams.filter(t=>t.index!=null).sort((a,b)=>((b.mw||-1)-(a.mw||-1))||(b.index-a.index))
-    : d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
+  const ord=d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
   const top=ord.slice(0,8); if(top.length<3)return "";
   const h=(HIST[sp]||[]).slice(-6);
   const rk=h.map(s=>{const r={};Object.entries(s.teams).sort((a,b)=>sp==="cfb"?((b[1].fp||0)-(a[1].fp||0))||(b[1].idx-a[1].idx):b[1].idx-a[1].idx).forEach(([n],i)=>r[n]=i+1);return r;});
@@ -280,7 +278,7 @@ function top8(d,sp){
     const tr=rk.length?`<div class="t8tr">${rk.map(r=>{const x=r[t.name];return `<i class="${x<=3?'a':x<=5?'b':x<=8?'c':''}"></i>`;}).join("")}</div>`:"";
     return `<div class="t8c ${k==="g"?"g":""}" title="${t.name} · FanDuel ${t.market||"—"} · fair ${t.fair_odds||"—"}${t.verdict?" · "+t.verdict.label:""}">
       <div class="t8top"><span class="t8rk">#${n}</span>${mv}<span class="t8ev ${k}">${t.ev!=null?fmtEV(t.ev):"—"}</span></div>
-      <div class="t8nm">${shortNm(t.name)}</div><div class="t8m">${t.market?`FD ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
+      <div class="t8nm">${sp==="cfb"?t.name:shortNm(t.name)}</div><div class="t8m">${t.market?`FD ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
   return `<div class="t8"><div class="t8h"><b>🏁 Top 8</b><span>${sp==="cfb"?"model rank (index × schedule)":"rank by index"} · EV vs FanDuel beside each · green = value</span>${rk.length>1?`<span class="r">▲▼ vs ${rk.length} runs ago · bars = last ${rk.length} runs (dark top-3 · mid top-5 · light top-8)</span>`:""}</div><div class="t8g">${cells}</div></div>`;
 }
 
@@ -304,7 +302,7 @@ function card(t,sp){
   const read=showRead?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
   return `<div class="card ${cl}">
     <div class="row1"><span class="nm">${t.name}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${ev}
-      <span class="idx">${t._irank?`<span class="irank" title="Overall rank by index (strength). The calibration line's 'top-N' is measured here.">#${t._irank}</span> `:""}<span${t.vs500?` title="vs .500+ teams: ${t.vs500} (half the NBA index)"`:""}>index <b>${t.index}</b></span></span></div>
+      <span class="idx">${t._irank?`<span class="irank" title="${sp==="cfb"?"Model rank: index × schedule strength (the backtested order, same as the Top 8)":"Overall rank by index (strength). The calibration line's 'top-N' is measured here."}">#${t._irank}</span> `:""}<span${t.vs500?` title="vs .500+ teams: ${t.vs500} (half the NBA index)"`:""}>index <b>${t.index}</b></span></span></div>
     ${read}<div class="chips">${chips}</div>
     <div class="foot"><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
       <div><span class="k">FanDuel</span><b>${t.market||"—"}</b></div>${srs}${cons}</div></div>`;
@@ -322,13 +320,14 @@ function render(){
   const early=pct<({nfl:45,cfb:45,nhl:28,nba:28,wnba:32,mlb:30}[cur]||0);
   const teams=d.teams, contenders=teams.filter(t=>t.score>=2).length;
   // overall rank by index (strength) — what the calibration line's "top-N" refers to
-  teams.slice().filter(t=>t.index!=null).sort((a,b)=>b.index-a.index).forEach((t,i)=>t._irank=i+1);
+  // CFB ranks by index × schedule (uncapped mw) — the backtested order, same as the Top 8 strip
+  teams.slice().filter(t=>t.index!=null).sort((a,b)=>cur==="cfb"?((b.mw||-1)-(a.mw||-1))||(b.index-a.index):b.index-a.index).forEach((t,i)=>t._irank=i+1);
   const vp=(d.value_plays||[]); VPSET=new Set(vp.map(x=>x.name));
   const bv=vp[0], traps=teams.filter(t=>t.read&&t.read.v==="fools_gold").length;
   strip.innerHTML=[
     `<div class="stat"><small>Season</small><b>${pct}%</b></div>`,
     `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
-    `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b>${shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
+    `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b>${cur==="cfb"?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
     `<div class="stat" title="The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."><small>Value play</small><b class="${bv?'g':''}">${bv?shortNm(bv.name)+" "+fmtEV(bv.ev):"none"}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
