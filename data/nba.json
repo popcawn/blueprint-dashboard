@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-01T13:49:25Z",
-  "odds_remaining": "99711",
+  "generated": "2026-11-01T18:40:06Z",
+  "odds_remaining": "99281",
   "prediction": {
     "pick": "Memphis Grizzlies",
     "why": "<b>Memphis Grizzlies</b> is the pick \u2014 the top team the model actually trusts (fair +560). Elite defense (#3) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -151,12 +151,12 @@
       "rtg": 11.3,
       "fair_pct": 5.9,
       "fair_odds": "+1604",
-      "market": "+1900",
-      "ev": 17,
+      "market": "+1800",
+      "ev": 12,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 17
+        "ev": 12
       },
       "read": {
         "v": "trust",
@@ -326,12 +326,12 @@
       "rtg": 3.9,
       "fair_pct": 7.8,
       "fair_odds": "+1182",
-      "market": "+950",
-      "ev": -18,
+      "market": "+1000",
+      "ev": -14,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -18
+        "ev": -14
       },
       "read": {
         "v": "trust",
@@ -559,7 +559,7 @@
       "rtg": -0.7,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+950",
+      "market": "+1000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -653,8 +653,8 @@
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 17,
-      "market": "+1900",
+      "ev": 12,
+      "market": "+1800",
       "fair_odds": "+1604"
     }
   ]
