@@ -15,10 +15,10 @@ import json, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -564,7 +564,8 @@ def nba_vs500(season, winpct):
     return out
 
 # ----------------------------------------------------------------------------- beat-reporter reads
-SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba", "wnba": "basketball/wnba", "mlb": "baseball/mlb"}
+SPORT_PATH = {"nfl": "football/nfl", "cfb": "football/college-football", "nhl": "hockey/nhl", "nba": "basketball/nba", "wnba": "basketball/wnba", "mlb": "baseball/mlb",
+              "cbb": "basketball/mens-college-basketball", "wcbb": "basketball/womens-college-basketball"}
 
 def espn_news(path, tid, n=4):
     """Recent ESPN headlines+blurbs for one team — the storyline fuel for the beat-reporter read."""
@@ -1359,10 +1360,42 @@ def build_mlb():
             "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
     return base
 
+# ----------------------------------------------------------------------------- College basketball (men + women)
+def build_college_bb(key):
+    """Scoring lives in scripts/cbb.py (pandas). Men's market = FanDuel via the Odds API; the Odds API has no
+       women's futures, so women's uses the latest FanDuel snapshot in data/wcbb_fd.json (updated by hand)."""
+    import cbb as C
+    fd_raw, rem, asof = {}, None, None
+    if key == "cbb":
+        fd_raw, rem = fetch_futures("basketball_ncaab_championship_winner")
+    else:
+        try:
+            snap = json.load(open(os.path.join(DATA, "wcbb_fd.json"), encoding="utf-8")); fd_raw, asof = snap["odds"], snap.get("date")
+        except Exception: pass
+    base = C.build(key, DATA, fd_raw, YEAR)
+    base["generated"] = now_iso(); base["odds_remaining"] = rem; base["market_asof"] = asof
+    if base.get("status") == "preseason": return base
+    rows = base["teams"]
+    for t in rows:
+        t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None; t["fair_odds"] = american(t["p"]) if t["p"] else None; t["read"] = None
+    attach(rows, [t for t in rows if t["p"] > 0], {t["name"]: t["mk"] for t in rows if t.get("mk") is not None})
+    top = max(rows, key=lambda t: t["p"]) if rows else None
+    if top:
+        src = "preseason roster projection" if base.get("use_pre") else "blueprint (index × fair odds)"
+        conf = "" if not base.get("use_pre") else (" — lineup confirmed in real games" if top.get("confirmed") else " — lineup NOT yet confirmed in real games")
+        base["prediction"] = {"pick": top["name"], "why": f"<b>{top['name']}</b> is the model's #1 by the {src} (fair {top['fair_odds']}){conf}."}
+    base.update({"season_pct": season_pct(rows, key) if any(t["gp"] for t in rows) else 0,
+                 "gp_min": min(t["gp"] for t in rows) if rows else 0, "gp_max": max(t["gp"] for t in rows) if rows else 0})
+    for t in rows: t.pop("p", None)
+    return base
+
+def build_cbb(): return build_college_bb("cbb")
+def build_wcbb(): return build_college_bb("wcbb")
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb)]:
         if name not in LEAGUES:
             continue
         try:
@@ -1372,7 +1405,7 @@ def main():
                 data["signal"] = signal_status(name, data["gp_max"])
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY)
+                if name not in ("cbb", "wcbb"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
@@ -1384,7 +1417,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":

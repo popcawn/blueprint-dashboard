@@ -1,0 +1,566 @@
+{
+ "generated": "2026-11-02",
+ "confirmed_teams": 0,
+ "teams": [
+  {
+   "name": "South Carolina Gamecocks",
+   "p": 0.20108,
+   "proj": 71.3,
+   "rank": 1,
+   "confirmed": false
+  },
+  {
+   "name": "UConn Huskies",
+   "p": 0.17944,
+   "proj": 70.1,
+   "rank": 2,
+   "confirmed": false
+  },
+  {
+   "name": "UCLA Bruins",
+   "p": 0.05666,
+   "proj": 58.6,
+   "rank": 3,
+   "confirmed": false
+  },
+  {
+   "name": "LSU Tigers",
+   "p": 0.03694,
+   "proj": 54.3,
+   "rank": 4,
+   "confirmed": false
+  },
+  {
+   "name": "Michigan Wolverines",
+   "p": 0.03524,
+   "proj": 53.9,
+   "rank": 5,
+   "confirmed": false
+  },
+  {
+   "name": "Texas Longhorns",
+   "p": 0.03019,
+   "proj": 52.3,
+   "rank": 6,
+   "confirmed": false
+  },
+  {
+   "name": "Louisville Cardinals",
+   "p": 0.0245,
+   "proj": 50.2,
+   "rank": 7,
+   "confirmed": false
+  },
+  {
+   "name": "Iowa Hawkeyes",
+   "p": 0.02391,
+   "proj": 50.0,
+   "rank": 8,
+   "confirmed": false
+  },
+  {
+   "name": "USC Trojans",
+   "p": 0.02091,
+   "proj": 48.6,
+   "rank": 9,
+   "confirmed": false
+  },
+  {
+   "name": "Duke Blue Devils",
+   "p": 0.02071,
+   "proj": 48.5,
+   "rank": 10,
+   "confirmed": false
+  },
+  {
+   "name": "Oklahoma Sooners",
+   "p": 0.01866,
+   "proj": 47.5,
+   "rank": 11,
+   "confirmed": false
+  },
+  {
+   "name": "Ohio State Buckeyes",
+   "p": 0.01755,
+   "proj": 46.9,
+   "rank": 12,
+   "confirmed": false
+  },
+  {
+   "name": "NC State Wolfpack",
+   "p": 0.01504,
+   "proj": 45.3,
+   "rank": 13,
+   "confirmed": false
+  },
+  {
+   "name": "North Carolina Tar Heels",
+   "p": 0.01431,
+   "proj": 44.8,
+   "rank": 14,
+   "confirmed": false
+  },
+  {
+   "name": "Vanderbilt Commodores",
+   "p": 0.01412,
+   "proj": 44.7,
+   "rank": 15,
+   "confirmed": false
+  },
+  {
+   "name": "Illinois Fighting Illini",
+   "p": 0.01384,
+   "proj": 44.5,
+   "rank": 16,
+   "confirmed": false
+  },
+  {
+   "name": "Baylor Bears",
+   "p": 0.01349,
+   "proj": 44.3,
+   "rank": 17,
+   "confirmed": false
+  },
+  {
+   "name": "Washington Huskies",
+   "p": 0.01064,
+   "proj": 41.9,
+   "rank": 18,
+   "confirmed": false
+  },
+  {
+   "name": "West Virginia Mountaineers",
+   "p": 0.01025,
+   "proj": 41.5,
+   "rank": 19,
+   "confirmed": false
+  },
+  {
+   "name": "Minnesota Golden Gophers",
+   "p": 0.00907,
+   "proj": 40.3,
+   "rank": 20,
+   "confirmed": false
+  },
+  {
+   "name": "Tennessee Lady Volunteers",
+   "p": 0.00895,
+   "proj": 40.2,
+   "rank": 21,
+   "confirmed": false
+  },
+  {
+   "name": "Maryland Terrapins",
+   "p": 0.00858,
+   "proj": 39.7,
+   "rank": 22,
+   "confirmed": false
+  },
+  {
+   "name": "TCU Horned Frogs",
+   "p": 0.00852,
+   "proj": 39.7,
+   "rank": 23,
+   "confirmed": false
+  },
+  {
+   "name": "Oklahoma State Cowgirls",
+   "p": 0.00828,
+   "proj": 39.4,
+   "rank": 24,
+   "confirmed": false
+  },
+  {
+   "name": "Ole Miss Rebels",
+   "p": 0.00762,
+   "proj": 38.5,
+   "rank": 25,
+   "confirmed": false
+  },
+  {
+   "name": "Nebraska Cornhuskers",
+   "p": 0.00619,
+   "proj": 36.5,
+   "rank": 26,
+   "confirmed": false
+  },
+  {
+   "name": "Michigan State Spartans",
+   "p": 0.006,
+   "proj": 36.1,
+   "rank": 27,
+   "confirmed": false
+  },
+  {
+   "name": "Notre Dame Fighting Irish",
+   "p": 0.00589,
+   "proj": 36.0,
+   "rank": 28,
+   "confirmed": false
+  },
+  {
+   "name": "Oregon Ducks",
+   "p": 0.00561,
+   "proj": 35.5,
+   "rank": 29,
+   "confirmed": false
+  },
+  {
+   "name": "Alabama Crimson Tide",
+   "p": 0.00559,
+   "proj": 35.4,
+   "rank": 30,
+   "confirmed": false
+  },
+  {
+   "name": "Indiana Hoosiers",
+   "p": 0.00521,
+   "proj": 34.7,
+   "rank": 31,
+   "confirmed": false
+  },
+  {
+   "name": "Colorado Buffaloes",
+   "p": 0.00463,
+   "proj": 33.6,
+   "rank": 32,
+   "confirmed": false
+  },
+  {
+   "name": "California Golden Bears",
+   "p": 0.00462,
+   "proj": 33.5,
+   "rank": 33,
+   "confirmed": false
+  },
+  {
+   "name": "Kansas State Wildcats",
+   "p": 0.00437,
+   "proj": 33.0,
+   "rank": 34,
+   "confirmed": false
+  },
+  {
+   "name": "Mississippi State Bulldogs",
+   "p": 0.00418,
+   "proj": 32.5,
+   "rank": 35,
+   "confirmed": false
+  },
+  {
+   "name": "Villanova Wildcats",
+   "p": 0.00416,
+   "proj": 32.5,
+   "rank": 36,
+   "confirmed": false
+  },
+  {
+   "name": "Iowa State Cyclones",
+   "p": 0.00401,
+   "proj": 32.1,
+   "rank": 37,
+   "confirmed": false
+  },
+  {
+   "name": "Stanford Cardinal",
+   "p": 0.004,
+   "proj": 32.1,
+   "rank": 38,
+   "confirmed": false
+  },
+  {
+   "name": "Kentucky Wildcats",
+   "p": 0.00379,
+   "proj": 31.6,
+   "rank": 39,
+   "confirmed": false
+  },
+  {
+   "name": "Utah Utes",
+   "p": 0.00332,
+   "proj": 30.3,
+   "rank": 40,
+   "confirmed": false
+  },
+  {
+   "name": "Gonzaga Bulldogs",
+   "p": 0.00317,
+   "proj": 29.8,
+   "rank": 41,
+   "confirmed": false
+  },
+  {
+   "name": "Georgia Tech Yellow Jackets",
+   "p": 0.00315,
+   "proj": 29.7,
+   "rank": 42,
+   "confirmed": false
+  },
+  {
+   "name": "Florida Gators",
+   "p": 0.00299,
+   "proj": 29.2,
+   "rank": 43,
+   "confirmed": false
+  },
+  {
+   "name": "Georgia Lady Bulldogs",
+   "p": 0.00295,
+   "proj": 29.1,
+   "rank": 44,
+   "confirmed": false
+  },
+  {
+   "name": "Princeton Tigers",
+   "p": 0.00276,
+   "proj": 28.4,
+   "rank": 45,
+   "confirmed": false
+  },
+  {
+   "name": "Kansas Jayhawks",
+   "p": 0.00273,
+   "proj": 28.3,
+   "rank": 46,
+   "confirmed": false
+  },
+  {
+   "name": "Florida State Seminoles",
+   "p": 0.00266,
+   "proj": 28.0,
+   "rank": 47,
+   "confirmed": false
+  },
+  {
+   "name": "Virginia Tech Hokies",
+   "p": 0.0026,
+   "proj": 27.8,
+   "rank": 48,
+   "confirmed": false
+  },
+  {
+   "name": "Auburn Tigers",
+   "p": 0.00243,
+   "proj": 27.1,
+   "rank": 49,
+   "confirmed": false
+  },
+  {
+   "name": "Miami Hurricanes",
+   "p": 0.00226,
+   "proj": 26.4,
+   "rank": 50,
+   "confirmed": false
+  },
+  {
+   "name": "Arizona State Sun Devils",
+   "p": 0.0022,
+   "proj": 26.1,
+   "rank": 51,
+   "confirmed": false
+  },
+  {
+   "name": "Creighton Bluejays",
+   "p": 0.00202,
+   "proj": 25.3,
+   "rank": 52,
+   "confirmed": false
+  },
+  {
+   "name": "BYU Cougars",
+   "p": 0.00194,
+   "proj": 24.9,
+   "rank": 53,
+   "confirmed": false
+  },
+  {
+   "name": "South Dakota State Jackrabbits",
+   "p": 0.00187,
+   "proj": 24.5,
+   "rank": 54,
+   "confirmed": false
+  },
+  {
+   "name": "Columbia Lions",
+   "p": 0.00185,
+   "proj": 24.4,
+   "rank": 55,
+   "confirmed": false
+  },
+  {
+   "name": "Syracuse Orange",
+   "p": 0.00185,
+   "proj": 24.4,
+   "rank": 56,
+   "confirmed": false
+  },
+  {
+   "name": "Virginia Cavaliers",
+   "p": 0.00179,
+   "proj": 24.1,
+   "rank": 57,
+   "confirmed": false
+  },
+  {
+   "name": "James Madison Dukes",
+   "p": 0.00174,
+   "proj": 23.8,
+   "rank": 58,
+   "confirmed": false
+  },
+  {
+   "name": "Montana State Bobcats",
+   "p": 0.00172,
+   "proj": 23.7,
+   "rank": 59,
+   "confirmed": false
+  },
+  {
+   "name": "Clemson Tigers",
+   "p": 0.00169,
+   "proj": 23.5,
+   "rank": 60,
+   "confirmed": false
+  },
+  {
+   "name": "Texas Tech Lady Raiders",
+   "p": 0.00168,
+   "proj": 23.4,
+   "rank": 61,
+   "confirmed": false
+  },
+  {
+   "name": "Fairfield Stags",
+   "p": 0.00155,
+   "proj": 22.6,
+   "rank": 62,
+   "confirmed": false
+  },
+  {
+   "name": "Penn State Lady Lions",
+   "p": 0.00154,
+   "proj": 22.6,
+   "rank": 63,
+   "confirmed": false
+  },
+  {
+   "name": "Saint Joseph's Hawks",
+   "p": 0.00153,
+   "proj": 22.5,
+   "rank": 64,
+   "confirmed": false
+  },
+  {
+   "name": "Oregon State Beavers",
+   "p": 0.00141,
+   "proj": 21.7,
+   "rank": 65,
+   "confirmed": false
+  },
+  {
+   "name": "Texas A&M Aggies",
+   "p": 0.00136,
+   "proj": 21.3,
+   "rank": 66,
+   "confirmed": false
+  },
+  {
+   "name": "Missouri Tigers",
+   "p": 0.00135,
+   "proj": 21.3,
+   "rank": 67,
+   "confirmed": false
+  },
+  {
+   "name": "Arizona Wildcats",
+   "p": 0.00127,
+   "proj": 20.6,
+   "rank": 68,
+   "confirmed": false
+  },
+  {
+   "name": "Harvard Crimson",
+   "p": 0.0012,
+   "proj": 20.0,
+   "rank": 69,
+   "confirmed": false
+  },
+  {
+   "name": "North Dakota State Bison",
+   "p": 0.00118,
+   "proj": 19.9,
+   "rank": 70,
+   "confirmed": false
+  },
+  {
+   "name": "St. John's Red Storm",
+   "p": 0.00116,
+   "proj": 19.7,
+   "rank": 71,
+   "confirmed": false
+  },
+  {
+   "name": "UNLV Lady Rebels",
+   "p": 0.0011,
+   "proj": 19.2,
+   "rank": 72,
+   "confirmed": false
+  },
+  {
+   "name": "Purdue Boilermakers",
+   "p": 0.00108,
+   "proj": 19.0,
+   "rank": 73,
+   "confirmed": false
+  },
+  {
+   "name": "Murray State Racers",
+   "p": 0.00104,
+   "proj": 18.6,
+   "rank": 74,
+   "confirmed": false
+  },
+  {
+   "name": "Richmond Spiders",
+   "p": 0.00104,
+   "proj": 18.6,
+   "rank": 75,
+   "confirmed": false
+  },
+  {
+   "name": "Ball State Cardinals",
+   "p": 0.00103,
+   "proj": 18.5,
+   "rank": 76,
+   "confirmed": false
+  },
+  {
+   "name": "Seton Hall Pirates",
+   "p": 0.001,
+   "proj": 18.3,
+   "rank": 77,
+   "confirmed": false
+  },
+  {
+   "name": "South Florida Bulls",
+   "p": 0.00098,
+   "proj": 18.1,
+   "rank": 78,
+   "confirmed": false
+  },
+  {
+   "name": "San Diego State Aztecs",
+   "p": 0.00098,
+   "proj": 18.0,
+   "rank": 79,
+   "confirmed": false
+  },
+  {
+   "name": "Santa Clara Broncos",
+   "p": 0.00096,
+   "proj": 17.8,
+   "rank": 80,
+   "confirmed": false
+  }
+ ]
+}
