@@ -56,6 +56,17 @@ def value_plays(teams, maxcat, sport=None):
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
+    if sport in ("cbb", "wcbb"):
+        # College hoops has no trust reads. Value = the backtested shortlist (by fair title odds: men top-5 —
+        # champion top-5 in 11/15; women top-3 — top-3 in 8/9) + EV >= +10% at <= +5000 (college futures run
+        # longer than pro). Not odds-backtested (no historical college-hoops futures).
+        n = 5 if sport == "cbb" else 3
+        for t in sorted([t for t in teams if t.get("fair_pct")], key=lambda t: -t["fair_pct"])[:n]:
+            p = _price_num(t.get("market"))
+            if (t.get("ev") or 0) >= 10 and p is not None and p <= 5000:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
     for t in teams:
         if t.get("score", 0) < maxcat - 1: continue
         if (t.get("read") or {}).get("v") != "trust": continue

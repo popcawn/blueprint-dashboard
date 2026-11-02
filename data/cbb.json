@@ -116,8 +116,8 @@
       "market": "+3500",
       "ev": 167,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 167
       }
     },
@@ -1456,8 +1456,8 @@
   "median_gp": 0.0,
   "pre_generated": "2026-11-02",
   "pre_confirmed": 7,
-  "generated": "2026-11-02T18:30:50Z",
-  "odds_remaining": "95171",
+  "generated": "2026-11-02T18:54:32Z",
+  "odds_remaining": "95167",
   "market_asof": null,
   "prediction": {
     "pick": "Duke Blue Devils",
@@ -1472,5 +1472,18 @@
     "label": "Too early",
     "note": "only 0 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Iowa State Cyclones",
+      "ev": 167,
+      "market": "+3500",
+      "fair_odds": "+1249"
+    },
+    {
+      "name": "Houston Cougars",
+      "ev": 39,
+      "market": "+3000",
+      "fair_odds": "+2124"
+    }
+  ]
 }
