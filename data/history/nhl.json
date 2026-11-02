@@ -2722,15 +2722,15 @@
     "sc": 4,
     "idx": 78.7,
     "fp": 13.0,
-    "mkt": "+1200",
-    "ev": 69
+    "mkt": "+1100",
+    "ev": 56
    },
    "Tampa Bay Lightning": {
     "sc": 4,
     "idx": 69.6,
     "fp": 7.6,
-    "mkt": "+1200",
-    "ev": -2
+    "mkt": "+1100",
+    "ev": -9
    },
    "Dallas Stars": {
     "sc": 4,
@@ -2799,8 +2799,8 @@
     "sc": 2,
     "idx": 52.9,
     "fp": 1.7,
-    "mkt": "+12500",
-    "ev": 109
+    "mkt": "+15000",
+    "ev": 150
    },
    "St Louis Blues": {
     "sc": 1,
@@ -2813,7 +2813,7 @@
     "sc": 1,
     "idx": 53.0,
     "fp": null,
-    "mkt": "+1600",
+    "mkt": "+1700",
     "ev": null
    },
    "Pittsburgh Penguins": {
@@ -2834,14 +2834,14 @@
     "sc": 1,
     "idx": 48.2,
     "fp": null,
-    "mkt": "+2700",
+    "mkt": "+3000",
     "ev": null
    },
    "Toronto Maple Leafs": {
     "sc": 1,
     "idx": 45.9,
     "fp": null,
-    "mkt": "+4000",
+    "mkt": "+5000",
     "ev": null
    },
    "Columbus Blue Jackets": {

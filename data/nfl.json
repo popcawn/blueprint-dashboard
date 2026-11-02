@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-02T10:55:50Z",
-  "odds_remaining": "99001",
+  "generated": "2026-11-02T22:30:17Z",
+  "odds_remaining": "94961",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +395). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -48,12 +48,12 @@
       "rtg": 12.1,
       "fair_pct": 20.2,
       "fair_odds": "+395",
-      "market": "+1000",
-      "ev": 122,
+      "market": "+950",
+      "ev": 112,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 122
+        "ev": 112
       },
       "read": {
         "v": "trust",
@@ -188,12 +188,12 @@
       "rtg": 6.9,
       "fair_pct": 8.3,
       "fair_odds": "+1103",
-      "market": "+1700",
-      "ev": 50,
+      "market": "+1600",
+      "ev": 41,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 50
+        "ev": 41
       },
       "read": {
         "v": "caution",
@@ -293,12 +293,12 @@
       "rtg": 5.1,
       "fair_pct": 5.5,
       "fair_odds": "+1718",
-      "market": "+1200",
-      "ev": -28,
+      "market": "+1100",
+      "ev": -34,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -28
+        "ev": -34
       },
       "read": {
         "v": "caution",
@@ -623,7 +623,7 @@
       "rtg": -1.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+10000",
+      "market": "+12500",
       "ev": null,
       "verdict": null,
       "read": {
@@ -654,7 +654,7 @@
       "rtg": -2.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7500",
+      "market": "+7000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -778,7 +778,7 @@
       "rtg": -3.0,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+4500",
+      "market": "+22500",
       "ev": null,
       "verdict": null,
       "read": {
@@ -902,7 +902,7 @@
       "rtg": -7.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+100000",
+      "market": "+75000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -995,7 +995,7 @@
       "rtg": -8.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+60000",
+      "market": "+70000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1057,7 +1057,7 @@
       "rtg": -10.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+100000",
+      "market": "+75000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1081,8 +1081,8 @@
     },
     {
       "name": "Jacksonville Jaguars",
-      "ev": 122,
-      "market": "+1000",
+      "ev": 112,
+      "market": "+950",
       "fair_odds": "+395"
     },
     {
