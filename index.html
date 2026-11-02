@@ -330,7 +330,7 @@ function render(){
     `<div class="stat"><small>Season</small><b>${pct}%</b></div>`,
     `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
     `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b>${["cfb","cbb","wcbb"].includes(cur)?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
-    `<div class="stat" title="The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."><small>Value play</small><b class="${bv?'g':''}">${bv?shortNm(bv.name)+" "+fmtEV(bv.ev):"none"}</b></div>`,
+    `<div class="stat" title="${cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>Value play</small><b class="${bv?'g':''}">${bv?(["cfb","cbb","wcbb"].includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):"none"}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
   let html=`<div class="hero"><div class="heror">

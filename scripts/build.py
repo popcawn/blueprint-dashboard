@@ -37,13 +37,25 @@ def _price_num(mk):
     try: return int(str(mk).replace("+", ""))
     except Exception: return None
 
-def value_plays(teams, maxcat):
+def value_plays(teams, maxcat, sport=None):
     """QUALIFIED VALUE = complete profile (score >= maxcat-1) + a 🟢 trust read + positive EV
        + a believable price (<= +2500). Backtested on 5 odds-era seasons (2021-22..2025-26):
        isolates the value-DOG champions (GSW '22 +68%, DEN '23 +100%, NYK '26 +140/+174%) and
        correctly stays empty when the champ is chalk (BOS '24, OKC '25 — fade or bet the favorite).
        This replaces raw 'best EV', which lights up junk longshots (e.g. a 40000-1 phantom line)."""
     out = []
+    if sport == "cfb":
+        # CFB: the NBA 'complete profile + trust read' gate contradicts the CFB backtest, where 3/5 champions are
+        # normal (2020 Alabama, 2024 Ohio State) and the champion-picker is the uncapped index x schedule order
+        # (10/12). CFB value = model top-4 in that order + schedule-verified (SRS top-10, so not a soft-slate
+        # mirage) + EV >= +10% at a believable price (<= +2500). Not odds-backtested: no historical CFB futures.
+        order = sorted([t for t in teams if t.get("mw")], key=lambda t: -t["mw"])[:4]
+        for t in order:
+            p = _price_num(t.get("market"))
+            if (t.get("ev") or 0) >= 10 and p is not None and p <= 2500 and (t.get("srsrank") or 999) <= 10:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
     for t in teams:
         if t.get("score", 0) < maxcat - 1: continue
         if (t.get("read") or {}).get("v") != "trust": continue
@@ -1403,7 +1415,7 @@ def main():
             data = fn()
             if data.get("status") != "preseason" and data.get("gp_max") is not None:
                 data["signal"] = signal_status(name, data["gp_max"])
-                data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4)
+                data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
                 if name not in ("cbb", "wcbb"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
