@@ -18,10 +18,10 @@
   "teams": [
     {
       "name": "Duke Blue Devils",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 5,
-      "index": null,
+      "index": 64.7,
       "q": [
         false,
         false,
@@ -30,13 +30,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+48.4 #59",
+        "119.5 #103",
+        "71.1 #36",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 48.4,
       "mk": 480,
       "confirmed": true,
       "pre_rank": 1.0,
@@ -53,10 +53,10 @@
     },
     {
       "name": "Florida Gators",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 4,
-      "index": null,
+      "index": 54.3,
       "q": [
         false,
         false,
@@ -65,13 +65,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+14.1 #146",
+        "108.5 #162",
+        "94.4 #133",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 14.1,
       "mk": 650,
       "confirmed": true,
       "pre_rank": 2.0,
@@ -88,10 +88,10 @@
     },
     {
       "name": "Iowa State Cyclones",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "0-1",
+      "gp": 1,
       "score": 4,
-      "index": null,
+      "index": 33.3,
       "q": [
         false,
         false,
@@ -100,13 +100,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "-5.6 #197",
+        "107.1 #167",
+        "112.8 #229",
+        "0.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": -5.6,
       "mk": 3500,
       "confirmed": true,
       "pre_rank": 3.0,
@@ -123,10 +123,10 @@
     },
     {
       "name": "Houston Cougars",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 4,
-      "index": null,
+      "index": 65.7,
       "q": [
         false,
         false,
@@ -135,13 +135,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+51.5 #49",
+        "124.1 #82",
+        "72.6 #41",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 51.5,
       "mk": 3000,
       "confirmed": true,
       "pre_rank": 4.0,
@@ -158,10 +158,10 @@
     },
     {
       "name": "Arizona Wildcats",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "0-1",
+      "gp": 1,
       "score": 4,
-      "index": null,
+      "index": 31.3,
       "q": [
         false,
         false,
@@ -170,13 +170,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "-12.2 #216",
+        "102.0 #198",
+        "114.2 #237",
+        "0.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": -12.2,
       "mk": 2000,
       "confirmed": false,
       "pre_rank": 5.0,
@@ -193,10 +193,10 @@
     },
     {
       "name": "UConn Huskies",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 4,
-      "index": null,
+      "index": 66.9,
       "q": [
         false,
         false,
@@ -205,13 +205,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+55.3 #37",
+        "118.8 #107",
+        "63.6 #14",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 55.3,
       "mk": 1200,
       "confirmed": true,
       "pre_rank": 6.0,
@@ -228,10 +228,10 @@
     },
     {
       "name": "Purdue Boilermakers",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "0-1",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 32.3,
       "q": [
         false,
         false,
@@ -240,13 +240,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "-8.8 #204",
+        "105.0 #183",
+        "113.8 #234",
+        "0.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": -8.8,
       "mk": 6500,
       "confirmed": true,
       "pre_rank": 7.0,
@@ -298,10 +298,10 @@
     },
     {
       "name": "Illinois Fighting Illini",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 80.3,
       "q": [
         false,
         false,
@@ -310,13 +310,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+99.5 #2",
+        "159.1 #3",
+        "59.7 #8",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 99.5,
       "mk": 1200,
       "confirmed": true,
       "pre_rank": 9.0,
@@ -333,10 +333,10 @@
     },
     {
       "name": "Gonzaga Bulldogs",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 52.7,
       "q": [
         false,
         false,
@@ -345,13 +345,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+8.8 #165",
+        "113.8 #135",
+        "105.0 #186",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 8.8,
       "mk": 3000,
       "confirmed": true,
       "pre_rank": 10.0,
@@ -368,10 +368,10 @@
     },
     {
       "name": "Michigan State Spartans",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 65.6,
       "q": [
         false,
         false,
@@ -380,13 +380,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+51.1 #52",
+        "132.6 #35",
+        "81.5 #78",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 51.1,
       "mk": 2000,
       "confirmed": true,
       "pre_rank": 11.0,
@@ -403,10 +403,10 @@
     },
     {
       "name": "Michigan Wolverines",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 56.7,
       "q": [
         false,
         false,
@@ -415,13 +415,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+22.1 #119",
+        "116.1 #120",
+        "94.0 #131",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 22.1,
       "mk": 4500,
       "confirmed": true,
       "pre_rank": 12.0,
@@ -438,10 +438,10 @@
     },
     {
       "name": "BYU Cougars",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 54.9,
       "q": [
         false,
         false,
@@ -450,13 +450,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+16.2 #140",
+        "138.4 #21",
+        "122.2 #278",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 16.2,
       "mk": 6500,
       "confirmed": true,
       "pre_rank": 13.0,
@@ -578,10 +578,10 @@
     },
     {
       "name": "Oklahoma Sooners",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "0-1",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 33.2,
       "q": [
         false,
         false,
@@ -590,13 +590,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "-6.0 #198",
+        "96.7 #226",
+        "102.7 #175",
+        "0.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": -6.0,
       "mk": 20000,
       "confirmed": true,
       "pre_rank": 17.0,
@@ -613,10 +613,10 @@
     },
     {
       "name": "Wisconsin Badgers",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 53.0,
       "q": [
         false,
         false,
@@ -625,13 +625,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+9.8 #162",
+        "105.2 #181",
+        "95.4 #139",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 9.8,
       "mk": 15000,
       "confirmed": true,
       "pre_rank": 18.0,
@@ -648,10 +648,10 @@
     },
     {
       "name": "Louisville Cardinals",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 56.0,
       "q": [
         false,
         false,
@@ -660,13 +660,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+19.6 #128",
+        "117.5 #112",
+        "97.9 #146",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 19.6,
       "mk": 2500,
       "confirmed": true,
       "pre_rank": 19.0,
@@ -683,10 +683,10 @@
     },
     {
       "name": "Texas Tech Red Raiders",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 64.7,
       "q": [
         false,
         false,
@@ -695,13 +695,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+48.1 #60",
+        "107.5 #164",
+        "59.4 #7",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 48.1,
       "mk": 2200,
       "confirmed": true,
       "pre_rank": 20.0,
@@ -718,10 +718,10 @@
     },
     {
       "name": "UCLA Bruins",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 53.7,
       "q": [
         false,
         false,
@@ -730,13 +730,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+12.2 #153",
+        "114.2 #132",
+        "102.0 #171",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 12.2,
       "mk": 3500,
       "confirmed": false,
       "pre_rank": 21.0,
@@ -753,10 +753,10 @@
     },
     {
       "name": "North Carolina Tar Heels",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 53.4,
       "q": [
         false,
         false,
@@ -765,13 +765,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+11.3 #157",
+        "113.1 #137",
+        "101.8 #168",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 11.3,
       "mk": 6500,
       "confirmed": true,
       "pre_rank": 22.0,
@@ -788,10 +788,10 @@
     },
     {
       "name": "Ohio State Buckeyes",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "0-1",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 30.1,
       "q": [
         false,
         false,
@@ -800,13 +800,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "-16.2 #229",
+        "122.2 #91",
+        "138.4 #348",
+        "0.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": -16.2,
       "mk": 10000,
       "confirmed": true,
       "pre_rank": 23.0,
@@ -823,10 +823,10 @@
     },
     {
       "name": "Nebraska Cornhuskers",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 67.5,
       "q": [
         false,
         false,
@@ -835,13 +835,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+57.3 #32",
+        "144.7 #11",
+        "87.4 #103",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 57.3,
       "mk": 6500,
       "confirmed": true,
       "pre_rank": 24.0,
@@ -858,10 +858,10 @@
     },
     {
       "name": "Baylor Bears",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 58.6,
       "q": [
         false,
         false,
@@ -870,13 +870,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+28.4 #105",
+        "112.1 #146",
+        "83.8 #87",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 28.4,
       "mk": 6500,
       "confirmed": true,
       "pre_rank": 25.0,
@@ -893,10 +893,10 @@
     },
     {
       "name": "Georgia Bulldogs",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 56.6,
       "q": [
         false,
         false,
@@ -905,13 +905,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+21.8 #120",
+        "106.1 #178",
+        "84.4 #92",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 21.8,
       "mk": 15000,
       "confirmed": true,
       "pre_rank": 26.0,
@@ -924,6 +924,41 @@
         "kind": "longshot",
         "label": "longshot value",
         "ev": 16
+      }
+    },
+    {
+      "name": "Marquette Golden Eagles",
+      "rec": "1-0",
+      "gp": 1,
+      "score": 1,
+      "index": 66.6,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "+54.4 #41",
+        "121.2 #96",
+        "66.8 #23",
+        "1.000",
+        "\u2014"
+      ],
+      "rtg": 54.4,
+      "mk": 15000,
+      "confirmed": true,
+      "pre_rank": 28.0,
+      "fair_pct": 0.7,
+      "fair_odds": "+14715",
+      "read": null,
+      "market": "+15000",
+      "ev": 2,
+      "verdict": {
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 2
       }
     },
     {
@@ -962,46 +997,11 @@
       }
     },
     {
-      "name": "Marquette Golden Eagles",
-      "rec": "0-0",
-      "gp": 0,
-      "score": 1,
-      "index": null,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014"
-      ],
-      "rtg": null,
-      "mk": 15000,
-      "confirmed": true,
-      "pre_rank": 28.0,
-      "fair_pct": 0.7,
-      "fair_odds": "+14715",
-      "read": null,
-      "market": "+15000",
-      "ev": 2,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": 2
-      }
-    },
-    {
       "name": "St. John's Red Storm",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 56.1,
       "q": [
         false,
         false,
@@ -1010,13 +1010,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+19.9 #125",
+        "103.6 #191",
+        "83.7 #85",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 19.9,
       "mk": 3000,
       "confirmed": true,
       "pre_rank": 29.0,
@@ -1033,10 +1033,10 @@
     },
     {
       "name": "Clemson Tigers",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 56.0,
       "q": [
         false,
         false,
@@ -1045,13 +1045,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+19.7 #127",
+        "128.9 #51",
+        "109.2 #211",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 19.7,
       "mk": 15000,
       "confirmed": true,
       "pre_rank": 30.0,
@@ -1068,10 +1068,10 @@
     },
     {
       "name": "Indiana Hoosiers",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 64.7,
       "q": [
         false,
         false,
@@ -1080,13 +1080,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+48.0 #61",
+        "128.6 #52",
+        "80.6 #74",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 48.0,
       "mk": 6500,
       "confirmed": true,
       "pre_rank": 31.0,
@@ -1103,10 +1103,10 @@
     },
     {
       "name": "Vanderbilt Commodores",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 70.2,
       "q": [
         false,
         false,
@@ -1115,13 +1115,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+66.2 #22",
+        "133.8 #31",
+        "67.6 #25",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 66.2,
       "mk": 3500,
       "confirmed": true,
       "pre_rank": 32.0,
@@ -1138,10 +1138,10 @@
     },
     {
       "name": "Texas Longhorns",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 71.8,
       "q": [
         false,
         false,
@@ -1150,13 +1150,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+71.4 #14",
+        "155.6 #5",
+        "84.2 #91",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 71.4,
       "mk": 2200,
       "confirmed": true,
       "pre_rank": 33.0,
@@ -1173,10 +1173,10 @@
     },
     {
       "name": "Kansas Jayhawks",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 62.0,
       "q": [
         false,
         false,
@@ -1185,13 +1185,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+39.4 #81",
+        "124.7 #80",
+        "85.3 #96",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 39.4,
       "mk": 3000,
       "confirmed": true,
       "pre_rank": 34.0,
@@ -1243,10 +1243,10 @@
     },
     {
       "name": "Oregon Ducks",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 58.0,
       "q": [
         false,
         false,
@@ -1255,13 +1255,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+26.3 #108",
+        "127.3 #63",
+        "101.0 #163",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 26.3,
       "mk": 20000,
       "confirmed": true,
       "pre_rank": 36.0,
@@ -1313,10 +1313,10 @@
     },
     {
       "name": "VCU Rams",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 1,
-      "index": null,
+      "index": 54.3,
       "q": [
         false,
         false,
@@ -1325,13 +1325,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+14.1 #145",
+        "115.7 #122",
+        "101.6 #167",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 14.1,
       "mk": 15000,
       "confirmed": true,
       "pre_rank": 38.0,
@@ -1383,24 +1383,24 @@
     }
   ],
   "use_pre": true,
-  "median_gp": 0.0,
+  "median_gp": 1.0,
   "pre_generated": "2026-11-03",
   "pre_confirmed": 297,
-  "generated": "2026-11-03T05:30:04Z",
-  "odds_remaining": "94725",
+  "generated": "2026-11-03T14:51:34Z",
+  "odds_remaining": "94334",
   "market_asof": null,
   "prediction": {
     "pick": "Duke Blue Devils",
     "why": "<b>Duke Blue Devils</b> is the model's #1 by the preseason roster projection (fair +580) \u2014 lineup confirmed in real games."
   },
-  "season_pct": 0,
+  "season_pct": 3,
   "gp_min": 0,
-  "gp_max": 0,
+  "gp_max": 1,
   "signal": {
     "status": "early",
     "emoji": "\ud83d\udd34",
     "label": "Too early",
-    "note": "only 0 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
+    "note": "only 1 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
   },
   "value_plays": [
     {
