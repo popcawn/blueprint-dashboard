@@ -1595,5 +1595,130 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-03",
+  "gp": 8,
+  "teams": {
+   "Memphis Grizzlies": {
+    "sc": 4,
+    "idx": 96.4,
+    "fp": 14.4,
+    "mkt": "+15000",
+    "ev": 2079
+   },
+   "Houston Rockets": {
+    "sc": 4,
+    "idx": 91.5,
+    "fp": 12.3,
+    "mkt": "+1500",
+    "ev": 97
+   },
+   "Portland Trail Blazers": {
+    "sc": 4,
+    "idx": 88.1,
+    "fp": 11.0,
+    "mkt": "+3000",
+    "ev": 241
+   },
+   "Minnesota Timberwolves": {
+    "sc": 4,
+    "idx": 81.4,
+    "fp": 8.7,
+    "mkt": "+2000",
+    "ev": 82
+   },
+   "Boston Celtics": {
+    "sc": 4,
+    "idx": 80.8,
+    "fp": 24.0,
+    "mkt": "+1100",
+    "ev": 188
+   },
+   "Detroit Pistons": {
+    "sc": 2,
+    "idx": 84.1,
+    "fp": 14.1,
+    "mkt": "+2200",
+    "ev": 225
+   },
+   "Philadelphia 76ers": {
+    "sc": 2,
+    "idx": 76.4,
+    "fp": 10.6,
+    "mkt": "+900",
+    "ev": 6
+   },
+   "Los Angeles Lakers": {
+    "sc": 2,
+    "idx": 73.0,
+    "fp": 2.9,
+    "mkt": "+3000",
+    "ev": -9
+   },
+   "Oklahoma City Thunder": {
+    "sc": 2,
+    "idx": 62.9,
+    "fp": 1.9,
+    "mkt": "+400",
+    "ev": -91
+   },
+   "San Antonio Spurs": {
+    "sc": 1,
+    "idx": 76.3,
+    "fp": null,
+    "mkt": "+290",
+    "ev": null
+   },
+   "Toronto Raptors": {
+    "sc": 1,
+    "idx": 73.0,
+    "fp": null,
+    "mkt": "+1700",
+    "ev": null
+   },
+   "Cleveland Cavaliers": {
+    "sc": 1,
+    "idx": 66.7,
+    "fp": null,
+    "mkt": "+2700",
+    "ev": null
+   },
+   "Golden State Warriors": {
+    "sc": 1,
+    "idx": 64.7,
+    "fp": null,
+    "mkt": "+7000",
+    "ev": null
+   },
+   "New Orleans Pelicans": {
+    "sc": 1,
+    "idx": 56.0,
+    "fp": null,
+    "mkt": "+100000",
+    "ev": null
+   },
+   "New York Knicks": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": null,
+    "mkt": "+1000",
+    "ev": null
+   },
+   "Miami Heat": {
+    "sc": 1,
+    "idx": 41.6,
+    "fp": null,
+    "mkt": "+4500",
+    "ev": null
+   },
+   "Charlotte Hornets": {
+    "sc": 1,
+    "idx": 38.3,
+    "fp": null,
+    "mkt": "+12500",
+    "ev": null
+   }
+  }
  }
 ]
