@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-03T16:09:26Z",
-  "odds_remaining": "94147",
+  "generated": "2026-11-03T18:24:04Z",
+  "odds_remaining": "94128",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +669). No goaltending asterisk, no possession hole \u2014 #1 driving play and #4 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -44,12 +44,12 @@
       "rtg": 1.09,
       "fair_pct": 13.0,
       "fair_odds": "+669",
-      "market": "+650",
-      "ev": -2,
+      "market": "+700",
+      "ev": 4,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -2
+        "kind": "small",
+        "label": "small value",
+        "ev": 4
       },
       "read": {
         "v": "trust",
@@ -275,12 +275,12 @@
       "rtg": 0.23,
       "fair_pct": 6.5,
       "fair_odds": "+1436",
-      "market": "+1000",
-      "ev": -28,
+      "market": "+950",
+      "ev": -32,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -28
+        "ev": -32
       },
       "read": {
         "v": "fools_gold",
@@ -469,12 +469,12 @@
       "rtg": 0.12,
       "fair_pct": 1.6,
       "fair_odds": "+6061",
-      "market": "+12500",
-      "ev": 105,
+      "market": "+10000",
+      "ev": 64,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 105
+        "ev": 64
       },
       "read": {
         "v": "caution",
@@ -568,12 +568,12 @@
       "rtg": 0.02,
       "fair_pct": 0.9,
       "fair_odds": "+11559",
-      "market": "+10000",
-      "ev": -13,
+      "market": "+7000",
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -13
+        "ev": -39
       },
       "read": {
         "v": "caution",
@@ -757,6 +757,12 @@
       "name": "Minnesota Wild",
       "ev": 69,
       "market": "+1200",
+      "fair_odds": "+669"
+    },
+    {
+      "name": "Carolina Hurricanes",
+      "ev": 4,
+      "market": "+700",
       "fair_odds": "+669"
     }
   ]
