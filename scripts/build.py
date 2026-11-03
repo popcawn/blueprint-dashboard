@@ -1207,7 +1207,7 @@ def pick_gap(pool):
     return ps[0], gap, len(ps) > 1 and ps[0]["score"] >= ps[1]["score"] and gap >= 6.0
 
 def log_history(name, data):
-    """Append a compact dated snapshot of the contenders to data/history/<name>.json (keep last 30 runs).
+    """Append a compact dated snapshot of the contenders to data/history/<name>.json (keep last 400 runs — a full season of daily runs, so streaks aren't truncated).
        This is the week-over-week tracker — it's what surfaces season-long consistency + market drift."""
     if data.get("status") == "preseason" or not data.get("teams"): return
     hp = os.path.join(DATA, "history", f"{name}.json")
@@ -1219,7 +1219,7 @@ def log_history(name, data):
                                   "mkt": t.get("market"), "ev": t.get("ev")} for t in data["teams"]}}
     if hist and hist[-1]["date"] == snap["date"]: hist[-1] = snap   # same-day re-run replaces
     else: hist.append(snap)
-    json.dump(hist[-30:], open(hp, "w", encoding="utf-8"), indent=1)
+    json.dump(hist[-400:], open(hp, "w", encoding="utf-8"), indent=1)
 
 def wnba_scoring(season):
     """Per-team PPG / Opp PPG from ESPN WNBA byteam (same glossary-index trick as NBA)."""
