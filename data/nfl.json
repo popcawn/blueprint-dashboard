@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-03T15:53:42Z",
-  "odds_remaining": "94154",
+  "generated": "2026-11-03T16:09:13Z",
+  "odds_remaining": "94149",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +416). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -118,12 +118,12 @@
       "rtg": 6.8,
       "fair_pct": 12.7,
       "fair_odds": "+686",
-      "market": "+750",
-      "ev": 8,
+      "market": "+800",
+      "ev": 15,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 8
+        "kind": "value",
+        "label": "value",
+        "ev": 15
       },
       "read": {
         "v": "trust",
@@ -258,12 +258,12 @@
       "rtg": 5.1,
       "fair_pct": 5.3,
       "fair_odds": "+1794",
-      "market": "+1100",
-      "ev": -37,
+      "market": "+1200",
+      "ev": -31,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -31
       },
       "read": {
         "v": "caution",
@@ -503,12 +503,12 @@
       "rtg": 3.4,
       "fair_pct": 1.1,
       "fair_odds": "+9117",
-      "market": "+6000",
-      "ev": -34,
+      "market": "+5500",
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -34
+        "ev": -39
       },
       "read": {
         "v": "caution",
@@ -1166,16 +1166,16 @@
       "fair_odds": "+416"
     },
     {
+      "name": "Chicago Bears",
+      "ev": 15,
+      "market": "+800",
+      "fair_odds": "+686"
+    },
+    {
       "name": "San Francisco 49ers",
       "ev": 11,
       "market": "+600",
       "fair_odds": "+533"
-    },
-    {
-      "name": "Chicago Bears",
-      "ev": 8,
-      "market": "+750",
-      "fair_odds": "+686"
     }
   ]
 }

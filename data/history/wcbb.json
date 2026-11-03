@@ -277,28 +277,28 @@
   "teams": {
    "South Carolina Gamecocks": {
     "sc": 5,
-    "idx": null,
+    "idx": 52.4,
     "fp": 19.3,
     "mkt": "+260",
     "ev": -30
    },
    "UConn Huskies": {
     "sc": 5,
-    "idx": null,
+    "idx": 70.1,
     "fp": 16.9,
     "mkt": "+260",
     "ev": -39
    },
    "UCLA Bruins": {
     "sc": 4,
-    "idx": null,
+    "idx": 57.0,
     "fp": 6.1,
     "mkt": "+3000",
     "ev": 90
    },
    "LSU Tigers": {
     "sc": 3,
-    "idx": null,
+    "idx": 79.2,
     "fp": 3.8,
     "mkt": "+1800",
     "ev": -28
@@ -319,7 +319,7 @@
    },
    "Iowa Hawkeyes": {
     "sc": 3,
-    "idx": null,
+    "idx": 60.7,
     "fp": 2.5,
     "mkt": "+2000",
     "ev": -48
@@ -333,35 +333,35 @@
    },
    "Louisville Cardinals": {
     "sc": 3,
-    "idx": null,
+    "idx": 71.0,
     "fp": 2.0,
     "mkt": "+5000",
     "ev": 4
    },
    "Ohio State Buckeyes": {
     "sc": 2,
-    "idx": null,
+    "idx": 66.4,
     "fp": 1.8,
     "mkt": "+10000",
     "ev": 87
    },
    "USC Trojans": {
     "sc": 2,
-    "idx": null,
+    "idx": 60.0,
     "fp": 1.8,
     "mkt": "+460",
     "ev": -90
    },
    "Oklahoma Sooners": {
     "sc": 2,
-    "idx": null,
+    "idx": 53.4,
     "fp": 1.8,
     "mkt": "+10000",
     "ev": 82
    },
    "Baylor Bears": {
     "sc": 2,
-    "idx": null,
+    "idx": 56.8,
     "fp": 1.6,
     "mkt": "+10000",
     "ev": 60
@@ -375,21 +375,21 @@
    },
    "NC State Wolfpack": {
     "sc": 2,
-    "idx": null,
+    "idx": 59.9,
     "fp": 1.4,
     "mkt": "+15000",
     "ev": 114
    },
    "North Carolina Tar Heels": {
     "sc": 2,
-    "idx": null,
+    "idx": 31.6,
     "fp": 1.2,
     "mkt": "+5000",
     "ev": -38
    },
    "Vanderbilt Commodores": {
     "sc": 2,
-    "idx": null,
+    "idx": 68.0,
     "fp": 1.2,
     "mkt": "+3000",
     "ev": -63
@@ -403,28 +403,28 @@
    },
    "Washington Huskies": {
     "sc": 2,
-    "idx": null,
+    "idx": 54.9,
     "fp": 1.0,
     "mkt": "+10000",
     "ev": 3
    },
    "Tennessee Lady Volunteers": {
     "sc": 1,
-    "idx": null,
+    "idx": 63.8,
     "fp": 1.0,
     "mkt": "+15000",
     "ev": 49
    },
    "Maryland Terrapins": {
     "sc": 1,
-    "idx": null,
+    "idx": 32.6,
     "fp": 1.0,
     "mkt": "+10000",
     "ev": -4
    },
    "Ole Miss Rebels": {
     "sc": 1,
-    "idx": null,
+    "idx": 64.3,
     "fp": 0.9,
     "mkt": "+10000",
     "ev": -5
@@ -438,35 +438,35 @@
    },
    "Oklahoma State Cowgirls": {
     "sc": 1,
-    "idx": null,
+    "idx": 64.5,
     "fp": 0.8,
     "mkt": "+5000",
     "ev": -61
    },
    "Minnesota Golden Gophers": {
     "sc": 1,
-    "idx": null,
+    "idx": 56.7,
     "fp": 0.8,
     "mkt": "+10000",
     "ev": -24
    },
    "Nebraska Cornhuskers": {
     "sc": 1,
-    "idx": null,
+    "idx": 58.4,
     "fp": 0.7,
     "mkt": "+10000",
     "ev": -30
    },
    "Alabama Crimson Tide": {
     "sc": 1,
-    "idx": null,
+    "idx": 60.4,
     "fp": 0.7,
     "mkt": "+20000",
     "ev": 38
    },
    "Notre Dame Fighting Irish": {
     "sc": 1,
-    "idx": 100.0,
+    "idx": 57.9,
     "fp": 0.7,
     "mkt": "+4000",
     "ev": -72
@@ -480,7 +480,7 @@
    },
    "Stanford Cardinal": {
     "sc": 1,
-    "idx": null,
+    "idx": 30.4,
     "fp": 0.6,
     "mkt": "+25000",
     "ev": 53
@@ -494,10 +494,17 @@
    },
    "Oregon Ducks": {
     "sc": 1,
-    "idx": null,
+    "idx": 60.6,
     "fp": 0.5,
     "mkt": "+10000",
     "ev": -51
+   },
+   "California Golden Bears": {
+    "sc": 1,
+    "idx": 57.2,
+    "fp": 0.5,
+    "mkt": "+25000",
+    "ev": 19
    },
    "Colorado Buffaloes": {
     "sc": 1,
@@ -506,16 +513,9 @@
     "mkt": "+25000",
     "ev": 19
    },
-   "California Golden Bears": {
-    "sc": 1,
-    "idx": null,
-    "fp": 0.5,
-    "mkt": "+25000",
-    "ev": 19
-   },
    "Iowa State Cyclones": {
     "sc": 1,
-    "idx": null,
+    "idx": 58.1,
     "fp": 0.4,
     "mkt": "+25000",
     "ev": 13
@@ -529,7 +529,7 @@
    },
    "Kansas State Wildcats": {
     "sc": 1,
-    "idx": null,
+    "idx": 57.0,
     "fp": 0.4,
     "mkt": "+25000",
     "ev": 2
