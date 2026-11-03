@@ -275,7 +275,11 @@ const T8EV={best:"g",value:"g",small:"g",longshot:"g",trap:"w",fair:"n",fade:"r"
 function top8(d,sp){
   const ord=d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
   const top=ord.slice(0,8); if(top.length<3)return "";
-  const h=(HIST[sp]||[]).slice(-6);
+  // one snapshot per WEEK (the bot runs daily): the latest run, then the latest run on/before each 7-day step back
+  const all=HIST[sp]||[], h=[];
+  if(all.length){const last=Date.parse(all[all.length-1].date);
+    for(let k=0;k<6;k++){const cut=last-k*7*864e5, s=[...all].reverse().find(x=>Date.parse(x.date)<=cut); if(s&&!h.includes(s))h.unshift(s);}}
+  const wks=h.length>1?Math.round((Date.parse(h[h.length-1].date)-Date.parse(h[0].date))/(7*864e5)):0;
   const rk=h.map(s=>{const r={};Object.entries(s.teams).sort((a,b)=>["cfb","cbb","wcbb"].includes(sp)?((b[1].fp||0)-(a[1].fp||0))||((b[1].idx||0)-(a[1].idx||0)):b[1].idx-a[1].idx).forEach(([n],i)=>r[n]=i+1);return r;});
   const cells=top.map((t,i)=>{const n=i+1, was=rk.length>1?rk[0][t.name]:undefined;
     const mv=rk.length<2?"":was==null||was>8?`<span class="t8mv nw">NEW</span>`:was>n?`<span class="t8mv up">▲${was-n}</span>`:was<n?`<span class="t8mv dn">▼${n-was}</span>`:"";
@@ -284,7 +288,7 @@ function top8(d,sp){
     return `<div class="t8c ${k==="g"?"g":""}" title="${t.name} · FanDuel ${t.market||"—"} · fair ${t.fair_odds||"—"}${t.verdict?" · "+t.verdict.label:""}">
       <div class="t8top"><span class="t8rk">#${n}</span>${mv}<span class="t8ev ${k}">${t.ev!=null?fmtEV(t.ev):"—"}</span></div>
       <div class="t8nm">${["cfb","cbb","wcbb"].includes(sp)?t.name:shortNm(t.name)}</div><div class="t8m">${t.market?`FD ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
-  return `<div class="t8"><div class="t8h"><b>🏁 Top 8</b><span>${sp==="cfb"?"model rank (index × schedule)":(sp==="cbb"||sp==="wcbb")?"model rank (fair title odds)":"rank by index"} · EV vs FanDuel beside each · green = value</span>${rk.length>1?`<span class="r">▲▼ vs ${rk.length} runs ago · bars = last ${rk.length} runs (dark top-3 · mid top-5 · light top-8)</span>`:""}</div><div class="t8g">${cells}</div></div>`;
+  return `<div class="t8"><div class="t8h"><b>🏁 Top 8</b><span>${sp==="cfb"?"model rank (index × schedule)":(sp==="cbb"||sp==="wcbb")?"model rank (fair title odds)":"rank by index"} · EV vs FanDuel beside each · green = value</span>${rk.length>1?`<span class="r">▲▼ vs ${wks} week${wks===1?"":"s"} ago · bars = ${rk.length} weekly snapshots (dark top-3 · mid top-5 · light top-8)</span>`:""}</div><div class="t8g">${cells}</div></div>`;
 }
 
 function card(t,sp){
