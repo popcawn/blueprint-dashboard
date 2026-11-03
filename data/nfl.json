@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-02T22:30:17Z",
-  "odds_remaining": "94961",
+  "generated": "2026-11-03T11:01:15Z",
+  "odds_remaining": "94585",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +395). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -77,22 +77,57 @@
         "0.857",
         "+58 #2",
         "28.1 #4",
-        "19.9 #7",
+        "19.9 #6",
         "+8.3"
       ],
       "rtg": 8.3,
-      "fair_pct": 17.3,
-      "fair_odds": "+478",
+      "fair_pct": 17.8,
+      "fair_odds": "+462",
       "market": "+600",
-      "ev": 21,
+      "ev": 24,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 21
+        "ev": 24
       },
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#2) and a top-7 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#2) and a top-6 defense. Complete and earned \u2014 trust it."
+      }
+    },
+    {
+      "name": "Chicago Bears",
+      "conf": "NFC",
+      "rec": "6-2",
+      "score": 5,
+      "index": 73.6,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.750",
+        "+54 #3",
+        "26.8 #8",
+        "20.0 #8",
+        "+6.8"
+      ],
+      "rtg": 6.8,
+      "fair_pct": 14.3,
+      "fair_odds": "+598",
+      "market": "+850",
+      "ev": 36,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 36
+      },
+      "read": {
+        "v": "trust",
+        "why": "The two traits that survive single-elimination: dominant margin (#3) and a top-8 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -110,7 +145,7 @@
       ],
       "vals": [
         "0.857",
-        "+52 #3",
+        "+52 #4",
         "33.3 #1",
         "25.9 #24",
         "+7.4"
@@ -145,24 +180,24 @@
       ],
       "vals": [
         "0.857",
-        "+47 #5",
+        "+47 #6",
         "20.0 #27",
         "13.3 #1",
         "+6.7"
       ],
       "rtg": 6.7,
-      "fair_pct": 11.8,
-      "fair_odds": "+750",
-      "market": "+2200",
-      "ev": 170,
+      "fair_pct": 12.1,
+      "fair_odds": "+728",
+      "market": "+2500",
+      "ev": 214,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 170
+        "ev": 214
       },
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-1 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#6) and a top-1 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -180,7 +215,7 @@
       ],
       "vals": [
         "0.714",
-        "+48 #4",
+        "+48 #5",
         "29.4 #2",
         "22.6 #14",
         "+6.9"
@@ -188,86 +223,16 @@
       "rtg": 6.9,
       "fair_pct": 8.3,
       "fair_odds": "+1103",
-      "market": "+1600",
-      "ev": 41,
+      "market": "+1700",
+      "ev": 50,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 41
+        "ev": 50
       },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #2 unit, but the #14 area is where a good playoff team picks it apart."
-      }
-    },
-    {
-      "name": "Chicago Bears",
-      "conf": "NFC",
-      "rec": "5-2",
-      "score": 4,
-      "index": 67.5,
-      "q": [
-        true,
-        false,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "0.714",
-        "+37 #7",
-        "25.7 #8",
-        "20.4 #9",
-        "+5.3"
-      ],
-      "rtg": 5.3,
-      "fair_pct": 8.4,
-      "fair_odds": "+1090",
-      "market": "+1000",
-      "ev": -8,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -8
-      },
-      "read": {
-        "v": "caution",
-        "why": "A middling profile \u2014 leads with its #7 unit, but the #9 area is where a good playoff team picks it apart."
-      }
-    },
-    {
-      "name": "Seattle Seahawks",
-      "conf": "NFC",
-      "rec": "4-3",
-      "score": 3,
-      "index": 68.0,
-      "q": [
-        false,
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "0.571",
-        "+43 #6",
-        "24.0 #11",
-        "17.9 #3",
-        "+6.1"
-      ],
-      "rtg": 6.1,
-      "fair_pct": 6.9,
-      "fair_odds": "+1355",
-      "market": "+950",
-      "ev": -28,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -28
-      },
-      "read": {
-        "v": "caution",
-        "why": "A middling profile \u2014 leads with its #3 unit, but the #11 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -285,24 +250,24 @@
       ],
       "vals": [
         "0.714",
-        "+36 #8",
-        "23.9 #12",
-        "18.7 #5",
+        "+36 #7",
+        "23.9 #11",
+        "18.7 #4",
         "+5.1"
       ],
       "rtg": 5.1,
       "fair_pct": 5.5,
       "fair_odds": "+1718",
-      "market": "+1100",
-      "ev": -34,
+      "market": "+1200",
+      "ev": -28,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -34
+        "ev": -28
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #5 unit, but the #12 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #4 unit, but the #11 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -320,24 +285,24 @@
       ],
       "vals": [
         "0.750",
-        "+36 #8",
+        "+36 #7",
         "22.5 #18",
-        "18.0 #4",
+        "18.0 #3",
         "+4.5"
       ],
       "rtg": 4.5,
       "fair_pct": 3.8,
       "fair_odds": "+2556",
-      "market": "+4000",
-      "ev": 54,
+      "market": "+3500",
+      "ev": 36,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 54
+        "ev": 36
       },
       "read": {
         "v": "caution",
-        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #4 defense, but a #18 offense that can't go cold at the wrong time."
+        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #3 defense, but a #18 offense that can't go cold at the wrong time."
       }
     },
     {
@@ -361,14 +326,14 @@
         "+3.3"
       ],
       "rtg": 3.3,
-      "fair_pct": 3.4,
-      "fair_odds": "+2837",
+      "fair_pct": 3.5,
+      "fair_odds": "+2759",
       "market": "+1600",
-      "ev": -42,
+      "ev": -41,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -42
+        "ev": -41
       },
       "read": {
         "v": "fools_gold",
@@ -392,22 +357,22 @@
         "0.625",
         "+22 #13",
         "23.0 #16",
-        "20.2 #8",
+        "20.2 #9",
         "+2.8"
       ],
       "rtg": 2.8,
       "fair_pct": 2.6,
       "fair_odds": "+3811",
-      "market": "+2200",
-      "ev": -41,
+      "market": "+2000",
+      "ev": -46,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -41
+        "ev": -46
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #8 unit, but the #16 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #9 unit, but the #16 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -432,17 +397,48 @@
       ],
       "rtg": 0.9,
       "fair_pct": 2.3,
-      "fair_odds": "+4340",
-      "market": "+3000",
-      "ev": -30,
+      "fair_odds": "+4222",
+      "market": "+2700",
+      "ev": -35,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -30
+        "ev": -35
       },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #10 unit, but the #23 area is where a good playoff team picks it apart."
+      }
+    },
+    {
+      "name": "Seattle Seahawks",
+      "conf": "NFC",
+      "rec": "4-4",
+      "score": 1,
+      "index": 58.2,
+      "q": [
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.500",
+        "+26 #10",
+        "23.1 #15",
+        "19.9 #7",
+        "+3.2"
+      ],
+      "rtg": 3.2,
+      "fair_pct": null,
+      "fair_odds": null,
+      "market": "+1300",
+      "ev": null,
+      "verdict": null,
+      "read": {
+        "v": "caution",
+        "why": "A middling profile \u2014 leads with its #7 unit, but the #15 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -460,7 +456,7 @@
       ],
       "vals": [
         "0.500",
-        "+26 #11",
+        "+26 #10",
         "24.2 #10",
         "21.0 #12",
         "+3.2"
@@ -491,20 +487,20 @@
       ],
       "vals": [
         "0.375",
-        "+27 #10",
+        "+27 #9",
         "22.2 #20",
-        "18.9 #6",
+        "18.9 #5",
         "+3.4"
       ],
       "rtg": 3.4,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7500",
+      "market": "+5500",
       "ev": null,
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #6 unit, but the #20 area is where a good playoff team picks it apart."
+        "why": "Defense-first \u2014 a #5 unit keeps every game winnable, which is exactly what holds up in January. The only question is whether a #20 offense scratches out enough."
       }
     },
     {
@@ -530,7 +526,7 @@
       "rtg": 0.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+1700",
+      "market": "+1800",
       "ev": null,
       "verdict": null,
       "read": {
@@ -554,7 +550,7 @@
       "vals": [
         "0.643",
         "+2 #17",
-        "23.3 #14",
+        "23.3 #13",
         "23.0 #15",
         "+0.3"
       ],
@@ -566,7 +562,7 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #14 unit, but the #17 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #13 unit, but the #17 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -654,7 +650,7 @@
       "rtg": -2.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+7000",
+      "market": "+6500",
       "ev": null,
       "verdict": null,
       "read": {
@@ -685,7 +681,7 @@
       "rtg": -4.2,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+15000",
+      "market": "+17500",
       "ev": null,
       "verdict": null,
       "read": {
@@ -709,19 +705,19 @@
       "vals": [
         "0.286",
         "-5 #18",
-        "23.6 #13",
+        "23.6 #12",
         "24.3 #18",
         "-0.7"
       ],
       "rtg": -0.7,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+3500",
+      "market": "+3300",
       "ev": null,
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #13 unit, but the #18 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #12 unit, but the #18 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -864,19 +860,19 @@
       "vals": [
         "0.286",
         "-32 #25",
-        "23.1 #15",
+        "23.1 #14",
         "27.7 #29",
         "-4.6"
       ],
       "rtg": -4.6,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+12500",
+      "market": "+15000",
       "ev": null,
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #15 unit, but the #29 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #14 unit, but the #29 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -902,7 +898,7 @@
       "rtg": -7.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+75000",
+      "market": "+70000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -995,7 +991,7 @@
       "rtg": -8.1,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+70000",
+      "market": "+50000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1057,7 +1053,7 @@
       "rtg": -10.9,
       "fair_pct": null,
       "fair_odds": null,
-      "market": "+75000",
+      "market": "+100000",
       "ev": null,
       "verdict": null,
       "read": {
@@ -1075,9 +1071,9 @@
   "value_plays": [
     {
       "name": "Minnesota Vikings",
-      "ev": 170,
-      "market": "+2200",
-      "fair_odds": "+750"
+      "ev": 214,
+      "market": "+2500",
+      "fair_odds": "+728"
     },
     {
       "name": "Jacksonville Jaguars",
@@ -1086,10 +1082,16 @@
       "fair_odds": "+395"
     },
     {
+      "name": "Chicago Bears",
+      "ev": 36,
+      "market": "+850",
+      "fair_odds": "+598"
+    },
+    {
       "name": "San Francisco 49ers",
-      "ev": 21,
+      "ev": 24,
       "market": "+600",
-      "fair_odds": "+478"
+      "fair_odds": "+462"
     }
   ]
 }
