@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-03T16:09:31Z",
-  "odds_remaining": "94146",
+  "generated": "2026-11-03T20:20:22Z",
+  "odds_remaining": "94074",
   "prediction": {
     "pick": "Houston Rockets",
     "why": "<b>Houston Rockets</b> is the pick \u2014 the top team the model actually trusts (fair +673). Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
@@ -116,12 +116,12 @@
       "rtg": 12.9,
       "fair_pct": 8.7,
       "fair_odds": "+1049",
-      "market": "+15000",
-      "ev": 1214,
+      "market": "+17500",
+      "ev": 1432,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1214
+        "ev": 1432
       },
       "read": {
         "v": "trust",
@@ -641,12 +641,12 @@
       "rtg": -11.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+12500",
-      "ev": -80,
+      "market": "+15000",
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -76
       },
       "read": {
         "v": "caution",

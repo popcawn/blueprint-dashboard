@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-03T16:09:13Z",
-  "odds_remaining": "94149",
+  "generated": "2026-11-03T20:20:01Z",
+  "odds_remaining": "94077",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +416). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -118,12 +118,12 @@
       "rtg": 6.8,
       "fair_pct": 12.7,
       "fair_odds": "+686",
-      "market": "+800",
-      "ev": 15,
+      "market": "+750",
+      "ev": 8,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 15
+        "kind": "small",
+        "label": "small value",
+        "ev": 8
       },
       "read": {
         "v": "trust",
@@ -223,12 +223,12 @@
       "rtg": 6.9,
       "fair_pct": 8.0,
       "fair_odds": "+1153",
-      "market": "+1700",
-      "ev": 44,
+      "market": "+1800",
+      "ev": 52,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 44
+        "ev": 52
       },
       "read": {
         "v": "caution",
@@ -573,12 +573,12 @@
       "rtg": 0.3,
       "fair_pct": 0.8,
       "fair_odds": "+12648",
-      "market": "+6000",
-      "ev": -52,
+      "market": "+6500",
+      "ev": -48,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -52
+        "ev": -48
       },
       "read": {
         "v": "caution",
@@ -678,12 +678,12 @@
       "rtg": -2.1,
       "fair_pct": 0.4,
       "fair_odds": "+28074",
-      "market": "+7000",
-      "ev": -75,
+      "market": "+6500",
+      "ev": -77,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -75
+        "ev": -77
       },
       "read": {
         "v": "caution",
@@ -783,12 +783,12 @@
       "rtg": -2.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+10000",
-      "ev": -83,
+      "market": "+8000",
+      "ev": -87,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -83
+        "ev": -87
       },
       "read": {
         "v": "caution",
@@ -1166,16 +1166,16 @@
       "fair_odds": "+416"
     },
     {
-      "name": "Chicago Bears",
-      "ev": 15,
-      "market": "+800",
-      "fair_odds": "+686"
-    },
-    {
       "name": "San Francisco 49ers",
       "ev": 11,
       "market": "+600",
       "fair_odds": "+533"
+    },
+    {
+      "name": "Chicago Bears",
+      "ev": 8,
+      "market": "+750",
+      "fair_odds": "+686"
     }
   ]
 }

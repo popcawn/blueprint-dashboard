@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-03T16:09:22Z",
-  "odds_remaining": "94148",
+  "generated": "2026-11-03T20:20:10Z",
+  "odds_remaining": "94076",
   "prediction": {
     "pick": "LSU Tigers",
     "why": "<b>LSU Tigers</b> is the pick \u2014 the model's #1 by index \u00d7 schedule (fair +317), the order that picked 10 of 12 CFP champions. Leads with its #4 total defense; the #16 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
@@ -168,12 +168,12 @@
       "rtg": 22.3,
       "fair_pct": 7.7,
       "fair_odds": "+1205",
-      "market": "+50000",
-      "ev": 3739,
+      "market": "+70000",
+      "ev": 5271,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 3739
+        "ev": 5271
       },
       "read": {
         "v": "caution",
