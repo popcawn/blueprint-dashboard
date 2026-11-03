@@ -117,6 +117,7 @@ def norm(items, key, reverse):
 
 def american(p):
     if p <= 0: return None
+    if p < 1/501: return "+50000+"   # bottom-of-board teams: books cap around here, a 7-digit price is just noise
     return f"+{round(100*(1-p)/p)}" if p < 0.5 else f"-{round(100*p/(1-p))}"
 
 def fetch_futures(sport_key):
@@ -183,11 +184,14 @@ def build_nfl():
     # (e.g. 2025 Seattle: 17% fair vs the market's 20.4% = a wrong fade; at 22% it's correctly valued).
     # Champion IDENTIFICATION (categories/index) was already near-optimal -- reweighting it did NOT
     # survive split-half validation, and turnover differential did not help -- so the cap was the fix.
-    pool = [t for t in rows if t["score"] >= 2]
-    tm = {5:1.6,4:1.25,3:1.0,2:0.7}
+    # every team on the board gets a price: 0-1/5 teams join the pool at the bottom of the tier ladder
+    # (it only shaves the pool's odds; the 2/5+ order and the cap are unchanged). Tail weights are set so
+    # the below-pool teams hold ~5-8% combined -- champions almost never come from these tiers.
+    pool = list(rows)
+    tm = {5:1.6,4:1.25,3:1.0,2:0.7,1:0.3,0:0.15}
     for cf in ("AFC","NFC"):
-        cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
-        for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
+        cs = [t for t in pool if t["conf"] == cf]; tot = sum((max(t["index"], 5)**3)/1e5*tm[t["score"]] for t in cs)
+        for t in cs: t["_pc"] = ((max(t["index"], 5)**3)/1e5*tm[t["score"]]) / tot if tot else 0
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
     cap_odds(pool, 0.22)
     fd, rem = fetch_futures("americanfootball_nfl_super_bowl_winner")
@@ -303,11 +307,20 @@ def build_cfb():
     tot = sum((t["index"]**3)/1e5*(t["sos"]/avg)**3 for t in pool)
     for t in pool: t["p"] = ((t["index"]**3)/1e5*(t["sos"]/avg)**3) / tot if tot else 0
     for t in pool: t["mw"] = t["p"]   # uncapped weight: THE backtested order (10/12) — the 24% cap ties the top teams
+    # 2/5 teams are on the board too: price them at quarter weight (FBS only — FCS can't make the CFP).
+    # They get a fair price but no mw, so the backtested ranking/pick above is untouched.
+    tail = [t for t in teams if t["score"] == 2 and t.get("sos") and "North Dakota State" not in t["name"]]
+    if tail and tot:
+        tw = {t["name"]: 0.25*(t["index"]**3)/1e5*(t["sos"]/avg)**3 / tot for t in tail}
+        scale = 1 / (1 + sum(tw.values()))
+        for t in pool: t["p"] *= scale
+        for t in tail: t["p"] = tw[t["name"]] * scale
+        pool = pool + tail
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
     # the pick IS the backtested #1 (uncapped index x schedule) — not the cleanest-read team
-    ranked = sorted(pool, key=lambda t: -t["mw"])
+    ranked = sorted([t for t in pool if t.get("mw")], key=lambda t: -t["mw"])
     if ranked:
         a = ranked[0]; odds = a.get("fair_odds")
         tie = f" Dead even with <b>{ranked[1]['name']}</b> at the 24% cap — {a['name']} edges it on schedule." if len(ranked) > 1 and ranked[1]["p"] >= a["p"] - 1e-9 else ""
@@ -316,7 +329,7 @@ def build_cfb():
         pred = make_prediction(teams, 5)
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
     # gauntlet watch: SRS top-10 not in pool
-    poolnames = {t["name"] for t in pool}
+    poolnames = {t["name"] for t in pool if t.get("mw")}
     gauntlet = [{"name": t, "srsrank": srs_rank[t]} for t, _ in sorted(srs.items(), key=lambda kv: -kv[1])[:10] if t not in poolnames]
     return {"sport": "CFB", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
             "gp_min": min(t["gp"] for t in teams), "gp_max": max(t["gp"] for t in teams),
@@ -338,7 +351,7 @@ def cfb_row(t):
         # Backtested 2026-10-26 (2431 games, walk-forward): 0.5m+0.5srs beats pure margin
         # out-of-sample (70.8% vs 70.0%, Brier .1916 vs .1969) by deflating soft-schedule margins.
         "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
-        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
+        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds") or ("FCS" if "North Dakota State" in t["name"] else None),
         "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
         "mw": round(t["mw"]*100, 2) if t.get("mw") else None}
 
@@ -414,11 +427,11 @@ def build_nhl():
     for t in rows:
         t["index"] = round(ngd[t["name"]]*.30 + ncf[t["name"]]*.25 + nxg[t["name"]]*.25 + nga[t["name"]]*.20, 1)
     for t in rows: t["read"] = team_read(t, "nhl", len(rows), 4)
-    pool = [t for t in rows if t["score"] >= 2]
-    tm = {4:1.6,3:1.15,2:0.8}
+    pool = [t for t in rows if t["score"] >= 1]   # 1/5 teams are on the board too -> price them at the bottom of the ladder
+    tm = {4:1.6,3:1.15,2:0.8,1:0.5}
     for cf in ("E","W"):
-        cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
-        for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
+        cs = [t for t in pool if t["conf"] == cf]; tot = sum((max(t["index"], 5)**3)/1e5*tm[t["score"]] for t in cs)
+        for t in cs: t["_pc"] = ((max(t["index"], 5)**3)/1e5*tm[t["score"]]) / tot if tot else 0
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
     cap_odds(pool, 0.13)
     fd, rem = fetch_futures("icehockey_nhl_championship_winner")
@@ -969,11 +982,11 @@ def build_nba():
             log = nba_wl_log(_ids.get(t["name"]), season) if _ids.get(t["name"]) else None
             st = forty_twenty(t["w"], t["l"], log) if log else "pending"
         t["ftt"] = st
-    pool = [t for t in rows if t["score"] >= 2]
-    tm = {4:1.7,3:1.2,2:0.8}
+    pool = [t for t in rows if t["score"] >= 1]   # 1/5 teams are on the board too -> price them at the bottom of the ladder
+    tm = {4:1.7,3:1.2,2:0.8,1:0.25}
     for cf in ("E","W"):
-        cs = [t for t in pool if t["conf"] == cf]; tot = sum((t["index"]**3)/1e5*tm[t["score"]] for t in cs)
-        for t in cs: t["_pc"] = ((t["index"]**3)/1e5*tm[t["score"]]) / tot if tot else 0
+        cs = [t for t in pool if t["conf"] == cf]; tot = sum((max(t["index"], 5)**3)/1e5*tm[t["score"]] for t in cs)
+        for t in cs: t["_pc"] = ((max(t["index"], 5)**3)/1e5*tm[t["score"]]) / tot if tot else 0
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
     cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
     fd, rem = fetch_futures("basketball_nba_championship_winner")
@@ -1362,9 +1375,9 @@ def build_mlb():
         t["index"] = round(nrd[t["name"]]*.22 + ner[t["name"]]*.16 + ndr.get(t["name"], 50)*.14 + nrb[t["name"]]*.13
                            + nw[t["name"]]*.12 + npb[t["name"]]*.12 + ndf[t["name"]]*.11, 1)
     for t in rows: t["read"] = team_read(t, "mlb", len(rows), 7)
-    pool = [t for t in rows if t["score"] >= 3]; tm = {7: 1.9, 6: 1.6, 5: 1.3, 4: 1.0, 3: 0.7}
-    tot = sum((t["index"]**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
-    for t in pool: t["p"] = ((t["index"]**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
+    pool = [t for t in rows if t["score"] >= 1]; tm = {7: 1.9, 6: 1.6, 5: 1.3, 4: 1.0, 3: 0.7, 2: 0.5, 1: 0.35}   # 1-2/7 board teams priced at the bottom of the ladder
+    tot = sum((max(t["index"], 5)**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
+    for t in pool: t["p"] = ((max(t["index"], 5)**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
     cap_odds(pool, 0.18)   # MLB is low-chalk (huge playoff variance) -> let the field stay wide
     fd, rem = fetch_futures("baseball_mlb_world_series_winner")
     attach(rows, pool, fd)

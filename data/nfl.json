@@ -1,11 +1,11 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-03T11:01:15Z",
-  "odds_remaining": "94585",
+  "generated": "2026-11-03T15:53:42Z",
+  "odds_remaining": "94154",
   "prediction": {
     "pick": "Jacksonville Jaguars",
-    "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +395). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
+    "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +416). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
   },
   "gp_min": 7,
   "gp_max": 8,
@@ -46,14 +46,14 @@
         "+12.1"
       ],
       "rtg": 12.1,
-      "fair_pct": 20.2,
-      "fair_odds": "+395",
-      "market": "+950",
-      "ev": 112,
+      "fair_pct": 19.4,
+      "fair_odds": "+416",
+      "market": "+1000",
+      "ev": 113,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 112
+        "ev": 113
       },
       "read": {
         "v": "trust",
@@ -81,14 +81,14 @@
         "+8.3"
       ],
       "rtg": 8.3,
-      "fair_pct": 17.8,
-      "fair_odds": "+462",
+      "fair_pct": 15.8,
+      "fair_odds": "+533",
       "market": "+600",
-      "ev": 24,
+      "ev": 11,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 24
+        "ev": 11
       },
       "read": {
         "v": "trust",
@@ -116,14 +116,14 @@
         "+6.8"
       ],
       "rtg": 6.8,
-      "fair_pct": 14.3,
-      "fair_odds": "+598",
-      "market": "+850",
-      "ev": 36,
+      "fair_pct": 12.7,
+      "fair_odds": "+686",
+      "market": "+750",
+      "ev": 8,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 36
+        "kind": "small",
+        "label": "small value",
+        "ev": 8
       },
       "read": {
         "v": "trust",
@@ -151,14 +151,14 @@
         "+7.4"
       ],
       "rtg": 7.4,
-      "fair_pct": 9.7,
-      "fair_odds": "+935",
+      "fair_pct": 9.3,
+      "fair_odds": "+978",
       "market": "+550",
-      "ev": -37,
+      "ev": -40,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -37
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -40
       },
       "read": {
         "v": "fools_gold",
@@ -186,14 +186,14 @@
         "+6.7"
       ],
       "rtg": 6.7,
-      "fair_pct": 12.1,
-      "fair_odds": "+728",
+      "fair_pct": 10.7,
+      "fair_odds": "+832",
       "market": "+2500",
-      "ev": 214,
+      "ev": 179,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 214
+        "ev": 179
       },
       "read": {
         "v": "trust",
@@ -221,14 +221,14 @@
         "+6.9"
       ],
       "rtg": 6.9,
-      "fair_pct": 8.3,
-      "fair_odds": "+1103",
+      "fair_pct": 8.0,
+      "fair_odds": "+1153",
       "market": "+1700",
-      "ev": 50,
+      "ev": 44,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 50
+        "ev": 44
       },
       "read": {
         "v": "caution",
@@ -256,14 +256,14 @@
         "+5.1"
       ],
       "rtg": 5.1,
-      "fair_pct": 5.5,
-      "fair_odds": "+1718",
-      "market": "+1200",
-      "ev": -28,
+      "fair_pct": 5.3,
+      "fair_odds": "+1794",
+      "market": "+1100",
+      "ev": -37,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -28
+        "ev": -37
       },
       "read": {
         "v": "caution",
@@ -291,14 +291,14 @@
         "+4.5"
       ],
       "rtg": 4.5,
-      "fair_pct": 3.8,
-      "fair_odds": "+2556",
+      "fair_pct": 3.6,
+      "fair_odds": "+2666",
       "market": "+3500",
-      "ev": 36,
+      "ev": 30,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 36
+        "ev": 30
       },
       "read": {
         "v": "caution",
@@ -326,14 +326,14 @@
         "+3.3"
       ],
       "rtg": 3.3,
-      "fair_pct": 3.5,
-      "fair_odds": "+2759",
+      "fair_pct": 3.1,
+      "fair_odds": "+3118",
       "market": "+1600",
-      "ev": -41,
+      "ev": -47,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -41
+        "ev": -47
       },
       "read": {
         "v": "fools_gold",
@@ -361,14 +361,14 @@
         "+2.8"
       ],
       "rtg": 2.8,
-      "fair_pct": 2.6,
-      "fair_odds": "+3811",
+      "fair_pct": 2.5,
+      "fair_odds": "+3974",
       "market": "+2000",
-      "ev": -46,
+      "ev": -48,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -46
+        "ev": -48
       },
       "read": {
         "v": "caution",
@@ -396,14 +396,14 @@
         "+0.9"
       ],
       "rtg": 0.9,
-      "fair_pct": 2.3,
-      "fair_odds": "+4222",
+      "fair_pct": 2.1,
+      "fair_odds": "+4766",
       "market": "+2700",
-      "ev": -35,
+      "ev": -42,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -35
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -42
       },
       "read": {
         "v": "caution",
@@ -431,11 +431,15 @@
         "+3.2"
       ],
       "rtg": 3.2,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 1.2,
+      "fair_odds": "+8378",
       "market": "+1300",
-      "ev": null,
-      "verdict": null,
+      "ev": -83,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -83
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #7 unit, but the #15 area is where a good playoff team picks it apart."
@@ -462,11 +466,15 @@
         "+3.2"
       ],
       "rtg": 3.2,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 1.2,
+      "fair_odds": "+8466",
       "market": "+1200",
-      "ev": null,
-      "verdict": null,
+      "ev": -85,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -85
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #10 unit, but the #12 area is where a good playoff team picks it apart."
@@ -493,11 +501,15 @@
         "+3.4"
       ],
       "rtg": 3.4,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+5500",
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 1.1,
+      "fair_odds": "+9117",
+      "market": "+6000",
+      "ev": -34,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -34
+      },
       "read": {
         "v": "caution",
         "why": "Defense-first \u2014 a #5 unit keeps every game winnable, which is exactly what holds up in January. The only question is whether a #20 offense scratches out enough."
@@ -524,11 +536,15 @@
         "+0.9"
       ],
       "rtg": 0.9,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.9,
+      "fair_odds": "+11516",
       "market": "+1800",
-      "ev": null,
-      "verdict": null,
+      "ev": -84,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -84
+      },
       "read": {
         "v": "caution",
         "why": "A record that outruns the margin \u2014 #4 by win%, only #14 in point differential. Close-game records don't persist, and single-elimination January is where they come due."
@@ -555,11 +571,15 @@
         "+0.3"
       ],
       "rtg": 0.3,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.8,
+      "fair_odds": "+12648",
       "market": "+6000",
-      "ev": null,
-      "verdict": null,
+      "ev": -52,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -52
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #13 unit, but the #17 area is where a good playoff team picks it apart."
@@ -586,11 +606,15 @@
         "+0.8"
       ],
       "rtg": 0.8,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.6,
+      "fair_odds": "+15997",
       "market": "+5500",
-      "ev": null,
-      "verdict": null,
+      "ev": -65,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -65
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #7 unit, but the #27 area is where a good playoff team picks it apart."
@@ -617,11 +641,15 @@
         "-1.1"
       ],
       "rtg": -1.1,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.4,
+      "fair_odds": "+24377",
       "market": "+12500",
-      "ev": null,
-      "verdict": null,
+      "ev": -49,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -49
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #6 unit, but the #31 area is where a good playoff team picks it apart."
@@ -648,11 +676,15 @@
         "-2.1"
       ],
       "rtg": -2.1,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+6500",
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 0.4,
+      "fair_odds": "+28074",
+      "market": "+7000",
+      "ev": -75,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -75
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #9 unit, but the #28 area is where a good playoff team picks it apart."
@@ -679,11 +711,15 @@
         "-4.2"
       ],
       "rtg": -4.2,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.3,
+      "fair_odds": "+39643",
       "market": "+17500",
-      "ev": null,
-      "verdict": null,
+      "ev": -56,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -56
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #13 unit, but the #29 area is where a good playoff team picks it apart."
@@ -710,11 +746,15 @@
         "-0.7"
       ],
       "rtg": -0.7,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.2,
+      "fair_odds": "+50000+",
       "market": "+3300",
-      "ev": null,
-      "verdict": null,
+      "ev": -94,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -94
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #12 unit, but the #18 area is where a good playoff team picks it apart."
@@ -741,11 +781,15 @@
         "-2.2"
       ],
       "rtg": -2.2,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+8000",
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 0.2,
+      "fair_odds": "+50000+",
+      "market": "+10000",
+      "ev": -83,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -83
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #17 unit, but the #23 area is where a good playoff team picks it apart."
@@ -772,11 +816,15 @@
         "-3.0"
       ],
       "rtg": -3.0,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
       "market": "+22500",
-      "ev": null,
-      "verdict": null,
+      "ev": -69,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -69
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #19 unit, but the #24 area is where a good playoff team picks it apart."
@@ -803,11 +851,15 @@
         "-2.2"
       ],
       "rtg": -2.2,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": null,
-      "verdict": null,
+      "ev": 20,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 20
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #16 unit, but the #25 area is where a good playoff team picks it apart."
@@ -834,11 +886,15 @@
         "-3.3"
       ],
       "rtg": -3.3,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
       "market": "+10000",
-      "ev": null,
-      "verdict": null,
+      "ev": -87,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -87
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #17 unit, but the #26 area is where a good playoff team picks it apart."
@@ -865,11 +921,15 @@
         "-4.6"
       ],
       "rtg": -4.6,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+15000",
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "market": "+12500",
+      "ev": -91,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -91
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #14 unit, but the #29 area is where a good playoff team picks it apart."
@@ -896,11 +956,15 @@
         "-7.9"
       ],
       "rtg": -7.9,
-      "fair_pct": null,
-      "fair_odds": null,
-      "market": "+70000",
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "market": "+75000",
+      "ev": -84,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -84
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #21 unit, but the #32 area is where a good playoff team picks it apart."
@@ -927,11 +991,15 @@
         "-6.9"
       ],
       "rtg": -6.9,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": null,
-      "verdict": null,
+      "ev": -83,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -83
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #19 unit, but the #28 area is where a good playoff team picks it apart."
@@ -958,11 +1026,15 @@
         "-7.6"
       ],
       "rtg": -7.6,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": null,
-      "verdict": null,
+      "ev": -84,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -84
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #26 unit, but the #30 area is where a good playoff team picks it apart."
@@ -989,11 +1061,15 @@
         "-8.1"
       ],
       "rtg": -8.1,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "market": "+50000",
-      "ev": null,
-      "verdict": null,
+      "ev": -93,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -93
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #21 unit, but the #31 area is where a good playoff team picks it apart."
@@ -1020,11 +1096,15 @@
         "-9.1"
       ],
       "rtg": -9.1,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": null,
-      "verdict": null,
+      "ev": -94,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -94
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #24 unit, but the #31 area is where a good playoff team picks it apart."
@@ -1051,11 +1131,15 @@
         "-10.9"
       ],
       "rtg": -10.9,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": null,
-      "verdict": null,
+      "ev": -99,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -99
+      },
       "read": {
         "v": "caution",
         "why": "A middling profile \u2014 leads with its #20 unit, but the #32 area is where a good playoff team picks it apart."
@@ -1071,27 +1155,27 @@
   "value_plays": [
     {
       "name": "Minnesota Vikings",
-      "ev": 214,
+      "ev": 179,
       "market": "+2500",
-      "fair_odds": "+728"
+      "fair_odds": "+832"
     },
     {
       "name": "Jacksonville Jaguars",
-      "ev": 112,
-      "market": "+950",
-      "fair_odds": "+395"
-    },
-    {
-      "name": "Chicago Bears",
-      "ev": 36,
-      "market": "+850",
-      "fair_odds": "+598"
+      "ev": 113,
+      "market": "+1000",
+      "fair_odds": "+416"
     },
     {
       "name": "San Francisco 49ers",
-      "ev": 24,
+      "ev": 11,
       "market": "+600",
-      "fair_odds": "+462"
+      "fair_odds": "+533"
+    },
+    {
+      "name": "Chicago Bears",
+      "ev": 8,
+      "market": "+750",
+      "fair_odds": "+686"
     }
   ]
 }
