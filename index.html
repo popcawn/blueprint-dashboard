@@ -56,6 +56,9 @@
   .sbar .bar{flex:1 1 180px;max-width:340px;height:7px;background:var(--line);border-radius:5px;overflow:hidden}
   .sbar .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
   .sbar .m{color:var(--ink3);font-size:12px}
+  .rfb{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--sans)}
+  .rfb:hover{border-color:var(--accent);color:var(--accent)}
+  .rfb:disabled{opacity:.5;cursor:default}
   .sig{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;cursor:help}
   .sig.trust{background:rgba(11,154,94,.12);color:var(--good);border-color:rgba(11,154,94,.35)}
   .sig.firming{background:rgba(214,160,20,.14);color:#b98700;border-color:rgba(214,160,20,.4)}
@@ -350,7 +353,8 @@ function render(){
       <span class="runmsg" id="runmsg"></span>
       <div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div></div></div>
     <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
-      <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · updated ${new Date(d.generated).toLocaleDateString()}${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span></div>
+      <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · odds pulled <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b>${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span>
+      <button class="rfb" id="rfbtn" title="Re-pull ${MK(cur)} prices for the ${d.sport} board (rebuilds this board via the refresh bot, ~1–2 min; ${MK(cur)==="Kalshi"?"free":"1 Odds API credit"})" onclick="runBlueprint(['${cur}'],'rfmsg')">↻ Refresh odds</button><span class="runmsg" id="rfmsg"></span></div>
     ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}
     ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${d.use_pre?`<div class="cal low"><span class="lbl">Projection</span>Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games — ✓ on the card. The blueprint takes over around 8 games in.${d.market_name==="Kalshi"?` Women's prices are <b>Kalshi</b> (live, fee included — near no-vig, so EVs run smaller than vs a sportsbook)${d.alt_name?`; ${d.alt_name} screenshot shown beside`:""}.`:d.market_asof?` Women's FanDuel prices as of ${d.market_asof} (no API feed).`:""}</div>`:""}${top8(d,cur)}`;
   if(teams.length>1){
@@ -374,11 +378,15 @@ function render(){
 /* run button */
 function tok(){try{return localStorage.getItem("gh_token")||""}catch(e){return""}}
 function saveTok(){try{localStorage.setItem("gh_token",document.getElementById("tok").value.trim())}catch(e){}document.getElementById("pop").classList.remove("on");}
-async function runBlueprint(){
-  const lg=[...document.querySelectorAll(".lgchk:checked")].map(c=>c.value), msg=document.getElementById("runmsg");
+function ago(iso){ const m=Math.round((Date.now()-Date.parse(iso))/6e4);
+  return m<2?"just now":m<60?`${m} min ago`:m<1440?`${Math.round(m/60)} hr ago`:new Date(iso).toLocaleDateString(); }
+let MSGID="runmsg";
+async function runBlueprint(only,msgId){
+  MSGID=msgId||"runmsg";
+  const lg=only||[...document.querySelectorAll(".lgchk:checked")].map(c=>c.value), msg=document.getElementById(MSGID);
   if(!lg.length){msg.textContent="select a league";return;}
   if(!tok()){document.getElementById("pop").classList.add("on");document.getElementById("tok").value=tok();return;}
-  const btn=document.getElementById("runbtn");btn.disabled=true;msg.innerHTML="⏳ triggering…";
+  const btn=document.getElementById(MSGID==="rfmsg"?"rfbtn":"runbtn");btn.disabled=true;msg.innerHTML="⏳ triggering…";
   try{ const r=await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/refresh.yml/dispatches`,{method:"POST",
       headers:{Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json","Content-Type":"application/json"},
       body:JSON.stringify({ref:"main",inputs:{leagues:lg.join(",")}})});
@@ -396,9 +404,9 @@ function endProg(ok){ const p=document.getElementById("runprog"),i=document.getE
   if(ok){ i.style.width="100%"; setTimeout(()=>{p.hidden=true;i.style.width="0";},1500); }
   else { p.hidden=true; i.style.width="0"; } }
 async function pollFresh(){ let before=null; try{before=(await(await fetch("data/index.json?t="+Date.now())).json()).generated}catch(e){}
-  let n=0; const iv=setInterval(async()=>{ n++; if(n>30){clearInterval(iv);endProg(false);document.getElementById("runmsg").textContent="still building — check back shortly";return;}
+  let n=0; const iv=setInterval(async()=>{ n++; if(n>30){clearInterval(iv);endProg(false);document.getElementById(MSGID).textContent="still building — check back shortly";return;}
     try{const g=(await(await fetch("data/index.json?t="+Date.now())).json()).generated;
-      if(g&&g!==before){clearInterval(iv);endProg(true);document.getElementById("runmsg").innerHTML="✅ updated";await loadData();render();}}catch(e){} },8000);
+      if(g&&g!==before){clearInterval(iv);endProg(true);await loadData();render();const m=document.getElementById(MSGID);if(m)m.innerHTML="✅ updated";}}catch(e){} },8000);
 }
 async function loadData(){ for(const k of Object.keys(SPORTS)){
   try{const r=await fetch(`data/${k}.json?t=`+Date.now());if(r.ok)DATA[k]=await r.json();}catch(e){}
