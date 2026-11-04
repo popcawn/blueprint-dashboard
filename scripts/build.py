@@ -321,13 +321,14 @@ def build_cfb():
     # (2020 Alabama #4->#1, 2024 Ohio State #2->#1) below less-complete 4-5/5 teams; index^3 already
     # rewards quality, so the extra tier weight was redundant and harmful. Robust across k=1-3 and
     # both SOS methods. Remaining misses: 2016 Clemson, 2019 LSU (genuinely low-index champions).
-    pool = [t for t in teams if t["score"] >= 3 and "North Dakota State" not in t["name"]]
+    pool = [t for t in teams if t["score"] >= 3]
     tot = sum((t["index"]**3)/1e5*(t["sos"]/avg)**3 for t in pool)
     for t in pool: t["p"] = ((t["index"]**3)/1e5*(t["sos"]/avg)**3) / tot if tot else 0
     for t in pool: t["mw"] = t["p"]   # uncapped weight: THE backtested order (10/12) — the 24% cap ties the top teams
-    # 2/5 teams are on the board too: price them at quarter weight (FBS only — FCS can't make the CFP).
+    # 2/5 teams are on the board too: price them at quarter weight. (FCS-to-FBS movers like 2026 North Dakota State
+    # count: the NCAA dropped the 2-year postseason ban on 2026-06-24, so they are CFP-eligible in year one.)
     # They get a fair price but no mw, so the backtested ranking/pick above is untouched.
-    tail = [t for t in teams if t["score"] == 2 and t.get("sos") and "North Dakota State" not in t["name"]]
+    tail = [t for t in teams if t["score"] == 2 and t.get("sos")]
     if tail and tot:
         tw = {t["name"]: 0.25*(t["index"]**3)/1e5*(t["sos"]/avg)**3 / tot for t in tail}
         scale = 1 / (1 + sum(tw.values()))
@@ -386,7 +387,7 @@ def cfb_row(t):
         # Backtested 2026-10-26 (2431 games, walk-forward): 0.5m+0.5srs beats pure margin
         # out-of-sample (70.8% vs 70.0%, Brier .1916 vs .1969) by deflating soft-schedule margins.
         "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
-        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds") or ("FCS" if "North Dakota State" in t["name"] else None),
+        "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
         "mw": round(t["mw"]*100, 2) if t.get("mw") else None,
         "cfp": t.get("cfp"), "infield": round(t["infield"]*100) if t.get("infield") is not None else None}

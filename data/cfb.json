@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-04T17:52:11Z",
-  "odds_remaining": "92844",
+  "generated": "2026-11-04T18:35:10Z",
+  "odds_remaining": "92715",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +317), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (85% to make the field). Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
@@ -92,12 +92,12 @@
       "rtg": 36.7,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+650",
-      "ev": 80,
+      "market": "+750",
+      "ev": 104,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 80
+        "ev": 104
       },
       "read": {
         "v": "caution",
@@ -174,12 +174,12 @@
       "rtg": 22.3,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+50000",
-      "ev": -34,
+      "market": "+40000",
+      "ev": -47,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -34
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -47
       },
       "read": {
         "v": "caution",
@@ -216,11 +216,11 @@
       "fair_pct": 14.2,
       "fair_odds": "+606",
       "market": "+4500",
-      "ev": 552,
+      "ev": 551,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 552
+        "ev": 551
       },
       "read": {
         "v": "caution",
@@ -296,13 +296,13 @@
       ],
       "rtg": 31.3,
       "fair_pct": 4.2,
-      "fair_odds": "+2293",
+      "fair_odds": "+2295",
       "market": "+3000",
-      "ev": 30,
+      "ev": 29,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 30
+        "ev": 29
       },
       "read": {
         "v": "caution",
@@ -337,7 +337,7 @@
       ],
       "rtg": 27.7,
       "fair_pct": 7.7,
-      "fair_odds": "+1201",
+      "fair_odds": "+1202",
       "market": "+1000",
       "ev": -15,
       "verdict": {
@@ -377,18 +377,22 @@
         "+16.2 #16"
       ],
       "rtg": 15.7,
-      "fair_pct": null,
-      "fair_odds": "FCS",
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
       "market": "+125000",
-      "ev": null,
-      "verdict": null,
+      "ev": -28,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -28
+      },
       "read": {
         "v": "caution",
         "why": "Leads with its #2 scoring defense; the #72 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #72 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "cfp": null,
-      "infield": null
+      "infield": 1
     }
   ],
   "gauntlet": [
@@ -427,8 +431,8 @@
   "value_plays": [
     {
       "name": "Miami Hurricanes",
-      "ev": 80,
-      "market": "+650",
+      "ev": 104,
+      "market": "+750",
       "fair_odds": "+317"
     }
   ]
