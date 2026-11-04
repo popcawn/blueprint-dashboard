@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-03T20:20:10Z",
-  "odds_remaining": "94076",
+  "generated": "2026-11-04T17:52:11Z",
+  "odds_remaining": "92844",
   "prediction": {
-    "pick": "LSU Tigers",
-    "why": "<b>LSU Tigers</b> is the pick \u2014 the model's #1 by index \u00d7 schedule (fair +317), the order that picked 10 of 12 CFP champions. Leads with its #4 total defense; the #16 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
+    "pick": "Miami Hurricanes",
+    "why": "<b>Miami Hurricanes</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +317), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (85% to make the field). Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
   },
   "gp_min": 8,
   "gp_max": 9,
@@ -49,20 +49,22 @@
         "+27.0 #2"
       ],
       "rtg": 36.0,
-      "fair_pct": 13.8,
-      "fair_odds": "+627",
-      "market": "+480",
-      "ev": -20,
+      "fair_pct": 15.6,
+      "fair_odds": "+542",
+      "market": "+550",
+      "ev": 1,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -20
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 1
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #5) and SRS #5 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 14.57
+      "mw": 16.19,
+      "cfp": 11,
+      "infield": 66
     },
     {
       "name": "Miami Hurricanes",
@@ -77,7 +79,7 @@
         false,
         true
       ],
-      "sosrank": 70,
+      "sosrank": 69,
       "srsrank": 6,
       "srs_flag": "elite",
       "vals": [
@@ -88,20 +90,22 @@
         "+29.9 #1"
       ],
       "rtg": 36.7,
-      "fair_pct": 22.0,
-      "fair_odds": "+354",
-      "market": "+600",
-      "ev": 54,
+      "fair_pct": 24.0,
+      "fair_odds": "+317",
+      "market": "+650",
+      "ev": 80,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 54
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 80
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
       },
-      "mw": 23.31
+      "mw": 33.37,
+      "cfp": 1,
+      "infield": 85
     },
     {
       "name": "Georgia Bulldogs",
@@ -116,7 +120,7 @@
         true,
         true
       ],
-      "sosrank": 98,
+      "sosrank": 99,
       "srsrank": 3,
       "srs_flag": "elite",
       "vals": [
@@ -127,20 +131,22 @@
         "+26.1 #3"
       ],
       "rtg": 36.2,
-      "fair_pct": 14.7,
-      "fair_odds": "+579",
-      "market": "+340",
-      "ev": -35,
+      "fair_pct": 21.5,
+      "fair_odds": "+366",
+      "market": "+330",
+      "ev": -8,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -35
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -8
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #3 margin; the #11 scoring defense is the one soft spot \u2014 but SRS #3 says it's done this against a real schedule, not cupcakes."
       },
-      "mw": 15.58
+      "mw": 22.31,
+      "cfp": 2,
+      "infield": 85
     },
     {
       "name": "New Mexico Lobos",
@@ -166,20 +172,22 @@
         "+23.1 #5"
       ],
       "rtg": 22.3,
-      "fair_pct": 7.7,
-      "fair_odds": "+1205",
-      "market": "+70000",
-      "ev": 5271,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "market": "+50000",
+      "ev": -34,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 5271
+        "kind": "fade",
+        "label": "fade",
+        "ev": -34
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #1 scoring defense; the #27 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #53 says the schedule hasn't fully tested it yet."
       },
-      "mw": 8.11
+      "mw": 0.14,
+      "cfp": null,
+      "infield": 1
     },
     {
       "name": "UCLA Bruins",
@@ -205,20 +213,22 @@
         "+20.1 #11"
       ],
       "rtg": 28.2,
-      "fair_pct": 9.7,
-      "fair_odds": "+930",
+      "fair_pct": 14.2,
+      "fair_odds": "+606",
       "market": "+4500",
-      "ev": 347,
+      "ev": 552,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 347
+        "ev": 552
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #5 scoring defense; the #36 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #15 says the schedule hasn't fully tested it yet."
       },
-      "mw": 10.28
+      "mw": 14.72,
+      "cfp": 8,
+      "infield": 85
     },
     {
       "name": "LSU Tigers",
@@ -233,7 +243,7 @@
         true,
         true
       ],
-      "sosrank": 26,
+      "sosrank": 27,
       "srsrank": 1,
       "srs_flag": "elite",
       "vals": [
@@ -244,20 +254,22 @@
         "+24.1 #4"
       ],
       "rtg": 37.6,
-      "fair_pct": 24.0,
-      "fair_odds": "+317",
-      "market": "+800",
-      "ev": 116,
+      "fair_pct": 12.8,
+      "fair_odds": "+683",
+      "market": "+750",
+      "ev": 9,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 116
+        "kind": "small",
+        "label": "small value",
+        "ev": 9
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #4 total defense; the #16 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
       },
-      "mw": 28.15
+      "mw": 13.27,
+      "cfp": 14,
+      "infield": 28
     },
     {
       "name": "Utah Utes",
@@ -283,20 +295,22 @@
         "+23.0 #6"
       ],
       "rtg": 31.3,
-      "fair_pct": 2.9,
-      "fair_odds": "+3391",
+      "fair_pct": 4.2,
+      "fair_odds": "+2293",
       "market": "+3000",
-      "ev": -11,
+      "ev": 30,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -11
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 30
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #6 margin; the #41 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet."
       },
-      "mw": null
+      "mw": null,
+      "cfp": 3,
+      "infield": 85
     },
     {
       "name": "Indiana Hoosiers",
@@ -322,20 +336,22 @@
         "+20.0 #12"
       ],
       "rtg": 27.7,
-      "fair_pct": 5.3,
-      "fair_odds": "+1797",
+      "fair_pct": 7.7,
+      "fair_odds": "+1201",
       "market": "+1000",
-      "ev": -42,
+      "ev": -15,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -42
+        "kind": "fade",
+        "label": "fade",
+        "ev": -15
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #3 scoring defense; the #42 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #17 says the schedule hasn't fully tested it yet."
       },
-      "mw": null
+      "mw": null,
+      "cfp": 4,
+      "infield": 85
     },
     {
       "name": "North Dakota State Bison",
@@ -370,7 +386,9 @@
         "v": "caution",
         "why": "Leads with its #2 scoring defense; the #72 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #72 says the schedule hasn't fully tested it yet."
       },
-      "mw": null
+      "mw": null,
+      "cfp": null,
+      "infield": null
     }
   ],
   "gauntlet": [
@@ -399,6 +417,7 @@
       "srsrank": 10
     }
   ],
+  "cfp_week": 10,
   "signal": {
     "status": "trust",
     "emoji": "\ud83d\udfe2",
@@ -407,16 +426,10 @@
   },
   "value_plays": [
     {
-      "name": "LSU Tigers",
-      "ev": 116,
-      "market": "+800",
-      "fair_odds": "+317"
-    },
-    {
       "name": "Miami Hurricanes",
-      "ev": 54,
-      "market": "+600",
-      "fair_odds": "+354"
+      "ev": 80,
+      "market": "+650",
+      "fair_odds": "+317"
     }
   ]
 }

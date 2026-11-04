@@ -238,6 +238,7 @@ def build_cfb():
     pc = [c for c in bt["categories"] if c["name"] == "passing"][0]
     PI, YI = pc["names"].index("totalPointsPerGame"), pc["names"].index("yardsPerGame")
     stats = {}
+    id2name = {str(t["team"]["id"]): t["team"]["displayName"] for t in bt["teams"]}
     for t in bt["teams"]:
         nm = t["team"]["displayName"]; own = opp = None
         for c in t["categories"]:
@@ -333,6 +334,22 @@ def build_cfb():
         for t in pool: t["p"] *= scale
         for t in tail: t["p"] = tw[t["name"]] * scale
         pool = pool + tail
+    # 3) committee selection: a futures ticket is dead if the team misses the 12-team field, so once the CFP
+    # committee has ranked teams, every weight (fair odds AND the mw pick order) is multiplied by P(make the field
+    # | latest committee rank). Rates = how teams at each first-ranking rank finished (final top-12), 2014-25.
+    # Backtest 2026-11-04 (board rebuilt from games before each season's first release, rates leave-one-season-out,
+    # baseball-blueprint/cfb-firstcfp-backtest.mjs): champ top-3 7/12 -> 8/12, champ avg prob 20% -> 27%,
+    # log-loss 2.20 -> 2.12, #1 pick unchanged 6/12. The one champion it hurt: 2014 Ohio State (first ranked #16).
+    cfp, cfp_week = fetch_cfp_ranks(id2name)
+    if cfp:
+        for t in pool:
+            r = cfp.get(t["name"]); t["cfp"] = r; t["infield"] = cfp_infield(r)
+            t["p"] *= t["infield"]
+            if t.get("mw"): t["mw"] *= t["infield"]
+        tp = sum(t["p"] for t in pool); tm_ = sum(t.get("mw") or 0 for t in pool)
+        for t in pool:
+            t["p"] = t["p"] / tp if tp else 0
+            if t.get("mw"): t["mw"] /= tm_
     cap_odds(pool, 0.24)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
@@ -341,7 +358,8 @@ def build_cfb():
     if ranked:
         a = ranked[0]; odds = a.get("fair_odds")
         tie = f" Dead even with <b>{ranked[1]['name']}</b> at the 24% cap — {a['name']} edges it on schedule." if len(ranked) > 1 and ranked[1]["p"] >= a["p"] - 1e-9 else ""
-        pred = {"pick": a["name"], "why": f"<b>{a['name']}</b> is the pick — the model's #1 by index × schedule{f' (fair {odds})' if odds else ''}, the order that picked 10 of 12 CFP champions.{tie} {a['read']['why']}"}
+        sel = f" Committee has it <b>#{a['cfp']}</b> ({round(a['infield']*100)}% to make the field)." if a.get("cfp") else ""
+        pred = {"pick": a["name"], "why": f"<b>{a['name']}</b> is the pick — the model's #1 by index × schedule{' × playoff odds' if cfp else ''}{f' (fair {odds})' if odds else ''}, the order that picked 10 of 12 CFP champions.{sel}{tie} {a['read']['why']}"}
     else:
         pred = make_prediction(teams, 5)
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
@@ -353,7 +371,7 @@ def build_cfb():
             "season_pct": season_pct(teams, "cfb"),
             "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
             "labels": ["Win%", "PPG", "Opp PPG", "Opp YPG", "Margin"],
-            "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet}
+            "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet, "cfp_week": cfp_week}
 
 def cfb_row(t):
     sr = t["srsrank"]
@@ -370,7 +388,30 @@ def cfb_row(t):
         "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds") or ("FCS" if "North Dakota State" in t["name"] else None),
         "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
-        "mw": round(t["mw"]*100, 2) if t.get("mw") else None}
+        "mw": round(t["mw"]*100, 2) if t.get("mw") else None,
+        "cfp": t.get("cfp"), "infield": round(t["infield"]*100) if t.get("infield") is not None else None}
+
+CFP_INFIELD = [(8, .85), (12, .66), (18, .28), (25, .04)]   # P(final top-12 | committee rank), 2014-25 first->final rankings
+def cfp_infield(r):
+    if r is None: return .01
+    return next((p for hi, p in CFP_INFIELD if r <= hi), .01)
+
+def fetch_cfp_ranks(id2name):
+    """Latest CFP committee top 25 as {ESPN displayName: rank}, plus its ESPN week; ({}, None) before the first release."""
+    try:
+        idx = get(f"https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/{YEAR}/rankings/21?limit=50")
+        tw = lambda u: (int(re.search(r"types/(\d+)", u).group(1)), int(re.search(r"weeks/(\d+)", u).group(1)))
+        refs = sorted((r["$ref"] for r in (idx or {}).get("rankings", []) if r.get("$ref")), key=tw)
+        if not refs: return {}, None
+        j = get(refs[-1].replace("http://", "https://"))
+        out = {}
+        for r in j.get("ranks", []):
+            nm = id2name.get(re.search(r"teams/(\d+)", r["team"]["$ref"]).group(1))
+            if nm: out[nm] = r["current"]
+        return out, tw(refs[-1])[1]
+    except Exception as e:
+        print(f"  cfp rankings pull failed: {e}", file=sys.stderr)
+        return {}, None
 
 def compute_srs(games, fbs):
     sched = {}
