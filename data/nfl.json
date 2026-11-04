@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-03T20:20:01Z",
-  "odds_remaining": "94077",
+  "generated": "2026-11-04T18:41:53Z",
+  "odds_remaining": "92714",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +416). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -223,12 +223,12 @@
       "rtg": 6.9,
       "fair_pct": 8.0,
       "fair_odds": "+1153",
-      "market": "+1800",
-      "ev": 52,
+      "market": "+1700",
+      "ev": 44,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 52
+        "ev": 44
       },
       "read": {
         "v": "caution",
@@ -258,12 +258,12 @@
       "rtg": 5.1,
       "fair_pct": 5.3,
       "fair_odds": "+1794",
-      "market": "+1200",
-      "ev": -31,
+      "market": "+1100",
+      "ev": -37,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -31
+        "ev": -37
       },
       "read": {
         "v": "caution",
@@ -783,12 +783,12 @@
       "rtg": -2.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+8000",
-      "ev": -87,
+      "market": "+10000",
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -83
       },
       "read": {
         "v": "caution",
@@ -818,12 +818,12 @@
       "rtg": -3.0,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+22500",
-      "ev": -69,
+      "market": "+25000",
+      "ev": -65,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -69
+        "ev": -65
       },
       "read": {
         "v": "caution",
