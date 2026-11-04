@@ -37,18 +37,19 @@
         "\u2014"
       ],
       "rtg": 9.7,
-      "mk": 260,
+      "mk": 166,
+      "alt": "+260",
       "confirmed": true,
       "pre_rank": 1.0,
       "fair_pct": 19.3,
       "fair_odds": "+417",
       "read": null,
-      "market": "+260",
-      "ev": -30,
+      "market": "+166",
+      "ev": -49,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -30
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -49
       }
     },
     {
@@ -72,18 +73,19 @@
         "\u2014"
       ],
       "rtg": 82.0,
-      "mk": 260,
+      "mk": 313,
+      "alt": "+260",
       "confirmed": true,
       "pre_rank": 2.0,
       "fair_pct": 16.9,
       "fair_odds": "+491",
       "read": null,
-      "market": "+260",
-      "ev": -39,
+      "market": "+313",
+      "ev": -30,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -39
+        "ev": -30
       }
     },
     {
@@ -107,18 +109,19 @@
         "\u2014"
       ],
       "rtg": 28.5,
-      "mk": 3000,
+      "mk": 2366,
+      "alt": "+3000",
       "confirmed": true,
       "pre_rank": 3.0,
       "fair_pct": 6.1,
       "fair_odds": "+1528",
       "read": null,
-      "market": "+3000",
-      "ev": 90,
+      "market": "+2366",
+      "ev": 51,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 90
+        "ev": 51
       }
     },
     {
@@ -142,18 +145,19 @@
         "\u2014"
       ],
       "rtg": 118.8,
-      "mk": 1800,
+      "mk": 1895,
+      "alt": "+1800",
       "confirmed": true,
       "pre_rank": 4.0,
       "fair_pct": 3.8,
       "fair_odds": "+2525",
       "read": null,
-      "market": "+1800",
-      "ev": -28,
+      "market": "+1895",
+      "ev": -24,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -28
+        "ev": -24
       }
     },
     {
@@ -177,18 +181,19 @@
         "\u2014"
       ],
       "rtg": null,
-      "mk": 3000,
+      "mk": 2432,
+      "alt": "+3000",
       "confirmed": false,
       "pre_rank": 5.0,
       "fair_pct": 3.6,
       "fair_odds": "+2665",
       "read": null,
-      "market": "+3000",
-      "ev": 12,
+      "market": "+2432",
+      "ev": -8,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 12
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -8
       }
     },
     {
@@ -212,18 +217,19 @@
         "\u2014"
       ],
       "rtg": null,
-      "mk": 950,
+      "mk": 1204,
+      "alt": "+950",
       "confirmed": false,
       "pre_rank": 6.0,
       "fair_pct": 3.1,
       "fair_odds": "+3127",
       "read": null,
-      "market": "+950",
-      "ev": -67,
+      "market": "+1204",
+      "ev": -60,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -67
+        "ev": -60
       }
     },
     {
@@ -247,18 +253,19 @@
         "\u2014"
       ],
       "rtg": 43.7,
-      "mk": 2000,
+      "mk": 2502,
+      "alt": "+2000",
       "confirmed": true,
       "pre_rank": 7.0,
       "fair_pct": 2.5,
       "fair_odds": "+3903",
       "read": null,
-      "market": "+2000",
-      "ev": -48,
+      "market": "+2502",
+      "ev": -35,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -48
+        "kind": "fade",
+        "label": "fade",
+        "ev": -35
       }
     },
     {
@@ -282,18 +289,19 @@
         "\u2014"
       ],
       "rtg": 21.9,
-      "mk": 1600,
+      "mk": 1938,
+      "alt": "+1600",
       "confirmed": false,
       "pre_rank": 8.0,
       "fair_pct": 2.1,
       "fair_odds": "+4604",
       "read": null,
-      "market": "+1600",
-      "ev": -64,
+      "market": "+1938",
+      "ev": -57,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -64
+        "ev": -57
       }
     },
     {
@@ -317,18 +325,19 @@
         "\u2014"
       ],
       "rtg": 85.5,
-      "mk": 5000,
+      "mk": 3368,
+      "alt": "+5000",
       "confirmed": true,
       "pre_rank": 9.0,
       "fair_pct": 2.0,
       "fair_odds": "+4807",
       "read": null,
-      "market": "+5000",
-      "ev": 4,
+      "market": "+3368",
+      "ev": -29,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 4
+        "kind": "fade",
+        "label": "fade",
+        "ev": -29
       }
     },
     {
@@ -352,18 +361,19 @@
         "\u2014"
       ],
       "rtg": 66.9,
-      "mk": 10000,
+      "mk": 9252,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 10.0,
       "fair_pct": 1.8,
       "fair_odds": "+5311",
       "read": null,
-      "market": "+10000",
-      "ev": 87,
+      "market": "+9252",
+      "ev": 73,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 87
+        "ev": 73
       }
     },
     {
@@ -387,18 +397,19 @@
         "\u2014"
       ],
       "rtg": 40.9,
-      "mk": 460,
+      "mk": 296,
+      "alt": "+460",
       "confirmed": true,
       "pre_rank": 11.0,
       "fair_pct": 1.8,
       "fair_odds": "+5446",
       "read": null,
-      "market": "+460",
-      "ev": -90,
+      "market": "+296",
+      "ev": -93,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -90
+        "ev": -93
       }
     },
     {
@@ -422,18 +433,19 @@
         "\u2014"
       ],
       "rtg": 13.7,
-      "mk": 10000,
+      "mk": 2366,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 12.0,
       "fair_pct": 1.8,
       "fair_odds": "+5452",
       "read": null,
-      "market": "+10000",
-      "ev": 82,
+      "market": "+2366",
+      "ev": -56,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 82
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -56
       }
     },
     {
@@ -457,18 +469,19 @@
         "\u2014"
       ],
       "rtg": 27.7,
-      "mk": 10000,
+      "mk": 18598,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 13.0,
       "fair_pct": 1.6,
       "fair_odds": "+6201",
       "read": null,
-      "market": "+10000",
-      "ev": 60,
+      "market": "+18598",
+      "ev": 197,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 60
+        "ev": 197
       }
     },
     {
@@ -492,19 +505,16 @@
         "\u2014"
       ],
       "rtg": null,
-      "mk": 10000,
+      "mk": null,
+      "alt": "+10000",
       "confirmed": false,
       "pre_rank": 14.0,
       "fair_pct": 1.4,
       "fair_odds": "+6942",
       "read": null,
-      "market": "+10000",
-      "ev": 43,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 43
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "NC State Wolfpack",
@@ -527,19 +537,16 @@
         "\u2014"
       ],
       "rtg": 40.3,
-      "mk": 15000,
+      "mk": null,
+      "alt": "+15000",
       "confirmed": true,
       "pre_rank": 15.0,
       "fair_pct": 1.4,
       "fair_odds": "+6972",
       "read": null,
-      "market": "+15000",
-      "ev": 114,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 114
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "North Carolina Tar Heels",
@@ -562,18 +569,19 @@
         "\u2014"
       ],
       "rtg": -13.7,
-      "mk": 5000,
+      "mk": 18598,
+      "alt": "+5000",
       "confirmed": true,
       "pre_rank": 16.0,
       "fair_pct": 1.2,
       "fair_odds": "+8070",
       "read": null,
-      "market": "+5000",
-      "ev": -38,
+      "market": "+18598",
+      "ev": 129,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -38
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 129
       }
     },
     {
@@ -597,19 +605,16 @@
         "\u2014"
       ],
       "rtg": 73.4,
-      "mk": 3000,
+      "mk": null,
+      "alt": "+3000",
       "confirmed": true,
       "pre_rank": 17.0,
       "fair_pct": 1.2,
       "fair_odds": "+8226",
       "read": null,
-      "market": "+3000",
-      "ev": -63,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -63
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "West Virginia Mountaineers",
@@ -632,18 +637,19 @@
         "\u2014"
       ],
       "rtg": 5.8,
-      "mk": 25000,
+      "mk": 46635,
+      "alt": "+25000",
       "confirmed": false,
       "pre_rank": 18.0,
       "fair_pct": 1.1,
       "fair_odds": "+9406",
       "read": null,
-      "market": "+25000",
-      "ev": 164,
+      "market": "+46635",
+      "ev": 392,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 164
+        "ev": 392
       }
     },
     {
@@ -667,18 +673,19 @@
         "\u2014"
       ],
       "rtg": 20.0,
-      "mk": 10000,
+      "mk": 10290,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 19.0,
       "fair_pct": 1.0,
       "fair_odds": "+9694",
       "read": null,
-      "market": "+10000",
-      "ev": 3,
+      "market": "+10290",
+      "ev": 6,
       "verdict": {
         "kind": "small",
         "label": "small value",
-        "ev": 3
+        "ev": 6
       }
     },
     {
@@ -702,18 +709,19 @@
         "\u2014"
       ],
       "rtg": 56.1,
-      "mk": 15000,
+      "mk": 23271,
+      "alt": "+15000",
       "confirmed": true,
       "pre_rank": 20.0,
       "fair_pct": 1.0,
       "fair_odds": "+10042",
       "read": null,
-      "market": "+15000",
-      "ev": 49,
+      "market": "+23271",
+      "ev": 130,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 49
+        "ev": 130
       }
     },
     {
@@ -737,18 +745,19 @@
         "\u2014"
       ],
       "rtg": -9.7,
-      "mk": 10000,
+      "mk": 9252,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 21.0,
       "fair_pct": 1.0,
       "fair_odds": "+10415",
       "read": null,
-      "market": "+10000",
-      "ev": -4,
+      "market": "+9252",
+      "ev": -11,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -4
+        "kind": "fade",
+        "label": "fade",
+        "ev": -11
       }
     },
     {
@@ -772,18 +781,19 @@
         "\u2014"
       ],
       "rtg": 58.3,
-      "mk": 10000,
+      "mk": 4825,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 22.0,
       "fair_pct": 0.9,
       "fair_odds": "+10561",
       "read": null,
-      "market": "+10000",
-      "ev": -5,
+      "market": "+4825",
+      "ev": -54,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -5
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -54
       }
     },
     {
@@ -807,18 +817,19 @@
         "\u2014"
       ],
       "rtg": 79.9,
-      "mk": 10000,
+      "mk": 2366,
+      "alt": "+10000",
       "confirmed": false,
       "pre_rank": 23.0,
       "fair_pct": 0.9,
       "fair_odds": "+11342",
       "read": null,
-      "market": "+10000",
-      "ev": -12,
+      "market": "+2366",
+      "ev": -78,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -12
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -78
       }
     },
     {
@@ -842,19 +853,16 @@
         "\u2014"
       ],
       "rtg": 59.2,
-      "mk": 5000,
+      "mk": null,
+      "alt": "+5000",
       "confirmed": true,
       "pre_rank": 24.0,
       "fair_pct": 0.8,
       "fair_odds": "+12820",
       "read": null,
-      "market": "+5000",
-      "ev": -61,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -61
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Minnesota Golden Gophers",
@@ -877,18 +885,19 @@
         "\u2014"
       ],
       "rtg": 27.5,
-      "mk": 10000,
+      "mk": 10290,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 25.0,
       "fair_pct": 0.8,
       "fair_odds": "+13128",
       "read": null,
-      "market": "+10000",
-      "ev": -24,
+      "market": "+10290",
+      "ev": -21,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -24
+        "ev": -21
       }
     },
     {
@@ -912,18 +921,19 @@
         "\u2014"
       ],
       "rtg": 34.0,
-      "mk": 10000,
+      "mk": 10290,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 26.0,
       "fair_pct": 0.7,
       "fair_odds": "+14268",
       "read": null,
-      "market": "+10000",
-      "ev": -30,
+      "market": "+10290",
+      "ev": -28,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -30
+        "ev": -28
       }
     },
     {
@@ -947,18 +957,19 @@
         "\u2014"
       ],
       "rtg": 42.5,
-      "mk": 20000,
+      "mk": 46635,
+      "alt": "+20000",
       "confirmed": true,
       "pre_rank": 27.0,
       "fair_pct": 0.7,
       "fair_odds": "+14414",
       "read": null,
-      "market": "+20000",
-      "ev": 38,
+      "market": "+46635",
+      "ev": 222,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 38
+        "ev": 222
       }
     },
     {
@@ -982,18 +993,19 @@
         "\u2014"
       ],
       "rtg": 32.3,
-      "mk": 4000,
+      "mk": 3644,
+      "alt": "+4000",
       "confirmed": true,
       "pre_rank": 28.0,
       "fair_pct": 0.7,
       "fair_odds": "+14737",
       "read": null,
-      "market": "+4000",
-      "ev": -72,
+      "market": "+3644",
+      "ev": -75,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -72
+        "ev": -75
       }
     },
     {
@@ -1017,18 +1029,19 @@
         "\u2014"
       ],
       "rtg": 62.8,
-      "mk": 20000,
+      "mk": 46635,
+      "alt": "+20000",
       "confirmed": false,
       "pre_rank": 29.0,
       "fair_pct": 0.6,
       "fair_odds": "+16160",
       "read": null,
-      "market": "+20000",
-      "ev": 24,
+      "market": "+46635",
+      "ev": 187,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 24
+        "ev": 187
       }
     },
     {
@@ -1052,18 +1065,19 @@
         "\u2014"
       ],
       "rtg": -18.7,
-      "mk": 25000,
+      "mk": 46635,
+      "alt": "+25000",
       "confirmed": true,
       "pre_rank": 30.0,
       "fair_pct": 0.6,
       "fair_odds": "+16267",
       "read": null,
-      "market": "+25000",
-      "ev": 53,
+      "market": "+46635",
+      "ev": 186,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 53
+        "ev": 186
       }
     },
     {
@@ -1087,19 +1101,16 @@
         "\u2014"
       ],
       "rtg": 38.3,
-      "mk": 15000,
+      "mk": null,
+      "alt": "+15000",
       "confirmed": false,
       "pre_rank": 31.0,
       "fair_pct": 0.5,
       "fair_odds": "+18592",
       "read": null,
-      "market": "+15000",
-      "ev": -19,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -19
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Oregon Ducks",
@@ -1122,18 +1133,19 @@
         "\u2014"
       ],
       "rtg": 43.1,
-      "mk": 10000,
+      "mk": 8402,
+      "alt": "+10000",
       "confirmed": true,
       "pre_rank": 32.0,
       "fair_pct": 0.5,
       "fair_odds": "+20308",
       "read": null,
-      "market": "+10000",
-      "ev": -51,
+      "market": "+8402",
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -51
+        "ev": -58
       }
     },
     {
@@ -1157,19 +1169,16 @@
         "\u2014"
       ],
       "rtg": 29.5,
-      "mk": 25000,
+      "mk": null,
+      "alt": "+25000",
       "confirmed": false,
       "pre_rank": 34.0,
       "fair_pct": 0.5,
       "fair_odds": "+20953",
       "read": null,
-      "market": "+25000",
-      "ev": 19,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 19
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Colorado Buffaloes",
@@ -1192,19 +1201,16 @@
         "\u2014"
       ],
       "rtg": null,
-      "mk": 25000,
+      "mk": null,
+      "alt": "+25000",
       "confirmed": false,
       "pre_rank": 33.0,
       "fair_pct": 0.5,
       "fair_odds": "+20953",
       "read": null,
-      "market": "+25000",
-      "ev": 19,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 19
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Iowa State Cyclones",
@@ -1227,18 +1233,19 @@
         "\u2014"
       ],
       "rtg": 33.0,
-      "mk": 25000,
+      "mk": 46635,
+      "alt": "+25000",
       "confirmed": true,
       "pre_rank": 35.0,
       "fair_pct": 0.4,
       "fair_odds": "+22172",
       "read": null,
-      "market": "+25000",
-      "ev": 13,
+      "market": "+46635",
+      "ev": 110,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 13
+        "ev": 110
       }
     },
     {
@@ -1263,6 +1270,7 @@
       ],
       "rtg": 56.5,
       "mk": null,
+      "alt": null,
       "confirmed": false,
       "pre_rank": 36.0,
       "fair_pct": 0.4,
@@ -1293,28 +1301,27 @@
         "\u2014"
       ],
       "rtg": 28.7,
-      "mk": 25000,
+      "mk": null,
+      "alt": "+25000",
       "confirmed": true,
       "pre_rank": 37.0,
       "fair_pct": 0.4,
       "fair_odds": "+24470",
       "read": null,
-      "market": "+25000",
-      "ev": 2,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": 2
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     }
   ],
   "use_pre": true,
   "median_gp": 1.0,
   "pre_generated": "2026-11-03",
   "pre_confirmed": 256,
-  "generated": "2026-11-04T13:33:47Z",
+  "generated": "2026-11-04T15:01:17Z",
   "odds_remaining": null,
-  "market_asof": "2026-11-02",
+  "market_asof": null,
+  "market_name": "Kalshi",
+  "alt_name": "FanDuel Nov 2",
   "prediction": {
     "pick": "South Carolina Gamecocks",
     "why": "<b>South Carolina Gamecocks</b> is the model's #1 by the preseason roster projection (fair +417) \u2014 lineup confirmed in real games."
@@ -1331,8 +1338,8 @@
   "value_plays": [
     {
       "name": "UCLA Bruins",
-      "ev": 90,
-      "market": "+3000",
+      "ev": 51,
+      "market": "+2366",
       "fair_odds": "+1528"
     }
   ]

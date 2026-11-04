@@ -78,7 +78,7 @@ def match_names(market, F, locs):
 
 def american(p): return None if not p else (f"+{round(100 * (1 - p) / p)}" if p < .5 else f"-{round(100 * p / (1 - p))}")
 
-def build(key, data_dir, fd_raw, year):
+def build(key, data_dir, fd_raw, year, alt_raw=None):
     season = year + 1                                   # 2026-27 -> sportsdataverse season 2027
     g = "mens" if key == "cbb" else "womens"
     base = {"sport": "CBB" if key == "cbb" else "WCBB", "season": f"{season-1}-{str(season)[2:]}"}
@@ -134,7 +134,7 @@ def build(key, data_dir, fd_raw, year):
             ex = (p[over] - CAP[key]).sum(); p[over] = CAP[key]; r = (~over) & (p > 0); p[r] += ex * p[r] / p[r].sum()
         F["p"] = p; F["confirmed"] = None; F["pre_rank"] = None
     fd = match_names(fd_raw or {}, F, locs)
-    F["mk"] = F.name.map(fd)
+    F["mk"] = F.name.map(fd); F["alt"] = F.name.map(match_names(alt_raw or {}, F, locs))   # alt = second price shown beside (women's FanDuel snapshot)
     rows = []
     show = F[(F.p >= .004)].copy() if use_pre else F[(F.score >= 2) | (F.p >= .004)].copy()
     for r in show.sort_values(["score", "p", "index"], ascending=False).itertuples():
@@ -145,6 +145,7 @@ def build(key, data_dir, fd_raw, year):
                               (f"{r.top50_rec}" if r.top50_wp == r.top50_wp else "—")],
                      "rtg": None if r.adj_net != r.adj_net else round(float(r.adj_net), 1),
                      "p": float(r.p), "mk": None if r.mk != r.mk else int(r.mk),
+                     "alt": None if r.alt != r.alt else (f"+{int(r.alt)}" if r.alt > 0 else str(int(r.alt))),
                      "confirmed": r.confirmed, "pre_rank": r.pre_rank})
     base.update({"cats": CATS[key], "labels": LABELS, "teams": rows, "use_pre": use_pre, "median_gp": med,
                  "pre_generated": pre.get("generated") if pre else None, "pre_confirmed": pre.get("confirmed_teams") if pre else None})
