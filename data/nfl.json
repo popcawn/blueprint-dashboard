@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-04T18:41:53Z",
-  "odds_remaining": "92714",
+  "generated": "2026-11-04T20:35:44Z",
+  "odds_remaining": "92307",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +416). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -293,12 +293,12 @@
       "rtg": 4.5,
       "fair_pct": 3.6,
       "fair_odds": "+2666",
-      "market": "+3500",
-      "ev": 30,
+      "market": "+4000",
+      "ev": 48,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 30
+        "ev": 48
       },
       "read": {
         "v": "caution",
@@ -783,12 +783,12 @@
       "rtg": -2.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+10000",
-      "ev": -83,
+      "market": "+8000",
+      "ev": -87,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -83
+        "ev": -87
       },
       "read": {
         "v": "caution",
@@ -818,12 +818,12 @@
       "rtg": -3.0,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+25000",
-      "ev": -65,
+      "market": "+12500",
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -65
+        "ev": -83
       },
       "read": {
         "v": "caution",
@@ -923,12 +923,12 @@
       "rtg": -4.6,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+12500",
-      "ev": -91,
+      "market": "+15000",
+      "ev": -89,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -91
+        "ev": -89
       },
       "read": {
         "v": "caution",
@@ -958,12 +958,12 @@
       "rtg": -7.9,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+75000",
-      "ev": -84,
+      "market": "+50000",
+      "ev": -89,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -89
       },
       "read": {
         "v": "caution",

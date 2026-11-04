@@ -253,19 +253,19 @@
         "\u2014"
       ],
       "rtg": 43.7,
-      "mk": 2502,
+      "mk": 2576,
       "alt": "+2000",
       "confirmed": true,
       "pre_rank": 7.0,
       "fair_pct": 2.5,
       "fair_odds": "+3903",
       "read": null,
-      "market": "+2502",
-      "ev": -35,
+      "market": "+2576",
+      "ev": -33,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -35
+        "ev": -33
       }
     },
     {
@@ -289,19 +289,19 @@
         "\u2014"
       ],
       "rtg": 21.9,
-      "mk": 1938,
+      "mk": 1895,
       "alt": "+1600",
       "confirmed": false,
       "pre_rank": 8.0,
       "fair_pct": 2.1,
       "fair_odds": "+4604",
       "read": null,
-      "market": "+1938",
-      "ev": -57,
+      "market": "+1895",
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -57
+        "ev": -58
       }
     },
     {
@@ -397,14 +397,14 @@
         "\u2014"
       ],
       "rtg": 40.9,
-      "mk": 296,
+      "mk": 266,
       "alt": "+460",
       "confirmed": true,
       "pre_rank": 11.0,
       "fair_pct": 1.8,
       "fair_odds": "+5446",
       "read": null,
-      "market": "+296",
+      "market": "+266",
       "ev": -93,
       "verdict": {
         "kind": "bigfade",
@@ -1317,7 +1317,7 @@
   "median_gp": 1.0,
   "pre_generated": "2026-11-03",
   "pre_confirmed": 256,
-  "generated": "2026-11-04T15:01:17Z",
+  "generated": "2026-11-04T20:36:14Z",
   "odds_remaining": null,
   "market_asof": null,
   "market_name": "Kalshi",

@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-03T20:20:22Z",
-  "odds_remaining": "94074",
+  "generated": "2026-11-04T20:36:01Z",
+  "odds_remaining": "92304",
   "prediction": {
     "pick": "Houston Rockets",
     "why": "<b>Houston Rockets</b> is the pick \u2014 the top team the model actually trusts (fair +673). Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
@@ -116,12 +116,12 @@
       "rtg": 12.9,
       "fair_pct": 8.7,
       "fair_odds": "+1049",
-      "market": "+17500",
-      "ev": 1432,
+      "market": "+15000",
+      "ev": 1214,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1432
+        "ev": 1214
       },
       "read": {
         "v": "trust",
@@ -221,12 +221,12 @@
       "rtg": 9.3,
       "fair_pct": 5.9,
       "fair_odds": "+1592",
-      "market": "+290",
-      "ev": -77,
+      "market": "+280",
+      "ev": -78,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -78
       },
       "read": {
         "v": "caution",
@@ -361,12 +361,12 @@
       "rtg": 0.3,
       "fair_pct": 1.9,
       "fair_odds": "+5278",
-      "market": "+400",
-      "ev": -91,
+      "market": "+420",
+      "ev": -90,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -91
+        "ev": -90
       },
       "read": {
         "v": "caution",
@@ -501,12 +501,12 @@
       "rtg": 2.0,
       "fair_pct": 1.5,
       "fair_odds": "+6380",
-      "market": "+40000",
-      "ev": 519,
+      "market": "+50000",
+      "ev": 673,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 519
+        "ev": 673
       },
       "read": {
         "v": "trust",
@@ -536,12 +536,12 @@
       "rtg": 1.3,
       "fair_pct": 1.2,
       "fair_odds": "+8406",
-      "market": "+1000",
-      "ev": -87,
+      "market": "+950",
+      "ev": -88,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -88
       },
       "read": {
         "v": "trust",
@@ -571,12 +571,12 @@
       "rtg": 1.7,
       "fair_pct": 0.4,
       "fair_odds": "+27161",
-      "market": "+100000",
-      "ev": 267,
+      "market": "+75000",
+      "ev": 175,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 267
+        "ev": 175
       },
       "read": {
         "v": "fools_gold",
@@ -641,12 +641,12 @@
       "rtg": -11.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+15000",
-      "ev": -76,
+      "market": "+12500",
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -76
+        "ev": -80
       },
       "read": {
         "v": "caution",
