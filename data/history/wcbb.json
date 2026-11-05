@@ -800,5 +800,270 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-05",
+  "gp": 2,
+  "teams": {
+   "South Carolina Gamecocks": {
+    "sc": 5,
+    "idx": 52.4,
+    "fp": 19.3,
+    "mkt": "+198",
+    "ev": -42
+   },
+   "UConn Huskies": {
+    "sc": 5,
+    "idx": 70.1,
+    "fp": 16.9,
+    "mkt": "+331",
+    "ev": -27
+   },
+   "UCLA Bruins": {
+    "sc": 4,
+    "idx": 57.0,
+    "fp": 6.1,
+    "mkt": "+3244",
+    "ev": 105
+   },
+   "LSU Tigers": {
+    "sc": 3,
+    "idx": 79.2,
+    "fp": 3.8,
+    "mkt": "+3129",
+    "ev": 23
+   },
+   "Michigan Wolverines": {
+    "sc": 3,
+    "idx": null,
+    "fp": 3.6,
+    "mkt": "+1006",
+    "ev": -60
+   },
+   "Texas Longhorns": {
+    "sc": 3,
+    "idx": 57.1,
+    "fp": 3.1,
+    "mkt": "+1517",
+    "ev": -50
+   },
+   "Iowa Hawkeyes": {
+    "sc": 3,
+    "idx": 60.7,
+    "fp": 2.5,
+    "mkt": "+3368",
+    "ev": -13
+   },
+   "Duke Blue Devils": {
+    "sc": 3,
+    "idx": 55.4,
+    "fp": 2.1,
+    "mkt": "+3129",
+    "ev": -31
+   },
+   "Louisville Cardinals": {
+    "sc": 3,
+    "idx": 67.9,
+    "fp": 2.0,
+    "mkt": "+4825",
+    "ev": 0
+   },
+   "Ohio State Buckeyes": {
+    "sc": 2,
+    "idx": 66.4,
+    "fp": 1.8,
+    "mkt": "+10290",
+    "ev": 92
+   },
+   "USC Trojans": {
+    "sc": 2,
+    "idx": 60.0,
+    "fp": 1.8,
+    "mkt": "+398",
+    "ev": -91
+   },
+   "Oklahoma Sooners": {
+    "sc": 2,
+    "idx": 53.4,
+    "fp": 1.8,
+    "mkt": "+4825",
+    "ev": -11
+   },
+   "Baylor Bears": {
+    "sc": 2,
+    "idx": 56.8,
+    "fp": 1.6,
+    "mkt": "+18598",
+    "ev": 197
+   },
+   "Illinois Fighting Illini": {
+    "sc": 2,
+    "idx": 61.7,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "NC State Wolfpack": {
+    "sc": 2,
+    "idx": 61.6,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Carolina Tar Heels": {
+    "sc": 2,
+    "idx": 31.6,
+    "fp": 1.2,
+    "mkt": "+4825",
+    "ev": -40
+   },
+   "Vanderbilt Commodores": {
+    "sc": 2,
+    "idx": 71.9,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "West Virginia Mountaineers": {
+    "sc": 2,
+    "idx": 51.4,
+    "fp": 1.1,
+    "mkt": "+46635",
+    "ev": 392
+   },
+   "Washington Huskies": {
+    "sc": 2,
+    "idx": 54.9,
+    "fp": 1.0,
+    "mkt": "+10290",
+    "ev": 6
+   },
+   "Tennessee Lady Volunteers": {
+    "sc": 1,
+    "idx": 63.8,
+    "fp": 1.0,
+    "mkt": "+23271",
+    "ev": 130
+   },
+   "Maryland Terrapins": {
+    "sc": 1,
+    "idx": 32.6,
+    "fp": 1.0,
+    "mkt": "+10290",
+    "ev": -1
+   },
+   "Ole Miss Rebels": {
+    "sc": 1,
+    "idx": 64.3,
+    "fp": 0.9,
+    "mkt": "+5747",
+    "ev": -45
+   },
+   "TCU Horned Frogs": {
+    "sc": 1,
+    "idx": 69.6,
+    "fp": 0.9,
+    "mkt": "+4825",
+    "ev": -57
+   },
+   "Oklahoma State Cowgirls": {
+    "sc": 1,
+    "idx": 64.5,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Minnesota Golden Gophers": {
+    "sc": 1,
+    "idx": 56.7,
+    "fp": 0.8,
+    "mkt": "+10290",
+    "ev": -21
+   },
+   "Nebraska Cornhuskers": {
+    "sc": 1,
+    "idx": 58.4,
+    "fp": 0.7,
+    "mkt": "+10290",
+    "ev": -28
+   },
+   "Alabama Crimson Tide": {
+    "sc": 1,
+    "idx": 64.4,
+    "fp": 0.7,
+    "mkt": "+46635",
+    "ev": 222
+   },
+   "Notre Dame Fighting Irish": {
+    "sc": 1,
+    "idx": 57.9,
+    "fp": 0.7,
+    "mkt": "+4579",
+    "ev": -68
+   },
+   "Michigan State Spartans": {
+    "sc": 1,
+    "idx": 65.4,
+    "fp": 0.6,
+    "mkt": "+46635",
+    "ev": 187
+   },
+   "Stanford Cardinal": {
+    "sc": 1,
+    "idx": 45.6,
+    "fp": 0.6,
+    "mkt": "+46635",
+    "ev": 186
+   },
+   "Indiana Hoosiers": {
+    "sc": 1,
+    "idx": 59.4,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Oregon Ducks": {
+    "sc": 1,
+    "idx": 60.6,
+    "fp": 0.5,
+    "mkt": "+9252",
+    "ev": -54
+   },
+   "Colorado Buffaloes": {
+    "sc": 1,
+    "idx": 64.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "California Golden Bears": {
+    "sc": 1,
+    "idx": 57.2,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Iowa State Cyclones": {
+    "sc": 1,
+    "idx": 58.1,
+    "fp": 0.4,
+    "mkt": "+46635",
+    "ev": 110
+   },
+   "Mississippi State Bulldogs": {
+    "sc": 1,
+    "idx": 63.9,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Kansas State Wildcats": {
+    "sc": 1,
+    "idx": 57.0,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]

@@ -30,26 +30,26 @@
         false
       ],
       "vals": [
-        "+9.7 #176",
-        "122.5 #41",
-        "112.8 #337",
+        "+9.7 #194",
+        "122.5 #40",
+        "112.8 #363",
         "1.000",
         "\u2014"
       ],
       "rtg": 9.7,
-      "mk": 166,
+      "mk": 198,
       "alt": "+260",
       "confirmed": true,
       "pre_rank": 1.0,
       "fair_pct": 19.3,
       "fair_odds": "+417",
       "read": null,
-      "market": "+166",
-      "ev": -49,
+      "market": "+198",
+      "ev": -42,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -49
+        "ev": -42
       }
     },
     {
@@ -66,26 +66,26 @@
         false
       ],
       "vals": [
-        "+82.0 #23",
-        "126.1 #31",
-        "44.1 #21",
+        "+82.0 #24",
+        "126.1 #30",
+        "44.1 #22",
         "1.000",
         "\u2014"
       ],
       "rtg": 82.0,
-      "mk": 313,
+      "mk": 331,
       "alt": "+260",
       "confirmed": true,
       "pre_rank": 2.0,
       "fair_pct": 16.9,
       "fair_odds": "+491",
       "read": null,
-      "market": "+313",
-      "ev": -30,
+      "market": "+331",
+      "ev": -27,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -30
+        "ev": -27
       }
     },
     {
@@ -102,26 +102,26 @@
         false
       ],
       "vals": [
-        "+28.5 #133",
-        "104.0 #127",
-        "75.5 #138",
+        "+28.5 #138",
+        "104.0 #135",
+        "75.5 #149",
         "1.000",
         "\u2014"
       ],
       "rtg": 28.5,
-      "mk": 2366,
+      "mk": 3244,
       "alt": "+3000",
       "confirmed": true,
       "pre_rank": 3.0,
       "fair_pct": 6.1,
       "fair_odds": "+1528",
       "read": null,
-      "market": "+2366",
-      "ev": 51,
+      "market": "+3244",
+      "ev": 105,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 51
+        "ev": 105
       }
     },
     {
@@ -140,24 +140,24 @@
       "vals": [
         "+118.8 #3",
         "163.1 #1",
-        "44.2 #22",
+        "44.2 #23",
         "1.000",
         "\u2014"
       ],
       "rtg": 118.8,
-      "mk": 1895,
+      "mk": 3129,
       "alt": "+1800",
       "confirmed": true,
       "pre_rank": 4.0,
       "fair_pct": 3.8,
       "fair_odds": "+2525",
       "read": null,
-      "market": "+1895",
-      "ev": -24,
+      "market": "+3129",
+      "ev": 23,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -24
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 23
       }
     },
     {
@@ -181,27 +181,27 @@
         "\u2014"
       ],
       "rtg": null,
-      "mk": 2432,
+      "mk": 1006,
       "alt": "+3000",
       "confirmed": false,
       "pre_rank": 5.0,
       "fair_pct": 3.6,
       "fair_odds": "+2665",
       "read": null,
-      "market": "+2432",
-      "ev": -8,
+      "market": "+1006",
+      "ev": -60,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -8
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -60
       }
     },
     {
       "name": "Texas Longhorns",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 3,
-      "index": null,
+      "index": 57.1,
       "q": [
         false,
         false,
@@ -210,26 +210,26 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+28.8 #135",
+        "122.3 #41",
+        "93.5 #240",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
-      "mk": 1204,
+      "rtg": 28.8,
+      "mk": 1517,
       "alt": "+950",
       "confirmed": false,
       "pre_rank": 6.0,
       "fair_pct": 3.1,
       "fair_odds": "+3127",
       "read": null,
-      "market": "+1204",
-      "ev": -60,
+      "market": "+1517",
+      "ev": -50,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -60
+        "ev": -50
       }
     },
     {
@@ -246,26 +246,26 @@
         false
       ],
       "vals": [
-        "+43.7 #84",
-        "113.8 #70",
-        "70.2 #115",
+        "+43.7 #90",
+        "113.8 #74",
+        "70.2 #117",
         "1.000",
         "\u2014"
       ],
       "rtg": 43.7,
-      "mk": 2576,
+      "mk": 3368,
       "alt": "+2000",
       "confirmed": true,
       "pre_rank": 7.0,
       "fair_pct": 2.5,
       "fair_odds": "+3903",
       "read": null,
-      "market": "+2576",
-      "ev": -33,
+      "market": "+3368",
+      "ev": -13,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -33
+        "ev": -13
       }
     },
     {
@@ -282,34 +282,34 @@
         false
       ],
       "vals": [
-        "+21.9 #146",
-        "104.0 #128",
-        "82.1 #162",
+        "+21.9 #152",
+        "104.0 #136",
+        "82.1 #179",
         "1.000",
         "\u2014"
       ],
       "rtg": 21.9,
-      "mk": 1895,
+      "mk": 3129,
       "alt": "+1600",
       "confirmed": false,
       "pre_rank": 8.0,
       "fair_pct": 2.1,
       "fair_odds": "+4604",
       "read": null,
-      "market": "+1895",
-      "ev": -58,
+      "market": "+3129",
+      "ev": -31,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -58
+        "kind": "fade",
+        "label": "fade",
+        "ev": -31
       }
     },
     {
       "name": "Louisville Cardinals",
-      "rec": "1-0",
-      "gp": 1,
+      "rec": "2-0",
+      "gp": 2,
       "score": 3,
-      "index": 71.0,
+      "index": 67.9,
       "q": [
         false,
         false,
@@ -318,26 +318,26 @@
         false
       ],
       "vals": [
-        "+85.5 #16",
-        "141.3 #9",
-        "55.8 #60",
+        "+72.9 #33",
+        "121.4 #47",
+        "48.5 #34",
         "1.000",
         "\u2014"
       ],
-      "rtg": 85.5,
-      "mk": 3368,
+      "rtg": 72.9,
+      "mk": 4825,
       "alt": "+5000",
       "confirmed": true,
       "pre_rank": 9.0,
       "fair_pct": 2.0,
       "fair_odds": "+4807",
       "read": null,
-      "market": "+3368",
-      "ev": -29,
+      "market": "+4825",
+      "ev": 0,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -29
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 0
       }
     },
     {
@@ -355,25 +355,25 @@
       ],
       "vals": [
         "+66.9 #42",
-        "115.3 #60",
+        "115.3 #63",
         "48.4 #33",
         "1.000",
         "\u2014"
       ],
       "rtg": 66.9,
-      "mk": 9252,
+      "mk": 10290,
       "alt": "+10000",
       "confirmed": true,
       "pre_rank": 10.0,
       "fair_pct": 1.8,
       "fair_odds": "+5311",
       "read": null,
-      "market": "+9252",
-      "ev": 73,
+      "market": "+10290",
+      "ev": 92,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 73
+        "ev": 92
       }
     },
     {
@@ -390,26 +390,26 @@
         false
       ],
       "vals": [
-        "+40.9 #92",
-        "127.9 #26",
-        "86.9 #181",
+        "+40.9 #96",
+        "127.9 #25",
+        "86.9 #198",
         "1.000",
         "\u2014"
       ],
       "rtg": 40.9,
-      "mk": 266,
+      "mk": 398,
       "alt": "+460",
       "confirmed": true,
       "pre_rank": 11.0,
       "fair_pct": 1.8,
       "fair_odds": "+5446",
       "read": null,
-      "market": "+266",
-      "ev": -93,
+      "market": "+398",
+      "ev": -91,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -93
+        "ev": -91
       }
     },
     {
@@ -426,26 +426,26 @@
         false
       ],
       "vals": [
-        "+13.7 #163",
-        "104.3 #125",
-        "90.5 #203",
+        "+13.7 #176",
+        "104.3 #131",
+        "90.5 #221",
         "1.000",
         "\u2014"
       ],
       "rtg": 13.7,
-      "mk": 2366,
+      "mk": 4825,
       "alt": "+10000",
       "confirmed": true,
       "pre_rank": 12.0,
       "fair_pct": 1.8,
       "fair_odds": "+5452",
       "read": null,
-      "market": "+2366",
-      "ev": -56,
+      "market": "+4825",
+      "ev": -11,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -56
+        "kind": "fade",
+        "label": "fade",
+        "ev": -11
       }
     },
     {
@@ -462,9 +462,9 @@
         false
       ],
       "vals": [
-        "+27.7 #134",
-        "114.8 #65",
-        "87.1 #183",
+        "+27.7 #139",
+        "114.8 #69",
+        "87.1 #200",
         "1.000",
         "\u2014"
       ],
@@ -486,10 +486,10 @@
     },
     {
       "name": "Illinois Fighting Illini",
-      "rec": "0-0",
-      "gp": 0,
+      "rec": "1-0",
+      "gp": 1,
       "score": 2,
-      "index": null,
+      "index": 61.7,
       "q": [
         false,
         false,
@@ -498,13 +498,13 @@
         false
       ],
       "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
+        "+47.5 #79",
+        "117.4 #57",
+        "69.9 #116",
+        "1.000",
         "\u2014"
       ],
-      "rtg": null,
+      "rtg": 47.5,
       "mk": null,
       "alt": "+10000",
       "confirmed": false,
@@ -518,10 +518,10 @@
     },
     {
       "name": "NC State Wolfpack",
-      "rec": "1-0",
-      "gp": 1,
+      "rec": "2-0",
+      "gp": 2,
       "score": 2,
-      "index": 59.9,
+      "index": 61.6,
       "q": [
         false,
         false,
@@ -530,13 +530,13 @@
         false
       ],
       "vals": [
-        "+40.3 #93",
-        "107.5 #98",
-        "67.2 #101",
+        "+47.2 #82",
+        "112.9 #78",
+        "65.8 #101",
         "1.000",
         "\u2014"
       ],
-      "rtg": 40.3,
+      "rtg": 47.2,
       "mk": null,
       "alt": "+15000",
       "confirmed": true,
@@ -562,34 +562,34 @@
         false
       ],
       "vals": [
-        "-13.7 #248",
-        "90.5 #207",
-        "104.3 #285",
+        "-13.7 #272",
+        "90.5 #227",
+        "104.3 #315",
         "0.000",
         "\u2014"
       ],
       "rtg": -13.7,
-      "mk": 18598,
+      "mk": 4825,
       "alt": "+5000",
       "confirmed": true,
       "pre_rank": 16.0,
       "fair_pct": 1.2,
       "fair_odds": "+8070",
       "read": null,
-      "market": "+18598",
-      "ev": 129,
+      "market": "+4825",
+      "ev": -40,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 129
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -40
       }
     },
     {
       "name": "Vanderbilt Commodores",
-      "rec": "1-0",
-      "gp": 1,
+      "rec": "2-0",
+      "gp": 2,
       "score": 2,
-      "index": 68.0,
+      "index": 71.9,
       "q": [
         false,
         false,
@@ -598,13 +598,13 @@
         false
       ],
       "vals": [
-        "+73.4 #31",
-        "139.3 #13",
-        "65.9 #96",
+        "+89.4 #13",
+        "139.0 #13",
+        "49.6 #39",
         "1.000",
         "\u2014"
       ],
-      "rtg": 73.4,
+      "rtg": 89.4,
       "mk": null,
       "alt": "+3000",
       "confirmed": true,
@@ -630,9 +630,9 @@
         false
       ],
       "vals": [
-        "+5.8 #191",
-        "97.8 #164",
-        "92.1 #213",
+        "+5.8 #210",
+        "97.8 #178",
+        "92.1 #231",
         "1.000",
         "\u2014"
       ],
@@ -666,9 +666,9 @@
         false
       ],
       "vals": [
-        "+20.0 #148",
-        "98.9 #160",
-        "78.9 #150",
+        "+20.0 #155",
+        "98.9 #174",
+        "78.9 #164",
         "1.000",
         "\u2014"
       ],
@@ -702,9 +702,9 @@
         false
       ],
       "vals": [
-        "+56.1 #60",
+        "+56.1 #61",
         "130.1 #22",
-        "74.0 #134",
+        "74.0 #140",
         "1.000",
         "\u2014"
       ],
@@ -738,26 +738,26 @@
         false
       ],
       "vals": [
-        "-9.7 #235",
-        "112.8 #74",
-        "122.5 #370",
+        "-9.7 #258",
+        "112.8 #80",
+        "122.5 #401",
         "0.000",
         "\u2014"
       ],
       "rtg": -9.7,
-      "mk": 9252,
+      "mk": 10290,
       "alt": "+10000",
       "confirmed": true,
       "pre_rank": 21.0,
       "fair_pct": 1.0,
       "fair_odds": "+10415",
       "read": null,
-      "market": "+9252",
-      "ev": -11,
+      "market": "+10290",
+      "ev": -1,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -11
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -1
       }
     },
     {
@@ -775,25 +775,25 @@
       ],
       "vals": [
         "+58.3 #55",
-        "111.0 #83",
-        "52.7 #47",
+        "111.0 #89",
+        "52.7 #49",
         "1.000",
         "\u2014"
       ],
       "rtg": 58.3,
-      "mk": 4825,
+      "mk": 5747,
       "alt": "+10000",
       "confirmed": true,
       "pre_rank": 22.0,
       "fair_pct": 0.9,
       "fair_odds": "+10561",
       "read": null,
-      "market": "+4825",
-      "ev": -54,
+      "market": "+5747",
+      "ev": -45,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -54
+        "ev": -45
       }
     },
     {
@@ -810,26 +810,26 @@
         false
       ],
       "vals": [
-        "+79.9 #25",
-        "141.3 #10",
-        "61.4 #80",
+        "+79.9 #26",
+        "141.3 #9",
+        "61.4 #82",
         "1.000",
         "\u2014"
       ],
       "rtg": 79.9,
-      "mk": 2366,
+      "mk": 4825,
       "alt": "+10000",
       "confirmed": false,
       "pre_rank": 23.0,
       "fair_pct": 0.9,
       "fair_odds": "+11342",
       "read": null,
-      "market": "+2366",
-      "ev": -78,
+      "market": "+4825",
+      "ev": -57,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -78
+        "ev": -57
       }
     },
     {
@@ -846,9 +846,9 @@
         false
       ],
       "vals": [
-        "+59.2 #52",
-        "114.2 #67",
-        "55.0 #57",
+        "+59.2 #51",
+        "114.2 #71",
+        "55.0 #60",
         "1.000",
         "\u2014"
       ],
@@ -878,9 +878,9 @@
         false
       ],
       "vals": [
-        "+27.5 #136",
-        "112.6 #75",
-        "85.2 #174",
+        "+27.5 #141",
+        "112.6 #81",
+        "85.2 #191",
         "1.000",
         "\u2014"
       ],
@@ -914,9 +914,9 @@
         false
       ],
       "vals": [
-        "+34.0 #114",
-        "102.1 #140",
-        "68.1 #104",
+        "+34.0 #117",
+        "102.1 #148",
+        "68.1 #108",
         "1.000",
         "\u2014"
       ],
@@ -938,10 +938,10 @@
     },
     {
       "name": "Alabama Crimson Tide",
-      "rec": "1-0",
-      "gp": 1,
+      "rec": "2-0",
+      "gp": 2,
       "score": 1,
-      "index": 60.4,
+      "index": 64.4,
       "q": [
         false,
         false,
@@ -950,13 +950,13 @@
         false
       ],
       "vals": [
-        "+42.5 #89",
-        "108.6 #91",
-        "66.1 #99",
+        "+58.7 #52",
+        "121.3 #48",
+        "62.7 #86",
         "1.000",
         "\u2014"
       ],
-      "rtg": 42.5,
+      "rtg": 58.7,
       "mk": 46635,
       "alt": "+20000",
       "confirmed": true,
@@ -986,26 +986,26 @@
         false
       ],
       "vals": [
-        "+32.3 #123",
+        "+32.3 #127",
         "133.1 #20",
-        "100.9 #258",
+        "100.9 #287",
         "1.000",
         "\u2014"
       ],
       "rtg": 32.3,
-      "mk": 3644,
+      "mk": 4579,
       "alt": "+4000",
       "confirmed": true,
       "pre_rank": 28.0,
       "fair_pct": 0.7,
       "fair_odds": "+14737",
       "read": null,
-      "market": "+3644",
-      "ev": -75,
+      "market": "+4579",
+      "ev": -68,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -75
+        "ev": -68
       }
     },
     {
@@ -1022,9 +1022,9 @@
         false
       ],
       "vals": [
-        "+62.8 #46",
-        "113.9 #69",
-        "51.1 #38",
+        "+62.8 #45",
+        "113.9 #73",
+        "51.1 #42",
         "1.000",
         "\u2014"
       ],
@@ -1046,10 +1046,10 @@
     },
     {
       "name": "Stanford Cardinal",
-      "rec": "0-1",
-      "gp": 1,
+      "rec": "1-1",
+      "gp": 2,
       "score": 1,
-      "index": 30.4,
+      "index": 45.6,
       "q": [
         false,
         false,
@@ -1058,13 +1058,13 @@
         false
       ],
       "vals": [
-        "-18.7 #258",
-        "85.8 #233",
-        "104.5 #291",
-        "0.000",
+        "+12.5 #182",
+        "100.6 #165",
+        "88.0 #208",
+        "0.500",
         "\u2014"
       ],
-      "rtg": -18.7,
+      "rtg": 12.5,
       "mk": 46635,
       "alt": "+25000",
       "confirmed": true,
@@ -1094,9 +1094,9 @@
         false
       ],
       "vals": [
-        "+38.3 #103",
-        "104.3 #122",
-        "66.0 #98",
+        "+38.3 #105",
+        "104.3 #129",
+        "66.0 #103",
         "1.000",
         "\u2014"
       ],
@@ -1126,27 +1126,59 @@
         false
       ],
       "vals": [
-        "+43.1 #87",
-        "113.6 #71",
-        "70.5 #116",
+        "+43.1 #93",
+        "113.6 #76",
+        "70.5 #119",
         "1.000",
         "\u2014"
       ],
       "rtg": 43.1,
-      "mk": 8402,
+      "mk": 9252,
       "alt": "+10000",
       "confirmed": true,
       "pre_rank": 32.0,
       "fair_pct": 0.5,
       "fair_odds": "+20308",
       "read": null,
-      "market": "+8402",
-      "ev": -58,
+      "market": "+9252",
+      "ev": -54,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -58
+        "ev": -54
       }
+    },
+    {
+      "name": "Colorado Buffaloes",
+      "rec": "1-0",
+      "gp": 1,
+      "score": 1,
+      "index": 64.6,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "+59.5 #48",
+        "109.8 #93",
+        "50.3 #41",
+        "1.000",
+        "\u2014"
+      ],
+      "rtg": 59.5,
+      "mk": null,
+      "alt": "+25000",
+      "confirmed": false,
+      "pre_rank": 33.0,
+      "fair_pct": 0.5,
+      "fair_odds": "+20953",
+      "read": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "California Golden Bears",
@@ -1162,9 +1194,9 @@
         false
       ],
       "vals": [
-        "+29.5 #131",
-        "107.2 #103",
-        "77.7 #140",
+        "+29.5 #134",
+        "107.2 #108",
+        "77.7 #153",
         "1.000",
         "\u2014"
       ],
@@ -1173,38 +1205,6 @@
       "alt": "+25000",
       "confirmed": false,
       "pre_rank": 34.0,
-      "fair_pct": 0.5,
-      "fair_odds": "+20953",
-      "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Colorado Buffaloes",
-      "rec": "0-0",
-      "gp": 0,
-      "score": 1,
-      "index": null,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014",
-        "\u2014"
-      ],
-      "rtg": null,
-      "mk": null,
-      "alt": "+25000",
-      "confirmed": false,
-      "pre_rank": 33.0,
       "fair_pct": 0.5,
       "fair_odds": "+20953",
       "read": null,
@@ -1226,9 +1226,9 @@
         false
       ],
       "vals": [
-        "+33.0 #118",
-        "102.5 #138",
-        "69.5 #110",
+        "+33.0 #122",
+        "102.5 #146",
+        "69.5 #112",
         "1.000",
         "\u2014"
       ],
@@ -1262,9 +1262,9 @@
         false
       ],
       "vals": [
-        "+56.5 #59",
-        "93.7 #188",
-        "37.2 #9",
+        "+56.5 #60",
+        "93.7 #206",
+        "37.2 #7",
         "1.000",
         "\u2014"
       ],
@@ -1294,8 +1294,8 @@
         false
       ],
       "vals": [
-        "+28.7 #132",
-        "87.4 #221",
+        "+28.7 #137",
+        "87.4 #244",
         "58.8 #74",
         "1.000",
         "\u2014"
@@ -1317,7 +1317,7 @@
   "median_gp": 1.0,
   "pre_generated": "2026-11-03",
   "pre_confirmed": 256,
-  "generated": "2026-11-04T20:36:14Z",
+  "generated": "2026-11-05T20:53:04Z",
   "odds_remaining": null,
   "market_asof": null,
   "market_name": "Kalshi",
@@ -1326,20 +1326,20 @@
     "pick": "South Carolina Gamecocks",
     "why": "<b>South Carolina Gamecocks</b> is the model's #1 by the preseason roster projection (fair +417) \u2014 lineup confirmed in real games."
   },
-  "season_pct": 3,
+  "season_pct": 4,
   "gp_min": 0,
-  "gp_max": 1,
+  "gp_max": 2,
   "signal": {
     "status": "early",
     "emoji": "\ud83d\udd34",
     "label": "Too early",
-    "note": "only 1 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
+    "note": "only 2 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
   },
   "value_plays": [
     {
       "name": "UCLA Bruins",
-      "ev": 51,
-      "market": "+2366",
+      "ev": 105,
+      "market": "+3244",
       "fair_odds": "+1528"
     }
   ]

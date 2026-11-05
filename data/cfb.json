@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-05T18:20:26Z",
-  "odds_remaining": "88744",
+  "generated": "2026-11-05T20:52:46Z",
+  "odds_remaining": "88300",
   "prediction": {
     "pick": "Miami Hurricanes",
     "why": "<b>Miami Hurricanes</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +317), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (85% to make the field). Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
@@ -51,12 +51,12 @@
       "rtg": 35.9,
       "fair_pct": 15.6,
       "fair_odds": "+542",
-      "market": "+500",
-      "ev": -7,
+      "market": "+490",
+      "ev": -8,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -7
+        "ev": -8
       },
       "read": {
         "v": "trust",
@@ -92,12 +92,12 @@
       "rtg": 37.0,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+800",
-      "ev": 116,
+      "market": "+750",
+      "ev": 104,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 116
+        "ev": 104
       },
       "read": {
         "v": "caution",
@@ -174,12 +174,12 @@
       "rtg": 22.5,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+50000",
-      "ev": -29,
+      "market": "+60000",
+      "ev": -15,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -29
+        "ev": -15
       },
       "read": {
         "v": "caution",
@@ -297,12 +297,12 @@
       "rtg": 31.3,
       "fair_pct": 4.2,
       "fair_odds": "+2295",
-      "market": "+2700",
-      "ev": 17,
+      "market": "+3000",
+      "ev": 29,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 17
+        "ev": 29
       },
       "read": {
         "v": "caution",
@@ -431,8 +431,8 @@
   "value_plays": [
     {
       "name": "Miami Hurricanes",
-      "ev": 116,
-      "market": "+800",
+      "ev": 104,
+      "market": "+750",
       "fair_odds": "+317"
     }
   ]
