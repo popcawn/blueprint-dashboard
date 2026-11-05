@@ -1,15 +1,15 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-04T20:36:01Z",
-  "odds_remaining": "92304",
+  "generated": "2026-11-05T10:34:38Z",
+  "odds_remaining": "91636",
   "prediction": {
     "pick": "Houston Rockets",
-    "why": "<b>Houston Rockets</b> is the pick \u2014 the top team the model actually trusts (fair +673). Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+    "why": "<b>Houston Rockets</b> is the pick \u2014 the top team the model actually trusts (fair +738). Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
   },
-  "season_pct": 9,
-  "gp_min": 5,
-  "gp_max": 8,
+  "season_pct": 10,
+  "gp_min": 6,
+  "gp_max": 9,
   "has_depth": false,
   "vs500_on": false,
   "cats": [
@@ -28,9 +28,9 @@
     {
       "name": "Houston Rockets",
       "conf": "W",
-      "rec": "7-1",
+      "rec": "7-2",
       "score": 4,
-      "index": 94.0,
+      "index": 90.6,
       "q": [
         true,
         true,
@@ -38,20 +38,20 @@
         true
       ],
       "vals": [
-        "0.875",
+        "0.778",
         "+12.9 #1",
         "119.2 #6",
         "106.4 #4"
       ],
       "rtg": 12.9,
-      "fair_pct": 12.9,
-      "fair_odds": "+673",
-      "market": "+1500",
-      "ev": 107,
+      "fair_pct": 11.9,
+      "fair_odds": "+738",
+      "market": "+1600",
+      "ev": 103,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 107
+        "ev": 103
       },
       "read": {
         "v": "trust",
@@ -63,9 +63,9 @@
     {
       "name": "Minnesota Timberwolves",
       "conf": "W",
-      "rec": "5-3",
+      "rec": "6-3",
       "score": 4,
-      "index": 82.8,
+      "index": 84.0,
       "q": [
         true,
         true,
@@ -73,20 +73,20 @@
         true
       ],
       "vals": [
-        "0.625",
+        "0.667",
         "+11.4 #4",
         "119.0 #8",
         "107.6 #6"
       ],
       "rtg": 11.4,
-      "fair_pct": 8.8,
-      "fair_odds": "+1031",
+      "fair_pct": 9.5,
+      "fair_odds": "+951",
       "market": "+1900",
-      "ev": 77,
+      "ev": 90,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 77
+        "ev": 90
       },
       "read": {
         "v": "trust",
@@ -98,9 +98,9 @@
     {
       "name": "Memphis Grizzlies",
       "conf": "W",
-      "rec": "6-1",
+      "rec": "6-2",
       "score": 3,
-      "index": 92.5,
+      "index": 88.9,
       "q": [
         true,
         true,
@@ -108,20 +108,20 @@
         false
       ],
       "vals": [
-        "0.857",
+        "0.750",
         "+12.9 #2",
         "123.0 #1",
         "110.1 #12"
       ],
       "rtg": 12.9,
-      "fair_pct": 8.7,
-      "fair_odds": "+1049",
-      "market": "+15000",
-      "ev": 1214,
+      "fair_pct": 8.0,
+      "fair_odds": "+1156",
+      "market": "+20000",
+      "ev": 1500,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1214
+        "ev": 1500
       },
       "read": {
         "v": "trust",
@@ -133,9 +133,9 @@
     {
       "name": "Detroit Pistons",
       "conf": "E",
-      "rec": "6-1",
+      "rec": "6-2",
       "score": 3,
-      "index": 92.2,
+      "index": 88.6,
       "q": [
         true,
         true,
@@ -143,20 +143,20 @@
         true
       ],
       "vals": [
-        "0.857",
+        "0.750",
         "+11.6 #3",
         "111.9 #18",
         "100.3 #1"
       ],
       "rtg": 11.6,
-      "fair_pct": 24.0,
-      "fair_odds": "+317",
+      "fair_pct": 22.5,
+      "fair_odds": "+344",
       "market": "+2200",
-      "ev": 452,
+      "ev": 419,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 452
+        "ev": 419
       },
       "read": {
         "v": "trust",
@@ -168,9 +168,9 @@
     {
       "name": "Portland Trail Blazers",
       "conf": "W",
-      "rec": "5-1",
+      "rec": "6-1",
       "score": 3,
-      "index": 87.9,
+      "index": 88.2,
       "q": [
         true,
         true,
@@ -178,20 +178,20 @@
         false
       ],
       "vals": [
-        "0.833",
+        "0.857",
         "+10.8 #5",
         "120.2 #4",
         "109.3 #11"
       ],
       "rtg": 10.8,
-      "fair_pct": 7.5,
-      "fair_odds": "+1239",
+      "fair_pct": 7.8,
+      "fair_odds": "+1186",
       "market": "+3000",
-      "ev": 132,
+      "ev": 141,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 132
+        "ev": 141
       },
       "read": {
         "v": "trust",
@@ -203,9 +203,9 @@
     {
       "name": "San Antonio Spurs",
       "conf": "W",
-      "rec": "5-2",
+      "rec": "6-2",
       "score": 3,
-      "index": 81.3,
+      "index": 82.1,
       "q": [
         true,
         false,
@@ -213,20 +213,20 @@
         true
       ],
       "vals": [
-        "0.714",
+        "0.750",
         "+9.3 #6",
         "117.6 #10",
         "108.3 #8"
       ],
       "rtg": 9.3,
-      "fair_pct": 5.9,
-      "fair_odds": "+1592",
-      "market": "+280",
-      "ev": -78,
+      "fair_pct": 6.3,
+      "fair_odds": "+1495",
+      "market": "+270",
+      "ev": -77,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -78
+        "ev": -77
       },
       "read": {
         "v": "caution",
@@ -238,7 +238,7 @@
     {
       "name": "Philadelphia 76ers",
       "conf": "E",
-      "rec": "7-1",
+      "rec": "8-1",
       "score": 2,
       "index": 79.9,
       "q": [
@@ -248,20 +248,20 @@
         true
       ],
       "vals": [
-        "0.875",
+        "0.889",
         "+5.8 #10",
         "110.9 #21",
         "105.1 #2"
       ],
       "rtg": 5.8,
-      "fair_pct": 10.4,
-      "fair_odds": "+860",
-      "market": "+900",
-      "ev": 4,
+      "fair_pct": 11.0,
+      "fair_odds": "+807",
+      "market": "+950",
+      "ev": 16,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 4
+        "kind": "value",
+        "label": "value",
+        "ev": 16
       },
       "read": {
         "v": "trust",
@@ -273,9 +273,9 @@
     {
       "name": "Los Angeles Lakers",
       "conf": "W",
-      "rec": "6-2",
+      "rec": "7-2",
       "score": 2,
-      "index": 76.7,
+      "index": 77.3,
       "q": [
         true,
         false,
@@ -283,20 +283,20 @@
         false
       ],
       "vals": [
-        "0.750",
+        "0.778",
         "+7.2 #8",
         "122.5 #2",
         "115.2 #19"
       ],
       "rtg": 7.2,
-      "fair_pct": 3.3,
-      "fair_odds": "+2923",
+      "fair_pct": 3.5,
+      "fair_odds": "+2766",
       "market": "+3000",
-      "ev": 3,
+      "ev": 8,
       "verdict": {
         "kind": "small",
         "label": "small value",
-        "ev": 3
+        "ev": 8
       },
       "read": {
         "v": "fools_gold",
@@ -308,9 +308,9 @@
     {
       "name": "Boston Celtics",
       "conf": "E",
-      "rec": "5-2",
+      "rec": "6-2",
       "score": 2,
-      "index": 74.2,
+      "index": 75.0,
       "q": [
         true,
         false,
@@ -318,20 +318,20 @@
         true
       ],
       "vals": [
-        "0.714",
+        "0.750",
         "+5.9 #9",
         "115.0 #13",
         "109.1 #10"
       ],
       "rtg": 5.9,
-      "fair_pct": 8.3,
-      "fair_odds": "+1099",
-      "market": "+1000",
-      "ev": -8,
+      "fair_pct": 9.1,
+      "fair_odds": "+997",
+      "market": "+1100",
+      "ev": 9,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -8
+        "kind": "small",
+        "label": "small value",
+        "ev": 9
       },
       "read": {
         "v": "caution",
@@ -343,9 +343,9 @@
     {
       "name": "Oklahoma City Thunder",
       "conf": "W",
-      "rec": "5-2",
+      "rec": "6-2",
       "score": 2,
-      "index": 63.3,
+      "index": 64.2,
       "q": [
         true,
         false,
@@ -353,15 +353,15 @@
         true
       ],
       "vals": [
-        "0.714",
+        "0.750",
         "+0.3 #17",
         "108.0 #25",
         "107.7 #7"
       ],
       "rtg": 0.3,
-      "fair_pct": 1.9,
-      "fair_odds": "+5278",
-      "market": "+420",
+      "fair_pct": 2.0,
+      "fair_odds": "+4902",
+      "market": "+400",
       "ev": -90,
       "verdict": {
         "kind": "bigfade",
@@ -378,9 +378,9 @@
     {
       "name": "Toronto Raptors",
       "conf": "E",
-      "rec": "4-3",
+      "rec": "4-4",
       "score": 1,
-      "index": 72.9,
+      "index": 70.7,
       "q": [
         false,
         false,
@@ -388,20 +388,20 @@
         false
       ],
       "vals": [
-        "0.571",
+        "0.500",
         "+7.7 #7",
         "119.1 #7",
         "111.4 #13"
       ],
       "rtg": 7.7,
-      "fair_pct": 2.5,
-      "fair_odds": "+3944",
+      "fair_pct": 2.4,
+      "fair_odds": "+4090",
       "market": "+1700",
-      "ev": -55,
+      "ev": -57,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -55
+        "ev": -57
       },
       "read": {
         "v": "caution",
@@ -415,7 +415,7 @@
       "conf": "W",
       "rec": "5-3",
       "score": 1,
-      "index": 64.1,
+      "index": 64.0,
       "q": [
         true,
         false,
@@ -430,13 +430,13 @@
       ],
       "rtg": 2.9,
       "fair_pct": 0.6,
-      "fair_odds": "+16472",
-      "market": "+7000",
-      "ev": -57,
+      "fair_odds": "+16057",
+      "market": "+6000",
+      "ev": -62,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -57
+        "ev": -62
       },
       "read": {
         "v": "caution",
@@ -448,9 +448,9 @@
     {
       "name": "Cleveland Cavaliers",
       "conf": "E",
-      "rec": "4-3",
+      "rec": "4-4",
       "score": 1,
-      "index": 63.5,
+      "index": 61.3,
       "q": [
         false,
         false,
@@ -458,20 +458,20 @@
         false
       ],
       "vals": [
-        "0.571",
+        "0.500",
         "+3.6 #11",
         "119.7 #5",
         "116.1 #23"
       ],
       "rtg": 3.6,
       "fair_pct": 1.6,
-      "fair_odds": "+6020",
+      "fair_odds": "+6328",
       "market": "+2700",
-      "ev": -54,
+      "ev": -56,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -54
+        "ev": -56
       },
       "read": {
         "v": "fools_gold",
@@ -483,9 +483,9 @@
     {
       "name": "Washington Wizards",
       "conf": "E",
-      "rec": "4-3",
+      "rec": "4-4",
       "score": 1,
-      "index": 62.3,
+      "index": 60.2,
       "q": [
         false,
         false,
@@ -493,20 +493,20 @@
         true
       ],
       "vals": [
-        "0.571",
+        "0.500",
         "+2.0 #13",
         "109.4 #23",
         "107.4 #5"
       ],
       "rtg": 2.0,
       "fair_pct": 1.5,
-      "fair_odds": "+6380",
-      "market": "+50000",
-      "ev": 673,
+      "fair_odds": "+6687",
+      "market": "+40000",
+      "ev": 491,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 673
+        "ev": 491
       },
       "read": {
         "v": "trust",
@@ -518,9 +518,9 @@
     {
       "name": "New York Knicks",
       "conf": "E",
-      "rec": "3-4",
+      "rec": "4-4",
       "score": 1,
-      "index": 56.9,
+      "index": 59.2,
       "q": [
         false,
         false,
@@ -528,20 +528,20 @@
         true
       ],
       "vals": [
-        "0.429",
+        "0.500",
         "+1.3 #15",
         "106.4 #27",
         "105.1 #3"
       ],
       "rtg": 1.3,
-      "fair_pct": 1.2,
-      "fair_odds": "+8406",
-      "market": "+950",
-      "ev": -88,
+      "fair_pct": 1.4,
+      "fair_odds": "+7037",
+      "market": "+1000",
+      "ev": -85,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -88
+        "ev": -85
       },
       "read": {
         "v": "trust",
@@ -553,9 +553,9 @@
     {
       "name": "New Orleans Pelicans",
       "conf": "W",
-      "rec": "3-4",
+      "rec": "4-4",
       "score": 1,
-      "index": 54.3,
+      "index": 56.6,
       "q": [
         false,
         false,
@@ -563,20 +563,20 @@
         false
       ],
       "vals": [
-        "0.429",
+        "0.500",
         "+1.7 #14",
         "121.9 #3",
         "120.1 #25"
       ],
       "rtg": 1.7,
       "fair_pct": 0.4,
-      "fair_odds": "+27161",
-      "market": "+75000",
-      "ev": 175,
+      "fair_odds": "+23259",
+      "market": "+100000",
+      "ev": 329,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 175
+        "ev": 329
       },
       "read": {
         "v": "fools_gold",
@@ -588,9 +588,9 @@
     {
       "name": "Miami Heat",
       "conf": "E",
-      "rec": "2-5",
+      "rec": "3-5",
       "score": 1,
-      "index": 34.0,
+      "index": 37.1,
       "q": [
         false,
         false,
@@ -598,20 +598,20 @@
         false
       ],
       "vals": [
-        "0.286",
+        "0.375",
         "-5.7 #21",
         "118.1 #9",
         "123.9 #27"
       ],
       "rtg": -5.7,
       "fair_pct": 0.3,
-      "fair_odds": "+39767",
+      "fair_odds": "+28897",
       "market": "+4500",
-      "ev": -88,
+      "ev": -84,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -88
+        "ev": -84
       },
       "read": {
         "v": "caution",
@@ -623,9 +623,9 @@
     {
       "name": "Charlotte Hornets",
       "conf": "E",
-      "rec": "3-5",
+      "rec": "3-6",
       "score": 1,
-      "index": 29.2,
+      "index": 28.2,
       "q": [
         false,
         false,
@@ -633,7 +633,7 @@
         true
       ],
       "vals": [
-        "0.375",
+        "0.333",
         "-11.2 #26",
         "97.4 #30",
         "108.6 #9"
@@ -642,11 +642,11 @@
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
       "market": "+12500",
-      "ev": -80,
+      "ev": -81,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -81
       },
       "read": {
         "v": "caution",
@@ -660,26 +660,26 @@
     "status": "early",
     "emoji": "\ud83d\udd34",
     "label": "Too early",
-    "note": "only 8 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
+    "note": "only 9 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
   },
   "value_plays": [
     {
       "name": "Detroit Pistons",
-      "ev": 452,
+      "ev": 419,
       "market": "+2200",
-      "fair_odds": "+317"
+      "fair_odds": "+344"
     },
     {
       "name": "Houston Rockets",
-      "ev": 107,
-      "market": "+1500",
-      "fair_odds": "+673"
+      "ev": 103,
+      "market": "+1600",
+      "fair_odds": "+738"
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 77,
+      "ev": 90,
       "market": "+1900",
-      "fair_odds": "+1031"
+      "fair_odds": "+951"
     }
   ]
 }

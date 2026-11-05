@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-04T20:35:57Z",
-  "odds_remaining": "92305",
+  "generated": "2026-11-05T10:34:33Z",
+  "odds_remaining": "91637",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +669). No goaltending asterisk, no possession hole \u2014 #1 driving play and #8 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -61,7 +61,7 @@
       "conf": "E",
       "rec": "15 GP",
       "score": 4,
-      "index": 84.2,
+      "index": 84.3,
       "q": [
         true,
         true,
@@ -75,14 +75,14 @@
         "43 #7"
       ],
       "rtg": 0.69,
-      "fair_pct": 11.3,
-      "fair_odds": "+788",
+      "fair_pct": 11.6,
+      "fair_odds": "+763",
       "market": "+1200",
-      "ev": 46,
+      "ev": 51,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 46
+        "ev": 51
       },
       "read": {
         "v": "caution",
@@ -127,7 +127,7 @@
       "conf": "E",
       "rec": "14 GP",
       "score": 4,
-      "index": 76.2,
+      "index": 76.3,
       "q": [
         true,
         true,
@@ -141,14 +141,14 @@
         "44 #8"
       ],
       "rtg": 0.59,
-      "fair_pct": 8.3,
-      "fair_odds": "+1098",
+      "fair_pct": 8.6,
+      "fair_odds": "+1064",
       "market": "+1000",
-      "ev": -8,
+      "ev": -6,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -8
+        "ev": -6
       },
       "read": {
         "v": "caution",
@@ -160,7 +160,7 @@
       "conf": "W",
       "rec": "15 GP",
       "score": 4,
-      "index": 69.7,
+      "index": 69.8,
       "q": [
         true,
         true,
@@ -174,14 +174,14 @@
         "35 #1"
       ],
       "rtg": 0.15,
-      "fair_pct": 10.2,
-      "fair_odds": "+885",
-      "market": "+1700",
-      "ev": 83,
+      "fair_pct": 9.8,
+      "fair_odds": "+917",
+      "market": "+1800",
+      "ev": 87,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 83
+        "ev": 87
       },
       "read": {
         "v": "caution",
@@ -204,54 +204,21 @@
         "+0.88 #5",
         "53.0 #6",
         "55.4 #6",
-        "52 #22"
+        "52 #21"
       ],
       "rtg": 0.62,
-      "fair_pct": 7.9,
-      "fair_odds": "+1164",
+      "fair_pct": 7.6,
+      "fair_odds": "+1211",
       "market": "+700",
-      "ev": -37,
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -39
       },
       "read": {
         "v": "fools_gold",
-        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #22 goals-against is exactly what gets punished when goals dry up in May."
-      }
-    },
-    {
-      "name": "Florida Panthers",
-      "conf": "E",
-      "rec": "15 GP",
-      "score": 3,
-      "index": 70.4,
-      "q": [
-        false,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "+0.20 #11",
-        "56.0 #3",
-        "53.0 #8",
-        "44 #8"
-      ],
-      "rtg": 0.29,
-      "fair_pct": 4.7,
-      "fair_odds": "+2014",
-      "market": "+900",
-      "ev": -53,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -53
-      },
-      "read": {
-        "v": "caution",
-        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#25) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
+        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #21 goals-against is exactly what gets punished when goals dry up in May."
       }
     },
     {
@@ -259,7 +226,7 @@
       "conf": "W",
       "rec": "17 GP",
       "score": 3,
-      "index": 66.6,
+      "index": 66.7,
       "q": [
         true,
         true,
@@ -273,14 +240,14 @@
         "48 #16"
       ],
       "rtg": 0.14,
-      "fair_pct": 6.4,
-      "fair_odds": "+1470",
-      "market": "+950",
-      "ev": -33,
+      "fair_pct": 6.2,
+      "fair_odds": "+1522",
+      "market": "+1000",
+      "ev": -32,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -33
+        "ev": -32
       },
       "read": {
         "v": "caution",
@@ -288,11 +255,77 @@
       }
     },
     {
+      "name": "Edmonton Oilers",
+      "conf": "W",
+      "rec": "16 GP",
+      "score": 3,
+      "index": 65.5,
+      "q": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "+1.25 #2",
+        "47.0 #25",
+        "52.3 #9",
+        "46 #12"
+      ],
+      "rtg": 0.0,
+      "fair_pct": 5.8,
+      "fair_odds": "+1613",
+      "market": "+950",
+      "ev": -39,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -39
+      },
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #6 goal differential, but the #25 spot is the one a seven-game series finds."
+      }
+    },
+    {
+      "name": "Florida Panthers",
+      "conf": "E",
+      "rec": "16 GP",
+      "score": 2,
+      "index": 71.0,
+      "q": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "vals": [
+        "+0.31 #11",
+        "56.0 #3",
+        "53.7 #8",
+        "47 #13"
+      ],
+      "rtg": 0.32,
+      "fair_pct": 3.5,
+      "fair_odds": "+2790",
+      "market": "+850",
+      "ev": -67,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -67
+      },
+      "read": {
+        "v": "caution",
+        "why": "Drives play like a champion (#3 Corsi) but the goaltending (#25) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
+      }
+    },
+    {
       "name": "Utah Mammoth",
       "conf": "W",
       "rec": "16 GP",
       "score": 2,
-      "index": 69.9,
+      "index": 70.0,
       "q": [
         false,
         true,
@@ -306,14 +339,14 @@
         "54 #26"
       ],
       "rtg": 0.28,
-      "fair_pct": 5.1,
-      "fair_odds": "+1852",
-      "market": "+1600",
-      "ev": -13,
+      "fair_pct": 5.0,
+      "fair_odds": "+1917",
+      "market": "+1700",
+      "ev": -11,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -13
+        "ev": -11
       },
       "read": {
         "v": "caution",
@@ -339,14 +372,14 @@
         "38 #2"
       ],
       "rtg": 0.38,
-      "fair_pct": 3.1,
-      "fair_odds": "+3085",
-      "market": "+4000",
-      "ev": 29,
+      "fair_pct": 3.2,
+      "fair_odds": "+3008",
+      "market": "+3500",
+      "ev": 16,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 29
+        "ev": 16
       },
       "read": {
         "v": "caution",
@@ -354,44 +387,11 @@
       }
     },
     {
-      "name": "Edmonton Oilers",
-      "conf": "W",
-      "rec": "16 GP",
-      "score": 2,
-      "index": 65.5,
-      "q": [
-        true,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "+1.25 #2",
-        "47.0 #25",
-        "52.3 #9",
-        "46 #13"
-      ],
-      "rtg": 0.0,
-      "fair_pct": 4.2,
-      "fair_odds": "+2273",
-      "market": "+950",
-      "ev": -56,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -56
-      },
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #6 goal differential, but the #25 spot is the one a seven-game series finds."
-      }
-    },
-    {
       "name": "Detroit Red Wings",
       "conf": "E",
       "rec": "16 GP",
       "score": 2,
-      "index": 58.6,
+      "index": 58.7,
       "q": [
         false,
         true,
@@ -405,18 +405,18 @@
         "48 #16"
       ],
       "rtg": 0.16,
-      "fair_pct": 1.9,
-      "fair_odds": "+5168",
-      "market": "+15000",
-      "ev": 187,
+      "fair_pct": 2.0,
+      "fair_odds": "+5013",
+      "market": "+22500",
+      "ev": 342,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 187
+        "ev": 342
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #16 goal differential, but the #16 spot is the one a seven-game series finds."
+        "why": "Carried by its #15 goal differential, but the #16 spot is the one a seven-game series finds."
       }
     },
     {
@@ -424,7 +424,7 @@
       "conf": "E",
       "rec": "14 GP",
       "score": 2,
-      "index": 56.9,
+      "index": 57.0,
       "q": [
         false,
         true,
@@ -438,14 +438,14 @@
         "38 #2"
       ],
       "rtg": 0.12,
-      "fair_pct": 1.7,
-      "fair_odds": "+5654",
+      "fair_pct": 1.8,
+      "fair_odds": "+5485",
       "market": "+12500",
-      "ev": 119,
+      "ev": 126,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 119
+        "ev": 126
       },
       "read": {
         "v": "caution",
@@ -457,7 +457,7 @@
       "conf": "E",
       "rec": "15 GP",
       "score": 1,
-      "index": 59.8,
+      "index": 59.9,
       "q": [
         false,
         true,
@@ -465,53 +465,20 @@
         false
       ],
       "vals": [
-        "+0.20 #11",
+        "+0.20 #12",
         "53.0 #6",
         "49.1 #19",
-        "47 #14"
+        "47 #13"
       ],
       "rtg": 0.41,
       "fair_pct": 1.3,
-      "fair_odds": "+7832",
+      "fair_odds": "+7599",
       "market": null,
       "ev": null,
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #6 goal differential, but the #14 spot is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "New York Rangers",
-      "conf": "E",
-      "rec": "16 GP",
-      "score": 1,
-      "index": 54.3,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "+0.06 #16",
-        "48.0 #21",
-        "51.6 #12",
-        "47 #14"
-      ],
-      "rtg": -0.18,
-      "fair_pct": 0.9,
-      "fair_odds": "+10494",
-      "market": "+6000",
-      "ev": -42,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -42
-      },
-      "read": {
-        "v": "caution",
-        "why": "Carried by its #18 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "Carried by its #6 goal differential, but the #13 spot is the one a seven-game series finds."
       }
     },
     {
@@ -519,7 +486,7 @@
       "conf": "E",
       "rec": "15 GP",
       "score": 1,
-      "index": 54.0,
+      "index": 54.1,
       "q": [
         false,
         true,
@@ -533,14 +500,14 @@
         "51 #20"
       ],
       "rtg": 0.12,
-      "fair_pct": 0.9,
-      "fair_odds": "+10672",
+      "fair_pct": 1.0,
+      "fair_odds": "+10351",
       "market": "+8000",
-      "ev": -25,
+      "ev": -22,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -25
+        "ev": -22
       },
       "read": {
         "v": "caution",
@@ -552,7 +519,7 @@
       "conf": "W",
       "rec": "15 GP",
       "score": 1,
-      "index": 53.3,
+      "index": 53.4,
       "q": [
         false,
         false,
@@ -563,17 +530,17 @@
         "+0.00 #17",
         "49.0 #16",
         "49.3 #18",
-        "45 #10"
+        "45 #9"
       ],
       "rtg": -0.23,
       "fair_pct": 1.4,
-      "fair_odds": "+6946",
+      "fair_odds": "+7171",
       "market": "+8000",
-      "ev": 15,
+      "ev": 11,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 15
+        "ev": 11
       },
       "read": {
         "v": "caution",
@@ -581,11 +548,44 @@
       }
     },
     {
+      "name": "Ottawa Senators",
+      "conf": "E",
+      "rec": "17 GP",
+      "score": 1,
+      "index": 53.2,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "+0.00 #17",
+        "49.0 #16",
+        "51.9 #12",
+        "52 #21"
+      ],
+      "rtg": 0.12,
+      "fair_pct": 0.9,
+      "fair_odds": "+10890",
+      "market": "+3000",
+      "ev": -72,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -72
+      },
+      "read": {
+        "v": "caution",
+        "why": "Carried by its #6 goal differential, but the #21 spot is the one a seven-game series finds."
+      }
+    },
+    {
       "name": "Buffalo Sabres",
       "conf": "E",
-      "rec": "14 GP",
+      "rec": "15 GP",
       "score": 1,
-      "index": 52.3,
+      "index": 50.4,
       "q": [
         false,
         true,
@@ -593,24 +593,24 @@
         false
       ],
       "vals": [
-        "-0.36 #24",
+        "-0.40 #24",
         "52.0 #9",
-        "48.9 #21",
-        "48 #16"
+        "48.3 #21",
+        "50 #19"
       ],
-      "rtg": 0.19,
+      "rtg": 0.16,
       "fair_pct": 0.8,
-      "fair_odds": "+11757",
+      "fair_odds": "+12825",
       "market": "+3300",
-      "ev": -71,
+      "ev": -74,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -71
+        "ev": -74
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #14 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "Carried by its #15 goal differential, but the #20 spot is the one a seven-game series finds."
       }
     },
     {
@@ -618,7 +618,7 @@
       "conf": "W",
       "rec": "15 GP",
       "score": 1,
-      "index": 48.9,
+      "index": 49.0,
       "q": [
         false,
         false,
@@ -629,17 +629,17 @@
         "+0.00 #17",
         "46.0 #27",
         "49.4 #17",
-        "45 #10"
+        "45 #9"
       ],
       "rtg": -0.48,
       "fair_pct": 1.1,
-      "fair_odds": "+9024",
-      "market": "+10000",
-      "ev": 11,
+      "fair_odds": "+9311",
+      "market": "+12500",
+      "ev": 34,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 11
+        "ev": 34
       },
       "read": {
         "v": "caution",
@@ -651,7 +651,7 @@
       "conf": "W",
       "rec": "13 GP",
       "score": 1,
-      "index": 47.1,
+      "index": 47.2,
       "q": [
         false,
         false,
@@ -662,17 +662,17 @@
         "-0.69 #26",
         "49.0 #16",
         "49.7 #16",
-        "45 #10"
+        "45 #9"
       ],
       "rtg": -0.16,
-      "fair_pct": 1.0,
-      "fair_odds": "+10111",
+      "fair_pct": 0.9,
+      "fair_odds": "+10429",
       "market": "+4000",
-      "ev": -60,
+      "ev": -61,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -60
+        "ev": -61
       },
       "read": {
         "v": "caution",
@@ -684,7 +684,7 @@
       "conf": "E",
       "rec": "17 GP",
       "score": 1,
-      "index": 46.7,
+      "index": 46.8,
       "q": [
         true,
         false,
@@ -699,13 +699,13 @@
       ],
       "rtg": -0.27,
       "fair_pct": 0.6,
-      "fair_odds": "+16554",
-      "market": "+4000",
-      "ev": -75,
+      "fair_odds": "+16043",
+      "market": "+4500",
+      "ev": -72,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -75
+        "ev": -72
       },
       "read": {
         "v": "caution",
@@ -717,7 +717,7 @@
       "conf": "E",
       "rec": "13 GP",
       "score": 1,
-      "index": 44.5,
+      "index": 44.6,
       "q": [
         false,
         false,
@@ -732,17 +732,17 @@
       ],
       "rtg": -0.13,
       "fair_pct": 0.5,
-      "fair_odds": "+19148",
+      "fair_odds": "+18552",
       "market": "+10000",
-      "ev": -48,
+      "ev": -46,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -48
+        "ev": -46
       },
       "read": {
         "v": "caution",
-        "why": "Goalie-carried: #4 in net, only #21 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
+        "why": "Goalie-carried: #5 in net, only #21 driving play. A hot crease wins you a round and loses you the next \u2014 the numbers underneath don't back it yet."
       }
     },
     {
@@ -750,7 +750,7 @@
       "conf": "W",
       "rec": "15 GP",
       "score": 1,
-      "index": 38.1,
+      "index": 38.2,
       "q": [
         false,
         true,
@@ -765,17 +765,17 @@
       ],
       "rtg": -0.39,
       "fair_pct": 0.5,
-      "fair_odds": "+19190",
+      "fair_odds": "+19762",
       "market": "+50000",
-      "ev": 160,
+      "ev": 152,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 160
+        "ev": 152
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #30 goal differential, but the #30 spot is the one a seven-game series finds."
+        "why": "Carried by its #29 goal differential, but the #30 spot is the one a seven-game series finds."
       }
     }
   ],
