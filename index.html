@@ -30,11 +30,13 @@
   .sportbar{display:flex;gap:4px;padding:4px;background:var(--panel2);border:1px solid var(--line);border-radius:999px}
   .sportbar button{padding:6px 15px;border:0;border-radius:999px;background:none;color:var(--ink2);font-weight:700;font-size:13.5px;cursor:pointer;font-family:var(--sans)}
   .sportbar button.on{background:var(--ink);color:#fff}
-  .strip{display:flex;gap:9px;margin-left:auto;flex-wrap:wrap}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:5px 13px;line-height:1.25;min-width:66px}
+  .strip{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:5px 12px;line-height:1.25;min-width:66px}
   .stat small{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
   .stat b{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--ink);white-space:nowrap}
   .stat .g{color:var(--good)} .stat .r{color:var(--bad)}
+  .stat b.tx{font-family:var(--head);font-size:15px;letter-spacing:-.1px}
+  @media(max-width:1480px){.strip{width:100%;margin-left:0}}
   /* layout */
   .wrap{max-width:1500px;margin:0 auto;padding:18px clamp(14px,3vw,30px) 70px}
   .hero{background:linear-gradient(135deg,rgba(47,111,228,.10),rgba(106,85,240,.07)),var(--panel);border:1px solid rgba(47,111,228,.28);border-radius:20px;padding:16px 20px;box-shadow:var(--shadow);margin-bottom:6px}
@@ -341,8 +343,8 @@ function render(){
   strip.innerHTML=[
     `<div class="stat"><small>Season</small><b>${pct}%</b></div>`,
     `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
-    `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b>${["cfb","cbb","wcbb"].includes(cur)?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
-    `<div class="stat" title="${(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>Value play</small><b class="${bv?'g':''}">${bv?(["cfb","cbb","wcbb"].includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb")?"season over":"no market")}</b></div>`,
+    `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b class="tx">${["cfb","cbb","wcbb"].includes(cur)?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
+    `<div class="stat" title="${(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>Value play</small><b class="tx ${bv?'g':''}">${bv?(["cfb","cbb","wcbb"].includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb")?"season over":"no market")}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
   let html=`<div class="hero"><div class="heror">
