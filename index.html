@@ -447,6 +447,8 @@ function matchTeam(raw,teams,strict){
   const T=teams.map(t=>({t,m:_nrm(t.name)}));
   let hit=T.filter(x=>x.m===n); if(hit.length===1) return hit[0].t;
   if(n.length>=5){ hit=T.filter(x=>x.m.startsWith(n)||(!strict&&x.m.length>=5&&n.startsWith(x.m))); if(hit.length===1) return hit[0].t; }
+  const nick=n.split(" ").pop();   // books often abbreviate the city ("MTL Alouettes", "EDM Elks"): a nickname only one team has is enough
+  if(nick.length>=4){ hit=T.filter(x=>x.m.split(" ").pop()===nick); if(hit.length===1) return hit[0].t; }
   const wb=new Set(n.split(" ")); let best=null,bs=0,second=0;
   for(const x of T){ const wa=new Set(x.m.split(" ")); let c=0; for(const w of wb) if(wa.has(w)) c++;
     const s=2*c/(wa.size+wb.size); if(s>bs){second=bs;bs=s;best=x.t;} else if(s>second) second=s; }
@@ -455,8 +457,10 @@ function matchTeam(raw,teams,strict){
 function _parseOdds(s){ s=String(s).trim().replace(/[−–—~]/g,"-").replace(/\?$/,""); if(/^ev(en)?$/i.test(s)) return 100;
   const m=s.match(/^([+-]?)(\d{3,6})$/); if(!m) return null; const v=+m[2]; return m[1]==="-"?-v:v; }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-function parsePP(text,teams){ const out=[],bad=[],seen=new Set();
-  for(const line of String(text).split(/\n/)){ const l=line.trim(); if(!l||l.startsWith("#")) continue;
+function parsePP(text,teams){ const out=[],bad=[],seen=new Set(), ODDLINE=/^([+\-−–—]?\d{3,6}\??|even|ev)$/i, ENDODD=/[+\-−–—]?\d{3,6}\??\s*$/, L=[];
+  for(const raw of String(text).split(/\n/)){ const l=raw.trim(); if(!l) continue;   // "Team" then "+350" on the next line -> one line
+    if(ODDLINE.test(l)&&L.length&&!ODDLINE.test(L[L.length-1])&&!ENDODD.test(L[L.length-1])) L[L.length-1]+=" "+l; else L.push(l); }
+  for(const line of L){ const l=line.trim(); if(!l||l.startsWith("#")) continue;
     const m=l.match(/^(.*?)[\s:=,|]+([+\-−–—]?\d{3,6}\??|even|ev)\s*$/i); if(!m){bad.push(l);continue;}
     const t=matchTeam(m[1],teams), o=_parseOdds(m[2]);
     if(!t||o==null||Math.abs(o)<100){bad.push(l);continue;}
