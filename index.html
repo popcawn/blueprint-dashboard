@@ -158,7 +158,7 @@
   .pop.on{display:flex} .pop .box{background:var(--panel);border-radius:16px;padding:20px;max-width:470px;width:100%;box-shadow:var(--shadow)}
   .pop input{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:9px 0;font-size:13px}
   .pop p{font-size:12.5px;color:var(--ink2);line-height:1.5}
-  .pop .box.wide{max-width:560px}
+  .pop .box.wide{max-width:560px} .pop .box.drag{outline:2px dashed var(--ink3);outline-offset:-6px}
   .pop textarea{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:8px 0;font:12.5px/1.45 var(--mono);resize:vertical}
   .pprow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
   .pprow select{background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:7px 9px;font-size:13px}
@@ -193,11 +193,11 @@
 <div class="wrap" id="app"></div>
 <div class="pop" id="ppop"><div class="box wide">
   <b id="pptitle">Update prices</b>
-  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board, or paste prices one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
+  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap 📷, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
   <div class="pprow"><select id="ppbook" aria-label="Sportsbook"><option>DraftKings</option><option>FanDuel</option></select>
     <label class="btn ghost sm">📷 Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label></div>
   <div class="ppstat" id="ppstat"></div>
-  <div class="ppgrid"><textarea id="pptxt" rows="9" spellcheck="false" placeholder="Nashville SC: +350&#10;Vancouver Whitecaps: +450" oninput="checkPP()"></textarea><div class="ppimgwrap"><img id="ppprev" alt="your screenshot" hidden></div></div>
+  <div class="ppgrid"><textarea id="pptxt" rows="9" spellcheck="false" placeholder="Paste a screenshot here, or type prices:&#10;Nashville SC: +350&#10;Vancouver Whitecaps: +450" oninput="checkPP()"></textarea><div class="ppimgwrap"><img id="ppprev" alt="your screenshot" hidden></div></div>
   <div class="ppcheck" id="ppcheck"></div>
   <div style="display:flex;gap:8px;justify-content:flex-end">
     <button class="btn ghost" onclick="closePP()">Cancel</button>
@@ -468,6 +468,14 @@ function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
   document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
   document.getElementById("ppop").classList.add("on"); }
 function closePP(){ document.getElementById("ppop").classList.remove("on"); }
+// a screenshot can also be PASTED (Ctrl+V / long-press -> Paste in the box) or dragged in; pasted text still goes into the box as text
+document.addEventListener("paste",e=>{ if(!document.getElementById("ppop").classList.contains("on")) return;
+  const it=[...((e.clipboardData&&e.clipboardData.items)||[])].find(i=>i.kind==="file"&&i.type.startsWith("image/")), f=it&&it.getAsFile();
+  if(f){ e.preventDefault(); ocrPrices(f); } });
+{ const pb=document.querySelector("#ppop .box");
+  pb.addEventListener("dragover",e=>{ if([...(e.dataTransfer?e.dataTransfer.items:[])].some(i=>i.kind==="file")){ e.preventDefault(); pb.classList.add("drag"); } });
+  pb.addEventListener("dragleave",()=>pb.classList.remove("drag"));
+  pb.addEventListener("drop",e=>{ pb.classList.remove("drag"); const f=[...((e.dataTransfer&&e.dataTransfer.files)||[])].find(x=>x.type.startsWith("image/")); if(f){ e.preventDefault(); ocrPrices(f); } }); }
 let _tess=null;
 function loadTess(){ if(window.Tesseract) return Promise.resolve(); if(_tess) return _tess;
   _tess=new Promise((res,rej)=>{ const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js";
