@@ -1,14 +1,14 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-05T20:52:52Z",
-  "odds_remaining": "88298",
+  "generated": "2026-11-06T10:15:41Z",
+  "odds_remaining": "86685",
   "prediction": {
     "pick": "Houston Rockets",
-    "why": "<b>Houston Rockets</b> is the pick \u2014 the top team the model actually trusts (fair +837). Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+    "why": "<b>Houston Rockets</b> is the pick \u2014 the top team the model actually trusts (fair +839). Defense wins in May \u2014 a #4 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
   },
   "season_pct": 10,
-  "gp_min": 6,
+  "gp_min": 7,
   "gp_max": 9,
   "has_depth": false,
   "vs500_on": false,
@@ -44,14 +44,14 @@
         "107.6 #4"
       ],
       "rtg": 10.3,
-      "fair_pct": 10.7,
-      "fair_odds": "+837",
-      "market": "+1600",
-      "ev": 81,
+      "fair_pct": 10.6,
+      "fair_odds": "+839",
+      "market": "+1700",
+      "ev": 92,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 81
+        "ev": 92
       },
       "read": {
         "v": "trust",
@@ -80,13 +80,13 @@
       ],
       "rtg": 11.2,
       "fair_pct": 10.1,
-      "fair_odds": "+886",
+      "fair_odds": "+888",
       "market": "+1900",
-      "ev": 103,
+      "ev": 102,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 103
+        "ev": 102
       },
       "read": {
         "v": "trust",
@@ -115,7 +115,7 @@
       ],
       "rtg": 11.1,
       "fair_pct": 8.4,
-      "fair_odds": "+1086",
+      "fair_odds": "+1089",
       "market": "+3000",
       "ev": 161,
       "verdict": {
@@ -150,13 +150,13 @@
       ],
       "rtg": 10.8,
       "fair_pct": 7.4,
-      "fair_odds": "+1245",
-      "market": "+17500",
-      "ev": 1208,
+      "fair_odds": "+1249",
+      "market": "+15000",
+      "ev": 1020,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1208
+        "ev": 1020
       },
       "read": {
         "v": "trust",
@@ -184,7 +184,7 @@
         "101.8 #1"
       ],
       "rtg": 9.4,
-      "fair_pct": 20.4,
+      "fair_pct": 20.5,
       "fair_odds": "+389",
       "market": "+2200",
       "ev": 370,
@@ -220,7 +220,7 @@
       ],
       "rtg": 8.2,
       "fair_pct": 4.2,
-      "fair_odds": "+2293",
+      "fair_odds": "+2299",
       "market": "+280",
       "ev": -84,
       "verdict": {
@@ -254,14 +254,14 @@
         "105.2 #3"
       ],
       "rtg": 5.8,
-      "fair_pct": 11.8,
+      "fair_pct": 11.9,
       "fair_odds": "+744",
-      "market": "+950",
-      "ev": 24,
+      "market": "+900",
+      "ev": 19,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 24
+        "ev": 19
       },
       "read": {
         "v": "trust",
@@ -290,7 +290,7 @@
       ],
       "rtg": 7.9,
       "fair_pct": 4.0,
-      "fair_odds": "+2381",
+      "fair_odds": "+2387",
       "market": "+3000",
       "ev": 25,
       "verdict": {
@@ -360,7 +360,7 @@
       ],
       "rtg": 1.2,
       "fair_pct": 2.4,
-      "fair_odds": "+4114",
+      "fair_odds": "+4124",
       "market": "+400",
       "ev": -88,
       "verdict": {
@@ -378,9 +378,9 @@
     {
       "name": "Golden State Warriors",
       "conf": "W",
-      "rec": "5-3",
+      "rec": "6-3",
       "score": 2,
-      "index": 67.8,
+      "index": 69.0,
       "q": [
         true,
         false,
@@ -388,20 +388,20 @@
         false
       ],
       "vals": [
-        "0.625",
+        "0.667",
         "+2.9 #12",
         "117.5 #10",
         "114.6 #19"
       ],
       "rtg": 2.9,
-      "fair_pct": 2.2,
-      "fair_odds": "+4419",
+      "fair_pct": 2.3,
+      "fair_odds": "+4198",
       "market": "+6000",
-      "ev": 35,
+      "ev": 42,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 35
+        "ev": 42
       },
       "read": {
         "v": "caution",
@@ -430,13 +430,13 @@
       ],
       "rtg": 4.9,
       "fair_pct": 2.2,
-      "fair_odds": "+4483",
-      "market": "+1000",
-      "ev": -76,
+      "fair_odds": "+4479",
+      "market": "+950",
+      "ev": -77,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -76
+        "ev": -77
       },
       "read": {
         "v": "trust",
@@ -465,13 +465,13 @@
       ],
       "rtg": 4.4,
       "fair_pct": 1.9,
-      "fair_odds": "+5079",
-      "market": "+1700",
-      "ev": -65,
+      "fair_odds": "+5075",
+      "market": "+1800",
+      "ev": -63,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -65
+        "ev": -63
       },
       "read": {
         "v": "caution",
@@ -500,13 +500,13 @@
       ],
       "rtg": 2.4,
       "fair_pct": 0.5,
-      "fair_odds": "+18811",
+      "fair_odds": "+18856",
       "market": "+100000",
-      "ev": 429,
+      "ev": 428,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 429
+        "ev": 428
       },
       "read": {
         "v": "fools_gold",
@@ -535,7 +535,7 @@
       ],
       "rtg": 2.1,
       "fair_pct": 1.5,
-      "fair_odds": "+6556",
+      "fair_odds": "+6551",
       "market": "+2700",
       "ev": -58,
       "verdict": {
@@ -570,13 +570,13 @@
       ],
       "rtg": -0.1,
       "fair_pct": 1.3,
-      "fair_odds": "+7548",
-      "market": "+40000",
-      "ev": 424,
+      "fair_odds": "+7542",
+      "market": "+50000",
+      "ev": 556,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 424
+        "ev": 556
       },
       "read": {
         "v": "caution",
@@ -588,9 +588,9 @@
     {
       "name": "Miami Heat",
       "conf": "E",
-      "rec": "3-5",
+      "rec": "3-6",
       "score": 1,
-      "index": 42.6,
+      "index": 41.4,
       "q": [
         false,
         false,
@@ -598,20 +598,20 @@
         false
       ],
       "vals": [
-        "0.375",
+        "0.333",
         "-4.9 #21",
         "118.0 #7",
         "122.9 #27"
       ],
       "rtg": -4.9,
-      "fair_pct": 0.5,
-      "fair_odds": "+20321",
+      "fair_pct": 0.4,
+      "fair_odds": "+22131",
       "market": "+4500",
-      "ev": -77,
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -79
       },
       "read": {
         "v": "caution",
@@ -671,15 +671,15 @@
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 103,
+      "ev": 102,
       "market": "+1900",
-      "fair_odds": "+886"
+      "fair_odds": "+888"
     },
     {
       "name": "Houston Rockets",
-      "ev": 81,
-      "market": "+1600",
-      "fair_odds": "+837"
+      "ev": 92,
+      "market": "+1700",
+      "fair_odds": "+839"
     }
   ]
 }
