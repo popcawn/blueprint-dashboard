@@ -158,6 +158,7 @@
   .pop.on{display:flex} .pop .box{background:var(--panel);border-radius:16px;padding:20px;max-width:470px;width:100%;box-shadow:var(--shadow)}
   .pop input{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:9px 0;font-size:13px}
   .pop p{font-size:12.5px;color:var(--ink2);line-height:1.5}
+  #pop{z-index:90} .pplink{font-size:12px;color:var(--ink3);margin-left:auto}
   .pop .box.wide{max-width:560px} .pop .box.drag{outline:2px dashed var(--ink3);outline-offset:-6px}
   .pop textarea{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:8px 0;font:12.5px/1.45 var(--mono);resize:vertical}
   .pprow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
@@ -195,7 +196,7 @@
   <b id="pptitle">Update prices</b>
   <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap 📷, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
   <div class="pprow"><select id="ppbook" aria-label="Sportsbook"><option>DraftKings</option><option>FanDuel</option></select>
-    <label class="btn ghost sm">📷 Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label></div>
+    <label class="btn ghost sm">📷 Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label><a class="pplink" href="#" onclick="return chgTok()">🔑 change token</a></div>
   <div class="ppstat" id="ppstat"></div>
   <div class="ppgrid"><textarea id="pptxt" rows="9" spellcheck="false" placeholder="Paste a screenshot here, or type prices:&#10;Nashville SC: +350&#10;Vancouver Whitecaps: +450" oninput="checkPP()"></textarea><div class="ppimgwrap"><img id="ppprev" alt="your screenshot" hidden></div></div>
   <div class="ppcheck" id="ppcheck"></div>
@@ -468,6 +469,7 @@ function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
   document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
   document.getElementById("ppop").classList.add("on"); }
 function closePP(){ document.getElementById("ppop").classList.remove("on"); }
+function chgTok(){ document.getElementById("tok").value=tok(); document.getElementById("pop").classList.add("on"); return false; }   // opens above the price box; prices stay put
 // a screenshot can also be PASTED (Ctrl+V / long-press -> Paste in the box) or dragged in; pasted text still goes into the box as text
 document.addEventListener("paste",e=>{ if(!document.getElementById("ppop").classList.contains("on")) return;
   const it=[...((e.clipboardData&&e.clipboardData.items)||[])].find(i=>i.kind==="file"&&i.type.startsWith("image/")), f=it&&it.getAsFile();
@@ -561,7 +563,7 @@ async function savePrices(){ const d=DATA[cur], path=PRICE_FILES[cur], st=docume
         body:JSON.stringify({message:`prices: ${d.sport} ${book} screenshot ${today} (saved from the site)`,content,sha,branch:"main"})});
       if(r.ok){ closePP(); runBlueprint([cur],"rfmsg"); return; }
       if(r.status===409&&attempt===0) continue;   // the bot committed in between -- refetch the file's sha once
-      if(r.status===401||r.status===403||r.status===404) throw new Error("your token can't save files — give it Contents: Read and write on popcawn/blueprint-dashboard (github.com/settings/tokens)");
+      if(r.status===401||r.status===403||r.status===404) throw new Error("your token can't save files — on GitHub, edit the token: Contents → Read and write, then Update (github.com/settings/personal-access-tokens). Keep this box open and tap Save again, or use 🔑 change token for a new one.");
       throw new Error(`GitHub said ${r.status}`); }
   }catch(e){ st.innerHTML=`<span class="r">${esc(e.message||e)}</span>`; }
   btn.disabled=false; }
