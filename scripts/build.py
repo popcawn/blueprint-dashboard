@@ -158,28 +158,6 @@ def fetch_futures(sport_key):
         print(f"  odds pull failed ({sport_key}): {e}", file=sys.stderr)
         return {}, None
 
-def fetch_kalshi(series, year):
-    """Return {team: american_odds} from Kalshi's title market (public API, no key). Price = the YES ask plus
-       Kalshi's taker fee (0.07*p*(1-p) per contract) -- what it actually costs to buy a $1 payout."""
-    url = f"https://api.elections.kalshi.com/trade-api/v2/markets?event_ticker={series}-{str(year + 1)[2:]}&limit=200"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "blueprint-dashboard"})
-        out = {}
-        for m in json.load(urllib.request.urlopen(req, timeout=40)).get("markets", []):
-            a = float(m.get("yes_ask_dollars") or 0)
-            if m.get("status") != "active" or not 0 < a < 1 or not float(m.get("yes_ask_size_fp") or 0): continue
-            c = min(a + 0.07 * a * (1 - a), 0.999)
-            out[m.get("yes_sub_title") or m["ticker"]] = round(100 * (1 - c) / c) if c < .5 else -round(100 * c / (1 - c))
-        return out
-    except Exception as e:
-        print(f"  kalshi pull failed ({series}): {e}", file=sys.stderr)
-        return {}
-
-# ----------------------------------------------------------------------------- NFL
-NFL_AFC = {"Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers","Buffalo Bills",
-    "Miami Dolphins","New England Patriots","New York Jets","Houston Texans","Indianapolis Colts","Jacksonville Jaguars",
-    "Tennessee Titans","Denver Broncos","Kansas City Chiefs","Las Vegas Raiders","Los Angeles Chargers"}
-
 def build_nfl():
     d = get(f"https://cdn.espn.com/core/nfl/standings?xhr=1&season={YEAR}")
     teams = {}
@@ -1478,9 +1456,9 @@ def build_mlb():
 
 # ----------------------------------------------------------------------------- College basketball (men + women)
 def build_college_bb(key):
-    """Scoring lives in scripts/cbb.py (pandas). Men's market = FanDuel via the Odds API. The Odds API has no
-       women's futures, so women's market = Kalshi's title market (auto, fee included); the hand-entered FanDuel
-       screenshot in data/wcbb_fd.json shows beside it while it's <= 14 days old (and stands in if Kalshi fails)."""
+    """Scoring lives in scripts/cbb.py (pandas). Men's market = FanDuel via the Odds API. The Odds API has no women's
+       futures and the user doesn't use Kalshi (2026-11-06), so the women's market is the user's sportsbook screenshot in
+       data/wcbb_fd.json (saved from the site's 📷 Update prices box, or by hand), shown while it's <= 14 days old."""
     import cbb as C
     fd_raw, rem, asof, alt_raw, mname, alt_name = {}, None, None, None, "FanDuel", None
     if key == "cbb":
@@ -1489,13 +1467,10 @@ def build_college_bb(key):
         snap = {}
         try: snap = json.load(open(os.path.join(DATA, "wcbb_fd.json"), encoding="utf-8"))
         except Exception: pass
-        fd_raw = fetch_kalshi("KXWMARMAD", YEAR)
-        if fd_raw:
-            mname = "Kalshi"; d0 = snap.get("date")
-            if snap.get("odds") and d0 and (datetime.date.today() - datetime.date.fromisoformat(d0)).days <= 14:
-                alt_raw, alt_name = snap["odds"], f"FanDuel {datetime.date.fromisoformat(d0):%b} {datetime.date.fromisoformat(d0).day}"
-        elif snap.get("odds"):
-            fd_raw, asof = snap["odds"], snap.get("date")
+        d0 = snap.get("date")
+        if snap.get("odds") and d0 and (datetime.date.today() - datetime.date.fromisoformat(d0)).days <= 14:
+            dd = datetime.date.fromisoformat(d0)
+            fd_raw, asof, mname = snap["odds"], f"{dd:%b} {dd.day}", snap.get("book", "FanDuel")
     base = C.build(key, DATA, fd_raw, YEAR, alt_raw)
     base["generated"] = now_iso(); base["odds_remaining"] = rem; base["market_asof"] = asof
     base["market_name"] = mname; base["alt_name"] = alt_name
