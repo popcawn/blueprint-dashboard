@@ -1,7 +1,7 @@
 {
   "sport": "CFL",
   "season": "2026",
-  "generated": "2026-11-06T21:58:51Z",
+  "generated": "2026-11-06T22:03:45Z",
   "cats": [
     "Win% top-5",
     "Scoring \u2265 24.6",
@@ -48,13 +48,13 @@
       "fair_pct": 42.9,
       "fair_odds": "+133",
       "read": null,
-      "mk": -125,
-      "market": "-125",
-      "ev": -23,
+      "mk": -115,
+      "market": "-115",
+      "ev": -20,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -23
+        "ev": -20
       }
     },
     {
@@ -88,13 +88,13 @@
       "fair_pct": 35.4,
       "fair_odds": "+183",
       "read": null,
-      "mk": 340,
-      "market": "+340",
-      "ev": 56,
+      "mk": 350,
+      "market": "+350",
+      "ev": 59,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 56
+        "ev": 59
       }
     },
     {
@@ -128,13 +128,13 @@
       "fair_pct": 12.4,
       "fair_odds": "+707",
       "read": null,
-      "mk": 330,
-      "market": "+330",
-      "ev": -47,
+      "mk": 300,
+      "market": "+300",
+      "ev": -50,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -47
+        "ev": -50
       }
     },
     {
@@ -168,13 +168,13 @@
       "fair_pct": 9.3,
       "fair_odds": "+970",
       "read": null,
-      "mk": 750,
-      "market": "+750",
-      "ev": -21,
+      "mk": 800,
+      "market": "+800",
+      "ev": -16,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -21
+        "ev": -16
       }
     },
     {
@@ -358,8 +358,8 @@
   "value_plays": [
     {
       "name": "Edmonton Elks",
-      "ev": 56,
-      "market": "+340",
+      "ev": 59,
+      "market": "+350",
       "fair_odds": "+183"
     }
   ]
