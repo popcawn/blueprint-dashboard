@@ -563,7 +563,9 @@ async function savePrices(){ const d=DATA[cur], path=PRICE_FILES[cur], st=docume
         body:JSON.stringify({message:`prices: ${d.sport} ${book} screenshot ${today} (saved from the site)`,content,sha,branch:"main"})});
       if(r.ok){ closePP(); runBlueprint([cur],"rfmsg"); return; }
       if(r.status===409&&attempt===0) continue;   // the bot committed in between -- refetch the file's sha once
-      if(r.status===401||r.status===403||r.status===404) throw new Error("your token can't save files — on GitHub, edit the token: Contents → Read and write, then Update (github.com/settings/personal-access-tokens). Keep this box open and tap Save again, or use 🔑 change token for a new one.");
+      if(r.status===401||r.status===403||r.status===404){ let gm=""; try{ gm=(await r.json()).message||""; }catch(e){}
+        const classic=/^ghp_/.test(tok()), sc=r.headers.get("x-oauth-scopes");
+        throw new Error(`GitHub refused the save (${r.status}${gm?": "+gm:""})${classic?` — this is a classic token${sc!=null?` (scopes: ${sc||"none"})`:""}: tick "repo" at github.com/settings/tokens and click Update token`:r.status===401?" — the token is expired or wrong: use 🔑 change token":" — on GitHub edit this token: Repository access must include blueprint-dashboard, Contents → Read and write, then click Update at the bottom"}. Keep this box open and tap Save again.`); }
       throw new Error(`GitHub said ${r.status}`); }
   }catch(e){ st.innerHTML=`<span class="r">${esc(e.message||e)}</span>`; }
   btn.disabled=false; }
