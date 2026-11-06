@@ -7,50 +7,50 @@
     "sc": 5,
     "idx": 95.7,
     "fp": 31.6,
-    "mkt": null,
-    "ev": null
+    "mkt": "+380",
+    "ev": 52
    },
    "Stephen F. Austin": {
     "sc": 5,
     "idx": 92.1,
     "fp": 21.0,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1000",
+    "ev": 130
    },
    "Tarleton State": {
     "sc": 5,
     "idx": 87,
     "fp": 11.2,
-    "mkt": null,
-    "ev": null
+    "mkt": "+900",
+    "ev": 12
    },
    "Tennessee Tech": {
     "sc": 5,
     "idx": 84.7,
     "fp": 8.3,
-    "mkt": null,
-    "ev": null
+    "mkt": "+8000",
+    "ev": 571
    },
    "Youngstown State": {
     "sc": 4,
     "idx": 91.8,
     "fp": 10.0,
-    "mkt": null,
-    "ev": null
+    "mkt": "+400",
+    "ev": -50
    },
    "Harvard": {
     "sc": 4,
     "idx": 86.9,
     "fp": 5.5,
-    "mkt": null,
-    "ev": null
+    "mkt": "+12000",
+    "ev": 570
    },
    "South Dakota State": {
     "sc": 3,
     "idx": 90.3,
     "fp": 4.2,
-    "mkt": null,
-    "ev": null
+    "mkt": "+275",
+    "ev": -84
    },
    "Lamar": {
     "sc": 3,
@@ -63,8 +63,8 @@
     "sc": 3,
     "idx": 77.3,
     "fp": 0.8,
-    "mkt": null,
-    "ev": null
+    "mkt": "+6000",
+    "ev": -53
    },
    "Princeton": {
     "sc": 3,
@@ -84,8 +84,8 @@
     "sc": 2,
     "idx": 84.4,
     "fp": 1.0,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1400",
+    "ev": -85
    },
    "Illinois State": {
     "sc": 2,
@@ -98,8 +98,8 @@
     "sc": 2,
     "idx": 79.6,
     "fp": 0.5,
-    "mkt": null,
-    "ev": null
+    "mkt": "+2200",
+    "ev": -88
    },
    "UAlbany": {
     "sc": 2,
@@ -112,8 +112,8 @@
     "sc": 2,
     "idx": 78.1,
     "fp": 0.4,
-    "mkt": null,
-    "ev": null
+    "mkt": "+3000",
+    "ev": -87
    }
   }
  }

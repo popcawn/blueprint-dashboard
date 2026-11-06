@@ -1,7 +1,7 @@
 {
   "sport": "FCS",
   "season": "2026",
-  "generated": "2026-11-06T19:07:09Z",
+  "generated": "2026-11-06T20:28:42Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -46,11 +46,15 @@
       "fair_pct": 31.6,
       "fair_odds": "+216",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 380,
+      "market": "+380",
+      "ev": 52,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 52
+      },
+      "alt_ev": 34
     },
     {
       "name": "Stephen F. Austin",
@@ -81,11 +85,15 @@
       "fair_pct": 21.0,
       "fair_odds": "+377",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 1000,
+      "market": "+1000",
+      "ev": 130,
+      "verdict": {
+        "kind": "trap",
+        "label": "rating disagrees",
+        "ev": 130
+      },
+      "alt_ev": -7
     },
     {
       "name": "Tarleton State",
@@ -116,11 +124,15 @@
       "fair_pct": 11.2,
       "fair_odds": "+792",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 900,
+      "market": "+900",
+      "ev": 12,
+      "verdict": {
+        "kind": "trap",
+        "label": "rating disagrees",
+        "ev": 12
+      },
+      "alt_ev": -85
     },
     {
       "name": "Tennessee Tech",
@@ -151,11 +163,15 @@
       "fair_pct": 8.3,
       "fair_odds": "+1107",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 8000,
+      "market": "+8000",
+      "ev": 571,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 571
+      },
+      "alt_ev": 90
     },
     {
       "name": "Youngstown State",
@@ -186,11 +202,15 @@
       "fair_pct": 10.0,
       "fair_odds": "+897",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 400,
+      "market": "+400",
+      "ev": -50,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -50
+      },
+      "alt_ev": 5
     },
     {
       "name": "Harvard",
@@ -221,11 +241,15 @@
       "fair_pct": 5.5,
       "fair_odds": "+1705",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 12000,
+      "market": "+12000",
+      "ev": 570,
+      "verdict": {
+        "kind": "trap",
+        "label": "fails profile",
+        "ev": 570
+      },
+      "alt_ev": 757
     },
     {
       "name": "South Dakota State",
@@ -256,11 +280,15 @@
       "fair_pct": 4.2,
       "fair_odds": "+2288",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 275,
+      "market": "+275",
+      "ev": -84,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -84
+      },
+      "alt_ev": -56
     },
     {
       "name": "Lamar",
@@ -326,11 +354,15 @@
       "fair_pct": 0.8,
       "fair_odds": "+12973",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 6000,
+      "market": "+6000",
+      "ev": -53,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -53
+      },
+      "alt_ev": -84
     },
     {
       "name": "Princeton",
@@ -431,11 +463,15 @@
       "fair_pct": 1.0,
       "fair_odds": "+9837",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 1400,
+      "market": "+1400",
+      "ev": -85,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -85
+      },
+      "alt_ev": 5
     },
     {
       "name": "Illinois State",
@@ -501,11 +537,15 @@
       "fair_pct": 0.5,
       "fair_odds": "+18734",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 2200,
+      "market": "+2200",
+      "ev": -88,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -88
+      },
+      "alt_ev": -80
     },
     {
       "name": "UAlbany",
@@ -571,16 +611,20 @@
       "fair_pct": 0.4,
       "fair_odds": "+22938",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 3000,
+      "market": "+3000",
+      "ev": -87,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -87
+      },
+      "alt_ev": -35
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": null,
+  "market_asof": "Nov 6",
   "field_known": false,
   "prediction": {
     "pick": "Montana State",
@@ -595,5 +639,12 @@
     "label": "Trust the board",
     "note": "10 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Montana State",
+      "ev": 52,
+      "market": "+380",
+      "fair_odds": "+216"
+    }
+  ]
 }
