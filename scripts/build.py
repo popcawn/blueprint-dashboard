@@ -15,10 +15,10 @@ import json, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -53,6 +53,16 @@ def value_plays(teams, maxcat, sport=None):
         for t in order:
             p = _price_num(t.get("market"))
             if (t.get("ev") or 0) >= 10 and p is not None and p <= 2500 and (t.get("srsrank") or 999) <= 10:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
+    if sport == "mls":
+        # MLS (2026-11-06): only teams that clear all 5 every-champion criteria (every champion 2010-25 had all 5; a hidden
+        # season's champion still did 11/15) + EV >= +10% at a believable price (<= +2500). Not odds-backtested: no
+        # historical MLS Cup prices without Kalshi, which the user doesn't use.
+        for t in teams:
+            p = _price_num(t.get("market"))
+            if t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500:
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
@@ -1493,13 +1503,66 @@ def build_college_bb(key):
     for t in rows: t.pop("p", None)
     return base
 
+def _mls_key(s):
+    s = re.sub(r"[^a-z ]", " ", str(s).lower().replace("saint", "st"))
+    return re.sub(r"\s+", " ", re.sub(r"\b(fc|sc|cf|the|united|city)\b", " ", s)).strip()
+
+def build_mls():
+    """MLS Cup board (added 2026-11-06, user: "Add MLS to the site blueprint"). The engine is Node: scripts/mls/soccer.mjs,
+       copied from baseball-blueprint/pro. It fits Poisson team ratings (attack x defence x home edge, 240-day half-life)
+       and runs 20,000 simulations of the remaining regular season plus the whole playoff bracket.
+       Tiers = the every-champion profile: all 15 champions 2010-25 had all 5 at the start of the playoffs, and a hidden
+       season's champion still did 11/15.
+       Market: no odds feed has MLS Cup futures and the user doesn't use Kalshi, so it is the user's hand-entered DraftKings
+       screenshot in data/mls_dk.json, shown while it is <= 14 days old."""
+    import subprocess, tempfile
+    out = os.path.join(tempfile.gettempdir(), "mls_export.json")
+    subprocess.run(["node", os.path.join(HERE, "scripts", "mls", "soccer.mjs"), "mls", "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
+    E = json.load(open(out, encoding="utf-8"))
+    snap = {}
+    try: snap = json.load(open(os.path.join(DATA, "mls_dk.json"), encoding="utf-8"))
+    except Exception: pass
+    asof = snap.get("date")
+    d0 = datetime.date.fromisoformat(asof) if asof else None
+    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14
+    smin, smax = min(t["str"] for t in E["teams"]), max(t["str"] for t in E["teams"])
+    rows = [{"name": t["name"], "conf": "East" if t["conf"] == "E" else "West", "rec": f"{t['w']}-{t['l']}-{t['d']} · {t['pts']} pts",
+             "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"], "rtg": t["rtg"], "p": t["p"], "conf_pct": round(100 * t["pconf"], 1),
+             "index": round(100 * (t["str"] - smin) / (smax - smin), 1) if smax > smin else 50.0} for t in E["teams"]]
+    for t in rows:
+        t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
+        t["fair_odds"] = american(t["p"]) if t["p"] else None
+        t["read"] = None
+    fd = {}
+    if fresh:
+        keys = {_mls_key(t["name"]): t["name"] for t in rows}
+        for nm, price in snap["odds"].items():
+            k = _mls_key(nm)
+            hit = keys.get(k) or next((v for kk, v in keys.items() if kk.startswith(k) or k.startswith(kk)), None)
+            if hit: fd[hit] = int(price)
+    attach(rows, [t for t in rows if t["p"] > 0], fd)
+    for t in rows:   # a +EV price on a team that misses the every-champion profile is not a bet on this board
+        v = t.get("verdict") or {}
+        if t["score"] < 5 and v.get("kind") in ("value", "small", "longshot"):
+            t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
+    rows.sort(key=lambda t: (-t["score"], -t["p"]))   # tier first, then title odds (the order the cards show)
+    top = max(rows, key=lambda t: t["p"])
+    base = {"sport": "MLS", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
+            "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
+            "games_left": E["games_left"], "sims": E["sims"],
+            "prediction": {"pick": top["name"], "why": f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win MLS Cup (fair {top['fair_odds']}) and {top['conf_pct']}% to win the {top['conf']}. "
+                           f"{E['games_left']} regular-season games left are simulated, then the full bracket ({E['sims']:,} runs)."},
+            "season_pct": season_pct(rows, "mls"), "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows)}
+    for t in rows: t.pop("p", None)
+    return base
+
 def build_cbb(): return build_college_bb("cbb")
 def build_wcbb(): return build_college_bb("wcbb")
 
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls)]:
         if name not in LEAGUES:
             continue
         try:
@@ -1509,7 +1572,7 @@ def main():
                 data["signal"] = signal_status(name, data["gp_max"])
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name not in ("cbb", "wcbb"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+                if name not in ("cbb", "wcbb", "mls"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
@@ -1521,7 +1584,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":
