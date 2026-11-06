@@ -1,14 +1,27 @@
 {
-  "date": "2026-11-06",
-  "book": "DraftKings",
-  "source": "user screenshot, USA - MLS 2026 - Cup Winner (DraftKings app), 2026-11-06. Names expanded to ESPN's (NE = New England, CHI = Chicago, SJ = San Jose, HOU = Houston, PHI = Philadelphia, COL = Colorado, POR = Portland).",
-  "odds": {
-    "Nashville SC": 350, "Vancouver Whitecaps": 450, "Inter Miami CF": 500,
-    "New England Revolution": 1400, "FC Dallas": 1400, "Chicago Fire FC": 1400,
-    "St. Louis CITY SC": 1600, "San Jose Earthquakes": 1600, "Houston Dynamo FC": 1600,
-    "LAFC": 1800, "Philadelphia Union": 2500, "Charlotte FC": 2500,
-    "FC Cincinnati": 3300, "Columbus Crew": 5000, "Orlando City SC": 6500,
-    "LA Galaxy": 6500, "Colorado Rapids": 6500, "Portland Timbers": 8000,
-    "Seattle Sounders FC": 10000, "Real Salt Lake": 10000, "Minnesota United FC": 25000
-  }
+ "date": "2026-11-06",
+ "book": "FanDuel",
+ "source": "user screenshot, saved from the site (MLS board)",
+ "odds": {
+  "Vancouver Whitecaps": 340,
+  "Inter Miami CF": 500,
+  "New England Revolution": 1300,
+  "Chicago Fire FC": 1400,
+  "FC Dallas": 1400,
+  "Houston Dynamo FC": 1600,
+  "LAFC": 1600,
+  "St. Louis CITY SC": 1600,
+  "Philadelphia Union": 2000,
+  "San Jose Earthquakes": 2200,
+  "Charlotte FC": 2700,
+  "Seattle Sounders FC": 3300,
+  "Colorado Rapids": 4000,
+  "FC Cincinnati": 4000,
+  "Orlando City SC": 4000,
+  "Columbus Crew": 5500,
+  "Real Salt Lake": 8000,
+  "Portland Timbers": 10000,
+  "LA Galaxy": 10000,
+  "Minnesota United FC": 15000
+ }
 }
