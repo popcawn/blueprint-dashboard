@@ -1408,5 +1408,74 @@
     "ev": -30
    }
   }
+ },
+ {
+  "date": "2026-11-06",
+  "gp": 10,
+  "teams": {
+   "Notre Dame Fighting Irish": {
+    "sc": 4,
+    "idx": 91.7,
+    "fp": 15.6,
+    "mkt": "+490",
+    "ev": -8
+   },
+   "Miami Hurricanes": {
+    "sc": 3,
+    "idx": 92.1,
+    "fp": 24.0,
+    "mkt": "+750",
+    "ev": 104
+   },
+   "Georgia Bulldogs": {
+    "sc": 3,
+    "idx": 88.5,
+    "fp": 21.5,
+    "mkt": "+340",
+    "ev": -6
+   },
+   "New Mexico Lobos": {
+    "sc": 3,
+    "idx": 86.7,
+    "fp": 0.1,
+    "mkt": "+70000",
+    "ev": -1
+   },
+   "UCLA Bruins": {
+    "sc": 3,
+    "idx": 85.8,
+    "fp": 14.2,
+    "mkt": "+4500",
+    "ev": 551
+   },
+   "LSU Tigers": {
+    "sc": 3,
+    "idx": 84.6,
+    "fp": 12.8,
+    "mkt": "+750",
+    "ev": 8
+   },
+   "Utah Utes": {
+    "sc": 2,
+    "idx": 84.3,
+    "fp": 4.2,
+    "mkt": "+3000",
+    "ev": 29
+   },
+   "Indiana Hoosiers": {
+    "sc": 2,
+    "idx": 83.6,
+    "fp": 7.7,
+    "mkt": "+900",
+    "ev": -23
+   },
+   "North Dakota State Bison": {
+    "sc": 2,
+    "idx": 78.2,
+    "fp": 0.1,
+    "mkt": "+125000",
+    "ev": -30
+   }
+  }
  }
 ]

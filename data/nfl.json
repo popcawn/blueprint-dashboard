@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-06T10:15:38Z",
-  "odds_remaining": "86686",
+  "generated": "2026-11-06T12:45:36Z",
+  "odds_remaining": "86584",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +356). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -48,12 +48,12 @@
       "rtg": 13.5,
       "fair_pct": 21.9,
       "fair_odds": "+356",
-      "market": "+900",
-      "ev": 119,
+      "market": "+850",
+      "ev": 108,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 119
+        "ev": 108
       },
       "read": {
         "v": "trust",
@@ -188,12 +188,12 @@
       "rtg": 7.4,
       "fair_pct": 8.5,
       "fair_odds": "+1075",
-      "market": "+550",
-      "ev": -45,
+      "market": "+600",
+      "ev": -40,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -45
+        "ev": -40
       },
       "read": {
         "v": "fools_gold",
@@ -223,12 +223,12 @@
       "rtg": 6.9,
       "fair_pct": 7.3,
       "fair_odds": "+1264",
-      "market": "+1800",
-      "ev": 39,
+      "market": "+1600",
+      "ev": 25,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 39
+        "ev": 25
       },
       "read": {
         "v": "caution",
@@ -608,12 +608,12 @@
       "rtg": 0.8,
       "fair_pct": 0.6,
       "fair_odds": "+16042",
-      "market": "+6000",
-      "ev": -62,
+      "market": "+6500",
+      "ev": -59,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -62
+        "ev": -59
       },
       "read": {
         "v": "caution",
@@ -783,7 +783,7 @@
       "rtg": -2.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+7500",
+      "market": "+8000",
       "ev": -87,
       "verdict": {
         "kind": "bigfade",
@@ -1161,8 +1161,8 @@
     },
     {
       "name": "Jacksonville Jaguars",
-      "ev": 119,
-      "market": "+900",
+      "ev": 108,
+      "market": "+850",
       "fair_odds": "+356"
     },
     {
