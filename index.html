@@ -158,6 +158,20 @@
   .pop.on{display:flex} .pop .box{background:var(--panel);border-radius:16px;padding:20px;max-width:470px;width:100%;box-shadow:var(--shadow)}
   .pop input{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:9px 0;font-size:13px}
   .pop p{font-size:12.5px;color:var(--ink2);line-height:1.5}
+  .pop .box.wide{max-width:560px}
+  .pop textarea{width:100%;background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:9px;margin:8px 0;font:12.5px/1.45 var(--mono);resize:vertical}
+  .pprow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0}
+  .pprow select{background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:7px 9px;font-size:13px}
+  .ppstat{font-size:12px;color:var(--ink2);min-height:16px;line-height:1.45}
+  .ppcheck{font-size:12px;color:var(--ink2);margin-bottom:10px;line-height:1.5}
+  .ppcheck .g{color:var(--good)} .ppcheck .r,.ppstat .r{color:var(--bad)} .ppcheck .w{color:var(--warn)} .ppcheck .sub{color:var(--ink3)}
+  .ppgrid{display:grid;grid-template-columns:1fr;gap:8px} .ppgrid:has(img:not([hidden])){grid-template-columns:1fr 1fr}
+  .ppimgwrap{max-height:260px;overflow:auto;border-radius:9px} .ppimgwrap img{width:100%;display:block;margin:8px 0}
+  @media(max-width:620px){.ppgrid:has(img:not([hidden])){grid-template-columns:1fr}}
+  .ppbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:-4px 0 12px}
+  .ppbar .ppnote{font-size:11.5px;color:var(--ink3)}
+  .btn.sm{padding:6px 12px;font-size:12.5px}
+  label.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
   @media(max-width:620px){
     .brand span{display:none}
     .strip{width:100%;margin-left:0}
@@ -177,10 +191,23 @@
   <div class="strip" id="strip"></div>
 </div></header>
 <div class="wrap" id="app"></div>
+<div class="pop" id="ppop"><div class="box wide">
+  <b id="pptitle">Update prices</b>
+  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board, or paste prices one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
+  <div class="pprow"><select id="ppbook" aria-label="Sportsbook"><option>DraftKings</option><option>FanDuel</option></select>
+    <label class="btn ghost sm">📷 Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label></div>
+  <div class="ppstat" id="ppstat"></div>
+  <div class="ppgrid"><textarea id="pptxt" rows="9" spellcheck="false" placeholder="Nashville SC: +350&#10;Vancouver Whitecaps: +450" oninput="checkPP()"></textarea><div class="ppimgwrap"><img id="ppprev" alt="your screenshot" hidden></div></div>
+  <div class="ppcheck" id="ppcheck"></div>
+  <div style="display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn ghost" onclick="closePP()">Cancel</button>
+    <button class="btn" id="ppsave" onclick="savePrices()">Save &amp; rebuild</button>
+  </div>
+</div></div>
 
 <div class="pop" id="pop"><div class="box">
   <b>GitHub token</b>
-  <p>The Run button triggers the refresh bot via GitHub Actions. Paste a <b>fine-grained token</b> with <i>Actions: Read&nbsp;and&nbsp;write</i> on <b>popcawn/blueprint-dashboard</b>. Stored in this browser only — never committed.</p>
+  <p>The Run button triggers the refresh bot via GitHub Actions. Paste a <b>fine-grained token</b> on <b>popcawn/blueprint-dashboard</b> with <i>Actions: Read&nbsp;and&nbsp;write</i> (runs the bot) and <i>Contents: Read&nbsp;and&nbsp;write</i> (📷 Update prices saves the prices). Stored in this browser only — never committed.</p>
   <input id="tok" type="password" placeholder="github_pat_…" autocomplete="off">
   <div style="display:flex;gap:8px;justify-content:flex-end">
     <button class="btn ghost" onclick="document.getElementById('pop').classList.remove('on')">Cancel</button>
@@ -200,7 +227,7 @@ new MutationObserver(fitHeader).observe(document.getElementById("tabs"),{childLi
 // (fitHeader), so no layout change is needed. Then: CAL (trust line), MAXCAT/TOTAL, MU_SD/MU_HFA/MU_UNIT, the early-season % map,
 // W (method text), and the full-name / fair-% ranking lists if the board uses full team names or ranks by fair odds.
 // build.py: LEAGUES, SEASON_GAMES, SIGNAL_THRESH, value_plays branch, build_<sport>(), main() list, index.json sports;
-// .github/workflows/refresh.yml: the leagues default (both places).
+// .github/workflows/refresh.yml: the leagues default (both places). Screenshot-priced board: add its price file to PRICE_FILES.
 const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA",wnba:"WNBA",mlb:"MLB",cbb:"CBB",wcbb:"WCBB",mls:"MLS",fcs:"FCS"};
 // Per-sport backtest calibration — how reliably the board's ranking has identified the champion.
 const CAL={
@@ -378,7 +405,7 @@ function render(){
       <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · odds pulled <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b>${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span>
       <button class="rfb" id="rfbtn" title="${cur==="mls"?"Re-runs the MLS sim (free, ~2–3 min). Prices come from your DraftKings screenshot — post a new one to update them.":cur==="fcs"?"Re-runs the FCS board (free, ~2–3 min). No odds feed carries FCS futures — prices come only from your DraftKings/FanDuel screenshot.":`Re-pull ${MK(cur)} prices for the ${d.sport} board (rebuilds this board via the refresh bot, ~1–2 min; ${MK(cur)==="Kalshi"?"free":"1 Odds API credit"})`}" onclick="runBlueprint(['${cur}'],'rfmsg')">↻ Refresh odds</button><span class="runmsg" id="rfmsg"></span></div>
     ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}
-    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${d.use_pre?`<div class="cal low"><span class="lbl">Projection</span>Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games — ✓ on the card. The blueprint takes over around 8 games in.${d.market_name==="Kalshi"?` Women's prices are <b>Kalshi</b> (live, fee included — near no-vig, so EVs run smaller than vs a sportsbook)${d.alt_name?`; ${d.alt_name} screenshot shown beside`:""}.`:d.market_asof?` Women's FanDuel prices as of ${d.market_asof} (no API feed).`:""}</div>`:""}${cur==="mls"?`<div class="cal ${d.market_asof?"":"low"}"><span class="lbl">Prices</span>${d.market_asof?`DraftKings prices are <b>your screenshot from ${d.market_asof}</b> — no odds feed carries MLS Cup futures (and no Kalshi). Post a new screenshot to refresh them.`:`No current DraftKings prices — the last screenshot is over 2 weeks old. Post a new one.`} Bet only teams that clear <b>all 5</b> criteria, at a price longer than fair.</div>`:""}${cur==="fcs"?`<div class="cal low"><span class="lbl">Prices</span>${d.market_asof?`${d.market_name} prices are <b>your screenshot from ${d.market_asof}</b>.`:`No odds feed carries FCS title futures (and no Kalshi) — post a DraftKings or FanDuel screenshot to see EV.`} Paper only: a bet needs a <b>5/5</b> team priced longer than <b>both</b> the blueprint and the rating-only fair odds — and wait for the bracket (Sun Nov 22).</div>`:""}${top8(d,cur)}`;
+    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${d.use_pre?`<div class="cal low"><span class="lbl">Projection</span>Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games — ✓ on the card. The blueprint takes over around 8 games in.${d.market_name==="Kalshi"?` Women's prices are <b>Kalshi</b> (live, fee included — near no-vig, so EVs run smaller than vs a sportsbook)${d.alt_name?`; ${d.alt_name} screenshot shown beside`:""}.`:d.market_asof?` Women's FanDuel prices as of ${d.market_asof} (no API feed).`:""}</div>`:""}${cur==="mls"?`<div class="cal ${d.market_asof?"":"low"}"><span class="lbl">Prices</span>${d.market_asof?`${d.market_name||"DraftKings"} prices are <b>your screenshot from ${d.market_asof}</b> — no odds feed carries MLS Cup futures (and no Kalshi). Use 📷 Update prices to refresh them.`:`No current prices — the last screenshot is over 2 weeks old. Use 📷 Update prices.`} Bet only teams that clear <b>all 5</b> criteria, at a price longer than fair.</div>`:""}${cur==="fcs"?`<div class="cal low"><span class="lbl">Prices</span>${d.market_asof?`${d.market_name} prices are <b>your screenshot from ${d.market_asof}</b>.`:`No odds feed carries FCS title futures (and no Kalshi) — use 📷 Update prices with a DraftKings or FanDuel screenshot to see EV.`} Paper only: a bet needs a <b>5/5</b> team priced longer than <b>both</b> the blueprint and the rating-only fair odds — and wait for the bracket (Sun Nov 22).</div>`:""}${PRICE_FILES[cur]?`<div class="ppbar"><button class="btn sm" onclick="openPP()">📷 Update prices</button><span class="ppnote">screenshot or paste · you check them, then they're saved to the site</span></div>`:""}${top8(d,cur)}`;
   if(teams.length>1){
     const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
     const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
@@ -396,6 +423,140 @@ function render(){
   html+=`<div class="note"><b>Top pick vs Value play:</b> <b>Top pick</b> = the strongest team (most likely champion) — a strength call, not a bet. <b>Value play</b> = the best bet vs the ${MK(cur)} price (the one card tagged <span class="vd best" style="padding:1px 6px">⭐ BEST VALUE</span>). They're usually <i>different</i> teams: the best team is normally priced too short to also be the best bet. A big-EV longshot (price > +2500) shows as <span class="vd longshot" style="padding:1px 6px">🎯 longshot value</span> and is never crowned. <b>The Read</b> is the automated trust call — it reads the component ranks, not the composite, and flags a top team hiding a playoff-fatal hole (🔴) vs a complete one (🟢). <b>Index weights:</b> ${W[cur]} (the tier counts categories equally). <b>Nw</b> = top-two tier into its Nth straight week (hover for exact days); ⭐ = every snapshot since tracking began.${cur==="nhl"?" NHL depth is already in the team-level numbers.":cur==="nba"?` Depth (10+ PPG scorers) is rewarded in the index. From game 25 the index is 50% these + 50% record vs .500+ teams (backtested: champ top-3 12/15 vs 10/15)${d.vs500_on?" — <b>active</b>.":" — inactive until every team has 25 games."}`:""}${early?' <span class="warn">⚠ Early sample — market sharper than model; big EVs are usually model-lag.</span>':''}</div>`;
   app.innerHTML=html;
 }
+
+/* ---------- 📷 Update prices (2026-11-06): boards priced from the user's sportsbook screenshots ----------
+   Paste "Team: +350" lines OR pick a screenshot -> text recognition runs in this browser (Tesseract.js, loaded only when
+   used, no API key) -> names are matched to this board's teams and each price to the nearest name -> you check/edit ->
+   Save writes data/<file> to the repo with your GitHub token (needs Contents: Read and write) and rebuilds this board.
+   A new screenshot-priced board only needs an entry in PRICE_FILES (build.py reads the same file). */
+const PRICE_FILES={mls:"data/mls_dk.json",fcs:"data/fcs_book.json"};
+const _nrm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/&/g," and ").replace(/[^a-z0-9 ]+/g," ")
+  .replace(/\b(fc|sc|cf|the|club|w)\b/g," ").replace(/\s+/g," ").trim().replace(/ st$/," state");
+const _ALIAS={"los angeles":"lafc","la fc":"lafc","minnesota utd":"minnesota united","ny red bulls":"new york red bulls","nycfc":"new york city",
+  "sfa":"stephen f austin","sf austin":"stephen f austin","ndsu":"north dakota state","sdsu":"south dakota state","st louis city":"st louis city"};
+function matchTeam(raw,teams,strict){
+  let n=_nrm(raw); if(!n||n.length<3) return null; n=_ALIAS[n]||n;
+  const T=teams.map(t=>({t,m:_nrm(t.name)}));
+  let hit=T.filter(x=>x.m===n); if(hit.length===1) return hit[0].t;
+  if(n.length>=5){ hit=T.filter(x=>x.m.startsWith(n)||(!strict&&x.m.length>=5&&n.startsWith(x.m))); if(hit.length===1) return hit[0].t; }
+  const wb=new Set(n.split(" ")); let best=null,bs=0,second=0;
+  for(const x of T){ const wa=new Set(x.m.split(" ")); let c=0; for(const w of wb) if(wa.has(w)) c++;
+    const s=2*c/(wa.size+wb.size); if(s>bs){second=bs;bs=s;best=x.t;} else if(s>second) second=s; }
+  return bs>=(strict?0.67:0.5)&&bs>second?best:null;
+}
+function _parseOdds(s){ s=String(s).trim().replace(/[−–—~]/g,"-").replace(/\?$/,""); if(/^ev(en)?$/i.test(s)) return 100;
+  const m=s.match(/^([+-]?)(\d{3,6})$/); if(!m) return null; const v=+m[2]; return m[1]==="-"?-v:v; }
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function parsePP(text,teams){ const out=[],bad=[],seen=new Set();
+  for(const line of String(text).split(/\n/)){ const l=line.trim(); if(!l||l.startsWith("#")) continue;
+    const m=l.match(/^(.*?)[\s:=,|]+([+\-−–—]?\d{3,6}\??|even|ev)\s*$/i); if(!m){bad.push(l);continue;}
+    const t=matchTeam(m[1],teams), o=_parseOdds(m[2]);
+    if(!t||o==null||Math.abs(o)<100){bad.push(l);continue;}
+    if(seen.has(t.name)) continue; seen.add(t.name);
+    out.push({name:t.name,odds:o,guess:/\?$/.test(m[2])}); }
+  return {out,bad}; }
+function ppTeams(){ return (DATA[cur]&&DATA[cur].teams)||[]; }
+function checkPP(){ const {out,bad}=parsePP(document.getElementById("pptxt").value,ppTeams()), g=out.filter(x=>x.guess).map(x=>x.name);
+  document.getElementById("ppcheck").innerHTML=`<b class="g">✓ ${out.length} price${out.length===1?"":"s"} matched to this board</b>`
+    +(bad.length?` · <b class="r">✗ ${bad.length} line${bad.length===1?"":"s"} not understood</b> <span class="sub">(${bad.slice(0,4).map(esc).join(" · ")}${bad.length>4?" …":""})</span>`:"")
+    +(g.length?`<br><b class="w">⚠ plus/minus sign guessed — check:</b> ${g.map(esc).join(", ")}`:"");
+  document.getElementById("ppsave").disabled=!out.length; return out; }
+function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
+  document.getElementById("pptitle").textContent=`Update ${d.sport} prices`;
+  document.getElementById("ppbook").value=d.market_name==="FanDuel"?"FanDuel":"DraftKings";
+  document.getElementById("pptxt").value=(d.teams||[]).filter(t=>t.market).sort((a,b)=>(a.mk??0)-(b.mk??0)).map(t=>`${t.name}: ${t.market}`).join("\n");
+  document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
+  document.getElementById("ppop").classList.add("on"); }
+function closePP(){ document.getElementById("ppop").classList.remove("on"); }
+let _tess=null;
+function loadTess(){ if(window.Tesseract) return Promise.resolve(); if(_tess) return _tess;
+  _tess=new Promise((res,rej)=>{ const s=document.createElement("script"); s.src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js";
+    s.onload=res; s.onerror=()=>{_tess=null;rej(new Error("couldn't load the text reader — check your connection"));}; document.head.appendChild(s); });
+  return _tess; }
+// Reads a sportsbook screenshot into "Team: +odds" lines (tested on FanDuel, DraftKings and grid-style boards, dark mode).
+//  1. enlarge + grayscale, inverted when the screenshot is dark, so text is dark on light
+//  2. read once in sparse-text mode (finds text anywhere, ignores page layout); the median word height = the text size
+//  3. erase straight mid-gray lines too long to be part of a letter (the outlined/filled odds buttons hide prices from the
+//     reader), keeping dark text -- then read again; words from both reads are merged
+//  4. match words to this board's team names; tie each price to the nearest name (same row to its left, or just above it)
+//  5. a price read without its +/- gets the sign of its sorted neighbours and is flagged "?" for the user to check
+// Nothing saves on its own: the result goes into the editable box beside the screenshot.
+function _prepCanvas(bmp){ const sc=Math.min(3,Math.max(1,1600/bmp.width)), cv=document.createElement("canvas");
+  cv.width=Math.round(bmp.width*sc); cv.height=Math.round(bmp.height*sc); const cx=cv.getContext("2d"); cx.drawImage(bmp,0,0,cv.width,cv.height);
+  const im=cx.getImageData(0,0,cv.width,cv.height), p=im.data; let sum=0;
+  for(let i=0;i<p.length;i+=4) sum+=0.299*p[i]+0.587*p[i+1]+0.114*p[i+2];
+  const dark=sum/(p.length/4)<128;
+  for(let i=0;i<p.length;i+=4){ let g=0.299*p[i]+0.587*p[i+1]+0.114*p[i+2]; if(dark) g=255-g; p[i]=p[i+1]=p[i+2]=g; }
+  cx.putImageData(im,0,0); return cv; }
+function _unbox(src,h){ const cv=document.createElement("canvas"); cv.width=src.width; cv.height=src.height; const cx=cv.getContext("2d"); cx.drawImage(src,0,0);
+  const W=cv.width, H=cv.height, im=cx.getImageData(0,0,W,H), p=im.data, mid=new Uint8Array(W*H), kill=new Uint8Array(W*H);
+  for(let i=0,j=0;i<p.length;i+=4,j++) mid[j]=p[i]>60&&p[i]<200?1:0;   // borders / button fills are mid-gray; text is dark
+  const LH=Math.round(3*h), LV=Math.round(1.8*h);
+  for(let y=0;y<H;y++){ let x=0; while(x<W){ if(!mid[y*W+x]){x++;continue;} let e=x; while(e<W&&mid[y*W+e]) e++; if(e-x>=LH) for(let k=x;k<e;k++) kill[y*W+k]=1; x=e; } }
+  for(let x=0;x<W;x++){ let y=0; while(y<H){ if(!mid[y*W+x]){y++;continue;} let e=y; while(e<H&&mid[e*W+x]) e++; if(e-y>=LV) for(let k=y;k<e;k++) kill[k*W+x]=1; y=e; } }
+  for(let j=0;j<W*H;j++) if(kill[j]){ const i=j*4; p[i]=p[i+1]=p[i+2]=255; }
+  cx.putImageData(im,0,0); return cv; }
+async function ocrPrices(file,teamsOverride){ const st=document.getElementById("ppstat"), pv=document.getElementById("ppprev");
+  let worker=null;
+  try{ if(pv&&!teamsOverride){ pv.src=URL.createObjectURL(file); pv.hidden=false; }
+    st.textContent="loading the text reader (first time takes a few seconds)…"; await loadTess();
+    const bmp=await createImageBitmap(file), base=_prepCanvas(bmp);
+    let pass=1; worker=await Tesseract.createWorker("eng",1,{logger:m=>{ if(m.status==="recognizing text") st.textContent=`reading the screenshot (${pass}/2)… ${Math.round(100*m.progress)}%`; }});
+    await worker.setParameters({tessedit_pageseg_mode:"12"});
+    const A=(await worker.recognize(base)).data;
+    const hs=(A.words||[]).filter(w=>/^[A-Za-z]{3,}$/.test(w.text)).map(w=>w.bbox.y1-w.bbox.y0).sort((a,b)=>a-b), h=hs.length?hs[hs.length>>1]:20;
+    pass=2; const B=(await worker.recognize(_unbox(base,h))).data;
+    const clean=t=>t.replace(/[^\w+\-−–—~]/g,""), ODD=/^[+\-−–—~]?\d{3,6}$|^even$/i, YEAR=/^(19|20)\d\d$/;
+    const isOdd=t=>{ const c=clean(t); return ODD.test(c)&&!YEAR.test(c); };
+    const ov=(a,b)=>Math.min(a.x1,b.x1)-Math.max(a.x0,b.x0)>0&&Math.min(a.y1,b.y1)-Math.max(a.y0,b.y0)>0;
+    const teams=teamsOverride||ppTeams(), names=[], odds=[];
+    for(const D of [B,A]) for(const L of (D.lines||[])){
+      const W=(L.words||[]).map(w=>({t:w.text.trim(),x0:w.bbox.x0,x1:w.bbox.x1,y0:w.bbox.y0,y1:w.bbox.y1})).filter(w=>w.t); let i=0;
+      while(i<W.length){ if(isOdd(W[i].t)){ i++; continue; }
+        let got=null;
+        for(let k=Math.min(4,W.length-i);k>=1;k--){ const seg=W.slice(i,i+k); if(seg.some(w=>isOdd(w.t))) continue;
+          const t=matchTeam(seg.map(w=>w.t).join(" "),teams,true);
+          if(t){ got={t,k,x0:Math.min(...seg.map(w=>w.x0)),x1:Math.max(...seg.map(w=>w.x1)),y0:Math.min(...seg.map(w=>w.y0)),y1:Math.max(...seg.map(w=>w.y1))}; break; } }
+        if(got){ if(!names.some(n=>n.t===got.t||ov(n,got))) names.push(got); i+=got.k; } else i++; }
+      for(const w of W) if(isOdd(w.t)&&!odds.some(o=>ov(o,w))) odds.push({...w,t:clean(w.t)}); }
+    // a price read without its sign: take it from the nearest signed prices in reading order (futures boards are sorted)
+    odds.sort((a,b)=>(a.y0-b.y0)||(a.x0-b.x0));
+    const sgn=t=>/^[\-−–—~]/.test(t)?-1:/^\+/.test(t)||/^even$/i.test(t)?1:0;
+    odds.forEach((o,i)=>{ if(sgn(o.t)) return; let pv2=0,nx=0; for(let j=i-1;j>=0&&!pv2;j--) pv2=sgn(odds[j].t); for(let j=i+1;j<odds.length&&!nx;j++) nx=sgn(odds[j].t);
+      o.t=((pv2<0&&nx<=0)||(nx<0&&pv2===0)?"-":"+")+o.t; o.guess=true; });
+    const pairs=[];
+    for(const o of odds){ const oh=o.y1-o.y0, oc=(o.y0+o.y1)/2; let best=null,bd=1e9;
+      for(const n of names){ const nh=n.y1-n.y0, nc=(n.y0+n.y1)/2, Hh=Math.max(nh,oh); let d=null;
+        if(Math.abs(nc-oc)<0.8*Hh&&n.x1<=o.x0+8) d=o.x0-n.x1;
+        else if(n.y1<=o.y0+4&&o.y0-n.y1<3*Hh&&Math.min(n.x1,o.x1)-Math.max(n.x0,o.x0)>-0.5*(n.x1-n.x0)) d=2*(o.y0-n.y1)+Math.abs((n.x0+n.x1)/2-(o.x0+o.x1)/2)/4;
+        if(d!=null&&d<bd){bd=d;best=n;} }
+      if(best) pairs.push({n:best,o,d:bd}); }
+    const byName=new Map(); for(const pr of pairs.sort((a,b)=>a.d-b.d)) if(!byName.has(pr.n.t.name)) byName.set(pr.n.t.name,pr.o);
+    const rows=[...byName].map(([nm,o])=>({nm,v:_parseOdds(o.t),guess:!!o.guess})).filter(x=>x.v!=null&&Math.abs(x.v)>=100).sort((a,b)=>a.v-b.v);
+    document.getElementById("pptxt").value=rows.map(x=>`${x.nm}: ${x.v>0?"+":""}${x.v}${x.guess?"?":""}`).join("\n");
+    const miss=Math.max(0,odds.length-rows.length);
+    st.textContent=`Read ${rows.length} price${rows.length===1?"":"s"}${miss?` · ${miss} other number${miss===1?"":"s"} couldn't be tied to a team`:""}. Check each one against the screenshot before saving — text recognition can misread a digit.`;
+    checkPP(); return rows;
+  }catch(e){ st.innerHTML=`<span class="r">${esc(e.message||e)}</span> — you can still paste the prices as text.`; return []; }
+  finally{ if(worker) worker.terminate(); } }
+async function savePrices(){ const d=DATA[cur], path=PRICE_FILES[cur], st=document.getElementById("ppstat"), out=checkPP(); if(!d||!path||!out.length) return;
+  if(!tok()){ st.innerHTML='<span class="r">Add your GitHub token first</span> — it needs <b>Contents: Read and write</b>.'; document.getElementById("pop").classList.add("on"); return; }
+  const today=new Date().toLocaleDateString("en-CA"), book=document.getElementById("ppbook").value;
+  const body={date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds:Object.fromEntries(out.map(x=>[x.name,x.odds]))};
+  const url=`https://api.github.com/repos/${REPO}/contents/${path}`, H={Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json"};
+  const btn=document.getElementById("ppsave"); btn.disabled=true; st.textContent="saving…";
+  try{ for(let attempt=0;attempt<2;attempt++){
+      let sha; const g=await fetch(`${url}?ref=main&t=${Date.now()}`,{headers:H});
+      if(g.ok) sha=(await g.json()).sha; else if(g.status!==404) throw new Error(g.status===401||g.status===403?"your token can't read the repo":`GitHub said ${g.status}`);
+      const content=btoa(unescape(encodeURIComponent(JSON.stringify(body,null,1)+"\n")));
+      const r=await fetch(url,{method:"PUT",headers:{...H,"Content-Type":"application/json"},
+        body:JSON.stringify({message:`prices: ${d.sport} ${book} screenshot ${today} (saved from the site)`,content,sha,branch:"main"})});
+      if(r.ok){ closePP(); runBlueprint([cur],"rfmsg"); return; }
+      if(r.status===409&&attempt===0) continue;   // the bot committed in between -- refetch the file's sha once
+      if(r.status===401||r.status===403||r.status===404) throw new Error("your token can't save files — give it Contents: Read and write on popcawn/blueprint-dashboard (github.com/settings/tokens)");
+      throw new Error(`GitHub said ${r.status}`); }
+  }catch(e){ st.innerHTML=`<span class="r">${esc(e.message||e)}</span>`; }
+  btn.disabled=false; }
 
 /* run button */
 function tok(){try{return localStorage.getItem("gh_token")||""}catch(e){return""}}
