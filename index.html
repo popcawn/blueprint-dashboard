@@ -169,8 +169,7 @@
   .ppgrid{display:grid;grid-template-columns:1fr;gap:8px} .ppgrid:has(img:not([hidden])){grid-template-columns:1fr 1fr}
   .ppimgwrap{max-height:260px;overflow:auto;border-radius:9px} .ppimgwrap img{width:100%;display:block;margin:8px 0}
   @media(max-width:620px){.ppgrid:has(img:not([hidden])){grid-template-columns:1fr}}
-  .ppbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:-4px 0 12px}
-  .ppbar .ppnote{font-size:11.5px;color:var(--ink3)}
+  .cal.pricecal{display:flex;align-items:center;gap:6px 10px;flex-wrap:wrap} .cal.pricecal .ptx{flex:1 1 280px} .cal.pricecal .btn{flex:0 0 auto}
   .btn.sm{padding:6px 12px;font-size:12.5px}
   label.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
   @media(max-width:620px){
@@ -406,7 +405,7 @@ function render(){
       <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · odds pulled <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b>${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span>
       <button class="rfb" id="rfbtn" title="${cur==="mls"?"Re-runs the MLS sim (free, ~2–3 min). Prices come from your DraftKings screenshot — post a new one to update them.":cur==="fcs"?"Re-runs the FCS board (free, ~2–3 min). No odds feed carries FCS futures — prices come only from your DraftKings/FanDuel screenshot.":`Re-pull ${MK(cur)} prices for the ${d.sport} board (rebuilds this board via the refresh bot, ~1–2 min; ${PRICE_FILES[cur]?"free; prices come from your screenshot":"1 Odds API credit"})`}" onclick="runBlueprint(['${cur}'],'rfmsg')">↻ Refresh odds</button><span class="runmsg" id="rfmsg"></span></div>
     ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}
-    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${d.use_pre?`<div class="cal low"><span class="lbl">Projection</span>Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games — ✓ on the card. The blueprint takes over around 8 games in.${cur==="wcbb"?(d.market_asof?` Women's ${d.market_name} prices are <b>your screenshot from ${d.market_asof}</b> (no odds feed carries women's futures).`:` No current women's prices — use 📷 Update prices.`):""}</div>`:""}${cur==="mls"?`<div class="cal ${d.market_asof?"":"low"}"><span class="lbl">Prices</span>${d.market_asof?`${d.market_name||"DraftKings"} prices are <b>your screenshot from ${d.market_asof}</b> — no odds feed carries MLS Cup futures (and no Kalshi). Use 📷 Update prices to refresh them.`:`No current prices — the last screenshot is over 2 weeks old. Use 📷 Update prices.`} Bet only teams that clear <b>all 5</b> criteria, at a price longer than fair.</div>`:""}${cur==="fcs"?`<div class="cal low"><span class="lbl">Prices</span>${d.market_asof?`${d.market_name} prices are <b>your screenshot from ${d.market_asof}</b>.`:`No odds feed carries FCS title futures (and no Kalshi) — use 📷 Update prices with a DraftKings or FanDuel screenshot to see EV.`} Paper only: a bet needs a <b>5/5</b> team priced longer than <b>both</b> the blueprint and the rating-only fair odds — and wait for the bracket (Sun Nov 22).</div>`:""}${PRICE_FILES[cur]?`<div class="ppbar"><button class="btn sm" onclick="openPP()">📷 Update prices</button><span class="ppnote">screenshot or paste · you check them, then they're saved to the site</span></div>`:""}${top8(d,cur)}`;
+    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${d.use_pre?`<div class="cal low"><span class="lbl">Projection</span>Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games — ✓ on the card. The blueprint takes over around 8 games in.</div>`:""}${priceCal(d)}${top8(d,cur)}`;
   if(teams.length>1){
     const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
     const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
@@ -476,6 +475,14 @@ function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
   document.getElementById("pptxt").value=(d.teams||[]).filter(t=>t.market).sort((a,b)=>(a.mk??0)-(b.mk??0)).map(t=>`${t.name}: ${t.market}`).join("\n");
   document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
   document.getElementById("ppop").classList.add("on"); }
+// one Prices box for every screenshot-priced board: what the prices are + the 📷 button inside it
+function priceCal(d){ if(!PRICE_FILES[cur]) return "";
+  const rule={mls:" Bet only teams with all 5 criteria, priced longer than fair.",
+    fcs:" Paper board — bet only a 5/5 team priced longer than both fair odds, once the bracket is set."}[cur]||"";
+  const txt=d.market_asof?`${esc(d.market_name||"DraftKings")} prices from <b>your ${d.market_asof} screenshot</b>.${rule}`
+    :`No current prices — add a sportsbook screenshot (they expire after 14 days).`;
+  return `<div class="cal pricecal ${d.market_asof?"":"low"}"><span class="lbl">Prices</span><span class="ptx">${txt}</span>`
+    +`<button class="btn sm" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update prices</button></div>`; }
 function closePP(){ document.getElementById("ppop").classList.remove("on"); }
 function chgTok(){ document.getElementById("tok").value=tok(); document.getElementById("pop").classList.add("on"); return false; }   // opens above the price box; prices stay put
 // a screenshot can also be PASTED (Ctrl+V / long-press -> Paste in the box) or dragged in; pasted text still goes into the box as text
