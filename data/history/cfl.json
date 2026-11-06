@@ -1,0 +1,71 @@
+[
+ {
+  "date": "2026-11-06",
+  "gp": 18,
+  "teams": {
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 93.8,
+    "fp": 42.9,
+    "mkt": "-125",
+    "ev": -23
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 87.6,
+    "fp": 35.4,
+    "mkt": "+340",
+    "ev": 56
+   },
+   "BC Lions": {
+    "sc": 5,
+    "idx": 68.8,
+    "fp": 12.4,
+    "mkt": "+330",
+    "ev": -47
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 59.1,
+    "fp": 9.3,
+    "mkt": "+750",
+    "ev": -21
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 65.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 58.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 70.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 37.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ }
+]

@@ -7,9 +7,9 @@ on:
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
-        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs)"
+        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs,cfl)"
         required: false
-        default: "nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs"
+        default: "nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs,cfl"
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v4     # the MLS and FCS boards' engines are Node (scripts/mls/soccer.mjs, scripts/college/run.mjs)
+      - uses: actions/setup-node@v4     # the MLS, FCS and CFL boards' engines are Node (scripts/mls/soccer.mjs, scripts/college/run.mjs + cfl.mjs)
         with:
           node-version: "20"
 
@@ -43,7 +43,7 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}        # add in repo Settings → Secrets → Actions
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}  # enables the beat-reporter reads (optional; falls back to template)
-          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs' }}
+          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs,cfl' }}
           TMPDIR: /tmp                                      # the Node engines cache under os.tmpdir() -- pinned so the cache step below finds it
         run: python scripts/build.py
 
