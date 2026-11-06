@@ -7,9 +7,9 @@ on:
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
-        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls)"
+        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs)"
         required: false
-        default: "nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls"
+        default: "nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs"
 
 permissions:
   contents: write
@@ -24,9 +24,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - uses: actions/setup-node@v4     # the MLS board's engine is Node (scripts/mls/soccer.mjs)
+      - uses: actions/setup-node@v4     # the MLS and FCS boards' engines are Node (scripts/mls/soccer.mjs, scripts/college/run.mjs)
         with:
           node-version: "20"
+
+      - uses: actions/cache@v4          # Node engines' data caches (ESPN scoreboards; past seasons never change) -- keeps MLS/FCS builds fast
+        with:
+          path: |
+            /tmp/college_bp_cache
+            /tmp/pro_bp_cache
+          key: bp-engine-cache-${{ github.run_id }}
+          restore-keys: bp-engine-cache-
 
       - name: Install college-basketball deps (parquet game data)
         run: pip install pandas pyarrow
@@ -35,7 +43,8 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}        # add in repo Settings → Secrets → Actions
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}  # enables the beat-reporter reads (optional; falls back to template)
-          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls' }}
+          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba,wnba,cbb,wcbb,mls,fcs' }}
+          TMPDIR: /tmp                                      # the Node engines cache under os.tmpdir() -- pinned so the cache step below finds it
         run: python scripts/build.py
 
       - name: Commit updated data
