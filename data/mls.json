@@ -1,7 +1,7 @@
 {
   "sport": "MLS",
   "season": "2026",
-  "generated": "2026-11-06T12:28:08Z",
+  "generated": "2026-11-06T17:42:53Z",
   "cats": [
     "Attack rating top-12",
     "Form (pts/g, last 8) \u2265 1.25",
@@ -38,18 +38,18 @@
         "1.78 #1"
       ],
       "rtg": 0.819,
-      "conf_pct": 38.0,
-      "index": 100.0,
-      "fair_pct": 26.1,
-      "fair_odds": "+283",
+      "conf_pct": 38.2,
+      "index": 77.3,
+      "fair_pct": 26.5,
+      "fair_odds": "+277",
       "read": null,
       "mk": 350,
       "market": "+350",
-      "ev": 17,
+      "ev": 19,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 17
+        "ev": 19
       }
     },
     {
@@ -73,10 +73,10 @@
         "1.66 #2"
       ],
       "rtg": 0.793,
-      "conf_pct": 43.2,
-      "index": 89.7,
-      "fair_pct": 24.6,
-      "fair_odds": "+307",
+      "conf_pct": 43.3,
+      "index": 67.9,
+      "fair_pct": 24.5,
+      "fair_odds": "+308",
       "read": null,
       "mk": 450,
       "market": "+450",
@@ -108,10 +108,10 @@
         "1.44 #3"
       ],
       "rtg": 0.719,
-      "conf_pct": 22.8,
-      "index": 71.9,
+      "conf_pct": 22.5,
+      "index": 68.9,
       "fair_pct": 12.8,
-      "fair_odds": "+682",
+      "fair_odds": "+684",
       "read": null,
       "mk": 500,
       "market": "+500",
@@ -120,41 +120,6 @@
         "kind": "fade",
         "label": "fade",
         "ev": -23
-      }
-    },
-    {
-      "name": "Chicago Fire FC",
-      "conf": "East",
-      "rec": "16-10-7 \u00b7 55 pts",
-      "gp": 33,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "#4",
-        "2.00 #4",
-        "1.40 #13",
-        "#5",
-        "1.17 #7"
-      ],
-      "rtg": 0.277,
-      "conf_pct": 8.0,
-      "index": 49.1,
-      "fair_pct": 3.9,
-      "fair_odds": "+2448",
-      "read": null,
-      "mk": 1400,
-      "market": "+1400",
-      "ev": -41,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -41
       }
     },
     {
@@ -178,18 +143,53 @@
         "1.23 #6"
       ],
       "rtg": 0.336,
-      "conf_pct": 8.2,
-      "index": 54.0,
+      "conf_pct": 8.4,
+      "index": 50.9,
       "fair_pct": 3.8,
-      "fair_odds": "+2514",
+      "fair_odds": "+2546",
       "read": null,
       "mk": 2500,
       "market": "+2500",
-      "ev": -1,
+      "ev": -2,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -1
+        "ev": -2
+      }
+    },
+    {
+      "name": "Chicago Fire FC",
+      "conf": "East",
+      "rec": "16-10-7 \u00b7 55 pts",
+      "gp": 33,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "#4",
+        "2.00 #4",
+        "1.40 #13",
+        "#5",
+        "1.17 #7"
+      ],
+      "rtg": 0.277,
+      "conf_pct": 7.6,
+      "index": 53.7,
+      "fair_pct": 3.6,
+      "fair_odds": "+2666",
+      "read": null,
+      "mk": 1400,
+      "market": "+1400",
+      "ev": -46,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -46
       }
     },
     {
@@ -213,18 +213,18 @@
         "1.07 #11"
       ],
       "rtg": 0.111,
-      "conf_pct": 14.1,
-      "index": 40.6,
-      "fair_pct": 5.0,
-      "fair_odds": "+1886",
+      "conf_pct": 13.9,
+      "index": 45.9,
+      "fair_pct": 4.6,
+      "fair_odds": "+2057",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -24,
+      "ev": -30,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -24
+        "ev": -30
       }
     },
     {
@@ -248,18 +248,18 @@
         "1.35 #4"
       ],
       "rtg": 0.478,
-      "conf_pct": 9.4,
-      "index": 63.8,
-      "fair_pct": 4.2,
-      "fair_odds": "+2253",
+      "conf_pct": 9.8,
+      "index": 51.4,
+      "fair_pct": 4.5,
+      "fair_odds": "+2100",
       "read": null,
       "mk": 2500,
       "market": "+2500",
-      "ev": 10,
+      "ev": 18,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 10
+        "ev": 18
       }
     },
     {
@@ -284,17 +284,17 @@
       ],
       "rtg": 0.122,
       "conf_pct": 7.7,
-      "index": 41.6,
-      "fair_pct": 3.4,
-      "fair_odds": "+2841",
+      "index": 52.9,
+      "fair_pct": 3.6,
+      "fair_odds": "+2701",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -49,
+      "ev": -46,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -49
+        "ev": -46
       }
     },
     {
@@ -318,18 +318,18 @@
         "1.15 #8"
       ],
       "rtg": 0.217,
-      "conf_pct": 2.8,
-      "index": 47.1,
+      "conf_pct": 2.9,
+      "index": 58.7,
       "fair_pct": 1.1,
-      "fair_odds": "+8950",
+      "fair_odds": "+9117",
       "read": null,
       "mk": 5000,
       "market": "+5000",
-      "ev": -44,
+      "ev": -45,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -44
+        "ev": -45
       }
     },
     {
@@ -353,18 +353,18 @@
         "0.98 #17"
       ],
       "rtg": -0.031,
-      "conf_pct": 2.1,
-      "index": 33.2,
+      "conf_pct": 2.2,
+      "index": 46.8,
       "fair_pct": 0.7,
-      "fair_odds": "+14825",
+      "fair_odds": "+13985",
       "read": null,
       "mk": 3300,
       "market": "+3300",
-      "ev": -77,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -76
       }
     },
     {
@@ -388,18 +388,18 @@
         "1.06 #12"
       ],
       "rtg": 0.101,
-      "conf_pct": 8.4,
-      "index": 39.9,
-      "fair_pct": 2.7,
-      "fair_odds": "+3659",
+      "conf_pct": 9.2,
+      "index": 37.2,
+      "fair_pct": 3.0,
+      "fair_odds": "+3261",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -55,
+      "ev": -49,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -55
+        "ev": -49
       }
     },
     {
@@ -423,18 +423,53 @@
         "0.94 #22"
       ],
       "rtg": -0.103,
-      "conf_pct": 1.5,
-      "index": 29.7,
+      "conf_pct": 1.6,
+      "index": 41.8,
       "fair_pct": 0.4,
-      "fair_odds": "+26216",
+      "fair_odds": "+22627",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -69,
+      "ev": -64,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -69
+        "ev": -64
+      }
+    },
+    {
+      "name": "LA Galaxy",
+      "conf": "West",
+      "rec": "11-11-11 \u00b7 44 pts",
+      "gp": 33,
+      "score": 2,
+      "q": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#20",
+        "1.88 #5",
+        "1.60 #11",
+        "#20",
+        "0.86 #26"
+      ],
+      "rtg": -0.249,
+      "conf_pct": 1.2,
+      "index": 37.8,
+      "fair_pct": 0.4,
+      "fair_odds": "+28471",
+      "read": null,
+      "mk": 6500,
+      "market": "+6500",
+      "ev": -77,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -77
       }
     },
     {
@@ -459,52 +494,17 @@
       ],
       "rtg": -0.113,
       "conf_pct": 1.2,
-      "index": 28.6,
+      "index": 39.4,
       "fair_pct": 0.3,
-      "fair_odds": "+32158",
+      "fair_odds": "+33798",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -69,
+      "ev": -70,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -69
-      }
-    },
-    {
-      "name": "LA Galaxy",
-      "conf": "West",
-      "rec": "11-11-11 \u00b7 44 pts",
-      "gp": 33,
-      "score": 2,
-      "q": [
-        false,
-        true,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "#20",
-        "1.88 #5",
-        "1.60 #11",
-        "#20",
-        "0.86 #26"
-      ],
-      "rtg": -0.249,
-      "conf_pct": 1.4,
-      "index": 22.9,
-      "fair_pct": 0.3,
-      "fair_odds": "+32687",
-      "read": null,
-      "mk": 6500,
-      "market": "+6500",
-      "ev": -80,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -80
+        "ev": -70
       }
     },
     {
@@ -529,17 +529,17 @@
       ],
       "rtg": -0.007,
       "conf_pct": 0.5,
-      "index": 34.3,
-      "fair_pct": 0.2,
+      "index": 43.3,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": 25000,
       "market": "+25000",
-      "ev": -59,
+      "ev": -69,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -59
+        "ev": -69
       }
     },
     {
@@ -564,7 +564,7 @@
       ],
       "rtg": -0.211,
       "conf_pct": 0,
-      "index": 24.2,
+      "index": 31.8,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -594,18 +594,18 @@
         "1.27 #5"
       ],
       "rtg": 0.343,
-      "conf_pct": 13.3,
-      "index": 57.1,
-      "fair_pct": 5.2,
-      "fair_odds": "+1840",
+      "conf_pct": 12.8,
+      "index": 41.7,
+      "fair_pct": 4.8,
+      "fair_odds": "+1970",
       "read": null,
       "mk": 1800,
       "market": "+1800",
-      "ev": -2,
+      "ev": -8,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -2
+        "ev": -8
       }
     },
     {
@@ -629,18 +629,18 @@
         "0.99 #16"
       ],
       "rtg": -0.022,
-      "conf_pct": 7.7,
-      "index": 33.5,
-      "fair_pct": 2.4,
-      "fair_odds": "+4058",
+      "conf_pct": 7.8,
+      "index": 40,
+      "fair_pct": 2.5,
+      "fair_odds": "+3908",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -59,
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -59
+        "ev": -58
       }
     },
     {
@@ -665,17 +665,17 @@
       ],
       "rtg": -0.042,
       "conf_pct": 1.3,
-      "index": 32.3,
-      "fair_pct": 0.4,
-      "fair_odds": "+25541",
+      "index": 30.1,
+      "fair_pct": 0.3,
+      "fair_odds": "+29751",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -61,
+      "ev": -66,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -61
+        "ev": -66
       }
     },
     {
@@ -700,17 +700,17 @@
       ],
       "rtg": -0.088,
       "conf_pct": 0.8,
-      "index": 31.0,
-      "fair_pct": 0.2,
-      "fair_odds": "+48680",
+      "index": 41.5,
+      "fair_pct": 0.3,
+      "fair_odds": "+39116",
       "read": null,
       "mk": 6500,
       "market": "+6500",
-      "ev": -86,
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -83
       }
     },
     {
@@ -735,7 +735,7 @@
       ],
       "rtg": -0.367,
       "conf_pct": 0,
-      "index": 16.6,
+      "index": 26.4,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -766,7 +766,7 @@
       ],
       "rtg": 0.034,
       "conf_pct": 0,
-      "index": 36.3,
+      "index": 37,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -796,18 +796,18 @@
         "0.95 #20"
       ],
       "rtg": -0.07,
-      "conf_pct": 6.6,
-      "index": 30.4,
-      "fair_pct": 2.2,
-      "fair_odds": "+4519",
+      "conf_pct": 6.3,
+      "index": 31.8,
+      "fair_pct": 2.0,
+      "fair_odds": "+5015",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -63,
+      "ev": -67,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -63
+        "ev": -67
       }
     },
     {
@@ -832,17 +832,17 @@
       ],
       "rtg": -0.175,
       "conf_pct": 0.9,
-      "index": 25.1,
+      "index": 29.8,
       "fair_pct": 0.2,
-      "fair_odds": "+47519",
+      "fair_odds": "+40716",
       "read": null,
       "mk": 6500,
       "market": "+6500",
-      "ev": -86,
+      "ev": -84,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -84
       }
     },
     {
@@ -867,7 +867,7 @@
       ],
       "rtg": -0.258,
       "conf_pct": 0,
-      "index": 21.6,
+      "index": 26.6,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -898,7 +898,7 @@
       ],
       "rtg": -0.623,
       "conf_pct": 0,
-      "index": 5.6,
+      "index": 9.6,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -929,7 +929,7 @@
       ],
       "rtg": -0.696,
       "conf_pct": 0,
-      "index": 3.1,
+      "index": 10.4,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -960,7 +960,7 @@
       ],
       "rtg": 0.119,
       "conf_pct": 0,
-      "index": 42.1,
+      "index": 32.8,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -991,7 +991,7 @@
       ],
       "rtg": -0.942,
       "conf_pct": 0,
-      "index": 0.0,
+      "index": 11.8,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -1022,7 +1022,7 @@
       ],
       "rtg": -0.473,
       "conf_pct": 0,
-      "index": 12.5,
+      "index": 18.1,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -1039,7 +1039,7 @@
   "sims": 20000,
   "prediction": {
     "pick": "Nashville SC",
-    "why": "<b>Nashville SC</b> is the model's #1: 26.1% to win MLS Cup (fair +283) and 38.0% to win the East. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
+    "why": "<b>Nashville SC</b> is the model's #1: 26.5% to win MLS Cup (fair +277) and 38.2% to win the East. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
   },
   "season_pct": 97,
   "gp_min": 33,
@@ -1055,13 +1055,13 @@
       "name": "Vancouver Whitecaps",
       "ev": 35,
       "market": "+450",
-      "fair_odds": "+307"
+      "fair_odds": "+308"
     },
     {
       "name": "Nashville SC",
-      "ev": 17,
+      "ev": 19,
       "market": "+350",
-      "fair_odds": "+283"
+      "fair_odds": "+277"
     }
   ]
 }

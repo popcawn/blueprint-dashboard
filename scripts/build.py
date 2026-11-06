@@ -1525,10 +1525,14 @@ def build_mls():
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
     fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14
+    # index (2026-11-06): the engine's champion-weighted index -- Win% 25 · Overall 25 · Attack 20 · Form8 15 · Form5 15, each 0-100
+    # across all teams (hidden-season test: champion's avg rank in the playoff field 2.7 vs 3.5 for the old overall-rating-only
+    # index). Falls back to the overall rating scaled 0-100 if the export has no idx.
     smin, smax = min(t["str"] for t in E["teams"]), max(t["str"] for t in E["teams"])
+    old_idx = lambda t: round(100 * (t["str"] - smin) / (smax - smin), 1) if smax > smin else 50.0
     rows = [{"name": t["name"], "conf": "East" if t["conf"] == "E" else "West", "rec": f"{t['w']}-{t['l']}-{t['d']} · {t['pts']} pts",
              "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"], "rtg": t["rtg"], "p": t["p"], "conf_pct": round(100 * t["pconf"], 1),
-             "index": round(100 * (t["str"] - smin) / (smax - smin), 1) if smax > smin else 50.0} for t in E["teams"]]
+             "index": t["idx"] if t.get("idx") is not None else old_idx(t)} for t in E["teams"]]
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
         t["fair_odds"] = american(t["p"]) if t["p"] else None

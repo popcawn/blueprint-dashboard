@@ -170,13 +170,32 @@ async function tierSeasons(P) {
   }
   return out;
 }
+// NWSL index (display only -- the title odds come from the bracket sim): champion-weighted mean of the 5 profile metrics, each scaled
+// 0-100 across the whole league. Weights = how far the 8 clean champions (2017-25) sat above their playoff field on each metric
+// (2026-11-06 study): Loss% 30 · GA/g 25 · GD/g 20 · Form 15 · GF/g 10. Hidden-season check (weights refit without that year):
+// the champion was the field's index #1 in 5/8 (avg rank 2.1 vs 3.4 random) -- but #1 in only 2 of the 5 since 2021.
+// MLS index (2026-11-06, same method, 15 champions 2010-25): Win% 25 · Overall (att/def) 25 · Attack 20 · Form8 15 · Form5 15.
+// Hidden-season check: champion's index rank in the playoff field avg 2.73 (random 6.9), top-3 in 10/15, #1 in 3/15; it beats the
+// dashboard's old overall-rating-only index (avg 3.53, and 4.29 in 2018-25 vs 2.71). Exported as `idx`; the dashboard's MLS cards use it
+// since 2026-11-06 (build.py build_mls falls back to the overall rating if idx is missing).
+const IDXW = lk === 'nwsl' ? {lpct: 30, ga: 25, gdpg: 20, form: 15, gf: 10} : {wpct: 25, str: 25, att: 20, form: 15, form5: 15};
+function addIndex(rows) {
+  if (!IDXW) return;
+  const N = {};
+  for (const k of Object.keys(IDXW)) { const f = FEATS.find(x => x.k === k), dir = f ? f.dir : 1, v = rows.map(r => +r[k]), lo = Math.min(...v), hi = Math.max(...v);
+    N[k] = r => hi === lo ? 50 : 100 * (dir > 0 ? r[k] - lo : hi - r[k]) / (hi - lo); }
+  const tw = Object.values(IDXW).reduce((a, b) => a + b, 0);
+  for (const r of rows) r.idx = Object.entries(IDXW).reduce((a, [k, w]) => a + w * N[k](r), 0) / tw;
+}
 function printTiers(rows, cuts, pct, nameOf) {
   console.log(`\nTIERS -- champion profile (every past champion had all 5 at the start of the playoffs): ${FEATS.map((f, i) => cutLabel(f, cuts[i])).join(' · ')}`);
+  if (IDXW) console.log(`index (0-100, display only) = ${Object.entries(IDXW).map(([k, w]) => `${FEATS.find(f => f.k === k)?.label || k} ${w}%`).join(' · ')}`);
   for (const s of [5, 4, 3, 2, 1]) {
     const L2 = rows.filter(r => (s === 1 ? r.score <= 1 : r.score === s)).sort((a, b) => (pct(b.id) || 0) - (pct(a.id) || 0));
     if (!L2.length) continue;
     console.log(`${TIER_NAME(s)}`);
-    for (const r of L2) console.log(`  ${String(nameOf(r.id)).padEnd(26)} title ${(100 * (pct(r.id) || 0)).toFixed(1).padStart(5)}% | ${FEATS.map((f, i) => `${r.q[i] ? '✓' : '✗'} ${f.label} #${r['r_' + f.k]}`).join(' · ')}`);
+    const fairOf = p => p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / Math.max(p, 1e-4));
+    for (const r of L2) console.log(`  ${String(nameOf(r.id)).padEnd(26)} title ${(100 * (pct(r.id) || 0)).toFixed(1).padStart(5)}% (fair ${fairOf(pct(r.id) || 0).padStart(6)})${r.idx != null ? ` · idx ${r.idx.toFixed(1).padStart(5)}` : ''} | ${FEATS.map((f, i) => `${r.q[i] ? '✓' : '✗'} ${f.label} #${r['r_' + f.k]}`).join(' · ')}`);
   }
 }
 if (mode === 'dump') {   // input for study/criteria.mjs (the "every champion" search)
@@ -304,6 +323,7 @@ if (lk === 'mls') {
   if (!arg('--book')) console.log('  (no odds feed for MLS Cup futures -- post a DraftKings, else FanDuel, screenshot and rerun with --book)');
   const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, asOf, P);
   for (const r of prof) tierScore(r, FEATS, cuts);
+  addIndex(prof);   // scaled across all teams, before narrowing to the contenders
   printTiers(prof.filter(r => (cup.get(r.id) || 0) / N >= 0.005), cuts, id => (cup.get(id) || 0) / N, id => names.get(id));
   if (arg('--export')) {   // board JSON for the blueprint dashboard (scripts/build.py build_mls)
     const SHORT = {att: 'Attack', form: 'Form 8', form5: 'Form 5', wpct: 'Win%', str: 'Overall'}, s2 = Math.sqrt(M.H);
@@ -313,7 +333,7 @@ if (lk === 'mls') {
         return {id, name: names.get(id) || id, conf: conf.get(id), gp: b.gp, w: b.w, d: b.d, l: b.gp - b.w - b.d, pts: b.pts, gd: b.gd,
           p: (cup.get(id) || 0) / N, pconf: (win.get(id) || 0) / N, score: r ? r.score : 0, q: r ? r.q : FEATS.map(() => false),
           vals: FEATS.map(f => !r ? '—' : f.kind === 'value' ? `${(+r[f.k]).toFixed(2)} #${r['r_' + f.k]}` : `#${r['r_' + f.k]}`),
-          str: r ? r.str : a / dd, rtg: +(M.mu * s2 * (a - dd)).toFixed(3)}; })};
+          str: r ? r.str : a / dd, rtg: +(M.mu * s2 * (a - dd)).toFixed(3), idx: r && r.idx != null ? +r.idx.toFixed(1) : null}; })};   // idx = champion-weighted index (IDXW)
     fs.writeFileSync(arg('--export'), JSON.stringify(out));
     console.log('exported -> ' + arg('--export'));
   }
@@ -358,6 +378,7 @@ for (const [id, p] of rows) {
 for (const g of PO.filter(g => !g.fin)) { const p = pAdvance(M, g.h, g.a, g.neutral ? null : 'h'), [W, D, Lo] = wdl(...lambdas(M, g.h, g.a, g.neutral ? null : 'h'), P.rho); console.log(`  next: ${g.d} ${names.get(g.h)} (home) vs ${names.get(g.a)} -- 90 min ${(100 * W).toFixed(0)}/${(100 * D).toFixed(0)}/${(100 * Lo).toFixed(0)}, ${names.get(g.h)} advances ${(100 * p).toFixed(0)}%`); }
 { const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), P);
   for (const r of prof) tierScore(r, FEATS, cuts);
+  addIndex(prof);   // scaled across the whole league, before narrowing to the playoff teams
   printTiers(prof.filter(r => alive.has(r.id) || T.has(r.id)), cuts, id => T.get(id), id => names.get(id)); }
 const book = arg('--book');
 if (book) for (const pair of book.split(',')) { const m = pair.trim().match(/^(.*?):\s*([+-]?\d+)$/); if (!m) continue; const am = +m[2], dec = am > 0 ? 1 + am / 100 : 1 + 100 / -am, id = [...T.keys()].find(i => norm(names.get(i)).includes(norm(m[1])) || norm(m[1]).includes(norm(names.get(i)))); const p = id ? T.get(id) : null; console.log(`  book ${m[1].padEnd(22)} ${m[2].padStart(6)} implied ${(100 / dec).toFixed(1)}% | model ${p == null ? 'n/a' : (100 * p).toFixed(1) + '% -> EV ' + Math.round(100 * (p * dec - 1)) + '%'}`); }
