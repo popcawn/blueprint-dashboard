@@ -1,9 +1,10 @@
 {
  "date": "2026-11-06",
  "book": "FanDuel",
- "source": "user screenshot, saved from the site (MLS board)",
+ "source": "user FanDuel screenshot, saved from the site (MLS board); corrected to the screenshot: the saved read had dropped Nashville SC (+340) and put +340 on Vancouver (FanDuel +430)",
  "odds": {
-  "Vancouver Whitecaps": 340,
+  "Nashville SC": 340,
+  "Vancouver Whitecaps": 430,
   "Inter Miami CF": 500,
   "New England Revolution": 1300,
   "Chicago Fire FC": 1400,
@@ -15,8 +16,8 @@
   "San Jose Earthquakes": 2200,
   "Charlotte FC": 2700,
   "Seattle Sounders FC": 3300,
-  "Colorado Rapids": 4000,
   "FC Cincinnati": 4000,
+  "Colorado Rapids": 4000,
   "Orlando City SC": 4000,
   "Columbus Crew": 5500,
   "Real Salt Lake": 8000,

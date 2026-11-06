@@ -1,7 +1,7 @@
 {
   "sport": "MLS",
   "season": "2026",
-  "generated": "2026-11-06T20:21:52Z",
+  "generated": "2026-11-06T20:22:50Z",
   "cats": [
     "Attack rating top-12",
     "Form (pts/g, last 8) \u2265 1.25",
@@ -38,15 +38,19 @@
         "1.78 #1"
       ],
       "rtg": 0.819,
-      "conf_pct": 38.8,
+      "conf_pct": 38.2,
       "index": 77.3,
-      "fair_pct": 26.5,
-      "fair_odds": "+278",
+      "fair_pct": 26.1,
+      "fair_odds": "+283",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 340,
+      "market": "+340",
+      "ev": 15,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 15
+      }
     },
     {
       "name": "Vancouver Whitecaps",
@@ -69,18 +73,18 @@
         "1.66 #2"
       ],
       "rtg": 0.793,
-      "conf_pct": 43.5,
+      "conf_pct": 43.3,
       "index": 67.9,
-      "fair_pct": 24.8,
-      "fair_odds": "+303",
+      "fair_pct": 24.4,
+      "fair_odds": "+310",
       "read": null,
-      "mk": 340,
-      "market": "+340",
-      "ev": 9,
+      "mk": 430,
+      "market": "+430",
+      "ev": 29,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 9
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 29
       }
     },
     {
@@ -104,18 +108,18 @@
         "1.44 #3"
       ],
       "rtg": 0.719,
-      "conf_pct": 22.3,
+      "conf_pct": 22.1,
       "index": 68.9,
-      "fair_pct": 12.5,
-      "fair_odds": "+701",
+      "fair_pct": 12.4,
+      "fair_odds": "+706",
       "read": null,
       "mk": 500,
       "market": "+500",
-      "ev": -25,
+      "ev": -26,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -25
+        "ev": -26
       }
     },
     {
@@ -141,16 +145,16 @@
       "rtg": 0.336,
       "conf_pct": 8.3,
       "index": 50.9,
-      "fair_pct": 3.8,
-      "fair_odds": "+2553",
+      "fair_pct": 3.9,
+      "fair_odds": "+2477",
       "read": null,
       "mk": 2700,
       "market": "+2700",
-      "ev": 6,
+      "ev": 9,
       "verdict": {
         "kind": "small",
         "label": "small value",
-        "ev": 6
+        "ev": 9
       }
     },
     {
@@ -174,18 +178,18 @@
         "1.17 #7"
       ],
       "rtg": 0.277,
-      "conf_pct": 7.5,
+      "conf_pct": 7.8,
       "index": 53.7,
-      "fair_pct": 3.4,
-      "fair_odds": "+2854",
+      "fair_pct": 3.9,
+      "fair_odds": "+2497",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -49,
+      "ev": -42,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -49
+        "ev": -42
       }
     },
     {
@@ -211,16 +215,16 @@
       "rtg": 0.111,
       "conf_pct": 13.9,
       "index": 45.9,
-      "fair_pct": 5.1,
-      "fair_odds": "+1867",
+      "fair_pct": 5.0,
+      "fair_odds": "+1920",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -24,
+      "ev": -26,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -24
+        "ev": -26
       }
     },
     {
@@ -246,16 +250,16 @@
       "rtg": 0.478,
       "conf_pct": 10.0,
       "index": 51.4,
-      "fair_pct": 4.6,
-      "fair_odds": "+2081",
+      "fair_pct": 4.7,
+      "fair_odds": "+2025",
       "read": null,
       "mk": 2000,
       "market": "+2000",
-      "ev": -4,
+      "ev": -1,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -4
+        "ev": -1
       }
     },
     {
@@ -279,18 +283,18 @@
         "1.08 #10"
       ],
       "rtg": 0.122,
-      "conf_pct": 7.5,
+      "conf_pct": 7.9,
       "index": 52.9,
-      "fair_pct": 3.6,
-      "fair_odds": "+2678",
+      "fair_pct": 3.5,
+      "fair_odds": "+2741",
       "read": null,
       "mk": 1300,
       "market": "+1300",
-      "ev": -50,
+      "ev": -51,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -50
+        "ev": -51
       }
     },
     {
@@ -314,18 +318,18 @@
         "1.15 #8"
       ],
       "rtg": 0.217,
-      "conf_pct": 2.8,
+      "conf_pct": 2.9,
       "index": 58.7,
-      "fair_pct": 1.0,
-      "fair_odds": "+9801",
+      "fair_pct": 1.1,
+      "fair_odds": "+9032",
       "read": null,
       "mk": 5500,
       "market": "+5500",
-      "ev": -43,
+      "ev": -39,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -43
+        "kind": "fade",
+        "label": "fade",
+        "ev": -39
       }
     },
     {
@@ -349,18 +353,18 @@
         "0.98 #17"
       ],
       "rtg": -0.031,
-      "conf_pct": 2.0,
+      "conf_pct": 2.1,
       "index": 46.8,
       "fair_pct": 0.7,
-      "fair_odds": "+14606",
+      "fair_odds": "+15052",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -72,
+      "ev": -73,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -72
+        "ev": -73
       }
     },
     {
@@ -386,16 +390,16 @@
       "rtg": 0.101,
       "conf_pct": 8.8,
       "index": 37.2,
-      "fair_pct": 2.6,
-      "fair_odds": "+3806",
+      "fair_pct": 3.0,
+      "fair_odds": "+3200",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -56,
+      "ev": -48,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -56
+        "ev": -48
       }
     },
     {
@@ -419,18 +423,18 @@
         "0.94 #22"
       ],
       "rtg": -0.103,
-      "conf_pct": 1.7,
+      "conf_pct": 1.5,
       "index": 41.8,
       "fair_pct": 0.4,
-      "fair_odds": "+23429",
+      "fair_odds": "+23710",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -57,
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -57
+        "ev": -58
       }
     },
     {
@@ -456,16 +460,16 @@
       "rtg": -0.249,
       "conf_pct": 1.3,
       "index": 37.8,
-      "fair_pct": 0.4,
-      "fair_odds": "+26927",
+      "fair_pct": 0.3,
+      "fair_odds": "+32158",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -63,
+      "ev": -69,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -63
+        "ev": -69
       }
     },
     {
@@ -492,15 +496,15 @@
       "conf_pct": 1.2,
       "index": 39.4,
       "fair_pct": 0.3,
-      "fair_odds": "+32158",
+      "fair_odds": "+33798",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -75,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -75
+        "ev": -76
       }
     },
     {
@@ -531,11 +535,11 @@
       "read": null,
       "mk": 15000,
       "market": "+15000",
-      "ev": -79,
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -79
+        "ev": -80
       }
     },
     {
@@ -590,18 +594,18 @@
         "1.27 #5"
       ],
       "rtg": 0.343,
-      "conf_pct": 12.8,
+      "conf_pct": 13.1,
       "index": 41.7,
-      "fair_pct": 4.8,
-      "fair_odds": "+1981",
+      "fair_pct": 5.0,
+      "fair_odds": "+1884",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -18,
+      "ev": -14,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -18
+        "ev": -14
       }
     },
     {
@@ -625,18 +629,18 @@
         "0.99 #16"
       ],
       "rtg": -0.022,
-      "conf_pct": 7.9,
+      "conf_pct": 7.8,
       "index": 40,
-      "fair_pct": 2.6,
-      "fair_odds": "+3814",
+      "fair_pct": 2.4,
+      "fair_odds": "+4024",
       "read": null,
       "mk": 2200,
       "market": "+2200",
-      "ev": -41,
+      "ev": -44,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -41
+        "ev": -44
       }
     },
     {
@@ -662,16 +666,16 @@
       "rtg": -0.042,
       "conf_pct": 1.2,
       "index": 30.1,
-      "fair_pct": 0.4,
-      "fair_odds": "+26216",
+      "fair_pct": 0.3,
+      "fair_odds": "+30203",
       "read": null,
       "mk": 3300,
       "market": "+3300",
-      "ev": -87,
+      "ev": -89,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -89
       }
     },
     {
@@ -695,18 +699,18 @@
         "0.96 #19"
       ],
       "rtg": -0.088,
-      "conf_pct": 0.7,
+      "conf_pct": 0.9,
       "index": 41.5,
-      "fair_pct": 0.2,
-      "fair_odds": "+42453",
+      "fair_pct": 0.3,
+      "fair_odds": "+36264",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -90,
+      "ev": -89,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -90
+        "ev": -89
       }
     },
     {
@@ -792,18 +796,18 @@
         "0.95 #20"
       ],
       "rtg": -0.07,
-      "conf_pct": 6.2,
+      "conf_pct": 6.3,
       "index": 31.8,
-      "fair_pct": 2.1,
-      "fair_odds": "+4639",
+      "fair_pct": 2.0,
+      "fair_odds": "+4913",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -64,
+      "ev": -66,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -64
+        "ev": -66
       }
     },
     {
@@ -829,16 +833,16 @@
       "rtg": -0.175,
       "conf_pct": 0.9,
       "index": 29.8,
-      "fair_pct": 0.3,
-      "fair_odds": "+39116",
+      "fair_pct": 0.2,
+      "fair_odds": "+49900",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -90,
+      "ev": -92,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -90
+        "ev": -92
       }
     },
     {
@@ -1035,7 +1039,7 @@
   "sims": 20000,
   "prediction": {
     "pick": "Nashville SC",
-    "why": "<b>Nashville SC</b> is the model's #1: 26.5% to win MLS Cup (fair +278) and 38.8% to win the East. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
+    "why": "<b>Nashville SC</b> is the model's #1: 26.1% to win MLS Cup (fair +283) and 38.2% to win the East. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
   },
   "season_pct": 97,
   "gp_min": 33,
@@ -1046,5 +1050,18 @@
     "label": "Trust the board",
     "note": "33 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Vancouver Whitecaps",
+      "ev": 29,
+      "market": "+430",
+      "fair_odds": "+310"
+    },
+    {
+      "name": "Nashville SC",
+      "ev": 15,
+      "market": "+340",
+      "fair_odds": "+283"
+    }
+  ]
 }

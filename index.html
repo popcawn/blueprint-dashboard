@@ -460,8 +460,16 @@ function ppTeams(){ return (DATA[cur]&&DATA[cur].teams)||[]; }
 function checkPP(){ const {out,bad}=parsePP(document.getElementById("pptxt").value,ppTeams()), g=out.filter(x=>x.guess).map(x=>x.name);
   document.getElementById("ppcheck").innerHTML=`<b class="g">✓ ${out.length} price${out.length===1?"":"s"} matched to this board</b>`
     +(bad.length?` · <b class="r">✗ ${bad.length} line${bad.length===1?"":"s"} not understood</b> <span class="sub">(${bad.slice(0,4).map(esc).join(" · ")}${bad.length>4?" …":""})</span>`:"")
-    +(g.length?`<br><b class="w">⚠ plus/minus sign guessed — check:</b> ${g.map(esc).join(", ")}`:"");
+    +(g.length?`<br><b class="w">⚠ plus/minus sign guessed — check:</b> ${g.map(esc).join(", ")}`:"")+ppDiff(out);
   document.getElementById("ppsave").disabled=!out.length; return out; }
+// safety net (added after a misread save dropped Nashville and put its +340 on Vancouver): compare with the prices the board
+// has now -- a team that would LOSE its price, or a price that moved a lot, is listed for a second look before saving
+function ppDiff(out){ const now=new Map(ppTeams().filter(t=>t.market).map(t=>[t.name,_parseOdds(t.market)])); if(!now.size||!out.length) return "";
+  const imp=o=>o>0?100/(o+100):-o/(-o+100), f=o=>(o>0?"+":"")+o, have=new Set(out.map(x=>x.name));
+  const gone=[...now.keys()].filter(n=>!have.has(n)).sort((a,b)=>now.get(a)-now.get(b));
+  const moved=out.filter(x=>now.has(x.name)&&Math.abs(imp(x.odds)-imp(now.get(x.name)))>0.2*imp(now.get(x.name))).map(x=>`${x.name} ${f(now.get(x.name))} → ${f(x.odds)}`);
+  return (gone.length?`<br><b class="w">⚠ missing from your list (they'd lose their price):</b> ${gone.slice(0,6).map(esc).join(", ")}${gone.length>6?` +${gone.length-6} more`:""}`:"")
+    +(moved.length?`<br><b class="w">⚠ big moves vs the board now — double-check:</b> ${moved.slice(0,6).map(esc).join(" · ")}${moved.length>6?" …":""}`:""); }
 function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
   document.getElementById("pptitle").textContent=`Update ${d.sport} prices`;
   document.getElementById("ppbook").value=d.market_name==="FanDuel"?"FanDuel":"DraftKings";
