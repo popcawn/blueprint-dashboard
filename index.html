@@ -47,7 +47,6 @@
   .heror>div:first-child{flex:1 1 420px;min-width:0}
   .herot{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
   .heror p{margin:0;font-size:14.5px;line-height:1.5}
-  .runbox{flex:0 0 auto;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
   .lgs{display:flex;gap:6px;flex-wrap:wrap}
   .lgs label{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--ink2);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:3px 8px;cursor:pointer}
   .lgs input{accent-color:var(--accent);margin:0}
@@ -55,12 +54,23 @@
   .btn:hover{filter:brightness(1.06)} .btn:disabled{opacity:.5}
   .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--ink2);box-shadow:none;padding:9px 12px}
   .runmsg{font-size:12px;color:var(--ink3)}
+  .herobtns{flex:0 0 auto;display:flex;gap:7px;align-items:center}
+  .runmore{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px dashed var(--line)}
+  .runmore[hidden]{display:none}
+  .hero .runmsg{display:block;margin-top:4px} .hero .runmsg:empty{display:none}
+  .status{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin:12px 0 4px;font-size:12px;color:var(--ink3)}
+  .status .bar{flex:0 1 150px;min-width:70px;height:6px;background:var(--line);border-radius:5px;overflow:hidden}
+  .status .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .status .pr{display:inline-flex;align-items:center;gap:7px;padding:2px 3px 2px 10px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink2)}
+  .status .pr.stale{border-color:rgba(217,58,72,.35);color:var(--bad)}
+  .status .pr .rfb{padding:2px 9px;border-radius:999px}
+  .trustd{margin:4px 0 8px;font-size:12.5px;color:var(--ink2)}
+  .trustd summary{cursor:pointer;color:var(--ink3);font-size:12px;list-style:none;width:max-content;max-width:100%}
+  .trustd summary::-webkit-details-marker{display:none}
+  .trustd summary:before{content:"▸ "} .trustd[open] summary:before{content:"▾ "}
+  .trustd .cal{margin:7px 0 4px} .trustd p{margin:5px 0 0 2px;line-height:1.5}
   .runprog{width:190px;max-width:100%;height:6px;background:var(--line);border-radius:5px;overflow:hidden;margin-top:2px}
   .runprog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:5px;transition:width .45s ease}
-  .sbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0 4px}
-  .sbar .bar{flex:1 1 180px;max-width:340px;height:7px;background:var(--line);border-radius:5px;overflow:hidden}
-  .sbar .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-  .sbar .m{color:var(--ink3);font-size:12px}
   .rfb{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--sans)}
   .rfb:hover{border-color:var(--accent);color:var(--accent)}
   .rfb:disabled{opacity:.5;cursor:default}
@@ -169,7 +179,6 @@
   .ppgrid{display:grid;grid-template-columns:1fr;gap:8px} .ppgrid:has(img:not([hidden])){grid-template-columns:1fr 1fr}
   .ppimgwrap{max-height:260px;overflow:auto;border-radius:9px} .ppimgwrap img{width:100%;display:block;margin:8px 0}
   @media(max-width:620px){.ppgrid:has(img:not([hidden])){grid-template-columns:1fr}}
-  .cal.pricecal{display:flex;align-items:center;gap:6px 10px;flex-wrap:wrap} .cal.pricecal .ptx{flex:1 1 280px} .cal.pricecal .btn{flex:0 0 auto}
   .btn.sm{padding:6px 12px;font-size:12.5px}
   label.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
   @media(max-width:620px){
@@ -178,8 +187,6 @@
     .sportbar{order:3;width:100%;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
     .sportbar::-webkit-scrollbar{display:none}
     .sportbar button{flex:0 0 auto}
-    .runbox{align-items:flex-start;width:100%}
-    .runbox .lgs{width:100%}
     .runprog{width:100%}
   }
 </style>
@@ -394,18 +401,17 @@ function render(){
     `<div class="stat" title="${cur==="mls"?"The best BET vs the DraftKings price: the top +EV team (>=+10%) among teams that clear all 5 every-champion criteria, at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":cur==="fcs"?"PAPER board. A value play needs a 5/5 team at EV >= +10% and <= +2500 that is ALSO priced longer than the rating-only fair odds and is SRS top-15 (not a soft-schedule record). Empty until you post a screenshot.":(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>Value play</small><b class="tx ${bv?'g':''}">${bv?(["cfb","cbb","wcbb","mls","fcs"].includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb")?"season over":"no market")}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
+  const rfTitle=PRICE_FILES[cur]?`Rebuilds the ${d.sport} board (free, ~2–3 min). Prices come from your screenshot — use 📷 Update to change them.`
+    :`Re-pulls ${MK(cur)} prices and rebuilds the ${d.sport} board (~1–2 min; 1 Odds API credit)`;
+  // simplified head (2026-11-06, user: "it has a lot going on in this area. i want it simplified"):
+  // prediction + one Refresh button (multi-board Run + token under ⚙) · one status line · details collapsed
   let html=`<div class="hero"><div class="heror">
     <div><div class="herot">🎯 Our prediction</div><p>${d.prediction?d.prediction.why:"—"}</p></div>
-    <div class="runbox"><div class="lgs">${checks}</div>
-      <div style="display:flex;gap:7px;align-items:center"><button class="btn" id="runbtn" onclick="runBlueprint()">▶ Run</button>
-      <button class="btn ghost" title="GitHub token" onclick="document.getElementById('pop').classList.add('on');document.getElementById('tok').value=tok()">⚙</button></div>
-      <span class="runmsg" id="runmsg"></span>
-      <div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div></div></div>
-    <div class="sbar">${d.signal?`<span class="sig ${d.signal.status}" title="${d.signal.note}">${d.signal.emoji} ${d.signal.label}</span>`:""}<span class="bar"><i style="width:${pct}%"></i></span>
-      <span class="m">${d.sport} · ${pct}% of season · GP ${d.gp_min}–${d.gp_max} · odds pulled <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b>${d.odds_remaining?` · ${d.odds_remaining} credits`:""}</span>
-      <button class="rfb" id="rfbtn" title="${cur==="mls"?"Re-runs the MLS sim (free, ~2–3 min). Prices come from your DraftKings screenshot — post a new one to update them.":cur==="fcs"?"Re-runs the FCS board (free, ~2–3 min). No odds feed carries FCS futures — prices come only from your DraftKings/FanDuel screenshot.":`Re-pull ${MK(cur)} prices for the ${d.sport} board (rebuilds this board via the refresh bot, ~1–2 min; ${PRICE_FILES[cur]?"free; prices come from your screenshot":"1 Odds API credit"})`}" onclick="runBlueprint(['${cur}'],'rfmsg')">↻ Refresh odds</button><span class="runmsg" id="rfmsg"></span></div>
-    ${d.signal?`<div class="signote ${d.signal.status}">${d.signal.note}</div>`:""}
-    ${CAL[cur]?`<div class="cal ${CAL[cur].c}" title="How often the eventual champion ranked near the top of this board, from a historical backtest">${d.status==="preseason"?"":`<span class="lbl">Trust</span>${CAL[cur].t}`}</div>`:""}${d.use_pre?`<div class="cal low"><span class="lbl">Projection</span>Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games — ✓ on the card. The blueprint takes over around 8 games in.</div>`:""}${priceCal(d)}${top8(d,cur)}`;
+    <div class="herobtns"><button class="btn" id="rfbtn" title="${rfTitle}" onclick="runBlueprint(['${cur}'],'rfmsg')">↻ Refresh</button>
+      <button class="btn ghost" title="More: rebuild several boards, GitHub token" onclick="document.getElementById('runmore').hidden=!document.getElementById('runmore').hidden">⚙</button></div></div>
+    <div class="runmore" id="runmore" hidden><div class="lgs">${checks}</div><button class="btn sm" id="runbtn" onclick="runBlueprint()">▶ Run selected</button><a class="pplink" href="#" onclick="return chgTok()">🔑 GitHub token</a><span class="runmsg" id="runmsg"></span></div>
+    <span class="runmsg" id="rfmsg"></span><div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div>
+    ${statusRow(d,pct)}${trustDetails(d)}${top8(d,cur)}`;
   if(teams.length>1){
     const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
     const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
@@ -475,14 +481,29 @@ function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
   document.getElementById("pptxt").value=(d.teams||[]).filter(t=>t.market).sort((a,b)=>(a.mk??0)-(b.mk??0)).map(t=>`${t.name}: ${t.market}`).join("\n");
   document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
   document.getElementById("ppop").classList.add("on"); }
-// one Prices box for every screenshot-priced board: what the prices are + the 📷 button inside it
-function priceCal(d){ if(!PRICE_FILES[cur]) return "";
-  const rule={mls:" Bet only teams with all 5 criteria, priced longer than fair.",
-    fcs:" Paper board — bet only a 5/5 team priced longer than both fair odds, once the bracket is set."}[cur]||"";
-  const txt=d.market_asof?`${esc(d.market_name||"DraftKings")} prices from <b>your ${d.market_asof} screenshot</b>.${rule}`
-    :`No current prices — add a sportsbook screenshot (they expire after 14 days).`;
-  return `<div class="cal pricecal ${d.market_asof?"":"low"}"><span class="lbl">Prices</span><span class="ptx">${txt}</span>`
-    +`<button class="btn sm" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update prices</button></div>`; }
+// ---- simplified board head: one status line + one collapsed "how much to trust this board" line ----
+function statusRow(d,pct){
+  const s=d.signal, hasMk=(d.teams||[]).some(t=>t.market);
+  const sig=s?`<span class="sig ${s.status}" title="${esc(s.note)}">${s.emoji} ${s.label}</span>`:"";
+  const proj=d.use_pre?`<span class="sig early" title="Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the preseason roster projection until ~8 games in. ${d.pre_confirmed||0} teams' rotations are confirmed (✓ on the card).">📐 preseason projection</span>`:"";
+  const prices=PRICE_FILES[cur]
+    ?`<span class="pr ${d.market_asof?"":"stale"}">${d.market_asof?`${esc(d.market_name||"DraftKings")} · ${d.market_asof} screenshot`:"no current prices"}<button class="rfb" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update</button></span>`
+    :hasMk?`<span title="${d.odds_remaining?d.odds_remaining+" Odds API credits left":""}">${esc(MK(cur))} odds</span>`:"";
+  const warn=s&&s.status!=="trust"?`<div class="signote ${s.status}">${s.note}</div>`:"";
+  return `<div class="status">${sig}${proj}<span class="bar" title="${pct}% of the regular season played (games played ${d.gp_min}–${d.gp_max})"><i style="width:${pct}%"></i></span>`
+    +`<span>${pct}% of season · updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}</div>${warn}`;
+}
+function trustDetails(d){
+  const c=CAL[cur], lvl=!c?null:c.c==="low"?["🔴","weak"]:c.c==="ok"?["🟡","fair"]:["🟢","strong"];
+  const rule={mls:"Bet only teams with all 5 criteria, priced longer than fair.",
+    fcs:"Paper board — bet only a 5/5 team priced longer than both fair odds, once the bracket is set."}[cur];
+  const body=(c?`<div class="cal ${c.c}"><span class="lbl">Backtest</span>${c.t}</div>`:"")
+    +(d.signal&&d.signal.status==="trust"?`<p>${d.signal.note}</p>`:"")
+    +(d.use_pre?`<p>Too few games for the blueprint yet (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games (✓ on the card). The blueprint takes over around 8 games in.</p>`:"")
+    +(rule?`<p><b>Betting rule:</b> ${rule}</p>`:"");
+  if(!body) return "";
+  return `<details class="trustd"><summary>${lvl?lvl[0]+" ":""}How much to trust this board${lvl?` — backtest: <b>${lvl[1]}</b>`:""}</summary>${body}</details>`;
+}
 function closePP(){ document.getElementById("ppop").classList.remove("on"); }
 function chgTok(){ document.getElementById("tok").value=tok(); document.getElementById("pop").classList.add("on"); return false; }   // opens above the price box; prices stay put
 // a screenshot can also be PASTED (Ctrl+V / long-press -> Paste in the box) or dragged in; pasted text still goes into the box as text
