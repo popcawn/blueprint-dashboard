@@ -11,7 +11,7 @@ Ported from the Claude Code /nfl-blueprint and /cfb-blueprint engines:
 - NFL: 5 categories derived from 23 Super Bowl champions, AFC/NFC fair-odds split.
 - CFB: 5 user criteria, SOS-weighted fair odds (exponent 3, backtested), + SRS reality-check column.
 """
-import json, os, re, sys, time, datetime, urllib.request
+import json, math, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
@@ -1289,28 +1289,33 @@ def log_history(name, data):
     json.dump(hist[-400:], open(hp, "w", encoding="utf-8"), indent=1)
 
 def wnba_scoring(season):
-    """Per-team PPG / Opp PPG from ESPN WNBA byteam (same glossary-index trick as NBA)."""
+    """Per-team scoring from ESPN WNBA byteam (same glossary-index trick as NBA): {team: {ppg, opp, poss, ortg, drtg, nrtg}}.
+       Per-100 ratings (2026-11-07): possessions/g = FGA - OREB + TOV + 0.44*FTA, averaged over the team and its opponents.
+       Checked against Basketball-Reference for 2026: same team order, net rating within ~0.3 (B-Ref's possession formula runs
+       ~3 lower, so its ratings are ~3 points higher on both ends; the gaps between teams match)."""
     try:
         bt = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/wnba/statistics/byteam?region=us&lang=en&contentorigin=espn&season={season}&seasontype=2")
     except Exception:
         return {}
     gloss = {c["name"]: {n: i for i, n in enumerate(c["names"])} for c in bt.get("categories", []) if c.get("names")}
-    oi = None
-    for cat in ("offensive", "general"):
-        for fld in ("avgPoints", "points"):
-            if cat in gloss and fld in gloss[cat]: oi = (cat, gloss[cat][fld]); break
-        if oi: break
-    if not oi: return {}
-    cat, idx = oi; out = {}
+    o = gloss.get("offensive", {})
+    need = ("avgPoints", "avgFieldGoalsAttempted", "avgOffensiveRebounds", "avgTurnovers", "avgFreeThrowsAttempted")
+    if not all(k in o for k in need): return {}
+    out = {}
     for t in bt.get("teams", []):
         nm = t.get("team", {}).get("displayName"); own = opp = None
         for c in t.get("categories", []):
-            if c.get("name") != cat: continue
-            vals = c.get("values", []); dn = (c.get("displayName") or "").lower()
-            if idx >= len(vals): continue
-            if "opponent" in dn: opp = vals[idx]
-            else: own = vals[idx]
-        if nm and own is not None and opp is not None: out[nm] = (own, opp)
+            if c.get("name") != "offensive": continue
+            vals = c.get("values", [])
+            if max(o[k] for k in need) >= len(vals): continue
+            if "opponent" in (c.get("displayName") or "").lower(): opp = vals
+            else: own = vals
+        if not (nm and own and opp): continue
+        pos = lambda v: v[o["avgFieldGoalsAttempted"]] - v[o["avgOffensiveRebounds"]] + v[o["avgTurnovers"]] + 0.44*v[o["avgFreeThrowsAttempted"]]
+        poss = (pos(own) + pos(opp)) / 2
+        if poss <= 0: continue
+        ppg, opg = own[o["avgPoints"]], opp[o["avgPoints"]]
+        out[nm] = {"ppg": ppg, "opp": opg, "poss": poss, "ortg": 100*ppg/poss, "drtg": 100*opg/poss, "nrtg": 100*(ppg - opg)/poss}
     return out
 
 def build_wnba():
@@ -1336,36 +1341,48 @@ def build_wnba():
             for v in o: walk(v)
     walk(sd)
     rows = []
-    for nm, (ppg, opp) in scoring.items():
+    for nm, s in scoring.items():
         w, l = wl.get(nm, (0, 0)); g = w + l
         if g == 0: continue
-        rows.append({"name": nm, "rec": f"{w}-{l}", "gp": g, "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp})
+        rows.append({"name": nm, "rec": f"{w}-{l}", "gp": g, "winpct": w/g, "ppg": s["ppg"], "oppppg": s["opp"], "pdg": s["ppg"] - s["opp"],
+                     "ortg": s["ortg"], "drtg": s["drtg"], "nrtg": s["nrtg"]})
     if not rows:
         base.update({"status": "preseason", "odds_remaining": None, "note": "The WNBA tips off in May.", "teams": []}); return base
-    rk_pd = ranks(rows, "pdg", True); rk_opp = ranks(rows, "oppppg", False); rk_ppg = ranks(rows, "ppg", True)
+    # Backtest 2026-11-07 (30 champions, 1997-2026, Basketball-Reference season tables; scratchpad wnba_*.py):
+    # - per-100 ratings replace per-game ones: the champion was top-6 in Def RATING 27/30 vs top-6 in Opp PPG only 21/30 (pace distorts).
+    # - index = net rating alone: champion #1 22/30, avg #1.5, vs #1 17/30, avg #2.0 for the old Net 45 / Def 30 / Win% 25 blend.
+    #   Net-only was the ONLY weighting that never lost a half (1997-2011, 2012-26) at season end or at the 75% mark; net rating
+    #   already contains defense, so the separate defense/win% weights only diluted it.
+    # - fair odds = softmax(0.32 x net rating): the old index^3 x tier with a 24% cap priced the favourite ~24% while the
+    #   model's #1 won 20/30. Log-loss on the champion: 1.06 vs 1.82 old vs 2.02 equal odds; at the 75% mark 1.22 vs 2.08;
+    #   better in both halves; b fit on 2012-26 only (0.32; the 1997-2011 era was chalkier). 2012-26: favourite priced ~57%, won 9/15.
+    rk_pd = ranks(rows, "nrtg", True); rk_opp = ranks(rows, "drtg", False); rk_ppg = ranks(rows, "ortg", True)
     for t in rows:
         t["rk_pd"], t["rk_opp"], t["rk_ppg"] = rk_pd[t["name"]], rk_opp[t["name"]], rk_ppg[t["name"]]
-        t["q"] = [t["winpct"] >= 0.680, t["rk_pd"] <= 4, t["rk_opp"] <= 6]   # Win% / Net top-4 / Def top-6
+        t["q"] = [t["winpct"] >= 0.680, t["rk_pd"] <= 4, t["rk_opp"] <= 6]   # Win% / Net rating top-4 / Def rating top-6
         t["score"] = sum(t["q"])
-    npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nw = norm(rows, "winpct", True)
-    for t in rows: t["index"] = round(npd[t["name"]]*.45 + no[t["name"]]*.30 + nw[t["name"]]*.25, 1)
+    nn = norm(rows, "nrtg", True)
+    for t in rows: t["index"] = round(nn[t["name"]], 1)
     for t in rows: t["read"] = team_read(t, "wnba", len(rows), 3)
-    pool = [t for t in rows if t["score"] >= 1]; tm = {3: 1.7, 2: 1.2, 1: 0.8}
-    tot = sum((t["index"]**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
-    for t in pool: t["p"] = ((t["index"]**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
-    cap_odds(pool, 0.24)
-    attach(rows, pool, {})   # WNBA has no futures market
+    # field: every team in-season; once every team has played its full schedule, the top 8 by record (the playoff field)
+    done = min(t["gp"] for t in rows) >= SEASON_GAMES["wnba"]
+    field = sorted(rows, key=lambda t: (-t["winpct"], -t["nrtg"]))[:8] if done else rows
+    z = {t["name"]: math.exp(0.32 * t["nrtg"]) for t in field}; zs = sum(z.values())
+    for t in rows:
+        t["p"] = z.get(t["name"], 0) / zs if zs else 0
+        t["fair_odds"] = american(t["p"]) if t["p"] else None
+    attach(rows, [t for t in rows if t["p"] > 0], {})   # WNBA has no futures market
     pred = make_prediction(rows, 3)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": None, "prediction": pred, "season_pct": season_pct(rows, "wnba"),
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
-        "cats": ["Win% ≥.680", "Net/g top-4", "Def top-6"], "labels": ["Win%", "Net/g", "Opp PPG"],
+        "cats": ["Win% ≥.680", "Net rtg top-4", "Def rtg top-6"], "labels": ["Win%", "Net rtg", "Def rtg"],
         "teams": [{"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
             "q": [bool(x) for x in t["q"]],
-            "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
+            "vals": [f"{t['winpct']:.3f}", f"{t['nrtg']:+.1f} #{t['rk_pd']}", f"{t['drtg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t["pdg"], 1),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1 or t["p"] >= 0.01]})
     return base
 
 def mlb_data(season):
