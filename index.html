@@ -23,7 +23,7 @@
   a{color:var(--accent);text-decoration:none}
   /* topbar */
   .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
-  .tb{max-width:1500px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:11px clamp(14px,3vw,30px)}
+  .tb{max-width:1560px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:11px clamp(14px,3vw,30px)}
   .brand{display:flex;align-items:center;gap:9px;font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:-.3px;color:var(--ink)}
   .brand .trophy{font-size:22px;line-height:1;filter:drop-shadow(0 4px 10px rgba(201,138,0,.4))}
   .brand span{color:var(--ink3);font-weight:500;font-size:13px;font-family:var(--sans)}
@@ -181,6 +181,49 @@
   @media(max-width:620px){.ppgrid:has(img:not([hidden])){grid-template-columns:1fr}}
   .btn.sm{padding:6px 12px;font-size:12.5px}
   label.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+
+  /* ---- Season clock (side panel) + each board's season timeline (2026-11-07) ---- */
+  .layout{max-width:1560px;margin:0 auto;display:flex;align-items:flex-start;gap:20px;padding:0 clamp(14px,3vw,30px)}
+  .layout>.wrap{flex:1 1 auto;min-width:0;max-width:none;margin:0;padding:18px 0 70px}
+  .clock{flex:0 0 258px;position:sticky;top:74px;margin-top:18px;max-height:calc(100vh - 92px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 8px 8px;box-shadow:var(--shadow);scrollbar-width:thin;line-height:1.3}
+  .clock:empty{display:none}
+  .clock h4{display:flex;align-items:baseline;justify-content:space-between;margin:0 4px 2px;font-family:var(--head);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+  .clock h4 span{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink3)}
+  .ck-g{margin-top:7px}
+  .ck-gh{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:0 4px 2px}
+  .ck-m{font-size:10px;line-height:1.2;color:var(--ink3);margin:3px 4px 0;padding-top:3px;border-top:1px dashed var(--line)}
+  .ck{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;padding:3px 6px;border-radius:8px}
+  .ck.site{cursor:pointer} .ck.site:hover{background:var(--panel2)} .ck.on{background:var(--panel2);box-shadow:inset 3px 0 0 var(--accent)}
+  .ck .n{display:flex;align-items:center;gap:6px;min-width:0;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ck .n i{font-style:normal;font-weight:600;font-size:9.5px;color:var(--ink3);border:1px solid var(--line2);border-radius:5px;padding:0 4px}
+  .ck .d{font-family:var(--mono);font-size:11px;color:var(--ink2);text-align:right;white-space:nowrap}
+  .ck.off .d,.ck.po .d{color:var(--ink3)} .ck.po .d{color:var(--ink2)}
+  .ck .pb{grid-column:1/-1;display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ink3);white-space:nowrap}
+  .ck .pb>span:first-child{flex:1;min-width:30px;height:4px;background:var(--line);border-radius:3px;overflow:hidden}
+  .ck .pb>span:first-child>i{display:block;height:100%;background:var(--good)}
+  .ck.po .pb>span:first-child>i{background:var(--warn)} .ck.off .pb>span:first-child>i{background:var(--line2)}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:0 0 auto}
+  .dot.open{background:var(--good)} .dot.po{background:var(--warn)} .dot.off{background:var(--line2)}
+  .tl{margin:10px 0 2px;max-width:760px}
+  .tl-bar{position:relative;display:flex;height:8px;border-radius:5px;background:var(--line)}
+  .tl-reg{position:relative;background:var(--goodbg);border-radius:5px 0 0 5px;overflow:hidden} .tl-reg>i{position:absolute;left:0;top:0;bottom:0;background:var(--good)}
+  .tl-po{position:relative;background:var(--warnbg);border-left:2px solid var(--panel);border-radius:0 5px 5px 0;overflow:hidden} .tl-po>i{position:absolute;left:0;top:0;bottom:0;background:var(--warn)}
+  .tl-bar.nopo .tl-reg{border-radius:5px}
+  .tl-now{position:absolute;top:-3px;width:2px;height:14px;margin-left:-1px;background:var(--ink);border-radius:1px}
+  .tl-lab{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--ink3);margin-top:4px}
+  .tl-lab b{color:var(--ink2);font-weight:600}
+  .tl-lab .sw{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--warn);margin-right:5px;vertical-align:-1px}
+  .tl-st{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink2);margin-top:3px}
+  @media(max-width:1199px){
+    .layout{flex-direction:column;align-items:stretch;gap:0}
+    .clock{order:-1;position:static;flex:none;width:auto;max-height:none;margin-top:12px;padding:0;overflow:visible;background:none;border:none;border-radius:0;box-shadow:none}
+    .clock h4,.ck-gh,.ck-m{display:none}
+    .ck-wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)} .ck-wrap::-webkit-scrollbar{display:none}
+    .ck-g{display:contents}
+    .ck{flex:0 0 auto;grid-template-columns:auto auto;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+    .ck.on{box-shadow:inset 0 0 0 1.5px var(--accent)}
+    .ck .pb,.ck .d .x{display:none}
+  }
   @media(max-width:620px){
     .brand span{display:none}
     .strip{width:100%;margin-left:0}
@@ -197,7 +240,7 @@
   <nav class="sportbar" id="tabs"></nav>
   <div class="strip" id="strip"></div>
 </div></header>
-<div class="wrap" id="app"></div>
+<div class="layout"><div class="wrap" id="app"></div><aside class="clock" id="clock" aria-label="Season clock"></aside></div>
 <div class="pop" id="ppop"><div class="box wide">
   <b id="pptitle">Update prices</b>
   <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap 📷, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
@@ -383,6 +426,7 @@ function card(t,sp){
 
 function render(){
   document.querySelectorAll(".sportbar button").forEach(b=>b.classList.toggle("on",b.dataset.s===cur));
+  renderClock();
   const d=DATA[cur], mx=MAXCAT[cur], app=document.getElementById("app"), strip=document.getElementById("strip");
   if(!d){ app.innerHTML=`<div class="preseason">No data.</div>`; strip.innerHTML=""; return; }
   if(d.status==="preseason"){
@@ -489,6 +533,64 @@ function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
   document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
   document.getElementById("ppop").classList.add("on"); }
 // ---- simplified board head: one status line + one collapsed "how much to trust this board" line ----
+
+/* ---------- Season clock + board timelines (2026-11-07, user: "something i can refer to where i can see if they are in season or not.
+   i like to parlay leagues that will end around the same time ... as a side panel ... on each tab that shows seasons progress ... dont have
+   to click ... dont make the page too busy"). Dates live in data/seasons.json (site boards + chat-only blueprints). ---------- */
+let SEASONS=[];
+const D0=s=>new Date(s+"T12:00:00Z"), DAYMS=864e5, apx=(L,f)=>(L.approx||[]).includes(f);
+const fmtD=(s,a)=>!s?"—":(a?"~":"")+D0(s).toLocaleDateString("en-US",{month:"short",day:"numeric",timeZone:"UTC"});
+const fD=(L,f)=>fmtD(L[f],apx(L,f)), lgName=L=>SPORTS[L.key]||L.short||L.name, plural=(n,w)=>`${n} ${w}${n===1?"":"s"}`;
+// open = regular season (the user's bet window) · po = playoffs (window closed, "never bet within the playoffs") · off = not started / over
+function phase(L,now=Date.now()){
+  const st=D0(L.start).getTime(), po=L.po?D0(L.po).getTime():null, fi=D0(L.final).getTime(), end=po||fi;
+  if(now<st) return {k:"off",over:false,pct:0,sortD:L.final,days:Math.ceil((st-now)/DAYMS)};
+  if(now<end) return {k:"open",pct:Math.max(0,Math.min(100,Math.round(100*(now-st)/(end-st)))),sortD:L.final,days:Math.ceil((end-now)/DAYMS)};
+  if(now<=fi+DAYMS) return {k:"po",pct:100,sortD:L.final,days:Math.max(0,Math.ceil((fi-now)/DAYMS))};
+  return {k:"off",over:true,pct:100,sortD:L.next||"9999",days:L.next?Math.ceil((D0(L.next).getTime()-now)/DAYMS):0};
+}
+// a site board's own games-played % beats the calendar estimate
+function sitePct(L,p){ const d=DATA[L.key]; return L.site&&p.k==="open"&&d&&d.season_pct!=null?Math.round(d.season_pct):p.pct; }
+function renderClock(){
+  const el=document.getElementById("clock"); if(!el) return; if(!SEASONS.length){ el.innerHTML=""; return; }
+  const keep=el.querySelector(".ck-wrap"), sl=keep?keep.scrollLeft:0;   // phone strip keeps its scroll across tab switches
+  const rows=SEASONS.map(L=>{ const p=phase(L); p.pct=sitePct(L,p); return {L,p}; });
+  const G=[["open","Bet window open"],["po","Playoffs — window closed"],["off","Offseason"]];
+  let h=`<h4 title="Sorted by the day each title is decided — leagues next to each other finish together, so they parlay well. Green = regular season (your bet window), amber = playoffs (window closed).">Season clock<span>by title date</span></h4><div class="ck-wrap">`;
+  for(const [k,lab] of G){
+    const rs=rows.filter(r=>r.p.k===k).sort((a,b)=>a.p.sortD.localeCompare(b.p.sortD)); if(!rs.length) continue;
+    h+=`<div class="ck-g"><div class="ck-gh"><span class="dot ${k}"></span>${lab} · ${rs.length}</div>`; let m="";
+    for(const {L,p} of rs){
+      if(k==="open"){ const mo=D0(L.final).toLocaleDateString("en-US",{month:"long",year:"numeric",timeZone:"UTC"}); if(mo!==m){ h+=`<div class="ck-m">titles in ${mo}</div>`; m=mo; } }
+      const tip=`${L.name} — ${k==="open"?`bet window open, ${p.pct}% of the regular season played`:k==="po"?"playoffs, window closed":p.over?"season over":"offseason"}.`
+        +` Season ${fD(L,"start")} · ${L.po?`playoffs ${fD(L,"po")}`:"no playoffs"} · ${L.title} ${fD(L,"final")}${L.site?"":" · chat-only blueprint (not a tab)"}${(L.approx||[]).length?" · ~ = estimated date":""}`;
+      const right=k==="off"?(p.over?`<span class="x">✓ ${fD(L,"final")} · </span>next ${L.next?fD(L,"next"):"TBA"}`:`<span class="x">from ${fD(L,"start")} · </span>🏆 ${fD(L,"final")}`):`🏆 ${fD(L,"final")}`;
+      h+=`<div class="ck ${k}${L.site?" site":""}${L.key===cur?" on":""}"${L.site?` data-s="${L.key}"`:""} title="${esc(tip)}">`
+        +`<span class="n"><span class="dot ${k}"></span>${esc(lgName(L))}${L.site?"":"<i>chat</i>"}</span><span class="d">${right}</span>`
+        +(k==="open"?`<span class="pb"><span><i style="width:${p.pct}%"></i></span><span>${p.pct}% · ${L.po?`playoffs ${fD(L,"po")}`:`ends ${fD(L,"final")}`}</span></span>`:"")+`</div>`;
+    }
+    h+=`</div>`;
+  }
+  el.innerHTML=h+`</div>`;
+  const w=el.querySelector(".ck-wrap"); if(w&&sl) w.scrollLeft=sl;
+  el.querySelectorAll(".ck.site").forEach(c=>c.onclick=()=>{cur=c.dataset.s;render();window.scrollTo({top:0,behavior:"smooth"});});
+}
+// the board's own season: regular season (green, filled to games played) → playoffs (amber) → title day
+function timeline(d,pct){
+  const L=SEASONS.find(x=>x.key===cur); if(!L) return "";
+  const p=phase(L), now=Date.now(), st=D0(L.start).getTime(), po=L.po?D0(L.po).getTime():null, fi=D0(L.final).getTime(), span=Math.max(1,fi-st);
+  const regW=100*((po||fi)-st)/span, played=p.k==="open"?(pct!=null?Math.round(pct):p.pct):p.k==="po"||p.over?100:0;
+  const poFill=po&&now>=po?Math.min(100,100*(now-po)/Math.max(1,fi-po)):0;
+  const msg=p.k==="open"?`<span class="dot open"></span><span><b>Bet window open</b> · ${played}% of the regular season played · ${L.po?`playoffs start ${fD(L,"po")}`:`decided ${fD(L,"final")}`} (${plural(p.days,"day")} left)</span>`
+    :p.k==="po"?`<span class="dot po"></span><span><b>Playoffs — your window is closed</b> · ${L.title} ${fD(L,"final")}${p.days>0?` (in ${plural(p.days,"day")})`:" (today)"}</span>`
+    :p.over?`<span class="dot off"></span><span><b>Season over</b> · next season ${L.next?`starts ${fD(L,"next")} (in ${plural(p.days,"day")})`:"TBA"}</span>`
+    :`<span class="dot off"></span><span><b>Offseason</b> · starts ${fD(L,"start")} (in ${plural(p.days,"day")})</span>`;
+  return `<div class="tl"><div class="tl-bar${po?"":" nopo"}"><span class="tl-reg" style="width:${regW}%"><i style="width:${played}%"></i></span>`
+    +(po?`<span class="tl-po" style="width:${100-regW}%"><i style="width:${poFill}%"></i></span>`:"")
+    +(p.k==="po"?`<span class="tl-now" style="left:${100*(now-st)/span}%" title="today"></span>`:"")
+    +`</div><div class="tl-lab"><span>${fD(L,"start")}</span><span>${po?`<i class="sw"></i>playoffs <b>${fD(L,"po")}</b> · `:""}🏆 <b>${fD(L,"final")}</b></span></div>`
+    +`<div class="tl-st">${msg}</div></div>`;
+}
 function statusRow(d,pct){
   const s=d.signal, hasMk=(d.teams||[]).some(t=>t.market);
   const sig=s?`<span class="sig ${s.status}" title="${esc(s.note)}">${s.emoji} ${s.label}</span>`:"";
@@ -497,8 +599,9 @@ function statusRow(d,pct){
     ?`<span class="pr ${d.market_asof?"":"stale"}">${d.market_asof?`${esc(d.market_name||"DraftKings")} · ${d.market_asof} screenshot`:"no current prices"}<button class="rfb" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update</button></span>`
     :hasMk?`<span title="${d.odds_remaining?d.odds_remaining+" Odds API credits left":""}">${esc(MK(cur))} odds</span>`:"";
   const warn=s&&s.status!=="trust"?`<div class="signote ${s.status}">${s.note}</div>`:"";
-  return `<div class="status">${sig}${proj}<span class="bar" title="${pct}% of the regular season played (games played ${d.gp_min}–${d.gp_max})"><i style="width:${pct}%"></i></span>`
-    +`<span>${pct}% of season · updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}</div>${warn}`;
+  const tl=timeline(d,pct);   // the season timeline replaces the small bar when the board has dates in data/seasons.json
+  return `<div class="status">${sig}${proj}${tl?"":`<span class="bar" title="${pct}% of the regular season played (games played ${d.gp_min}–${d.gp_max})"><i style="width:${pct}%"></i></span>`}`
+    +`<span>${tl?"":pct+"% of season · "}updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}</div>${tl}${warn}`;
 }
 function trustDetails(d){
   const c=CAL[cur], lvl=!c?null:c.c==="low"?["🔴","weak"]:c.c==="ok"?["🟡","fair"]:["🟢","strong"];
@@ -652,7 +755,8 @@ async function pollFresh(){ let before=null; try{before=(await(await fetch("data
 }
 async function loadData(){ for(const k of Object.keys(SPORTS)){
   try{const r=await fetch(`data/${k}.json?t=`+Date.now());if(r.ok)DATA[k]=await r.json();}catch(e){}
-  try{const r=await fetch(`data/history/${k}.json?t=`+Date.now());if(r.ok)HIST[k]=await r.json();}catch(e){} } }
+  try{const r=await fetch(`data/history/${k}.json?t=`+Date.now());if(r.ok)HIST[k]=await r.json();}catch(e){} }
+  try{const r=await fetch("data/seasons.json?t="+Date.now());if(r.ok)SEASONS=(await r.json()).leagues||[];}catch(e){} }
 async function load(){
   document.getElementById("tabs").innerHTML=Object.entries(SPORTS).map(([k,v])=>`<button data-s="${k}">${v}</button>`).join("");
   document.querySelectorAll(".sportbar button").forEach(b=>b.onclick=()=>{cur=b.dataset.s;render();});

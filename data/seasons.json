@@ -1,0 +1,24 @@
+{
+ "about": "Season calendar for every blueprint (site boards + chat-only), read by the Season clock panel and each board's timeline. start = first regular-season game, po = first playoff game (the user's betting window closes here; null = no playoffs), final = the day the title is decided, next = next season's start once this one is over. approx lists the dates that are estimates. Dates from ESPN season calendars (US leagues, La Liga, Serie A), Squiggle (AFL), the engines' own data (CFL, NWSL, MLS, NASCAR) and the published schedules; refresh each new season.",
+ "updated": "2026-11-07",
+ "leagues": [
+  {"key": "nfl", "name": "NFL", "title": "Super Bowl", "site": true, "start": "2026-09-10", "po": "2027-01-16", "final": "2027-02-14", "next": "2027-09-09", "approx": ["next"]},
+  {"key": "cfb", "name": "College football", "title": "CFP title", "site": true, "start": "2026-08-29", "po": "2026-12-18", "final": "2027-01-25", "next": "2027-08-28", "approx": ["final", "next"]},
+  {"key": "nhl", "name": "NHL", "title": "Stanley Cup", "site": true, "start": "2026-10-06", "po": "2027-04-12", "final": "2027-06-14", "next": "2027-10-05", "approx": ["start", "po", "final", "next"]},
+  {"key": "nba", "name": "NBA", "title": "NBA Finals", "site": true, "start": "2026-10-20", "po": "2027-04-13", "final": "2027-06-17", "next": "2027-10-19", "approx": ["final", "next"]},
+  {"key": "wnba", "name": "WNBA", "title": "WNBA Finals", "site": true, "start": "2027-05-14", "po": "2027-09-14", "final": "2027-10-15", "approx": ["start", "po", "final"]},
+  {"key": "mlb", "name": "MLB", "title": "World Series", "site": true, "start": "2027-03-25", "po": "2027-09-28", "final": "2027-10-30", "approx": ["start", "po", "final"]},
+  {"key": "cbb", "name": "Men's college hoops", "title": "Final Four", "site": true, "start": "2026-11-02", "po": "2027-03-16", "final": "2027-04-05", "next": "2027-11-01", "approx": ["next"]},
+  {"key": "wcbb", "name": "Women's college hoops", "title": "Final Four", "site": true, "start": "2026-11-02", "po": "2027-03-18", "final": "2027-04-04", "next": "2027-11-01", "approx": ["po", "final", "next"]},
+  {"key": "mls", "name": "MLS", "title": "MLS Cup", "site": true, "start": "2026-02-21", "po": "2026-11-18", "final": "2026-12-18", "next": "2027-02-27", "approx": ["po", "final", "next"]},
+  {"key": "fcs", "name": "FCS", "title": "FCS title", "site": true, "start": "2026-08-29", "po": "2026-11-28", "final": "2027-01-04", "next": "2027-08-28", "approx": ["final", "next"]},
+  {"key": "cfl", "name": "CFL", "title": "Grey Cup", "site": true, "start": "2026-06-04", "po": "2026-10-31", "final": "2026-11-15", "next": "2027-06-03", "approx": ["next"]},
+  {"key": "nwsl", "name": "NWSL", "title": "NWSL final", "site": true, "start": "2026-03-14", "po": "2026-11-06", "final": "2026-11-21", "next": "2027-03-13", "approx": ["next"]},
+  {"key": "nascar", "name": "NASCAR Cup", "title": "Championship (Homestead)", "site": false, "start": "2026-02-15", "po": "2026-09-06", "final": "2026-11-08", "next": "2027-02-14", "approx": ["po", "next"], "short": "NASCAR"},
+  {"key": "f1", "name": "Formula 1", "title": "Drivers' title (Abu Dhabi)", "site": false, "start": "2026-03-08", "po": null, "final": "2026-12-06", "next": "2027-03-14", "approx": ["next"], "short": "F1"},
+  {"key": "nbacup", "name": "NBA Cup", "title": "Cup final (Las Vegas)", "site": false, "start": "2026-10-31", "po": "2026-12-08", "final": "2026-12-15", "approx": ["start", "po", "final"], "short": "NBA Cup"},
+  {"key": "wcvb", "name": "College volleyball", "title": "NCAA final", "site": false, "start": "2026-08-28", "po": "2026-12-03", "final": "2026-12-20", "next": "2027-08-27", "approx": ["po", "final", "next"], "short": "Volleyball"},
+  {"key": "chk", "name": "College hockey", "title": "Frozen Four", "site": false, "start": "2026-10-03", "po": "2027-03-26", "final": "2027-04-10", "approx": ["start", "po", "final"], "short": "College hockey"},
+  {"key": "afl", "name": "AFL", "title": "Grand Final", "site": false, "start": "2027-03-17", "po": "2027-08-27", "final": "2027-09-25", "approx": ["po", "final"], "short": "AFL"}
+ ]
+}
