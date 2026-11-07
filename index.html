@@ -191,11 +191,12 @@
   .clock h4 span{font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink3)}
   .ck-g{margin-top:7px}
   .ck-gh{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:0 4px 2px}
-  .ck-m{font-size:10px;line-height:1.2;color:var(--ink3);margin:3px 4px 0;padding-top:3px;border-top:1px dashed var(--line)}
-  .ck{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;padding:3px 6px;border-radius:8px}
+  .ck-m{display:flex;align-items:center;gap:6px;font-size:9.5px;line-height:1;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin:5px 4px 2px}
+  .ck-m::after{content:"";flex:1;border-top:1px dashed var(--line2)}
+  .ck{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 6px;padding:2px 6px;border-radius:8px}
   .ck.site{cursor:pointer} .ck.site:hover{background:var(--panel2)} .ck.on{background:var(--panel2);box-shadow:inset 3px 0 0 var(--accent)}
-  .ck .n{display:flex;align-items:center;gap:6px;min-width:0;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .ck .n i{font-style:normal;font-weight:600;font-size:9.5px;color:var(--ink3);border:1px solid var(--line2);border-radius:5px;padding:0 4px}
+  .ck .n{display:flex;align-items:center;gap:5px;min-width:0;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ck .n i{font-style:normal;font-weight:600;font-size:9px;color:var(--ink3);border:1px solid var(--line2);border-radius:5px;padding:0 3px}
   .ck .d{font-family:var(--mono);font-size:11px;color:var(--ink2);text-align:right;white-space:nowrap}
   .ck.off .d,.ck.po .d{color:var(--ink3)} .ck.po .d{color:var(--ink2)}
   .ck .pb{grid-column:1/-1;display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ink3);white-space:nowrap}
@@ -222,7 +223,7 @@
     .ck-g{display:contents}
     .ck{flex:0 0 auto;grid-template-columns:auto auto;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
     .ck.on{box-shadow:inset 0 0 0 1.5px var(--accent)}
-    .ck .pb,.ck .d .x{display:none}
+    .ck .pb{display:none}
   }
   @media(max-width:620px){
     .brand span{display:none}
@@ -544,7 +545,7 @@ const fD=(L,f)=>fmtD(L[f],apx(L,f)), lgName=L=>SPORTS[L.key]||L.short||L.name, p
 // open = regular season (the user's bet window) · po = playoffs (window closed, "never bet within the playoffs") · off = not started / over
 function phase(L,now=Date.now()){
   const st=D0(L.start).getTime(), po=L.po?D0(L.po).getTime():null, fi=D0(L.final).getTime(), end=po||fi;
-  if(now<st) return {k:"off",over:false,pct:0,sortD:L.final,days:Math.ceil((st-now)/DAYMS)};
+  if(now<st) return {k:"off",over:false,pct:0,sortD:L.start,days:Math.ceil((st-now)/DAYMS)};
   if(now<end) return {k:"open",pct:Math.max(0,Math.min(100,Math.round(100*(now-st)/(end-st)))),sortD:L.final,days:Math.ceil((end-now)/DAYMS)};
   if(now<=fi+DAYMS) return {k:"po",pct:100,sortD:L.final,days:Math.max(0,Math.ceil((fi-now)/DAYMS))};
   return {k:"off",over:true,pct:100,sortD:L.next||"9999",days:L.next?Math.ceil((D0(L.next).getTime()-now)/DAYMS):0};
@@ -561,10 +562,10 @@ function renderClock(){
     const rs=rows.filter(r=>r.p.k===k).sort((a,b)=>a.p.sortD.localeCompare(b.p.sortD)); if(!rs.length) continue;
     h+=`<div class="ck-g"><div class="ck-gh"><span class="dot ${k}"></span>${lab} · ${rs.length}</div>`; let m="";
     for(const {L,p} of rs){
-      if(k==="open"){ const mo=D0(L.final).toLocaleDateString("en-US",{month:"long",year:"numeric",timeZone:"UTC"}); if(mo!==m){ h+=`<div class="ck-m">titles in ${mo}</div>`; m=mo; } }
+      if(k==="open"){ const mo=D0(L.final).toLocaleDateString("en-US",{month:"short",year:"numeric",timeZone:"UTC"}); if(mo!==m){ h+=`<div class="ck-m" title="Titles decided in ${D0(L.final).toLocaleDateString("en-US",{month:"long",year:"numeric",timeZone:"UTC"})}">${mo}</div>`; m=mo; } }
       const tip=`${L.name} — ${k==="open"?`bet window open, ${p.pct}% of the regular season played`:k==="po"?"playoffs, window closed":p.over?"season over":"offseason"}.`
         +` Season ${fD(L,"start")} · ${L.po?`playoffs ${fD(L,"po")}`:"no playoffs"} · ${L.title} ${fD(L,"final")}${L.site?"":" · chat-only blueprint (not a tab)"}${(L.approx||[]).length?" · ~ = estimated date":""}`;
-      const right=k==="off"?(p.over?`<span class="x">✓ ${fD(L,"final")} · </span>next ${L.next?fD(L,"next"):"TBA"}`:`<span class="x">from ${fD(L,"start")} · </span>🏆 ${fD(L,"final")}`):`🏆 ${fD(L,"final")}`;
+      const right=k==="off"?(p.over?(L.next?`next ${fD(L,"next")}`:`✓ ${fD(L,"final")}`):`starts ${fD(L,"start")}`):`🏆 ${fD(L,"final")}`;   // offseason rows show when it comes back (title date in the tooltip)
       h+=`<div class="ck ${k}${L.site?" site":""}${L.key===cur?" on":""}"${L.site?` data-s="${L.key}"`:""} title="${esc(tip)}">`
         +`<span class="n"><span class="dot ${k}"></span>${esc(lgName(L))}${L.site?"":"<i>chat</i>"}</span><span class="d">${right}</span>`
         +(k==="open"?`<span class="pb"><span><i style="width:${p.pct}%"></i></span><span>${p.pct}% · ${L.po?`playoffs ${fD(L,"po")}`:`ends ${fD(L,"final")}`}</span></span>`:"")+`</div>`;
