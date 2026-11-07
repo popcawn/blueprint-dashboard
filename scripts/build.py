@@ -1735,7 +1735,11 @@ def build_nwsl():
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
-    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14 and stage == "bracket"
+    first = E.get("first_playoff")   # UTC date of the first playoff match
+    pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first   # prices taken BEFORE the playoffs
+    # EV only against pre-playoff prices: live while the window is open (<= 14 days old), and kept once the playoffs start so the
+    # frozen board still shows what the value was going in (user 2026-11-07: "pull the nwsl odds i sent yesterday").
+    fresh = (stage == "bracket" and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
     rows = [{"name": t["name"], "conf": f"seed {t['seed']}", "rec": f"{t['w']}-{t['d']}-{t['l']} · {t['pts']} pts", "gp": t["gp"], "score": t["score"],
              "q": t["q"], "vals": t["vals"], "index": t["idx"] if t["idx"] is not None else 0, "rtg": t["rtg"], "p": t["p"],
              "alive": t["alive"] if stage != "regular" else None, "next": t["next"], "seed": t["seed"]} for t in E["teams"]]
@@ -1772,7 +1776,7 @@ def build_nwsl():
                   else f"Still alive: {', '.join(alive)}.")
         why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win the title "
                f"(fair {top['fair_odds']}). The betting window is closed: these fair odds are frozen at the start of the playoffs "
-               f"(you don't bet within the playoffs), so no EV is shown against in-playoff prices.")
+               f"(you don't bet within the playoffs)" + (f"; EV is against the pre-playoff prices you saved ({d0:%b} {d0.day})." if fresh else ", so no EV is shown against in-playoff prices."))
     base = {"sport": "NWSL", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
             "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
             "stage": stage, "window_closed": closed, "prediction": {"pick": top["name"], "why": why},

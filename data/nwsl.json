@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-07T14:06:11Z",
+  "generated": "2026-11-07T14:10:13Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -50,10 +50,14 @@
       "fair_pct": 19.1,
       "fair_odds": "+425",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 270,
+      "market": "+270",
+      "ev": -29,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -29
+      }
     },
     {
       "name": "Kansas City Current",
@@ -88,10 +92,14 @@
       "fair_pct": 18.1,
       "fair_odds": "+453",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 400,
+      "market": "+400",
+      "ev": -10,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -10
+      }
     },
     {
       "name": "San Diego Wave FC",
@@ -121,10 +129,14 @@
       "fair_pct": 17.1,
       "fair_odds": "+486",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 300,
+      "market": "+300",
+      "ev": -32,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -32
+      }
     },
     {
       "name": "Washington Spirit",
@@ -159,10 +171,14 @@
       "fair_pct": 16.5,
       "fair_odds": "+505",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 350,
+      "market": "+350",
+      "ev": -26,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -26
+      }
     },
     {
       "name": "Angel City FC",
@@ -197,10 +213,14 @@
       "fair_pct": 10.3,
       "fair_odds": "+870",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1100,
+      "market": "+1100",
+      "ev": 24,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 24
+      }
     },
     {
       "name": "Portland Thorns FC",
@@ -235,10 +255,14 @@
       "fair_pct": 8.1,
       "fair_odds": "+1132",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1600,
+      "market": "+1600",
+      "ev": 38,
+      "verdict": {
+        "kind": "trap",
+        "label": "fails profile",
+        "ev": 38
+      }
     },
     {
       "name": "Seattle Reign FC",
@@ -273,10 +297,14 @@
       "fair_pct": 5.9,
       "fair_odds": "+1607",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1400,
+      "market": "+1400",
+      "ev": -12,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -12
+      }
     },
     {
       "name": "Utah Royals",
@@ -306,10 +334,14 @@
       "fair_pct": 5.0,
       "fair_odds": "+1906",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2500,
+      "market": "+2500",
+      "ev": 30,
+      "verdict": {
+        "kind": "trap",
+        "label": "fails profile",
+        "ev": 30
+      }
     },
     {
       "name": "Boston Legacy FC",
@@ -577,13 +609,13 @@
     }
   ],
   "odds_remaining": null,
-  "market_name": "DraftKings",
-  "market_asof": null,
+  "market_name": "your book",
+  "market_asof": "Nov 6",
   "stage": "playoffs",
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Angel City FC, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
+    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Angel City FC, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
   },
   "season_pct": 100,
   "gp_min": 30,
