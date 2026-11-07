@@ -1,7 +1,7 @@
 {
   "sport": "CFL",
   "season": "2026",
-  "generated": "2026-11-07T18:25:07Z",
+  "generated": "2026-11-07T20:37:09Z",
   "cats": [
     "Win% top-5",
     "Scoring \u2265 24.6",
@@ -335,10 +335,10 @@
   "gp_min": 18,
   "gp_max": 18,
   "signal": {
-    "status": "trust",
-    "emoji": "\ud83d\udfe2",
-    "label": "Trust the board",
-    "note": "18 games in \u2014 stats have stabilized; the read is actionable."
+    "status": "closed",
+    "emoji": "\ud83d\udd12",
+    "label": "Window closed",
+    "note": "The playoffs are under way \u2014 you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now."
   },
   "value_plays": []
 }

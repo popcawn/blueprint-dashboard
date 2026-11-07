@@ -7600,21 +7600,21 @@
    "Vancouver Whitecaps": {
     "sc": 5,
     "idx": 72.6,
-    "fp": 23.2,
+    "fp": 22.9,
     "mkt": "+430",
-    "ev": 23
+    "ev": 21
    },
    "Nashville SC": {
     "sc": 5,
     "idx": 87.3,
-    "fp": 17.6,
+    "fp": 17.8,
     "mkt": "+340",
-    "ev": -23
+    "ev": -22
    },
    "Inter Miami CF": {
     "sc": 5,
     "idx": 72.4,
-    "fp": 11.7,
+    "fp": 11.6,
     "mkt": "+500",
     "ev": -30
    },
@@ -7628,79 +7628,79 @@
    "Charlotte FC": {
     "sc": 5,
     "idx": 53.4,
-    "fp": 2.2,
+    "fp": 2.4,
     "mkt": "+2700",
-    "ev": -38
+    "ev": -34
    },
    "FC Dallas": {
     "sc": 4,
     "idx": 48.2,
-    "fp": 5.8,
+    "fp": 6.0,
     "mkt": "+1400",
-    "ev": -14
+    "ev": -9
    },
    "Columbus Crew": {
     "sc": 4,
     "idx": 61.6,
-    "fp": 1.7,
+    "fp": 1.6,
     "mkt": "+5500",
-    "ev": -5
+    "ev": -12
    },
    "Philadelphia Union": {
     "sc": 3,
     "idx": 52.6,
-    "fp": 6.8,
+    "fp": 6.9,
     "mkt": "+2000",
-    "ev": 42
+    "ev": 45
    },
    "New England Revolution": {
     "sc": 3,
     "idx": 58.3,
-    "fp": 3.3,
+    "fp": 3.0,
     "mkt": "+1300",
-    "ev": -54
+    "ev": -58
    },
    "FC Cincinnati": {
     "sc": 3,
     "idx": 46.8,
-    "fp": 1.3,
+    "fp": 1.5,
     "mkt": "+4000",
-    "ev": -46
+    "ev": -40
    },
    "St. Louis CITY SC": {
     "sc": 2,
     "idx": 38.2,
-    "fp": 4.0,
+    "fp": 3.8,
     "mkt": "+1600",
-    "ev": -31
+    "ev": -35
    },
    "Portland Timbers": {
     "sc": 2,
     "idx": 41.4,
-    "fp": 0.5,
+    "fp": 0.7,
     "mkt": "+10000",
-    "ev": -47
+    "ev": -32
    },
    "Real Salt Lake": {
     "sc": 2,
     "idx": 39.5,
     "fp": 0.4,
     "mkt": "+8000",
-    "ev": -70
+    "ev": -67
    },
    "LA Galaxy": {
     "sc": 2,
     "idx": 37.6,
-    "fp": 0.3,
+    "fp": 0.4,
     "mkt": "+10000",
-    "ev": -69
+    "ev": -60
    },
    "Minnesota United FC": {
     "sc": 2,
     "idx": 41.5,
-    "fp": 0.1,
+    "fp": 0.2,
     "mkt": "+15000",
-    "ev": -79
+    "ev": -75
    },
    "Toronto FC": {
     "sc": 2,
@@ -7712,28 +7712,28 @@
    "LAFC": {
     "sc": 1,
     "idx": 40.3,
-    "fp": 5.7,
+    "fp": 5.8,
     "mkt": "+1600",
     "ev": -2
    },
    "San Jose Earthquakes": {
     "sc": 1,
     "idx": 41.2,
-    "fp": 4.7,
+    "fp": 4.5,
     "mkt": "+2200",
-    "ev": 7
+    "ev": 3
    },
    "Seattle Sounders FC": {
     "sc": 1,
     "idx": 28.8,
     "fp": 0.5,
     "mkt": "+3300",
-    "ev": -82
+    "ev": -83
    },
    "Orlando City SC": {
     "sc": 1,
     "idx": 40.5,
-    "fp": 0.4,
+    "fp": 0.3,
     "mkt": "+4000",
     "ev": -86
    },
