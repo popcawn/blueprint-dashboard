@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-07T11:18:54Z",
-  "odds_remaining": "84046",
+  "generated": "2026-11-07T14:32:48Z",
+  "odds_remaining": "83397",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +669). No goaltending asterisk, no possession hole \u2014 #1 driving play and #10 in net. The team you want when the games get low-scoring and tight. Trust it. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -75,14 +75,14 @@
         "47 #7"
       ],
       "rtg": 0.7,
-      "fair_pct": 10.9,
-      "fair_odds": "+816",
+      "fair_pct": 10.8,
+      "fair_odds": "+825",
       "market": "+1200",
-      "ev": 42,
+      "ev": 41,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 42
+        "ev": 41
       },
       "read": {
         "v": "caution",
@@ -94,7 +94,7 @@
       "conf": "W",
       "rec": "18 GP",
       "score": 4,
-      "index": 83.3,
+      "index": 83.4,
       "q": [
         true,
         true,
@@ -104,7 +104,7 @@
       "vals": [
         "+1.17 #3",
         "52.0 #9",
-        "58.0 #3",
+        "58.1 #3",
         "39 #2"
       ],
       "rtg": 0.44,
@@ -141,14 +141,14 @@
         "45 #6"
       ],
       "rtg": 0.62,
-      "fair_pct": 9.1,
-      "fair_odds": "+997",
+      "fair_pct": 9.0,
+      "fair_odds": "+1008",
       "market": "+1000",
-      "ev": 0,
+      "ev": -1,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": 0
+        "ev": -1
       },
       "read": {
         "v": "caution",
@@ -174,14 +174,14 @@
         "47 #7"
       ],
       "rtg": 0.32,
-      "fair_pct": 5.1,
-      "fair_odds": "+1866",
+      "fair_pct": 5.0,
+      "fair_odds": "+1886",
       "market": "+900",
-      "ev": -49,
+      "ev": -50,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -49
+        "ev": -50
       },
       "read": {
         "v": "caution",
@@ -207,14 +207,14 @@
         "55 #22"
       ],
       "rtg": 0.6,
-      "fair_pct": 8.3,
-      "fair_odds": "+1101",
+      "fair_pct": 7.9,
+      "fair_odds": "+1161",
       "market": "+700",
-      "ev": -33,
+      "ev": -37,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -33
+        "ev": -37
       },
       "read": {
         "v": "fools_gold",
@@ -240,14 +240,14 @@
         "36 #1"
       ],
       "rtg": 0.08,
-      "fair_pct": 7.5,
-      "fair_odds": "+1233",
+      "fair_pct": 7.1,
+      "fair_odds": "+1299",
       "market": "+1600",
-      "ev": 28,
+      "ev": 21,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 28
+        "ev": 21
       },
       "read": {
         "v": "caution",
@@ -273,14 +273,14 @@
         "49 #13"
       ],
       "rtg": 0.15,
-      "fair_pct": 7.5,
-      "fair_odds": "+1233",
+      "fair_pct": 7.1,
+      "fair_odds": "+1299",
       "market": "+950",
-      "ev": -21,
+      "ev": -25,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -21
+        "ev": -25
       },
       "read": {
         "v": "trust",
@@ -307,13 +307,13 @@
       ],
       "rtg": 0.39,
       "fair_pct": 3.1,
-      "fair_odds": "+3122",
+      "fair_odds": "+3155",
       "market": "+4000",
-      "ev": 27,
+      "ev": 26,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 27
+        "ev": 26
       },
       "read": {
         "v": "caution",
@@ -339,14 +339,14 @@
         "59 #25"
       ],
       "rtg": 0.24,
-      "fair_pct": 5.2,
-      "fair_odds": "+1824",
+      "fair_pct": 4.9,
+      "fair_odds": "+1920",
       "market": "+1700",
-      "ev": -6,
+      "ev": -11,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -6
+        "kind": "fade",
+        "label": "fade",
+        "ev": -11
       },
       "read": {
         "v": "caution",
@@ -372,14 +372,14 @@
         "51 #17"
       ],
       "rtg": -0.06,
-      "fair_pct": 4.2,
-      "fair_odds": "+2285",
+      "fair_pct": 4.0,
+      "fair_odds": "+2405",
       "market": "+950",
-      "ev": -56,
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -56
+        "ev": -58
       },
       "read": {
         "v": "caution",
@@ -406,13 +406,13 @@
       ],
       "rtg": 0.09,
       "fair_pct": 1.5,
-      "fair_odds": "+6472",
+      "fair_odds": "+6539",
       "market": "+12500",
-      "ev": 92,
+      "ev": 90,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 92
+        "ev": 90
       },
       "read": {
         "v": "caution",
@@ -439,7 +439,7 @@
       ],
       "rtg": 0.45,
       "fair_pct": 1.3,
-      "fair_odds": "+7561",
+      "fair_odds": "+7639",
       "market": null,
       "ev": null,
       "verdict": null,
@@ -468,13 +468,13 @@
       ],
       "rtg": 0.13,
       "fair_pct": 1.2,
-      "fair_odds": "+8455",
+      "fair_odds": "+8543",
       "market": "+22500",
-      "ev": 164,
+      "ev": 161,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 164
+        "ev": 161
       },
       "read": {
         "v": "caution",
@@ -501,7 +501,7 @@
       ],
       "rtg": -0.18,
       "fair_pct": 1.0,
-      "fair_odds": "+9701",
+      "fair_odds": "+9801",
       "market": "+6500",
       "ev": -33,
       "verdict": {
@@ -534,13 +534,13 @@
       ],
       "rtg": 0.02,
       "fair_pct": 1.0,
-      "fair_odds": "+10132",
+      "fair_odds": "+10237",
       "market": "+1700",
-      "ev": -82,
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -82
+        "ev": -83
       },
       "read": {
         "v": "caution",
@@ -567,7 +567,7 @@
       ],
       "rtg": 0.12,
       "fair_pct": 1.0,
-      "fair_odds": "+10188",
+      "fair_odds": "+10293",
       "market": "+2700",
       "ev": -73,
       "verdict": {
@@ -600,7 +600,7 @@
       ],
       "rtg": 0.23,
       "fair_pct": 0.9,
-      "fair_odds": "+10708",
+      "fair_odds": "+10818",
       "market": "+3300",
       "ev": -69,
       "verdict": {
@@ -633,13 +633,13 @@
       ],
       "rtg": -0.04,
       "fair_pct": 1.5,
-      "fair_odds": "+6439",
+      "fair_odds": "+6766",
       "market": "+4500",
-      "ev": -30,
+      "ev": -33,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -30
+        "ev": -33
       },
       "read": {
         "v": "caution",
@@ -666,13 +666,13 @@
       ],
       "rtg": 0.02,
       "fair_pct": 0.8,
-      "fair_odds": "+12793",
+      "fair_odds": "+12924",
       "market": "+8000",
-      "ev": -37,
+      "ev": -38,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -38
       },
       "read": {
         "v": "caution",
@@ -699,13 +699,13 @@
       ],
       "rtg": -0.53,
       "fair_pct": 1.2,
-      "fair_odds": "+8078",
+      "fair_odds": "+8487",
       "market": "+10000",
-      "ev": 24,
+      "ev": 18,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 24
+        "ev": 18
       },
       "read": {
         "v": "caution",
@@ -732,13 +732,13 @@
       ],
       "rtg": -0.27,
       "fair_pct": 0.7,
-      "fair_odds": "+14882",
+      "fair_odds": "+15035",
       "market": "+4500",
-      "ev": -69,
+      "ev": -70,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -69
+        "ev": -70
       },
       "read": {
         "v": "caution",
@@ -750,7 +750,7 @@
       "conf": "E",
       "rec": "15 GP",
       "score": 1,
-      "index": 42.6,
+      "index": 42.7,
       "q": [
         false,
         false,
@@ -765,7 +765,7 @@
       ],
       "rtg": -0.21,
       "fair_pct": 0.4,
-      "fair_odds": "+22283",
+      "fair_odds": "+22353",
       "market": "+10000",
       "ev": -55,
       "verdict": {
@@ -783,7 +783,7 @@
       "conf": "W",
       "rec": "17 GP",
       "score": 1,
-      "index": 36.8,
+      "index": 36.6,
       "q": [
         false,
         true,
@@ -793,18 +793,18 @@
       "vals": [
         "-1.06 #28",
         "51.0 #12",
-        "45.2 #28",
+        "45.0 #28",
         "60 #26"
       ],
       "rtg": -0.36,
       "fair_pct": 0.5,
-      "fair_odds": "+19324",
+      "fair_odds": "+20631",
       "market": "+50000",
-      "ev": 158,
+      "ev": 142,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 158
+        "ev": 142
       },
       "read": {
         "v": "caution",

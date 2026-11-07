@@ -480,7 +480,7 @@ def build_nhl():
             gf_all = float(a["goalsFor"]); axgf, axga = float(a["xGoalsFor"]), float(a["xGoalsAgainst"])
         except Exception: continue
         name, conf = NHL_TEAMS[ab]
-        rows.append({"name": name, "conf": conf, "rec": None, "gp": gp,
+        rows.append({"name": name, "ab": ab, "conf": conf, "rec": None, "gp": gp,
             "esdiff": gf - ga5, "essv": (saved/sa*100) if sa else 0, "corsi": corsi, "totalGA": total_ga,
             "gdpg": (gf_all - total_ga)/gp if gp else 0,                       # overall goal diff / game — best champ signal
             "xgpct": (axgf/(axgf+axga)*100) if (axgf+axga) else 0})            # all-situations expected-goals share
@@ -504,8 +504,25 @@ def build_nhl():
     for t in rows:
         t["index"] = round(ngd[t["name"]]*.30 + ncf[t["name"]]*.25 + nxg[t["name"]]*.25 + nga[t["name"]]*.20, 1)
     for t in rows: t["read"] = team_read(t, "nhl", len(rows), 4)
-    pool = [t for t in rows if t["score"] >= 1]   # 1/5 teams are on the board too -> price them at the bottom of the ladder
-    tm = {4:1.6,3:1.15,2:0.8,1:0.5}
+    # Odds fixes (2026-11-07, user: "can we improve the nhl blend, currently its weak"; scratchpad nhl/nhl_title*.py, Cups 2014-26):
+    # (1) a 0/4 team keeps a small share (tier 0.3) instead of 0% -- the 2018 Capitals were 0/4 and won the Cup;
+    # (2) once the playoff bracket exists, only the 16 playoff teams are priced.
+    # Champion log-loss 2.541 vs 2.925 before, better in both halves (2014-19 2.804 vs 3.547; 2020-26 2.316 vs 2.392).
+    # The index blend itself stays: on 225 playoff series 2012-26 it beat every single stat and a fresh weight search
+    # (series log-loss 0.662 vs 0.669 best single stat, 0.677 searched blend, 0.693 coin; the higher seed won only 56%).
+    field = set()
+    try:
+        br = get(f"https://api-web.nhle.com/v1/playoff-bracket/{YEAR + 1}")
+        for sr in br.get("series", []):
+            if sr.get("playoffRound") == 1:
+                for k in ("topSeedTeam", "bottomSeedTeam"):
+                    ab2 = (sr.get(k) or {}).get("abbrev")
+                    if ab2: field.add({"PHX": "ARI"}.get(ab2, ab2))
+    except Exception:
+        field = set()
+    if len(field) < 16: field = set()
+    pool = [t for t in rows if not field or t["ab"] in field]   # every team in-season (0/4 at the bottom of the ladder); the 16 playoff teams once the bracket is set
+    tm = {4:1.6,3:1.15,2:0.8,1:0.5,0:0.3}
     for cf in ("E","W"):
         cs = [t for t in pool if t["conf"] == cf]; tot = sum((max(t["index"], 5)**3)/1e5*tm[t["score"]] for t in cs)
         for t in cs: t["_pc"] = ((max(t["index"], 5)**3)/1e5*tm[t["score"]]) / tot if tot else 0
@@ -522,7 +539,7 @@ def build_nhl():
             "season_pct": season_pct(rows, "nhl"),
             "cats": ["Goal diff/game top-10", "Corsi top-14", "xGoals% top-12", "Goals Against top-12"],
             "labels": ["GD/g", "Corsi", "xG%", "GA"],
-            "teams": [nhl_row(t) for t in rows if t["score"] >= 1]}
+            "teams": [nhl_row(t) for t in rows if t["score"] >= 1 or (t.get("p") or 0) >= 0.01]}
 
 def nhl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
