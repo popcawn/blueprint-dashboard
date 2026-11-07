@@ -1,8 +1,8 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-06T12:45:36Z",
-  "odds_remaining": "86584",
+  "generated": "2026-11-07T20:12:51Z",
+  "odds_remaining": "81546",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +356). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
@@ -48,12 +48,12 @@
       "rtg": 13.5,
       "fair_pct": 21.9,
       "fair_odds": "+356",
-      "market": "+850",
-      "ev": 108,
+      "market": "+900",
+      "ev": 119,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 108
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 119
       },
       "read": {
         "v": "trust",
@@ -83,12 +83,12 @@
       "rtg": 8.3,
       "fair_pct": 15.8,
       "fair_odds": "+534",
-      "market": "+600",
-      "ev": 10,
+      "market": "+550",
+      "ev": 3,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 10
+        "kind": "small",
+        "label": "small value",
+        "ev": 3
       },
       "read": {
         "v": "trust",
@@ -153,12 +153,12 @@
       "rtg": 6.7,
       "fair_pct": 10.8,
       "fair_odds": "+828",
-      "market": "+2500",
-      "ev": 180,
+      "market": "+2700",
+      "ev": 202,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 180
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 202
       },
       "read": {
         "v": "trust",
@@ -608,12 +608,12 @@
       "rtg": 0.8,
       "fair_pct": 0.6,
       "fair_odds": "+16042",
-      "market": "+6500",
-      "ev": -59,
+      "market": "+6000",
+      "ev": -62,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -59
+        "ev": -62
       },
       "read": {
         "v": "caution",
@@ -678,12 +678,12 @@
       "rtg": -2.1,
       "fair_pct": 0.4,
       "fair_odds": "+27831",
-      "market": "+7000",
-      "ev": -75,
+      "market": "+7500",
+      "ev": -73,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -75
+        "ev": -73
       },
       "read": {
         "v": "caution",
@@ -783,7 +783,7 @@
       "rtg": -2.2,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+8000",
+      "market": "+7500",
       "ev": -87,
       "verdict": {
         "kind": "bigfade",
@@ -1063,12 +1063,12 @@
       "rtg": -8.1,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+50000",
-      "ev": -92,
+      "market": "+60000",
+      "ev": -90,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -92
+        "ev": -90
       },
       "read": {
         "v": "caution",
@@ -1154,15 +1154,9 @@
   },
   "value_plays": [
     {
-      "name": "Minnesota Vikings",
-      "ev": 180,
-      "market": "+2500",
-      "fair_odds": "+828"
-    },
-    {
       "name": "Jacksonville Jaguars",
-      "ev": 108,
-      "market": "+850",
+      "ev": 119,
+      "market": "+900",
       "fair_odds": "+356"
     },
     {
@@ -1173,8 +1167,8 @@
     },
     {
       "name": "San Francisco 49ers",
-      "ev": 10,
-      "market": "+600",
+      "ev": 3,
+      "market": "+550",
       "fair_odds": "+534"
     }
   ]

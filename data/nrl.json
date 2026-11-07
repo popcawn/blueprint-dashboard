@@ -1,7 +1,7 @@
 {
   "sport": "NRL",
   "season": "2026",
-  "generated": "2026-11-07T18:36:41Z",
+  "generated": "2026-11-07T20:12:53Z",
   "cats": [
     "Ladder position \u2264 4",
     "Margin/game \u2265 +4.2",
@@ -20,7 +20,7 @@
     {
       "name": "Penrith Panthers",
       "conf": "1st",
-      "rec": "18-6 \u00b7 36 pts \u00b7 +336",
+      "rec": "18-6 \u00b7 42 pts \u00b7 +336",
       "gp": 24,
       "score": 5,
       "q": [
@@ -44,8 +44,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 26.7,
-      "fair_odds": "+274",
+      "fair_pct": 27.1,
+      "fair_odds": "+268",
       "read": null,
       "mk": null,
       "market": null,
@@ -55,7 +55,7 @@
     {
       "name": "New Zealand Warriors",
       "conf": "2nd",
-      "rec": "18-6 \u00b7 36 pts \u00b7 +310",
+      "rec": "18-6 \u00b7 42 pts \u00b7 +310",
       "gp": 24,
       "score": 5,
       "q": [
@@ -79,8 +79,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 24.7,
-      "fair_odds": "+304",
+      "fair_pct": 24.6,
+      "fair_odds": "+306",
       "read": null,
       "mk": null,
       "market": null,
@@ -90,7 +90,7 @@
     {
       "name": "Dolphins",
       "conf": "3rd",
-      "rec": "17-7 \u00b7 34 pts \u00b7 +156",
+      "rec": "17-7 \u00b7 40 pts \u00b7 +156",
       "gp": 24,
       "score": 5,
       "q": [
@@ -114,8 +114,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 17.9,
-      "fair_odds": "+459",
+      "fair_pct": 17.6,
+      "fair_odds": "+468",
       "read": null,
       "mk": null,
       "market": null,
@@ -125,7 +125,7 @@
     {
       "name": "Sydney Roosters",
       "conf": "4th",
-      "rec": "16-8 \u00b7 32 pts \u00b7 +118",
+      "rec": "16-8 \u00b7 38 pts \u00b7 +118",
       "gp": 24,
       "score": 5,
       "q": [
@@ -149,8 +149,8 @@
       "minor_pct": null,
       "premier": true,
       "bet_ok": false,
-      "fair_pct": 16.2,
-      "fair_odds": "+518",
+      "fair_pct": 15.9,
+      "fair_odds": "+528",
       "read": null,
       "mk": null,
       "market": null,
@@ -160,7 +160,7 @@
     {
       "name": "Cronulla-Sutherland Sharks",
       "conf": "5th",
-      "rec": "14-10 \u00b7 28 pts \u00b7 +149",
+      "rec": "14-10 \u00b7 34 pts \u00b7 +149",
       "gp": 24,
       "score": 4,
       "q": [
@@ -184,8 +184,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 6.3,
-      "fair_odds": "+1480",
+      "fair_pct": 6.4,
+      "fair_odds": "+1453",
       "read": null,
       "mk": null,
       "market": null,
@@ -195,7 +195,7 @@
     {
       "name": "South Sydney Rabbitohs",
       "conf": "6th",
-      "rec": "14-10 \u00b7 28 pts \u00b7 +113",
+      "rec": "14-10 \u00b7 34 pts \u00b7 +113",
       "gp": 24,
       "score": 2,
       "q": [
@@ -219,8 +219,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 4.8,
-      "fair_odds": "+1968",
+      "fair_pct": 5.0,
+      "fair_odds": "+1896",
       "read": null,
       "mk": null,
       "market": null,
@@ -230,7 +230,7 @@
     {
       "name": "Newcastle Knights",
       "conf": "7th",
-      "rec": "14-10 \u00b7 28 pts \u00b7 +42",
+      "rec": "14-10 \u00b7 34 pts \u00b7 +42",
       "gp": 24,
       "score": 1,
       "q": [
@@ -254,8 +254,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 1.9,
-      "fair_odds": "+5068",
+      "fair_pct": 2.1,
+      "fair_odds": "+4606",
       "read": null,
       "mk": null,
       "market": null,
@@ -265,7 +265,7 @@
     {
       "name": "North Queensland Cowboys",
       "conf": "8th",
-      "rec": "13-11 \u00b7 26 pts \u00b7 -84",
+      "rec": "13-11 \u00b7 32 pts \u00b7 -84",
       "gp": 24,
       "score": 1,
       "q": [
@@ -289,8 +289,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 1.4,
-      "fair_odds": "+7120",
+      "fair_pct": 1.2,
+      "fair_odds": "+8521",
       "read": null,
       "mk": null,
       "market": null,
@@ -300,7 +300,7 @@
     {
       "name": "Canberra Raiders",
       "conf": "11th",
-      "rec": "11-13 \u00b7 22 pts \u00b7 -45",
+      "rec": "11-13 \u00b7 28 pts \u00b7 -45",
       "gp": 24,
       "score": 1,
       "q": [
@@ -335,7 +335,7 @@
     {
       "name": "Melbourne Storm",
       "conf": "10th",
-      "rec": "11-13 \u00b7 22 pts \u00b7 +18",
+      "rec": "11-13 \u00b7 28 pts \u00b7 +18",
       "gp": 24,
       "score": 1,
       "q": [
@@ -370,7 +370,7 @@
     {
       "name": "Canterbury-Bankstown Bulldogs",
       "conf": "12th",
-      "rec": "11-13 \u00b7 22 pts \u00b7 -60",
+      "rec": "11-13 \u00b7 28 pts \u00b7 -60",
       "gp": 24,
       "score": 1,
       "q": [
@@ -405,7 +405,7 @@
     {
       "name": "Brisbane Broncos",
       "conf": "14th",
-      "rec": "8-16 \u00b7 16 pts \u00b7 -206",
+      "rec": "8-16 \u00b7 22 pts \u00b7 -206",
       "gp": 24,
       "score": 1,
       "q": [
@@ -440,7 +440,7 @@
     {
       "name": "Manly Warringah Sea Eagles",
       "conf": "9th",
-      "rec": "11-13 \u00b7 22 pts \u00b7 +99",
+      "rec": "11-13 \u00b7 28 pts \u00b7 +99",
       "gp": 24,
       "score": 0,
       "q": [
@@ -475,7 +475,7 @@
     {
       "name": "Parramatta Eels",
       "conf": "13th",
-      "rec": "9-15 \u00b7 18 pts \u00b7 -181",
+      "rec": "9-15 \u00b7 24 pts \u00b7 -181",
       "gp": 24,
       "score": 0,
       "q": [
@@ -510,7 +510,7 @@
     {
       "name": "Gold Coast Titans",
       "conf": "16th",
-      "rec": "6-18 \u00b7 12 pts \u00b7 -186",
+      "rec": "6-18 \u00b7 18 pts \u00b7 -186",
       "gp": 24,
       "score": 0,
       "q": [
@@ -545,7 +545,7 @@
     {
       "name": "Wests Tigers",
       "conf": "15th",
-      "rec": "8-16 \u00b7 16 pts \u00b7 -254",
+      "rec": "8-16 \u00b7 22 pts \u00b7 -254",
       "gp": 24,
       "score": 0,
       "q": [
@@ -580,7 +580,7 @@
     {
       "name": "St George Illawarra Dragons",
       "conf": "17th",
-      "rec": "5-19 \u00b7 10 pts \u00b7 -325",
+      "rec": "5-19 \u00b7 16 pts \u00b7 -325",
       "gp": 24,
       "score": 0,
       "q": [
@@ -629,7 +629,7 @@
   "sig": 24,
   "prediction": {
     "pick": "Penrith Panthers",
-    "why": "<b>Sydney Roosters</b> won the 2026 Grand Final \u2014 16.2% (#4) on the model going into the finals. Going into the finals the model's #1 was <b>Penrith Panthers</b>: 26.7% (fair +274). The betting window is closed: these fair odds are frozen at the start of the finals (you don't bet within the finals)."
+    "why": "<b>Sydney Roosters</b> won the 2026 Grand Final \u2014 15.9% (#4) on the model going into the finals. Going into the finals the model's #1 was <b>Penrith Panthers</b>: 27.1% (fair +268). The betting window is closed: these fair odds are frozen at the start of the finals (you don't bet within the finals)."
   },
   "season_pct": 100,
   "gp_min": 24,

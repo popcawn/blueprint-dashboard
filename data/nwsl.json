@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-07T18:25:12Z",
+  "generated": "2026-11-07T20:12:53Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -38,7 +38,7 @@
         "0.17 #1"
       ],
       "index": 91.2,
-      "rtg": 0.47,
+      "rtg": 0.436,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -47,53 +47,17 @@
         "date": "2026-11-08"
       },
       "seed": 1,
-      "fair_pct": 18.4,
-      "fair_odds": "+444",
+      "bet_ok": false,
+      "fair_pct": 19.1,
+      "fair_odds": "+425",
       "read": null,
       "mk": 270,
       "market": "+270",
-      "ev": -32,
+      "ev": -29,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -32
-      }
-    },
-    {
-      "name": "San Diego Wave FC",
-      "conf": "seed 2",
-      "rec": "18-4-8 \u00b7 58 pts",
-      "gp": 30,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "#5",
-        "#2",
-        "1.50 #6",
-        "1.03 #3",
-        "0.27 #2"
-      ],
-      "index": 85.5,
-      "rtg": 0.338,
-      "alive": false,
-      "next": null,
-      "seed": 2,
-      "fair_pct": 18.1,
-      "fair_odds": "+452",
-      "read": null,
-      "mk": 300,
-      "market": "+300",
-      "ev": -27,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -27
+        "ev": -29
       }
     },
     {
@@ -117,25 +81,59 @@
         "0.30 #5"
       ],
       "index": 82.4,
-      "rtg": 0.647,
+      "rtg": 0.632,
       "alive": true,
-      "next": {
-        "round": "Quarterfinal",
-        "opp": "Angel City FC",
-        "site": "home",
-        "date": "2026-11-07"
-      },
+      "next": null,
       "seed": 4,
-      "fair_pct": 16.0,
-      "fair_odds": "+523",
+      "bet_ok": false,
+      "fair_pct": 18.1,
+      "fair_odds": "+453",
       "read": null,
       "mk": 400,
       "market": "+400",
-      "ev": -20,
+      "ev": -10,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -20
+        "ev": -10
+      }
+    },
+    {
+      "name": "San Diego Wave FC",
+      "conf": "seed 2",
+      "rec": "18-4-8 \u00b7 58 pts",
+      "gp": 30,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "#5",
+        "#2",
+        "1.50 #6",
+        "1.03 #3",
+        "0.27 #2"
+      ],
+      "index": 85.5,
+      "rtg": 0.293,
+      "alive": false,
+      "next": null,
+      "seed": 2,
+      "bet_ok": false,
+      "fair_pct": 17.1,
+      "fair_odds": "+486",
+      "read": null,
+      "mk": 300,
+      "market": "+300",
+      "ev": -32,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -32
       }
     },
     {
@@ -159,7 +157,7 @@
         "0.30 #5"
       ],
       "index": 82,
-      "rtg": 0.334,
+      "rtg": 0.339,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -168,16 +166,17 @@
         "date": "2026-11-08"
       },
       "seed": 3,
-      "fair_pct": 15.7,
-      "fair_odds": "+538",
+      "bet_ok": false,
+      "fair_pct": 16.5,
+      "fair_odds": "+505",
       "read": null,
       "mk": 350,
       "market": "+350",
-      "ev": -29,
+      "ev": -26,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -29
+        "ev": -26
       }
     },
     {
@@ -201,25 +200,21 @@
         "0.27 #2"
       ],
       "index": 90.3,
-      "rtg": 0.659,
-      "alive": true,
-      "next": {
-        "round": "Quarterfinal",
-        "opp": "Kansas City Current",
-        "site": "away",
-        "date": "2026-11-07"
-      },
+      "rtg": 0.411,
+      "alive": false,
+      "next": null,
       "seed": 5,
-      "fair_pct": 13.8,
-      "fair_odds": "+623",
+      "bet_ok": false,
+      "fair_pct": 10.3,
+      "fair_odds": "+870",
       "read": null,
       "mk": 1100,
       "market": "+1100",
-      "ev": 66,
+      "ev": 24,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 66
+        "kind": "value",
+        "label": "value",
+        "ev": 24
       }
     },
     {
@@ -243,7 +238,7 @@
         "0.27 #2"
       ],
       "index": 74.8,
-      "rtg": 0.17,
+      "rtg": 0.19,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -252,16 +247,17 @@
         "date": "2026-11-08"
       },
       "seed": 6,
-      "fair_pct": 7.2,
-      "fair_odds": "+1279",
+      "bet_ok": false,
+      "fair_pct": 8.1,
+      "fair_odds": "+1132",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": 23,
+      "ev": 38,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 23
+        "ev": 38
       }
     },
     {
@@ -285,7 +281,7 @@
         "0.37 #7"
       ],
       "index": 69.9,
-      "rtg": 0.145,
+      "rtg": 0.099,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -294,16 +290,17 @@
         "date": "2026-11-08"
       },
       "seed": 8,
-      "fair_pct": 6.0,
-      "fair_odds": "+1553",
+      "bet_ok": false,
+      "fair_pct": 5.9,
+      "fair_odds": "+1607",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -9,
+      "ev": -12,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -9
+        "kind": "fade",
+        "label": "fade",
+        "ev": -12
       }
     },
     {
@@ -327,20 +324,21 @@
         "0.37 #7"
       ],
       "index": 65,
-      "rtg": 0.038,
+      "rtg": 0.016,
       "alive": true,
       "next": null,
       "seed": 7,
-      "fair_pct": 4.7,
-      "fair_odds": "+2047",
+      "bet_ok": false,
+      "fair_pct": 5.0,
+      "fair_odds": "+1906",
       "read": null,
       "mk": 2500,
       "market": "+2500",
-      "ev": 21,
+      "ev": 30,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 21
+        "ev": 30
       }
     },
     {
@@ -364,10 +362,11 @@
         "0.50 #11"
       ],
       "index": 49.7,
-      "rtg": -0.242,
+      "rtg": -0.262,
       "alive": false,
       "next": null,
       "seed": 13,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -397,10 +396,11 @@
         "0.37 #7"
       ],
       "index": 69.8,
-      "rtg": 0.357,
+      "rtg": 0.302,
       "alive": false,
       "next": null,
       "seed": 10,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -430,10 +430,11 @@
         "0.43 #10"
       ],
       "index": 64.4,
-      "rtg": 0.297,
+      "rtg": 0.216,
       "alive": false,
       "next": null,
       "seed": 9,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -463,10 +464,11 @@
         "0.50 #11"
       ],
       "index": 50.4,
-      "rtg": -0.234,
+      "rtg": -0.22,
       "alive": false,
       "next": null,
       "seed": 12,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -496,10 +498,11 @@
         "0.53 #13"
       ],
       "index": 49.3,
-      "rtg": -0.229,
+      "rtg": -0.147,
       "alive": false,
       "next": null,
       "seed": 11,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -529,10 +532,11 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.716,
+      "rtg": -0.541,
       "alive": false,
       "next": null,
       "seed": 15,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -562,10 +566,11 @@
         "0.57 #14"
       ],
       "index": 38.9,
-      "rtg": -0.532,
+      "rtg": -0.487,
       "alive": false,
       "next": null,
       "seed": 14,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -595,10 +600,11 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.503,
+      "rtg": -1.277,
       "alive": false,
       "next": null,
       "seed": 16,
+      "bet_ok": false,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -615,7 +621,7 @@
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Angel City FC, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 18.4% to win the title (fair +444). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
+    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
   },
   "season_pct": 100,
   "gp_min": 30,
@@ -626,12 +632,5 @@
     "label": "Trust the board",
     "note": "30 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": [
-    {
-      "name": "Angel City FC",
-      "ev": 66,
-      "market": "+1100",
-      "fair_odds": "+623"
-    }
-  ]
+  "value_plays": []
 }
