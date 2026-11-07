@@ -16,7 +16,7 @@
     "nrl",
     "superleague"
   ],
-  "generated": "2026-11-07T20:37:13Z",
+  "generated": "2026-11-07T21:38:57Z",
   "builds": {
     "nfl": {
       "ok": true,
@@ -53,6 +53,10 @@
     "superleague": {
       "ok": true,
       "at": "2026-11-07T20:37:13Z"
+    },
+    "cfb": {
+      "ok": true,
+      "at": "2026-11-07T21:38:57Z"
     }
   }
 }
