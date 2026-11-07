@@ -1,0 +1,598 @@
+{
+  "sport": "NWSL",
+  "season": "2026",
+  "generated": "2026-11-07T14:06:11Z",
+  "cats": [
+    "Goal diff/game top-5",
+    "Form (last 8) top-8",
+    "Goals for/game \u2265 1.14",
+    "Goals against/game \u2264 1.09",
+    "Loss% \u2264 0.32"
+  ],
+  "labels": [
+    "GD/g",
+    "Form 8",
+    "GF/g",
+    "GA/g",
+    "Loss%"
+  ],
+  "teams": [
+    {
+      "name": "Gotham FC",
+      "conf": "seed 1",
+      "rec": "18-7-5 \u00b7 61 pts",
+      "gp": 30,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "#2",
+        "#4",
+        "1.30 #10",
+        "0.77 #1",
+        "0.17 #1"
+      ],
+      "index": 91.2,
+      "rtg": 0.436,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Seattle Reign FC",
+        "site": "home",
+        "date": "2026-11-08"
+      },
+      "seed": 1,
+      "fair_pct": 19.1,
+      "fair_odds": "+425",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Kansas City Current",
+      "conf": "seed 4",
+      "rec": "16-5-9 \u00b7 53 pts",
+      "gp": 30,
+      "score": 4,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "#3",
+        "#2",
+        "1.80 #1",
+        "1.30 #6",
+        "0.30 #5"
+      ],
+      "index": 82.4,
+      "rtg": 0.615,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Angel City FC",
+        "site": "home",
+        "date": "2026-11-07"
+      },
+      "seed": 4,
+      "fair_pct": 18.1,
+      "fair_odds": "+453",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "San Diego Wave FC",
+      "conf": "seed 2",
+      "rec": "18-4-8 \u00b7 58 pts",
+      "gp": 30,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "#5",
+        "#2",
+        "1.50 #6",
+        "1.03 #3",
+        "0.27 #2"
+      ],
+      "index": 85.5,
+      "rtg": 0.293,
+      "alive": false,
+      "next": null,
+      "seed": 2,
+      "fair_pct": 17.1,
+      "fair_odds": "+486",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Washington Spirit",
+      "conf": "seed 3",
+      "rec": "17-4-9 \u00b7 55 pts",
+      "gp": 30,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "#3",
+        "#5",
+        "1.43 #8",
+        "0.93 #2",
+        "0.30 #5"
+      ],
+      "index": 82,
+      "rtg": 0.339,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Portland Thorns FC",
+        "site": "home",
+        "date": "2026-11-08"
+      },
+      "seed": 3,
+      "fair_pct": 16.5,
+      "fair_odds": "+505",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Angel City FC",
+      "conf": "seed 5",
+      "rec": "15-7-8 \u00b7 52 pts",
+      "gp": 30,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "#1",
+        "#1",
+        "1.80 #1",
+        "1.07 #4",
+        "0.27 #2"
+      ],
+      "index": 90.3,
+      "rtg": 0.427,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Kansas City Current",
+        "site": "away",
+        "date": "2026-11-07"
+      },
+      "seed": 5,
+      "fair_pct": 10.3,
+      "fair_odds": "+870",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Portland Thorns FC",
+      "conf": "seed 6",
+      "rec": "14-8-8 \u00b7 50 pts",
+      "gp": 30,
+      "score": 3,
+      "q": [
+        false,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "#8",
+        "#8",
+        "1.67 #5",
+        "1.37 #8",
+        "0.27 #2"
+      ],
+      "index": 74.8,
+      "rtg": 0.19,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Washington Spirit",
+        "site": "away",
+        "date": "2026-11-08"
+      },
+      "seed": 6,
+      "fair_pct": 8.1,
+      "fair_odds": "+1132",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Seattle Reign FC",
+      "conf": "seed 8",
+      "rec": "14-5-11 \u00b7 47 pts",
+      "gp": 30,
+      "score": 2,
+      "q": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#10",
+        "#6",
+        "1.23 #14",
+        "1.10 #5",
+        "0.37 #7"
+      ],
+      "index": 69.9,
+      "rtg": 0.099,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Gotham FC",
+        "site": "away",
+        "date": "2026-11-08"
+      },
+      "seed": 8,
+      "fair_pct": 5.9,
+      "fair_odds": "+1607",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Utah Royals",
+      "conf": "seed 7",
+      "rec": "14-5-11 \u00b7 47 pts",
+      "gp": 30,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#9",
+        "#12",
+        "1.47 #7",
+        "1.30 #6",
+        "0.37 #7"
+      ],
+      "index": 65,
+      "rtg": 0.015,
+      "alive": true,
+      "next": null,
+      "seed": 7,
+      "fair_pct": 5.0,
+      "fair_odds": "+1906",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Boston Legacy FC",
+      "conf": "seed 13",
+      "rec": "9-6-15 \u00b7 33 pts",
+      "gp": 30,
+      "score": 2,
+      "q": [
+        false,
+        true,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#13",
+        "#6",
+        "1.37 #9",
+        "1.77 #14",
+        "0.50 #11"
+      ],
+      "index": 49.7,
+      "rtg": -0.262,
+      "alive": false,
+      "next": null,
+      "seed": 13,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Denver Summit FC",
+      "conf": "seed 10",
+      "rec": "11-8-11 \u00b7 41 pts",
+      "gp": 30,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#6",
+        "#9",
+        "1.77 #3",
+        "1.40 #9",
+        "0.37 #7"
+      ],
+      "index": 69.8,
+      "rtg": 0.302,
+      "alive": false,
+      "next": null,
+      "seed": 10,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "North Carolina Courage",
+      "conf": "seed 9",
+      "rec": "14-3-13 \u00b7 45 pts",
+      "gp": 30,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#7",
+        "#11",
+        "1.73 #4",
+        "1.40 #9",
+        "0.43 #10"
+      ],
+      "index": 64.4,
+      "rtg": 0.216,
+      "alive": false,
+      "next": null,
+      "seed": 9,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Houston Dash",
+      "conf": "seed 12",
+      "rec": "9-6-15 \u00b7 33 pts",
+      "gp": 30,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#11",
+        "#13",
+        "1.27 #12",
+        "1.47 #11",
+        "0.50 #11"
+      ],
+      "index": 50.4,
+      "rtg": -0.22,
+      "alive": false,
+      "next": null,
+      "seed": 12,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Orlando Pride",
+      "conf": "seed 11",
+      "rec": "11-3-16 \u00b7 36 pts",
+      "gp": 30,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#12",
+        "#10",
+        "1.30 #10",
+        "1.57 #12",
+        "0.53 #13"
+      ],
+      "index": 49.3,
+      "rtg": -0.148,
+      "alive": false,
+      "next": null,
+      "seed": 11,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Racing Louisville FC",
+      "conf": "seed 15",
+      "rec": "7-3-20 \u00b7 24 pts",
+      "gp": 30,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "#15",
+        "#15",
+        "1.27 #12",
+        "2.07 #15",
+        "0.67 #15"
+      ],
+      "index": 23.3,
+      "rtg": -0.541,
+      "alive": false,
+      "next": null,
+      "seed": 15,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Bay FC",
+      "conf": "seed 14",
+      "rec": "7-6-17 \u00b7 27 pts",
+      "gp": 30,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "#14",
+        "#14",
+        "1.00 #15",
+        "1.57 #12",
+        "0.57 #14"
+      ],
+      "index": 38.9,
+      "rtg": -0.487,
+      "alive": false,
+      "next": null,
+      "seed": 14,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Chicago Stars FC",
+      "conf": "seed 16",
+      "rec": "5-2-23 \u00b7 17 pts",
+      "gp": 30,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "#16",
+        "#15",
+        "0.57 #16",
+        "2.37 #16",
+        "0.77 #16"
+      ],
+      "index": 0,
+      "rtg": -1.277,
+      "alive": false,
+      "next": null,
+      "seed": 16,
+      "fair_pct": null,
+      "fair_odds": null,
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    }
+  ],
+  "odds_remaining": null,
+  "market_name": "DraftKings",
+  "market_asof": null,
+  "stage": "playoffs",
+  "window_closed": true,
+  "prediction": {
+    "pick": "Gotham FC",
+    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Angel City FC, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
+  },
+  "season_pct": 100,
+  "gp_min": 30,
+  "gp_max": 30,
+  "signal": {
+    "status": "trust",
+    "emoji": "\ud83d\udfe2",
+    "label": "Trust the board",
+    "note": "30 games in \u2014 stats have stabilized; the read is actionable."
+  },
+  "value_plays": []
+}

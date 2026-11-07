@@ -406,10 +406,33 @@ for (const [id, p] of rows) {
   console.log(`  ${String(names.get(id)).padEnd(24)} seed ${String(seedOf.get(id)).padStart(2)} · attack ${att.toFixed(2)} defence ${def.toFixed(2)} | title ${(100 * p).toFixed(1).padStart(5)}% (fair ${p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / Math.max(p, 1e-4))})`);
 }
 for (const g of PO.filter(g => !g.fin)) { const p = pAdvance(M, g.h, g.a, g.neutral ? null : 'h'), [W, D, Lo] = wdl(...lambdas(M, g.h, g.a, g.neutral ? null : 'h'), P.rho); console.log(`  next: ${g.d} ${names.get(g.h)} (home) vs ${names.get(g.a)} -- 90 min ${(100 * W).toFixed(0)}/${(100 * D).toFixed(0)}/${(100 * Lo).toFixed(0)}, ${names.get(g.h)} advances ${(100 * p).toFixed(0)}%`); }
-{ const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), P);
-  for (const r of prof) tierScore(r, FEATS, cuts);
-  addIndex(prof);   // scaled across the whole league, before narrowing to the playoff teams
-  printTiers(prof.filter(r => alive.has(r.id) || T.has(r.id)), cuts, id => T.get(id), id => names.get(id)); }
+const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), P);
+for (const r of prof) tierScore(r, FEATS, cuts);
+addIndex(prof);   // scaled across the whole league, before narrowing to the playoff teams
+printTiers(prof.filter(r => alive.has(r.id) || T.has(r.id)), cuts, id => T.get(id), id => names.get(id));
+if (arg('--export')) {   // board JSON for the blueprint dashboard (scripts/build.py build_nwsl; added 2026-11-07, user: "add nwsl to the site")
+  // Title odds exist once the playoff bracket is set (this engine does not simulate the rest of the regular season). They are FROZEN
+  // at the start of the playoffs -- ratings fit only on games before the first playoff match, results ignored -- because the user
+  // never bets within the playoffs. stage: regular (no bracket yet) | bracket (set, nothing played: window open) | playoffs | done.
+  const isFinal = g => /final/i.test(g.po) && !/quarter|semi/i.test(g.po);
+  const first = PO.length ? PO.map(g => g.d).sort()[0] : null, done = PO.some(g => isFinal(g) && g.fin);
+  const stage = !PO.length ? 'regular' : done ? 'done' : PO.some(g => g.fin) ? 'playoffs' : 'bracket';
+  const Mp = first ? fit(G, first, P) : null;
+  const Tp = Mp && qf.length === 4 ? titleFrom8(Mp, qf, seedOf, finalHome) : Mp && sf.length === 2 ? titleFromSemis(Mp, sf, finalHome) : new Map();
+  const RD = s => /quarter/i.test(s) ? 'Quarterfinal' : /semi/i.test(s) ? 'Semifinal' : 'Final';
+  const next = id => { const g = PO.filter(x => !x.fin && (x.h === id || x.a === id)).sort((a, b) => a.d.localeCompare(b.d))[0];
+    return g ? {round: RD(g.po), opp: names.get(g.h === id ? g.a : g.h), site: g.neutral ? 'neutral' : g.h === id ? 'home' : 'away', date: g.d} : null; };
+  const s2 = Math.sqrt(M.H), SHORT = {gdpg: 'GD/g', form: 'Form 8', gf: 'GF/g', ga: 'GA/g', lpct: 'Loss%'};
+  const out = {league: lk, season: L.cur, generated: new Date().toISOString(), today, stage, first_playoff: first, champions: TS.length, home_edge: +M.H.toFixed(3),
+    cats: FEATS.map((f, i) => cutLabel(f, cuts[i])), labels: FEATS.map(f => SHORT[f.k] || f.label),
+    teams: seeds.map(t => { const id = t.id, r = prof.find(x => x.id === id), a = M.a.get(id) ?? 1, dd = M.d.get(id) ?? 1, d = t.pts - 3 * t.w;
+      return {id, name: names.get(id) || id, seed: seedOf.get(id), gp: t.gp, w: t.w, d, l: t.gp - t.w - d, pts: t.pts, gd: t.gf - t.ga,
+        p: Tp.get(id) || 0, alive: alive.has(id), in_bracket: PO.some(g => g.h === id || g.a === id), next: alive.has(id) ? next(id) : null,
+        score: r ? r.score : 0, q: r ? r.q : FEATS.map(() => false), vals: FEATS.map(f => !r ? '—' : f.kind === 'value' ? `${(+r[f.k]).toFixed(2)} #${r['r_' + f.k]}` : `#${r['r_' + f.k]}`),
+        rtg: +(M.mu * s2 * (a - dd)).toFixed(3), idx: r && r.idx != null ? +r.idx.toFixed(1) : null}; })};
+  fs.writeFileSync(arg('--export'), JSON.stringify(out));
+  console.log('exported -> ' + arg('--export'));
+}
 const book = arg('--book');
 if (book) for (const pair of book.split(',')) { const m = pair.trim().match(/^(.*?):\s*([+-]?\d+)$/); if (!m) continue; const am = +m[2], dec = am > 0 ? 1 + am / 100 : 1 + 100 / -am, id = [...T.keys()].find(i => norm(names.get(i)).includes(norm(m[1])) || norm(m[1]).includes(norm(names.get(i)))); const p = id ? T.get(id) : null; console.log(`  book ${m[1].padEnd(22)} ${m[2].padStart(6)} implied ${(100 / dec).toFixed(1)}% | model ${p == null ? 'n/a' : (100 * p).toFixed(1) + '% -> EV ' + Math.round(100 * (p * dec - 1)) + '%'}`); }
 if (rest.includes('--log')) {

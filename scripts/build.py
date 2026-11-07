@@ -15,10 +15,10 @@ import json, math, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "cfl": 18}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "cfl": 18, "nwsl": 30}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10), "fcs": (6, 4), "cfl": (9, 5)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10), "fcs": (6, 4), "cfl": (9, 5), "nwsl": (15, 9)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -63,6 +63,16 @@ def value_plays(teams, maxcat, sport=None):
         for t in teams:
             p = _price_num(t.get("market"))
             if t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
+    if sport == "nwsl":
+        # NWSL (2026-11-07) is NOT bet-able: knockout matches have been no better than "the home side advances" and the title a coin
+        # flip since 2022. Odds exist only once the bracket is set, and EV only until the first playoff game (the user never bets within
+        # the playoffs), so a value play needs a wide margin: 5/5 + EV >= +25% + price <= +2500.
+        for t in teams:
+            p = _price_num(t.get("market"))
+            if (t.get("score") or 0) >= 5 and (t.get("ev") or 0) >= 25 and p is not None and p <= 2500:
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
@@ -1706,13 +1716,77 @@ def build_cfl():
     for t in rows: t.pop("p", None)
     return base
 
+def build_nwsl():
+    """NWSL board (added 2026-11-07, user: "add nwsl to the site"). Engine: scripts/mls/soccer.mjs (the same file as MLS, copied from
+       baseball-blueprint/pro -- keep in sync), run with `nwsl --export`. Title odds = the playoff bracket simulated with Poisson attack x
+       defence ratings (goals only: xG did not help NWSL knockouts, 2026-11-07 test). The engine has no rest-of-regular-season sim, so odds
+       exist only once the bracket is set; they are FROZEN at the start of the playoffs (ratings fit on games before the first playoff
+       match, results ignored) because the user never bets within the playoffs. Tiers = every-champion profile (all 8 clean champions
+       2017-25 had all 5). Verdict: NOT bet-able. Market: data/nwsl_book.json (the user's screenshot via the 📷 box), used only while the
+       betting window is open (bracket set, no playoff game played) and <= 14 days old."""
+    import subprocess, tempfile
+    out = os.path.join(tempfile.gettempdir(), "nwsl_export.json")
+    subprocess.run(["node", os.path.join(HERE, "scripts", "mls", "soccer.mjs"), "nwsl", "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
+    E = json.load(open(out, encoding="utf-8"))
+    stage = E.get("stage")
+    closed = stage in ("playoffs", "done")
+    snap = {}
+    try: snap = json.load(open(os.path.join(DATA, "nwsl_book.json"), encoding="utf-8"))
+    except Exception: pass
+    asof = snap.get("date")
+    d0 = datetime.date.fromisoformat(asof) if asof else None
+    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14 and stage == "bracket"
+    rows = [{"name": t["name"], "conf": f"seed {t['seed']}", "rec": f"{t['w']}-{t['d']}-{t['l']} · {t['pts']} pts", "gp": t["gp"], "score": t["score"],
+             "q": t["q"], "vals": t["vals"], "index": t["idx"] if t["idx"] is not None else 0, "rtg": t["rtg"], "p": t["p"],
+             "alive": t["alive"] if stage != "regular" else None, "next": t["next"], "seed": t["seed"]} for t in E["teams"]]
+    for t in rows:
+        t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
+        t["fair_odds"] = american(t["p"]) if t["p"] else None
+        t["read"] = None
+    fd = {}
+    if fresh:
+        keys = {_mls_key(t["name"]): t["name"] for t in rows}
+        for nm, price in snap["odds"].items():
+            k = _mls_key(nm)
+            hit = keys.get(k) or next((v for kk, v in keys.items() if kk.startswith(k) or k.startswith(kk) or kk.split()[-1] == k.split()[-1]), None)
+            if hit: fd[hit] = int(price)
+    attach(rows, [t for t in rows if t["p"] > 0], fd)
+    for t in rows:   # a +EV price on a team that misses the every-champion profile is not a bet on this board
+        v = t.get("verdict") or {}
+        if v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:
+            t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
+    rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))
+    top = max(rows, key=lambda t: (t["p"], t["index"]))
+    if stage == "regular":
+        why = (f"<b>{top['name']}</b> leads the index ({top['index']}). Title odds appear once the playoff bracket is set — this model "
+               f"can't simulate the rest of the regular season yet.")
+    elif not closed:
+        nx = top.get("next") or {}
+        where = {"home": "hosts", "away": "at", "neutral": "vs"}.get(nx.get("site"), "vs")
+        nxt = f" First game: {nx.get('round')} — {where} {nx.get('opp')}." if nx else ""
+        why = (f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win the title (fair {top['fair_odds']}).{nxt} "
+               f"Betting window open until the first playoff game.")
+    else:
+        alive = [t["name"] for t in rows if t.get("alive")]
+        status = (f"<b>{alive[0]}</b> won the {E['season']} NWSL Championship." if stage == "done" and len(alive) == 1
+                  else f"Still alive: {', '.join(alive)}.")
+        why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win the title "
+               f"(fair {top['fair_odds']}). The betting window is closed: these fair odds are frozen at the start of the playoffs "
+               f"(you don't bet within the playoffs), so no EV is shown against in-playoff prices.")
+    base = {"sport": "NWSL", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
+            "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
+            "stage": stage, "window_closed": closed, "prediction": {"pick": top["name"], "why": why},
+            "season_pct": season_pct(rows, "nwsl"), "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows)}
+    for t in rows: t.pop("p", None)
+    return base
+
 def build_cbb(): return build_college_bb("cbb")
 def build_wcbb(): return build_college_bb("wcbb")
 
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl), ("nwsl", build_nwsl)]:
         if name not in LEAGUES:
             continue
         try:
@@ -1722,7 +1796,7 @@ def main():
                 data["signal"] = signal_status(name, data["gp_max"])
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
@@ -1734,7 +1808,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":
