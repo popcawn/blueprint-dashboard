@@ -1636,20 +1636,36 @@ def build_cfl():
        copied from baseball-blueprint/college (keep in sync). It reads Wikipedia's raw standings templates and playoff bracket.
        Title odds = bracket simulation on points-per-game margin (home edge ~10.5, spread 16, fit on 17 seasons of playoff games) that
        respects every result already in (division finals, Grey Cup). Tiers = the every-champion profile (all 17 Grey Cup winners
-       2008-25 had all 5). Verdict: NOT bet-able -- with four teams left the model has been worse than a coin flip since 2017.
-       Market: the user's sportsbook screenshot in data/cfl_book.json (from the site's 📷 box or chat), shown while <= 14 days old."""
+       2008-25 had all 5).
+       Market: the user's sportsbook screenshot in data/cfl_book.json (from the site's 📷 box or chat), shown while <= 14 days old.
+       BETTING WINDOW (user 2026-11-07: "i want fair odds to be before playoffs. i never want to bet within the playoffs"):
+       until a playoff result is in, this is the live pre-playoff board (fair odds + EV vs the screenshot). Once the playoffs are
+       underway the fair odds are FROZEN at the start of the playoffs (the engine's --preplayoff run: the six-team field, results
+       ignored) and no EV / value plays are computed. Cards still show who is alive and the next game.
+       Backtest at the start of the playoffs (17 seasons, leave-one-out): bracket sim log-loss 1.51 vs coin flip 1.79, better in
+       both halves (2008-16 1.33, 2017-25 1.71); 12 of 17 Grey Cup winners had a first-round bye. With four teams left it is a coin
+       flip (2017-25 worse than one) -- the stage the user never bets."""
     import subprocess, tempfile
+    eng = os.path.join(HERE, "scripts", "college", "cfl.mjs")
     out = os.path.join(tempfile.gettempdir(), "cfl_export.json")
-    subprocess.run(["node", os.path.join(HERE, "scripts", "college", "cfl.mjs"), "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
+    subprocess.run(["node", eng, "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
     E = json.load(open(out, encoding="utf-8"))
+    stage = E.get("stage")
+    closed = stage != "field"   # a playoff result is in -> the user's betting window is closed
+    pre = {}
+    if closed:
+        outp = os.path.join(tempfile.gettempdir(), "cfl_export_pre.json")
+        subprocess.run(["node", eng, "--preplayoff", "--export", outp], check=True, timeout=1500, stdout=subprocess.DEVNULL)
+        pre = {t["name"]: t["p"] for t in json.load(open(outp, encoding="utf-8"))["teams"]}
     snap = {}
     try: snap = json.load(open(os.path.join(DATA, "cfl_book.json"), encoding="utf-8"))
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
-    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14
+    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14 and not closed
     rows = [{"name": t["name"], "conf": t["div"], "rec": f"{t['rec']} · {t['div']} #{t['place']}", "gp": t["gp"], "score": t["score"], "q": t["q"],
-             "vals": t["vals"], "index": t["idx"], "rtg": t["mgn"], "p": t["p"] if t["alive"] else 0, "alive": t["alive"], "next": t["next"]} for t in E["teams"]]
+             "vals": t["vals"], "index": t["idx"], "rtg": t["mgn"], "p": pre.get(t["name"], 0) if closed else (t["p"] if t["alive"] else 0),
+             "alive": t["alive"], "next": t["next"]} for t in E["teams"]]
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
         t["fair_odds"] = american(t["p"]) if t["p"] else None
@@ -1666,11 +1682,17 @@ def build_cfl():
         v = t.get("verdict") or {}
         if v.get("kind") in ("value", "small", "longshot") and t["score"] < 4:
             t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
-    rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))   # alive teams first, by Grey Cup chance
+    rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))   # by Grey Cup chance (frozen pre-playoff order once the playoffs start)
     top = max(rows, key=lambda t: t["p"])
-    stage = E.get("stage")
     nx = top.get("next") or {}
-    if stage == "done":
+    if closed:
+        alive = [t["name"] for t in rows if t["alive"]]
+        status = (f"<b>{alive[0]}</b> won the {E['season']} Grey Cup." if stage == "done" and len(alive) == 1
+                  else f"Still alive: {', '.join(alive)}.")
+        why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win the Grey Cup "
+               f"(fair {top['fair_odds']}). The betting window is closed: these fair odds are frozen at the start of the playoffs "
+               f"(you don't bet within the playoffs), so no EV is shown against in-playoff prices.")
+    elif stage == "done":
         why = f"<b>{top['name']}</b> won the {E['season']} Grey Cup."
     else:
         where = {"home": "hosts", "away": "at", "neutral": "vs"}.get(nx.get("site"), "vs")
@@ -1679,7 +1701,7 @@ def build_cfl():
                f"Odds come from simulating the rest of the bracket on each team's scoring margin; results already played are locked in.")
     base = {"sport": "CFL", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
             "odds_remaining": None, "market_name": snap.get("book", "FanDuel"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
-            "stage": stage, "prediction": {"pick": top["name"], "why": why},
+            "stage": stage, "window_closed": closed, "prediction": {"pick": top["name"], "why": why},
             "season_pct": season_pct(rows, "cfl"), "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows)}
     for t in rows: t.pop("p", None)
     return base

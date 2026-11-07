@@ -1,7 +1,7 @@
 {
   "sport": "CFL",
   "season": "2026",
-  "generated": "2026-11-06T22:03:45Z",
+  "generated": "2026-11-07T12:42:43Z",
   "cats": [
     "Win% top-5",
     "Scoring \u2265 24.6",
@@ -45,17 +45,13 @@
         "opp": "Winnipeg Blue Bombers",
         "site": "home"
       },
-      "fair_pct": 42.9,
+      "fair_pct": 42.8,
       "fair_odds": "+133",
       "read": null,
-      "mk": -115,
-      "market": "-115",
-      "ev": -20,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -20
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Edmonton Elks",
@@ -85,17 +81,13 @@
         "opp": "BC Lions",
         "site": "home"
       },
-      "fair_pct": 35.4,
-      "fair_odds": "+183",
+      "fair_pct": 35.6,
+      "fair_odds": "+181",
       "read": null,
-      "mk": 350,
-      "market": "+350",
-      "ev": 59,
-      "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 59
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "BC Lions",
@@ -125,84 +117,8 @@
         "opp": "Edmonton Elks",
         "site": "away"
       },
-      "fair_pct": 12.4,
-      "fair_odds": "+707",
-      "read": null,
-      "mk": 300,
-      "market": "+300",
-      "ev": -50,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -50
-      }
-    },
-    {
-      "name": "Winnipeg Blue Bombers",
-      "conf": "West",
-      "rec": "9-9 \u00b7 West #4",
-      "gp": 18,
-      "score": 4,
-      "q": [
-        true,
-        true,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "0.500 #5",
-        "26.4",
-        "27.3 #5",
-        "4",
-        "9"
-      ],
-      "index": 59.1,
-      "rtg": -0.94,
-      "alive": true,
-      "next": {
-        "round": "Division final",
-        "opp": "Montreal Alouettes",
-        "site": "away"
-      },
-      "fair_pct": 9.3,
-      "fair_odds": "+970",
-      "read": null,
-      "mk": 800,
-      "market": "+800",
-      "ev": -16,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -16
-      }
-    },
-    {
-      "name": "Saskatchewan Roughriders",
-      "conf": "West",
-      "rec": "10-8 \u00b7 West #3",
-      "gp": 18,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "0.556 #3",
-        "27.0",
-        "26.3 #2",
-        "3",
-        "8"
-      ],
-      "index": 65.4,
-      "rtg": 0.72,
-      "alive": false,
-      "next": null,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 8.3,
+      "fair_odds": "+1100",
       "read": null,
       "mk": null,
       "market": null,
@@ -233,8 +149,76 @@
       "rtg": -0.61,
       "alive": false,
       "next": null,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 6.4,
+      "fair_odds": "+1465",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Saskatchewan Roughriders",
+      "conf": "West",
+      "rec": "10-8 \u00b7 West #3",
+      "gp": 18,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.556 #3",
+        "27.0",
+        "26.3 #2",
+        "3",
+        "8"
+      ],
+      "index": 65.4,
+      "rtg": 0.72,
+      "alive": false,
+      "next": null,
+      "fair_pct": 3.7,
+      "fair_odds": "+2590",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Winnipeg Blue Bombers",
+      "conf": "West",
+      "rec": "9-9 \u00b7 West #4",
+      "gp": 18,
+      "score": 4,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "0.500 #5",
+        "26.4",
+        "27.3 #5",
+        "4",
+        "9"
+      ],
+      "index": 59.1,
+      "rtg": -0.94,
+      "alive": true,
+      "next": {
+        "round": "Division final",
+        "opp": "Montreal Alouettes",
+        "site": "away"
+      },
+      "fair_pct": 3.2,
+      "fair_odds": "+3068",
       "read": null,
       "mk": null,
       "market": null,
@@ -340,11 +324,12 @@
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": "Nov 6",
+  "market_asof": null,
   "stage": "final4",
+  "window_closed": true,
   "prediction": {
     "pick": "Montreal Alouettes",
-    "why": "<b>Montreal Alouettes</b> is the model's #1: 42.9% to win the Grey Cup (fair +133). Next: Division final \u2014 hosts Winnipeg Blue Bombers. Odds come from simulating the rest of the bracket on each team's scoring margin; results already played are locked in."
+    "why": "Still alive: Montreal Alouettes, Edmonton Elks, BC Lions, Winnipeg Blue Bombers. Going into the playoffs the model's #1 was <b>Montreal Alouettes</b>: 42.8% to win the Grey Cup (fair +133). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
   },
   "season_pct": 100,
   "gp_min": 18,
@@ -355,12 +340,5 @@
     "label": "Trust the board",
     "note": "18 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": [
-    {
-      "name": "Edmonton Elks",
-      "ev": 59,
-      "market": "+350",
-      "fair_odds": "+183"
-    }
-  ]
+  "value_plays": []
 }
