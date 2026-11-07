@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-06T12:45:45Z",
-  "odds_remaining": "86583",
+  "generated": "2026-11-07T18:23:16Z",
+  "odds_remaining": "82009",
   "prediction": {
     "pick": "Miami Hurricanes",
-    "why": "<b>Miami Hurricanes</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +317), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (85% to make the field). Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
+    "why": "<b>Miami Hurricanes</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +317), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (85% to make the field). Leads with its #1 offense; the #25 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
   },
   "gp_min": 8,
   "gp_max": 10,
@@ -30,7 +30,7 @@
       "conf": "Ind",
       "rec": "7-1",
       "score": 4,
-      "index": 91.7,
+      "index": 91.2,
       "q": [
         false,
         true,
@@ -38,7 +38,7 @@
         true,
         true
       ],
-      "sosrank": 113,
+      "sosrank": 116,
       "srsrank": 4,
       "srs_flag": "elite",
       "vals": [
@@ -48,30 +48,71 @@
         "236 #1",
         "+27.0 #2"
       ],
-      "rtg": 35.9,
-      "fair_pct": 15.6,
-      "fair_odds": "+542",
+      "rtg": 36.0,
+      "fair_pct": 15.8,
+      "fair_odds": "+534",
       "market": "+490",
-      "ev": -8,
+      "ev": -7,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -8
+        "ev": -7
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #6) and SRS #4 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 15.91,
+      "mw": 16.01,
       "cfp": 11,
       "infield": 66
+    },
+    {
+      "name": "Georgia Bulldogs",
+      "conf": "SEC",
+      "rec": "7-1",
+      "score": 4,
+      "index": 88.0,
+      "q": [
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 98,
+      "srsrank": 3,
+      "srs_flag": "elite",
+      "vals": [
+        "0.875",
+        "41.0 #4",
+        "14.9 #9",
+        "273 #8",
+        "+26.1 #3"
+      ],
+      "rtg": 36.4,
+      "fair_pct": 21.7,
+      "fair_odds": "+361",
+      "market": "+330",
+      "ev": -7,
+      "verdict": {
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -7
+      },
+      "read": {
+        "v": "trust",
+        "why": "The genuine article \u2014 complete (worst spot: scoring defense #9) and SRS #3 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+      },
+      "mw": 22.05,
+      "cfp": 2,
+      "infield": 85
     },
     {
       "name": "Miami Hurricanes",
       "conf": "ACC",
       "rec": "8-0",
       "score": 3,
-      "index": 92.1,
+      "index": 91.6,
       "q": [
         true,
         true,
@@ -86,10 +127,10 @@
         "1.000",
         "47.6 #1",
         "17.8 #21",
-        "313 #28",
+        "313 #25",
         "+29.9 #1"
       ],
-      "rtg": 37.0,
+      "rtg": 37.1,
       "fair_pct": 24.0,
       "fair_odds": "+317",
       "market": "+750",
@@ -101,59 +142,18 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #28 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
+        "why": "Leads with its #1 offense; the #25 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
       },
-      "mw": 34.52,
+      "mw": 34.74,
       "cfp": 1,
-      "infield": 85
-    },
-    {
-      "name": "Georgia Bulldogs",
-      "conf": "SEC",
-      "rec": "7-1",
-      "score": 3,
-      "index": 88.5,
-      "q": [
-        false,
-        true,
-        false,
-        true,
-        true
-      ],
-      "sosrank": 98,
-      "srsrank": 3,
-      "srs_flag": "elite",
-      "vals": [
-        "0.875",
-        "41.0 #4",
-        "14.9 #11",
-        "273 #9",
-        "+26.1 #3"
-      ],
-      "rtg": 36.3,
-      "fair_pct": 21.5,
-      "fair_odds": "+366",
-      "market": "+340",
-      "ev": -6,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -6
-      },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #3 margin; the #11 scoring defense is the one soft spot \u2014 but SRS #3 says it's done this against a real schedule, not cupcakes."
-      },
-      "mw": 21.92,
-      "cfp": 2,
       "infield": 85
     },
     {
       "name": "New Mexico Lobos",
       "conf": "G5",
-      "rec": "7-1",
+      "rec": "8-1",
       "score": 3,
-      "index": 86.7,
+      "index": 88.1,
       "q": [
         false,
         false,
@@ -161,31 +161,31 @@
         true,
         true
       ],
-      "sosrank": 132,
-      "srsrank": 49,
+      "sosrank": 134,
+      "srsrank": 45,
       "srs_flag": "mirage",
       "vals": [
-        "0.875",
-        "35.0 #27",
-        "11.9 #1",
-        "258 #4",
-        "+23.1 #5"
+        "0.889",
+        "34.6 #27",
+        "10.9 #1",
+        "240 #2",
+        "+23.7 #5"
       ],
-      "rtg": 22.6,
+      "rtg": 23.7,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+70000",
-      "ev": -1,
+      "market": "+60000",
+      "ev": -13,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -1
+        "kind": "fade",
+        "label": "fade",
+        "ev": -13
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #27 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #49 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #1 scoring defense; the #27 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #45 says the schedule hasn't fully tested it yet."
       },
-      "mw": 0.14,
+      "mw": 0.15,
       "cfp": null,
       "infield": 1
     },
@@ -194,7 +194,7 @@
       "conf": "B1G",
       "rec": "8-0",
       "score": 3,
-      "index": 85.8,
+      "index": 85.2,
       "q": [
         true,
         false,
@@ -202,7 +202,7 @@
         true,
         false
       ],
-      "sosrank": 125,
+      "sosrank": 129,
       "srsrank": 16,
       "srs_flag": "mirage",
       "vals": [
@@ -212,21 +212,21 @@
         "261 #7",
         "+20.1 #11"
       ],
-      "rtg": 28.1,
-      "fair_pct": 14.2,
-      "fair_odds": "+606",
-      "market": "+4500",
-      "ev": 551,
+      "rtg": 28.0,
+      "fair_pct": 13.7,
+      "fair_odds": "+628",
+      "market": "+4000",
+      "ev": 463,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 551
+        "ev": 463
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #5 scoring defense; the #36 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #16 says the schedule hasn't fully tested it yet."
       },
-      "mw": 14.47,
+      "mw": 13.94,
       "cfp": 8,
       "infield": 85
     },
@@ -235,7 +235,7 @@
       "conf": "SEC",
       "rec": "6-2",
       "score": 3,
-      "index": 84.6,
+      "index": 84.1,
       "q": [
         false,
         true,
@@ -243,31 +243,31 @@
         true,
         true
       ],
-      "sosrank": 26,
+      "sosrank": 24,
       "srsrank": 1,
       "srs_flag": "elite",
       "vals": [
         "0.750",
         "40.1 #9",
-        "16.0 #16",
-        "258 #4",
+        "16.0 #15",
+        "258 #5",
         "+24.1 #4"
       ],
-      "rtg": 37.6,
-      "fair_pct": 12.8,
-      "fair_odds": "+683",
+      "rtg": 37.7,
+      "fair_pct": 12.9,
+      "fair_odds": "+675",
       "market": "+750",
-      "ev": 8,
+      "ev": 10,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 8
+        "kind": "value",
+        "label": "value",
+        "ev": 10
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #4 total defense; the #16 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
+        "why": "Leads with its #4 margin; the #15 scoring defense is the one soft spot \u2014 but SRS #1 says it's done this against a real schedule, not cupcakes."
       },
-      "mw": 13.04,
+      "mw": 13.11,
       "cfp": 14,
       "infield": 28
     },
@@ -276,7 +276,7 @@
       "conf": "Big 12",
       "rec": "8-0",
       "score": 2,
-      "index": 84.3,
+      "index": 83.8,
       "q": [
         true,
         true,
@@ -284,25 +284,25 @@
         false,
         false
       ],
-      "sosrank": 107,
+      "sosrank": 109,
       "srsrank": 9,
       "srs_flag": "ok",
       "vals": [
         "1.000",
         "38.9 #12",
-        "15.9 #15",
+        "15.9 #14",
         "330 #41",
         "+23.0 #6"
       ],
       "rtg": 31.3,
       "fair_pct": 4.2,
-      "fair_odds": "+2295",
+      "fair_odds": "+2268",
       "market": "+3000",
-      "ev": 29,
+      "ev": 31,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 29
+        "ev": 31
       },
       "read": {
         "v": "caution",
@@ -317,7 +317,7 @@
       "conf": "B1G",
       "rec": "8-1",
       "score": 2,
-      "index": 83.6,
+      "index": 83.1,
       "q": [
         false,
         false,
@@ -325,7 +325,7 @@
         true,
         false
       ],
-      "sosrank": 50,
+      "sosrank": 55,
       "srsrank": 17,
       "srs_flag": "mirage",
       "vals": [
@@ -335,15 +335,15 @@
         "259 #6",
         "+20.0 #12"
       ],
-      "rtg": 27.8,
-      "fair_pct": 7.7,
-      "fair_odds": "+1202",
-      "market": "+900",
-      "ev": -23,
+      "rtg": 27.6,
+      "fair_pct": 7.4,
+      "fair_odds": "+1244",
+      "market": "+1000",
+      "ev": -18,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -23
+        "ev": -18
       },
       "read": {
         "v": "caution",
@@ -358,7 +358,7 @@
       "conf": "G5",
       "rec": "7-2",
       "score": 2,
-      "index": 78.2,
+      "index": 77.7,
       "q": [
         false,
         false,
@@ -366,15 +366,15 @@
         true,
         false
       ],
-      "sosrank": 70,
+      "sosrank": 74,
       "srsrank": 69,
       "srs_flag": "mirage",
       "vals": [
         "0.778",
         "28.1 #72",
         "11.9 #2",
-        "249 #2",
-        "+16.2 #16"
+        "249 #3",
+        "+16.2 #15"
       ],
       "rtg": 16.0,
       "fair_pct": 0.1,

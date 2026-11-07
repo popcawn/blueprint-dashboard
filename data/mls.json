@@ -1,7 +1,7 @@
 {
   "sport": "MLS",
   "season": "2026",
-  "generated": "2026-11-07T15:36:50Z",
+  "generated": "2026-11-07T18:23:43Z",
   "cats": [
     "Attack rating top-12",
     "Form (pts/g, last 8) \u2265 1.25",
@@ -38,7 +38,7 @@
         "1.66 #2"
       ],
       "rtg": 0.666,
-      "conf_pct": 38.6,
+      "conf_pct": 38.5,
       "index": 72.6,
       "fair_pct": 23.2,
       "fair_odds": "+331",
@@ -73,18 +73,18 @@
         "1.78 #1"
       ],
       "rtg": 0.478,
-      "conf_pct": 28.4,
+      "conf_pct": 28.5,
       "index": 87.3,
-      "fair_pct": 17.7,
-      "fair_odds": "+465",
+      "fair_pct": 18.1,
+      "fair_odds": "+454",
       "read": null,
       "mk": 340,
       "market": "+340",
-      "ev": -22,
+      "ev": -21,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -22
+        "ev": -21
       }
     },
     {
@@ -108,18 +108,18 @@
         "1.45 #3"
       ],
       "rtg": 0.458,
-      "conf_pct": 20.9,
+      "conf_pct": 20.8,
       "index": 72.4,
-      "fair_pct": 11.7,
-      "fair_odds": "+754",
+      "fair_pct": 11.5,
+      "fair_odds": "+768",
       "read": null,
       "mk": 500,
       "market": "+500",
-      "ev": -30,
+      "ev": -31,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -30
+        "ev": -31
       }
     },
     {
@@ -143,18 +143,18 @@
         "1.17 #7"
       ],
       "rtg": 0.349,
-      "conf_pct": 15.0,
+      "conf_pct": 14.6,
       "index": 57.8,
-      "fair_pct": 7.9,
-      "fair_odds": "+1163",
+      "fair_pct": 7.4,
+      "fair_odds": "+1249",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": 19,
+      "ev": 11,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 19
+        "ev": 11
       }
     },
     {
@@ -178,18 +178,18 @@
         "1.23 #6"
       ],
       "rtg": -0.028,
-      "conf_pct": 5.3,
+      "conf_pct": 5.7,
       "index": 53.4,
-      "fair_pct": 2.2,
-      "fair_odds": "+4364",
+      "fair_pct": 2.3,
+      "fair_odds": "+4164",
       "read": null,
       "mk": 2700,
       "market": "+2700",
-      "ev": -37,
+      "ev": -34,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -34
       }
     },
     {
@@ -215,16 +215,16 @@
       "rtg": 0.071,
       "conf_pct": 14.1,
       "index": 48.2,
-      "fair_pct": 6.0,
-      "fair_odds": "+1578",
+      "fair_pct": 5.8,
+      "fair_odds": "+1618",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -11,
+      "ev": -13,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -11
+        "ev": -13
       }
     },
     {
@@ -248,18 +248,18 @@
         "1.15 #8"
       ],
       "rtg": 0.168,
-      "conf_pct": 4.0,
+      "conf_pct": 3.8,
       "index": 61.6,
-      "fair_pct": 1.7,
-      "fair_odds": "+5835",
+      "fair_pct": 1.5,
+      "fair_odds": "+6680",
       "read": null,
       "mk": 5500,
       "market": "+5500",
-      "ev": -6,
+      "ev": -17,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -6
+        "kind": "fade",
+        "label": "fade",
+        "ev": -17
       }
     },
     {
@@ -283,18 +283,18 @@
         "1.35 #4"
       ],
       "rtg": 0.49,
-      "conf_pct": 14.6,
+      "conf_pct": 14.3,
       "index": 52.6,
-      "fair_pct": 6.8,
-      "fair_odds": "+1367",
+      "fair_pct": 7.0,
+      "fair_odds": "+1339",
       "read": null,
       "mk": 2000,
       "market": "+2000",
-      "ev": 43,
+      "ev": 46,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 43
+        "ev": 46
       }
     },
     {
@@ -321,7 +321,7 @@
       "conf_pct": 7.1,
       "index": 58.3,
       "fair_pct": 3.1,
-      "fair_odds": "+3110",
+      "fair_odds": "+3080",
       "read": null,
       "mk": 1300,
       "market": "+1300",
@@ -353,18 +353,18 @@
         "0.98 #16"
       ],
       "rtg": 0.006,
-      "conf_pct": 3.7,
+      "conf_pct": 4.0,
       "index": 46.8,
-      "fair_pct": 1.4,
-      "fair_odds": "+6820",
+      "fair_pct": 1.6,
+      "fair_odds": "+6170",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -41,
+      "ev": -35,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -41
+        "kind": "fade",
+        "label": "fade",
+        "ev": -35
       }
     },
     {
@@ -388,18 +388,18 @@
         "1.06 #12"
       ],
       "rtg": 0.092,
-      "conf_pct": 9.9,
+      "conf_pct": 10.1,
       "index": 38.2,
-      "fair_pct": 3.7,
-      "fair_odds": "+2585",
+      "fair_pct": 4.0,
+      "fair_odds": "+2378",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -37,
+      "ev": -31,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -31
       }
     },
     {
@@ -423,18 +423,18 @@
         "0.94 #20"
       ],
       "rtg": -0.104,
-      "conf_pct": 1.9,
+      "conf_pct": 1.8,
       "index": 41.4,
-      "fair_pct": 0.7,
-      "fair_odds": "+14606",
+      "fair_pct": 0.6,
+      "fair_odds": "+15773",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -31,
+      "ev": -36,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -31
+        "ev": -36
       }
     },
     {
@@ -458,18 +458,18 @@
         "0.93 #21"
       ],
       "rtg": -0.117,
-      "conf_pct": 1.3,
+      "conf_pct": 1.1,
       "index": 39.5,
       "fair_pct": 0.4,
-      "fair_odds": "+23156",
+      "fair_odds": "+26216",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -65,
+      "ev": -69,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -65
+        "ev": -69
       }
     },
     {
@@ -493,18 +493,18 @@
         "0.86 #24"
       ],
       "rtg": -0.318,
-      "conf_pct": 1.3,
+      "conf_pct": 1.1,
       "index": 37.6,
       "fair_pct": 0.3,
-      "fair_odds": "+31150",
+      "fair_odds": "+34988",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -68,
+      "ev": -71,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -68
+        "ev": -71
       }
     },
     {
@@ -530,16 +530,16 @@
       "rtg": 0.067,
       "conf_pct": 0.5,
       "index": 41.5,
-      "fair_pct": 0.2,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": 15000,
       "market": "+15000",
-      "ev": -74,
+      "ev": -81,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -74
+        "ev": -81
       }
     },
     {
@@ -594,18 +594,18 @@
         "1.27 #5"
       ],
       "rtg": 0.334,
-      "conf_pct": 13.3,
+      "conf_pct": 13.6,
       "index": 40.3,
-      "fair_pct": 5.6,
-      "fair_odds": "+1687",
+      "fair_pct": 5.7,
+      "fair_odds": "+1659",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -5,
+      "ev": -3,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -5
+        "ev": -3
       }
     },
     {
@@ -629,18 +629,18 @@
         "0.99 #15"
       ],
       "rtg": 0.111,
-      "conf_pct": 11.3,
+      "conf_pct": 11.2,
       "index": 41.2,
       "fair_pct": 4.4,
-      "fair_odds": "+2165",
+      "fair_odds": "+2196",
       "read": null,
       "mk": 2200,
       "market": "+2200",
-      "ev": 2,
+      "ev": 0,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": 2
+        "ev": 0
       }
     },
     {
@@ -664,18 +664,18 @@
         "0.97 #17"
       ],
       "rtg": -0.017,
-      "conf_pct": 1.5,
+      "conf_pct": 1.4,
       "index": 28.8,
       "fair_pct": 0.4,
-      "fair_odds": "+23429",
+      "fair_odds": "+22122",
       "read": null,
       "mk": 3300,
       "market": "+3300",
-      "ev": -86,
+      "ev": -85,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -85
       }
     },
     {
@@ -699,18 +699,18 @@
         "0.96 #18"
       ],
       "rtg": -0.156,
-      "conf_pct": 1.2,
+      "conf_pct": 1.3,
       "index": 40.5,
-      "fair_pct": 0.4,
-      "fair_odds": "+28069",
+      "fair_pct": 0.3,
+      "fair_odds": "+29312",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -85,
+      "ev": -86,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -85
+        "ev": -86
       }
     },
     {
@@ -796,18 +796,18 @@
         "0.95 #19"
       ],
       "rtg": -0.246,
-      "conf_pct": 4.6,
+      "conf_pct": 4.7,
       "index": 32.3,
-      "fair_pct": 1.5,
-      "fair_odds": "+6726",
+      "fair_pct": 1.6,
+      "fair_odds": "+6209",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -75,
+      "ev": -73,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -75
+        "ev": -73
       }
     },
     {
@@ -834,15 +834,15 @@
       "conf_pct": 1.8,
       "index": 28.6,
       "fair_pct": 0.6,
-      "fair_odds": "+15900",
+      "fair_odds": "+16849",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -74,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -74
+        "ev": -76
       }
     },
     {
@@ -1039,7 +1039,7 @@
   "sims": 20000,
   "prediction": {
     "pick": "Vancouver Whitecaps",
-    "why": "<b>Vancouver Whitecaps</b> is the model's #1: 23.2% to win MLS Cup (fair +331) and 38.6% to win the West. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
+    "why": "<b>Vancouver Whitecaps</b> is the model's #1: 23.2% to win MLS Cup (fair +331) and 38.5% to win the West. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
   },
   "season_pct": 97,
   "gp_min": 33,
@@ -1059,9 +1059,9 @@
     },
     {
       "name": "Chicago Fire FC",
-      "ev": 19,
+      "ev": 11,
       "market": "+1400",
-      "fair_odds": "+1163"
+      "fair_odds": "+1249"
     }
   ]
 }

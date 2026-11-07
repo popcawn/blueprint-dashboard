@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-07T15:36:50Z",
+  "generated": "2026-11-07T18:25:12Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -38,7 +38,7 @@
         "0.17 #1"
       ],
       "index": 91.2,
-      "rtg": 0.436,
+      "rtg": 0.47,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -47,58 +47,16 @@
         "date": "2026-11-08"
       },
       "seed": 1,
-      "fair_pct": 19.1,
-      "fair_odds": "+425",
+      "fair_pct": 18.4,
+      "fair_odds": "+444",
       "read": null,
       "mk": 270,
       "market": "+270",
-      "ev": -29,
+      "ev": -32,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -29
-      }
-    },
-    {
-      "name": "Kansas City Current",
-      "conf": "seed 4",
-      "rec": "16-5-9 \u00b7 53 pts",
-      "gp": 30,
-      "score": 4,
-      "q": [
-        true,
-        true,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "#3",
-        "#2",
-        "1.80 #1",
-        "1.30 #6",
-        "0.30 #5"
-      ],
-      "index": 82.4,
-      "rtg": 0.615,
-      "alive": true,
-      "next": {
-        "round": "Quarterfinal",
-        "opp": "Angel City FC",
-        "site": "home",
-        "date": "2026-11-07"
-      },
-      "seed": 4,
-      "fair_pct": 18.1,
-      "fair_odds": "+453",
-      "read": null,
-      "mk": 400,
-      "market": "+400",
-      "ev": -10,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -10
+        "ev": -32
       }
     },
     {
@@ -122,20 +80,62 @@
         "0.27 #2"
       ],
       "index": 85.5,
-      "rtg": 0.293,
+      "rtg": 0.338,
       "alive": false,
       "next": null,
       "seed": 2,
-      "fair_pct": 17.1,
-      "fair_odds": "+486",
+      "fair_pct": 18.1,
+      "fair_odds": "+452",
       "read": null,
       "mk": 300,
       "market": "+300",
-      "ev": -32,
+      "ev": -27,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -32
+        "ev": -27
+      }
+    },
+    {
+      "name": "Kansas City Current",
+      "conf": "seed 4",
+      "rec": "16-5-9 \u00b7 53 pts",
+      "gp": 30,
+      "score": 4,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "#3",
+        "#2",
+        "1.80 #1",
+        "1.30 #6",
+        "0.30 #5"
+      ],
+      "index": 82.4,
+      "rtg": 0.647,
+      "alive": true,
+      "next": {
+        "round": "Quarterfinal",
+        "opp": "Angel City FC",
+        "site": "home",
+        "date": "2026-11-07"
+      },
+      "seed": 4,
+      "fair_pct": 16.0,
+      "fair_odds": "+523",
+      "read": null,
+      "mk": 400,
+      "market": "+400",
+      "ev": -20,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -20
       }
     },
     {
@@ -159,7 +159,7 @@
         "0.30 #5"
       ],
       "index": 82,
-      "rtg": 0.339,
+      "rtg": 0.334,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -168,16 +168,16 @@
         "date": "2026-11-08"
       },
       "seed": 3,
-      "fair_pct": 16.5,
-      "fair_odds": "+505",
+      "fair_pct": 15.7,
+      "fair_odds": "+538",
       "read": null,
       "mk": 350,
       "market": "+350",
-      "ev": -26,
+      "ev": -29,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -26
+        "ev": -29
       }
     },
     {
@@ -201,7 +201,7 @@
         "0.27 #2"
       ],
       "index": 90.3,
-      "rtg": 0.427,
+      "rtg": 0.659,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -210,16 +210,16 @@
         "date": "2026-11-07"
       },
       "seed": 5,
-      "fair_pct": 10.3,
-      "fair_odds": "+870",
+      "fair_pct": 13.8,
+      "fair_odds": "+623",
       "read": null,
       "mk": 1100,
       "market": "+1100",
-      "ev": 24,
+      "ev": 66,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 24
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 66
       }
     },
     {
@@ -243,7 +243,7 @@
         "0.27 #2"
       ],
       "index": 74.8,
-      "rtg": 0.19,
+      "rtg": 0.17,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -252,16 +252,16 @@
         "date": "2026-11-08"
       },
       "seed": 6,
-      "fair_pct": 8.1,
-      "fair_odds": "+1132",
+      "fair_pct": 7.2,
+      "fair_odds": "+1279",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": 38,
+      "ev": 23,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 38
+        "ev": 23
       }
     },
     {
@@ -285,7 +285,7 @@
         "0.37 #7"
       ],
       "index": 69.9,
-      "rtg": 0.099,
+      "rtg": 0.145,
       "alive": true,
       "next": {
         "round": "Quarterfinal",
@@ -294,16 +294,16 @@
         "date": "2026-11-08"
       },
       "seed": 8,
-      "fair_pct": 5.9,
-      "fair_odds": "+1607",
+      "fair_pct": 6.0,
+      "fair_odds": "+1553",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -12,
+      "ev": -9,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -12
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -9
       }
     },
     {
@@ -327,20 +327,20 @@
         "0.37 #7"
       ],
       "index": 65,
-      "rtg": 0.015,
+      "rtg": 0.038,
       "alive": true,
       "next": null,
       "seed": 7,
-      "fair_pct": 5.0,
-      "fair_odds": "+1906",
+      "fair_pct": 4.7,
+      "fair_odds": "+2047",
       "read": null,
       "mk": 2500,
       "market": "+2500",
-      "ev": 30,
+      "ev": 21,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 30
+        "ev": 21
       }
     },
     {
@@ -364,7 +364,7 @@
         "0.50 #11"
       ],
       "index": 49.7,
-      "rtg": -0.262,
+      "rtg": -0.242,
       "alive": false,
       "next": null,
       "seed": 13,
@@ -397,7 +397,7 @@
         "0.37 #7"
       ],
       "index": 69.8,
-      "rtg": 0.302,
+      "rtg": 0.357,
       "alive": false,
       "next": null,
       "seed": 10,
@@ -430,7 +430,7 @@
         "0.43 #10"
       ],
       "index": 64.4,
-      "rtg": 0.216,
+      "rtg": 0.297,
       "alive": false,
       "next": null,
       "seed": 9,
@@ -463,7 +463,7 @@
         "0.50 #11"
       ],
       "index": 50.4,
-      "rtg": -0.22,
+      "rtg": -0.234,
       "alive": false,
       "next": null,
       "seed": 12,
@@ -496,7 +496,7 @@
         "0.53 #13"
       ],
       "index": 49.3,
-      "rtg": -0.148,
+      "rtg": -0.229,
       "alive": false,
       "next": null,
       "seed": 11,
@@ -529,7 +529,7 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.541,
+      "rtg": -0.716,
       "alive": false,
       "next": null,
       "seed": 15,
@@ -562,7 +562,7 @@
         "0.57 #14"
       ],
       "index": 38.9,
-      "rtg": -0.487,
+      "rtg": -0.532,
       "alive": false,
       "next": null,
       "seed": 14,
@@ -595,7 +595,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.277,
+      "rtg": -1.503,
       "alive": false,
       "next": null,
       "seed": 16,
@@ -615,7 +615,7 @@
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Angel City FC, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
+    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Angel City FC, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 18.4% to win the title (fair +444). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
   },
   "season_pct": 100,
   "gp_min": 30,
@@ -626,5 +626,12 @@
     "label": "Trust the board",
     "note": "30 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Angel City FC",
+      "ev": 66,
+      "market": "+1100",
+      "fair_odds": "+623"
+    }
+  ]
 }
