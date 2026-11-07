@@ -16,7 +16,6 @@
   {"key": "nwsl", "name": "NWSL", "title": "NWSL final", "site": true, "start": "2026-03-14", "po": "2026-11-06", "final": "2026-11-21", "next": "2027-03-13", "approx": ["next"]},
   {"key": "nascar", "name": "NASCAR Cup", "title": "Championship (Homestead)", "site": false, "start": "2026-02-15", "po": "2026-09-06", "final": "2026-11-08", "next": "2027-02-14", "approx": ["po", "next"], "short": "NASCAR"},
   {"key": "f1", "name": "Formula 1", "title": "Drivers' title (Abu Dhabi)", "site": false, "start": "2026-03-08", "po": null, "final": "2026-12-06", "next": "2027-03-14", "approx": ["next"], "short": "F1"},
-  {"key": "nbacup", "name": "NBA Cup", "title": "Cup final (Las Vegas)", "site": false, "start": "2026-10-31", "po": "2026-12-08", "final": "2026-12-15", "approx": ["start", "po", "final"], "short": "NBA Cup"},
   {"key": "wcvb", "name": "College volleyball", "title": "NCAA final", "site": false, "start": "2026-08-28", "po": "2026-12-03", "final": "2026-12-20", "next": "2027-08-27", "approx": ["po", "final", "next"], "short": "Volleyball"},
   {"key": "chk", "name": "College hockey", "title": "Frozen Four", "site": false, "start": "2026-10-03", "po": "2027-03-26", "final": "2027-04-10", "approx": ["start", "po", "final"], "short": "College hockey"},
   {"key": "afl", "name": "AFL", "title": "Grand Final", "site": true, "start": "2027-03-17", "po": "2027-08-29", "final": "2027-09-25", "approx": ["po", "final"], "short": "AFL"},
