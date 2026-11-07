@@ -10,11 +10,15 @@ import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'
 import {TIER_NAME, rankRows, cutoffs as tierCuts, score as tierScore, cutLabel, tierBacktest} from './tiers.mjs';
 
 const CACHE = path.join(os.tmpdir(), 'pro_bp_cache'); fs.mkdirSync(CACHE, {recursive: true});
+// tuned settings (= what `backtest` wrote to <lk>_params.json). The fallback when that file is missing MUST be these: the site's bot never runs a
+// backtest, so it always used the fallback -- fixed 2026-11-07, the NWSL board had run on untuned 120 d / shrink 3 / draws +8% instead of 240 / 6 / 0.
+const TUNED = {mls: {half: 240, k: 6, rho: 0.08}, nwsl: {half: 240, k: 6, rho: 0}};
+const tunedP = lg => fs.existsSync(path.join(CACHE, `${lg}_params.json`)) ? JSON.parse(fs.readFileSync(path.join(CACHE, `${lg}_params.json`), 'utf8')) : TUNED[lg];
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function getJson(u) { for (let a = 0; a < 5; a++) { try { const r = await fetch(u, {signal: AbortSignal.timeout(30e3)}); if (r.ok) { const t = await r.text(); return t.trim() ? JSON.parse(t) : null; } if (r.status === 404) return null; } catch {} await sleep(800 * (a + 1)); } throw new Error('fetch failed ' + u); }
 const LG = {
-  nwsl: {espn: 'usa.nwsl', label: 'NWSL', seasons: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025], cur: 2026, hist: 'nwsl-history.md'},
-  mls: {espn: 'usa.1', label: 'MLS', seasons: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025], cur: 2026, hist: 'mls-history.md'},
+  nwsl: {espn: 'usa.nwsl', label: 'NWSL', first: 2013, hist: 'nwsl-history.md'},
+  mls: {espn: 'usa.1', label: 'MLS', first: 2010, hist: 'mls-history.md'},
 };
 const [lk, mode0 = 'live', ...rest] = process.argv.slice(2);
 const L = LG[lk];
@@ -23,6 +27,12 @@ const mode = mode0.startsWith('--') ? 'live' : mode0;
 if (mode0.startsWith('--')) rest.unshift(mode0);
 const arg = k => { const i = rest.indexOf(k); return i >= 0 ? rest[i + 1] : null; };
 const today = process.env.BP_TODAY || new Date().toLocaleDateString('en-CA');
+// season rollover (fixed 2026-11-07: cur was hard-coded 2026, so both site boards would have stayed on 2026 through 2027). The current season
+// is this calendar year once its first regular-season match is played, else last year (set below, after season() is defined); past seasons =
+// every year from the first tracked one to the year before, minus 2020 (no usable season: MLS bubble, NWSL Challenge Cup only).
+L.cur = +today.slice(0, 4);
+const pastSeasons = () => Array.from({length: Math.max(0, L.cur - L.first)}, (_, i) => L.first + i).filter(Y => Y !== 2020);
+L.seasons = pastSeasons();
 
 // ---------- xG (MLS, 2026-11-07): American Soccer Analysis per-game team xG, 2013+ (free public API, no key) ----------
 // The ratings are fit on XGW * xG + (1 - XGW) * goals. Backtest 2014-25 (scratchpad mls_xg.mjs), scored on REAL results:
@@ -52,7 +62,9 @@ async function attachXG(Y, rows) {
   for (const g of rows) { if (!g.fin || g.hs == null) continue;
     for (const dd of days(g.d)) { const x = idx.get(dd + '|' + map.get(g.h) + '|' + map.get(g.a)); if (x && x.home_team_xgoals != null) { g.xh = +x.home_team_xgoals; g.xa = +x.away_team_xgoals; break; } } }
 }
-async function season(Y) {
+const SEAS_MEMO = new Map();
+async function season(Y) { if (!SEAS_MEMO.has(Y)) SEAS_MEMO.set(Y, season0(Y)); return SEAS_MEMO.get(Y); }
+async function season0(Y) {
   const f = path.join(CACHE, `${lk}_${Y}.json`);
   const ALLSTAR = g => /all-?star/i.test(`${g.hn} ${g.an}`);   // ESPN files the All-Star game (MLS All-Stars vs Liga MX) under the regular season: it must not count (2026-11-07 fix -- it skewed the index scaling)
   if (Y < L.cur && fs.existsSync(f)) { const rows = JSON.parse(fs.readFileSync(f, 'utf8')).filter(g => !ALLSTAR(g)); await attachXG(Y, rows); return rows; }
@@ -74,6 +86,7 @@ async function season(Y) {
   await attachXG(Y, clean);   // after caching: the cached ESPN file stays goals-only
   return clean;
 }
+if (!(await season(L.cur).catch(() => [])).some(g => g.fin && !g.po)) { L.cur -= 1; L.seasons = pastSeasons(); SEAS_MEMO.clear(); }   // this year's season hasn't started yet
 
 // ---------- model ----------
 function fit(games, asOf, P, wx = XGW) {   // wx = xG share of the fitted counts (0 = goals only)
@@ -175,7 +188,7 @@ const FEATS = lk === 'mls'
      {k: 'ga', dir: -1, kind: 'value', label: 'Goals against/game'}, {k: 'lpct', dir: -1, kind: 'value', label: 'Loss%'}];
 const COVER = 1;   // every past champion (was 90%)
 const gpSpread = G => { const c = new Map(); for (const g of G.filter(g => !g.po && g.fin)) for (const t of [g.h, g.a]) c.set(t, (c.get(t) || 0) + 1); const v = [...c.values()]; return v.length ? Math.max(...v) - Math.min(...v) : 99; };
-const loadP = () => fs.existsSync(path.join(CACHE, `${lk}_params.json`)) ? JSON.parse(fs.readFileSync(path.join(CACHE, `${lk}_params.json`), 'utf8')) : {half: 240, k: 6, rho: 0.04};
+const loadP = () => tunedP(lk);
 function profile(seasonGames, poolGames, asOf, P) {
   const reg = seasonGames.filter(g => !g.po && g.fin && g.hs != null && g.d < asOf), M = fit(poolGames, asOf, P, 0), T = new Map();   // tiers + index stay on the goals-only rating they were validated on (xG tiers: same 12/15 hidden champions but 4.5 teams/season at 5/5 vs 3.9)
   for (const g of reg) for (const [me, gf, ga, home] of [[g.h, g.hs, g.as, 1], [g.a, g.as, g.hs, 0]]) {
@@ -316,10 +329,21 @@ if (mode === 'backtest') {
 
 // ---------------------------------------------------------------- live: MLS (simulate the last matchday, seeding, the full bracket)
 if (lk === 'mls') {
-  const P = fs.existsSync(path.join(CACHE, `mls_params.json`)) ? JSON.parse(fs.readFileSync(path.join(CACHE, `mls_params.json`), 'utf8')) : {half: 240, k: 6, rho: 0.08};   // default = the tuned settings (the site's bot has no cache)
+  const P = tunedP('mls');   // default = the tuned settings (the site's bot has no cache)
   const G = [...(await season(L.cur - 1)), ...(await season(L.cur))], cur = G.filter(g => g.d >= `${L.cur}-02-01` && !g.po), names = new Map();
   for (const g of cur) { names.set(g.h, g.hn); names.set(g.a, g.an); }
-  const asOf = new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), M = fit(G, asOf, P);
+  // stage + betting-window freeze (fixed 2026-11-07). The sim below knows only the regular season and re-simulates the whole bracket, so once a playoff
+  // match was played its odds ignored the results (eliminated clubs kept their title odds) -- and the user never bets within the playoffs. From the first
+  // playoff match on, the odds are FROZEN at the start of the playoffs: ratings fit on games before it, bracket simulated from the final seeding.
+  // stage: regular | bracket (seeding final, no playoff match yet: window open) | playoffs | done. ESPN round slugs: '...-playoffs---wild-card' ... 'mls-cup'.
+  const POg = G.filter(g => g.d >= `${L.cur}-02-01` && /playoff|mls-cup/i.test(g.po)), firstPO = POg.map(g => g.d).sort()[0] || null;
+  const cupG = POg.find(g => /mls-cup/i.test(g.po) && g.fin), champ = cupG ? winner(cupG) : null;
+  const leftNow = cur.filter(g => !g.fin);
+  const stage = champ ? 'done' : POg.some(g => g.fin) ? 'playoffs' : !leftNow.length && POg.length ? 'bracket' : 'regular', frozen = stage === 'playoffs' || stage === 'done';
+  const aliveP = new Set(POg.flatMap(g => [g.h, g.a])), ser = new Map();   // Round One is best of 3 (two losses knock a club out); every other round is one match
+  for (const g of POg.filter(g => g.fin).sort((a, b) => a.d.localeCompare(b.d))) { const w = winner(g); if (!w) continue; const lo = w === g.h ? g.a : g.h;
+    if (/round-one/i.test(g.po)) { const k = lo + '|' + [g.h, g.a].sort().join('|'); ser.set(k, (ser.get(k) || 0) + 1); if (ser.get(k) >= 2) aliveP.delete(lo); } else aliveP.delete(lo); }
+  const asOf = frozen ? firstPO : new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), M = fit(G, asOf, P);
   const st = await getJson(`https://site.api.espn.com/apis/v2/sports/soccer/usa.1/standings?season=${L.cur}`);
   const conf = new Map(); for (const ch of (st?.children || [])) for (const e of (ch.standings?.entries || [])) conf.set(String(e.team.id), /east/i.test(ch.name) ? 'E' : 'W');
   const played = cur.filter(g => g.fin && g.hs != null), left = cur.filter(g => !g.fin);
@@ -348,10 +372,10 @@ if (lk === 'mls') {
     cup.set(ch, (cup.get(ch) || 0) + 1);
   }
   const nm = s => String(s).toLowerCase().trim().replace(/^(los angeles f|los angeles fc|la fc)$/, 'lafc').replace(/^(los angeles g|los angeles galaxy)$/, 'la galaxy').replace(/\bsaint\b/g, 'st').replace(/[^a-z ]/g, ' ').replace(/\b(fc|sc|cf|the|united|city)\b/g, ' ').replace(/\s+/g, ' ').trim();
-  console.log(`MLS Cup odds -- ${L.cur}, games through ${today} · ${left.length} regular-season games left (simulated) · ${N} sims · home edge x${M.H.toFixed(2)}\n`);
+  console.log(`MLS Cup odds -- ${L.cur}, games through ${today} · stage: ${stage}${frozen ? ` · odds FROZEN at the start of the playoffs (${firstPO}) -- never bet within the playoffs${champ ? ` · CHAMPION: ${names.get(champ)}` : ''}` : ` · ${left.length} regular-season games left (simulated)`} · ${N} sims · home edge x${M.H.toFixed(2)}\n`);
   const rows = [...cup].map(([id, n]) => [id, n / N]).sort((x, y) => y[1] - x[1]);
   for (const [id, p] of rows.slice(0, 16)) { const b = base.get(id);
-    console.log(`  ${String(names.get(id)).padEnd(26)} ${conf.get(id)} ${String(b?.pts).padStart(3)} pts | conf title ${(100 * (win.get(id) || 0) / N).toFixed(1).padStart(5)}% | MLS Cup ${(100 * p).toFixed(1).padStart(5)}% (fair ${p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / Math.max(p, 1e-4))})`); }
+    console.log(`  ${String(names.get(id)).padEnd(26)} ${conf.get(id)} ${String(b?.pts).padStart(3)} pts${frozen ? (aliveP.has(id) ? ' ◀ alive' : ' (out)  ') : ''} | conf title ${(100 * (win.get(id) || 0) / N).toFixed(1).padStart(5)}% | MLS Cup ${(100 * p).toFixed(1).padStart(5)}% (fair ${p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / Math.max(p, 1e-4))})`); }
   if (!arg('--book')) console.log('  (no odds feed for MLS Cup futures -- post a DraftKings, else FanDuel, screenshot and rerun with --book)');
   const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, asOf, P);
   for (const r of prof) tierScore(r, FEATS, cuts);
@@ -359,11 +383,16 @@ if (lk === 'mls') {
   printTiers(prof.filter(r => (cup.get(r.id) || 0) / N >= 0.005), cuts, id => (cup.get(id) || 0) / N, id => names.get(id));
   if (arg('--export')) {   // board JSON for the blueprint dashboard (scripts/build.py build_mls)
     const SHORT = {att: 'Attack', form: 'Form 8', form5: 'Form 5', wpct: 'Win%', str: 'Overall'}, s2 = Math.sqrt(M.H);
+    const nextPO = id => { const g = POg.filter(x => !x.fin && (x.h === id || x.a === id)).sort((a, b) => a.d.localeCompare(b.d))[0];
+      const rd = s => /wild-card/i.test(s) ? 'Wild card' : /round-one/i.test(s) ? 'Round One' : /semifinal/i.test(s) ? 'Conf. semifinal' : /mls-cup/i.test(s) ? 'MLS Cup' : 'Conf. final';
+      return g ? {round: rd(g.po), opp: names.get(g.h === id ? g.a : g.h), site: g.neutral ? 'neutral' : g.h === id ? 'home' : 'away', date: g.d} : null; };
     const out = {league: 'mls', season: L.cur, generated: new Date().toISOString(), today, sims: N, games_left: left.length, home_edge: +M.H.toFixed(3), champions: TS.length,
+      stage, first_playoff: firstPO, champion: champ ? names.get(champ) : null,
       cats: FEATS.map((f, i) => cutLabel(f, cuts[i])), labels: FEATS.map(f => SHORT[f.k] || f.label),
       teams: [...conf.keys()].map(id => { const b = base.get(id), r = prof.find(x => x.id === id), a = M.a.get(id) ?? 1, dd = M.d.get(id) ?? 1;
         return {id, name: names.get(id) || id, conf: conf.get(id), gp: b.gp, w: b.w, d: b.d, l: b.gp - b.w - b.d, pts: b.pts, gd: b.gd,
           p: (cup.get(id) || 0) / N, pconf: (win.get(id) || 0) / N, score: r ? r.score : 0, q: r ? r.q : FEATS.map(() => false),
+          alive: POg.length && POg.some(g => g.fin) ? aliveP.has(id) : null, in_bracket: POg.some(g => g.h === id || g.a === id), next: aliveP.has(id) ? nextPO(id) : null,
           vals: FEATS.map(f => !r ? '—' : f.kind === 'value' ? `${(+r[f.k]).toFixed(2)} #${r['r_' + f.k]}` : `#${r['r_' + f.k]}`),
           str: r ? r.str : a / dd, rtg: +(M.mu * s2 * (a - dd)).toFixed(3), idx: r && r.idx != null ? +r.idx.toFixed(1) : null}; })};   // idx = champion-weighted index (IDXW)
     fs.writeFileSync(arg('--export'), JSON.stringify(out));
@@ -378,14 +407,14 @@ if (lk === 'mls') {
     const file = `C:/Users/User/baseball-blueprint/${L.hist}`, head = `# MLS Cup Blueprint — Run History\n\nEach run prepends a dated snapshot (engine: baseball-blueprint/pro/soccer.mjs mls).\n\n---\n\n`;
     const old = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : head, i = old.indexOf('---\n\n');
     let body = i >= 0 ? old.slice(i + 5) : ''; if (body.startsWith(`## ${today} `)) { const nx = body.indexOf('\n## '); body = nx >= 0 ? body.slice(nx + 1) : ''; }
-    const entry = `## ${today} (${L.cur}, ${left.length} regular-season games left)\n\n${rows.slice(0, 12).map(([id, p]) => `- ${names.get(id)} ${(100 * p).toFixed(1)}%`).join('\n')}\n\n`;
+    const entry = `## ${today} (${L.cur}, ${frozen ? `${stage}: odds frozen at the start of the playoffs${champ ? `, champion ${names.get(champ)}` : ''}` : `${left.length} regular-season games left`})\n\n${rows.slice(0, 12).map(([id, p]) => `- ${names.get(id)} ${(100 * p).toFixed(1)}%`).join('\n')}\n\n`;
     fs.writeFileSync(file, i >= 0 ? old.slice(0, i + 5) + entry + body : old + entry); console.log('\nlogged to ' + file);
   }
   process.exit(0);
 }
 
 // ---------------------------------------------------------------- live
-const P = fs.existsSync(path.join(CACHE, `${lk}_params.json`)) ? JSON.parse(fs.readFileSync(path.join(CACHE, `${lk}_params.json`), 'utf8')) : {half: 120, k: 3, rho: 0.08};
+const P = tunedP(lk);
 const G = [...(await season(L.cur - 1)), ...(await season(L.cur))];
 const cur = G.filter(g => g.d >= `${L.cur}-01-01`), names = new Map();
 for (const g of cur) { names.set(g.h, g.hn); names.set(g.a, g.an); }
@@ -395,20 +424,30 @@ const PO = cur.filter(g => g.po);
 const alive = new Set(PO.flatMap(g => [g.h, g.a]));
 for (const g of PO.filter(g => g.fin)) alive.delete(winner(g) === g.h ? g.a : g.h);
 let T = new Map();
-const finalHome = lk === 'nwsl' ? [...names].find(([, n]) => /Washington Spirit/.test(n))?.[0] : null;   // 2026 NWSL final at Audi Field
+const FINAL_HOME = {2026: /Washington Spirit/};   // NWSL final venue when it is a club's home (2026: Audi Field). Unknown year -> neutral (fixed 2026-11-07: was applied to every season)
+const finalHome = lk === 'nwsl' && FINAL_HOME[L.cur] ? [...names].find(([, n]) => FINAL_HOME[L.cur].test(n))?.[0] : null;
 const qf = PO.filter(g => /quarter/i.test(g.po)), sf = PO.filter(g => /semi/i.test(g.po));
 if (sf.length === 2 && sf.every(g => !g.fin)) T = titleFromSemis(M, sf, finalHome);
 else if (qf.length === 4) T = titleFrom8(M, qf, seedOf, finalHome);
 const norm = s => String(s).toLowerCase().replace(/[^a-z ]/g, ' ').replace(/\b(fc|sc|cf|the)\b/g, ' ').replace(/\s+/g, ' ').trim();
-console.log(`${L.label} title odds -- ${L.cur}, games through ${today} · model: half-life ${P.half >= 1e5 ? 'none' : P.half + ' d'}, shrink ${P.k}, draw +${Math.round(P.rho * 100)}%, home edge x${M.H.toFixed(2)}`);
+// stage: regular (no bracket yet) | bracket (set, nothing played: window open) | playoffs | done. Title odds are FROZEN at the start of the playoffs
+// (ratings fit only on games before the first playoff match, results ignored): the user never bets within the playoffs. Fixed 2026-11-07: the
+// printed odds used to be refit on today's ratings while still ignoring the quarterfinals already played (eliminated teams kept their odds).
+const isFinal = g => /final/i.test(g.po) && !/quarter|semi/i.test(g.po);
+const first = PO.length ? PO.map(g => g.d).sort()[0] : null, done = PO.some(g => isFinal(g) && g.fin);
+const stage = !PO.length ? 'regular' : done ? 'done' : PO.some(g => g.fin) ? 'playoffs' : 'bracket', frozen = stage === 'playoffs' || stage === 'done';
+const Mp = first ? fit(G, first, P) : null;
+const Tp = Mp && qf.length === 4 ? titleFrom8(Mp, qf, seedOf, finalHome) : Mp && sf.length === 2 ? titleFromSemis(Mp, sf, finalHome) : new Map();
+if (frozen && Tp.size) T = Tp;
+console.log(`${L.label} title odds -- ${L.cur}, games through ${today} · stage: ${stage}${frozen ? ' (odds FROZEN at the start of the playoffs -- never bet within the playoffs)' : ''} · model: half-life ${P.half >= 1e5 ? 'none' : P.half + ' d'}, shrink ${P.k}, draw +${Math.round(P.rho * 100)}%, home edge x${M.H.toFixed(2)}`);
 console.log(`seeds: ${seeds.slice(0, 10).map((t, i) => `${i + 1} ${names.get(t.id)} ${t.pts}`).join(' · ')}\n`);
 const rows = [...T].sort((x, y) => y[1] - x[1]);
 for (const [id, p] of rows) {
-  const att = M.a.get(id), def = M.d.get(id);
-  console.log(`  ${String(names.get(id)).padEnd(24)} seed ${String(seedOf.get(id)).padStart(2)} · attack ${att.toFixed(2)} defence ${def.toFixed(2)} | title ${(100 * p).toFixed(1).padStart(5)}% (fair ${p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / Math.max(p, 1e-4))})`);
+  const MM = frozen && Mp ? Mp : M, att = MM.a.get(id), def = MM.d.get(id);   // the ratings behind the odds shown
+  console.log(`  ${String(names.get(id)).padEnd(24)} seed ${String(seedOf.get(id)).padStart(2)}${frozen ? (alive.has(id) ? ' ◀ alive ' : ' (out)   ') : ''} · attack ${att.toFixed(2)} defence ${def.toFixed(2)} | title ${(100 * p).toFixed(1).padStart(5)}% (fair ${p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / Math.max(p, 1e-4))})`);
 }
 for (const g of PO.filter(g => !g.fin)) { const p = pAdvance(M, g.h, g.a, g.neutral ? null : 'h'), [W, D, Lo] = wdl(...lambdas(M, g.h, g.a, g.neutral ? null : 'h'), P.rho); console.log(`  next: ${g.d} ${names.get(g.h)} (home) vs ${names.get(g.a)} -- 90 min ${(100 * W).toFixed(0)}/${(100 * D).toFixed(0)}/${(100 * Lo).toFixed(0)}, ${names.get(g.h)} advances ${(100 * p).toFixed(0)}%`); }
-const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), P);
+const TS = await tierSeasons(P), cuts = tierCuts(TS.map(t => t.champ), FEATS, COVER), prof = profile(cur, G, frozen ? first : new Date(Date.parse(today + 'T12:00:00Z') + 864e5).toISOString().slice(0, 10), P);
 for (const r of prof) tierScore(r, FEATS, cuts);
 addIndex(prof);   // scaled across the whole league, before narrowing to the playoff teams
 printTiers(prof.filter(r => alive.has(r.id) || T.has(r.id)), cuts, id => T.get(id), id => names.get(id));
@@ -416,11 +455,7 @@ if (arg('--export')) {   // board JSON for the blueprint dashboard (scripts/buil
   // Title odds exist once the playoff bracket is set (this engine does not simulate the rest of the regular season). They are FROZEN
   // at the start of the playoffs -- ratings fit only on games before the first playoff match, results ignored -- because the user
   // never bets within the playoffs. stage: regular (no bracket yet) | bracket (set, nothing played: window open) | playoffs | done.
-  const isFinal = g => /final/i.test(g.po) && !/quarter|semi/i.test(g.po);
-  const first = PO.length ? PO.map(g => g.d).sort()[0] : null, done = PO.some(g => isFinal(g) && g.fin);
-  const stage = !PO.length ? 'regular' : done ? 'done' : PO.some(g => g.fin) ? 'playoffs' : 'bracket';
-  const Mp = first ? fit(G, first, P) : null;
-  const Tp = Mp && qf.length === 4 ? titleFrom8(Mp, qf, seedOf, finalHome) : Mp && sf.length === 2 ? titleFromSemis(Mp, sf, finalHome) : new Map();
+  // (stage / first / Tp computed above, before the printout)
   const RD = s => /quarter/i.test(s) ? 'Quarterfinal' : /semi/i.test(s) ? 'Semifinal' : 'Final';
   const next = id => { const g = PO.filter(x => !x.fin && (x.h === id || x.a === id)).sort((a, b) => a.d.localeCompare(b.d))[0];
     return g ? {round: RD(g.po), opp: names.get(g.h === id ? g.a : g.h), site: g.neutral ? 'neutral' : g.h === id ? 'home' : 'away', date: g.d} : null; };

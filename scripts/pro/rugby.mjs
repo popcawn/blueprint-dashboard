@@ -12,7 +12,7 @@ import {TIER_NAME, rankRows, cutoffs as tierCuts, score as tierScore, cutLabel} 
 // across seasons, e.g. NRL "bulldogs" 2003-09 -> "canterbury-bankstown-bulldogs"). full: display names (the site shows short ones).
 // P: settings tuned by `backtest` on the first half of the seasons (also written to the cache's params.json).
 const LG = {
-  nrl: {slug: 'nrl', label: 'NRL', first: 2005, fmtOf: Y => Y >= 2012 ? 'eight' : null, P: {half: 120, lam: 3, sig: 24},
+  nrl: {slug: 'nrl', label: 'NRL', first: 2005, fmtOf: Y => Y >= 2012 ? 'eight' : null, P: {half: 120, lam: 3, sig: 24}, byePts: 2,
     region: s => /brisbane|north-queensland|gold-coast|dolphins|redcliffe/.test(s) ? 'QLD' : /melbourne/.test(s) ? 'VIC' : /warriors|auckland/.test(s) ? 'NZ' : /canberra/.test(s) ? 'ACT' : /perth/.test(s) ? 'WA' : 'NSW',
     alias: {bulldogs: 'canterbury-bankstown-bulldogs'},
     full: {'brisbane-broncos': 'Brisbane Broncos', 'canberra-raiders': 'Canberra Raiders', 'canterbury-bankstown-bulldogs': 'Canterbury-Bankstown Bulldogs', cronulla: 'Cronulla-Sutherland Sharks',
@@ -119,9 +119,16 @@ const randn = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v)
 
 // ---------- ladder + simulation ----------
 const ladder = rows => rows.slice().sort((x, y) => y.pts / Math.max(1, y.gp) - x.pts / Math.max(1, x.gp) || (y.pf - y.pa) - (x.pf - x.pa));   // points per game (= points when games are equal; Super League 2020-21 ranked by win%)
+// NRL ladder: 2 points per bye (fixed 2026-11-07: the points shown ran 4-6 short of the official ladder mid-season and the order could differ).
+// Every club has the same number of byes by the end of the season, so the end-of-season order (finals seeds, sims, backtests) is unchanged.
+const byesSoFar = reg => { const started = new Set(reg.filter(g => g.fin).map(g => g.rn)), has = new Map();
+  for (const g of reg) for (const t of [g.h, g.a]) { if (!has.has(t)) has.set(t, new Set()); has.get(t).add(g.rn); }
+  return id => L.byePts ? [...started].filter(r => !has.get(id)?.has(r)).length : 0; };
+// the ladder as the league publishes it today: total points incl. byes (NRL), then points difference; other leagues = ladder()
+const ladderNow = rows => !L.byePts ? ladder(rows) : rows.slice().sort((x, y) => (y.pts + L.byePts * (y.bye || 0)) - (x.pts + L.byePts * (x.bye || 0)) || (y.pf - y.pa) - (x.pf - x.pa));
 function table(reg) {
-  const T = new Map();
-  for (const g of reg) for (const t of [g.h, g.a]) if (!T.has(t)) T.set(t, {id: t, pts: 0, pf: 0, pa: 0, w: 0, l: 0, gp: 0});
+  const T = new Map(), by = byesSoFar(reg);
+  for (const g of reg) for (const t of [g.h, g.a]) if (!T.has(t)) T.set(t, {id: t, pts: 0, pf: 0, pa: 0, w: 0, l: 0, gp: 0, bye: by(t)});
   for (const g of reg.filter(g => g.fin)) { const H = T.get(g.h), A = T.get(g.a); H.pf += g.hs; H.pa += g.as; A.pf += g.as; A.pa += g.hs; H.gp++; A.gp++;
     if (g.hs > g.as) { H.pts += 2; H.w++; A.l++; } else if (g.hs < g.as) { A.pts += 2; A.w++; H.l++; } else { H.pts++; A.pts++; } }
   return T;
@@ -167,12 +174,12 @@ const nameMap = S => { const n = new Map(); for (const Y in S) for (const g of S
 // FEATS/cutoffs: L.FEATS (every-champion rule from study/criteria.mjs on `dump`); index weights: L.IDXW.
 const FEATS = L.FEATS || [], IDXW = L.IDXW || {rtg: 100};
 function profile(G, pl, asOf, P) {
-  const reg = G.filter(g => !g.final && g.fin && g.d < asOf), M = fit(pl, asOf, P), T = new Map();
+  const reg = G.filter(g => !g.final && g.fin && g.d < asOf), M = fit(pl, asOf, P), T = new Map(), by = byesSoFar(G.filter(g => !g.final && g.d < asOf));
   for (const g of reg) for (const [me, pf, pa, side] of [[g.h, g.hs, g.as, g.neutral ? 0 : 1], [g.a, g.as, g.hs, g.neutral ? 0 : -1]]) {
-    const t = T.get(me) || {id: me, pts: 0, pf: 0, pa: 0, w: 0, l: 0, d: 0, gp: 0, res: [], hw: 0, hn: 0, aw: 0, an: 0}, r = pf > pa ? 1 : pf < pa ? 0 : 0.5;
+    const t = T.get(me) || {id: me, pts: 0, pf: 0, pa: 0, w: 0, l: 0, d: 0, gp: 0, res: [], hw: 0, hn: 0, aw: 0, an: 0, bye: by(me)}, r = pf > pa ? 1 : pf < pa ? 0 : 0.5;
     t.gp++; t.pf += pf; t.pa += pa; t.pts += 2 * r; if (r === 1) t.w++; else if (r === 0) t.l++; else t.d++; t.res.push([g.d, r]);
     if (side > 0) { t.hw += r; t.hn++; } else if (side < 0) { t.aw += r; t.an++; } T.set(me, t); }
-  const rows = ladder([...T.values()]).map((t, i) => { const s = t.res.sort((a, b) => a[0].localeCompare(b[0])), f = n => mean(s.slice(-n).map(x => x[1]));
+  const rows = ladderNow([...T.values()]).map((t, i) => { const s = t.res.sort((a, b) => a[0].localeCompare(b[0])), f = n => mean(s.slice(-n).map(x => x[1]));
     return {id: t.id, pos: i + 1, pts: t.pts, gp: t.gp, w: t.w, l: t.l, d: t.d, pf: t.pf, pa: t.pa, ppg: t.pts / t.gp, wp: (t.w + t.d / 2) / t.gp, pct: 100 * t.pf / Math.max(1, t.pa),
       pfpg: t.pf / t.gp, papg: t.pa / t.gp, mgn: (t.pf - t.pa) / t.gp, rtg: M.r.get(t.id) ?? 0, form8: f(8), form5: f(5), hwp: t.hn ? t.hw / t.hn : 0, awp: t.an ? t.aw / t.an : 0}; });
   return {rows: rankRows(rows, FEATS), M};
@@ -276,8 +283,8 @@ if (mode === 'backtest') {
   addIndex(rows);
   const prof = new Map(rows.map(r => [r.id, r])), left = reg.filter(g => !g.fin).length, curT = new Set(reg.flatMap(g => [g.h, g.a]));
   // ladder shown: this season's; preseason = last season's final ladder (this season's clubs only -- promoted/new clubs show zeros)
-  let lad = ladder([...table(reg).values()]);
-  if (PY !== Y) { const prev = ladder([...table(PG.filter(g => !g.final)).values()]).filter(t => curT.has(t.id)), have = new Set(prev.map(t => t.id)); lad = prev.concat(lad.filter(t => !have.has(t.id))); }
+  let lad = ladderNow([...table(reg).values()]);
+  if (PY !== Y) { const prev = ladderNow([...table(PG.filter(g => !g.final)).values()]).filter(t => curT.has(t.id)), have = new Set(prev.map(t => t.id)); lad = prev.concat(lad.filter(t => !have.has(t.id))); }
   const posOf = t => PY !== Y ? (prof.get(t.id)?.pos ?? null) : lad.indexOf(t) + 1;
   const fair = p => p < 0.001 ? '—' : p >= 0.5 ? '-' + Math.round(100 * p / (1 - p)) : '+' + Math.round(100 * (1 - p) / p);
   const fv = (k, v) => v == null || !isFinite(v) ? '—' : k === 'pos' ? String(v) : k === 'rtg' || k === 'mgn' ? (v >= 0 ? '+' : '') + v.toFixed(1) : k === 'pct' ? v.toFixed(1) : /wp|form/.test(k) ? v.toFixed(3) : v.toFixed(1);
@@ -288,7 +295,7 @@ if (mode === 'backtest') {
   console.log(`index (0-100) = ${Object.entries(IDXW).map(([k, w]) => `${{rtg: 'Rating', wp: 'Win%', awp: 'Away win%'}[k] || k} ${w}`).join(' · ')}\n`);
   for (const t of lad.slice().sort((a, b) => (T.get(b.id) || 0) - (T.get(a.id) || 0) || (prof.get(b.id)?.idx ?? 0) - (prof.get(a.id)?.idx ?? 0))) {
     const p = T.get(t.id) || 0, r = prof.get(t.id), pos = posOf(t) ?? '-';
-    console.log(`  ${TIER_NAME(r ? r.score : 0).padEnd(18)} ${String(names.get(t.id)).padEnd(28)} #${String(pos).padEnd(2)} ${String(t.pts).padStart(3)} pts (${t.w}-${t.l}, diff ${t.pf - t.pa >= 0 ? '+' : ''}${t.pf - t.pa}) | idx ${r ? r.idx.toFixed(1).padStart(5) : '    —'} | rating ${(M.r.get(t.id) ?? 0) >= 0 ? '+' : ''}${(M.r.get(t.id) ?? 0).toFixed(1)} | premiership ${(100 * p).toFixed(1).padStart(5)}% (fair ${fair(p)})${r ? ' | ' + FEATS.map((f, i) => `${r.q[i] ? '✓' : '✗'} ${f.label}`).join(' · ') : ''}`); }
+    console.log(`  ${TIER_NAME(r ? r.score : 0).padEnd(18)} ${String(names.get(t.id)).padEnd(28)} #${String(pos).padEnd(2)} ${String(t.pts + (L.byePts || 0) * (t.bye || 0)).padStart(3)} pts (${t.w}-${t.l}, diff ${t.pf - t.pa >= 0 ? '+' : ''}${t.pf - t.pa}) | idx ${r ? r.idx.toFixed(1).padStart(5) : '    —'} | rating ${(M.r.get(t.id) ?? 0) >= 0 ? '+' : ''}${(M.r.get(t.id) ?? 0).toFixed(1)} | premiership ${(100 * p).toFixed(1).padStart(5)}% (fair ${fair(p)})${r ? ' | ' + FEATS.map((f, i) => `${r.q[i] ? '✓' : '✗'} ${f.label}`).join(' · ') : ''}`); }
   if (arg('--export')) {   // board JSON for the blueprint dashboard (blueprint-dashboard/scripts/build.py build_footy)
     const SHORT = {pos: 'Ladder', mgn: 'Margin/g', rtg: 'Rating', hwp: 'Home W%', awp: 'Away W%', pct: 'Pct', pfpg: 'PF/g', wp: 'Win%', form8: 'Form 8'};
     const gpNow = [...table(reg).values()].map(t => t.gp);
@@ -296,7 +303,7 @@ if (mode === 'backtest') {
       premier: done ? names.get(premier(G)) : null, champions: TS.length, sig: P.sig, hfa: {same: +M.Hs.toFixed(2), inter: +M.Hi.toFixed(2)},
       cats: FEATS.map((f, i) => cutLabel(f, cuts[i], v => fv(f.k, +v))), labels: FEATS.map(f => SHORT[f.k] || f.label),
       teams: lad.map((t, i) => { const r = prof.get(t.id);
-        return {id: t.id, name: names.get(t.id) || t.id, reg: L.region(t.id), pos: posOf(t), gp: t.gp, w: t.w, l: t.l, d: t.gp - t.w - t.l, pts: t.pts, pf: t.pf, pa: t.pa,
+        return {id: t.id, name: names.get(t.id) || t.id, reg: L.region(t.id), pos: posOf(t), gp: t.gp, w: t.w, l: t.l, d: t.gp - t.w - t.l, pts: t.pts + (L.byePts || 0) * (t.bye || 0), pf: t.pf, pa: t.pa,
           p: T.get(t.id) || 0, minor: T.minor.get(t.id) || 0, score: r ? r.score : 0, q: r ? r.q : FEATS.map(() => false),
           vals: FEATS.map(f => !r ? '—' : f.k === 'pos' ? fv('pos', r.pos) : `${fv(f.k, r[f.k])} #${r['r_' + f.k]}`),
           idx: r ? +r.idx.toFixed(1) : null, rtg: +(M.r.get(t.id) ?? 0).toFixed(2)}; })};

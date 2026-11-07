@@ -62,7 +62,7 @@ def value_plays(teams, maxcat, sport=None):
         # historical MLS Cup prices without Kalshi, which the user doesn't use.
         for t in teams:
             p = _price_num(t.get("market"))
-            if t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500:
+            if t.get("bet_ok", True) and t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500:   # bet_ok: not within the playoffs
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
@@ -84,7 +84,8 @@ def value_plays(teams, maxcat, sport=None):
         # the playoffs), so a value play needs a wide margin: 5/5 + EV >= +25% + price <= +2500.
         for t in teams:
             p = _price_num(t.get("market"))
-            if (t.get("score") or 0) >= 5 and (t.get("ev") or 0) >= 25 and p is not None and p <= 2500:
+            # bet_ok (2026-11-07): the frozen board keeps each card's EV vs the pre-playoff prices, but crowns no value play once a playoff game is played
+            if t.get("bet_ok", True) and (t.get("score") or 0) >= 5 and (t.get("ev") or 0) >= 25 and p is not None and p <= 2500:
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
@@ -188,6 +189,13 @@ def fetch_futures(sport_key):
     except Exception as e:
         print(f"  odds pull failed ({sport_key}): {e}", file=sys.stderr)
         return {}, None
+
+# ----------------------------------------------------------------------------- NFL
+# (restored 2026-11-07: the Kalshi-removal commit 0c6fcff deleted this set along with fetch_kalshi, and every NFL build since crashed
+#  with NameError -- the board sat frozen at the Nov 6 12:45Z data)
+NFL_AFC = {"Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers","Buffalo Bills",
+    "Miami Dolphins","New England Patriots","New York Jets","Houston Texans","Indianapolis Colts","Jacksonville Jaguars",
+    "Tennessee Titans","Denver Broncos","Kansas City Chiefs","Las Vegas Raiders","Los Angeles Chargers"}
 
 def build_nfl():
     d = get(f"https://cdn.espn.com/core/nfl/standings?xhr=1&season={YEAR}")
@@ -1274,6 +1282,7 @@ def team_read(t, sport, n, maxcat):
     cats = [("offense", t["rk_ppg"]), ("scoring defense", t["rk_oppppg"]), ("total defense", t["rk_oppypg"]), ("margin", t["rk_margin"])]
     worst = max(cats, key=lambda c: c[1]); best = min(cats, key=lambda c: c[1]); b, br, w, wr = best[0], best[1], worst[0], worst[1]
     sr = t.get("srsrank", 999)
+    off = t["rk_ppg"]   # (2026-11-07) was never set in this branch: a 4/5+ team with SRS #7-15 raised UnboundLocalError and the whole CFB build failed
     if sr > 15 and top:
         return {"v": "fools_gold", "why": _pick([
             f"A schedule mirage — #{br} {b} on paper, but opponent-adjusted they're SRS #{sr}. The record's real; the dominance is inflated against a soft slate. A 12-team gauntlet eats this profile.",
@@ -1322,7 +1331,7 @@ def log_history(name, data):
     except Exception: hist = []
     snap = {"date": data["generated"][:10], "gp": data.get("gp_max"),
             "teams": {t["name"]: {"sc": t["score"], "idx": t["index"], "fp": t.get("fair_pct"),
-                                  "mkt": t.get("market"), "ev": t.get("ev")} for t in data["teams"]}}
+                                  "mkt": t.get("market"), "ev": t.get("ev"), **({"mw": t["mw"]} if t.get("mw") is not None else {})} for t in data["teams"]}}   # mw: CFB's pick order
     if hist and hist[-1]["date"] == snap["date"]: hist[-1] = snap   # same-day re-run replaces
     else: hist.append(snap)
     json.dump(hist[-400:], open(hp, "w", encoding="utf-8"), indent=1)
@@ -1570,12 +1579,17 @@ def build_mls():
     out = os.path.join(tempfile.gettempdir(), "mls_export.json")
     subprocess.run(["node", os.path.join(HERE, "scripts", "mls", "soccer.mjs"), "mls", "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
     E = json.load(open(out, encoding="utf-8"))
+    # betting window (2026-11-07 fix): the engine now FREEZES the odds at the start of the playoffs (before, its sim ignored playoff results and
+    # eliminated clubs kept their odds). Once a playoff match is played: EV only against a screenshot saved BEFORE the first playoff match of
+    # this season, and no value play (the user never bets within the playoffs).
+    stage = E.get("stage") or "regular"; closed = stage in ("playoffs", "done"); first = E.get("first_playoff")
     snap = {}
     try: snap = json.load(open(os.path.join(DATA, "mls_dk.json"), encoding="utf-8"))
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
-    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14
+    pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first and d0.year == int(E["season"])
+    fresh = (not closed and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
     # index (2026-11-06): the engine's champion-weighted index -- Win% 25 · Overall 25 · Attack 20 · Form8 15 · Form5 15, each 0-100
     # across all teams (hidden-season test: champion's avg rank in the playoff field 2.7 vs 3.5 for the old overall-rating-only
     # index). Falls back to the overall rating scaled 0-100 if the export has no idx.
@@ -1583,7 +1597,8 @@ def build_mls():
     old_idx = lambda t: round(100 * (t["str"] - smin) / (smax - smin), 1) if smax > smin else 50.0
     rows = [{"name": t["name"], "conf": "East" if t["conf"] == "E" else "West", "rec": f"{t['w']}-{t['l']}-{t['d']} · {t['pts']} pts",
              "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"], "rtg": t["rtg"], "p": t["p"], "conf_pct": round(100 * t["pconf"], 1),
-             "index": t["idx"] if t.get("idx") is not None else old_idx(t)} for t in E["teams"]]
+             "index": t["idx"] if t.get("idx") is not None else old_idx(t),
+             "alive": t.get("alive"), "next": t.get("next"), "champion": bool(E.get("champion")) and t["name"] == E.get("champion"), "bet_ok": not closed} for t in E["teams"]]
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
         t["fair_odds"] = american(t["p"]) if t["p"] else None
@@ -1602,12 +1617,23 @@ def build_mls():
             t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["score"], -t["p"]))   # tier first, then title odds (the order the cards show)
     top = max(rows, key=lambda t: t["p"])
+    if closed:
+        alive = [t["name"] for t in sorted(rows, key=lambda t: -t["p"]) if t.get("alive")]
+        status = (f"<b>{E['champion']}</b> won MLS Cup {E['season']}." if stage == "done" and E.get("champion")
+                  else f"Still alive: {', '.join(alive)}." if alive else "The playoffs are underway.")
+        why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win MLS Cup (fair {top['fair_odds']}). "
+               f"The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs)"
+               + (f"; EV is against the prices you saved before them ({d0:%b} {d0.day})." if fresh else ", so no EV is shown against in-playoff prices."))
+    else:
+        why = (f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win MLS Cup (fair {top['fair_odds']}) and {top['conf_pct']}% to win the {top['conf']}. "
+               + (f"{E['games_left']} regular-season games left are simulated, then the full bracket ({E['sims']:,} runs)." if E["games_left"]
+                  else f"Seeding is final; the full bracket is simulated ({E['sims']:,} runs). Betting window open until the first playoff match."))
     base = {"sport": "MLS", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
             "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
-            "games_left": E["games_left"], "sims": E["sims"],
-            "prediction": {"pick": top["name"], "why": f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win MLS Cup (fair {top['fair_odds']}) and {top['conf_pct']}% to win the {top['conf']}. "
-                           f"{E['games_left']} regular-season games left are simulated, then the full bracket ({E['sims']:,} runs)."},
-            "season_pct": season_pct(rows, "mls"), "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows)}
+            "games_left": E["games_left"], "sims": E["sims"], "stage": stage, "window_closed": closed, "first_playoff": first, "champion": E.get("champion"),
+            "prediction": {"pick": top["name"], "why": why},
+            "season_pct": 100 if closed else season_pct(rows, "mls"), "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
+            "hist_off": stage == "done"}   # a finished board doesn't change -> no daily history (streaks would keep growing in the offseason)
     for t in rows: t.pop("p", None)
     return base
 
@@ -1765,13 +1791,14 @@ def build_nwsl():
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
     first = E.get("first_playoff")   # UTC date of the first playoff match
-    pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first   # prices taken BEFORE the playoffs
+    pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first and d0.year == int(E["season"])   # prices taken BEFORE this season's playoffs (the year check, added 2026-11-07, keeps last year's screenshot off next year's frozen board)
     # EV only against pre-playoff prices: live while the window is open (<= 14 days old), and kept once the playoffs start so the
     # frozen board still shows what the value was going in (user 2026-11-07: "pull the nwsl odds i sent yesterday").
     fresh = (stage == "bracket" and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
     rows = [{"name": t["name"], "conf": f"seed {t['seed']}", "rec": f"{t['w']}-{t['d']}-{t['l']} · {t['pts']} pts", "gp": t["gp"], "score": t["score"],
              "q": t["q"], "vals": t["vals"], "index": t["idx"] if t["idx"] is not None else 0, "rtg": t["rtg"], "p": t["p"],
-             "alive": t["alive"] if stage != "regular" else None, "next": t["next"], "seed": t["seed"]} for t in E["teams"]]
+             "alive": t["alive"] if stage != "regular" else None, "next": t["next"], "seed": t["seed"],
+             "bet_ok": stage == "bracket"} for t in E["teams"]]   # value play only while the window is open (bracket set, no playoff game yet)
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
         t["fair_odds"] = american(t["p"]) if t["p"] else None
@@ -1941,6 +1968,10 @@ def build_wcbb(): return build_college_bb("wcbb")
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
+    # per-board build status, kept across runs in index.json (2026-11-07: the NFL build crashed silently for a day and a half -- a failed league
+    # just kept its old file). The site flags a board whose last refresh failed; the Action log gets a ::warning:: annotation.
+    try: builds = json.load(open(os.path.join(DATA, "index.json"), encoding="utf-8")).get("builds") or {}
+    except Exception: builds = {}
     for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague)]:
         if name not in LEAGUES:
             continue
@@ -1962,11 +1993,16 @@ def main():
                 built[name] = "preseason (no games yet)"
             else:
                 built[name] = f"{len(data['teams'])} teams, GP {data['gp_min']}-{data['gp_max']}, odds_remaining={data.get('odds_remaining')}"
+            builds[name] = {"ok": True, "at": now_iso()}
         except Exception as e:
-            print(f"  FAILED {name}: {e}", file=sys.stderr)
-            built[name] = f"FAILED: {e}"
+            msg = f"{type(e).__name__}: {e}"
+            print(f"  FAILED {name}: {msg}", file=sys.stderr)
+            print(f"::warning title={name} build failed::{msg[:300]}")   # GitHub Actions annotation (shows on the run's summary page)
+            built[name] = f"FAILED: {msg}"
+            builds[name] = {"ok": False, "at": now_iso(), "error": msg[:300]}
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"], "generated": now_iso(),
+                   "builds": builds}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":

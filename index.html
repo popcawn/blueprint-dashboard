@@ -340,7 +340,9 @@ function simMatchup(){
     let hf=0; if(h==='A')hf=hfaOf(A,B); if(h==='B')hf=-hfaOf(B,A);
     const margin=mN+hf, pA=_phi(margin/sd), fav=margin>=0?A:B, dog=margin>=0?B:A, gameP=Math.max(pA,1-pA), ssp=Math.abs(margin);
     const site=h==='0'?'neutral':((h==='A'?A.name:B.name)+' home');
-    why=`${fav.name} is ${tier(fav)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${tierd(dog)}).`;
+    // (2026-11-07) when the home edge flips the favourite, the rating gap runs the OTHER way -- say so instead of calling the home side "better"
+    why=fav===fav0?`${fav.name} is ${tier(fav)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${tierd(dog)}).`
+      :`${dog.name} rates ~${spread.toFixed(dp)} ${unit}/game better, but ${fav.name}'s home edge (+${Math.abs(hf).toFixed(1)} ${unit}) is bigger, so ${fav.name} is the favourite.`;
     why+= gameP<0.58?' Close to a coin-flip — a live underdog.':(gameP>0.72?' A clear edge.':'');
     hdr=`<b>${fav.name}</b> wins <b>${Math.round(gameP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(${_amer(gameP)})</span> · projected by <b>~${ssp.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span>`;
     note=FOOTY.includes(cur)?`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%.${d.hfa2?` Home edge depends on travel: ${cur==="afl"?"same state":"same region"} ${d.hfa2.same>=0?"+":""}${d.hfa2.same.toFixed(1)} pts, ${cur==="afl"?"interstate":"travelling visitor"} ${d.hfa2.inter>=0?"+":""}${d.hfa2.inter.toFixed(1)}.`:""} The game ratings beat the home-win rate in both halves of the backtest.`
@@ -390,7 +392,8 @@ function top8(d,sp){
   if(all.length){const last=Date.parse(all[all.length-1].date);
     for(let k=0;k<6;k++){const cut=last-k*7*864e5, s=[...all].reverse().find(x=>Date.parse(x.date)<=cut); if(s&&!h.includes(s))h.unshift(s);}}
   const wks=h.length>1?Math.round((Date.parse(h[h.length-1].date)-Date.parse(h[0].date))/(7*864e5)):0;
-  const rk=h.map(s=>{const r={};Object.entries(s.teams).sort((a,b)=>FULLNM.includes(sp)?((b[1].fp||0)-(a[1].fp||0))||((b[1].idx||0)-(a[1].idx||0)):b[1].idx-a[1].idx).forEach(([n],i)=>r[n]=i+1);return r;});
+  // CFB's live order is the uncapped index x schedule (mw); snapshots that carry mw use it too, so the arrows compare like with like
+  const rk=h.map(s=>{const r={},byMw=sp==="cfb"&&Object.values(s.teams).some(x=>x.mw!=null);Object.entries(s.teams).sort((a,b)=>byMw?((b[1].mw??-1)-(a[1].mw??-1))||((b[1].idx||0)-(a[1].idx||0)):FULLNM.includes(sp)?((b[1].fp||0)-(a[1].fp||0))||((b[1].idx||0)-(a[1].idx||0)):b[1].idx-a[1].idx).forEach(([n],i)=>r[n]=i+1);return r;});
   const cells=top.map((t,i)=>{const n=i+1, was=rk.length>1?rk[0][t.name]:undefined;
     const mv=rk.length<2?"":was==null||was>8?`<span class="t8mv nw">NEW</span>`:was>n?`<span class="t8mv up">▲${was-n}</span>`:was<n?`<span class="t8mv dn">▼${n-was}</span>`:"";
     const k=t.verdict?T8EV[t.verdict.kind]||"n":"n";
@@ -406,7 +409,8 @@ function card(t,sp){
   const chips=t.q.map((ok,i)=>`<span class="chip ${ok?'on':''}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("");
   const pre=DATA[sp]&&DATA[sp].use_pre?`<span class="chip prelbl" title="Only ${t.gp||0} game${t.gp===1?'':'s'} played — too few to score. Checks turn green once the blueprint takes over (~8 games).">live stats · ${t.gp||0}g · not scored yet</span>`:"";
   const ev=verdictPill(t.verdict);
-  let srs=""; if(sp==="mls"&&t.conf_pct!=null) srs=`<div title="Chance to win the ${t.conf}ern Conference (reach MLS Cup)"><span class="k">${t.conf} title</span>${t.conf_pct}%</div>`;
+  let srs=""; if(sp==="mls"&&t.conf_pct!=null) srs=`<div title="Chance to win the ${t.conf}ern Conference (reach MLS Cup)${DATA.mls&&DATA.mls.window_closed?" — frozen at the start of the playoffs":""}"><span class="k">${t.conf} title</span>${t.conf_pct}%</div>`;
+  if(sp==="mls"&&DATA.mls&&DATA.mls.window_closed) srs=t.champion?`<div><span class="k">result</span>🏆 MLS Cup</div>`:t.next?`<div title="Next playoff match"><span class="k">next</span>${t.next.round} ${t.next.site==="away"?"at":"vs"} ${t.next.opp}</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:srs;   // (2026-11-07) playoff status once the window closes
   if(sp==="cfl"||sp==="nwsl") srs=t.next?`<div title="Next playoff game"><span class="k">next</span>${t.next.round} ${t.next.site==="home"?"vs":t.next.site==="away"?"at":"vs"} ${sp==="nwsl"?t.next.opp:shortNm(t.next.opp)}</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:"";
   if(FOOTY.includes(sp)) srs=t.premier?`<div><span class="k">result</span>🏆 ${sp==="superleague"?"champions":"premiers"}</div>`:t.minor_pct!=null?`<div title="Chance to finish 1st on the ladder (the minor premiership), from the same simulation"><span class="k">1st on ladder</span>${t.minor_pct}%</div>`:"";
   if(sp==="fcs"&&t.alt_pct!=null) srs=`<div title="Title chance from the plain power rating (SRS) alone — a check on the blueprint. A big blueprint-over-rating gap usually means a soft-schedule record."><span class="k">rating-only</span>${t.alt_pct}%</div><div title="SRS = opponent-adjusted scoring margin rank · SOS = strength-of-schedule rank (opponents' win%), among FCS teams"><span class="k">SRS · SOS</span><span class="srs ${t.srsrank<=10?'elite':t.srsrank<=15?'ok':'mirage'}">#${t.srsrank}</span> · #${t.sosrank}</div>`;
@@ -440,7 +444,7 @@ function render(){
   if(!d){ app.innerHTML=`<div class="preseason">No data.</div>`; strip.innerHTML=""; return; }
   if(d.status==="preseason"){
     strip.innerHTML=`<div class="stat"><small>${d.sport}</small><b>preseason</b></div>`;
-    app.innerHTML=`<div class="preseason"><div class="big">🏀</div><b>${d.sport} — preseason</b><br><br>${d.note||""}<br><br><span style="font-size:12px">Fills in on the first real games.</span></div>`; return;
+    app.innerHTML=`<div class="preseason"><div class="big">${{nfl:"🏈",cfb:"🏈",fcs:"🏈",cfl:"🏈",nhl:"🏒",mlb:"⚾",mls:"⚽",nwsl:"⚽",afl:"🏉",nrl:"🏉",superleague:"🏉"}[cur]||"🏀"}</div><b>${d.sport} — preseason</b><br><br>${d.note||""}<br><br><span style="font-size:12px">Fills in on the first real games.</span></div>`; return;
   }
   const pct=d.season_pct!=null?d.season_pct:Math.round((d.gp_max||0)/TOTAL[cur]*100);
   const early=pct<({nfl:45,cfb:45,nhl:28,nba:28,wnba:32,mlb:30,cbb:40,wcbb:40,mls:30,fcs:45,cfl:45,nwsl:30,afl:30,nrl:30,superleague:30}[cur]||0);
@@ -454,7 +458,7 @@ function render(){
     `<div class="stat"><small>Season</small><b>${pct}%</b></div>`,
     `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
     `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b class="tx">${FULLNM.includes(cur)?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
-    `<div class="stat" title="${cur==="mls"?"The best BET vs the DraftKings price: the top +EV team (>=+10%) among teams that clear all 5 every-champion criteria, at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":FOOTY.includes(cur)?"Small stakes, before the finals only (the board freezes once a final is played, and the preseason odds are untested): EV >= +15% at most +2500 against your DraftKings/FanDuel screenshot, and "+(cur==="superleague"?"a top-2 ladder spot (a top-2 seed won 9 of the 10 title seasons tested).":"all 5 every-champion criteria.")+" Same team the board tags ⭐ BEST VALUE.":cur==="nwsl"?"NOT a bet-able board: NWSL knockouts have been no better than 'the home side advances'. Odds appear once the bracket is set; a value play needs a wide margin (5/5, EV >= +25%, <= +2500) and only before the first playoff game.":cur==="cfl"?"Before the playoffs only (you never bet within them): a value play needs a wide margin — 4/5 or better, EV >= +25%, at most +2500. Once a playoff game is played the window closes and no value play is shown. Check injuries first — QB news moves CFL prices.":cur==="fcs"?"Small stakes only. A value play needs a 5/5 team at EV >= +10% and <= +2500 that is ALSO priced longer than the rating-only fair odds and is SRS top-15 (not a soft-schedule record). Empty until you post a screenshot.":(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>Value play</small><b class="tx ${bv?'g':''}">${bv?(FULLNM.includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb"||d.stage==="done")?"season over":"no market")}</b></div>`,
+    `<div class="stat" title="${cur==="mls"?"The best BET vs the DraftKings price: the top +EV team (>=+10%) among teams that clear all 5 every-champion criteria, at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":FOOTY.includes(cur)?"Small stakes, before the finals only (the board freezes once a final is played, and the preseason odds are untested): EV >= +15% at most +2500 against your DraftKings/FanDuel screenshot, and "+(cur==="superleague"?"a top-2 ladder spot (a top-2 seed won 9 of the 10 title seasons tested).":"all 5 every-champion criteria.")+" Same team the board tags ⭐ BEST VALUE.":cur==="nwsl"?"NOT a bet-able board: NWSL knockouts have been no better than 'the home side advances'. Odds appear once the bracket is set; a value play needs a wide margin (5/5, EV >= +25%, <= +2500) and only before the first playoff game.":cur==="cfl"?"Before the playoffs only (you never bet within them): a value play needs a wide margin — 4/5 or better, EV >= +25%, at most +2500. Once a playoff game is played the window closes and no value play is shown. Check injuries first — QB news moves CFL prices.":cur==="fcs"?"Small stakes only. A value play needs a 5/5 team at EV >= +10% and <= +2500 that is ALSO priced longer than the rating-only fair odds and is SRS top-15 (not a soft-schedule record). Empty until you post a screenshot.":(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>Value play</small><b class="tx ${bv?'g':''}">${bv?(FULLNM.includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(d.window_closed&&d.stage!=="done"?"window closed":teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb"||d.stage==="done")?"season over":"no market")}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
   const rfTitle=PRICE_FILES[cur]?`Rebuilds the ${d.sport} board (free, ~2–3 min). Prices come from your screenshot — use 📷 Update to change them.`
@@ -608,13 +612,15 @@ function statusRow(d,pct){
     ?`<span class="pr ${d.market_asof?"":"stale"}">${d.market_asof?`${esc(d.market_name||"DraftKings")} · ${d.market_asof} screenshot`:"no current prices"}<button class="rfb" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update</button></span>`
     :hasMk?`<span title="${d.odds_remaining?d.odds_remaining+" Odds API credits left":""}">${esc(MK(cur))} odds</span>`:"";
   const warn=s&&s.status!=="trust"?`<div class="signote ${s.status}">${s.note}</div>`:"";
+  // (2026-11-07) the bot's last build of this board failed -> the board is older than it looks; say so
+  const b=BUILDS[cur], failed=b&&b.ok===false?`<span class="pr stale" title="${esc(b.error||"")}">⚠ last refresh failed ${ago(b.at)} — this is the ${ago(d.generated)} build</span>`:"";
   const tl=timeline(d,pct);   // the season timeline replaces the small bar when the board has dates in data/seasons.json
   return `<div class="status">${sig}${proj}${tl?"":`<span class="bar" title="${pct}% of the regular season played (games played ${d.gp_min}–${d.gp_max})"><i style="width:${pct}%"></i></span>`}`
-    +`<span>${tl?"":pct+"% of season · "}updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}</div>${tl}${warn}`;
+    +`<span>${tl?"":pct+"% of season · "}updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}${failed}</div>${tl}${warn}`;
 }
 function trustDetails(d){
   const c=CAL[cur], lvl=!c?null:c.c==="low"?["🔴","weak"]:c.c==="ok"?["🟡","fair"]:["🟢","strong"];
-  const rule={mls:"Bet only teams with all 5 criteria, priced longer than fair.",
+  const rule={mls:"Bet only teams with all 5 criteria, priced longer than fair, before the first playoff match. Once the playoffs start the board freezes its fair odds and shows no value play.",
     mlb:"Small stakes only. A value play (6+/7, trusted read, priced longer than fair, at most +2500) at the 75% mark or right before the playoffs. Against real prices 2022–26 these went 3 for 12 (+$140 at $10 each), but two seasons made all of it — not a proven edge yet.",
     wnba:"No odds feed carries WNBA title futures, so EV needs your sportsbook screenshot. The favourite wins most years — a longshot that looks like value is usually just a longshot.",
     fcs:"Small stakes only — bet a 5/5 team priced longer than both fair odds (blueprint and rating-only). The value side has never been tested against real prices.",
@@ -765,10 +771,11 @@ async function pollFresh(){ let before=null; try{before=(await(await fetch("data
     try{const g=(await(await fetch("data/index.json?t="+Date.now())).json()).generated;
       if(g&&g!==before){clearInterval(iv);endProg(true);await loadData();render();const m=document.getElementById(MSGID);if(m)m.innerHTML="✅ updated";}}catch(e){} },8000);
 }
-async function loadData(){ for(const k of Object.keys(SPORTS)){
-  try{const r=await fetch(`data/${k}.json?t=`+Date.now());if(r.ok)DATA[k]=await r.json();}catch(e){}
-  try{const r=await fetch(`data/history/${k}.json?t=`+Date.now());if(r.ok)HIST[k]=await r.json();}catch(e){} }
-  try{const r=await fetch("data/seasons.json?t="+Date.now());if(r.ok)SEASONS=(await r.json()).leagues||[];}catch(e){} }
+// (2026-11-07) all files in parallel -- the old loop fetched 31 files one after another before the first render
+let BUILDS={};
+async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await fetch(u+"?t="+t); return r.ok?await r.json():null; }catch(e){ return null; } };
+  await Promise.all([...Object.keys(SPORTS).flatMap(k=>[J(`data/${k}.json`).then(x=>{ if(x) DATA[k]=x; }), J(`data/history/${k}.json`).then(x=>{ if(x) HIST[k]=x; })]),
+    J("data/seasons.json").then(x=>{ if(x) SEASONS=x.leagues||[]; }), J("data/index.json").then(x=>{ if(x) BUILDS=x.builds||{}; })]); }
 async function load(){
   document.getElementById("tabs").innerHTML=Object.entries(SPORTS).map(([k,v])=>`<button data-s="${k}">${v}</button>`).join("");
   document.querySelectorAll(".sportbar button").forEach(b=>b.onclick=()=>{cur=b.dataset.s;render();});
