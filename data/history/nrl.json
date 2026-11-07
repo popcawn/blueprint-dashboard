@@ -1,0 +1,3782 @@
+[
+ {
+  "date": "2026-03-16",
+  "gp": 2,
+  "teams": {
+   "Melbourne Storm": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 25.5,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 3,
+    "idx": 58.1,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.6,
+    "fp": 22.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 4,
+    "idx": 44.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 2,
+    "idx": 36.3,
+    "fp": 10.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 49.9,
+    "fp": 15.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 3,
+    "idx": 54.4,
+    "fp": 8.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 37.3,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 1,
+    "idx": 48.6,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 40.8,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 1,
+    "idx": 38.1,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 14.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 6.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 0,
+    "idx": 27.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 0,
+    "idx": 5.7,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-23",
+  "gp": 3,
+  "teams": {
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 82,
+    "fp": 11.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 31.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 3,
+    "idx": 70.4,
+    "fp": 14.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 5,
+    "idx": 84.8,
+    "fp": 16.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 3,
+    "idx": 66.3,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 40.6,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 35.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 1,
+    "idx": 42.3,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 2,
+    "idx": 27.1,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 1,
+    "idx": 39.1,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 15.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 59.3,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 36.3,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 1,
+    "idx": 34.5,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 15.4,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-30",
+  "gp": 4,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 37.9,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 4,
+    "idx": 67.9,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 3,
+    "idx": 39.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 4,
+    "idx": 46.2,
+    "fp": 10.3,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 38.9,
+    "fp": 5.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 2,
+    "idx": 56,
+    "fp": 9.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 4,
+    "idx": 65.7,
+    "fp": 12.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 2,
+    "idx": 48,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 52.6,
+    "fp": 5.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 62.3,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 21.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 2,
+    "idx": 48.5,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 1,
+    "idx": 29.7,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 28.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 1,
+    "idx": 5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 9.1,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 2.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-06",
+  "gp": 5,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 45.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 4,
+    "idx": 49.1,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 3,
+    "idx": 43.5,
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 4,
+    "idx": 47.7,
+    "fp": 12.6,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 3,
+    "idx": 52.1,
+    "fp": 3.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 54.9,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 38.9,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 63.6,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 41.7,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 1,
+    "idx": 48.9,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 1,
+    "idx": 31.7,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 2,
+    "idx": 51.8,
+    "fp": 4.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 1,
+    "idx": 37.7,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 1,
+    "idx": 46,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 6.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 23.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-13",
+  "gp": 6,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 93.3,
+    "fp": 35.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 4,
+    "idx": 63.2,
+    "fp": 11.4,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 69.4,
+    "fp": 9.2,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 2,
+    "idx": 50.8,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 43.8,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 44.4,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 53.5,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 2,
+    "idx": 63.1,
+    "fp": 12.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 1,
+    "idx": 57.3,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 64.8,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 1,
+    "idx": 54.9,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 0,
+    "idx": 43.3,
+    "fp": 3.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 49.2,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 1,
+    "idx": 26.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 34.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 20.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-20",
+  "gp": 7,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 95,
+    "fp": 34.0,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 71.8,
+    "fp": 9.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 4,
+    "idx": 61.1,
+    "fp": 9.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 3,
+    "idx": 48.8,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 2,
+    "idx": 67.4,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 39.4,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 67.8,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 43,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 2,
+    "idx": 66,
+    "fp": 8.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 0,
+    "idx": 59.1,
+    "fp": 10.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 43.9,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 40.1,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 27.6,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 0,
+    "idx": 46.2,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 45.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 26.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-27",
+  "gp": 8,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 96,
+    "fp": 35.6,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 71.1,
+    "fp": 8.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 4,
+    "idx": 65.9,
+    "fp": 9.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 4,
+    "idx": 64.4,
+    "fp": 8.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 4,
+    "idx": 76.5,
+    "fp": 16.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 72.3,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 49.2,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 2,
+    "idx": 69.2,
+    "fp": 7.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 37.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 1,
+    "idx": 51.8,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 40.3,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 37,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 1,
+    "idx": 28,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 0,
+    "idx": 44.8,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 1,
+    "idx": 29.6,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 38.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-04",
+  "gp": 9,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.1,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 11.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 84.5,
+    "fp": 20.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 3,
+    "idx": 58.3,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 60,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 2,
+    "idx": 57.1,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 67.8,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 43.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 2,
+    "idx": 69,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 3,
+    "idx": 63.1,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 45.9,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 0,
+    "idx": 52.5,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 0,
+    "idx": 37.3,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 25.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 27.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 36.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-11",
+  "gp": 10,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.6,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 80.2,
+    "fp": 15.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 84.7,
+    "fp": 19.1,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 3,
+    "idx": 66,
+    "fp": 8.5,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 2,
+    "idx": 55.9,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 52.8,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 3,
+    "idx": 74.7,
+    "fp": 10.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 49.7,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 59.9,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 0,
+    "idx": 59,
+    "fp": 4.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 1,
+    "idx": 56.3,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 47.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 34.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 0,
+    "idx": 33.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 44,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 28.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-18",
+  "gp": 11,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.4,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 84.6,
+    "fp": 18.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.9,
+    "fp": 14.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 3,
+    "idx": 56.6,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 2,
+    "idx": 58.5,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 61.3,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 2,
+    "idx": 63.6,
+    "fp": 6.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 59.5,
+    "fp": 5.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 45.3,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 55,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 47.1,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 47.8,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 30.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 0,
+    "idx": 30.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 24.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-25",
+  "gp": 12,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 31.0,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 86.3,
+    "fp": 19.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.9,
+    "fp": 17.2,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 3,
+    "idx": 61,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 3,
+    "idx": 78,
+    "fp": 10.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 56.7,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 55.8,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 2,
+    "idx": 68.7,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 59.6,
+    "fp": 8.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 45.2,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 55.2,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 45.9,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 34.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 30.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 44.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 25.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-01",
+  "gp": 13,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.7,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 81,
+    "fp": 18.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 3,
+    "idx": 53.9,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 70.8,
+    "fp": 12.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 51.8,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 3,
+    "idx": 70.1,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 52,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 2,
+    "idx": 65.8,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 56.9,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 42.1,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 48.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 45.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 42.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 0,
+    "idx": 26.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 23.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 18.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 1.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-08",
+  "gp": 14,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 37.9,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 74.5,
+    "fp": 18.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 13.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 4,
+    "idx": 65.7,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 46,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 3,
+    "idx": 66.9,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 3,
+    "idx": 52.9,
+    "fp": 7.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 0,
+    "idx": 43.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 43.3,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 29.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 38.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 42.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 37.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 23.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 21.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 22.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-15",
+  "gp": 14,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 37.6,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 72.3,
+    "fp": 14.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 4,
+    "idx": 65.8,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 4,
+    "idx": 72.5,
+    "fp": 16.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 3,
+    "idx": 59.1,
+    "fp": 9.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 3,
+    "idx": 61.9,
+    "fp": 6.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 46,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 43.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 50,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 31.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 38.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 24.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 34.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 34.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 21.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 20,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-22",
+  "gp": 15,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 35.4,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 78.8,
+    "fp": 16.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 4,
+    "idx": 80.7,
+    "fp": 17.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 4,
+    "idx": 69.6,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 48.8,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 3,
+    "idx": 64.5,
+    "fp": 7.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 1,
+    "idx": 57.1,
+    "fp": 5.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 53,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 0,
+    "idx": 42.8,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 31.7,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 43.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 28.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 37.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 22.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 32.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 24.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-29",
+  "gp": 16,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 31.3,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 80.9,
+    "fp": 14.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.9,
+    "fp": 17.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 4,
+    "idx": 78.3,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 53.8,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 4,
+    "idx": 73.7,
+    "fp": 8.8,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 64.1,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 62.3,
+    "fp": 8.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 51.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 39,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 31.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 42.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 36.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 40.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 22.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 23.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-06",
+  "gp": 16,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 33.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 3,
+    "idx": 52.5,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 78.4,
+    "fp": 17.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 4,
+    "idx": 75.5,
+    "fp": 12.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 4,
+    "idx": 79.2,
+    "fp": 13.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 2,
+    "idx": 64.5,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 3,
+    "idx": 64.3,
+    "fp": 5.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 48,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 56.2,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 35.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 38.8,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 1,
+    "idx": 22.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 22.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 34.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 19.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-13",
+  "gp": 17,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 83.6,
+    "fp": 19.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 76.9,
+    "fp": 12.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 49.2,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 78.6,
+    "fp": 18.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 1,
+    "idx": 68.6,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 2,
+    "idx": 52.7,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 55.9,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 2,
+    "idx": 62.8,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 39.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 30,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 40.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 19.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 20.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 34.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 18.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-20",
+  "gp": 18,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 29.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 85.7,
+    "fp": 19.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.7,
+    "fp": 15.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 5,
+    "idx": 81.2,
+    "fp": 19.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 3,
+    "idx": 73.6,
+    "fp": 7.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 49.1,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 0,
+    "idx": 49,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 53.7,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 1,
+    "idx": 60.6,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 35.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 39.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 44.3,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 13.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 41.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 20.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 22.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-27",
+  "gp": 19,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 28.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 83.7,
+    "fp": 16.2,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 79.7,
+    "fp": 15.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 5,
+    "idx": 89.7,
+    "fp": 24.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 3,
+    "idx": 74.8,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 51.1,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 52.9,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 57.1,
+    "fp": 3.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 43.3,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 1,
+    "idx": 56.8,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 53.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 42.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 11.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 32.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 41.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 25,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 2.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-03",
+  "gp": 20,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 26.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 92.6,
+    "fp": 20.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 84.1,
+    "fp": 16.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 5,
+    "idx": 89.6,
+    "fp": 22.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 4,
+    "idx": 75.1,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 57.1,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 41.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 52.8,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 48.5,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 1,
+    "idx": 55.3,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 48.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 38.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 28.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 10.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 27,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 36.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 3.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-10",
+  "gp": 21,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 26.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 95.4,
+    "fp": 21.2,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 90.4,
+    "fp": 21.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 5,
+    "idx": 86.3,
+    "fp": 17.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 3,
+    "idx": 77.9,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 62.4,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 48.3,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 54.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 49.2,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 50.9,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 43.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 48.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 27.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 10.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 23.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 0,
+    "idx": 34.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 6.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-17",
+  "gp": 22,
+  "teams": {
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 97.6,
+    "fp": 22.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 95.4,
+    "fp": 23.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 95.3,
+    "fp": 22.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 82.6,
+    "fp": 11.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 63,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 83.3,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 59.2,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 0,
+    "idx": 44.5,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 45.6,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 52.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 46.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 43.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 28.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 8.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 20.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 0,
+    "idx": 29.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 10.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-24",
+  "gp": 23,
+  "teams": {
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 98,
+    "fp": 26.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 96.1,
+    "fp": 23.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 92.4,
+    "fp": 18.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 83.4,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 83.4,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 2,
+    "idx": 57.2,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 54.5,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 0,
+    "idx": 42.9,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 50.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 51.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 48.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 40.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 23.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 12.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 31.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 18.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-31",
+  "gp": 24,
+  "teams": {
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 26.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 96.6,
+    "fp": 24.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 18.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 88.7,
+    "fp": 18.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 75.2,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 54.1,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 1,
+    "idx": 59.1,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 45.7,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 1,
+    "idx": 55.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 48.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 0,
+    "idx": 47.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 0,
+    "idx": 48.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 30.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 11.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 29.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 16.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-07",
+  "gp": 24,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 27.6,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 97.5,
+    "fp": 24.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 18.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 15.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 73.1,
+    "fp": 6.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 64,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 41.3,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 54,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 51.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 33.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 7.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 15.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-14",
+  "gp": 24,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 26.9,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 97.5,
+    "fp": 25.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 17.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 15.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 73.1,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 64,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 41.3,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 54,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 51.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 33.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 7.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 15.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-21",
+  "gp": 24,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 27.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 97.5,
+    "fp": 24.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 17.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 16.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 73.1,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 64,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 41.3,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 54,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 51.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 33.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 7.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 15.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-28",
+  "gp": 24,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 27.5,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 97.5,
+    "fp": 25.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 17.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 15.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 73.1,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 64,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 41.3,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 54,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 51.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 33.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 7.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 15.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-05",
+  "gp": 24,
+  "teams": {
+   "Penrith Panthers": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 26.5,
+    "mkt": null,
+    "ev": null
+   },
+   "New Zealand Warriors": {
+    "sc": 5,
+    "idx": 97.5,
+    "fp": 25.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Dolphins": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 17.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney Roosters": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 16.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Cronulla-Sutherland Sharks": {
+    "sc": 4,
+    "idx": 73.1,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Sydney Rabbitohs": {
+    "sc": 2,
+    "idx": 64,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Knights": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Queensland Cowboys": {
+    "sc": 1,
+    "idx": 41.3,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Manly Warringah Sea Eagles": {
+    "sc": 0,
+    "idx": 54,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Storm": {
+    "sc": 1,
+    "idx": 51.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canberra Raiders": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Canterbury-Bankstown Bulldogs": {
+    "sc": 1,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Parramatta Eels": {
+    "sc": 0,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Broncos": {
+    "sc": 1,
+    "idx": 33.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wests Tigers": {
+    "sc": 0,
+    "idx": 7.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast Titans": {
+    "sc": 0,
+    "idx": 15.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St George Illawarra Dragons": {
+    "sc": 0,
+    "idx": 0.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ }
+]

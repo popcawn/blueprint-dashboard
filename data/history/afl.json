@@ -1,0 +1,3859 @@
+[
+ {
+  "date": "2026-03-16",
+  "gp": 2,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 61.1,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 5,
+    "idx": 67.4,
+    "fp": 10.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 40.5,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 4,
+    "idx": 37.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 87.5,
+    "fp": 13.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 3,
+    "idx": 68.3,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 50,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 69.3,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 56.2,
+    "fp": 7.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 2,
+    "idx": 47.1,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 2,
+    "idx": 31.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 1,
+    "idx": 8.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 1,
+    "idx": 38.2,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 24.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 2,
+    "idx": 44.6,
+    "fp": 4.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 1,
+    "idx": 15.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 1,
+    "idx": 6.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 1,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-23",
+  "gp": 3,
+  "teams": {
+   "Gold Coast": {
+    "sc": 5,
+    "idx": 91,
+    "fp": 17.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 39.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 3,
+    "idx": 53.4,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 10.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 3,
+    "idx": 50.9,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 2,
+    "idx": 24,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 1,
+    "idx": 29,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 2,
+    "idx": 76.2,
+    "fp": 9.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 68.4,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 41.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 1,
+    "idx": 36,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 1,
+    "idx": 10.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 0,
+    "idx": 40.3,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 2,
+    "idx": 56,
+    "fp": 7.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 30,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 1,
+    "idx": 44.1,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 1.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-30",
+  "gp": 4,
+  "teams": {
+   "Gold Coast": {
+    "sc": 5,
+    "idx": 91.3,
+    "fp": 16.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 38.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 4,
+    "idx": 56.3,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 3,
+    "idx": 53.7,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 70.2,
+    "fp": 9.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 4,
+    "idx": 38.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 3,
+    "idx": 73.8,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 52.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 3,
+    "idx": 27.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 59.4,
+    "fp": 7.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 23.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 2,
+    "idx": 63.6,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 2,
+    "idx": 63.5,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 38.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 0,
+    "idx": 37.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 24.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 0.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-06",
+  "gp": 4,
+  "teams": {
+   "Western Bulldogs": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 30.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 78.7,
+    "fp": 18.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 5,
+    "idx": 75.2,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 4,
+    "idx": 72,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 4,
+    "idx": 45.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 59.9,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 73.5,
+    "fp": 9.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 2,
+    "idx": 44.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 2,
+    "idx": 72.9,
+    "fp": 13.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 60.1,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 62.2,
+    "fp": 7.5,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 1,
+    "idx": 20,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 2,
+    "idx": 62.5,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 42.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 27.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 0,
+    "idx": 40.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 7.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 2.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-13",
+  "gp": 5,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 94,
+    "fp": 22.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 5,
+    "idx": 89.9,
+    "fp": 8.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 91.6,
+    "fp": 18.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 22.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 3,
+    "idx": 76,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 91.5,
+    "fp": 13.5,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 2,
+    "idx": 50.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 2,
+    "idx": 67.1,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 1,
+    "idx": 56,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 1,
+    "idx": 49.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 1,
+    "idx": 74.6,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 49,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 66.9,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 60.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 20,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 28.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 18,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 0.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-20",
+  "gp": 6,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 93.3,
+    "fp": 25.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 5,
+    "idx": 92.8,
+    "fp": 12.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 15.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 4,
+    "idx": 74.2,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 4,
+    "idx": 56.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 74.1,
+    "fp": 17.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 4,
+    "idx": 83.2,
+    "fp": 10.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 59.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 2,
+    "idx": 81,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 1,
+    "idx": 74,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 73.2,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 46.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 55.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 0,
+    "idx": 46.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 18.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 28.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 21.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-27",
+  "gp": 7,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 97.8,
+    "fp": 36.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 5,
+    "idx": 87.1,
+    "fp": 9.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 85.5,
+    "fp": 19.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 65.1,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 81.4,
+    "fp": 18.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 2,
+    "idx": 49.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 2,
+    "idx": 62.9,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 78.3,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 2,
+    "idx": 62.9,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 70.8,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 50.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 61.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 0,
+    "idx": 61.7,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 45.7,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 13.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 30.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 17.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 0.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-04",
+  "gp": 8,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 96.7,
+    "fp": 32.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 5,
+    "idx": 89.4,
+    "fp": 11.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 18.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 4,
+    "idx": 86.2,
+    "fp": 21.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 4,
+    "idx": 63.9,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 65.6,
+    "fp": 8.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 60.8,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 76.5,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 2,
+    "idx": 66.7,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 1,
+    "idx": 43.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 0,
+    "idx": 61.4,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 66.5,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 46.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 43.3,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 9.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 25.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 12.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 7.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-11",
+  "gp": 9,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.9,
+    "fp": 31.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 5,
+    "idx": 91,
+    "fp": 14.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 4,
+    "idx": 78.8,
+    "fp": 16.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 86.2,
+    "fp": 17.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 70.1,
+    "fp": 12.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 4,
+    "idx": 63.8,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 58.5,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 0,
+    "idx": 65,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 68.2,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 66.1,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 40.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 41.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 46.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 27,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 13,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 6.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-18",
+  "gp": 10,
+  "teams": {
+   "Sydney": {
+    "sc": 5,
+    "idx": 94.9,
+    "fp": 28.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Fremantle": {
+    "sc": 5,
+    "idx": 93.6,
+    "fp": 18.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 80.3,
+    "fp": 22.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 4,
+    "idx": 64.3,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 64.2,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 3,
+    "idx": 71.7,
+    "fp": 10.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 4,
+    "idx": 83.6,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 70.9,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 2,
+    "idx": 64.2,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 1,
+    "idx": 61.1,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 64.7,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 34.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 37.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 41.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 27.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 9.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-25",
+  "gp": 11,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 93.8,
+    "fp": 20.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 89.5,
+    "fp": 27.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 80.3,
+    "fp": 27.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 3,
+    "idx": 70.5,
+    "fp": 13.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 3,
+    "idx": 58.4,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 59.3,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 3,
+    "idx": 67.5,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 71.5,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 1,
+    "idx": 59.5,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 61.1,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 58.2,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 45.7,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 1,
+    "idx": 35,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 37.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 36.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 5.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 6.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 6.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-01",
+  "gp": 12,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 93.8,
+    "fp": 22.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 91.1,
+    "fp": 33.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 4,
+    "idx": 75,
+    "fp": 16.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 76.1,
+    "fp": 19.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 3,
+    "idx": 57.6,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 1,
+    "idx": 52.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 58.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 3,
+    "idx": 66.5,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 2,
+    "idx": 65.7,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 2,
+    "idx": 56.4,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 59.3,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 1,
+    "idx": 54.5,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 1,
+    "idx": 36.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 41,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 13.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 37.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 6.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 7.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-08",
+  "gp": 13,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 88.7,
+    "fp": 28.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 2,
+    "idx": 71.6,
+    "fp": 12.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 72.6,
+    "fp": 16.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 65.9,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 1,
+    "idx": 55.9,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 3,
+    "idx": 69.7,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 2,
+    "idx": 70.4,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 1,
+    "idx": 53.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 2,
+    "idx": 56.7,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 60.8,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 53.6,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 47.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 28.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 42.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 16.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 8.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 8.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-15",
+  "gp": 14,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 31.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 89.3,
+    "fp": 25.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 74.2,
+    "fp": 18.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 59.9,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 2,
+    "idx": 71.6,
+    "fp": 12.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 75.9,
+    "fp": 6.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 74,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 1,
+    "idx": 62.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 1,
+    "idx": 53.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 56.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 30.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 59.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 0,
+    "idx": 47.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 43.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 16.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 8.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 7.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-22",
+  "gp": 15,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 30.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 89.2,
+    "fp": 24.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 3,
+    "idx": 74.2,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 73.8,
+    "fp": 17.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 76.2,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 1,
+    "idx": 56.5,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 67.9,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 74,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 1,
+    "idx": 50.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 34.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 60.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 52.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 51,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 54.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 42,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 17.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 8.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 8.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-29",
+  "gp": 15,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 35.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 80.5,
+    "fp": 21.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 4,
+    "idx": 72.3,
+    "fp": 14.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 72.2,
+    "fp": 17.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 75.1,
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 3,
+    "idx": 71.1,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 1,
+    "idx": 55.2,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 66.6,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 36,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 1,
+    "idx": 58.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 1,
+    "idx": 47.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 58,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 51.3,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 47.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 42.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 15.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 7.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 8.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-06",
+  "gp": 16,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 33.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 87.5,
+    "fp": 25.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 3,
+    "idx": 72.3,
+    "fp": 9.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 3,
+    "idx": 83.4,
+    "fp": 11.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 77.3,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 66.1,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 71.2,
+    "fp": 11.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 68.1,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 65.8,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 65.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 1,
+    "idx": 36.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 59.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 54.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 1,
+    "idx": 46.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 47.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 15.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 6.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 4.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-13",
+  "gp": 17,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 35.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 80.1,
+    "fp": 21.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 78.9,
+    "fp": 13.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 4,
+    "idx": 84.2,
+    "fp": 12.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 5,
+    "idx": 80,
+    "fp": 8.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 65.7,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 66.2,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 66.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 65.8,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 2,
+    "idx": 54.7,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 61.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 1,
+    "idx": 36.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 1,
+    "idx": 38.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 46.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 16.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-20",
+  "gp": 18,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 35.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 3,
+    "idx": 75,
+    "fp": 17.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 83.9,
+    "fp": 14.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 4,
+    "idx": 86.7,
+    "fp": 10.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 5,
+    "idx": 82.4,
+    "fp": 12.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 67.1,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 70.9,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 69.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 65.9,
+    "fp": 5.5,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 56.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 57.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 37.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 35.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 46,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 15.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 8.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-27",
+  "gp": 19,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 34.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 80.8,
+    "fp": 20.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 85.5,
+    "fp": 17.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 90.4,
+    "fp": 12.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 5,
+    "idx": 79.1,
+    "fp": 5.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 66.1,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 3,
+    "idx": 71.7,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 3,
+    "idx": 73.5,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 68.1,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 57.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 47.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 33.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 35.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 43.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 14.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 6.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 2.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-03",
+  "gp": 20,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 35.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 82.1,
+    "fp": 22.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 84.2,
+    "fp": 16.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 5,
+    "idx": 81.7,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 83.9,
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 70.1,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 3,
+    "idx": 73.1,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 2,
+    "idx": 66.5,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 72.5,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 62,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 60.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 50,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 33.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 34,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 39.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 10.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 3.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-10",
+  "gp": 21,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 97.1,
+    "fp": 33.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 28.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 4,
+    "idx": 81.5,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 89.5,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 5,
+    "idx": 81.3,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 2,
+    "idx": 72.7,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 78.3,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 3,
+    "idx": 78.6,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 63.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 67.7,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 59.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 50.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 38.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 40.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 36.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 11,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 7.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-17",
+  "gp": 22,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 97.1,
+    "fp": 34.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 87.8,
+    "fp": 27.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 90.3,
+    "fp": 11.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 4,
+    "idx": 79.7,
+    "fp": 10.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 4,
+    "idx": 77.2,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 79.2,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 76.3,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 77,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 64.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 66.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 35.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 39,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 32.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 9.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 6.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-24",
+  "gp": 23,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 94.3,
+    "fp": 28.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": 26.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 98.5,
+    "fp": 19.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 86.1,
+    "fp": 13.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 85.7,
+    "fp": 6.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 47.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 35.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-31",
+  "gp": 23,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 94.3,
+    "fp": 29.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": 26.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 98.5,
+    "fp": 21.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 86.1,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 85.7,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 47.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 35.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-07",
+  "gp": 23,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 94.3,
+    "fp": 28.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": 26.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 98.5,
+    "fp": 21.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 86.1,
+    "fp": 13.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 85.7,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 47.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 35.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-14",
+  "gp": 23,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 94.3,
+    "fp": 28.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": 26.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 98.5,
+    "fp": 21.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 86.1,
+    "fp": 13.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 85.7,
+    "fp": 6.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 47.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 35.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-21",
+  "gp": 23,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 94.3,
+    "fp": 28.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": 26.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 98.5,
+    "fp": 20.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 86.1,
+    "fp": 12.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 85.7,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 47.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 35.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-28",
+  "gp": 23,
+  "teams": {
+   "Fremantle": {
+    "sc": 5,
+    "idx": 94.3,
+    "fp": 27.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": 27.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Lions": {
+    "sc": 5,
+    "idx": 98.5,
+    "fp": 20.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Hawthorn": {
+    "sc": 5,
+    "idx": 86.1,
+    "fp": 13.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Geelong": {
+    "sc": 4,
+    "idx": 85.7,
+    "fp": 6.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide": {
+    "sc": 4,
+    "idx": 84.4,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne": {
+    "sc": 3,
+    "idx": 78.9,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Bulldogs": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Collingwood": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Carlton": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Kilda": {
+    "sc": 0,
+    "idx": 61.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Greater Western Sydney": {
+    "sc": 1,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Gold Coast": {
+    "sc": 0,
+    "idx": 47.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Melbourne": {
+    "sc": 0,
+    "idx": 32.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Port Adelaide": {
+    "sc": 0,
+    "idx": 35.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "West Coast": {
+    "sc": 0,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Richmond": {
+    "sc": 0,
+    "idx": 5.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Essendon": {
+    "sc": 0,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ }
+]

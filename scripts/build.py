@@ -15,10 +15,10 @@ import json, math, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "cfl": 18, "nwsl": 30}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "cfl": 18, "nwsl": 30, "afl": 23, "nrl": 24, "superleague": 27}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10), "fcs": (6, 4), "cfl": (9, 5), "nwsl": (15, 9)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10), "fcs": (6, 4), "cfl": (9, 5), "nwsl": (15, 9), "afl": (10, 6), "nrl": (10, 6), "superleague": (10, 6)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -63,6 +63,18 @@ def value_plays(teams, maxcat, sport=None):
         for t in teams:
             p = _price_num(t.get("market"))
             if t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
+    if sport in ("afl", "nrl", "superleague"):
+        # AFL / NRL / Super League (2026-11-07), all fair-rated, small stakes. Only while the betting window is open (regular season: not
+        # within the finals, and not the untested preseason stage -> bet_ok), EV >= +15% at a believable price (<= +2500), and
+        # AFL/NRL: all 5 every-champion criteria · Super League: a top-2 ladder spot (a top-2 seed won 9 of the 10 title seasons tested;
+        # its profile did no better than a coin flip). Not odds-backtested: no title-price history for these leagues.
+        for t in teams:
+            p = _price_num(t.get("market"))
+            ok = t.get("score") == 5 if sport != "superleague" else (t.get("pos") or 99) <= 2
+            if t.get("bet_ok") and ok and (t.get("ev") or 0) >= 15 and p is not None and p <= 2500:
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
@@ -1303,7 +1315,7 @@ def pick_gap(pool):
 def log_history(name, data):
     """Append a compact dated snapshot of the contenders to data/history/<name>.json (keep last 400 runs — a full season of daily runs, so streaks aren't truncated).
        This is the week-over-week tracker — it's what surfaces season-long consistency + market drift."""
-    if data.get("status") == "preseason" or not data.get("teams"): return
+    if data.get("status") == "preseason" or not data.get("teams") or data.get("hist_off"): return
     hp = os.path.join(DATA, "history", f"{name}.json")
     os.makedirs(os.path.dirname(hp), exist_ok=True)
     try: hist = json.load(open(hp, encoding="utf-8"))
@@ -1801,13 +1813,135 @@ def build_nwsl():
     for t in rows: t.pop("p", None)
     return base
 
+# ----------------------------------------------------------------------------- AFL / NRL / Super League (added 2026-11-07)
+# User 2026-11-07: "Add NRL, AFL, super league to site." Engines are Node, copied from baseball-blueprint/pro (keep in sync):
+# scripts/pro/afl.mjs (Squiggle API) and scripts/pro/rugby.mjs nrl|superleague (Rugby League Project results pages), + tiers.mjs.
+# Same model in all three: team ratings from game margins (recency-weighted ridge regression, home edge split by travel),
+# P(win) = Phi(margin / sigma); the rest of the regular season and the whole finals series are simulated (20,000 runs).
+# Tiers = every-champion profile at the end of the regular season (study/criteria.mjs). The user never bets within the finals, so
+# once a final is played the fair odds are FROZEN at the start of the finals and EV is only shown against prices saved before them.
+# Preseason (no game played yet): odds = next season's whole fixture simulated from ratings that fade toward average (an untested
+# stage -> no value play), tiers/index = last season's end-of-regular-season profile, ladder shown = last season's.
+FOOTY = {
+    "afl": {"sport": "AFL", "eng": ["afl.mjs"], "title": "premiership", "finals": "finals", "book": "afl_book.json",
+            "alias": {"gws": "greater western sydney", "gws giants": "greater western sydney", "giants": "greater western sydney",
+                      "sydney swans": "sydney", "swans": "sydney", "brisbane": "brisbane lions", "lions": "brisbane lions"}},
+    "nrl": {"sport": "NRL", "eng": ["rugby.mjs", "nrl"], "title": "premiership", "finals": "finals", "book": "nrl_book.json",
+            "alias": {"souths": "south sydney rabbitohs", "rabbitohs": "south sydney rabbitohs", "nz warriors": "new zealand warriors",
+                      "warriors": "new zealand warriors", "st george": "st george illawarra dragons", "dragons": "st george illawarra dragons",
+                      "manly": "manly warringah sea eagles", "sea eagles": "manly warringah sea eagles", "cronulla": "cronulla sutherland sharks",
+                      "sharks": "cronulla sutherland sharks", "canterbury": "canterbury bankstown bulldogs", "bulldogs": "canterbury bankstown bulldogs",
+                      "north queensland": "north queensland cowboys", "cowboys": "north queensland cowboys", "roosters": "sydney roosters",
+                      "storm": "melbourne storm", "melbourne": "melbourne storm", "redcliffe dolphins": "dolphins"}},
+    "superleague": {"sport": "Super League", "eng": ["rugby.mjs", "superleague"], "title": "Super League title", "finals": "play-offs",
+                    "book": "superleague_book.json",
+                    "alias": {"hull kr": "hull kingston rovers", "hkr": "hull kingston rovers", "saints": "st helens", "wigan": "wigan warriors",
+                              "leeds": "leeds rhinos", "warrington": "warrington wolves", "catalans": "catalans dragons", "leigh": "leigh leopards",
+                              "wakefield": "wakefield trinity", "salford red devils": "salford", "salford rlfc": "salford", "york": "york knights",
+                              "huddersfield": "huddersfield giants", "castleford": "castleford tigers", "toulouse": "toulouse olympique",
+                              "bradford": "bradford bulls"}},
+}
+
+def _footy_key(s):
+    s = re.sub(r"[^a-z ]", " ", str(s).lower().replace("&", " and ").replace("-", " ").replace(".", ""))
+    return re.sub(r"\s+", " ", re.sub(r"\b(fc|rlfc|club|the)\b", " ", s)).strip()
+
+def _footy_match(raw, keys, alias):
+    """Board name for a sportsbook name: exact, alias, prefix either way, then a nickname only one club has."""
+    k = _footy_key(raw); k = alias.get(k, k)
+    if k in keys: return keys[k]
+    hits = [v for kk, v in keys.items() if len(k) >= 5 and (kk.startswith(k) or k.startswith(kk))]
+    if len(hits) == 1: return hits[0]
+    nick = k.split()[-1] if k else ""
+    hits = [v for kk, v in keys.items() if len(nick) >= 4 and kk.split()[-1] == nick]
+    return hits[0] if len(hits) == 1 else None
+
+def _ordinal(n):
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+def build_footy(key):
+    import subprocess, tempfile
+    C = FOOTY[key]
+    out = os.path.join(tempfile.gettempdir(), f"{key}_export.json")
+    subprocess.run(["node", os.path.join(HERE, "scripts", "pro", C["eng"][0]), *C["eng"][1:], "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
+    E = json.load(open(out, encoding="utf-8"))
+    stage, Y, PY = E["stage"], E["season"], E["profile_season"]
+    closed, pre = stage in ("finals", "done"), stage == "preseason"
+    snap = {}
+    try: snap = json.load(open(os.path.join(DATA, C["book"]), encoding="utf-8"))
+    except Exception: pass
+    d0 = datetime.date.fromisoformat(snap["date"]) if snap.get("date") else None
+    first = E.get("first_final")
+    # EV only against prices saved BEFORE the finals: live while the window is open (<= 14 days old); once the finals start, the frozen
+    # board keeps the EV vs the last pre-finals screenshot of that season (the value going in), never vs in-finals prices
+    pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first and d0.year == int(Y)
+    fresh = (not closed and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
+    rows = []
+    for t in E["teams"]:
+        rec = f"{t['w']}-{t['l']}" + (f"-{t['d']}" if t.get("d") else "") + f" · {t['pts']} pts"
+        if key == "afl" and t.get("pct"): rec += f" · {t['pct']:.1f}%"
+        elif t.get("gp"): rec += f" · {t['pf'] - t['pa']:+d}"
+        if pre: rec = (rec + f" ({PY})") if t.get("gp") else f"new in {Y}"
+        rows.append({"name": t["name"], "conf": (f"{PY}: " if pre else "") + _ordinal(t["pos"]) if t.get("pos") else None, "rec": rec,
+                     "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"], "index": t["idx"] if t["idx"] is not None else 0,
+                     "rtg": t["rtg"], "reg": t["reg"], "p": t["p"], "pos": t.get("pos"),
+                     "minor_pct": round(100 * t["minor"], 1) if not closed and t.get("minor") else None,
+                     "premier": bool(E.get("premier")) and t["name"] == E["premier"], "bet_ok": stage == "regular"})
+    for t in rows:
+        t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
+        t["fair_odds"] = american(t["p"]) if t["p"] else None
+        t["read"] = None
+    fd = {}
+    if fresh:
+        keys = {_footy_key(t["name"]): t["name"] for t in rows}
+        for nm, price in snap["odds"].items():
+            hit = _footy_match(nm, keys, C["alias"])
+            if hit: fd[hit] = int(price)
+    attach(rows, [t for t in rows if t["p"] > 0], fd)
+    for t in rows:   # +EV on a team the board's rule rules out is not a bet here (AFL/NRL: the 5/5 profile; Super League: a top-2 ladder spot)
+        v = t.get("verdict") or {}
+        if v.get("kind") in ("value", "small", "longshot"):
+            if key in ("afl", "nrl") and t["score"] < 5: t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
+            elif key == "superleague" and not (t.get("pos") or 99) <= 2: t["verdict"] = {"kind": "trap", "label": "outside top 2", "ev": v.get("ev")}
+    rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))
+    top = max(rows, key=lambda t: (t["p"], t["index"]))
+    rank = {t["name"]: i + 1 for i, t in enumerate(rows)}
+    title, fin = C["title"], C["finals"]
+    if pre:
+        why = (f"<b>{top['name']}</b> is the model's #1 for {Y}: {top['fair_pct']}% to win the {title} (fair {top['fair_odds']}). "
+               f"Preseason projection — the whole {Y} fixture simulated from last season's ratings fading toward average (an untested stage, so no value play yet). "
+               f"Tiers and index are {PY}'s end-of-season profile.")
+    elif stage == "regular":
+        why = (f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win the {title} (fair {top['fair_odds']}). "
+               f"{E['games_left']} regular-season games left are simulated, then the {fin} ({E['sims']:,} runs). Bet window open until the first final.")
+    else:
+        pm = next((t for t in rows if t.get("premier")), None)
+        lead = (f"<b>{pm['name']}</b> won the {Y} {'Grand Final' if key != 'superleague' else 'Super League Grand Final'} — "
+                f"{pm['fair_pct'] or 0}% (#{rank[pm['name']]}) on the model going into the {fin}. " if pm else f"The {fin} are underway. ")
+        why = (lead + f"Going into the {fin} the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% (fair {top['fair_odds']}). "
+               f"The betting window is closed: these fair odds are frozen at the start of the {fin} (you don't bet within the {fin})"
+               + (f"; EV is against the prices you saved before them ({d0:%b} {d0.day})." if fresh else "."))
+    gmin, gmax = E["gp_now"]
+    base = {"sport": C["sport"], "season": str(Y), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
+            "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
+            "stage": stage, "window_closed": closed, "profile_season": PY, "premier": E.get("premier"), "games_left": E["games_left"], "sims": E["sims"],
+            "hfa2": E["hfa"], "sig": E["sig"], "prediction": {"pick": top["name"], "why": why},
+            "season_pct": 100 if closed else round(100 * (gmin + gmax) / 2 / SEASON_GAMES[key]) if gmax else 0, "gp_min": gmin, "gp_max": gmax,
+            "hist_off": pre or stage == "done"}   # a preseason / finished board doesn't change -> no daily history (streaks would grow in the offseason)
+    for t in rows: t.pop("p", None)
+    return base
+
+def build_afl(): return build_footy("afl")
+def build_nrl(): return build_footy("nrl")
+def build_superleague(): return build_footy("superleague")
+
 def build_cbb(): return build_college_bb("cbb")
 def build_wcbb(): return build_college_bb("wcbb")
 
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl), ("nwsl", build_nwsl)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague)]:
         if name not in LEAGUES:
             continue
         try:
@@ -1815,9 +1949,12 @@ def main():
             data = fn()
             if data.get("status") != "preseason" and data.get("gp_max") is not None:
                 data["signal"] = signal_status(name, data["gp_max"])
+                if data.get("stage") == "preseason":   # AFL / NRL / Super League before their first game
+                    data["signal"] = {"status": "early", "emoji": "🔴", "label": "Preseason",
+                                      "note": f"No {data['season']} games yet — the odds are a preseason projection (an untested stage) and the tiers are last season's profile. Don't bet the board until the season is underway."}
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
@@ -1829,7 +1966,7 @@ def main():
             print(f"  FAILED {name}: {e}", file=sys.stderr)
             built[name] = f"FAILED: {e}"
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl"], "generated": now_iso()}, f, indent=2)
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"], "generated": now_iso()}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
 if __name__ == "__main__":

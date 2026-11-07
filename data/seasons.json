@@ -1,5 +1,5 @@
 {
- "about": "Season calendar for every blueprint (site boards + chat-only), read by the Season clock panel and each board's timeline. start = first regular-season game, po = first playoff game (the user's betting window closes here; null = no playoffs), final = the day the title is decided, next = next season's start once this one is over. approx lists the dates that are estimates. Dates from ESPN season calendars (US leagues, La Liga), Squiggle (AFL), Rugby League Project (NRL, Super League: 2027 projected from the 2024-26 pattern), the engines' own data (CFL, NWSL, MLS, NASCAR) and the published schedules; refresh each new season.",
+ "about": "Season calendar for every blueprint (site boards + chat-only), read by the Season clock panel and each board's timeline. start = first regular-season game, po = first playoff game (the user's betting window closes here; null = no playoffs), final = the day the title is decided, next = next season's start once this one is over. approx lists the dates that are estimates. Dates from ESPN season calendars (US leagues, La Liga), Squiggle (AFL, the 2027 fixture), Rugby League Project (NRL, Super League: 2027 projected from the 2024-26 pattern), the engines' own data (CFL, NWSL, MLS, NASCAR) and the published schedules; refresh each new season.",
  "updated": "2026-11-07",
  "leagues": [
   {"key": "nfl", "name": "NFL", "title": "Super Bowl", "site": true, "start": "2026-09-10", "po": "2027-01-16", "final": "2027-02-14", "next": "2027-09-09", "approx": ["next"]},
@@ -19,9 +19,9 @@
   {"key": "nbacup", "name": "NBA Cup", "title": "Cup final (Las Vegas)", "site": false, "start": "2026-10-31", "po": "2026-12-08", "final": "2026-12-15", "approx": ["start", "po", "final"], "short": "NBA Cup"},
   {"key": "wcvb", "name": "College volleyball", "title": "NCAA final", "site": false, "start": "2026-08-28", "po": "2026-12-03", "final": "2026-12-20", "next": "2027-08-27", "approx": ["po", "final", "next"], "short": "Volleyball"},
   {"key": "chk", "name": "College hockey", "title": "Frozen Four", "site": false, "start": "2026-10-03", "po": "2027-03-26", "final": "2027-04-10", "approx": ["start", "po", "final"], "short": "College hockey"},
-  {"key": "afl", "name": "AFL", "title": "Grand Final", "site": false, "start": "2027-03-17", "po": "2027-08-27", "final": "2027-09-25", "approx": ["po", "final"], "short": "AFL"},
+  {"key": "afl", "name": "AFL", "title": "Grand Final", "site": true, "start": "2027-03-17", "po": "2027-08-29", "final": "2027-09-25", "approx": ["po", "final"], "short": "AFL"},
   {"key": "laliga", "name": "La Liga", "title": "La Liga title (table)", "site": false, "start": "2026-08-15", "po": null, "final": "2027-05-30", "next": "2027-08-14", "approx": ["final", "next"], "short": "La Liga"},
-  {"key": "nrl", "name": "NRL", "title": "Grand Final", "site": false, "start": "2027-03-06", "po": "2027-09-10", "final": "2027-10-03", "approx": ["start", "po", "final"], "short": "NRL"},
-  {"key": "superleague", "name": "Super League (rugby league)", "title": "Grand Final", "site": false, "start": "2027-02-11", "po": "2027-09-24", "final": "2027-10-09", "approx": ["start", "po", "final"], "short": "Super League"}
+  {"key": "nrl", "name": "NRL", "title": "Grand Final", "site": true, "start": "2027-03-06", "po": "2027-09-10", "final": "2027-10-03", "approx": ["start", "po", "final"], "short": "NRL"},
+  {"key": "superleague", "name": "Super League (rugby league)", "title": "Grand Final", "site": true, "start": "2027-02-11", "po": "2027-09-24", "final": "2027-10-09", "approx": ["start", "po", "final"], "short": "Super League"}
  ]
 }

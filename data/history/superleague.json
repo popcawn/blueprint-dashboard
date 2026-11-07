@@ -1,0 +1,3362 @@
+[
+ {
+  "date": "2026-03-02",
+  "gp": 3,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 30.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 4,
+    "idx": 32.9,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 74,
+    "fp": 14.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 9.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 4,
+    "idx": 37.8,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 2,
+    "idx": 46.1,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 2,
+    "idx": 41.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 2.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 1,
+    "idx": 57,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 23.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 15,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 43.5,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 0,
+    "idx": 61.8,
+    "fp": 32.6,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-09",
+  "gp": 4,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 32.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 63.7,
+    "fp": 6.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 72.6,
+    "fp": 13.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 5,
+    "idx": 69.4,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 4,
+    "idx": 41.7,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 2,
+    "idx": 55.8,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 2,
+    "idx": 42.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 2,
+    "idx": 32.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 2,
+    "idx": 36.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 1,
+    "idx": 76.8,
+    "fp": 31.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 1,
+    "idx": 3.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 1,
+    "idx": 24.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 41.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-16",
+  "gp": 4,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 33.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 63.7,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 72.6,
+    "fp": 14.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 5,
+    "idx": 69.4,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 4,
+    "idx": 41.6,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 2,
+    "idx": 55.8,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 2,
+    "idx": 42.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 2,
+    "idx": 32.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 2,
+    "idx": 36.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 1,
+    "idx": 76.8,
+    "fp": 30.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 1,
+    "idx": 3.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 1,
+    "idx": 24.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 41.4,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-23",
+  "gp": 5,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 35.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 71.7,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 5,
+    "idx": 76.9,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 4,
+    "idx": 67.9,
+    "fp": 11.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 4,
+    "idx": 40.1,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 2,
+    "idx": 57.9,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 2,
+    "idx": 36.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 1,
+    "idx": 28.8,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 40.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 44,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 0,
+    "idx": 72,
+    "fp": 24.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 43.5,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 2.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-03-30",
+  "gp": 6,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 26.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 59.3,
+    "fp": 10.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 4,
+    "idx": 71,
+    "fp": 14.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 2,
+    "idx": 66.9,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 71.5,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 2,
+    "idx": 32.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 1,
+    "idx": 28.5,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 31.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 1,
+    "idx": 79.9,
+    "fp": 32.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 36.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 39.8,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 44.4,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 13.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-06",
+  "gp": 7,
+  "teams": {
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 68.6,
+    "fp": 13.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 81.8,
+    "fp": 15.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 95.1,
+    "fp": 20.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 4,
+    "idx": 80.2,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 78.1,
+    "fp": 12.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 1,
+    "idx": 37.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 2,
+    "idx": 83.3,
+    "fp": 31.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 1,
+    "idx": 31.6,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 1,
+    "idx": 29.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 35.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 20.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 33,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 42.3,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-13",
+  "gp": 7,
+  "teams": {
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 68.6,
+    "fp": 12.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 81.8,
+    "fp": 16.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 95.1,
+    "fp": 21.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 4,
+    "idx": 80.2,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 78.1,
+    "fp": 10.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 1,
+    "idx": 37.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 2,
+    "idx": 83.3,
+    "fp": 32.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 1,
+    "idx": 31.6,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 1,
+    "idx": 29.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 35.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 20.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 33,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 42.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-20",
+  "gp": 8,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 84.4,
+    "fp": 19.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 79.9,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 78.7,
+    "fp": 12.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 4,
+    "idx": 56.4,
+    "fp": 8.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 4,
+    "idx": 87.8,
+    "fp": 13.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 1,
+    "idx": 35.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 3,
+    "idx": 90,
+    "fp": 36.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 1,
+    "idx": 17.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 25.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 47.1,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 10,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 14.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 26.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 21.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-04-27",
+  "gp": 9,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.2,
+    "fp": 21.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 83.8,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 4,
+    "idx": 62,
+    "fp": 10.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 78.7,
+    "fp": 6.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 37.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 3,
+    "idx": 83.1,
+    "fp": 9.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 1,
+    "idx": 33.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 43,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 48.9,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 35.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 12.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 12.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 17.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 17.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-04",
+  "gp": 10,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.4,
+    "fp": 22.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 4,
+    "idx": 84.1,
+    "fp": 13.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 71.7,
+    "fp": 11.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 37.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 4,
+    "idx": 82.6,
+    "fp": 9.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 4,
+    "idx": 72.5,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 56.7,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 33.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 41.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 32.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 13.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 29.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 10,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 16.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-11",
+  "gp": 10,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.4,
+    "fp": 22.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 4,
+    "idx": 84.1,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 71.7,
+    "fp": 11.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 36.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 4,
+    "idx": 82.6,
+    "fp": 9.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 4,
+    "idx": 72.5,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 56.7,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 33.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 41.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 32.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 13.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 29.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 10,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 16.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-18",
+  "gp": 11,
+  "teams": {
+   "St Helens": {
+    "sc": 4,
+    "idx": 83.4,
+    "fp": 13.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 73.1,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 82.1,
+    "fp": 18.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 38.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 73.2,
+    "fp": 6.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 4,
+    "idx": 81.7,
+    "fp": 11.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 54.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 25.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 36.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 12.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 15,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 26,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 27.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 14.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-05-25",
+  "gp": 12,
+  "teams": {
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 68.6,
+    "fp": 10.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 80.6,
+    "fp": 22.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 72,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 45.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 72.3,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 3,
+    "idx": 68.5,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 53.1,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 29.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 15,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 28.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 10.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 18.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 25.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 7.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-01",
+  "gp": 12,
+  "teams": {
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 68.6,
+    "fp": 10.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 80.6,
+    "fp": 21.8,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 72,
+    "fp": 8.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 44.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 72.3,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 3,
+    "idx": 68.5,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 0,
+    "idx": 53.1,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 29.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 15,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 28.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 10.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 18.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 25.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 7.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-08",
+  "gp": 13,
+  "teams": {
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 72.1,
+    "fp": 11.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 83.8,
+    "fp": 23.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 77.2,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 72.3,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 98.6,
+    "fp": 41.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 4,
+    "idx": 77.4,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 60.6,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 31.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 1,
+    "idx": 13.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 18.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 30.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 37.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 19.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 8.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-15",
+  "gp": 14,
+  "teams": {
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 74.1,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 85.1,
+    "fp": 23.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 95.7,
+    "fp": 40.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 81.7,
+    "fp": 11.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 70,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 68.3,
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 63.6,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 30.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 31.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 10.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 15.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 33.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 17,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 6.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-22",
+  "gp": 15,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 89.7,
+    "fp": 27.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 72.4,
+    "fp": 9.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 95.7,
+    "fp": 38.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 12.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 74.5,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 69.4,
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 61.4,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 31.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 18.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 29.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 9.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 28.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 10.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 5.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-29",
+  "gp": 16,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 93.6,
+    "fp": 31.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 72.2,
+    "fp": 8.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 90.2,
+    "fp": 13.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 73.7,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 4,
+    "idx": 74.2,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 92.5,
+    "fp": 33.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 65.6,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 29.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 16,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 29.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 5.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 24.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 15.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-06",
+  "gp": 17,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 94.7,
+    "fp": 33.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.9,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 90.2,
+    "fp": 14.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 76.8,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 92.5,
+    "fp": 33.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 3,
+    "idx": 74.6,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 67.6,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 26.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 14.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 30.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 32.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 18.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 4.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-13",
+  "gp": 18,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 99,
+    "fp": 35.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 92.1,
+    "fp": 16.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 83.6,
+    "fp": 9.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 67.5,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 91,
+    "fp": 27.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 67,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 70.7,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 45.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 17.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 9.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 12.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 26.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-20",
+  "gp": 19,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 94.5,
+    "fp": 33.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 93.9,
+    "fp": 18.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 85.6,
+    "fp": 12.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 69.9,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 2,
+    "idx": 70.3,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 71.2,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 87,
+    "fp": 21.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 22.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 45.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 13.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 15.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 9.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 26.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-27",
+  "gp": 20,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 94.6,
+    "fp": 33.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 86.8,
+    "fp": 13.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 94.6,
+    "fp": 20.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 65,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 70.9,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 89.8,
+    "fp": 21.3,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 66.9,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 42.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 10,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 13.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 7.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 25.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 4.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-03",
+  "gp": 21,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 93.9,
+    "fp": 35.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 85.3,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 93.6,
+    "fp": 22.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 66.9,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 87,
+    "fp": 17.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 1,
+    "idx": 67.5,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 61.3,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 34.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 14,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 7.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 6.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 23.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 4.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-10",
+  "gp": 22,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 95.4,
+    "fp": 35.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 94.8,
+    "fp": 23.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 85.1,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 71.3,
+    "fp": 7.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 91.3,
+    "fp": 19.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 2,
+    "idx": 67,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 59.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 20.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 31.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 14.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 5.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 29.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 3.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 6.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-17",
+  "gp": 23,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 93.7,
+    "fp": 31.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 96.2,
+    "fp": 27.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.9,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 4,
+    "idx": 80.7,
+    "fp": 6.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 5,
+    "idx": 90.6,
+    "fp": 21.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 2,
+    "idx": 69.3,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 63.6,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 18.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 9.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 0,
+    "idx": 26.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 12.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 27.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 10.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 0.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-24",
+  "gp": 24,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 96.2,
+    "fp": 35.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 95.5,
+    "fp": 29.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 73.2,
+    "fp": 9.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 4,
+    "idx": 77.2,
+    "fp": 7.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 71.9,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 85,
+    "fp": 12.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 64.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 21.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 36.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 11,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 32.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 11.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 13.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-31",
+  "gp": 25,
+  "teams": {
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 97.4,
+    "fp": 36.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 97,
+    "fp": 35.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 73.2,
+    "fp": 6.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 75.7,
+    "fp": 6.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 67.1,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 78.5,
+    "fp": 9.4,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 62.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 26.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 36.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 9.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 32.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 16.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 11.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-07",
+  "gp": 26,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 36.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 94.2,
+    "fp": 35.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.3,
+    "fp": 5.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 75.4,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 69.3,
+    "fp": 5.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 78.7,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 1,
+    "idx": 57.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 37.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 16.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 7.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 30.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 14.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 0.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-14",
+  "gp": 27,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 38.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.4,
+    "fp": 34.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 5.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 77.3,
+    "fp": 8.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 68.2,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 74.6,
+    "fp": 9.2,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 59.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 37.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 19.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 36.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 18.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 6.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 1.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-21",
+  "gp": 27,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 38.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.4,
+    "fp": 33.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 77.3,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 68.2,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 74.6,
+    "fp": 9.3,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 59.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 37.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 19.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 36.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 18.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 6.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 1.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-28",
+  "gp": 27,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 39.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.4,
+    "fp": 33.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 5.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 77.3,
+    "fp": 7.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 68.2,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 74.6,
+    "fp": 8.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 59.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 37.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 19.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 36.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 18.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 6.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 1.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-05",
+  "gp": 27,
+  "teams": {
+   "Wigan Warriors": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 38.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Leeds Rhinos": {
+    "sc": 5,
+    "idx": 91.4,
+    "fp": 34.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Warrington Wolves": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Wakefield Trinity": {
+    "sc": 5,
+    "idx": 77.3,
+    "fp": 7.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Leigh Leopards": {
+    "sc": 4,
+    "idx": 68.2,
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull Kingston Rovers": {
+    "sc": 4,
+    "idx": 74.6,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "St Helens": {
+    "sc": 2,
+    "idx": 59.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toulouse Olympique": {
+    "sc": 1,
+    "idx": 37.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Catalans Dragons": {
+    "sc": 0,
+    "idx": 24,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "York Knights": {
+    "sc": 0,
+    "idx": 19.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hull FC": {
+    "sc": 0,
+    "idx": 36.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Huddersfield Giants": {
+    "sc": 0,
+    "idx": 18.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Castleford Tigers": {
+    "sc": 0,
+    "idx": 6.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bradford Bulls": {
+    "sc": 0,
+    "idx": 1.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ }
+]
