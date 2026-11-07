@@ -54,7 +54,8 @@ async function attachXG(Y, rows) {
 }
 async function season(Y) {
   const f = path.join(CACHE, `${lk}_${Y}.json`);
-  if (Y < L.cur && fs.existsSync(f)) { const rows = JSON.parse(fs.readFileSync(f, 'utf8')); await attachXG(Y, rows); return rows; }
+  const ALLSTAR = g => /all-?star/i.test(`${g.hn} ${g.an}`);   // ESPN files the All-Star game (MLS All-Stars vs Liga MX) under the regular season: it must not count (2026-11-07 fix -- it skewed the index scaling)
+  if (Y < L.cur && fs.existsSync(f)) { const rows = JSON.parse(fs.readFileSync(f, 'utf8')).filter(g => !ALLSTAR(g)); await attachXG(Y, rows); return rows; }
   const j = await getJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/${L.espn}/scoreboard?dates=${Y}&limit=1000`);
   const rows = [];
   for (const e of (j?.events || [])) {
@@ -69,8 +70,9 @@ async function season(Y) {
   }
   rows.sort((x, y) => x.d.localeCompare(y.d));
   if (Y < L.cur) fs.writeFileSync(f, JSON.stringify(rows));
-  await attachXG(Y, rows);   // after caching: the cached ESPN file stays goals-only
-  return rows;
+  const clean = rows.filter(g => !ALLSTAR(g));
+  await attachXG(Y, clean);   // after caching: the cached ESPN file stays goals-only
+  return clean;
 }
 
 // ---------- model ----------

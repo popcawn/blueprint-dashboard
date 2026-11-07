@@ -1,7 +1,7 @@
 {
   "sport": "MLS",
   "season": "2026",
-  "generated": "2026-11-07T13:22:41Z",
+  "generated": "2026-11-07T15:36:50Z",
   "cats": [
     "Attack rating top-12",
     "Form (pts/g, last 8) \u2265 1.25",
@@ -32,24 +32,24 @@
       ],
       "vals": [
         "#2",
-        "1.50 #12",
-        "2.00 #6",
-        "#3",
+        "1.50 #11",
+        "2.00 #5",
+        "#2",
         "1.66 #2"
       ],
-      "rtg": 0.67,
-      "conf_pct": 38.4,
-      "index": 67.9,
-      "fair_pct": 23.5,
-      "fair_odds": "+325",
+      "rtg": 0.666,
+      "conf_pct": 38.6,
+      "index": 72.6,
+      "fair_pct": 23.2,
+      "fair_odds": "+331",
       "read": null,
       "mk": 430,
       "market": "+430",
-      "ev": 25,
+      "ev": 23,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 25
+        "ev": 23
       }
     },
     {
@@ -67,24 +67,24 @@
       ],
       "vals": [
         "#5",
-        "2.50 #3",
-        "2.20 #4",
-        "#2",
+        "2.50 #2",
+        "2.20 #3",
+        "#1",
         "1.78 #1"
       ],
-      "rtg": 0.481,
-      "conf_pct": 27.7,
-      "index": 77.3,
-      "fair_pct": 17.5,
-      "fair_odds": "+471",
+      "rtg": 0.478,
+      "conf_pct": 28.4,
+      "index": 87.3,
+      "fair_pct": 17.7,
+      "fair_odds": "+465",
       "read": null,
       "mk": 340,
       "market": "+340",
-      "ev": -23,
+      "ev": -22,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -23
+        "ev": -22
       }
     },
     {
@@ -102,24 +102,24 @@
       ],
       "vals": [
         "#1",
-        "1.75 #7",
-        "2.00 #6",
-        "#5",
-        "1.44 #3"
+        "1.75 #6",
+        "2.00 #5",
+        "#4",
+        "1.45 #3"
       ],
-      "rtg": 0.461,
-      "conf_pct": 20.8,
-      "index": 68.9,
-      "fair_pct": 11.1,
-      "fair_odds": "+798",
+      "rtg": 0.458,
+      "conf_pct": 20.9,
+      "index": 72.4,
+      "fair_pct": 11.7,
+      "fair_odds": "+754",
       "read": null,
       "mk": 500,
       "market": "+500",
-      "ev": -33,
+      "ev": -30,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -33
+        "ev": -30
       }
     },
     {
@@ -137,24 +137,24 @@
       ],
       "vals": [
         "#4",
-        "2.00 #4",
-        "1.40 #13",
-        "#5",
+        "2.00 #3",
+        "1.40 #12",
+        "#4",
         "1.17 #7"
       ],
-      "rtg": 0.351,
-      "conf_pct": 15.4,
-      "index": 53.7,
+      "rtg": 0.349,
+      "conf_pct": 15.0,
+      "index": 57.8,
       "fair_pct": 7.9,
-      "fair_odds": "+1168",
+      "fair_odds": "+1163",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": 18,
+      "ev": 19,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 18
+        "ev": 19
       }
     },
     {
@@ -171,25 +171,95 @@
         true
       ],
       "vals": [
-        "#9",
-        "1.63 #9",
-        "1.40 #13",
-        "#7",
+        "#8",
+        "1.63 #8",
+        "1.40 #12",
+        "#6",
         "1.23 #6"
       ],
       "rtg": -0.028,
-      "conf_pct": 5.4,
-      "index": 50.9,
-      "fair_pct": 2.4,
-      "fair_odds": "+4075",
+      "conf_pct": 5.3,
+      "index": 53.4,
+      "fair_pct": 2.2,
+      "fair_odds": "+4364",
       "read": null,
       "mk": 2700,
       "market": "+2700",
-      "ev": -33,
+      "ev": -37,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -33
+        "ev": -37
+      }
+    },
+    {
+      "name": "FC Dallas",
+      "conf": "West",
+      "rec": "15-8-10 \u00b7 55 pts",
+      "gp": 33,
+      "score": 4,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "vals": [
+        "#12",
+        "1.50 #11",
+        "1.60 #10",
+        "#6",
+        "1.07 #11"
+      ],
+      "rtg": 0.071,
+      "conf_pct": 14.1,
+      "index": 48.2,
+      "fair_pct": 6.0,
+      "fair_odds": "+1578",
+      "read": null,
+      "mk": 1400,
+      "market": "+1400",
+      "ev": -11,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -11
+      }
+    },
+    {
+      "name": "Columbus Crew",
+      "conf": "East",
+      "rec": "13-15-5 \u00b7 44 pts",
+      "gp": 33,
+      "score": 4,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "#11",
+        "2.63 #1",
+        "3.00 #1",
+        "#11",
+        "1.15 #8"
+      ],
+      "rtg": 0.168,
+      "conf_pct": 4.0,
+      "index": 61.6,
+      "fair_pct": 1.7,
+      "fair_odds": "+5835",
+      "read": null,
+      "mk": 5500,
+      "market": "+5500",
+      "ev": -6,
+      "verdict": {
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -6
       }
     },
     {
@@ -206,60 +276,25 @@
         true
       ],
       "vals": [
-        "#7",
-        "1.75 #7",
-        "1.00 #24",
-        "#12",
+        "#6",
+        "1.75 #6",
+        "1.00 #23",
+        "#11",
         "1.35 #4"
       ],
-      "rtg": 0.493,
+      "rtg": 0.49,
       "conf_pct": 14.6,
-      "index": 51.4,
-      "fair_pct": 6.9,
-      "fair_odds": "+1349",
+      "index": 52.6,
+      "fair_pct": 6.8,
+      "fair_odds": "+1367",
       "read": null,
       "mk": 2000,
       "market": "+2000",
-      "ev": 45,
+      "ev": 43,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 45
-      }
-    },
-    {
-      "name": "FC Dallas",
-      "conf": "West",
-      "rec": "15-8-10 \u00b7 55 pts",
-      "gp": 33,
-      "score": 3,
-      "q": [
-        false,
-        true,
-        true,
-        true,
-        false
-      ],
-      "vals": [
-        "#14",
-        "1.50 #12",
-        "1.60 #11",
-        "#7",
-        "1.07 #11"
-      ],
-      "rtg": 0.072,
-      "conf_pct": 14.1,
-      "index": 45.9,
-      "fair_pct": 5.8,
-      "fair_odds": "+1629",
-      "read": null,
-      "mk": 1400,
-      "market": "+1400",
-      "ev": -13,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -13
+        "ev": 43
       }
     },
     {
@@ -276,17 +311,17 @@
         false
       ],
       "vals": [
-        "#19",
-        "1.88 #5",
-        "2.40 #3",
-        "#3",
+        "#17",
+        "1.88 #4",
+        "2.40 #2",
+        "#2",
         "1.08 #10"
       ],
       "rtg": -0.067,
-      "conf_pct": 6.9,
-      "index": 52.9,
-      "fair_pct": 3.2,
-      "fair_odds": "+3055",
+      "conf_pct": 7.1,
+      "index": 58.3,
+      "fair_pct": 3.1,
+      "fair_odds": "+3110",
       "read": null,
       "mk": 1300,
       "market": "+1300",
@@ -295,41 +330,6 @@
         "kind": "bigfade",
         "label": "big fade",
         "ev": -56
-      }
-    },
-    {
-      "name": "Columbus Crew",
-      "conf": "East",
-      "rec": "13-15-5 \u00b7 44 pts",
-      "gp": 33,
-      "score": 3,
-      "q": [
-        false,
-        true,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "#13",
-        "2.63 #2",
-        "3.00 #1",
-        "#12",
-        "1.15 #8"
-      ],
-      "rtg": 0.169,
-      "conf_pct": 3.8,
-      "index": 58.7,
-      "fair_pct": 1.4,
-      "fair_odds": "+7253",
-      "read": null,
-      "mk": 5500,
-      "market": "+5500",
-      "ev": -24,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -24
       }
     },
     {
@@ -346,25 +346,25 @@
         false
       ],
       "vals": [
-        "#8",
-        "1.63 #9",
-        "2.00 #6",
-        "#14",
-        "0.98 #17"
+        "#7",
+        "1.63 #8",
+        "2.00 #5",
+        "#13",
+        "0.98 #16"
       ],
-      "rtg": 0.005,
-      "conf_pct": 4.0,
+      "rtg": 0.006,
+      "conf_pct": 3.7,
       "index": 46.8,
       "fair_pct": 1.4,
-      "fair_odds": "+7307",
+      "fair_odds": "+6820",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -45,
+      "ev": -41,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -45
+        "ev": -41
       }
     },
     {
@@ -381,25 +381,25 @@
         false
       ],
       "vals": [
-        "#12",
-        "1.25 #18",
-        "0.20 #29",
-        "#9",
+        "#10",
+        "1.25 #17",
+        "0.20 #28",
+        "#8",
         "1.06 #12"
       ],
       "rtg": 0.092,
       "conf_pct": 9.9,
-      "index": 37.2,
-      "fair_pct": 3.8,
-      "fair_odds": "+2546",
+      "index": 38.2,
+      "fair_pct": 3.7,
+      "fair_odds": "+2585",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -36,
+      "ev": -37,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -36
+        "ev": -37
       }
     },
     {
@@ -416,25 +416,25 @@
         false
       ],
       "vals": [
-        "#16",
-        "1.38 #15",
-        "2.00 #6",
         "#14",
-        "0.94 #22"
+        "1.38 #14",
+        "2.00 #5",
+        "#13",
+        "0.94 #20"
       ],
       "rtg": -0.104,
-      "conf_pct": 1.8,
-      "index": 41.8,
-      "fair_pct": 0.6,
-      "fair_odds": "+16707",
+      "conf_pct": 1.9,
+      "index": 41.4,
+      "fair_pct": 0.7,
+      "fair_odds": "+14606",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -40,
+      "ev": -31,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -40
+        "kind": "fade",
+        "label": "fade",
+        "ev": -31
       }
     },
     {
@@ -451,25 +451,25 @@
         false
       ],
       "vals": [
-        "#23",
-        "1.63 #9",
-        "2.00 #6",
-        "#14",
-        "0.93 #23"
+        "#21",
+        "1.63 #8",
+        "2.00 #5",
+        "#13",
+        "0.93 #21"
       ],
-      "rtg": -0.118,
+      "rtg": -0.117,
       "conf_pct": 1.3,
-      "index": 39.4,
-      "fair_pct": 0.3,
-      "fair_odds": "+29751",
+      "index": 39.5,
+      "fair_pct": 0.4,
+      "fair_odds": "+23156",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -73,
+      "ev": -65,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -73
+        "ev": -65
       }
     },
     {
@@ -486,25 +486,25 @@
         false
       ],
       "vals": [
-        "#20",
-        "1.88 #5",
-        "1.60 #11",
-        "#20",
-        "0.86 #26"
+        "#18",
+        "1.88 #4",
+        "1.60 #10",
+        "#19",
+        "0.86 #24"
       ],
-      "rtg": -0.32,
-      "conf_pct": 1.1,
-      "index": 37.8,
+      "rtg": -0.318,
+      "conf_pct": 1.3,
+      "index": 37.6,
       "fair_pct": 0.3,
-      "fair_odds": "+34988",
+      "fair_odds": "+31150",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -71,
+      "ev": -68,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -71
+        "ev": -68
       }
     },
     {
@@ -521,25 +521,25 @@
         false
       ],
       "vals": [
-        "#15",
-        "1.50 #12",
-        "2.20 #4",
-        "#23",
-        "1.00 #15"
+        "#13",
+        "1.50 #11",
+        "2.20 #3",
+        "#22",
+        "1.00 #14"
       ],
       "rtg": 0.067,
       "conf_pct": 0.5,
-      "index": 43.3,
+      "index": 41.5,
       "fair_pct": 0.2,
-      "fair_odds": "+45355",
+      "fair_odds": "+50000+",
       "read": null,
       "mk": 15000,
       "market": "+15000",
-      "ev": -67,
+      "ev": -74,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -67
+        "ev": -74
       }
     },
     {
@@ -556,15 +556,15 @@
         false
       ],
       "vals": [
-        "#21",
-        "1.25 #18",
-        "1.40 #13",
-        "#24",
-        "0.88 #25"
+        "#19",
+        "1.25 #17",
+        "1.40 #12",
+        "#23",
+        "0.88 #23"
       ],
-      "rtg": -0.231,
+      "rtg": -0.229,
       "conf_pct": 0,
-      "index": 31.8,
+      "index": 28.7,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -587,25 +587,25 @@
         true
       ],
       "vals": [
-        "#18",
-        "0.88 #26",
-        "1.20 #16",
-        "#14",
+        "#16",
+        "0.88 #25",
+        "1.20 #15",
+        "#13",
         "1.27 #5"
       ],
-      "rtg": 0.337,
-      "conf_pct": 13.9,
-      "index": 41.7,
-      "fair_pct": 5.9,
-      "fair_odds": "+1605",
+      "rtg": 0.334,
+      "conf_pct": 13.3,
+      "index": 40.3,
+      "fair_pct": 5.6,
+      "fair_odds": "+1687",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": 0,
+      "ev": -5,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": 0
+        "ev": -5
       }
     },
     {
@@ -622,25 +622,60 @@
         false
       ],
       "vals": [
-        "#17",
-        "1.38 #15",
-        "1.20 #16",
-        "#9",
-        "0.99 #16"
+        "#15",
+        "1.38 #14",
+        "1.20 #15",
+        "#8",
+        "0.99 #15"
       ],
-      "rtg": 0.112,
-      "conf_pct": 11.2,
-      "index": 40,
-      "fair_pct": 4.7,
-      "fair_odds": "+2046",
+      "rtg": 0.111,
+      "conf_pct": 11.3,
+      "index": 41.2,
+      "fair_pct": 4.4,
+      "fair_odds": "+2165",
       "read": null,
       "mk": 2200,
       "market": "+2200",
-      "ev": 7,
+      "ev": 2,
       "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 7
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 2
+      }
+    },
+    {
+      "name": "Seattle Sounders FC",
+      "conf": "West",
+      "rec": "11-12-10 \u00b7 43 pts",
+      "gp": 33,
+      "score": 1,
+      "q": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "#22",
+        "1.38 #14",
+        "0.40 #26",
+        "#19",
+        "0.97 #17"
+      ],
+      "rtg": -0.017,
+      "conf_pct": 1.5,
+      "index": 28.8,
+      "fair_pct": 0.4,
+      "fair_odds": "+23429",
+      "read": null,
+      "mk": 3300,
+      "market": "+3300",
+      "ev": -86,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -86
       }
     },
     {
@@ -658,59 +693,24 @@
       ],
       "vals": [
         "#3",
-        "1.13 #21",
-        "1.20 #16",
-        "#14",
-        "0.96 #19"
+        "1.13 #20",
+        "1.20 #15",
+        "#13",
+        "0.96 #18"
       ],
-      "rtg": -0.157,
-      "conf_pct": 1.4,
-      "index": 41.5,
-      "fair_pct": 0.5,
-      "fair_odds": "+21639",
+      "rtg": -0.156,
+      "conf_pct": 1.2,
+      "index": 40.5,
+      "fair_pct": 0.4,
+      "fair_odds": "+28069",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -81,
+      "ev": -85,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -81
-      }
-    },
-    {
-      "name": "Seattle Sounders FC",
-      "conf": "West",
-      "rec": "11-12-10 \u00b7 43 pts",
-      "gp": 33,
-      "score": 1,
-      "q": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "#24",
-        "1.38 #15",
-        "0.40 #27",
-        "#20",
-        "0.97 #18"
-      ],
-      "rtg": -0.017,
-      "conf_pct": 1.3,
-      "index": 30.1,
-      "fair_pct": 0.5,
-      "fair_odds": "+21639",
-      "read": null,
-      "mk": 3300,
-      "market": "+3300",
-      "ev": -84,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -84
+        "ev": -85
       }
     },
     {
@@ -727,15 +727,15 @@
         false
       ],
       "vals": [
-        "#27",
-        "1.25 #18",
-        "1.20 #16",
-        "#24",
-        "0.79 #28"
+        "#25",
+        "1.25 #17",
+        "1.20 #15",
+        "#23",
+        "0.78 #26"
       ],
-      "rtg": -0.114,
+      "rtg": -0.113,
       "conf_pct": 0,
-      "index": 26.4,
+      "index": 23.3,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -758,15 +758,15 @@
         false
       ],
       "vals": [
-        "#11",
-        "1.00 #23",
-        "1.20 #16",
-        "#24",
-        "1.02 #14"
+        "#9",
+        "1.00 #22",
+        "1.20 #15",
+        "#23",
+        "1.02 #13"
       ],
       "rtg": 0.015,
       "conf_pct": 0,
-      "index": 37,
+      "index": 33.4,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -789,25 +789,25 @@
         false
       ],
       "vals": [
-        "#30",
-        "1.00 #23",
-        "1.20 #16",
-        "#9",
-        "0.95 #20"
+        "#28",
+        "1.00 #22",
+        "1.20 #15",
+        "#8",
+        "0.95 #19"
       ],
-      "rtg": -0.248,
-      "conf_pct": 4.7,
-      "index": 31.8,
-      "fair_pct": 1.6,
-      "fair_odds": "+6170",
+      "rtg": -0.246,
+      "conf_pct": 4.6,
+      "index": 32.3,
+      "fair_pct": 1.5,
+      "fair_odds": "+6726",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -73,
+      "ev": -75,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -73
+        "ev": -75
       }
     },
     {
@@ -824,25 +824,25 @@
         false
       ],
       "vals": [
-        "#26",
-        "1.00 #23",
-        "1.20 #16",
-        "#14",
-        "0.89 #24"
+        "#24",
+        "1.00 #22",
+        "1.20 #15",
+        "#13",
+        "0.89 #22"
       ],
-      "rtg": 0.04,
+      "rtg": 0.039,
       "conf_pct": 1.8,
-      "index": 29.8,
-      "fair_pct": 0.7,
-      "fair_odds": "+13985",
+      "index": 28.6,
+      "fair_pct": 0.6,
+      "fair_odds": "+15900",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -71,
+      "ev": -74,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -71
+        "ev": -74
       }
     },
     {
@@ -859,15 +859,15 @@
         false
       ],
       "vals": [
-        "#25",
-        "1.13 #21",
-        "0.60 #25",
-        "#20",
-        "0.84 #27"
+        "#23",
+        "1.13 #20",
+        "0.60 #24",
+        "#19",
+        "0.84 #25"
       ],
       "rtg": -0.018,
       "conf_pct": 0,
-      "index": 26.6,
+      "index": 24.9,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -890,15 +890,15 @@
         false
       ],
       "vals": [
-        "#31",
-        "0.50 #31",
-        "0.00 #31",
         "#29",
-        "0.65 #30"
+        "0.50 #30",
+        "0.00 #30",
+        "#28",
+        "0.65 #28"
       ],
-      "rtg": -0.293,
+      "rtg": -0.291,
       "conf_pct": 0,
-      "index": 9.6,
+      "index": 3.3,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -921,15 +921,15 @@
         false
       ],
       "vals": [
-        "#32",
-        "0.63 #28",
-        "0.40 #27",
         "#30",
-        "0.62 #31"
+        "0.63 #27",
+        "0.40 #26",
+        "#29",
+        "0.62 #29"
       ],
-      "rtg": -0.399,
+      "rtg": -0.396,
       "conf_pct": 0,
-      "index": 10.4,
+      "index": 3.6,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -952,15 +952,15 @@
         false
       ],
       "vals": [
-        "#22",
-        "0.88 #26",
-        "1.20 #16",
-        "#24",
+        "#20",
+        "0.88 #25",
+        "1.20 #15",
+        "#23",
         "1.09 #9"
       ],
-      "rtg": 0.067,
+      "rtg": 0.066,
       "conf_pct": 0,
-      "index": 32.8,
+      "index": 29,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -983,15 +983,15 @@
         false
       ],
       "vals": [
-        "#28",
-        "0.63 #28",
-        "0.20 #29",
-        "#30",
-        "0.59 #32"
+        "#26",
+        "0.63 #27",
+        "0.20 #28",
+        "#29",
+        "0.59 #30"
       ],
-      "rtg": -0.717,
+      "rtg": -0.712,
       "conf_pct": 0,
-      "index": 11.8,
+      "index": 5,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -1014,15 +1014,15 @@
         false
       ],
       "vals": [
-        "#29",
-        "0.63 #28",
-        "0.60 #25",
-        "#28",
-        "0.74 #29"
+        "#27",
+        "0.63 #27",
+        "0.60 #24",
+        "#27",
+        "0.74 #27"
       ],
-      "rtg": -0.602,
+      "rtg": -0.598,
       "conf_pct": 0,
-      "index": 18.1,
+      "index": 12.9,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
@@ -1039,7 +1039,7 @@
   "sims": 20000,
   "prediction": {
     "pick": "Vancouver Whitecaps",
-    "why": "<b>Vancouver Whitecaps</b> is the model's #1: 23.5% to win MLS Cup (fair +325) and 38.4% to win the West. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
+    "why": "<b>Vancouver Whitecaps</b> is the model's #1: 23.2% to win MLS Cup (fair +331) and 38.6% to win the West. 15 regular-season games left are simulated, then the full bracket (20,000 runs)."
   },
   "season_pct": 97,
   "gp_min": 33,
@@ -1053,15 +1053,15 @@
   "value_plays": [
     {
       "name": "Vancouver Whitecaps",
-      "ev": 25,
+      "ev": 23,
       "market": "+430",
-      "fair_odds": "+325"
+      "fair_odds": "+331"
     },
     {
       "name": "Chicago Fire FC",
-      "ev": 18,
+      "ev": 19,
       "market": "+1400",
-      "fair_odds": "+1168"
+      "fair_odds": "+1163"
     }
   ]
 }
