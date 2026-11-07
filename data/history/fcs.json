@@ -1,5 +1,1510 @@
 [
  {
+  "date": "2026-09-14",
+  "gp": 3,
+  "teams": {
+   "Wofford": {
+    "sc": 2,
+    "idx": 89.3,
+    "fp": 8.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Rhode Island": {
+    "sc": 2,
+    "idx": 78.5,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "UAlbany": {
+    "sc": 1,
+    "idx": 80.3,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Gardner-Webb": {
+    "sc": 2,
+    "idx": 83.9,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Colgate": {
+    "sc": 1,
+    "idx": 84.6,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota": {
+    "sc": 4,
+    "idx": 84.6,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 79.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Lehigh": {
+    "sc": 3,
+    "idx": 79.5,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Colorado": {
+    "sc": 1,
+    "idx": 78.1,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 3,
+    "idx": 91.7,
+    "fp": 13.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Arizona": {
+    "sc": 2,
+    "idx": 78.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 78.8,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Idaho State": {
+    "sc": 2,
+    "idx": 83.5,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Charleston Southern": {
+    "sc": 1,
+    "idx": 74.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 4,
+    "idx": 93.7,
+    "fp": 20.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Southern Illinois": {
+    "sc": 2,
+    "idx": 76.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "SE Louisiana": {
+    "sc": 1,
+    "idx": 77.1,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Alabama": {
+    "sc": 1,
+    "idx": 78,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 3,
+    "idx": 82.5,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Houston Christian": {
+    "sc": 2,
+    "idx": 83.5,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 2,
+    "idx": 80,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 4,
+    "idx": 83.7,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "McNeese": {
+    "sc": 2,
+    "idx": 77,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 89.5,
+    "fp": 8.7,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 3,
+    "idx": 75.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 4,
+    "idx": 93.6,
+    "fp": 20.0,
+    "mkt": null,
+    "ev": null
+   },
+   "West Florida": {
+    "sc": 5,
+    "idx": 84.5,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-21",
+  "gp": 4,
+  "teams": {
+   "Wofford": {
+    "sc": 1,
+    "idx": 75.9,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Rhode Island": {
+    "sc": 1,
+    "idx": 71,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "UAlbany": {
+    "sc": 1,
+    "idx": 76.4,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Gardner-Webb": {
+    "sc": 2,
+    "idx": 76.8,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Colgate": {
+    "sc": 1,
+    "idx": 87.2,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Stony Brook": {
+    "sc": 1,
+    "idx": 69.8,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 80.9,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 81.2,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Lehigh": {
+    "sc": 4,
+    "idx": 77.3,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Lamar": {
+    "sc": 1,
+    "idx": 70.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Alabama State": {
+    "sc": 1,
+    "idx": 66.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 3,
+    "idx": 90.5,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Arizona": {
+    "sc": 1,
+    "idx": 72.3,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Incarnate Word": {
+    "sc": 2,
+    "idx": 73.6,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 75.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Idaho State": {
+    "sc": 4,
+    "idx": 85.5,
+    "fp": 6.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Chattanooga": {
+    "sc": 1,
+    "idx": 77.6,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "The Citadel": {
+    "sc": 1,
+    "idx": 67.9,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Charleston Southern": {
+    "sc": 1,
+    "idx": 76.7,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Monmouth": {
+    "sc": 1,
+    "idx": 69.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 4,
+    "idx": 96.3,
+    "fp": 17.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana State": {
+    "sc": 2,
+    "idx": 69.4,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Southern Illinois": {
+    "sc": 1,
+    "idx": 70.7,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Southeast Missouri State": {
+    "sc": 1,
+    "idx": 71.7,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "SE Louisiana": {
+    "sc": 3,
+    "idx": 80.2,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Alabama": {
+    "sc": 1,
+    "idx": 79.6,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "UT Rio Grande Valley": {
+    "sc": 1,
+    "idx": 68.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 4,
+    "idx": 90.3,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Samford": {
+    "sc": 1,
+    "idx": 68.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Houston Christian": {
+    "sc": 3,
+    "idx": 83.7,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 3,
+    "idx": 83.7,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Illinois": {
+    "sc": 1,
+    "idx": 76.2,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Abilene Christian": {
+    "sc": 1,
+    "idx": 66,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 3,
+    "idx": 84.1,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "McNeese": {
+    "sc": 1,
+    "idx": 70.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 4,
+    "idx": 84.8,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 71,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 4,
+    "idx": 87.8,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "West Florida": {
+    "sc": 2,
+    "idx": 74.8,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-28",
+  "gp": 5,
+  "teams": {
+   "Wofford": {
+    "sc": 2,
+    "idx": 79.9,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "UAlbany": {
+    "sc": 1,
+    "idx": 75.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Gardner-Webb": {
+    "sc": 2,
+    "idx": 83.9,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Colgate": {
+    "sc": 1,
+    "idx": 82.2,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Stony Brook": {
+    "sc": 2,
+    "idx": 71.9,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 79.6,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 88.5,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Lehigh": {
+    "sc": 3,
+    "idx": 76.2,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana": {
+    "sc": 1,
+    "idx": 72.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Lamar": {
+    "sc": 1,
+    "idx": 72,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 3,
+    "idx": 93.6,
+    "fp": 9.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Arizona": {
+    "sc": 1,
+    "idx": 71.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Bryant": {
+    "sc": 2,
+    "idx": 71.2,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 73.8,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Idaho State": {
+    "sc": 2,
+    "idx": 80.1,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Chattanooga": {
+    "sc": 1,
+    "idx": 84.4,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Charleston Southern": {
+    "sc": 1,
+    "idx": 77.1,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Monmouth": {
+    "sc": 1,
+    "idx": 70.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 90.4,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Southern Illinois": {
+    "sc": 2,
+    "idx": 76.5,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Southeast Missouri State": {
+    "sc": 1,
+    "idx": 76,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "SE Louisiana": {
+    "sc": 2,
+    "idx": 75.6,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Alabama": {
+    "sc": 1,
+    "idx": 79.3,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 5,
+    "idx": 89.6,
+    "fp": 27.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Samford": {
+    "sc": 1,
+    "idx": 71,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Houston Christian": {
+    "sc": 2,
+    "idx": 74,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 3,
+    "idx": 90.1,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Illinois": {
+    "sc": 1,
+    "idx": 75.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 3,
+    "idx": 80.3,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 4,
+    "idx": 83.6,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 75.5,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 4,
+    "idx": 88.8,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "West Florida": {
+    "sc": 3,
+    "idx": 78.5,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-05",
+  "gp": 6,
+  "teams": {
+   "East Tennessee State": {
+    "sc": 2,
+    "idx": 73,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Wofford": {
+    "sc": 2,
+    "idx": 75.9,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "UAlbany": {
+    "sc": 1,
+    "idx": 78.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Gardner-Webb": {
+    "sc": 1,
+    "idx": 85.4,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Colgate": {
+    "sc": 2,
+    "idx": 84.5,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 86.5,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 93.4,
+    "fp": 8.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Lehigh": {
+    "sc": 3,
+    "idx": 84,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana": {
+    "sc": 2,
+    "idx": 78.4,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Lamar": {
+    "sc": 1,
+    "idx": 76.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 4,
+    "idx": 90.3,
+    "fp": 10.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Campbell": {
+    "sc": 4,
+    "idx": 71,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 76.7,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Idaho State": {
+    "sc": 1,
+    "idx": 79.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Chattanooga": {
+    "sc": 1,
+    "idx": 81.6,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Charleston Southern": {
+    "sc": 1,
+    "idx": 81.1,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Mercer": {
+    "sc": 1,
+    "idx": 77,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 91.3,
+    "fp": 6.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Southern Illinois": {
+    "sc": 1,
+    "idx": 77.7,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "SE Louisiana": {
+    "sc": 1,
+    "idx": 78,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Alabama": {
+    "sc": 1,
+    "idx": 78.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 2,
+    "idx": 80.7,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Houston Christian": {
+    "sc": 1,
+    "idx": 77,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 4,
+    "idx": 98.3,
+    "fp": 38.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 3,
+    "idx": 82.8,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 4,
+    "idx": 82.8,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 3,
+    "idx": 76.1,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 3,
+    "idx": 89,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Princeton": {
+    "sc": 2,
+    "idx": 84.5,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Harvard": {
+    "sc": 4,
+    "idx": 82.1,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Cornell": {
+    "sc": 1,
+    "idx": 76.8,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-12",
+  "gp": 7,
+  "teams": {
+   "East Tennessee State": {
+    "sc": 3,
+    "idx": 74.8,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Gardner-Webb": {
+    "sc": 1,
+    "idx": 79.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Colgate": {
+    "sc": 2,
+    "idx": 85.1,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 88.3,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 93.4,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Lehigh": {
+    "sc": 3,
+    "idx": 81.4,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana": {
+    "sc": 2,
+    "idx": 75.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Lamar": {
+    "sc": 2,
+    "idx": 75,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 2,
+    "idx": 86.3,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Arizona": {
+    "sc": 2,
+    "idx": 74.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Campbell": {
+    "sc": 3,
+    "idx": 70.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "South Carolina State": {
+    "sc": 2,
+    "idx": 72.9,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Chattanooga": {
+    "sc": 1,
+    "idx": 81.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Charleston Southern": {
+    "sc": 1,
+    "idx": 78.6,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Mercer": {
+    "sc": 2,
+    "idx": 77,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 92.1,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "North Alabama": {
+    "sc": 1,
+    "idx": 77.6,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 5,
+    "idx": 97.9,
+    "fp": 52.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 3,
+    "idx": 81.5,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 83,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 75.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 4,
+    "idx": 88,
+    "fp": 8.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Princeton": {
+    "sc": 2,
+    "idx": 77.5,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Harvard": {
+    "sc": 4,
+    "idx": 83,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cornell": {
+    "sc": 2,
+    "idx": 74.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Yale": {
+    "sc": 2,
+    "idx": 72.7,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-19",
+  "gp": 8,
+  "teams": {
+   "Colgate": {
+    "sc": 1,
+    "idx": 80,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 87.4,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 92.4,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Lehigh": {
+    "sc": 3,
+    "idx": 78.5,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 2,
+    "idx": 85.1,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Campbell": {
+    "sc": 3,
+    "idx": 70.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Chattanooga": {
+    "sc": 1,
+    "idx": 81.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 92.5,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 4,
+    "idx": 79.1,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 3,
+    "idx": 95.3,
+    "fp": 26.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 3,
+    "idx": 86,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 81.1,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 3,
+    "idx": 80.9,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 5,
+    "idx": 90.5,
+    "fp": 37.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Princeton": {
+    "sc": 3,
+    "idx": 79.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Harvard": {
+    "sc": 4,
+    "idx": 83.9,
+    "fp": 4.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Cornell": {
+    "sc": 3,
+    "idx": 75.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-26",
+  "gp": 9,
+  "teams": {
+   "South Dakota": {
+    "sc": 2,
+    "idx": 88.6,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 93.5,
+    "fp": 8.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Iowa": {
+    "sc": 2,
+    "idx": 77.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Lamar": {
+    "sc": 2,
+    "idx": 80.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 2,
+    "idx": 84.8,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Arizona": {
+    "sc": 3,
+    "idx": 76.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Campbell": {
+    "sc": 3,
+    "idx": 73,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Chattanooga": {
+    "sc": 1,
+    "idx": 83.7,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 93,
+    "fp": 7.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 4,
+    "idx": 81.4,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 3,
+    "idx": 94.9,
+    "fp": 22.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 5,
+    "idx": 87.9,
+    "fp": 19.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 84.2,
+    "fp": 8.2,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 82.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 4,
+    "idx": 90.2,
+    "fp": 16.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Princeton": {
+    "sc": 3,
+    "idx": 76,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Harvard": {
+    "sc": 4,
+    "idx": 86.3,
+    "fp": 6.7,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-11-02",
+  "gp": 10,
+  "teams": {
+   "South Dakota": {
+    "sc": 2,
+    "idx": 86.6,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 5,
+    "idx": 92.6,
+    "fp": 26.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Lamar": {
+    "sc": 4,
+    "idx": 77.6,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Austin Peay": {
+    "sc": 3,
+    "idx": 79.9,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Northern Arizona": {
+    "sc": 4,
+    "idx": 72.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Campbell": {
+    "sc": 3,
+    "idx": 65.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 71.3,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois State": {
+    "sc": 3,
+    "idx": 90.4,
+    "fp": 4.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Tennessee Tech": {
+    "sc": 5,
+    "idx": 77,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "South Dakota State": {
+    "sc": 4,
+    "idx": 95,
+    "fp": 19.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Stephen F. Austin": {
+    "sc": 5,
+    "idx": 88.5,
+    "fp": 13.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 78.7,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 80.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Montana State": {
+    "sc": 5,
+    "idx": 92.4,
+    "fp": 25.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Princeton": {
+    "sc": 3,
+    "idx": 68.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Harvard": {
+    "sc": 4,
+    "idx": 77.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
   "date": "2026-11-06",
   "gp": 10,
   "teams": {

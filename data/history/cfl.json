@@ -1,5 +1,1265 @@
 [
  {
+  "date": "2026-06-21",
+  "gp": 3,
+  "teams": {
+   "BC Lions": {
+    "sc": 2,
+    "idx": 13.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 31.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 90.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 68.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 5,
+    "idx": 38.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 59.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 1,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 67.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-06-29",
+  "gp": 4,
+  "teams": {
+   "BC Lions": {
+    "sc": 2,
+    "idx": 7.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 4,
+    "idx": 44.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 85.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 4,
+    "idx": 49.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 3,
+    "idx": 26.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 5,
+    "idx": 84.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 56.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 2,
+    "idx": 2.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 83.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-06",
+  "gp": 4,
+  "teams": {
+   "BC Lions": {
+    "sc": 3,
+    "idx": 30.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 4,
+    "idx": 82.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 74.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 67.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 3,
+    "idx": 48.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 5,
+    "idx": 76.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 62.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 3,
+    "idx": 7.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 51.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-13",
+  "gp": 5,
+  "teams": {
+   "BC Lions": {
+    "sc": 3,
+    "idx": 31.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 62.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 87.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 87.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 60.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 5,
+    "idx": 47.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 72.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 1,
+    "idx": 1.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 42.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-20",
+  "gp": 6,
+  "teams": {
+   "BC Lions": {
+    "sc": 3,
+    "idx": 27.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 52.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 83.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 85.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 5,
+    "idx": 59.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 5,
+    "idx": 47.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 74.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 2,
+    "idx": 1.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 3,
+    "idx": 38.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-07-27",
+  "gp": 7,
+  "teams": {
+   "BC Lions": {
+    "sc": 3,
+    "idx": 23.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 63.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 86.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 80.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 5,
+    "idx": 49.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 4,
+    "idx": 43.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 81.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 2,
+    "idx": 1.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 52.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-02",
+  "gp": 8,
+  "teams": {
+   "BC Lions": {
+    "sc": 3,
+    "idx": 36.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 4,
+    "idx": 72.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 80.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 77.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 44.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 34.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 86.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 1,
+    "idx": 0.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 3,
+    "idx": 52.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-09",
+  "gp": 9,
+  "teams": {
+   "BC Lions": {
+    "sc": 3,
+    "idx": 50.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 69.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 72.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 90.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 51.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 38.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 95.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 1,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 61.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-16",
+  "gp": 10,
+  "teams": {
+   "BC Lions": {
+    "sc": 4,
+    "idx": 52.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 66.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 81.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 80.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 5,
+    "idx": 57.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 43.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 94.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 1,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 47.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-24",
+  "gp": 11,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 56.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 64.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 79.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 71.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 56.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 39.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 96.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 55.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-08-31",
+  "gp": 13,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 64.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 69.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 85.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 79.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 63.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 38.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 93.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 61.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-13",
+  "gp": 13,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 72.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 60.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 95.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 76.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 68.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 37.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 4,
+    "idx": 87.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 63.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-20",
+  "gp": 14,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 72.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 63.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 89.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 76.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 67.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 1,
+    "idx": 34.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 89.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 66.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-09-27",
+  "gp": 15,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 76.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 2,
+    "idx": 71.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 92.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 75.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 3,
+    "idx": 66.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 1,
+    "idx": 34.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 92.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 70.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-04",
+  "gp": 16,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 77.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 70.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 89.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 4,
+    "idx": 71.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 3,
+    "idx": 57.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 2,
+    "idx": 40.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 94.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 65.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-11",
+  "gp": 17,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 79.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 66.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 89.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 4,
+    "idx": 62.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 57.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 1,
+    "idx": 36.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 94.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 63.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-18",
+  "gp": 18,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 75.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 72.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 92.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 4,
+    "idx": 65.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 3,
+    "idx": 55.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 1,
+    "idx": 35.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 93.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 5,
+    "idx": 63.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
+  "date": "2026-10-25",
+  "gp": 18,
+  "teams": {
+   "BC Lions": {
+    "sc": 5,
+    "idx": 68.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Stampeders": {
+    "sc": 3,
+    "idx": 70.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Edmonton Elks": {
+    "sc": 5,
+    "idx": 87.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Saskatchewan Roughriders": {
+    "sc": 5,
+    "idx": 65.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Winnipeg Blue Bombers": {
+    "sc": 4,
+    "idx": 59.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Hamilton Tiger-Cats": {
+    "sc": 3,
+    "idx": 37.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Montreal Alouettes": {
+    "sc": 5,
+    "idx": 93.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ottawa Redblacks": {
+    "sc": 0,
+    "idx": 0.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Argonauts": {
+    "sc": 4,
+    "idx": 58.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  },
+  "backfill": true
+ },
+ {
   "date": "2026-11-06",
   "gp": 18,
   "teams": {
