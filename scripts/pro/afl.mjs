@@ -95,10 +95,12 @@ function simulate(M, P, Y, reg, names, N = 20000, fixedSeeds = null) {
       seeds = ladder([...T.values()]).slice(0, nFin).map(t => t.id);
     }
     top.set(seeds[0], (top.get(seeds[0]) || 0) + 1);
-    let s7 = seeds[6], s8 = seeds[7];
-    if (nFin === 10) { s7 = win(seeds[6], seeds[9]); s8 = win(seeds[7], seeds[8]); }   // wildcard round: 7 v 10, 8 v 9 (higher seed hosts)
+    let e5 = seeds[7], e6 = seeds[6];   // classic final eight: EF 5 v 8, 6 v 7
+    // 2026+: wildcard round 7 v 10 and 8 v 9 (higher seed hosts); the 7-v-10 winner plays 5th, the 8-v-9 winner plays 6th (fixed 2026-11-07 -- it was
+    // the other way round; the real 2026 finals: Carlton (10th) beat Melbourne and met Geelong (5th), the Bulldogs (8th) met Adelaide (6th))
+    if (nFin === 10) { e5 = win(seeds[6], seeds[9]); e6 = win(seeds[7], seeds[8]); }
     const [s1, s2, s3, s4, s5, s6] = seeds;
-    const qf1 = win(s1, s4), qf2 = win(s2, s3), ef1 = win(s5, s8), ef2 = win(s6, s7);
+    const qf1 = win(s1, s4), qf2 = win(s2, s3), ef1 = win(s5, e5), ef2 = win(s6, e6);
     const l1 = qf1 === s1 ? s4 : s1, l2 = qf2 === s2 ? s3 : s2;
     const sf1 = win(l1, ef1), sf2 = win(l2, ef2);
     const pf1 = win(qf1, sf2), pf2 = win(qf2, sf1);
