@@ -10,7 +10,7 @@ import {sleep, cached, FEAT, cutoffs, scoreTeams, indexTeams, fair, GRID, LL, no
 
 const SEASONS = [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025];
 const today = process.env.BP_TODAY || new Date().toLocaleDateString('en-CA');
-const CUR = +today.slice(0, 4);
+let CUR = +today.slice(0, 4);   // the season shown: set again in the live block (rolls back a year until this year's season has a game)
 const [mode0 = 'live', ...rest] = process.argv.slice(2);
 const mode = mode0.startsWith('--') ? 'live' : mode0;
 if (mode0.startsWith('--')) rest.unshift(mode0);
@@ -278,20 +278,25 @@ if (mode === 'backtest') {
 }
 
 // ---- live
-const S = await season(CUR);
+// offseason / regular season (fixed 2026-11-07): from Jan 1 the engine loaded next season's empty standings (0 teams -- the site's build crashed every day
+// until June), and in the regular season, before the playoff field exists, every team came out "eliminated" with no odds. Now: the season shown is the
+// latest one with a game played, and stage 'regular' = no playoff field yet (tiers + index only; the bracket sim needs the six-team field).
+let S = await season(CUR);
+if (!S.teams.some(t => t.gp > 0)) { CUR -= 1; S = await season(CUR); }
 indexTeams(S.teams, W);
 const cut = cutoffs(H.map(champOf), CRIT, COVER), sim = fitSim(H);
 scoreTeams(S.teams, CRIT, cut);
 const PRE = rest.includes('--preplayoff');   // re-run from the start of the playoffs (six-team field, ignores playoff results)
 const GC = (S.games || []).find(g => g.rd === 3);
-const stage = PRE ? 'field' : GC && GC.win ? 'done' : GC && GC.a && GC.b ? 'final' : S.br && (S.br[2] || []).length === 2 && S.br[2].every(g => g.a && g.b) ? 'final4' : 'field';
+const fieldSet = (S.games || []).some(g => g.rd <= 2 && g.a && g.b);   // the semi-finals (or later) have both teams in the bracket
+const stage = PRE ? 'field' : GC && GC.win ? 'done' : GC && GC.a && GC.b ? 'final' : S.br && (S.br[2] || []).length === 2 && S.br[2].every(g => g.a && g.b) ? 'final4' : fieldSet ? 'field' : 'regular';
 const alive = new Set((S.games || []).flatMap(g => [g.a, g.b]));   // team ids (bracket names resolved to standings)
 if (!PRE) for (const g of S.games || []) if (g.win) { const lose = g.win === g.a ? g.b : g.a; alive.delete(lose); }   // a loss anywhere ends a team
 const sm = PRE ? simField(S, sim) : simLive(S, sim);
 const prm = tuneBp(H, cut, sim, stage === 'field' ? 'field' : 'final4');
 const pool = S.teams.filter(t => alive.has(t.id));
 const F = fair(pool, prm), BP = new Map(F.map(x => [x.t.id, x.p]));
-console.log(`CFL Grey Cup blueprint -- ${CUR} regular season final · stage: ${{final4: 'division finals (4 teams left)', final: 'Grey Cup (2 teams left)', done: 'season over'}[stage] || 'playoffs'}`);
+console.log(`CFL Grey Cup blueprint -- ${CUR} ${stage === 'regular' ? 'regular season, games through ' + today : 'regular season final'} · stage: ${{final4: 'division finals (4 teams left)', final: 'Grey Cup (2 teams left)', done: 'season over', field: 'playoff field set (window open until the first playoff game)', regular: 'regular season -- Grey Cup odds appear once the six-team playoff field is set'}[stage]}`);
 console.log(`criteria (every one of the ${H.length} Grey Cup winners ${H[0].Y}-${H[H.length - 1].Y} had all 5): ` + CRIT.map((c, i) => critLbl(c, cut[i])).join(' · '));
 console.log(`bracket sim: rating = points-per-game margin, home edge ${sim.h} pts, spread ${sim.s} (fit on ${H.length} seasons of playoff games)\n`);
 const TIERNM = s => s >= 5 ? '🏆 Best' : s === 4 ? '🔵 Great' : s === 3 ? '🟢 Good' : s === 2 ? '🟡 Outside' : '⚪ Longshot';
@@ -316,7 +321,7 @@ if (EXPORT) {   // board JSON for the blueprint dashboard (blueprint-dashboard/s
     cats: CRIT.map((c, i) => critLbl(c, cut[i])), labels: CRIT.map(c => SHORT[c.f] || FEAT[c.f].label),
     teams: S.teams.map(t => ({name: t.team, rec: t.rec, gp: t.gp, div: t.div, place: t.place, score: t.score, q: t.q,
       vals: CRIT.map(c => c.f === 'wp' ? `${t.wp.toFixed(3)} #${t.r_wp}` : c.f === 'def' ? `${t.def.toFixed(1)} #${t.r_def}` : c.f === 'off' ? t.off.toFixed(1) : String(t[c.f])),
-      idx: +t.idx.toFixed(1), mgn: +t.mgn.toFixed(2), alive: alive.has(t.id), p: sm.get(t.id) || 0, pb: BP.get(t.id) || 0, next: alive.has(t.id) ? next(t.id) : null}))};
+      idx: +t.idx.toFixed(1), mgn: +t.mgn.toFixed(2), alive: stage === 'regular' ? null : alive.has(t.id), p: sm.get(t.id) || 0, pb: BP.get(t.id) || 0, next: alive.has(t.id) ? next(t.id) : null}))};
   fs.writeFileSync(EXPORT, JSON.stringify(out));
   console.log('exported -> ' + EXPORT);
 }

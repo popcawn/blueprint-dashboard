@@ -139,11 +139,21 @@ if (mode === 'backtest') {
 }
 
 // ---------------------------------------------------------------- live board
-const Y = A.currentSeason(today);
-const {S, tr} = await seasonData(Y);
-const B = board(S, addDays(today, 1), A.cfg);
-indexTeams(B.teams, C.W);
+let Y = A.currentSeason(today);
+let {S, tr} = await seasonData(Y);
+// offseason (fixed 2026-11-07): the season flips on a calendar date (FCS Jul 1, volleyball Jun 1, hockey Jul 1) weeks before its first game; until this
+// season has a completed game, show the last one (the board used to be empty -- 0 teams -- and the site's FCS build crashed every day)
+if (!S.games.some(g => g.fin)) { Y -= 1; ({S, tr} = await seasonData(Y)); }
 const fieldKnown = tr.field.size >= (A.fieldMin || 8);
+// betting window (fixed 2026-11-07): the user never bets within the playoffs. Once a bracket game has been played the board is FROZEN at the start of
+// the bracket -- stats from games before it, odds over the field (the same board the backtest scored) -- and the survivors / champion are marked.
+// Before this fix the live board kept pricing every field team (eliminated ones too) on stats that counted the playoff games.
+// stage: regular (no field yet) | field (field set, no bracket game played: window open) | playoffs | done
+const TG = S.games.filter(g => g.round), winnerOf = g => g.as > g.bs ? g.a : g.bs > g.as ? g.b : g.aw ? g.a : g.bw ? g.b : null;
+const stage = tr.champ ? 'done' : TG.some(g => g.fin) ? 'playoffs' : fieldKnown ? 'field' : 'regular', frozen = stage === 'playoffs' || stage === 'done';
+const alive = new Set(tr.field); for (const g of TG.filter(g => g.fin)) { const w = winnerOf(g); if (w) alive.delete(w === g.a ? g.b : g.a); }
+const B = board(S, frozen ? tr.start : addDays(today, 1), A.cfg);
+indexTeams(B.teams, C.W);
 const mmdd = today.slice(5);
 const H = await history(fieldKnown ? null : mmdd);
 const cut = cutoffs(H.map(x => champOn(x.Bf, x.champ)), C.crit, C.cover);
@@ -160,7 +170,8 @@ const ALT = new Map((A.oddsModel === 'srs' ? fair(poolT, tuned.prm) : srsSoft(po
 const altName = A.oddsModel === 'srs' ? 'profile' : 'rating-only';
 console.log(`${A.label} blueprint -- ${Y} season, games through ${today} · ${B.games} games · D1 teams ${B.teams.length} · games played ${B.gpMin}-${B.gpMax} (median ${B.gpMed})`);
 console.log(`criteria (${C.cover >= 1 ? `every one of the ${H.length} champions ${H[0].Y}-${H[H.length - 1].Y} cleared all ${C.crit.length} before the bracket` : `cutoff = what ${Math.round(C.cover * 100)}% of the ${H.length} champions cleared`}): ` + C.crit.map((c, i) => critLabel(c, cut[i])).join(' · '));
-console.log(fieldKnown ? `FIELD SET: ${tr.field.size} teams -- odds over the field only` : `pre-bracket: odds over every D1 team, tuned on past seasons' boards as of ${mmdd} (field not set yet)`);
+console.log(frozen ? `${stage === 'done' ? `SEASON OVER -- champion ${S.names.get(tr.champ)}` : `PLAYOFFS UNDER WAY -- ${[...alive].length} of ${tr.field.size} teams left`} · board + odds FROZEN at the start of the bracket (${tr.start}): you never bet within the playoffs`
+  : fieldKnown ? `FIELD SET: ${tr.field.size} teams -- odds over the field only (window open until the first bracket game)` : `pre-bracket: odds over every D1 team, tuned on past seasons' boards as of ${mmdd} (field not set yet)`);
 console.log(A.oddsModel === 'srs' ? `odds settings: rating (SRS) model, spread ${tuned.beta} -- the 5-stat profile did not beat it in the backtest, tiers are context only` : `odds settings: idx^${tuned.prm.k}, tiers ${tuned.prm.tier}, top cap ${tuned.prm.cap === 1 ? 'none' : Math.round(100 * tuned.prm.cap) + '%'}`);
 const tierName = {5: '🏆 Best (5/5)', 4: '🔵 Great (4/5)', 3: '🟢 Good (3/5)', 2: '🟡 Outside (2/5)'};
 for (const s of [5, 4, 3]) {
@@ -170,7 +181,7 @@ for (const s of [5, 4, 3]) {
   if (L.length > 14) console.log(`  … +${L.length - 14} more`);
 }
 console.log(`\nFAIR TITLE ODDS -- bet only at a sportsbook price LONGER than fair. No odds feed for this sport: post a DraftKings (else FanDuel) screenshot and rerun with --book`);
-for (const x of F.slice(0, 15)) console.log(`  ${String(x.t.name).padEnd(20)} ${x.t.score}/5  fair ${(100 * x.p).toFixed(1).padStart(5)}% (${american(x.p).padStart(6)}) [${altName} ${(100 * (ALT.get(x.t) || 0)).toFixed(1)}%]`);
+for (const x of F.slice(0, 15)) console.log(`  ${String(x.t.name).padEnd(20)}${frozen ? (x.t.id === tr.champ ? ' 🏆 ' : alive.has(x.t.id) ? ' ◀  ' : ' out') : ''} ${x.t.score}/5  fair ${(100 * x.p).toFixed(1).padStart(5)}% (${american(x.p).padStart(6)}) [${altName} ${(100 * (ALT.get(x.t) || 0)).toFixed(1)}%]`);
 const bookArg = arg('--book');   // pasted sportsbook board: --book "South Dakota State:+275,Montana State:+380,..."
 if (bookArg) {
   const ev = v => `${v >= 0 ? '+' : ''}${Math.round(100 * v)}%`;
@@ -189,12 +200,13 @@ if (arg('--export')) {   // board JSON for the blueprint dashboard (blueprint-da
   const SHORT = {adjO: 'Adj off', adjD: 'Adj def', wp: 'Win%', def: 'Allowed', off: 'Scoring', rpi: 'RPI', wpTop: 'vs top', srs: 'Rating', sos: 'SOS'};
   const keep = B.teams.filter(t => (P.get(t) || 0) >= 0.002 || (ALT.get(t) || 0) >= 0.01 || t.score >= 3);   // blueprint or rating-only contenders
   const out = {sport: A.sport, label: A.label, season: Y, generated: new Date().toISOString(), today, field_known: fieldKnown, field_size: tr.field.size,
+    stage, first_playoff: tr.start, champion: tr.champ ? S.names.get(tr.champ) : null,
     gp_min: B.gpMin, gp_max: B.gpMax, gp_med: B.gpMed, champions: H.length, alt_name: altName, weights: C.W,
     odds_model: A.oddsModel === 'srs' ? `rating model, spread ${tuned.beta}` : `tier x index^${tuned.prm.k} (tiers ${tuned.prm.tier})`,
     cats: C.crit.map((c, i) => critLabel(c, cut[i])), labels: C.crit.map(c => SHORT[c.f] || FEAT[c.f].label),
     teams: keep.map(t => ({name: t.name, rec: t.rec, gp: t.gp, score: t.score, q: t.q, vals: C.crit.map(c => `${fmtV(c.f, t[c.f])} #${t['r_' + c.f]}`),
       idx: +t.idx.toFixed(1), p: P.get(t) || 0, alt: ALT.get(t) || 0, srs: +(t.srs ?? 0).toFixed(2), r_srs: t.r_srs, sos: +(t.sos ?? 0).toFixed(3), r_sos: t.r_sos,
-      in_field: tr.field.has(t.id)}))};
+      in_field: tr.field.has(t.id), alive: frozen ? alive.has(t.id) : null, champion: !!tr.champ && t.id === tr.champ}))};
   fs.writeFileSync(arg('--export'), JSON.stringify(out));
   console.log('exported -> ' + arg('--export'));
 }
@@ -206,7 +218,7 @@ if (rest.includes('--log')) {
   const i = old.indexOf('---\n\n');
   const tiers = [5, 4, 3].map(s => `| ${tierName[s]} | ${B.teams.filter(t => t.score === s).sort((a, b) => b.idx - a.idx).slice(0, 10).map(t => `${t.name} ${t.idx.toFixed(1)}`).join(', ') || '—'} |`).join('\n');
   const odds = F.slice(0, 8).map(x => `${x.t.name} ${(100 * x.p).toFixed(1)}% (${american(x.p)})`).join(' · ');
-  const entry = `## ${today} (${Y} season, games played ${B.gpMin}-${B.gpMax}${fieldKnown ? ', FIELD SET' : ', pre-bracket'})\n\n| Tier | Teams (index) |\n|---|---|\n${tiers}\n\n**Fair odds:** ${odds}\n\n`;
+  const entry = `## ${today} (${Y} season, games played ${B.gpMin}-${B.gpMax}${frozen ? `, ${stage === 'done' ? 'season over' : 'playoffs'}: frozen at the start of the bracket` : fieldKnown ? ', FIELD SET' : ', pre-bracket'})\n\n| Tier | Teams (index) |\n|---|---|\n${tiers}\n\n**Fair odds:** ${odds}\n\n`;
   let body = i >= 0 ? old.slice(i + 5) : '';
   if (body.startsWith(`## ${today} `)) { const nx = body.indexOf('\n## '); body = nx >= 0 ? body.slice(nx + 1) : ''; }   // same-day rerun replaces that day's entry
   fs.writeFileSync(file, i >= 0 ? old.slice(0, i + 5) + entry + body : old + entry);

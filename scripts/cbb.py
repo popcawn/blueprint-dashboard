@@ -8,7 +8,7 @@ scores (sportsdataverse mirror). Engine + backtests live in baseball-blueprint/c
 Before ~8 games the fair odds come from the preseason roster projection (data/<key>_preseason.json,
 exported by the engine with a per-team 'lineup confirmed' flag); after that, from the blueprint.
 Needs pandas + pyarrow (installed in the Action)."""
-import json, os, re, tempfile, urllib.request
+import datetime, json, os, re, tempfile, urllib.request
 import numpy as np, pandas as pd
 
 REL = "https://github.com/sportsdataverse/sportsdataverse-data/releases/download"
@@ -98,6 +98,13 @@ def build(key, data_dir, fd_raw, year, alt_raw=None):
         except Exception: pass
     pre = None; pp = os.path.join(data_dir, f"{key}_preseason.json")
     if os.path.exists(pp): pre = json.load(open(pp, encoding="utf-8"))
+    # (2026-11-07) the projection must belong to THIS season (generated Aug 1 .. Jul 31 around it): from Jul 1 the board moves to next season, and
+    # last year's projection would have been shown -- and priced against next season's futures -- as the new board until a fresh one was made
+    try:
+        gen = datetime.date.fromisoformat(str((pre or {}).get("generated", ""))[:10])
+        if not (datetime.date(year, 8, 1) <= gen <= datetime.date(year + 1, 7, 31)): pre = None
+    except Exception:
+        pre = None
     if F.empty and not pre:
         base.update({"status": "preseason", "note": "College basketball tips off in early November — the blueprint goes live on the first games.", "teams": []}); return base
     if pre:                                              # projected contenders who haven't played yet still get a row

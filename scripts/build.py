@@ -104,7 +104,7 @@ def value_plays(teams, maxcat, sport=None):
         # SRS top-15 (the soft-schedule check: Stephen F. Austin / Tarleton-type records). Not odds-backtested.
         for t in teams:
             p = _price_num(t.get("market"))
-            if (t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500
+            if (t.get("bet_ok", True) and t.get("score") == 5 and (t.get("ev") or 0) >= 10 and p is not None and p <= 2500   # bet_ok: not within the playoffs
                     and (t.get("alt_ev") or -1) >= 0 and (t.get("srsrank") or 999) <= 15):
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
@@ -1423,6 +1423,7 @@ def build_wnba():
     pred = make_prediction(rows, 3)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": None, "prediction": pred, "season_pct": season_pct(rows, "wnba"),
+        "hist_off": done,   # (2026-11-07) the regular season is over -> the board can't change; daily snapshots only padded the streak badges all offseason
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
         "cats": ["Win% ≥.680", "Net rtg top-4", "Def rtg top-6"], "labels": ["Win%", "Net rtg", "Def rtg"],
         "teams": [{"name": t["name"], "rec": t["rec"], "score": t["score"], "index": t["index"],
@@ -1658,10 +1659,16 @@ def build_fcs():
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
-    fresh = bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14
+    # betting window (2026-11-07 fix): once a bracket game is played the engine FREEZES the board at the start of the bracket; EV then only vs a
+    # screenshot dated before the first bracket game of this season, and no value play (the user never bets within the playoffs)
+    stg = E.get("stage") or ("field" if E["field_known"] else "regular"); closed = stg in ("playoffs", "done"); first = E.get("first_playoff")
+    pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first and d0.year == int(E["season"])
+    fresh = (not closed and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
+    if not E.get("teams"): raise RuntimeError(f"FCS engine returned no teams for {E.get('season')}")
     rows = [{"name": t["name"], "conf": "FCS", "rec": t["rec"], "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"],
              "index": t["idx"], "rtg": t["srs"], "p": t["p"], "alt_p": t["alt"], "alt_pct": round(100 * t["alt"], 1),
-             "srsrank": t["r_srs"], "sosrank": t["r_sos"], "in_field": t["in_field"]} for t in E["teams"]]
+             "srsrank": t["r_srs"], "sosrank": t["r_sos"], "in_field": t["in_field"],
+             "alive": t.get("alive"), "champion": bool(t.get("champion")), "bet_ok": not closed} for t in E["teams"]]
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
         t["fair_odds"] = american(t["p"]) if t["p"] else None
@@ -1684,14 +1691,24 @@ def build_fcs():
             t["verdict"] = {"kind": "trap", "label": "rating disagrees", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["score"], -t["p"]))   # tier first, then fair title odds
     top = max(rows, key=lambda t: t["p"])
-    stage = (f"Field set ({E['field_size']} teams) — odds over the bracket only." if E["field_known"]
-             else "Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced Sun Nov 22.")
+    if closed:
+        alive = [t["name"] for t in sorted(rows, key=lambda t: -t["p"]) if t.get("alive")]
+        status = (f"<b>{E['champion']}</b> won the {E['season']} FCS title." if stg == "done" and E.get("champion")
+                  else f"{len(alive)} teams still alive: {', '.join(alive[:6])}{' …' if len(alive) > 6 else ''}.")
+        why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win the FCS title (fair {top['fair_odds']}). "
+               f"The betting window is closed: these fair odds are frozen at the start of the bracket (you don't bet within the playoffs)"
+               + (f"; EV is against the prices you saved before it ({d0:%b} {d0.day})." if fresh else ", so no EV is shown against in-playoff prices."))
+    else:
+        stage = (f"Field set ({E['field_size']} teams) — odds over the bracket only; betting window open until the first bracket game." if E["field_known"]
+                 else "Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving.")
+        why = (f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win the FCS title (fair {top['fair_odds']}); "
+               f"the plain power rating alone gives {top['alt_pct']}%. {stage}")
     base = {"sport": "FCS", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
             "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
-            "field_known": E["field_known"],
-            "prediction": {"pick": top["name"], "why": f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win the FCS title (fair {top['fair_odds']}); "
-                           f"the plain power rating alone gives {top['alt_pct']}%. {stage}"},
-            "season_pct": season_pct(rows, "fcs"), "gp_min": E["gp_min"], "gp_max": E["gp_max"]}
+            "field_known": E["field_known"], "stage": stg, "window_closed": closed, "first_playoff": first, "champion": E.get("champion"),
+            "prediction": {"pick": top["name"], "why": why},
+            "season_pct": 100 if closed else season_pct(rows, "fcs"), "gp_min": E["gp_min"], "gp_max": E["gp_max"],
+            "hist_off": stg == "done"}   # a finished board doesn't change -> no daily history
     for t in rows:
         for k in ("p", "alt_p"): t.pop(k, None)
     return base
@@ -1716,7 +1733,9 @@ def build_cfl():
     subprocess.run(["node", eng, "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
     E = json.load(open(out, encoding="utf-8"))
     stage = E.get("stage")
-    closed = stage != "field"   # a playoff result is in -> the user's betting window is closed
+    if not E.get("teams"): raise RuntimeError(f"CFL engine returned no teams for {E.get('season')} (stage {stage})")
+    # stages: regular (no playoff field yet: tiers + index only, added 2026-11-07) | field (window open) | final4 / final / done (closed)
+    closed = stage not in ("field", "regular")   # a playoff result is in -> the user's betting window is closed
     pre = {}
     if closed:
         outp = os.path.join(tempfile.gettempdir(), "cfl_export_pre.json")
@@ -1748,9 +1767,12 @@ def build_cfl():
         if v.get("kind") in ("value", "small", "longshot") and t["score"] < 4:
             t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))   # by Grey Cup chance (frozen pre-playoff order once the playoffs start)
-    top = max(rows, key=lambda t: t["p"])
+    top = max(rows, key=lambda t: (t["p"], t["index"]))
     nx = top.get("next") or {}
-    if closed:
+    if stage == "regular":
+        why = (f"<b>{top['name']}</b> leads the index ({top['index']}). Grey Cup odds appear once the six-team playoff field is set — the model "
+               f"simulates the bracket, not the rest of the regular season.")
+    elif closed:
         alive = [t["name"] for t in rows if t["alive"]]
         status = (f"<b>{alive[0]}</b> won the {E['season']} Grey Cup." if stage == "done" and len(alive) == 1
                   else f"Still alive: {', '.join(alive)}.")
@@ -1983,6 +2005,11 @@ def main():
                 if data.get("stage") == "preseason":   # AFL / NRL / Super League before their first game
                     data["signal"] = {"status": "early", "emoji": "🔴", "label": "Preseason",
                                       "note": f"No {data['season']} games yet — the odds are a preseason projection (an untested stage) and the tiers are last season's profile. Don't bet the board until the season is underway."}
+                elif data.get("window_closed"):   # (2026-11-07) playoffs under way / season over: "Trust the board — the read is actionable" contradicted the never-bet-in-the-playoffs rule
+                    done = data.get("stage") == "done"
+                    data["signal"] = {"status": "closed", "emoji": "🔒", "label": "Season over" if done else "Window closed",
+                                      "note": ("The season is decided — the board shows the fair odds frozen at the start of the playoffs, for the record." if done else
+                                               "The playoffs are under way — you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now.")}
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
                 if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
