@@ -24,9 +24,37 @@ if (mode0.startsWith('--')) rest.unshift(mode0);
 const arg = k => { const i = rest.indexOf(k); return i >= 0 ? rest[i + 1] : null; };
 const today = process.env.BP_TODAY || new Date().toLocaleDateString('en-CA');
 
+// ---------- xG (MLS, 2026-11-07): American Soccer Analysis per-game team xG, 2013+ (free public API, no key) ----------
+// The ratings are fit on XGW * xG + (1 - XGW) * goals. Backtest 2014-25 (scratchpad mls_xg.mjs), scored on REAL results:
+// regular-season matches (4,607, weekly refits) log-loss 1.0298 vs 1.0336 goals-only; playoff matches (209) 0.6161 vs 0.6273;
+// title from the final four (6) 1.247 vs 1.298 -- better in both halves (2014-18, 2019-25); any share 0.5-1.0 beat goals-only.
+// Standings, seeding and the simulated scores stay on real goals; the champion-profile tiers and the index keep the goals-only rating. Games without an xG match (pre-2013, the newest few days, or
+// an ASA outage) fall back to goals. NWSL is unchanged (XGW 0, not tested).
+const XGW = lk === 'mls' ? 0.75 : 0;
+async function attachXG(Y, rows) {
+  if (!XGW || Y < 2013) return;
+  const f = path.join(CACHE, `asa_${lk}_${Y}.json`);
+  let asa = null;
+  try {
+    if (Y < L.cur && fs.existsSync(f)) asa = JSON.parse(fs.readFileSync(f, 'utf8'));
+    else { asa = await getJson(`https://app.americansocceranalysis.com/api/v1/${lk}/games/xgoals?season_name=${Y}`); if (Array.isArray(asa) && asa.length && Y < L.cur) fs.writeFileSync(f, JSON.stringify(asa)); }
+  } catch { asa = null; }
+  if (!Array.isArray(asa) || !asa.length) { console.error(`(xG: no American Soccer Analysis data for ${Y} -- ratings use goals only)`); return; }
+  const shift = (s, n) => new Date(Date.parse(s + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10), days = d => [d, shift(d, -1), shift(d, 1)];   // ESPN and ASA dates are both UTC; allow a day either way
+  const byDay = new Map(); for (const x of asa) { const k = String(x.date_time_utc).slice(0, 10); if (!byDay.has(k)) byDay.set(k, []); byDay.get(k).push(x); }
+  // team ids differ (and teams were renamed): map ESPN id -> ASA id by voting on same-day, same-score games
+  const votes = new Map();
+  for (const g of rows) if (g.fin && g.hs != null) for (const dd of days(g.d)) for (const x of byDay.get(dd) || [])
+    if (x.home_goals === g.hs && x.away_goals === g.as) for (const k of [g.h + '|' + x.home_team_id, g.a + '|' + x.away_team_id]) votes.set(k, (votes.get(k) || 0) + 1);
+  const map = new Map(), used = new Set();
+  for (const [k, n] of [...votes].sort((a, b) => b[1] - a[1])) { const [e, a] = k.split('|'); if (n < 4 || map.has(e) || used.has(a)) continue; map.set(e, a); used.add(a); }
+  const idx = new Map(asa.map(x => [String(x.date_time_utc).slice(0, 10) + '|' + x.home_team_id + '|' + x.away_team_id, x]));
+  for (const g of rows) { if (!g.fin || g.hs == null) continue;
+    for (const dd of days(g.d)) { const x = idx.get(dd + '|' + map.get(g.h) + '|' + map.get(g.a)); if (x && x.home_team_xgoals != null) { g.xh = +x.home_team_xgoals; g.xa = +x.away_team_xgoals; break; } } }
+}
 async function season(Y) {
   const f = path.join(CACHE, `${lk}_${Y}.json`);
-  if (Y < L.cur && fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8'));
+  if (Y < L.cur && fs.existsSync(f)) { const rows = JSON.parse(fs.readFileSync(f, 'utf8')); await attachXG(Y, rows); return rows; }
   const j = await getJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/${L.espn}/scoreboard?dates=${Y}&limit=1000`);
   const rows = [];
   for (const e of (j?.events || [])) {
@@ -41,34 +69,36 @@ async function season(Y) {
   }
   rows.sort((x, y) => x.d.localeCompare(y.d));
   if (Y < L.cur) fs.writeFileSync(f, JSON.stringify(rows));
+  await attachXG(Y, rows);   // after caching: the cached ESPN file stays goals-only
   return rows;
 }
 
 // ---------- model ----------
-function fit(games, asOf, P) {
+function fit(games, asOf, P, wx = XGW) {   // wx = xG share of the fitted counts (0 = goals only)
   const G = games.filter(g => g.fin && g.hs != null && g.d < asOf);
   const t0 = Date.parse(asOf + 'T12:00:00Z'), w = g => Math.pow(0.5, (t0 - Date.parse(g.d + 'T12:00:00Z')) / 864e5 / P.half);
+  const ch = g => g.xh == null ? g.hs : wx * g.xh + (1 - wx) * g.hs, ca = g => g.xa == null ? g.as : wx * g.xa + (1 - wx) * g.as;   // goals, or the xG blend (MLS)
   const T = new Set(G.flatMap(g => [g.h, g.a]));
   const a = new Map([...T].map(t => [t, 1])), d = new Map([...T].map(t => [t, 1]));
   let sw = 0, gh = 0, ga = 0;
-  for (const g of G) { const x = w(g); sw += x; gh += x * g.hs; ga += x * g.as; }
+  for (const g of G) { const x = w(g); sw += x; gh += x * ch(g); ga += x * ca(g); }
   if (!sw) return null;
   let mu = (gh + ga) / (2 * sw), H = gh / Math.max(ga, 1e-9);
   for (let it = 0; it < 40; it++) {
     const sa = new Map(), ea = new Map(), sd = new Map(), ed = new Map();
     for (const g of G) {
-      const x = w(g), hf = g.neutral ? Math.sqrt(H) : H, af = g.neutral ? Math.sqrt(H) : 1;
-      sa.set(g.h, (sa.get(g.h) || 0) + x * g.hs); ea.set(g.h, (ea.get(g.h) || 0) + x * mu * hf * d.get(g.a));
-      sa.set(g.a, (sa.get(g.a) || 0) + x * g.as); ea.set(g.a, (ea.get(g.a) || 0) + x * mu * af * d.get(g.h));
-      sd.set(g.h, (sd.get(g.h) || 0) + x * g.as); ed.set(g.h, (ed.get(g.h) || 0) + x * mu * af * a.get(g.a));
-      sd.set(g.a, (sd.get(g.a) || 0) + x * g.hs); ed.set(g.a, (ed.get(g.a) || 0) + x * mu * hf * a.get(g.h));
+      const x = w(g), hf = g.neutral ? Math.sqrt(H) : H, af = g.neutral ? Math.sqrt(H) : 1, hs = ch(g), as = ca(g);
+      sa.set(g.h, (sa.get(g.h) || 0) + x * hs); ea.set(g.h, (ea.get(g.h) || 0) + x * mu * hf * d.get(g.a));
+      sa.set(g.a, (sa.get(g.a) || 0) + x * as); ea.set(g.a, (ea.get(g.a) || 0) + x * mu * af * d.get(g.h));
+      sd.set(g.h, (sd.get(g.h) || 0) + x * as); ed.set(g.h, (ed.get(g.h) || 0) + x * mu * af * a.get(g.a));
+      sd.set(g.a, (sd.get(g.a) || 0) + x * hs); ed.set(g.a, (ed.get(g.a) || 0) + x * mu * hf * a.get(g.h));
     }
     for (const t of T) { a.set(t, ((sa.get(t) || 0) + P.k * mu) / ((ea.get(t) || 0) + P.k * mu)); d.set(t, ((sd.get(t) || 0) + P.k * mu) / ((ed.get(t) || 0) + P.k * mu)); }
     const ma = [...a.values()].reduce((s, v) => s + v, 0) / T.size, md = [...d.values()].reduce((s, v) => s + v, 0) / T.size;
     for (const t of T) { a.set(t, a.get(t) / ma); d.set(t, d.get(t) / md); }
     let ph = 0, pa = 0;
     for (const g of G) { if (g.neutral) continue; const x = w(g); ph += x * a.get(g.h) * d.get(g.a); pa += x * a.get(g.a) * d.get(g.h); }
-    const nh = G.filter(g => !g.neutral).reduce((s, g) => s + w(g) * g.hs, 0), na = G.filter(g => !g.neutral).reduce((s, g) => s + w(g) * g.as, 0);
+    const nh = G.filter(g => !g.neutral).reduce((s, g) => s + w(g) * ch(g), 0), na = G.filter(g => !g.neutral).reduce((s, g) => s + w(g) * ca(g), 0);
     mu = (nh / ph + na / pa) / 2 / Math.sqrt(H) * Math.sqrt(H); H = (nh / ph) / (na / pa);
     mu = na / pa;
   }
@@ -145,7 +175,7 @@ const COVER = 1;   // every past champion (was 90%)
 const gpSpread = G => { const c = new Map(); for (const g of G.filter(g => !g.po && g.fin)) for (const t of [g.h, g.a]) c.set(t, (c.get(t) || 0) + 1); const v = [...c.values()]; return v.length ? Math.max(...v) - Math.min(...v) : 99; };
 const loadP = () => fs.existsSync(path.join(CACHE, `${lk}_params.json`)) ? JSON.parse(fs.readFileSync(path.join(CACHE, `${lk}_params.json`), 'utf8')) : {half: 240, k: 6, rho: 0.04};
 function profile(seasonGames, poolGames, asOf, P) {
-  const reg = seasonGames.filter(g => !g.po && g.fin && g.hs != null && g.d < asOf), M = fit(poolGames, asOf, P), T = new Map();
+  const reg = seasonGames.filter(g => !g.po && g.fin && g.hs != null && g.d < asOf), M = fit(poolGames, asOf, P, 0), T = new Map();   // tiers + index stay on the goals-only rating they were validated on (xG tiers: same 12/15 hidden champions but 4.5 teams/season at 5/5 vs 3.9)
   for (const g of reg) for (const [me, gf, ga, home] of [[g.h, g.hs, g.as, 1], [g.a, g.as, g.hs, 0]]) {
     const t = T.get(me) || {id: me, gp: 0, pts: 0, gd: 0, gf: 0, ga: 0, w: 0, l: 0, hp: 0, hn: 0, ap: 0, an: 0, res: []}, p = gf > ga ? 3 : gf === ga ? 1 : 0;
     t.gp++; t.gd += gf - ga; t.gf += gf; t.ga += ga; t.pts += p; if (p === 3) t.w++; if (p === 0) t.l++;
