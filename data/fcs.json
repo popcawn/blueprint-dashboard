@@ -1,7 +1,7 @@
 {
   "sport": "FCS",
   "season": "2026",
-  "generated": "2026-11-06T20:28:42Z",
+  "generated": "2026-11-07T12:38:30Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -37,22 +37,22 @@
         ".622 #1",
         "1.000 #1"
       ],
-      "index": 95.7,
+      "index": 92.4,
       "rtg": 21.54,
       "alt_pct": 27.9,
       "srsrank": 1,
       "sosrank": 42,
       "in_field": false,
-      "fair_pct": 31.6,
-      "fair_odds": "+216",
+      "fair_pct": 34.8,
+      "fair_odds": "+188",
       "read": null,
       "mk": 380,
       "market": "+380",
-      "ev": 52,
+      "ev": 67,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 52
+        "ev": 67
       },
       "alt_ev": 34
     },
@@ -76,22 +76,22 @@
         ".595 #6",
         "1.000 #1"
       ],
-      "index": 92.1,
+      "index": 88.5,
       "rtg": 18.68,
       "alt_pct": 8.4,
       "srsrank": 4,
       "sosrank": 117,
       "in_field": false,
-      "fair_pct": 21.0,
-      "fair_odds": "+377",
+      "fair_pct": 18.1,
+      "fair_odds": "+451",
       "read": null,
       "mk": 1000,
       "market": "+1000",
-      "ev": 130,
+      "ev": 100,
       "verdict": {
         "kind": "trap",
         "label": "rating disagrees",
-        "ev": 130
+        "ev": 100
       },
       "alt_ev": -7
     },
@@ -115,22 +115,22 @@
         ".604 #3",
         "1.000 #1"
       ],
-      "index": 87,
+      "index": 78.7,
       "rtg": 14.59,
       "alt_pct": 1.5,
       "srsrank": 10,
       "sosrank": 103,
       "in_field": false,
-      "fair_pct": 11.2,
-      "fair_odds": "+792",
+      "fair_pct": 3.1,
+      "fair_odds": "+3099",
       "read": null,
       "mk": 900,
       "market": "+900",
-      "ev": 12,
+      "ev": -69,
       "verdict": {
-        "kind": "trap",
-        "label": "rating disagrees",
-        "ev": 12
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -69
       },
       "alt_ev": -85
     },
@@ -154,22 +154,22 @@
         ".597 #4",
         "1.000 #1"
       ],
-      "index": 84.7,
+      "index": 76.9,
       "rtg": 15.62,
       "alt_pct": 2.3,
       "srsrank": 8,
       "sosrank": 87,
       "in_field": false,
-      "fair_pct": 8.3,
-      "fair_odds": "+1107",
+      "fair_pct": 2.2,
+      "fair_odds": "+4401",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": 571,
+      "ev": 80,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 571
+        "ev": 80
       },
       "alt_ev": 90
     },
@@ -193,22 +193,22 @@
         ".596 #5",
         ".667 #11"
       ],
-      "index": 91.8,
+      "index": 92.6,
       "rtg": 20.85,
       "alt_pct": 20.9,
       "srsrank": 2,
       "sosrank": 50,
       "in_field": false,
-      "fair_pct": 10.0,
-      "fair_odds": "+897",
+      "fair_pct": 18.1,
+      "fair_odds": "+452",
       "read": null,
       "mk": 400,
       "market": "+400",
-      "ev": -50,
+      "ev": -9,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -50
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -9
       },
       "alt_ev": 5
     },
@@ -232,22 +232,22 @@
         ".611 #2",
         "1.000 #1"
       ],
-      "index": 86.9,
+      "index": 77.8,
       "rtg": 18.26,
       "alt_pct": 7.1,
       "srsrank": 5,
       "sosrank": 72,
       "in_field": false,
-      "fair_pct": 5.5,
-      "fair_odds": "+1705",
+      "fair_pct": 1.3,
+      "fair_odds": "+7391",
       "read": null,
       "mk": 12000,
       "market": "+12000",
-      "ev": 570,
+      "ev": 62,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 570
+        "ev": 62
       },
       "alt_ev": 757
     },
@@ -271,22 +271,22 @@
         ".580 #12",
         ".750 #9"
       ],
-      "index": 90.3,
+      "index": 95,
       "rtg": 19.5,
       "alt_pct": 11.9,
       "srsrank": 3,
       "sosrank": 63,
       "in_field": false,
-      "fair_pct": 4.2,
-      "fair_odds": "+2288",
+      "fair_pct": 13.1,
+      "fair_odds": "+662",
       "read": null,
       "mk": 275,
       "market": "+275",
-      "ev": -84,
+      "ev": -51,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -51
       },
       "alt_ev": -56
     },
@@ -310,14 +310,14 @@
         ".563 #14",
         "1.000 #1"
       ],
-      "index": 79.4,
+      "index": 77.6,
       "rtg": 13.59,
       "alt_pct": 1.0,
       "srsrank": 11,
       "sosrank": 89,
       "in_field": false,
-      "fair_pct": 1.0,
-      "fair_odds": "+9679",
+      "fair_pct": 0.6,
+      "fair_odds": "+15367",
       "read": null,
       "mk": null,
       "market": null,
@@ -345,22 +345,22 @@
         ".586 #8",
         ".750 #9"
       ],
-      "index": 77.3,
+      "index": 72.3,
       "rtg": 10.34,
       "alt_pct": 0.3,
       "srsrank": 22,
       "sosrank": 60,
       "in_field": false,
-      "fair_pct": 0.8,
-      "fair_odds": "+12973",
+      "fair_pct": 0.2,
+      "fair_odds": "+43748",
       "read": null,
       "mk": 6000,
       "market": "+6000",
-      "ev": -53,
+      "ev": -86,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -53
+        "ev": -86
       },
       "alt_ev": -84
     },
@@ -384,14 +384,14 @@
         ".585 #9",
         ".667 #11"
       ],
-      "index": 74.7,
+      "index": 68.9,
       "rtg": 10.47,
       "alt_pct": 0.3,
       "srsrank": 19,
       "sosrank": 47,
       "in_field": false,
-      "fair_pct": 0.5,
-      "fair_odds": "+18804",
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
       "read": null,
       "mk": null,
       "market": null,
@@ -419,7 +419,7 @@
         ".499 #58",
         "\u2014 #99"
       ],
-      "index": 66.3,
+      "index": 68.7,
       "rtg": 4.69,
       "alt_pct": 0.0,
       "srsrank": 43,
@@ -427,6 +427,41 @@
       "in_field": false,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
+    },
+    {
+      "name": "Illinois State",
+      "conf": "FCS",
+      "rec": "7-2",
+      "gp": 9,
+      "score": 2,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "11.9 #10",
+        ".778 #8",
+        "16.0 #6",
+        ".550 #19",
+        ".000 #32"
+      ],
+      "index": 90.4,
+      "rtg": 15.8,
+      "alt_pct": 2.5,
+      "srsrank": 7,
+      "sosrank": 100,
+      "in_field": false,
+      "fair_pct": 3.1,
+      "fair_odds": "+3093",
       "read": null,
       "mk": null,
       "market": null,
@@ -454,133 +489,24 @@
         ".564 #13",
         ".333 #24"
       ],
-      "index": 84.4,
+      "index": 86.6,
       "rtg": 18.23,
       "alt_pct": 7.0,
       "srsrank": 6,
       "sosrank": 67,
       "in_field": false,
-      "fair_pct": 1.0,
-      "fair_odds": "+9837",
+      "fair_pct": 1.7,
+      "fair_odds": "+5936",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -85,
+      "ev": -75,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -85
+        "ev": -75
       },
       "alt_ev": 5
-    },
-    {
-      "name": "Illinois State",
-      "conf": "FCS",
-      "rec": "7-2",
-      "gp": 9,
-      "score": 2,
-      "q": [
-        true,
-        false,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "11.9 #10",
-        ".778 #8",
-        "16.0 #6",
-        ".550 #19",
-        ".000 #32"
-      ],
-      "index": 84.1,
-      "rtg": 15.8,
-      "alt_pct": 2.5,
-      "srsrank": 7,
-      "sosrank": 100,
-      "in_field": false,
-      "fair_pct": 1.0,
-      "fair_odds": "+10268",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
-    },
-    {
-      "name": "Austin Peay",
-      "conf": "FCS",
-      "rec": "7-2",
-      "gp": 9,
-      "score": 2,
-      "q": [
-        true,
-        false,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "9.3 #19",
-        ".778 #8",
-        "18.7 #11",
-        ".560 #16",
-        ".000 #32"
-      ],
-      "index": 79.6,
-      "rtg": 13.2,
-      "alt_pct": 0.9,
-      "srsrank": 12,
-      "sosrank": 83,
-      "in_field": false,
-      "fair_pct": 0.5,
-      "fair_odds": "+18734",
-      "read": null,
-      "mk": 2200,
-      "market": "+2200",
-      "ev": -88,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -88
-      },
-      "alt_ev": -80
-    },
-    {
-      "name": "UAlbany",
-      "conf": "FCS",
-      "rec": "6-3",
-      "gp": 9,
-      "score": 2,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        false
-      ],
-      "vals": [
-        "5.8 #30",
-        ".667 #24",
-        "20.9 #19",
-        ".594 #7",
-        ".500 #15"
-      ],
-      "index": 78.7,
-      "rtg": 13.19,
-      "alt_pct": 0.9,
-      "srsrank": 13,
-      "sosrank": 18,
-      "in_field": false,
-      "fair_pct": 0.5,
-      "fair_odds": "+21294",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
     },
     {
       "name": "North Dakota",
@@ -602,24 +528,63 @@
         ".551 #18",
         ".333 #24"
       ],
-      "index": 78.1,
+      "index": 80.8,
       "rtg": 15.33,
       "alt_pct": 2.1,
       "srsrank": 9,
       "sosrank": 49,
       "in_field": false,
-      "fair_pct": 0.4,
-      "fair_odds": "+22938",
+      "fair_pct": 0.6,
+      "fair_odds": "+16799",
       "read": null,
       "mk": 3000,
       "market": "+3000",
-      "ev": -87,
+      "ev": -82,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -82
       },
       "alt_ev": -35
+    },
+    {
+      "name": "Austin Peay",
+      "conf": "FCS",
+      "rec": "7-2",
+      "gp": 9,
+      "score": 2,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "9.3 #19",
+        ".778 #8",
+        "18.7 #11",
+        ".560 #16",
+        ".000 #32"
+      ],
+      "index": 79.8,
+      "rtg": 13.2,
+      "alt_pct": 0.9,
+      "srsrank": 12,
+      "sosrank": 83,
+      "in_field": false,
+      "fair_pct": 0.5,
+      "fair_odds": "+20094",
+      "read": null,
+      "mk": 2200,
+      "market": "+2200",
+      "ev": -89,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -89
+      },
+      "alt_ev": -80
     }
   ],
   "odds_remaining": null,
@@ -628,7 +593,7 @@
   "field_known": false,
   "prediction": {
     "pick": "Montana State",
-    "why": "<b>Montana State</b> is the model's #1: 31.6% to win the FCS title (fair +216); the plain power rating alone gives 27.9%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced Sun Nov 22."
+    "why": "<b>Montana State</b> is the model's #1: 34.8% to win the FCS title (fair +188); the plain power rating alone gives 27.9%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced Sun Nov 22."
   },
   "season_pct": 81,
   "gp_min": 4,
@@ -642,9 +607,9 @@
   "value_plays": [
     {
       "name": "Montana State",
-      "ev": 52,
+      "ev": 67,
       "market": "+380",
-      "fair_odds": "+216"
+      "fair_odds": "+188"
     }
   ]
 }

@@ -14,7 +14,7 @@ export const cfg = {cap: 28, topN: 24, minFrac: 0.4};
 // every-champion rule (2026-11-06 search, 15 champions 2010-25): each cutoff = the loosest champion's value, so every past champion clears all 5
 export let crit = [{f: 'adjO', kind: 'rank'}, {f: 'wp', kind: 'rank'}, {f: 'def', kind: 'rank'}, {f: 'rpi', kind: 'value'}, {f: 'wpTop', kind: 'value'}];
 export const cover = 1;
-export let W = {srs: 30, adjD: 20, adjO: 15, wp: 15, rpi: 20};
+export let W = {adjO: 40, adjD: 60};   // 2026-11-07 backtest: beat {srs30 adjD20 rpi20 adjO15 wp15} in every half at bracket/Oct25/Nov1/Nov8 (325 playoff games + 15 champs, LOSO)
 export const alias = {'penn': 'pennsylvania', 'central connecticut state': 'central connecticut', 'university at albany': 'ualbany', 'long island university': 'liu'};   // Kalshi name -> ESPN name (both normalised)
 const PLAYOFF = /(FCS|DIVISION I) (FOOTBALL )?CHAMPIONSHIP|FCS PLAYOFF/i;   // 'FCS Championship - First Round', 'NCAA DIVISION I FOOTBALL CHAMPIONSHIP - SECOND ROUND', 'NCAA FCS FOOTBALL CHAMPIONSHIP ...'
 export const isFinal = g => PLAYOFF.test(g.round) && !/round|quarter|semi/i.test(g.round);
