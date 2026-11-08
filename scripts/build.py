@@ -352,7 +352,7 @@ def build_cfb():
         t["srsrank"] = srs_rank.get(t["name"], 999)
         t["srs"] = srs.get(t["name"], 0.0)
     for t in teams: t["read"] = team_read(t, "cfb", len(teams), 5)
-    # fair odds: weight = index^3 * SOS^3 (NO tier multiplier), cap 24%. Backtested 2026-10-28 on all
+    # fair odds: weight = index^3 * SOS^3 (NO tier multiplier), no cap since 2026-11-07 (see below). Backtested 2026-10-28 on all
     # 12 CFP-era seasons (2014-2025, rebuilt from game data via cfb-sos-backtest.mjs): dropping the
     # tier multiplier lifts the champion to the model's #1 fair-odds pick in 10/12 seasons (avg rank
     # 1.42), vs 8/12 (avg 1.83) with tier x index^3. The tier boost was docking elite 3/5 champions
@@ -362,7 +362,7 @@ def build_cfb():
     pool = [t for t in teams if t["score"] >= 3]
     tot = sum((t["index"]**3)/1e5*(t["sos"]/avg)**3 for t in pool)
     for t in pool: t["p"] = ((t["index"]**3)/1e5*(t["sos"]/avg)**3) / tot if tot else 0
-    for t in pool: t["mw"] = t["p"]   # uncapped weight: THE backtested order (10/12) — the 24% cap ties the top teams
+    for t in pool: t["mw"] = t["p"]   # 3/5+ weight: THE backtested order (10/12); the fair odds below also price the 2/5 tail
     # 2/5 teams are on the board too: price them at quarter weight. (FCS-to-FBS movers like 2026 North Dakota State
     # count: the NCAA dropped the 2-year postseason ban on 2026-06-24, so they are CFP-eligible in year one.)
     # They get a fair price but no mw, so the backtested ranking/pick above is untouched.
@@ -379,26 +379,29 @@ def build_cfb():
     # Backtest 2026-11-04 (board rebuilt from games before each season's first release, rates leave-one-season-out,
     # baseball-blueprint/cfb-firstcfp-backtest.mjs): champ top-3 7/12 -> 8/12, champ avg prob 20% -> 27%,
     # log-loss 2.20 -> 2.12, #1 pick unchanged 6/12. The one champion it hurt: 2014 Ohio State (first ranked #16).
-    cfp, cfp_week = fetch_cfp_ranks(id2name)
+    cfp, cfp_week, cfp_rel = fetch_cfp_ranks(id2name)
     if cfp:
         for t in pool:
-            r = cfp.get(t["name"]); t["cfp"] = r; t["infield"] = cfp_infield(r)
+            r = cfp.get(t["name"]); t["cfp"] = r; t["infield"] = cfp_infield(r, cfp_rel)
             t["p"] *= t["infield"]
             if t.get("mw"): t["mw"] *= t["infield"]
         tp = sum(t["p"] for t in pool); tm_ = sum(t.get("mw") or 0 for t in pool)
         for t in pool:
             t["p"] = t["p"] / tp if tp else 0
             if t.get("mw"): t["mw"] /= tm_
-    cap_odds(pool, 0.24)
+    # NO CAP (2026-11-07, cfb-blindspot-backtest.mjs --caps): the 24% cap made the board too cautious about its favourite -- at the
+    # first committee release its #1 was priced 24% but won 4 of 12; uncapped it averages 38.7% and won 5 of 12. Removing it scored
+    # better in both halves at every checkpoint (champion log-loss: first release 2.35 -> 2.10, every release 1.75 -> 1.55, final
+    # ranking 1.46 -> 1.25). cap_odds(pool, 1.0) only sets the fair odds.
+    cap_odds(pool, 1.0)
     fd, rem = fetch_futures("americanfootball_ncaaf_championship_winner")
     attach(teams, pool, fd, srs_rank)
     # the pick IS the backtested #1 (uncapped index x schedule) — not the cleanest-read team
     ranked = sorted([t for t in pool if t.get("mw")], key=lambda t: -t["mw"])
     if ranked:
         a = ranked[0]; odds = a.get("fair_odds")
-        tie = f" Dead even with <b>{ranked[1]['name']}</b> at the 24% cap — {a['name']} edges it on schedule." if len(ranked) > 1 and ranked[1]["p"] >= a["p"] - 1e-9 else ""
         sel = f" Committee has it <b>#{a['cfp']}</b> ({round(a['infield']*100)}% to make the field)." if a.get("cfp") else ""
-        pred = {"pick": a["name"], "why": f"<b>{a['name']}</b> is the pick — the model's #1 by index × schedule{' × playoff odds' if cfp else ''}{f' (fair {odds})' if odds else ''}, the order that picked 10 of 12 CFP champions.{sel}{tie} {a['read']['why']}"}
+        pred = {"pick": a["name"], "why": f"<b>{a['name']}</b> is the pick — the model's #1 by index × schedule{' × playoff odds' if cfp else ''}{f' (fair {odds})' if odds else ''}, the order that picked 10 of 12 CFP champions.{sel} {a['read']['why']}"}
     else:
         pred = make_prediction(teams, 5)
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
@@ -430,27 +433,41 @@ def cfb_row(t):
         "mw": round(t["mw"]*100, 2) if t.get("mw") else None,
         "cfp": t.get("cfp"), "infield": round(t["infield"]*100) if t.get("infield") is not None else None}
 
-CFP_INFIELD = [(8, .85), (12, .66), (18, .28), (25, .04)]   # P(final top-12 | committee rank), 2014-25 first->final rankings
-def cfp_infield(r):
+# P(final top-12 | committee rank) BY RELEASE (2026-11-07, baseball-blueprint/cfb-blindspot-backtest.mjs --sel). The board used the FIRST
+# release's table all season, so a top-4 team stayed at 85% even on selection day. Each release now uses the same release of 2014-25
+# (0 = first, 4 = fifth; the last = selection day, when the field is set). Tested with no cap: champion log-loss over every release
+# 1.554 -> 1.484, at the final ranking 1.247 -> 1.061, better in both halves (2014-19, 2020-25). Ranks 1-4 / 5-8 / 9-12 / 13-18 / 19-25;
+# unranked .01. Selection day uses the top 12 as the field (a low-ranked autobid conference champion is not special-cased).
+CFP_BUCKETS = (4, 8, 12, 18, 25)
+CFP_INFIELD = {0: (.833, .833, .656, .291, .045), 1: (.922, .722, .589, .321, .135), 2: (.967, .789, .656, .321, .058),
+               3: (.989, .833, .722, .261, .032), 4: (.989, .967, .811, .127, .019), "F": (.989, .989, .989, .007, .006)}
+def cfp_infield(r, rel=0):
     if r is None: return .01
-    return next((p for hi, p in CFP_INFIELD if r <= hi), .01)
+    tab = CFP_INFIELD["F"] if rel == "F" else CFP_INFIELD[min(int(rel or 0), 4)]
+    return next((p for hi, p in zip(CFP_BUCKETS, tab) if r <= hi), .01)
 
 def fetch_cfp_ranks(id2name):
-    """Latest CFP committee top 25 as {ESPN displayName: rank}, plus its ESPN week; ({}, None) before the first release."""
+    """Latest CFP committee top 25 as {ESPN displayName: rank}, its ESPN week, and which release it is (0 = first ... 4; "F" = selection day);
+    ({}, None, 0) before the first release."""
     try:
         idx = get(f"https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/{YEAR}/rankings/21?limit=50")
         tw = lambda u: (int(re.search(r"types/(\d+)", u).group(1)), int(re.search(r"weeks/(\d+)", u).group(1)))
         refs = sorted((r["$ref"] for r in (idx or {}).get("rankings", []) if r.get("$ref")), key=tw)
-        if not refs: return {}, None
+        if not refs: return {}, None, 0
         j = get(refs[-1].replace("http://", "https://"))
         out = {}
         for r in j.get("ranks", []):
             nm = id2name.get(re.search(r"teams/(\d+)", r["team"]["$ref"]).group(1))
             if nm: out[nm] = r["current"]
-        return out, tw(refs[-1])[1]
+        # selection day: weekly rankings come out on Tuesdays; the final one on the Sunday after the conference title games
+        # (2015-25 all Sunday; 2014/2020's carry the postseason type 3 and a "Final Rankings" headline)
+        try: sunday = datetime.date.fromisoformat(str(j.get("date", ""))[:10]).weekday() == 6
+        except Exception: sunday = False
+        final = tw(refs[-1])[0] == 3 or "Final" in str(j.get("headline", "")) or sunday
+        return out, tw(refs[-1])[1], ("F" if final else len(refs) - 1)
     except Exception as e:
         print(f"  cfp rankings pull failed: {e}", file=sys.stderr)
-        return {}, None
+        return {}, None, 0
 
 def compute_srs(games, fbs):
     sched = {}
