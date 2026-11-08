@@ -133,6 +133,8 @@
   .muverd.take{border-color:var(--good);background:var(--goodbg)} .muverd.take .vh{color:var(--good)}
   .muverd.pass{border-color:var(--bad);background:var(--badbg)} .muverd.pass .vh{color:var(--bad)}
   .muverd .vsmall{font-size:11px;color:var(--ink3);margin-top:6px}
+  .muverd.caution{border-color:var(--warn);background:var(--warnbg)} .muverd.caution .vh{color:var(--warn)}
+  .oddst td.best{color:var(--good);font-weight:800} .oddst td.sus{color:var(--warn)} .oddst span.dim{color:var(--ink3);font-size:11px}
   .tier{display:flex;align-items:center;gap:9px;margin:32px 0 13px;padding:9px 14px;font-family:var(--head);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);border-left:5px solid var(--tc,var(--line2));background:linear-gradient(90deg,color-mix(in srgb,var(--tc,var(--line2)) 15%,transparent),transparent);border-radius:0 10px 10px 0}
   .tier:first-of-type{margin-top:6px}
   .tier .n{color:var(--ink3);font-weight:600;font-size:12px;letter-spacing:.03em;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
@@ -380,14 +382,16 @@ function simMatchup(){
   out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>${note?`<div class="munote">${note}</div>`:''}`;
   oddsCheck();
 }
-/* ---------- 💵 Odds check (2026-11-07, user: "plug in odds and spread and based on ev tell me take or pass", like the UFC sim) ----------
-   Backtested first (baseball-blueprint/matchup-lines-backtest.mjs, ESPN's pre-game lines, median of the books): this matchup model
-   does NOT beat real lines. NFL 2,368 games 2015-25: betting its moneyline edges lost 8.4% / 10.2% (the two halves), its spread picks
-   3+ pts off the line covered 48-49% (lost 7-8%), and a UFC-style anchored blend put ~0 weight on it. CFB 6,290 games 2014-25: same
-   (moneyline -9.5% / -8.3%, spreads -6% to -7%). So, like the UFC sim, the call is ANCHORED to the market with the model's weight at 0:
-   fair % = the prices you type with the book's margin removed, and TAKE only flags a real PRICE edge (two prices that disagree:
-   line shopping, a stale or boosted line). The model's own % is shown for information. */
-const MU_TEST={nfl:{n:"2,368",yrs:"2015–25",ml:"8–10%",sp:"7–8%"},cfb:{n:"6,290",yrs:"2014–25",ml:"8–10%",sp:"6–7%"}};
+/* ---------- 💵 Odds check = the UFC Classic sim's rules (2026-11-07, user: "take or pass should match classic sim approach" · "no anchoring" · "and backtest") ----------
+   No market anchoring: EV = the MODEL's % x decimal - 1, every price you type checked on its own (ufc-fight-simulator/classic.html verdictFor):
+   PASS THIS GAME when the no-vig moneyline favourite is over 70% and the model has it 8+ points lower; otherwise TAKE the bet with the biggest
+   Kelly among EV 4-50% (under 4% = too thin, over 50% = too good to be real), stake = min(3%, Kelly/4) of the bankroll; LEAN PASS on thin data
+   (Classic: < 4 UFC fights; here the board's 'early' signal). The anchored version it replaced is in git (a1b3877).
+   Backtest of these exact rules (baseball-blueprint/matchup-lines-backtest.mjs --classic, ESPN pre-game lines, median book prices, halves):
+   NFL 2015-19 / 2020-25: TAKE on 69% / 66% of games, won 40.6% / 43.9% when the model said ~55%, ROI -10.8% / -4.9%; $125 at these stakes
+   finished down in 10 of 11 seasons. CFB 2014-19 / 2020-25: TAKE on 75% / 76%, won 42.1% / 44.4%, ROI -11.1% / -4.7%; down in 11 of 12.
+   The verdict's small print says so. */
+const MU_TEST={nfl:{n:"2,368",yrs:"2015–25",take:"2 of 3",won:"41–44%",roi:"5–11%",bank:"10 of 11"},cfb:{n:"6,290",yrs:"2014–25",take:"3 of 4",won:"42–44%",roi:"5–11%",bank:"11 of 12"}};
 const _odds=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(s==='ev'||s==='even') return 100; const v=+s; return isFinite(v)&&Math.abs(v)>=100?v:NaN; };
 const _lineIn=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(/^pk|^pick/.test(s)) return 0; const v=+s; return isFinite(v)?v:NaN; };
 const _dec=a=>a>0?1+a/100:1+100/-a;
@@ -397,7 +401,7 @@ function bankDefault(){ try{ const b=localStorage.getItem('bp_bank'); if(b) retu
 function oddsPanel(){
   if(cur==="mls"||cur==="nwsl") return `<div class="munote" style="margin-top:8px">Odds check: soccer moneylines are 3-way (a draw is a result), which this calculator doesn't price.</div>`;
   const inp=(id,ph,w)=>`<input id="${id}" placeholder="${ph}" inputmode="decimal" autocomplete="off" oninput="oddsCheck()"${w?` style="width:${w}px"`:''}>`;
-  return `<div class="muodds"><div class="muhead" style="margin:0 0 2px">💵 Odds check — type your book's prices, get TAKE or PASS</div>
+  return `<div class="muodds"><div class="muhead" style="margin:0 0 2px">💵 Odds check — the model's odds vs your book's price → TAKE or PASS <span class="musub">(Classic rules, no anchoring)</span></div>
     <div class="oddsrow"><span class="ol">Moneyline</span><span class="ot" id="olA">Left</span>${inp('mlA','-150')}<span class="ot" id="olB">Right</span>${inp('mlB','+130')}</div>
     <div class="oddsrow"><span class="ol">Spread</span><span class="ot" id="slA">Left</span>${inp('spA','-3.5',58)}<span class="at">at</span>${inp('spPA','-110')}<span class="ot" id="slB">Right</span><span class="spb" id="spBtxt"></span><span class="at">at</span>${inp('spPB','-110')}</div>
     <div class="oddsrow"><span class="ol">Bankroll</span><span class="at">$</span><input id="bpBank" placeholder="125" inputmode="decimal" value="${bankDefault()}" oninput="oddsCheck()" style="width:72px"><span class="at">for the stake on a TAKE</span></div>
@@ -414,27 +418,39 @@ function oddsCheck(){
   if(M.series){ out.innerHTML='<div class="munote">Set the matchup to <b>one game</b> to check game odds.</div>'; return; }
   const mlA=_odds(gv('mlA')), mlB=_odds(gv('mlB')), pxA=_odds(gv('spPA')), pxB=_odds(gv('spPB'));
   if([mlA,mlB,L,pxA,pxB].some(x=>Number.isNaN(x))){ out.innerHTML='<div class="muwarn" style="margin-top:6px">Prices look like -150 or +130 (100 or more either way); a spread like -3.5, +7 or PK.</div>'; return; }
+  // Classic: every price you type is checked on its own -- EV = the MODEL's % x decimal - 1 (no market anchoring)
   const bets=[];
-  if(mlA!=null&&mlB!=null){ const a=1/_dec(mlA), b=1/_dec(mlB), f=a/(a+b);
-    bets.push({k:'ml',label:`${nA} to win`,price:mlA,fair:f,model:M.pA},{k:'ml',label:`${nB} to win`,price:mlB,fair:1-f,model:1-M.pA}); }
-  if(L!=null){ const pa=pxA??-110, pb=pxB??-110, a=1/_dec(pa), b=1/_dec(pb), f=a/(a+b), mc=_phi((M.m+L)/M.sd);
-    bets.push({k:'sp',label:`${nA} ${_fmtLine(L)}`,price:pa,fair:f,model:mc},{k:'sp',label:`${nB} ${_fmtLine(-L)}`,price:pb,fair:1-f,model:1-mc}); }
-  const unit=MU_UNIT[cur], fav=M.m>=0?M.A:M.B, pf=Math.max(M.pA,1-M.pA), T=MU_TEST[cur];
+  if(mlA!=null) bets.push({k:'ml',s:'A',label:`${nA} to win`,price:mlA,p:M.pA});
+  if(mlB!=null) bets.push({k:'ml',s:'B',label:`${nB} to win`,price:mlB,p:1-M.pA});
+  if(L!=null){ const mc=_phi((M.m+L)/M.sd);
+    bets.push({k:'sp',s:'A',label:`${nA} ${_fmtLine(L)}`,price:pxA??-110,p:mc},{k:'sp',s:'B',label:`${nB} ${_fmtLine(-L)}`,price:pxB??-110,p:1-mc}); }
+  const unit=MU_UNIT[cur], fav=M.m>=0?M.A:M.B, pf=Math.max(M.pA,1-M.pA), T=MU_TEST[cur], sport=(M.d.sport||cur).toUpperCase();
   const modelLine=`Model: ${fav.name} by ~${Math.abs(M.m).toFixed(1)} ${unit}, wins ${Math.round(pf*100)}% (fair ${_amer(pf)})${M.h==='0'?' at a neutral site':''}`;
-  const testNote=T?`Tested on ${T.n} real ${cur.toUpperCase()} games (${T.yrs}): betting the model's disagreements with the line lost ${T.ml} on moneylines and ${T.sp} on spreads, in both halves — so the call ignores the model and only flags a real price edge.`
-    :`Not tested on real ${(M.d.sport||cur).toUpperCase()} lines yet; the same kind of model lost money against NFL and CFB lines, so the call ignores it here too.`;
-  if(!bets.length){ out.innerHTML=`<div class="munote" style="margin-top:6px">Type <b>both moneylines</b>, or the <b>spread</b> (prices default to -110). ${modelLine}${M.h==='0'?' — set who\'s home first':''}.</div>`; return; }
-  for(const x of bets){ x.ev=x.fair*_dec(x.price)-1; x.mev=x.model*_dec(x.price)-1; }
-  const pct=p=>(100*p).toFixed(1)+'%', sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%', TH=0.03, CAP=0.15;
-  let h=`<table class="oddst"><tr><th>Bet</th><th>Price</th><th title="The chance your book's own prices give, with its margin (vig) removed">Fair %</th><th title="Expected value at your price, against the fair %">EV</th><th title="The matchup model alone, for information: betting its disagreements with real lines lost money">Model %</th></tr>`;
-  for(const x of bets) h+=`<tr class="${x.ev>=TH&&x.ev<=CAP?'tk':''}"><td>${x.label}</td><td>${_fmtPx(x.price)}</td><td>${pct(x.fair)}</td><td class="${x.ev>=0?'g':'r'}">${sev(x.ev)}</td><td class="dim">${pct(x.model)}</td></tr>`;
+  const testNote=T?`Backtest of these exact rules on ${T.n} real ${sport} games (${T.yrs}, median book prices): it said TAKE on ${T.take} games, and those bets won ${T.won} when the model said ~55% — down ${T.roi} per dollar in both halves; $125 at these stakes finished down in ${T.bank} seasons.`
+    :`Not backtested on real ${sport} lines; the same kind of model lost 5–11% per dollar on NFL and CFB lines under these rules.`;
+  if(!bets.length){ out.innerHTML=`<div class="munote" style="margin-top:6px">Type a <b>moneyline</b> (one side or both) or the <b>spread</b> (prices default to -110). ${modelLine}${M.h==='0'?' — set who\'s home first':''}.</div>`; return; }
+  for(const x of bets){ x.dec=_dec(x.price); x.ev=x.p*x.dec-1; x.kelly=x.ev/(x.dec-1); x.tag=x.ev<=0?'noev':x.ev>0.50?'toogood':x.ev<0.04?'thin':'take'; }
+  const mkt=x=>{ const pr=bets.filter(y=>y.k===x.k); return pr.length===2?(1/x.dec)/(1/pr[0].dec+1/pr[1].dec):1/x.dec; };   // the book's %: no-vig when both sides are typed
+  const pct=p=>(100*p).toFixed(1)+'%', sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%';
+  // ---- verdict = classic.html verdictFor
+  let v=null; const mA=bets.find(x=>x.k==='ml'&&x.s==='A'), mB=bets.find(x=>x.k==='ml'&&x.s==='B');
+  if(mA&&mB){ const dv=mkt(mA), F=dv>0.5?{dv,mp:M.pA,name:M.A.name}:{dv:1-dv,mp:1-M.pA,name:M.B.name};
+    if(F.dv>0.70&&F.dv-F.mp>0.08) v={c:'pass',t:'PASS THIS GAME',b:`The no-vig market has <b>${F.name}</b> at ${Math.round(F.dv*100)}% but the model only ${Math.round(F.mp*100)}% — a ${Math.round((F.dv-F.mp)*100)}-point gap on a clear favorite. When a simple ratings model disagrees with a sharp line this hard, the model is the one missing something (injuries, lineup news, a soft schedule). The underdog "value" is almost certainly an illusion.`}; }
+  if(!v){ const takes=bets.filter(x=>x.tag==='take').sort((a,b)=>b.kelly-a.kelly);
+    if(takes.length){ const best=takes[0], f=Math.min(0.03,best.kelly/4);
+      if(M.d.signal&&M.d.signal.status==='early') v={c:'caution',t:'LEAN PASS — THIN DATA',best,b:`The model flags <b>${best.label}</b> (${sev(best.ev)} EV), but the season is only ${M.d.gp_max||'a few'} games in — the ratings are mostly noise this early, so the edge is unreliable. Lean pass unless you have outside info.`};
+      else v={c:'take',t:'TAKE THIS BET',best,b:`<b>${best.label}</b> at ${_fmtPx(best.price)} — <b>${sev(best.ev)} EV</b>, hits ~${Math.round(best.p*100)}%. Stake ~<b>${bank>0?'$'+(f*bank).toFixed(2):(100*f).toFixed(1)+'% of your bankroll'}</b> (¼-Kelly, max 3%).${takes.length>1?` The other green row${takes.length>2?'s are':' is'} the same game — treat it as one position, don't stack.`:''}`}; }
+    else { const tg=bets.filter(x=>x.tag==='toogood').sort((a,b)=>b.ev-a.ev)[0];
+      v=tg?{c:'pass',t:'PASS',b:`The biggest edge (<b>${tg.label}</b>, ${sev(tg.ev)}) is implausibly large — that's the model missing something, not free money. Real edges are single digits.`}
+        :bets.some(x=>x.ev>0)?{c:'pass',t:'PASS',b:`Only razor-thin edges (under 4%) — inside the model's margin of error. Not worth a bet.`}
+        :{c:'pass',t:'PASS',b:`No positive expected value at these prices — the book's lines look efficient here.`}; } }
+  let h=`<table class="oddst"><tr><th>Bet</th><th>Price</th><th title="The matchup model's chance, and its fair price">Model %</th><th title="Your book's chance: its margin (vig) removed when both sides are typed">Market %</th><th title="Expected value per $1 at your price, on the model's %">EV</th></tr>`;
+  for(const x of bets){ const isB=v.c==='take'&&v.best===x;
+    const evc=x.ev<=0?`<td>${sev(x.ev)}</td>`:v.c!=='take'?`<td class="sus">${sev(x.ev)} ⚠ suspect</td>`:isB?`<td class="best">★ BEST ${sev(x.ev)}</td>`
+      :x.tag==='take'?`<td class="g">${sev(x.ev)} ✓ value</td>`:x.tag==='toogood'?`<td class="sus">${sev(x.ev)} ⚠ suspect</td>`:`<td>${sev(x.ev)}</td>`;
+    h+=`<tr class="${isB?'tk':''}"><td>${x.label}</td><td>${_fmtPx(x.price)}</td><td>${pct(x.p)} <span class="dim">${_amer(x.p)}</span></td><td>${pct(mkt(x))}</td>${evc}</tr>`; }
   h+='</table>';
-  const best=bets.slice().sort((a,b)=>b.ev-a.ev)[0]; let v;
-  if(best.ev>CAP) v={c:'pass',t:'PASS — CHECK THE PRICES',b:`${best.label} shows ${sev(best.ev)} EV, which is too good to be real — usually a typo (a missing minus sign?) or two prices from different moments.`};
-  else if(best.ev>=TH){ const k=best.ev/(_dec(best.price)-1), f=Math.min(0.03,k/4), both=bets.filter(x=>x.k===best.k&&x.ev>0).length>1;
-    v={c:'take',t:'TAKE — PRICE EDGE',b:`<b>${best.label}</b> at ${_fmtPx(best.price)}: <b>${sev(best.ev)} EV</b> against the fair line your two prices imply.${both?' Both sides are +EV — that\'s an arbitrage; make sure both prices are live at the same time.':''} The edge comes from the prices (line shopping, a stale or boosted line), not the model. Stake ~<b>${bank>0?'$'+(f*bank).toFixed(2):(100*f).toFixed(1)+'% of your bankroll'}</b> (¼-Kelly, max 3%).`}; }
-  else v={c:'pass',t:'PASS',b:`No edge at these prices: with the book's margin, the best bet here is ${sev(best.ev)} EV.`};
-  h+=`<div class="muverd ${v.c}"><span class="vh">${v.c==='take'?'✅':'❌'} ${v.t}</span>${v.b}<div class="vsmall">${modelLine}. ${testNote}</div></div>`;
+  h+=`<div class="muverd ${v.c}"><span class="vh">${v.c==='take'?'✅':v.c==='caution'?'⚠':'🚫'} ${v.t}</span>${v.b}<div class="vsmall">${modelLine}. ${testNote} Model-based suggestion, not financial advice.</div></div>`;
   out.innerHTML=h;
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
