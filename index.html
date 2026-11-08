@@ -498,16 +498,18 @@ function oddsCheck(){
   out.innerHTML=h;
 }
 /* ---------- 🎯 Weekly parlay (2026-11-08, user: "add that rule to the sim that tells me automatically") ----------
-   Live DraftKings lines from ESPN's free scoreboard (CORS-open: no key, no Odds API credits) for this week's NFL games that haven't
-   kicked off. Each game goes through oddsVerdict exactly as if typed by hand: both moneylines + the spread with its prices, the home team
+   FanDuel lines (2026-11-08, user: "pull prices from fanduel"): the bot pulls them with the Odds API key into DATA.nfl.game_lines (the key
+   can't live in this public page); ESPN's free scoreboard still gives this week's games, kickoff status and neutral sites. Games that
+   haven't kicked off. Each game goes through oddsVerdict exactly as if typed by hand: both moneylines + the spread with its prices, the home team
    set (neutral for overseas games). The rule (baseball-blueprint/matchup-lines-backtest.mjs --parlay, 2015-25): keep the games whose pick
    is a TAKE on a team to win (not a spread), parlay the two with the biggest suggested stakes. Backtest: +65% / +75% per $1 (vs +6% / +58%
    for the old top-two picks), hits ~1 in 4, profit in 9 of 11 seasons -- best of ~45 versions and fragile (needs the spread typed; CFB was
    no better than random). Regular season only, as tested. */
-let WKP=null;   // {at, games, season, err}
+let WKP=null;   // {at, sb (ESPN scoreboard), season, err} -- the scoreboard is cached 5 min; prices are re-read from DATA.nfl every draw
 const WKP_URL='https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard';
-function wkpGames(j){   // ESPN scoreboard -> each game with its lines and the odds check's verdict
-  const by=muTeams(DATA.nfl), out=[];
+function wkpGames(j){   // ESPN scoreboard (games, status, neutral) + FanDuel prices (DATA.nfl.game_lines) -> each game with the odds check's verdict
+  const by=muTeams(DATA.nfl), out=[], GL=(DATA.nfl&&DATA.nfl.game_lines)||null;
+  const fdOf=(away,home)=>GL&&(GL.games||[]).find(x=>x.ml&&x.ml[away]!=null&&x.ml[home]!=null);
   for(const e of (j&&j.events)||[]){
     const c=(e.competitions||[])[0]; if(!c) continue;
     const st=((c.status||{}).type||{}).state, H=(c.competitors||[]).find(x=>x.homeAway==='home'), A=(c.competitors||[]).find(x=>x.homeAway==='away');
@@ -516,11 +518,11 @@ function wkpGames(j){   // ESPN scoreboard -> each game with its lines and the o
     out.push(g);
     if(st!=='pre'){ g.skip='started'; continue; }
     const a=by[g.away], h=by[g.home]; if(!a||!h){ g.skip='no rating'; continue; }
-    const o=(c.odds||[])[0]||{}, cl=x=>(x&&x.close)||{}, ml=o.moneyline||{}, ps=o.pointSpread||{};
-    const mlA=_odds(cl(ml.away).odds), mlB=_odds(cl(ml.home).odds), L=_lineIn(cl(ps.away).line);
-    let pxA=_odds(cl(ps.away).odds), pxB=_odds(cl(ps.home).odds); if(Number.isNaN(pxA)) pxA=null; if(Number.isNaN(pxB)) pxB=null;
-    if([mlA,mlB,L].some(x=>x==null||Number.isNaN(x))){ g.skip='no lines yet'; continue; }
-    g.book=(o.provider||{}).name||'the book';
+    const f=fdOf(g.away,g.home); if(!f){ g.skip='no FanDuel line'; continue; }
+    const sa=(f.spread||{})[g.away], sh=(f.spread||{})[g.home], num=x=>typeof x==='number'&&isFinite(x)?x:null;
+    const mlA=num(f.ml[g.away]), mlB=num(f.ml[g.home]), L=sa?num(sa[0]):null, pxA=sa?num(sa[1]):null, pxB=sh?num(sh[1]):null;
+    if(mlA==null||mlB==null||L==null){ g.skip='no FanDuel line'; continue; }
+    g.book=GL.book||'FanDuel';
     const M=muModelFor('nfl',a,h,g.neutral?'0':'B',false);
     Object.assign(g,{mlA,mlB,L,pxA,pxB,r:oddsVerdict('nfl',M,{mlA,mlB,L,pxA,pxB,nA:shortNm(a.name),nB:shortNm(h.name),bank:0})}); }
   return out;
@@ -528,24 +530,25 @@ function wkpGames(j){   // ESPN scoreboard -> each game with its lines and the o
 function parlayCard(){ return `<div class="wkp" id="wkparlay"><div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span></div><div class="munote">Loading this week's lines…</div></div>`; }
 async function loadParlay(force){
   if(force||!WKP||Date.now()-WKP.at>5*60e3){
-    try{ const j=await (await fetch(WKP_URL,{cache:'no-store'})).json(); WKP={at:Date.now(), games:wkpGames(j), season:j.season||{}}; }
-    catch(e){ WKP={at:Date.now(), games:[], err:String((e&&e.message)||e)}; } }
+    try{ const j=await (await fetch(WKP_URL,{cache:'no-store'})).json(); WKP={at:Date.now(), sb:j, season:j.season||{}}; }
+    catch(e){ WKP={at:Date.now(), sb:null, err:String((e&&e.message)||e)}; } }
   drawParlay();
 }
 function drawParlay(){
   const el=document.getElementById('wkparlay'); if(!el||!WKP) return;
-  const d=DATA.nfl, bank=+(bankDefault()||0), sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%';
-  const hdr=`<div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span><button class="btn ghost rf" onclick="loadParlay(true)">↻</button></div>`;
+  const d=DATA.nfl, bank=+(bankDefault()||0), sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%', GL=d.game_lines;
+  const hdr=`<div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span><button class="btn ghost rf" title="Pull fresh FanDuel prices: rebuilds the NFL board (~1–2 min, 3 Odds API credits)" onclick="document.getElementById('rfbtn').click()">↻ FanDuel</button></div>`;
   if(WKP.err){ el.innerHTML=hdr+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}). Use the odds check below by hand.</div>`; return; }
   if(WKP.season.type&&WKP.season.type!==2){ el.innerHTML=hdr+`<div class="munote">Regular season only — the rule was never tested on ${WKP.season.type===3?'playoff':'preseason'} games.</div>`; return; }
-  const G=WKP.games, up=G.filter(g=>g.r), legs=up.filter(g=>g.r.v&&g.r.v.c==='take'&&g.r.v.best.k==='ml').sort((x,y)=>y.r.v.best.kelly-x.r.v.best.kelly), top=legs.slice(0,2);
-  const book=(up[0]||{}).book||'DraftKings', t=new Date(WKP.at).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (daily at 10 AM ET, or press ↻ FanDuel). Until then, use the odds check below by hand.</div>`; return; }
+  const G=WKP.games=wkpGames(WKP.sb), up=G.filter(g=>g.r), legs=up.filter(g=>g.r.v&&g.r.v.c==='take'&&g.r.v.best.k==='ml').sort((x,y)=>y.r.v.best.kelly-x.r.v.best.kelly), top=legs.slice(0,2);
+  const book=GL.book||'FanDuel', at=new Date(GL.at), age=(Date.now()-at)/36e5, t=at.toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
   let h=hdr;
   if(top.length===2){ const dd=top[0].r.v.best.dec*top[1].r.v.best.dec, am=Math.round(dd>=2?(dd-1)*100:-100/(dd-1));
     h+=`<div class="wkpick">${top.map(g=>`<b>${g.r.v.best.label} ${_fmtPx(g.r.v.best.price)}</b>`).join(' + ')} → <b style="color:var(--good)">parlay ${_fmtPx(am)}</b> · bet $1–2</div>`; }
   else h+=`<div class="wkpick">No parlay ${up.length?'yet':'this week'} — ${legs.length?'only one game has':'no game has'} a moneyline TAKE${up.length?` among the ${up.length} game${up.length===1?'':'s'} still to play`:''} (the rule needs two).${d.signal&&d.signal.status==='early'?' Early in the season every pick is LEAN PASS.':''}</div>`;
-  const started=G.filter(g=>g.skip==='started').length, nolines=G.filter(g=>g.skip==='no lines yet').length;
-  h+=`<div class="munote">${book} lines via ESPN, ${t}${started?` · ${started} game${started===1?'':'s'} already started (left out)`:''}${nolines?` · ${nolines} without lines yet`:''}. Backtest 2015–25: +65% / +75% per $1, hits ~1 in 4 — the best of ~45 versions and fragile, so treat it as a lottery-sized bet. Tap a game to open it in the odds check.</div>`;
+  const started=G.filter(g=>g.skip==='started').length, nolines=G.filter(g=>g.skip==='no FanDuel line').length;
+  h+=`<div class="munote">${book} prices pulled ${t}${age>12?' — <b>over 12 hours old</b>, press ↻ FanDuel for fresh ones':''}${started?` · ${started} game${started===1?'':'s'} already started (left out)`:''}${nolines?` · ${nolines} without a ${book} line`:''}. Backtest 2015–25: +65% / +75% per $1, hits ~1 in 4 — the best of ~45 versions and fragile, so treat it as a lottery-sized bet. Tap a game to open it in the odds check.</div>`;
   if(up.length){ h+=`<details class="wkrows"><summary>All ${up.length} game${up.length===1?'':'s'} still to play</summary><table class="oddst"><tr><th>Game</th><th>Lines</th><th>Odds check</th></tr>`;
     up.forEach(g=>{ const i=G.indexOf(g), v=g.r.v, b=v&&v.best, k=new Date(g.when).toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
       const pick=!v?'—':v.c==='take'?`<td class="${b.k==='ml'?'best':'g'}">TAKE ${b.label} ${_fmtPx(b.price)} · ${sev(b.ev)}${bank>0?` · $${(Math.min(0.03,b.kelly/4)*bank).toFixed(2)}`:''}${top.includes(g)?' ★':''}</td>`:`<td class="dim">${v.t==='PASS THIS GAME'?'PASS (gap)':v.t==='LEAN PASS — THIN DATA'?'LEAN PASS':'PASS'}</td>`;
@@ -675,7 +678,7 @@ function render(){
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
   const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
   const rfTitle=PRICE_FILES[cur]?`Rebuilds the ${d.sport} board (free, ~2–3 min). Prices come from your screenshot — use 📷 Update to change them.`
-    :`Re-pulls ${MK(cur)} prices and rebuilds the ${d.sport} board (~1–2 min; 1 Odds API credit)`;
+    :`Re-pulls ${MK(cur)} prices and rebuilds the ${d.sport} board (~1–2 min; ${cur==="nfl"?"3 Odds API credits: futures + this week's game lines":"1 Odds API credit"})`;
   // simplified head (2026-11-06, user: "it has a lot going on in this area. i want it simplified"):
   // prediction + one Refresh button (multi-board Run + token under ⚙) · one status line · details collapsed
   let html=`<div class="hero"><div class="heror">

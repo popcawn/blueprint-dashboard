@@ -190,6 +190,32 @@ def fetch_futures(sport_key):
         print(f"  odds pull failed ({sport_key}): {e}", file=sys.stderr)
         return {}, None
 
+def fetch_game_lines(sport_key, book="fanduel"):
+    """(2026-11-08, user: "pull prices from fanduel") upcoming games' moneylines + spreads from ONE book via the Odds API -- for the NFL
+       tab's automatic weekly parlay (index.html wkpGames). The key stays server-side (the site is public). Cost: 2 credits a call
+       (2 markets x 1 region). -> ({"book", "at", "games": [{home, away, commence, updated, ml: {team: price}, spread: {team: [point, price]}}]}, remaining)"""
+    if not ODDS_KEY:
+        return None, None
+    url = (f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/?apiKey={ODDS_KEY}&regions=us&markets=h2h,spreads"
+           f"&oddsFormat=american&bookmakers={book}")
+    try:
+        resp = urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "blueprint-dashboard"}), timeout=40)
+        rem = resp.headers.get("x-requests-remaining"); d = json.load(resp)
+    except Exception as e:
+        print(f"  game lines pull failed ({sport_key}): {e}", file=sys.stderr)
+        return None, None
+    games = []
+    for ev in d or []:
+        bk = next((b for b in ev.get("bookmakers", []) if b.get("key") == book), None)
+        if not bk: continue
+        g = {"home": ev.get("home_team"), "away": ev.get("away_team"), "commence": ev.get("commence_time"), "updated": bk.get("last_update"), "ml": {}, "spread": {}}
+        for m in bk.get("markets", []):
+            for o in m.get("outcomes", []):
+                if m.get("key") == "h2h": g["ml"][o["name"]] = o.get("price")
+                elif m.get("key") == "spreads": g["spread"][o["name"]] = [o.get("point"), o.get("price")]
+        games.append(g)
+    return {"book": {"fanduel": "FanDuel", "draftkings": "DraftKings"}.get(book, book), "at": now_iso(), "games": games}, rem
+
 # ----------------------------------------------------------------------------- NFL
 # (restored 2026-11-07: the Kalshi-removal commit 0c6fcff deleted this set along with fetch_kalshi, and every NFL build since crashed
 #  with NameError -- the board sat frozen at the Nov 6 12:45Z data)
@@ -290,7 +316,10 @@ def build_nfl():
     attach(rows, pool, fd)
     pred = make_prediction(rows, 5)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
-    return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
+    # this week's FanDuel game lines for the weekly parlay card (2 credits; NFL months only -- Sep to mid-Feb)
+    lines, rem2 = fetch_game_lines("americanfootball_nfl") if (datetime.date.today().month >= 9 or datetime.date.today().month <= 2) else (None, None)
+    if rem2 is not None: rem = rem2   # the later pull's count is the current one
+    return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred, "game_lines": lines,
             "sig": NFL_MU_SD,   # matchup SD that goes with the prior-blended rtg (index.html's MU_SD.nfl 24.5 = the old raw-PD/g fallback)
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "season_pct": season_pct(rows, "nfl"),
