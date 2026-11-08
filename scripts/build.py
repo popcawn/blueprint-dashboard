@@ -197,8 +197,21 @@ NFL_AFC = {"Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburg
     "Miami Dolphins","New England Patriots","New York Jets","Houston Texans","Indianapolis Colts","Jacksonville Jaguars",
     "Tennessee Titans","Denver Broncos","Kansas City Chiefs","Las Vegas Raiders","Los Angeles Chargers"}
 
-def build_nfl():
-    d = get(f"https://cdn.espn.com/core/nfl/standings?xhr=1&season={YEAR}")
+# Matchup-sim rating (2026-11-08, user: "what could improve the classic nfl" -> "yes if it helps"): each team starts from last season's
+# points-per-game margin, regressed to 45%, worth 7 games; this season's games take over as they're played:
+#   rtg = (7 * 0.45 * last season's PD/g + gp * this season's PD/g) / (7 + gp), win% = Phi(margin / 13.5) (data file "sig")
+# Backtest (baseball-blueprint/matchup-lines-backtest.mjs nfl, 2,368 games 2015-25, weeks 4+, ESPN pre-game lines): log-loss on who won
+# 0.6404 -> 0.6286 (2015-19) and 0.6453 -> 0.6372 (2020-25), straight-up 63.7% -> 64.2%; projected margins now match the size of real
+# spreads (weeks 4-6 median 3.9 pts vs the old 7.5; books 3.5). The old raw PD/g needed SD 24.5 to stay calibrated.
+# Classic TAKEs (early weeks = LEAN PASS) still lose: -8.4% -> -5.9% and -4.3% -> -2.0% per $1, but other settings near the best fit
+# ranged -2% to -7%, so the betting gain is not proven. Settings picked by model accuracy on all seasons, not by betting results.
+# Tried and NOT kept (helped one half, hurt the other, or both worse): shrink-only, opponent-adjusted SRS, recent-games weighting,
+# blowout caps, a QB-change filter (nflverse starters), and betting the opening line (2023-25 openers).
+NFL_MU_K, NFL_MU_R, NFL_MU_SD = 7, 0.45, 13.5
+
+def nfl_standings(season):
+    """{displayName: {stat: value, ..., "_id": espn team id}} from ESPN's NFL standings (regular season)."""
+    d = get(f"https://cdn.espn.com/core/nfl/standings?xhr=1&season={season}")
     teams = {}
     def walk(o):
         if isinstance(o, dict):
@@ -207,10 +220,33 @@ def build_nfl():
                     nm = e.get("team", {}).get("displayName")
                     if nm and nm not in teams:
                         teams[nm] = {s.get("name"): s.get("value") for s in e.get("stats", [])}
+                        teams[nm]["_id"] = str(e.get("team", {}).get("id", ""))
             for v in o.values(): walk(v)
         elif isinstance(o, list):
             for v in o: walk(v)
     walk(d)
+    return teams
+
+def nfl_prior_pdg():
+    """Last season's final PD/g by team name and by ESPN id; {} if the pull fails (ratings then just shrink toward average)."""
+    out = {}
+    try:
+        for nm, st in nfl_standings(YEAR - 1).items():
+            g = sum(int(float(st.get(k, 0) or 0)) for k in ("wins", "losses", "ties"))
+            if not g: continue
+            v = (float(st.get("pointsFor", 0)) - float(st.get("pointsAgainst", 0))) / g
+            out[nm] = v
+            if st.get("_id"): out["#" + st["_id"]] = v
+    except Exception as e:
+        print(f"::warning::NFL last-season standings failed ({e}); matchup ratings use no prior", file=sys.stderr)
+    return out
+
+def nfl_mu_rating(pdg, gp, prior):
+    return (NFL_MU_K * NFL_MU_R * prior + gp * pdg) / (NFL_MU_K + gp)
+
+def build_nfl():
+    teams = nfl_standings(YEAR)
+    prior = nfl_prior_pdg()
     rows = []
     for nm, st in teams.items():
         try:
@@ -219,10 +255,11 @@ def build_nfl():
         except Exception: continue
         g = w + l + ti
         if g == 0: continue
+        pr = prior.get("#" + st.get("_id", ""), prior.get(nm, 0.0))
         rows.append({"name": nm, "conf": "AFC" if nm in NFL_AFC else "NFC",
             "rec": f"{w}-{l}" + (f"-{ti}" if ti else ""), "gp": g,
             "winpct": (w + 0.5 * ti) / g, "ppg": pf / g, "oppppg": pa / g,
-            "ptdiff": pf - pa, "pdg": (pf - pa) / g})
+            "ptdiff": pf - pa, "pdg": (pf - pa) / g, "mrtg": nfl_mu_rating((pf - pa) / g, g, pr)})
     rk_pd = ranks(rows, "ptdiff", True); rk_ppg = ranks(rows, "ppg", True); rk_opp = ranks(rows, "oppppg", False); rk_win = ranks(rows, "winpct", True)
     for t in rows:
         t["rk_pd"], t["rk_ppg"], t["rk_opp"], t["rk_win"] = rk_pd[t["name"]], rk_ppg[t["name"]], rk_opp[t["name"]], rk_win[t["name"]]
@@ -254,6 +291,7 @@ def build_nfl():
     pred = make_prediction(rows, 5)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred,
+            "sig": NFL_MU_SD,   # matchup SD that goes with the prior-blended rtg (index.html's MU_SD.nfl 24.5 = the old raw-PD/g fallback)
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "season_pct": season_pct(rows, "nfl"),
             "cats": ["Win% ≥.625", "Pt Diff top-6", "PPG top-10", "Opp PPG top-10", "PD/g ≥+5"],
@@ -265,7 +303,7 @@ def nfl_row(t):
         "q": [bool(x) for x in t["q"]],
         "vals": [f"{t['winpct']:.3f}", f"{t['ptdiff']:+.0f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}",
                  f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
-        "rtg": round(t['pdg'], 1),
+        "rtg": round(t['mrtg'], 1),   # matchup rating: last season's PD/g as a 7-game prior (see NFL_MU_*)
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 

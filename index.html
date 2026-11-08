@@ -324,7 +324,8 @@ const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4,wnba:3,mlb:7,cbb:5,wcbb:5,mls:5,fcs:5,cfl:
 const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
-/* matchup simulator — backtested SDs (NFL 24.5, CFB 20.0 out-of-sample); NBA/NHL estimated */
+/* matchup simulator — backtested SDs (CFB 20.0 out-of-sample); NBA/NHL estimated. NFL: data/nfl.json carries sig 13.5 for its prior-blended
+   ratings (2026-11-08, build.py NFL_MU_*); MU_SD.nfl 24.5 only applies to an older nfl.json with raw points-per-game ratings */
 let MU_OPEN=false;   // (2026-11-07, user: "collapse the matchup sim") folded by default; stays the way you left it when you switch leagues, folded again on reload
 const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.8,wnba:14.0,mlb:5.0,cbb:11.0,wcbb:12.0,mls:1.65,fcs:20.0,cfl:27.0,nwsl:1.6,afl:33,nrl:24,superleague:22}, MU_HFA={nfl:2.0,cfb:4.0,nba:2.8,nhl:0.2,wnba:2.5,mlb:0.2,cbb:3.0,wcbb:3.0,mls:0.3,fcs:4.0,cfl:10.5,nwsl:0.2,afl:9.1,nrl:2.2,superleague:3.2}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts",mlb:"runs",cbb:"pts",wcbb:"pts",mls:"goals",fcs:"pts",cfl:"pts",nwsl:"goals",afl:"pts",nrl:"pts",superleague:"pts"};   // MLS rtg = expected goal margin vs an average team (Poisson model); knockout draws -> penalties ~50/50
 const SERIES={nba:7,nhl:7,mlb:7,wnba:7};   // playoffs are best-of-7 series; NFL/CFB are single-elimination
@@ -377,7 +378,7 @@ function simMatchup(){
     why+= gameP<0.58?' Close to a coin-flip — a live underdog.':(gameP>0.72?' A clear edge.':'');
     hdr=`<b>${fav.name}</b> wins <b>${Math.round(gameP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(${_amer(gameP)})</span> · projected by <b>~${ssp.toFixed(dp)} ${unit}</b> <span style="color:var(--ink3);font-size:12px">(${site})</span>`;
     note=FOOTY.includes(cur)?`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%.${d.hfa2?` Home edge depends on travel: ${cur==="afl"?"same state":"same region"} ${d.hfa2.same>=0?"+":""}${d.hfa2.same.toFixed(1)} pts, ${cur==="afl"?"interstate":"travelling visitor"} ${d.hfa2.inter>=0?"+":""}${d.hfa2.inter.toFixed(1)}.`:""} The game ratings beat the home-win rate in both halves of the backtest.`
-      :`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested straight-up: CFB 71%, NHL 58%, NFL 58.5%${['nba','wnba','mlb'].includes(cur)?'; this sport estimated':''}.`;
+      :`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested straight-up: CFB 71%, NHL 58%, NFL 64%${['nba','wnba','mlb'].includes(cur)?'; this sport estimated':''}.`;
   }
   out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>${note?`<div class="munote">${note}</div>`:''}`;
   oddsCheck();
@@ -390,8 +391,11 @@ function simMatchup(){
    Backtest of these exact rules (baseball-blueprint/matchup-lines-backtest.mjs --classic, ESPN pre-game lines, median book prices, halves):
    NFL 2015-19 / 2020-25: TAKE on 69% / 66% of games, won 40.6% / 43.9% when the model said ~55%, ROI -10.8% / -4.9%; $125 at these stakes
    finished down in 10 of 11 seasons. CFB 2014-19 / 2020-25: TAKE on 75% / 76%, won 42.1% / 44.4%, ROI -11.1% / -4.7%; down in 11 of 12.
-   The verdict's small print says so. */
-const MU_TEST={nfl:{n:"2,368",yrs:"2015–25",take:"2 of 3",won:"41–44%",roi:"5–11%",bank:"10 of 11"},cfb:{n:"6,290",yrs:"2014–25",take:"3 of 4",won:"42–44%",roi:"5–11%",bank:"11 of 12"}};
+   2026-11-08 NFL model change (user: "what could improve the classic nfl" -> "yes if it helps"): ratings start from last season's PD/g
+   (build.py NFL_MU_*), SD 13.5. Early weeks counted as LEAN PASS (what the site shows): TAKE on 57% / 56%, won 40.7% / 42.6% when the
+   model said ~50%, ROI -5.9% / -2.0% (was -8.4% / -4.3% on the same basis); $125 down in 9 of 11 seasons (was 10). Other settings near
+   the best fit ranged -2% to -7%, so only the accuracy gain is solid. The verdict's small print says so. */
+const MU_TEST={nfl:{n:"2,368",yrs:"2015–25",take:"56–57% of",won:"41–43%",said:"~50%",roi:"2–6%",bank:"9 of 11"},cfb:{n:"6,290",yrs:"2014–25",take:"3 of 4",won:"42–44%",said:"~55%",roi:"5–11%",bank:"11 of 12"}};
 const _odds=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(s==='ev'||s==='even') return 100; const v=+s; return isFinite(v)&&Math.abs(v)>=100?v:NaN; };
 const _lineIn=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(/^pk|^pick/.test(s)) return 0; const v=+s; return isFinite(v)?v:NaN; };
 const _dec=a=>a>0?1+a/100:1+100/-a;
@@ -426,8 +430,8 @@ function oddsCheck(){
     bets.push({k:'sp',s:'A',label:`${nA} ${_fmtLine(L)}`,price:pxA??-110,p:mc},{k:'sp',s:'B',label:`${nB} ${_fmtLine(-L)}`,price:pxB??-110,p:1-mc}); }
   const unit=MU_UNIT[cur], fav=M.m>=0?M.A:M.B, pf=Math.max(M.pA,1-M.pA), T=MU_TEST[cur], sport=(M.d.sport||cur).toUpperCase();
   const modelLine=`Model: ${fav.name} by ~${Math.abs(M.m).toFixed(1)} ${unit}, wins ${Math.round(pf*100)}% (fair ${_amer(pf)})${M.h==='0'?' at a neutral site':''}`;
-  const testNote=T?`Backtest of these exact rules on ${T.n} real ${sport} games (${T.yrs}, median book prices): it said TAKE on ${T.take} games, and those bets won ${T.won} when the model said ~55% — down ${T.roi} per dollar in both halves; $125 at these stakes finished down in ${T.bank} seasons.`
-    :`Not backtested on real ${sport} lines; the same kind of model lost 5–11% per dollar on NFL and CFB lines under these rules.`;
+  const testNote=T?`Backtest of these exact rules on ${T.n} real ${sport} games (${T.yrs}, median book prices): it said TAKE on ${T.take} games, and those bets won ${T.won} when the model said ${T.said} — down ${T.roi} per dollar in both halves; $125 at these stakes finished down in ${T.bank} seasons.`
+    :`Not backtested on real ${sport} lines; the same kind of model lost 2–11% per dollar on NFL and CFB lines under these rules.`;
   if(!bets.length){ out.innerHTML=`<div class="munote" style="margin-top:6px">Type a <b>moneyline</b> (one side or both) or the <b>spread</b> (prices default to -110). ${modelLine}${M.h==='0'?' — set who\'s home first':''}.</div>`; return; }
   for(const x of bets){ x.dec=_dec(x.price); x.ev=x.p*x.dec-1; x.kelly=x.ev/(x.dec-1); x.tag=x.ev<=0?'noev':x.ev>0.50?'toogood':x.ev<0.04?'thin':'take'; }
   const mkt=x=>{ const pr=bets.filter(y=>y.k===x.k); return pr.length===2?(1/x.dec)/(1/pr[0].dec+1/pr[1].dec):1/x.dec; };   // the book's %: no-vig when both sides are typed
