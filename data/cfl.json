@@ -1,7 +1,7 @@
 {
   "sport": "CFL",
   "season": "2026",
-  "generated": "2026-11-07T20:37:09Z",
+  "generated": "2026-11-08T18:34:41Z",
   "cats": [
     "Win% top-5",
     "Scoring \u2265 24.6",
@@ -41,9 +41,9 @@
       "rtg": 8.22,
       "alive": true,
       "next": {
-        "round": "Division final",
-        "opp": "Winnipeg Blue Bombers",
-        "site": "home"
+        "round": "Grey Cup",
+        "opp": "Edmonton Elks",
+        "site": "neutral"
       },
       "fair_pct": 42.8,
       "fair_odds": "+133",
@@ -77,9 +77,9 @@
       "rtg": 5.89,
       "alive": true,
       "next": {
-        "round": "Division final",
-        "opp": "BC Lions",
-        "site": "home"
+        "round": "Grey Cup",
+        "opp": "Montreal Alouettes",
+        "site": "neutral"
       },
       "fair_pct": 35.6,
       "fair_odds": "+181",
@@ -111,12 +111,8 @@
       ],
       "index": 68.8,
       "rtg": 1.78,
-      "alive": true,
-      "next": {
-        "round": "Division final",
-        "opp": "Edmonton Elks",
-        "site": "away"
-      },
+      "alive": false,
+      "next": null,
       "fair_pct": 8.3,
       "fair_odds": "+1100",
       "read": null,
@@ -211,12 +207,8 @@
       ],
       "index": 59.1,
       "rtg": -0.94,
-      "alive": true,
-      "next": {
-        "round": "Division final",
-        "opp": "Montreal Alouettes",
-        "site": "away"
-      },
+      "alive": false,
+      "next": null,
       "fair_pct": 3.2,
       "fair_odds": "+3068",
       "read": null,
@@ -325,11 +317,11 @@
   "odds_remaining": null,
   "market_name": "DraftKings",
   "market_asof": null,
-  "stage": "final4",
+  "stage": "final",
   "window_closed": true,
   "prediction": {
     "pick": "Montreal Alouettes",
-    "why": "Still alive: Montreal Alouettes, Edmonton Elks, BC Lions, Winnipeg Blue Bombers. Going into the playoffs the model's #1 was <b>Montreal Alouettes</b>: 42.8% to win the Grey Cup (fair +133). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
+    "why": "Still alive: Montreal Alouettes, Edmonton Elks. Going into the playoffs the model's #1 was <b>Montreal Alouettes</b>: 42.8% to win the Grey Cup (fair +133). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
   },
   "season_pct": 100,
   "gp_min": 18,

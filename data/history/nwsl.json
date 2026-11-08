@@ -3805,5 +3805,123 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-08",
+  "gp": 30,
+  "teams": {
+   "Gotham FC": {
+    "sc": 5,
+    "idx": 91.2,
+    "fp": 19.1,
+    "mkt": "+270",
+    "ev": -29
+   },
+   "Kansas City Current": {
+    "sc": 4,
+    "idx": 82.4,
+    "fp": 18.1,
+    "mkt": "+400",
+    "ev": -10
+   },
+   "San Diego Wave FC": {
+    "sc": 5,
+    "idx": 85.5,
+    "fp": 17.1,
+    "mkt": "+300",
+    "ev": -32
+   },
+   "Washington Spirit": {
+    "sc": 5,
+    "idx": 82,
+    "fp": 16.5,
+    "mkt": "+350",
+    "ev": -26
+   },
+   "Angel City FC": {
+    "sc": 5,
+    "idx": 90.3,
+    "fp": 10.3,
+    "mkt": "+1100",
+    "ev": 24
+   },
+   "Portland Thorns FC": {
+    "sc": 3,
+    "idx": 74.8,
+    "fp": 8.1,
+    "mkt": "+1600",
+    "ev": 38
+   },
+   "Seattle Reign FC": {
+    "sc": 2,
+    "idx": 69.9,
+    "fp": 5.9,
+    "mkt": "+1400",
+    "ev": -12
+   },
+   "Utah Royals": {
+    "sc": 1,
+    "idx": 65,
+    "fp": 5.0,
+    "mkt": "+2500",
+    "ev": 30
+   },
+   "Boston Legacy FC": {
+    "sc": 2,
+    "idx": 49.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Denver Summit FC": {
+    "sc": 1,
+    "idx": 69.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "North Carolina Courage": {
+    "sc": 1,
+    "idx": 64.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Houston Dash": {
+    "sc": 1,
+    "idx": 50.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Orlando Pride": {
+    "sc": 1,
+    "idx": 49.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Racing Louisville FC": {
+    "sc": 1,
+    "idx": 23.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bay FC": {
+    "sc": 0,
+    "idx": 38.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Stars FC": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]

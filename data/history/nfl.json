@@ -4905,9 +4905,9 @@
    "Jacksonville Jaguars": {
     "sc": 5,
     "idx": 91.0,
-    "fp": 21.9,
-    "mkt": "+850",
-    "ev": 108
+    "fp": 21.1,
+    "mkt": "+900",
+    "ev": 111
    },
    "San Francisco 49ers": {
     "sc": 5,
@@ -4923,54 +4923,54 @@
     "mkt": "+800",
     "ev": 14
    },
+   "Cincinnati Bengals": {
+    "sc": 4,
+    "idx": 74.0,
+    "fp": 8.9,
+    "mkt": "+1300",
+    "ev": 24
+   },
    "Minnesota Vikings": {
     "sc": 4,
     "idx": 72.3,
     "fp": 10.8,
     "mkt": "+2500",
-    "ev": 180
+    "ev": 181
    },
    "Buffalo Bills": {
     "sc": 4,
     "idx": 72.1,
-    "fp": 8.5,
+    "fp": 8.2,
     "mkt": "+600",
-    "ev": -40
-   },
-   "Cincinnati Bengals": {
-    "sc": 4,
-    "idx": 68.6,
-    "fp": 7.3,
-    "mkt": "+1600",
-    "ev": 25
+    "ev": -43
    },
    "Kansas City Chiefs": {
     "sc": 3,
     "idx": 64.4,
-    "fp": 4.9,
-    "mkt": "+1100",
-    "ev": -42
+    "fp": 4.7,
+    "mkt": "+1200",
+    "ev": -39
    },
    "Pittsburgh Steelers": {
     "sc": 2,
     "idx": 64.0,
-    "fp": 3.3,
+    "fp": 3.2,
     "mkt": "+4000",
-    "ev": 37
+    "ev": 32
    },
    "Detroit Lions": {
     "sc": 2,
     "idx": 58.0,
     "fp": 3.1,
-    "mkt": "+1600",
-    "ev": -47
+    "mkt": "+1700",
+    "ev": -44
    },
    "New England Patriots": {
     "sc": 2,
     "idx": 56.2,
-    "fp": 2.3,
-    "mkt": "+2200",
-    "ev": -48
+    "fp": 2.2,
+    "mkt": "+2000",
+    "ev": -54
    },
    "Green Bay Packers": {
     "sc": 2,
@@ -4983,22 +4983,22 @@
     "sc": 1,
     "idx": 55.6,
     "fp": 1.2,
-    "mkt": "+1300",
-    "ev": -84
+    "mkt": "+1400",
+    "ev": -82
    },
    "Los Angeles Rams": {
     "sc": 1,
     "idx": 55.4,
     "fp": 1.2,
-    "mkt": "+1300",
-    "ev": -84
+    "mkt": "+1200",
+    "ev": -85
    },
    "Tampa Bay Buccaneers": {
     "sc": 1,
     "idx": 53.9,
     "fp": 1.1,
-    "mkt": "+6500",
-    "ev": -29
+    "mkt": "+5000",
+    "ev": -45
    },
    "Denver Broncos": {
     "sc": 1,
@@ -5011,22 +5011,22 @@
     "sc": 1,
     "idx": 48.7,
     "fp": 0.8,
-    "mkt": "+6000",
-    "ev": -52
+    "mkt": "+5500",
+    "ev": -56
    },
    "Dallas Cowboys": {
     "sc": 1,
     "idx": 44.9,
     "fp": 0.6,
-    "mkt": "+5500",
-    "ev": -65
+    "mkt": "+6500",
+    "ev": -59
    },
    "Las Vegas Raiders": {
     "sc": 1,
     "idx": 41.1,
     "fp": 0.4,
     "mkt": "+10000",
-    "ev": -62
+    "ev": -63
    },
    "Carolina Panthers": {
     "sc": 1,
@@ -5039,8 +5039,8 @@
     "sc": 1,
     "idx": 35.3,
     "fp": 0.2,
-    "mkt": "+20000",
-    "ev": -52
+    "mkt": "+17500",
+    "ev": -59
    },
    "Houston Texans": {
     "sc": 0,
@@ -5049,40 +5049,40 @@
     "mkt": "+3500",
     "ev": -94
    },
-   "Atlanta Falcons": {
-    "sc": 0,
-    "idx": 36.5,
-    "fp": 0.2,
-    "mkt": "+8000",
-    "ev": -87
-   },
    "New York Jets": {
     "sc": 0,
     "idx": 34.3,
     "fp": 0.1,
-    "mkt": "+100000",
-    "ev": 10
+    "mkt": "+75000",
+    "ev": -20
    },
    "Washington Commanders": {
     "sc": 0,
     "idx": 33.2,
     "fp": 0.1,
-    "mkt": "+12500",
-    "ev": -84
+    "mkt": "+10000",
+    "ev": -87
+   },
+   "Atlanta Falcons": {
+    "sc": 0,
+    "idx": 30.2,
+    "fp": 0.1,
+    "mkt": "+10000",
+    "ev": -90
    },
    "New Orleans Saints": {
     "sc": 0,
     "idx": 28.0,
     "fp": 0.1,
-    "mkt": "+15000",
-    "ev": -89
+    "mkt": "+12500",
+    "ev": -91
    },
    "Baltimore Ravens": {
     "sc": 0,
     "idx": 27.8,
     "fp": 0.1,
-    "mkt": "+12500",
-    "ev": -93
+    "mkt": "+17500",
+    "ev": -90
    },
    "Arizona Cardinals": {
     "sc": 0,
@@ -5096,7 +5096,7 @@
     "idx": 18.3,
     "fp": 0.0,
     "mkt": "+100000",
-    "ev": -83
+    "ev": -84
    },
    "Indianapolis Colts": {
     "sc": 0,
@@ -5109,8 +5109,8 @@
     "sc": 0,
     "idx": 16.7,
     "fp": 0.0,
-    "mkt": "+40000",
-    "ev": -94
+    "mkt": "+50000",
+    "ev": -92
    },
    "Miami Dolphins": {
     "sc": 0,
@@ -5123,8 +5123,8 @@
     "sc": 0,
     "idx": 5.8,
     "fp": 0.0,
-    "mkt": "+100000",
-    "ev": -99
+    "mkt": "+75000",
+    "ev": -100
    }
   }
  }

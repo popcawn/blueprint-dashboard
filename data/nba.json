@@ -1,11 +1,11 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-08T11:50:31Z",
-  "odds_remaining": "78254",
+  "generated": "2026-11-08T18:34:21Z",
+  "odds_remaining": "74279",
   "prediction": {
-    "pick": "Minnesota Timberwolves",
-    "why": "<b>Minnesota Timberwolves</b> is the pick \u2014 the top team the model actually trusts (fair +853). A #1 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
+    "pick": "San Antonio Spurs",
+    "why": "<b>San Antonio Spurs</b> is the pick \u2014 the top team the model actually trusts (fair +758). A #2 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
   },
   "season_pct": 11,
   "gp_min": 8,
@@ -26,6 +26,41 @@
   ],
   "teams": [
     {
+      "name": "San Antonio Spurs",
+      "conf": "W",
+      "rec": "8-2",
+      "score": 4,
+      "index": 93.1,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.800",
+        "+10.3 #2",
+        "118.4 #6",
+        "108.1 #8"
+      ],
+      "rtg": 10.3,
+      "fair_pct": 11.7,
+      "fair_odds": "+758",
+      "market": "+290",
+      "ev": -55,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -55
+      },
+      "read": {
+        "v": "trust",
+        "why": "A #2 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
       "name": "Minnesota Timberwolves",
       "conf": "W",
       "rec": "7-3",
@@ -40,57 +75,22 @@
       "vals": [
         "0.700",
         "+10.7 #1",
-        "118.4 #5",
+        "118.4 #6",
         "107.7 #7"
       ],
       "rtg": 10.7,
-      "fair_pct": 10.5,
-      "fair_odds": "+853",
+      "fair_pct": 10.8,
+      "fair_odds": "+828",
       "market": "+2000",
-      "ev": 120,
+      "ev": 126,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 120
+        "ev": 126
       },
       "read": {
         "v": "trust",
         "why": "A #1 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
-      "name": "Houston Rockets",
-      "conf": "W",
-      "rec": "7-3",
-      "score": 4,
-      "index": 90.0,
-      "q": [
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "0.700",
-        "+10.3 #2",
-        "117.9 #8",
-        "107.6 #6"
-      ],
-      "rtg": 10.3,
-      "fair_pct": 10.3,
-      "fair_odds": "+875",
-      "market": "+1400",
-      "ev": 54,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 54
-      },
-      "read": {
-        "v": "trust",
-        "why": "A #2 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
       },
       "ftt": "pending",
       "vs500": null
@@ -111,11 +111,11 @@
         "0.778",
         "+9.7 #3",
         "114.8 #14",
-        "105.1 #2"
+        "105.1 #4"
       ],
       "rtg": 9.7,
       "fair_pct": 16.6,
-      "fair_odds": "+504",
+      "fair_odds": "+503",
       "market": "+1000",
       "ev": 82,
       "verdict": {
@@ -125,7 +125,7 @@
       },
       "read": {
         "v": "trust",
-        "why": "Elite defense (#2) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+        "why": "Elite defense (#4) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
       },
       "ftt": "pending",
       "vs500": null
@@ -145,18 +145,18 @@
       "vals": [
         "0.750",
         "+9.4 #4",
-        "111.1 #21",
+        "111.1 #19",
         "101.8 #1"
       ],
       "rtg": 9.4,
       "fair_pct": 16.2,
-      "fair_odds": "+518",
+      "fair_odds": "+517",
       "market": "+1800",
-      "ev": 207,
+      "ev": 208,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 207
+        "ev": 208
       },
       "read": {
         "v": "trust",
@@ -166,11 +166,11 @@
       "vs500": null
     },
     {
-      "name": "San Antonio Spurs",
+      "name": "Houston Rockets",
       "conf": "W",
-      "rec": "8-2",
+      "rec": "7-3",
       "score": 3,
-      "index": 90.3,
+      "index": 87.4,
       "q": [
         true,
         true,
@@ -178,20 +178,20 @@
         true
       ],
       "vals": [
-        "0.800",
+        "0.700",
         "+9.0 #5",
-        "117.7 #11",
-        "108.7 #8"
+        "116.0 #11",
+        "107.0 #6"
       ],
       "rtg": 9.0,
-      "fair_pct": 7.3,
-      "fair_odds": "+1268",
-      "market": "+290",
-      "ev": -71,
+      "fair_pct": 6.8,
+      "fair_odds": "+1369",
+      "market": "+1400",
+      "ev": 2,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -71
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 2
       },
       "read": {
         "v": "trust",
@@ -201,36 +201,36 @@
       "vs500": null
     },
     {
-      "name": "Portland Trail Blazers",
+      "name": "Oklahoma City Thunder",
       "conf": "W",
-      "rec": "6-3",
-      "score": 3,
-      "index": 85.0,
+      "rec": "8-2",
+      "score": 2,
+      "index": 89.4,
       "q": [
         true,
-        true,
-        true,
-        false
+        false,
+        false,
+        true
       ],
       "vals": [
-        "0.667",
-        "+9.0 #5",
-        "121.4 #2",
-        "112.4 #13"
+        "0.800",
+        "+8.0 #6",
+        "112.2 #16",
+        "104.2 #2"
       ],
-      "rtg": 9.0,
-      "fair_pct": 6.1,
-      "fair_odds": "+1540",
-      "market": "+2700",
-      "ev": 71,
+      "rtg": 8.0,
+      "fair_pct": 4.9,
+      "fair_odds": "+1958",
+      "market": "+490",
+      "ev": -71,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 71
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -71
       },
       "read": {
         "v": "trust",
-        "why": "A #5 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
+        "why": "Defense wins in May \u2014 a #2 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
       },
       "ftt": "pending",
       "vs500": null
@@ -251,56 +251,21 @@
         "0.800",
         "+7.7 #7",
         "122.0 #1",
-        "114.3 #18"
+        "114.3 #20"
       ],
       "rtg": 7.7,
-      "fair_pct": 4.3,
-      "fair_odds": "+2251",
+      "fair_pct": 4.4,
+      "fair_odds": "+2188",
       "market": "+2700",
-      "ev": 19,
+      "ev": 22,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 19
+        "ev": 22
       },
       "read": {
         "v": "fools_gold",
-        "why": "All offense (#1), no stops (#18 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
-      "name": "Oklahoma City Thunder",
-      "conf": "W",
-      "rec": "8-2",
-      "score": 2,
-      "index": 81.6,
-      "q": [
-        true,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "0.800",
-        "+4.6 #12",
-        "112.0 #17",
-        "107.4 #5"
-      ],
-      "rtg": 4.6,
-      "fair_pct": 3.6,
-      "fair_odds": "+2681",
-      "market": "+480",
-      "ev": -79,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -79
-      },
-      "read": {
-        "v": "trust",
-        "why": "Defense wins in May \u2014 a #5 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+        "why": "All offense (#1), no stops (#20 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
       },
       "ftt": "pending",
       "vs500": null
@@ -320,18 +285,18 @@
       "vals": [
         "0.667",
         "+6.1 #8",
-        "117.9 #8",
+        "117.9 #9",
         "111.8 #11"
       ],
       "rtg": 6.1,
-      "fair_pct": 3.3,
-      "fair_odds": "+2941",
-      "market": "+17500",
-      "ev": 479,
+      "fair_pct": 3.4,
+      "fair_odds": "+2860",
+      "market": "+20000",
+      "ev": 579,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 479
+        "ev": 579
       },
       "read": {
         "v": "caution",
@@ -355,12 +320,12 @@
       "vals": [
         "0.800",
         "+2.8 #15",
-        "109.4 #24",
-        "106.6 #4"
+        "109.4 #23",
+        "106.6 #5"
       ],
       "rtg": 2.8,
       "fair_pct": 6.8,
-      "fair_odds": "+1365",
+      "fair_odds": "+1362",
       "market": "+850",
       "ev": -35,
       "verdict": {
@@ -370,7 +335,42 @@
       },
       "read": {
         "v": "trust",
-        "why": "Elite defense (#4) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+        "why": "Elite defense (#5) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
+      "name": "Portland Trail Blazers",
+      "conf": "W",
+      "rec": "6-3",
+      "score": 2,
+      "index": 77.6,
+      "q": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.667",
+        "+5.6 #10",
+        "119.3 #3",
+        "113.8 #16"
+      ],
+      "rtg": 5.6,
+      "fair_pct": 3.2,
+      "fair_odds": "+3047",
+      "market": "+2700",
+      "ev": -11,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -11
+      },
+      "read": {
+        "v": "fools_gold",
+        "why": "All offense (#3), no stops (#16 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
       },
       "ftt": "pending",
       "vs500": null
@@ -380,7 +380,7 @@
       "conf": "W",
       "rec": "7-3",
       "score": 2,
-      "index": 77.3,
+      "index": 77.6,
       "q": [
         true,
         false,
@@ -389,23 +389,23 @@
       ],
       "vals": [
         "0.700",
-        "+4.8 #11",
-        "117.8 #10",
-        "113.0 #16"
+        "+5.0 #12",
+        "118.6 #5",
+        "113.6 #15"
       ],
-      "rtg": 4.8,
-      "fair_pct": 3.1,
-      "fair_odds": "+3171",
+      "rtg": 5.0,
+      "fair_pct": 3.2,
+      "fair_odds": "+3047",
       "market": "+3500",
-      "ev": 10,
+      "ev": 14,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 10
+        "ev": 14
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#11) but leans one way; the #16 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#12) but leans one way; the #15 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -415,7 +415,7 @@
       "conf": "E",
       "rec": "7-4",
       "score": 2,
-      "index": 71.5,
+      "index": 71.3,
       "q": [
         true,
         false,
@@ -424,23 +424,23 @@
       ],
       "vals": [
         "0.636",
-        "+3.2 #14",
-        "118.1 #7",
-        "114.9 #21"
+        "+3.2 #13",
+        "118.6 #4",
+        "115.5 #21"
       ],
       "rtg": 3.2,
       "fair_pct": 5.2,
-      "fair_odds": "+1824",
+      "fair_odds": "+1836",
       "market": "+7000",
-      "ev": 269,
+      "ev": 267,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 269
+        "kind": "trap",
+        "label": "trap",
+        "ev": 267
       },
       "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#14) but leans one way; the #21 end is where a playoff defense makes it uncomfortable."
+        "v": "fools_gold",
+        "why": "All offense (#4), no stops (#21 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
       },
       "ftt": "pending",
       "vs500": null
@@ -450,7 +450,7 @@
       "conf": "E",
       "rec": "5-4",
       "score": 1,
-      "index": 74.7,
+      "index": 76.5,
       "q": [
         false,
         false,
@@ -459,19 +459,19 @@
       ],
       "vals": [
         "0.556",
-        "+4.9 #10",
-        "110.0 #22",
-        "105.1 #3"
+        "+5.7 #9",
+        "109.9 #21",
+        "104.2 #3"
       ],
-      "rtg": 4.9,
-      "fair_pct": 1.9,
-      "fair_odds": "+5299",
-      "market": "+1000",
-      "ev": -80,
+      "rtg": 5.7,
+      "fair_pct": 2.0,
+      "fair_odds": "+4916",
+      "market": "+950",
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -79
       },
       "read": {
         "v": "trust",
@@ -494,13 +494,13 @@
       ],
       "vals": [
         "0.556",
-        "+5.4 #9",
-        "118.2 #6",
-        "112.8 #14"
+        "+5.4 #11",
+        "118.2 #8",
+        "112.8 #13"
       ],
       "rtg": 5.4,
       "fair_pct": 1.8,
-      "fair_odds": "+5476",
+      "fair_odds": "+5464",
       "market": "+1700",
       "ev": -68,
       "verdict": {
@@ -510,42 +510,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#9) but leans one way; the #14 end is where a playoff defense makes it uncomfortable."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
-      "name": "Cleveland Cavaliers",
-      "conf": "E",
-      "rec": "5-5",
-      "score": 1,
-      "index": 69.8,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "0.500",
-        "+4.6 #13",
-        "119.2 #4",
-        "114.7 #19"
-      ],
-      "rtg": 4.6,
-      "fair_pct": 1.5,
-      "fair_odds": "+6517",
-      "market": "+3000",
-      "ev": -53,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -53
-      },
-      "read": {
-        "v": "fools_gold",
-        "why": "Scoreboard-stuffing against regular-season pace \u2014 but playoff games crawl into the half-court, and a #19 defense can't get the stop when it matters. Points don't travel; defense does."
+        "why": "Net-rating-driven (#11) but leans one way; the #13 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -555,7 +520,7 @@
       "conf": "W",
       "rec": "5-3",
       "score": 1,
-      "index": 66.1,
+      "index": 69.4,
       "q": [
         true,
         false,
@@ -564,23 +529,58 @@
       ],
       "vals": [
         "0.625",
-        "+0.7 #18",
-        "115.4 #13",
-        "114.7 #20"
+        "+2.1 #16",
+        "115.2 #13",
+        "113.1 #14"
       ],
-      "rtg": 0.7,
-      "fair_pct": 0.6,
-      "fair_odds": "+16640",
+      "rtg": 2.1,
+      "fair_pct": 0.7,
+      "fair_odds": "+13980",
       "market": "+2200",
-      "ev": -86,
+      "ev": -84,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -84
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#18) but leans one way; the #20 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#16) but leans one way; the #14 end is where a playoff defense makes it uncomfortable."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
+      "name": "Cleveland Cavaliers",
+      "conf": "E",
+      "rec": "5-5",
+      "score": 1,
+      "index": 66.6,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.500",
+        "+2.9 #14",
+        "117.0 #10",
+        "114.1 #17"
+      ],
+      "rtg": 2.9,
+      "fair_pct": 1.3,
+      "fair_odds": "+7502",
+      "market": "+3000",
+      "ev": -59,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -59
+      },
+      "read": {
+        "v": "caution",
+        "why": "Net-rating-driven (#14) but leans one way; the #17 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -599,23 +599,23 @@
       ],
       "vals": [
         "0.556",
-        "+1.2 #17",
-        "112.1 #16",
+        "+1.2 #18",
+        "112.1 #17",
         "110.9 #10"
       ],
       "rtg": 1.2,
       "fair_pct": 0.6,
-      "fair_odds": "+16870",
-      "market": "+20000",
-      "ev": 18,
+      "fair_odds": "+16419",
+      "market": "+22500",
+      "ev": 37,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 18
+        "ev": 37
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#17) but leans one way; the #16 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#18) but leans one way; the #17 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -634,23 +634,23 @@
       ],
       "vals": [
         "0.444",
-        "+1.4 #16",
-        "120.2 #3",
-        "118.8 #25"
+        "+1.4 #17",
+        "120.2 #2",
+        "118.8 #26"
       ],
       "rtg": 1.4,
       "fair_pct": 0.5,
-      "fair_odds": "+21624",
+      "fair_odds": "+21047",
       "market": "+100000",
-      "ev": 361,
+      "ev": 373,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 361
+        "ev": 373
       },
       "read": {
         "v": "fools_gold",
-        "why": "All offense (#3), no stops (#25 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
+        "why": "All offense (#2), no stops (#26 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
       },
       "ftt": "pending",
       "vs500": null
@@ -676,12 +676,12 @@
       "rtg": -13.9,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+15000",
-      "ev": -87,
+      "market": "+12500",
+      "ev": -89,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -89
       },
       "read": {
         "v": "caution",
@@ -692,32 +692,32 @@
     }
   ],
   "rtgs": {
+    "San Antonio Spurs": 10.3,
     "Minnesota Timberwolves": 10.7,
-    "Houston Rockets": 10.3,
     "Boston Celtics": 9.7,
     "Detroit Pistons": 9.4,
-    "San Antonio Spurs": 9.0,
-    "Portland Trail Blazers": 9.0,
+    "Houston Rockets": 9.0,
+    "Oklahoma City Thunder": 8.0,
     "Los Angeles Lakers": 7.7,
-    "Oklahoma City Thunder": 4.6,
     "Memphis Grizzlies": 6.1,
     "Philadelphia 76ers": 2.8,
-    "Golden State Warriors": 4.8,
+    "Portland Trail Blazers": 5.6,
+    "Golden State Warriors": 5.0,
     "Atlanta Hawks": 3.2,
-    "New York Knicks": 4.9,
+    "New York Knicks": 5.7,
     "Toronto Raptors": 5.4,
-    "Cleveland Cavaliers": 4.6,
-    "Denver Nuggets": 0.7,
+    "Denver Nuggets": 2.1,
+    "Cleveland Cavaliers": 2.9,
     "Dallas Mavericks": 1.2,
     "New Orleans Pelicans": 1.4,
     "Charlotte Hornets": -13.9,
-    "Washington Wizards": -0.9,
-    "Indiana Pacers": -3.0,
+    "Washington Wizards": -4.7,
+    "Indiana Pacers": -3.9,
+    "Phoenix Suns": -6.2,
     "Miami Heat": -6.6,
-    "Phoenix Suns": -7.6,
-    "Brooklyn Nets": -6.2,
+    "Brooklyn Nets": -5.9,
     "LA Clippers": -6.5,
-    "Orlando Magic": -9.5,
+    "Orlando Magic": -9.2,
     "Utah Jazz": -11.3,
     "Milwaukee Bucks": -12.4,
     "Sacramento Kings": -14.1,
@@ -732,27 +732,27 @@
   "value_plays": [
     {
       "name": "Detroit Pistons",
-      "ev": 207,
+      "ev": 208,
       "market": "+1800",
-      "fair_odds": "+518"
+      "fair_odds": "+517"
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 120,
+      "ev": 126,
       "market": "+2000",
-      "fair_odds": "+853"
+      "fair_odds": "+828"
     },
     {
       "name": "Boston Celtics",
       "ev": 82,
       "market": "+1000",
-      "fair_odds": "+504"
+      "fair_odds": "+503"
     },
     {
       "name": "Houston Rockets",
-      "ev": 54,
+      "ev": 2,
       "market": "+1400",
-      "fair_odds": "+875"
+      "fair_odds": "+1369"
     }
   ]
 }

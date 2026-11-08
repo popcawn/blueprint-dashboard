@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-08T11:32:59Z",
-  "odds_remaining": "78463",
+  "generated": "2026-11-08T18:34:13Z",
+  "odds_remaining": "74281",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +220), the order that picked 10 of 12 CFP champions. Committee has it <b>#2</b> (83% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -92,12 +92,12 @@
       "rtg": 35.2,
       "fair_pct": 24.5,
       "fair_odds": "+308",
-      "market": "+370",
-      "ev": 15,
+      "market": "+390",
+      "ev": 20,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 15
+        "ev": 20
       },
       "read": {
         "v": "trust",
@@ -174,12 +174,12 @@
       "rtg": 27.9,
       "fair_pct": 19.5,
       "fair_odds": "+412",
-      "market": "+4000",
-      "ev": 701,
+      "market": "+3500",
+      "ev": 603,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 701
+        "ev": 603
       },
       "read": {
         "v": "caution",
@@ -215,12 +215,12 @@
       "rtg": 32.1,
       "fair_pct": 1.7,
       "fair_odds": "+5770",
-      "market": "+4000",
-      "ev": -30,
+      "market": "+4500",
+      "ev": -22,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -30
+        "ev": -22
       },
       "read": {
         "v": "caution",
@@ -297,12 +297,12 @@
       "rtg": 27.5,
       "fair_pct": 6.6,
       "fair_odds": "+1417",
-      "market": "+850",
-      "ev": -37,
+      "market": "+900",
+      "ev": -34,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -34
       },
       "read": {
         "v": "caution",
@@ -620,8 +620,8 @@
   "value_plays": [
     {
       "name": "Notre Dame Fighting Irish",
-      "ev": 15,
-      "market": "+370",
+      "ev": 20,
+      "market": "+390",
       "fair_odds": "+308"
     }
   ]
