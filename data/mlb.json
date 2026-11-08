@@ -1,14 +1,20 @@
 {
   "sport": "MLB",
   "season": "2026",
-  "generated": "2026-11-08T01:42:12Z",
+  "generated": "2026-11-08T12:27:10Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Brewers",
-    "why": "<b>Brewers</b> is the pick \u2014 the top team the model actually trusts (fair +483). Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
+    "why": "\ud83c\udfc6 <b>Brewers</b> won the 2026 World Series \u2014 the board's pick going in (fair +407; FanDuel had +500 on Sep 29, EV +18%). Fair odds and EV are frozen at the start of the playoffs \u2014 you never bet within them."
   },
   "season_pct": 100,
   "mlb_waronly": true,
+  "market_name": "FanDuel",
+  "market_asof": "Sep 29",
+  "stage": "done",
+  "window_closed": true,
+  "first_playoff": "2026-09-29T18:00:00Z",
+  "champion": "Brewers",
   "gp_min": 161,
   "gp_max": 162,
   "cats": [
@@ -55,11 +61,15 @@
         "+25 #4"
       ],
       "rtg": 1.32,
-      "fair_pct": 17.2,
-      "fair_odds": "+483",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 19.7,
+      "fair_odds": "+407",
+      "market": "+500",
+      "ev": 18,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 18
+      },
       "read": {
         "v": "trust",
         "why": "Elite run prevention (#2) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
@@ -90,11 +100,15 @@
         "+19 #9"
       ],
       "rtg": 1.24,
-      "fair_pct": 16.8,
-      "fair_odds": "+495",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 19.3,
+      "fair_odds": "+418",
+      "market": "+230",
+      "ev": -36,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -36
+      },
       "read": {
         "v": "trust",
         "why": "Elite run prevention (#4) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
@@ -125,11 +139,15 @@
         "+25 #4"
       ],
       "rtg": 0.72,
-      "fair_pct": 11.5,
-      "fair_odds": "+769",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 13.2,
+      "fair_odds": "+656",
+      "market": "+1400",
+      "ev": 98,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 98
+      },
       "read": {
         "v": "trust",
         "why": "A #5 staff that travels into October, plus enough offense. Built for a short series, not just 162 games. Trust it."
@@ -160,11 +178,15 @@
         "+72 #1"
       ],
       "rtg": 0.91,
-      "fair_pct": 14.2,
-      "fair_odds": "+602",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 16.4,
+      "fair_odds": "+511",
+      "market": "+1900",
+      "ev": 227,
+      "verdict": {
+        "kind": "trap",
+        "label": "trap",
+        "ev": 227
+      },
       "read": {
         "v": "fools_gold",
         "why": "All bats (#1), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
@@ -192,14 +214,18 @@
         "3.99 #10",
         "0.286 #12",
         "0.989 #2",
-        "+21 #6"
+        "+21 #7"
       ],
       "rtg": 0.25,
-      "fair_pct": 6.2,
-      "fair_odds": "+1520",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 7.1,
+      "fair_odds": "+1310",
+      "market": "+2200",
+      "ev": 63,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 63
+      },
       "read": {
         "v": "caution",
         "why": "Run-diff-driven (#10) but tilts one way; the #14 side is where a playoff series exposes it."
@@ -230,11 +256,15 @@
         "-2 #17"
       ],
       "rtg": 0.86,
-      "fair_pct": 5.8,
-      "fair_odds": "+1638",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 6.6,
+      "fair_odds": "+1413",
+      "market": "+800",
+      "ev": -40,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -40
+      },
       "read": {
         "v": "trust",
         "why": "Elite run prevention (#1) with a real lineup \u2014 the complete, October-proof shape. Pitching wins in the playoffs and this team has it."
@@ -265,11 +295,15 @@
         "+5 #15"
       ],
       "rtg": 0.53,
-      "fair_pct": 5.6,
-      "fair_odds": "+1677",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 6.5,
+      "fair_odds": "+1447",
+      "market": "+750",
+      "ev": -45,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -45
+      },
       "read": {
         "v": "caution",
         "why": "Run-diff-driven (#6) but tilts one way; the #13 side is where a playoff series exposes it."
@@ -280,7 +314,7 @@
       "conf": "AL",
       "rec": "84-78",
       "score": 5,
-      "index": 60.0,
+      "index": 60.1,
       "q": [
         false,
         true,
@@ -297,14 +331,18 @@
         "4.12 #14",
         "0.287 #13",
         "0.986 #13",
-        "+14 #12"
+        "+15 #11"
       ],
       "rtg": 0.35,
-      "fair_pct": 4.1,
-      "fair_odds": "+2331",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 4.8,
+      "fair_odds": "+2005",
+      "market": "+4000",
+      "ev": 95,
+      "verdict": {
+        "kind": "trap",
+        "label": "trap",
+        "ev": 95
+      },
       "read": {
         "v": "fools_gold",
         "why": "All bats (#5), no arms (#14 ERA). Playoff runs are built on run prevention; this one gets out-pitched in a short series. The classic trap."
@@ -335,8 +373,8 @@
         "+44 #2"
       ],
       "rtg": 0.06,
-      "fair_pct": 3.9,
-      "fair_odds": "+2492",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -370,11 +408,15 @@
         "+19 #9"
       ],
       "rtg": 0.48,
-      "fair_pct": 3.0,
-      "fair_odds": "+3223",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 3.5,
+      "fair_odds": "+2792",
+      "market": "+1600",
+      "ev": -41,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -41
+      },
       "read": {
         "v": "caution",
         "why": "Run-diff-driven (#7) but tilts one way; the #22 side is where a playoff series exposes it."
@@ -405,8 +447,8 @@
         "-39 #27"
       ],
       "rtg": 0.44,
-      "fair_pct": 2.6,
-      "fair_odds": "+3766",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -420,7 +462,7 @@
       "conf": "AL",
       "rec": "80-82",
       "score": 3,
-      "index": 48.6,
+      "index": 48.7,
       "q": [
         false,
         false,
@@ -437,11 +479,11 @@
         "4.32 #22",
         "0.293 #17",
         "0.988 #6",
-        "+21 #6"
+        "+22 #6"
       ],
       "rtg": -0.28,
-      "fair_pct": 1.2,
-      "fair_odds": "+8395",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -455,7 +497,7 @@
       "conf": "AL",
       "rec": "79-83",
       "score": 3,
-      "index": 43.0,
+      "index": 42.9,
       "q": [
         false,
         false,
@@ -472,11 +514,11 @@
         "3.90 #9",
         "0.285 #11",
         "0.983 #22",
-        "+15 #11"
+        "+14 #12"
       ],
       "rtg": -0.28,
-      "fair_pct": 0.8,
-      "fair_odds": "+12164",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -510,11 +552,15 @@
         "+10 #13"
       ],
       "rtg": 0.07,
-      "fair_pct": 0.9,
-      "fair_odds": "+10563",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 1.1,
+      "fair_odds": "+9180",
+      "market": "+1000",
+      "ev": -88,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -88
+      },
       "read": {
         "v": "caution",
         "why": "Run-diff-driven (#13) but tilts one way; the #24 side is where a playoff series exposes it."
@@ -545,8 +591,8 @@
         "+38 #3"
       ],
       "rtg": -0.18,
-      "fair_pct": 0.9,
-      "fair_odds": "+11020",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -580,11 +626,15 @@
         "-13 #18"
       ],
       "rtg": -0.2,
-      "fair_pct": 0.9,
-      "fair_odds": "+11155",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 1.0,
+      "fair_odds": "+9696",
+      "market": "+2000",
+      "ev": -79,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -79
+      },
       "read": {
         "v": "fools_gold",
         "why": "A #12 offense papering over #24 pitching. October is started by aces and decided in the bullpen \u2014 bats go cold and the staff can't cover. Fade."
@@ -615,8 +665,8 @@
         "+10 #13"
       ],
       "rtg": 0.02,
-      "fair_pct": 0.8,
-      "fair_odds": "+11866",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -650,11 +700,15 @@
         "-17 #21"
       ],
       "rtg": 0.09,
-      "fair_pct": 0.8,
-      "fair_odds": "+12321",
-      "market": null,
-      "ev": null,
-      "verdict": null,
+      "fair_pct": 0.9,
+      "fair_odds": "+10711",
+      "market": "+1800",
+      "ev": -82,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -82
+      },
       "read": {
         "v": "caution",
         "why": "Run-diff-driven (#12) but tilts one way; the #16 side is where a playoff series exposes it."
@@ -665,7 +719,7 @@
       "conf": "NL",
       "rec": "77-85",
       "score": 2,
-      "index": 44.5,
+      "index": 44.4,
       "q": [
         false,
         true,
@@ -682,11 +736,11 @@
         "4.67 #26",
         "0.290 #15",
         "0.982 #28",
-        "-22 #24"
+        "-23 #24"
       ],
       "rtg": 0.04,
-      "fair_pct": 0.6,
-      "fair_odds": "+15392",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -717,11 +771,11 @@
         "4.56 #25",
         "0.297 #23",
         "0.987 #7",
-        "-15 #19"
+        "-15 #20"
       ],
       "rtg": -0.36,
-      "fair_pct": 0.6,
-      "fair_odds": "+16485",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -755,8 +809,8 @@
         "+20 #8"
       ],
       "rtg": -0.74,
-      "fair_pct": 0.4,
-      "fair_odds": "+25581",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -790,8 +844,8 @@
         "-21 #23"
       ],
       "rtg": 0.17,
-      "fair_pct": 0.6,
-      "fair_odds": "+17869",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -822,11 +876,11 @@
         "4.15 #17",
         "0.291 #16",
         "0.983 #22",
-        "-23 #25"
+        "-23 #24"
       ],
       "rtg": -0.2,
-      "fair_pct": 0.3,
-      "fair_odds": "+32776",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -860,8 +914,8 @@
         "-17 #21"
       ],
       "rtg": -0.56,
-      "fair_pct": 0.1,
-      "fair_odds": "+50000+",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -895,8 +949,8 @@
         "+1 #16"
       ],
       "rtg": -0.99,
-      "fair_pct": 0.1,
-      "fair_odds": "+50000+",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -930,8 +984,8 @@
         "-44 #29"
       ],
       "rtg": -1.47,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -965,8 +1019,8 @@
         "-30 #26"
       ],
       "rtg": -1.19,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
+      "fair_pct": null,
+      "fair_odds": null,
       "market": null,
       "ev": null,
       "verdict": null,
@@ -1009,10 +1063,23 @@
     "Angels": -0.6
   },
   "signal": {
-    "status": "trust",
-    "emoji": "\ud83d\udfe2",
-    "label": "Trust the board",
-    "note": "162 games in \u2014 stats have stabilized; the read is actionable."
+    "status": "closed",
+    "emoji": "\ud83d\udd12",
+    "label": "Season over",
+    "note": "The season is decided \u2014 the board shows the fair odds frozen at the start of the playoffs, for the record."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Braves",
+      "ev": 98,
+      "market": "+1400",
+      "fair_odds": "+656"
+    },
+    {
+      "name": "Brewers",
+      "ev": 18,
+      "market": "+500",
+      "fair_odds": "+407"
+    }
+  ]
 }

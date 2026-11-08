@@ -1386,6 +1386,106 @@ def wnba_scoring(season):
         out[nm] = {"ppg": ppg, "opp": opg, "poss": poss, "ortg": 100*ppg/poss, "drtg": 100*opg/poss, "nrtg": 100*(ppg - opg)/poss}
     return out
 
+# ----------------------------------------------------------------------------- pre-playoff prices (WNBA + MLB, 2026-11-08)
+# User 2026-11-08: "for wnba and mlb bp can you add their betting odds before playoffs? i want to see their value" (+ "you can pull
+# latest odds from online too"). EV is only ever against PRE-playoff prices -- the user never bets within the playoffs -- and those
+# prices stay on the frozen board once the playoffs start, so it shows what the value was going in.
+def _ts(s):
+    """ISO date or date-time ('2026-09-29T17:08:00Z', '2026-09-27T19:00Z', '2026-09-25') -> aware UTC datetime."""
+    s = str(s).strip().replace("Z", "+00:00")
+    d = datetime.datetime.fromisoformat(s if "T" in s else s[:10] + "T00:00:00+00:00")
+    return d if d.tzinfo else d.replace(tzinfo=datetime.timezone.utc)
+
+def preplayoff_book(fname, season, first_po):
+    """data/<fname> = {date, [time], book, source, odds}: a screenshot, a dated sportsbook list found online, or (MLB) the bot's own
+       last pre-playoff FanDuel pull. Used only if it is from this season and, once the playoffs have started (first_po = first
+       game, ISO UTC), from BEFORE the first game (a timed snapshot may be from that morning; a date-only one must be from an
+       earlier day); before the playoffs, only while <= 14 days old. -> (odds by the file's team names, snapshot, its date or None)"""
+    try: snap = json.load(open(os.path.join(DATA, fname), encoding="utf-8"))
+    except Exception: return {}, {}, None
+    try: d0 = datetime.date.fromisoformat(str(snap.get("date"))[:10])
+    except Exception: return {}, snap, None
+    if not snap.get("odds") or d0.year != int(season): return {}, snap, None
+    if first_po:
+        ok = _ts(snap["time"]) < _ts(first_po) if snap.get("time") else d0 < _ts(first_po).date()
+    else:
+        ok = (datetime.date.today() - d0).days <= 14
+    return (dict(snap["odds"]) if ok else {}), snap, (d0 if ok else None)
+
+def match_book(names, odds):
+    """{book team name: price} -> {board team name: price}: exact, else the board name ends the book name ("Brewers" in "Milwaukee
+       Brewers" -- the MLB board uses statsapi's short names, so FanDuel's full names never matched it before 2026-11-08)."""
+    canon = lambda x: str(x).lower().replace("d-backs", "diamondbacks")
+    out = {}
+    for bk, px in odds.items():
+        b = canon(bk)
+        hit = (next((n for n in names if canon(n) == b), None) or next((n for n in names if b.endswith(" " + canon(n))), None)
+               or next((n for n in names if canon(n).endswith(" " + b)), None))
+        if hit is not None and hit not in out:
+            try: out[hit] = int(px)
+            except Exception: pass
+    return out
+
+def closed_prediction(pred, rows, champ, what, snap, asof):
+    """Pick text once the playoffs have started: the result, then the board's pre-playoff pick with its price and EV."""
+    pk = next((t for t in rows if t["name"] == pred["pick"]), {})
+    px = (f"; {(snap or {}).get('book', 'the book')} had {pk['market']} on {asof:%b} {asof.day}, EV {pk['ev']:+d}%"
+          if pk.get("market") and pk.get("ev") is not None and asof else "")
+    going = f"fair {pk.get('fair_odds') or '—'}{px}"
+    if champ and champ == pred["pick"]:
+        head = f"🏆 <b>{champ}</b> won the {what} — the board's pick going in ({going})."
+    elif champ:
+        head = f"🏆 <b>{champ}</b> won the {what}. Going in, the board's pick was <b>{pred['pick']}</b> ({going})."
+    else:
+        head = f"The playoffs are under way. Going in, the board's pick was <b>{pred['pick']}</b> ({going})."
+    return {"pick": pred["pick"], "why": head + " Fair odds and EV are frozen at the start of the playoffs — you never bet within them."}
+
+def wnba_postseason(season):
+    """(first playoff game as ISO UTC -- None until it has tipped off, champion -- None until the Finals are decided), from ESPN."""
+    try:
+        st = get(f"https://sports.core.api.espn.com/v2/sports/basketball/leagues/wnba/seasons/{season}/types/3")
+        d0 = datetime.date.fromisoformat(st["startDate"][:10])
+    except Exception:
+        return None, None
+    now, first = datetime.datetime.now(datetime.timezone.utc), None
+    for k in range(21):   # ESPN's postseason window opens a day or two before the first game
+        d = d0 + datetime.timedelta(days=k)
+        if d > now.date(): break
+        try: sb = get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates={d:%Y%m%d}")
+        except Exception: continue
+        ts = sorted(e.get("date", "") for e in sb.get("events", []) if (e.get("season") or {}).get("type") == 3)
+        if ts: first = ts[0]; break
+    if not first or _ts(first) > now: return None, None
+    champ = None
+    try:
+        for e in get("https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?seasontype=3").get("events", []):
+            c = (e.get("competitions") or [{}])[0]; ser = c.get("series") or {}
+            h = " ".join(n.get("headline", "") for n in c.get("notes", [])).lower()
+            if (e.get("season") or {}).get("year") == int(season) and ser.get("completed") and "finals" in h and "semi" not in h:
+                w = [x for x in c.get("competitors", []) if x.get("winner")]
+                if w: champ = w[0]["team"]["displayName"]
+    except Exception:
+        pass
+    return first, champ
+
+def mlb_postseason(season):
+    """statsapi postseason schedule -> (first pitch as ISO UTC -- None until thrown, the field's team names, World Series winner)."""
+    try: d = get(f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&season={season}&gameType=F,D,L,W")
+    except Exception: return None, [], None
+    teams, starts, wins = set(), [], {}
+    for dt in d.get("dates", []):
+        for g in dt.get("games", []):
+            if g.get("gameDate"): starts.append(g["gameDate"])
+            for sd in ("away", "home"):
+                side = (g.get("teams") or {}).get(sd) or {}; nm = (side.get("team") or {}).get("name")
+                if not nm: continue
+                teams.add(nm)
+                if g.get("gameType") == "W" and (g.get("status") or {}).get("abstractGameState") == "Final" and side.get("isWinner"):
+                    wins[nm] = wins.get(nm, 0) + 1
+    first = min(starts) if starts else None
+    if first and _ts(first) > datetime.datetime.now(datetime.timezone.utc): first = None
+    return first, sorted(teams), next((n for n, w in wins.items() if w >= 4), None)
+
 def build_wnba():
     season = YEAR   # ESPN tags the WNBA season by its own year
     base = {"sport": "WNBA", "season": str(season), "generated": now_iso()}
@@ -1439,10 +1539,18 @@ def build_wnba():
     for t in rows:
         t["p"] = z.get(t["name"], 0) / zs if zs else 0
         t["fair_odds"] = american(t["p"]) if t["p"] else None
-    attach(rows, [t for t in rows if t["p"] > 0], {})   # WNBA has no futures market
+    # Prices: no odds feed carries WNBA futures (the Odds API never has), so EV is against data/wnba_book.json -- the user's
+    # screenshot or a dated sportsbook list found online -- pre-playoff only, and kept once the playoffs start (see preplayoff_book).
+    first_po, champ = wnba_postseason(season)
+    odds, snap, asof = preplayoff_book("wnba_book.json", season, first_po)
+    attach(rows, [t for t in rows if t["p"] > 0], match_book([t["name"] for t in rows], odds))
     pred = make_prediction(rows, 3)
+    if first_po and pred: pred = closed_prediction(pred, rows, champ, f"{season} WNBA title", snap, asof)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": None, "prediction": pred, "season_pct": season_pct(rows, "wnba"),
+        "market_name": snap.get("book", "your book"), "market_asof": f"{asof:%b} {asof.day}" if asof else None,
+        "stage": ("done" if champ else "playoffs") if first_po else "regular", "window_closed": bool(first_po),
+        "first_playoff": first_po, "champion": champ,
         "hist_off": done,   # (2026-11-07) the regular season is over -> the board can't change; daily snapshots only padded the streak badges all offseason
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
         "cats": ["Win% ≥.680", "Net rtg top-4", "Def rtg top-6"], "labels": ["Win%", "Net rtg", "Def rtg"],
@@ -1533,11 +1641,44 @@ def build_mlb():
     tot = sum((max(t["index"], 5)**3)/1e5*tm.get(t["score"], 0.5) for t in pool)
     for t in pool: t["p"] = ((max(t["index"], 5)**3)/1e5*tm.get(t["score"], 0.5))/tot if tot else 0
     cap_odds(pool, 0.18)   # MLB is low-chalk (huge playoff variance) -> let the field stay wide
-    fd, rem = fetch_futures("baseball_mlb_world_series_winner")
+    # (2026-11-08) once the 12-team playoff field is set only those teams can win: zero the rest and renormalise the field -- what the
+    # 2026-11-07 price backtest did before the playoffs (model renormalised over the teams the book listed). Until now the board left
+    # ~14% on teams that missed the playoffs, understating every playoff team's fair odds and EV.
+    first_po, po_teams, champ_full = mlb_postseason(season)
+    names = [t["name"] for t in rows]
+    field = set(match_book(names, {n: 0 for n in po_teams}))
+    if len(field) >= 12:
+        fs = sum(t["p"] for t in pool if t["name"] in field)
+        for t in pool:
+            t["p"] = t["p"] / fs if fs and t["name"] in field else 0
+            t["fair_odds"] = american(t["p"]) if t["p"] else None
+    champ = next(iter(match_book(names, {champ_full: 0})), None) if champ_full else None
+    # Prices: live FanDuel until the first pitch of the playoffs, never in-playoff prices (the user never bets within them). Once the
+    # field is set, each pre-playoff pull is also saved to data/mlb_book.json, so the frozen board keeps EV against FanDuel's last
+    # pre-playoff prices (a screenshot or online list saved there works the same way).
+    fd, rem, snap, asof = {}, None, {}, None
+    if not first_po:
+        live, rem = fetch_futures("baseball_mlb_world_series_winner")
+        fd = match_book(names, live)
+        if live and len(field) >= 12:
+            try:
+                with open(os.path.join(DATA, "mlb_book.json"), "w", encoding="utf-8") as f:
+                    json.dump({"date": datetime.date.today().isoformat(), "time": now_iso(), "book": "FanDuel",
+                               "source": "auto-saved by the bot: FanDuel via the Odds API, the last pull before the first playoff game",
+                               "odds": live}, f, indent=1)
+            except Exception:
+                pass
+    if not fd:
+        odds, snap, asof = preplayoff_book("mlb_book.json", season, first_po)
+        fd = match_book(names, odds)
     attach(rows, pool, fd)
-    pred = make_prediction(rows, 7)
+    pred = make_prediction([t for t in rows if t["name"] in field] if len(field) >= 12 else rows, 7)
+    if first_po and pred: pred = closed_prediction(pred, rows, champ, f"{season} World Series", snap, asof)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "mlb"), "mlb_waronly": True,
+        "market_name": snap.get("book", "FanDuel") if snap else "FanDuel", "market_asof": f"{asof:%b} {asof.day}" if (fd and asof) else None,
+        "stage": ("done" if champ else "playoffs") if first_po else "regular", "window_closed": bool(first_po),
+        "first_playoff": first_po, "champion": champ,
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
         "cats": ["Win% >.543", "RBI top-11", "Run diff top-10", "ERA top-10 (≈WAR)", "pBABIP top-17", "DEF top-15", "DRS top-15"],
         "labels": ["Win%", "RBI", "Run diff", "ERA", "pBABIP", "DEF", "DRS"],

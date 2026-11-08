@@ -1,0 +1,20 @@
+{
+ "date": "2026-09-29",
+ "time": "2026-09-29T11:54:08Z",
+ "book": "FanDuel",
+ "source": "FanDuel World Series odds from the Odds API historical snapshot 2026-09-29T11:55Z (pulled 2026-11-07 for the MLB price backtest), the morning of the first Wild Card game. The user's Sep 28 screenshot was within a step of these (Guardians +950, Braves +1500, Phillies +1700, Padres +2000, Astros +2200, White Sox +3500).",
+ "odds": {
+  "Los Angeles Dodgers": 230,
+  "Milwaukee Brewers": 500,
+  "Tampa Bay Rays": 750,
+  "New York Yankees": 800,
+  "Cleveland Guardians": 1000,
+  "Atlanta Braves": 1400,
+  "Boston Red Sox": 1600,
+  "Philadelphia Phillies": 1800,
+  "Chicago Cubs": 1900,
+  "Houston Astros": 2000,
+  "San Diego Padres": 2200,
+  "Chicago White Sox": 4000
+ }
+}
