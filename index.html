@@ -135,6 +135,11 @@
   .muverd .vsmall{font-size:11px;color:var(--ink3);margin-top:6px}
   .muverd.caution{border-color:var(--warn);background:var(--warnbg)} .muverd.caution .vh{color:var(--warn)}
   .oddst td.best{color:var(--good);font-weight:800} .oddst td.sus{color:var(--warn)} .oddst span.dim{color:var(--ink3);font-size:11px}
+  .wkp{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0 6px}
+  .wkp .wkh{font-weight:800;font-size:14px;color:var(--ink)} .wkp .wkh .musub{font-weight:600;font-size:12px;color:var(--ink3)}
+  .wkp .wkpick{margin-top:8px;font-size:14px;line-height:1.5;color:var(--ink)}
+  .wkp .wkrows{margin-top:8px} .wkp .wkrows>summary{cursor:pointer;font-size:12px;color:var(--ink3);font-weight:700}
+  .wkp .oddst tr.gm{cursor:pointer} .wkp .oddst tr.gm:hover td{background:var(--panel2)} .wkp .rf{margin-left:6px;font-size:11px;padding:2px 8px}
   .tier{display:flex;align-items:center;gap:9px;margin:32px 0 13px;padding:9px 14px;font-family:var(--head);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);border-left:5px solid var(--tc,var(--line2));background:linear-gradient(90deg,color-mix(in srgb,var(--tc,var(--line2)) 15%,transparent),transparent);border-radius:0 10px 10px 0}
   .tier:first-of-type{margin-top:6px}
   .tier .n{color:var(--ink3);font-weight:600;font-size:12px;letter-spacing:.03em;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
@@ -341,15 +346,19 @@ const _amer=p=>{p=Math.min(Math.max(p,0.01),0.99);return p>=0.5?`-${Math.round(1
 function muTeams(d){ const by={}; (d.teams||[]).forEach(t=>{ if(t.rtg!=null) by[t.name]=t; });
   if(d.rtgs) for(const [n,r] of Object.entries(d.rtgs)) if(!by[n]&&r!=null) by[n]={name:n,rtg:r};
   return by; }
+function muModelFor(sp,A,B,h,series){   // pure (2026-11-08, shared with the weekly parlay): margin for A (home edge included), win %; h = '0' neutral | 'A' | 'B'
+  const d=DATA[sp], sd=d.sig||MU_SD[sp], hfa=MU_HFA[sp], sn=SERIES[sp]||0;
+  const hfaOf=(home,away)=>d.hfa2&&home.reg&&away.reg?(home.reg!==away.reg?d.hfa2.inter:d.hfa2.same):hfa;   // AFL/NRL/Super League: edge by travel
+  let hf=0; if(!series){ if(h==='A')hf=hfaOf(A,B); if(h==='B')hf=-hfaOf(B,A); }
+  const mN=A.rtg-B.rtg, m=mN+hf;
+  return {d,A,B,sd,hfa,sn,series,h,hf,mN,m,pA:_phi(m/sd)};
+}
 function muModel(){   // the current matchup's numbers: margin for the LEFT team (home edge included), win %, series or one game
   const d=DATA[cur], by=muTeams(d), gv=id=>{const e=document.getElementById(id);return e?e.value:null;};
   const A=by[gv('muA')], B=by[gv('muB')];
   if(!A||!B||A.name===B.name) return {err:'Pick two different teams.'};
-  const sd=d.sig||MU_SD[cur], hfa=MU_HFA[cur], sn=SERIES[cur]||0, series=!!sn&&gv('muM')==='s';
-  const hfaOf=(home,away)=>d.hfa2&&home.reg&&away.reg?(home.reg!==away.reg?d.hfa2.inter:d.hfa2.same):hfa;   // AFL/NRL/Super League: edge by travel
-  const h=gv('muH')||'0'; let hf=0; if(!series){ if(h==='A')hf=hfaOf(A,B); if(h==='B')hf=-hfaOf(B,A); }
-  const mN=A.rtg-B.rtg, m=mN+hf;
-  return {d,A,B,sd,hfa,sn,series,h,hf,mN,m,pA:_phi(m/sd)};
+  const series=!!(SERIES[cur]||0)&&gv('muM')==='s';
+  return muModelFor(cur,A,B,gv('muH')||'0',series);
 }
 function simMatchup(){
   const out=document.getElementById('muout'), M=muModel();
@@ -426,6 +435,40 @@ function oddsPanel(){
     <div class="oddsrow"><span class="ol">Bankroll</span><span class="at">$</span><input id="bpBank" placeholder="125" inputmode="decimal" value="${bankDefault()}" oninput="oddsCheck()" style="width:72px"><span class="at">for the stake on a TAKE</span></div>
     <div id="oddsout"></div></div>`;
 }
+/* the odds check's rules as a pure function (2026-11-08: shared by the odds check and the weekly parlay, so both say exactly the same thing).
+   q = {mlA, mlB, L, pxA, pxB, nA, nB, bank}: American prices or null, L = the LEFT team's spread or null. -> {bets, v, mkt, mkM} */
+function oddsVerdict(sp,M,q){
+  const {mlA,mlB,L,pxA,pxB,nA,nB,bank}=q, bets=[];
+  if(mlA!=null) bets.push({k:'ml',s:'A',label:`${nA} to win`,price:mlA,p:M.pA});
+  if(mlB!=null) bets.push({k:'ml',s:'B',label:`${nB} to win`,price:mlB,p:1-M.pA});
+  if(L!=null){ const mc=_phi((M.m+L)/M.sd);
+    bets.push({k:'sp',s:'A',label:`${nA} ${_fmtLine(L)}`,price:pxA??-110,p:mc},{k:'sp',s:'B',label:`${nB} ${_fmtLine(-L)}`,price:pxB??-110,p:1-mc}); }
+  if(!bets.length) return {bets,v:null,mkt:null,mkM:null};
+  for(const x of bets){ x.dec=_dec(x.price); x.ev=x.p*x.dec-1; x.kelly=x.ev/(x.dec-1); x.tag=x.ev<=0?'noev':x.ev>0.50?'toogood':x.ev<0.04?'thin':'take';
+    if(x.tag==='take'&&x.k==='ml'&&MU_LONG[sp]!=null&&x.price>MU_LONG[sp]) x.tag='long'; }   // 2026-11-08 fix: no moneyline TAKE on a long shot
+  const mkt=x=>{ const pr=bets.filter(y=>y.k===x.k); return pr.length===2?(1/x.dec)/(1/pr[0].dec+1/pr[1].dec):1/x.dec; };   // the book's %: no-vig when both sides are typed
+  const sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%';
+  // ---- verdict = classic.html verdictFor
+  let v=null; const mA=bets.find(x=>x.k==='ml'&&x.s==='A'), mB=bets.find(x=>x.k==='ml'&&x.s==='B');
+  if(mA&&mB){ const dv=mkt(mA), F=dv>0.5?{dv,mp:M.pA,name:M.A.name}:{dv:1-dv,mp:1-M.pA,name:M.B.name};
+    if(F.dv>0.70&&F.dv-F.mp>0.08) v={c:'pass',t:'PASS THIS GAME',b:`The no-vig market has <b>${F.name}</b> at ${Math.round(F.dv*100)}% but the model only ${Math.round(F.mp*100)}% — a ${Math.round((F.dv-F.mp)*100)}-point gap on a clear favorite. When a simple ratings model disagrees with a sharp line this hard, the model is the one missing something (injuries, lineup news, a soft schedule). The underdog "value" is almost certainly an illusion.`}; }
+  // 2026-11-08 fix: the market's margin for the left team -- the spread if typed, else the margin the moneyline implies -- and the gap to the model's
+  let mkM=null;
+  if(MU_GAP[sp]!=null){ if(L!=null) mkM=-L;
+    else if(mA||mB){ const pm=mA&&mB?mkt(mA):mA?1/mA.dec:1-1/mB.dec; mkM=MU_MSD[sp]*_invphi(Math.min(0.999,Math.max(0.001,pm))); } }
+  if(!v&&mkM!=null&&Math.abs(M.m-mkM)>MU_GAP[sp]){ const by=x=>x>=0?`${nA} by ${x.toFixed(1)}`:`${nB} by ${(-x).toFixed(1)}`;
+    v={c:'pass',t:'PASS THIS GAME',b:`The model has <b>${by(M.m)}</b>; the market has <b>${by(mkM)}</b>${L!=null?'':' (from the moneyline)'} — a ${Math.abs(M.m-mkM).toFixed(1)}-point gap. Past ${MU_GAP[sp]} points the market usually knows something the model can't see (injuries, a QB change, weather), and skipping these games cut the losses in the backtest.`}; }
+  if(!v){ const takes=bets.filter(x=>x.tag==='take').sort((a,b)=>b.kelly-a.kelly);
+    if(takes.length){ const best=takes[0], f=Math.min(0.03,best.kelly/4);
+      if(M.d.signal&&M.d.signal.status==='early') v={c:'caution',t:'LEAN PASS — THIN DATA',best,b:`The model flags <b>${best.label}</b> (${sev(best.ev)} EV), but the season is only ${M.d.gp_max||'a few'} games in — the ratings are mostly noise this early, so the edge is unreliable. Lean pass unless you have outside info.`};
+      else v={c:'take',t:'TAKE THIS BET',best,b:`<b>${best.label}</b> at ${_fmtPx(best.price)} — <b>${sev(best.ev)} EV</b>, hits ~${Math.round(best.p*100)}%. Stake ~<b>${bank>0?'$'+(f*bank).toFixed(2):(100*f).toFixed(1)+'% of your bankroll'}</b> (¼-Kelly, max 3%).${takes.length>1?` The other green row${takes.length>2?'s are':' is'} the same game — treat it as one position, don't stack.`:''}`}; }
+    else { const tg=bets.filter(x=>x.tag==='toogood').sort((a,b)=>b.ev-a.ev)[0], lg=bets.filter(x=>x.tag==='long').sort((a,b)=>b.ev-a.ev)[0];
+      v=lg?{c:'pass',t:'PASS',b:`<b>${lg.label}</b> at ${_fmtPx(lg.price)} shows ${sev(lg.ev)} EV, but prices longer than +${MU_LONG[sp]} are where this model is most often wrong — it gives big underdogs too much chance. In the backtest, skipping them cut the losses.`}
+        :tg?{c:'pass',t:'PASS',b:`The biggest edge (<b>${tg.label}</b>, ${sev(tg.ev)}) is implausibly large — that's the model missing something, not free money. Real edges are single digits.`}
+        :bets.some(x=>x.ev>0)?{c:'pass',t:'PASS',b:`Only razor-thin edges (under 4%) — inside the model's margin of error. Not worth a bet.`}
+        :{c:'pass',t:'PASS',b:`No positive expected value at these prices — the book's lines look efficient here.`}; } }
+  return {bets,v,mkt,mkM};
+}
 function oddsCheck(){
   const out=document.getElementById('oddsout'); if(!out) return;
   const M=muModel(), gv=id=>{const e=document.getElementById(id);return e?e.value:'';}, setT=(id,t)=>{const e=document.getElementById(id); if(e) e.textContent=t;};
@@ -437,40 +480,14 @@ function oddsCheck(){
   if(M.series){ out.innerHTML='<div class="munote">Set the matchup to <b>one game</b> to check game odds.</div>'; return; }
   const mlA=_odds(gv('mlA')), mlB=_odds(gv('mlB')), pxA=_odds(gv('spPA')), pxB=_odds(gv('spPB'));
   if([mlA,mlB,L,pxA,pxB].some(x=>Number.isNaN(x))){ out.innerHTML='<div class="muwarn" style="margin-top:6px">Prices look like -150 or +130 (100 or more either way); a spread like -3.5, +7 or PK.</div>'; return; }
-  // Classic: every price you type is checked on its own -- EV = the MODEL's % x decimal - 1 (no market anchoring)
-  const bets=[];
-  if(mlA!=null) bets.push({k:'ml',s:'A',label:`${nA} to win`,price:mlA,p:M.pA});
-  if(mlB!=null) bets.push({k:'ml',s:'B',label:`${nB} to win`,price:mlB,p:1-M.pA});
-  if(L!=null){ const mc=_phi((M.m+L)/M.sd);
-    bets.push({k:'sp',s:'A',label:`${nA} ${_fmtLine(L)}`,price:pxA??-110,p:mc},{k:'sp',s:'B',label:`${nB} ${_fmtLine(-L)}`,price:pxB??-110,p:1-mc}); }
+  // Classic: every price you type is checked on its own -- EV = the MODEL's % x decimal - 1 (no market anchoring); the rules live in oddsVerdict
+  const {bets,v,mkt}=oddsVerdict(cur,M,{mlA,mlB,L,pxA,pxB,nA,nB,bank});
   const unit=MU_UNIT[cur], fav=M.m>=0?M.A:M.B, pf=Math.max(M.pA,1-M.pA), T=MU_TEST[cur], sport=(M.d.sport||cur).toUpperCase();
   const modelLine=`Model: ${fav.name} by ~${Math.abs(M.m).toFixed(1)} ${unit}, wins ${Math.round(pf*100)}% (fair ${_amer(pf)})${M.h==='0'?' at a neutral site':''}`;
   const testNote=T?`Backtest of these exact rules on ${T.n} real ${sport} games (${T.yrs}, median book prices): it said TAKE on ${T.take} games, and those bets won ${T.won} when the model said ${T.said} — down ${T.roi} per dollar in both halves (${T.was} before the gap and long-shot filters); $125 at these stakes finished down in ${T.bank} seasons.`
     :`Not backtested on real ${sport} lines; the same kind of model lost 2–11% per dollar on NFL and CFB lines under these rules.`;
   if(!bets.length){ out.innerHTML=`<div class="munote" style="margin-top:6px">Type a <b>moneyline</b> (one side or both) or the <b>spread</b> (prices default to -110). ${modelLine}${M.h==='0'?' — set who\'s home first':''}.</div>`; return; }
-  for(const x of bets){ x.dec=_dec(x.price); x.ev=x.p*x.dec-1; x.kelly=x.ev/(x.dec-1); x.tag=x.ev<=0?'noev':x.ev>0.50?'toogood':x.ev<0.04?'thin':'take';
-    if(x.tag==='take'&&x.k==='ml'&&MU_LONG[cur]!=null&&x.price>MU_LONG[cur]) x.tag='long'; }   // 2026-11-08 fix: no moneyline TAKE on a long shot
-  const mkt=x=>{ const pr=bets.filter(y=>y.k===x.k); return pr.length===2?(1/x.dec)/(1/pr[0].dec+1/pr[1].dec):1/x.dec; };   // the book's %: no-vig when both sides are typed
   const pct=p=>(100*p).toFixed(1)+'%', sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%';
-  // ---- verdict = classic.html verdictFor
-  let v=null; const mA=bets.find(x=>x.k==='ml'&&x.s==='A'), mB=bets.find(x=>x.k==='ml'&&x.s==='B');
-  if(mA&&mB){ const dv=mkt(mA), F=dv>0.5?{dv,mp:M.pA,name:M.A.name}:{dv:1-dv,mp:1-M.pA,name:M.B.name};
-    if(F.dv>0.70&&F.dv-F.mp>0.08) v={c:'pass',t:'PASS THIS GAME',b:`The no-vig market has <b>${F.name}</b> at ${Math.round(F.dv*100)}% but the model only ${Math.round(F.mp*100)}% — a ${Math.round((F.dv-F.mp)*100)}-point gap on a clear favorite. When a simple ratings model disagrees with a sharp line this hard, the model is the one missing something (injuries, lineup news, a soft schedule). The underdog "value" is almost certainly an illusion.`}; }
-  // 2026-11-08 fix: the market's margin for the left team -- the spread if typed, else the margin the moneyline implies -- and the gap to the model's
-  let mkM=null;
-  if(MU_GAP[cur]!=null){ if(L!=null) mkM=-L;
-    else if(mA||mB){ const pm=mA&&mB?mkt(mA):mA?1/mA.dec:1-1/mB.dec; mkM=MU_MSD[cur]*_invphi(Math.min(0.999,Math.max(0.001,pm))); } }
-  if(!v&&mkM!=null&&Math.abs(M.m-mkM)>MU_GAP[cur]){ const by=x=>x>=0?`${nA} by ${x.toFixed(1)}`:`${nB} by ${(-x).toFixed(1)}`;
-    v={c:'pass',t:'PASS THIS GAME',b:`The model has <b>${by(M.m)}</b>; the market has <b>${by(mkM)}</b>${L!=null?'':' (from the moneyline)'} — a ${Math.abs(M.m-mkM).toFixed(1)}-point gap. Past ${MU_GAP[cur]} points the market usually knows something the model can't see (injuries, a QB change, weather), and skipping these games cut the losses in the backtest.`}; }
-  if(!v){ const takes=bets.filter(x=>x.tag==='take').sort((a,b)=>b.kelly-a.kelly);
-    if(takes.length){ const best=takes[0], f=Math.min(0.03,best.kelly/4);
-      if(M.d.signal&&M.d.signal.status==='early') v={c:'caution',t:'LEAN PASS — THIN DATA',best,b:`The model flags <b>${best.label}</b> (${sev(best.ev)} EV), but the season is only ${M.d.gp_max||'a few'} games in — the ratings are mostly noise this early, so the edge is unreliable. Lean pass unless you have outside info.`};
-      else v={c:'take',t:'TAKE THIS BET',best,b:`<b>${best.label}</b> at ${_fmtPx(best.price)} — <b>${sev(best.ev)} EV</b>, hits ~${Math.round(best.p*100)}%. Stake ~<b>${bank>0?'$'+(f*bank).toFixed(2):(100*f).toFixed(1)+'% of your bankroll'}</b> (¼-Kelly, max 3%).${takes.length>1?` The other green row${takes.length>2?'s are':' is'} the same game — treat it as one position, don't stack.`:''}`}; }
-    else { const tg=bets.filter(x=>x.tag==='toogood').sort((a,b)=>b.ev-a.ev)[0], lg=bets.filter(x=>x.tag==='long').sort((a,b)=>b.ev-a.ev)[0];
-      v=lg?{c:'pass',t:'PASS',b:`<b>${lg.label}</b> at ${_fmtPx(lg.price)} shows ${sev(lg.ev)} EV, but prices longer than +${MU_LONG[cur]} are where this model is most often wrong — it gives big underdogs too much chance. In the backtest, skipping them cut the losses.`}
-        :tg?{c:'pass',t:'PASS',b:`The biggest edge (<b>${tg.label}</b>, ${sev(tg.ev)}) is implausibly large — that's the model missing something, not free money. Real edges are single digits.`}
-        :bets.some(x=>x.ev>0)?{c:'pass',t:'PASS',b:`Only razor-thin edges (under 4%) — inside the model's margin of error. Not worth a bet.`}
-        :{c:'pass',t:'PASS',b:`No positive expected value at these prices — the book's lines look efficient here.`}; } }
   let h=`<table class="oddst"><tr><th>Bet</th><th>Price</th><th title="The matchup model's chance, and its fair price">Model %</th><th title="Your book's chance: its margin (vig) removed when both sides are typed">Market %</th><th title="Expected value per $1 at your price, on the model's %">EV</th></tr>`;
   for(const x of bets){ const isB=v.c==='take'&&v.best===x;
     const evc=x.ev<=0?`<td>${sev(x.ev)}</td>`:v.c!=='take'?`<td class="sus">${sev(x.ev)} ⚠ ${x.tag==='long'?'long shot':'suspect'}</td>`:isB?`<td class="best">★ BEST ${sev(x.ev)}</td>`
@@ -479,6 +496,70 @@ function oddsCheck(){
   h+='</table>';
   h+=`<div class="muverd ${v.c}"><span class="vh">${v.c==='take'?'✅':v.c==='caution'?'⚠':'🚫'} ${v.t}</span>${v.b}<div class="vsmall">${modelLine}. ${testNote} Model-based suggestion, not financial advice.</div></div>`;
   out.innerHTML=h;
+}
+/* ---------- 🎯 Weekly parlay (2026-11-08, user: "add that rule to the sim that tells me automatically") ----------
+   Live DraftKings lines from ESPN's free scoreboard (CORS-open: no key, no Odds API credits) for this week's NFL games that haven't
+   kicked off. Each game goes through oddsVerdict exactly as if typed by hand: both moneylines + the spread with its prices, the home team
+   set (neutral for overseas games). The rule (baseball-blueprint/matchup-lines-backtest.mjs --parlay, 2015-25): keep the games whose pick
+   is a TAKE on a team to win (not a spread), parlay the two with the biggest suggested stakes. Backtest: +65% / +75% per $1 (vs +6% / +58%
+   for the old top-two picks), hits ~1 in 4, profit in 9 of 11 seasons -- best of ~45 versions and fragile (needs the spread typed; CFB was
+   no better than random). Regular season only, as tested. */
+let WKP=null;   // {at, games, season, err}
+const WKP_URL='https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard';
+function wkpGames(j){   // ESPN scoreboard -> each game with its lines and the odds check's verdict
+  const by=muTeams(DATA.nfl), out=[];
+  for(const e of (j&&j.events)||[]){
+    const c=(e.competitions||[])[0]; if(!c) continue;
+    const st=((c.status||{}).type||{}).state, H=(c.competitors||[]).find(x=>x.homeAway==='home'), A=(c.competitors||[]).find(x=>x.homeAway==='away');
+    if(!H||!A) continue;
+    const g={when:e.date, state:st, away:A.team.displayName, home:H.team.displayName, neutral:!!c.neutralSite};
+    out.push(g);
+    if(st!=='pre'){ g.skip='started'; continue; }
+    const a=by[g.away], h=by[g.home]; if(!a||!h){ g.skip='no rating'; continue; }
+    const o=(c.odds||[])[0]||{}, cl=x=>(x&&x.close)||{}, ml=o.moneyline||{}, ps=o.pointSpread||{};
+    const mlA=_odds(cl(ml.away).odds), mlB=_odds(cl(ml.home).odds), L=_lineIn(cl(ps.away).line);
+    let pxA=_odds(cl(ps.away).odds), pxB=_odds(cl(ps.home).odds); if(Number.isNaN(pxA)) pxA=null; if(Number.isNaN(pxB)) pxB=null;
+    if([mlA,mlB,L].some(x=>x==null||Number.isNaN(x))){ g.skip='no lines yet'; continue; }
+    g.book=(o.provider||{}).name||'the book';
+    const M=muModelFor('nfl',a,h,g.neutral?'0':'B',false);
+    Object.assign(g,{mlA,mlB,L,pxA,pxB,r:oddsVerdict('nfl',M,{mlA,mlB,L,pxA,pxB,nA:shortNm(a.name),nB:shortNm(h.name),bank:0})}); }
+  return out;
+}
+function parlayCard(){ return `<div class="wkp" id="wkparlay"><div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span></div><div class="munote">Loading this week's lines…</div></div>`; }
+async function loadParlay(force){
+  if(force||!WKP||Date.now()-WKP.at>5*60e3){
+    try{ const j=await (await fetch(WKP_URL,{cache:'no-store'})).json(); WKP={at:Date.now(), games:wkpGames(j), season:j.season||{}}; }
+    catch(e){ WKP={at:Date.now(), games:[], err:String((e&&e.message)||e)}; } }
+  drawParlay();
+}
+function drawParlay(){
+  const el=document.getElementById('wkparlay'); if(!el||!WKP) return;
+  const d=DATA.nfl, bank=+(bankDefault()||0), sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%';
+  const hdr=`<div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span><button class="btn ghost rf" onclick="loadParlay(true)">↻</button></div>`;
+  if(WKP.err){ el.innerHTML=hdr+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}). Use the odds check below by hand.</div>`; return; }
+  if(WKP.season.type&&WKP.season.type!==2){ el.innerHTML=hdr+`<div class="munote">Regular season only — the rule was never tested on ${WKP.season.type===3?'playoff':'preseason'} games.</div>`; return; }
+  const G=WKP.games, up=G.filter(g=>g.r), legs=up.filter(g=>g.r.v&&g.r.v.c==='take'&&g.r.v.best.k==='ml').sort((x,y)=>y.r.v.best.kelly-x.r.v.best.kelly), top=legs.slice(0,2);
+  const book=(up[0]||{}).book||'DraftKings', t=new Date(WKP.at).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+  let h=hdr;
+  if(top.length===2){ const dd=top[0].r.v.best.dec*top[1].r.v.best.dec, am=Math.round(dd>=2?(dd-1)*100:-100/(dd-1));
+    h+=`<div class="wkpick">${top.map(g=>`<b>${g.r.v.best.label} ${_fmtPx(g.r.v.best.price)}</b>`).join(' + ')} → <b style="color:var(--good)">parlay ${_fmtPx(am)}</b> · bet $1–2</div>`; }
+  else h+=`<div class="wkpick">No parlay ${up.length?'yet':'this week'} — ${legs.length?'only one game has':'no game has'} a moneyline TAKE${up.length?` among the ${up.length} game${up.length===1?'':'s'} still to play`:''} (the rule needs two).${d.signal&&d.signal.status==='early'?' Early in the season every pick is LEAN PASS.':''}</div>`;
+  const started=G.filter(g=>g.skip==='started').length, nolines=G.filter(g=>g.skip==='no lines yet').length;
+  h+=`<div class="munote">${book} lines via ESPN, ${t}${started?` · ${started} game${started===1?'':'s'} already started (left out)`:''}${nolines?` · ${nolines} without lines yet`:''}. Backtest 2015–25: +65% / +75% per $1, hits ~1 in 4 — the best of ~45 versions and fragile, so treat it as a lottery-sized bet. Tap a game to open it in the odds check.</div>`;
+  if(up.length){ h+=`<details class="wkrows"><summary>All ${up.length} game${up.length===1?'':'s'} still to play</summary><table class="oddst"><tr><th>Game</th><th>Lines</th><th>Odds check</th></tr>`;
+    up.forEach(g=>{ const i=G.indexOf(g), v=g.r.v, b=v&&v.best, k=new Date(g.when).toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
+      const pick=!v?'—':v.c==='take'?`<td class="${b.k==='ml'?'best':'g'}">TAKE ${b.label} ${_fmtPx(b.price)} · ${sev(b.ev)}${bank>0?` · $${(Math.min(0.03,b.kelly/4)*bank).toFixed(2)}`:''}${top.includes(g)?' ★':''}</td>`:`<td class="dim">${v.t==='PASS THIS GAME'?'PASS (gap)':v.t==='LEAN PASS — THIN DATA'?'LEAN PASS':'PASS'}</td>`;
+      h+=`<tr class="gm" onclick="wkpOpen(${i})"><td>${shortNm(g.away)} ${g.neutral?'vs':'@'} ${shortNm(g.home)} <span class="dim">${k}</span></td><td>${shortNm(g.home)} ${_fmtLine(-g.L)} · ${_fmtPx(g.mlA)} / ${_fmtPx(g.mlB)}</td>${typeof pick==='string'&&!pick.startsWith('<td')?`<td>${pick}</td>`:pick}</tr>`; });
+    h+='</table></details>'; }
+  el.innerHTML=h;
+}
+function wkpOpen(i){   // load one game into the matchup sim + odds check (to see the full table or type your own book's prices)
+  const g=WKP&&WKP.games[i]; if(!g||!g.r) return;
+  const det=document.querySelector('details.matchup'); if(det){ det.open=true; MU_OPEN=true; }
+  const set=(id,v)=>{ const e=document.getElementById(id); if(e) e.value=v; };
+  set('muA',g.away); set('muB',g.home); set('muH',g.neutral?'0':'B');
+  set('mlA',_fmtPx(g.mlA)); set('mlB',_fmtPx(g.mlB)); set('spA',_fmtLine(g.L)); set('spPA',g.pxA!=null?_fmtPx(g.pxA):''); set('spPB',g.pxB!=null?_fmtPx(g.pxB):'');
+  simMatchup(); if(det) det.scrollIntoView({behavior:'smooth',block:'start'});
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
@@ -605,6 +686,7 @@ function render(){
     <span class="runmsg" id="rfmsg"></span><div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div>
     ${statusRow(d,pct)}${trustDetails(d)}${top8(d,cur)}`;
   const MT=muTeams(d), ml=Object.keys(MT).sort((a,b)=>a.localeCompare(b));   // every rated team (d.rtgs), not just the board's cards
+  if(cur==="nfl") html+=parlayCard();   // 🎯 automatic weekly parlay (2026-11-08)
   if(ml.length>1){
     const opt=(sel)=>ml.map(n=>`<option value="${n}"${n===sel?' selected':''}>${n}</option>`).join("");
     html+=`<details class="matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary class="muhead">⚔️ Matchup simulator <span class="musub">${cur==="mls"||cur==="nwsl"?'· who wins, and why':'· who wins + 💵 TAKE or PASS at your odds'}</span></summary>
@@ -621,6 +703,7 @@ function render(){
   const W={afl:"Index = Rating 60 · Form (last 8) 20 · Away win% 20, each 0–100. Odds = 20,000-run simulation of the rest of the home-and-away season + the finals (wildcard round, then the final eight), on ratings from game margins; the home edge depends on travel (same state ~1 pt, interstate ~9). Frozen at the start of the finals (you don't bet within the finals)",nrl:"Index = Rating 60 · Win% 20 · Away win% 20, each 0–100. Odds = 20,000-run simulation of the rest of the regular season + the final eight (qualifying and elimination finals, semis, prelims, neutral Grand Final), on ratings from game margins (home edge ~2 pts). Frozen at the start of the finals",superleague:"Index = Rating 70 · Away win% 30, each 0–100. Odds = 20,000-run simulation of the rest of the regular season + the top-six play-offs (eliminators, semis, neutral Grand Final), on ratings from game margins (home edge ~3 pts). Frozen at the start of the play-offs",nwsl:"Every-champion profile: Goal diff/game top-5 · Form (last 8) top-8 · Goals for/game ≥ 1.14 · Goals against/game ≤ 1.09 · Loss% ≤ .32. Index = Loss% 30 · Goals against 25 · Goal diff 20 · Form 15 · Goals for 10, each 0–100. Odds = the playoff bracket simulated with Poisson attack × defence ratings (home edge; extra time, then penalties); they appear once the bracket is set and freeze at the start of the playoffs (you don't bet within the playoffs)",cfl:"Every-champion profile: Win% top-5 · Points scored ≥ 24.6/g · Points allowed top-6 · Division place ≤ 3 · Losses ≤ 9. Index = scoring margin 35 · Win% 20 · points allowed 15 · points scored 15 · win% vs the other division 15. Odds = bracket simulation on scoring margin (playoff home edge ~10.5 pts, Grey Cup neutral); once the playoffs start the fair odds freeze at their pre-playoff values (you don't bet within the playoffs)",fcs:"Every-champion profile: Adj offense top-23 · Win% top-7 · Points allowed top-64 · RPI ≥ .583 · Win% vs top teams ≥ .667. Index = Adj defense 60 · Adj offense 40, each 0–100 (since 2026-11-07: defense-tilted adjusted ratings predicted 325 playoff games better than the old SRS/RPI/Win% blend, in both halves and at every checkpoint). Fair odds = tier × index^k, tuned on past seasons' boards as of the same date (the bracket model once the field is set); rating-only = the plain SRS model, shown as a check",mls:"Every-champion profile: Attack top-12 · Form (last 8) ≥ 1.25 pts/g · Form (last 5) ≥ 1.40 · Win% top-7 · Overall rating ≥ 1.10. Odds = 20,000-run sim of the last matchday + the full playoff bracket (Poisson attack × defence × home edge; ratings fit on 75% expected goals + 25% actual goals, xG from American Soccer Analysis). Tiers and index use the goals-only rating they were validated on. Index = Win% 25 · Overall rating 25 · Attack 20 · Form (last 8) 15 · Form (last 5) 15, each 0–100",nfl:"Pt Diff 25 · PD/g 20 · Def 20 · Off 20 · Win% 15",cfb:"Margin 30 · Win% 20 · OppPPG 18 · OppYPG 17 · PPG 15 (×SOS³; fair odds × chance to make the CFP field once the committee ranks)",nhl:"GD/g 30 · Corsi 25 · xG% 25 · GA 20",nba:"Net/g 30 · Win% 23 · Def 20 · Off 12 · Depth 15",wnba:"Net rating per 100 possessions, 100% — defense is already inside it, and the old Net 45 · Def 30 · Win% 25 blend picked fewer champions (17 vs 22 of 30). Fair odds = softmax of net rating: each +1 point ≈ 1.38× the title odds; once the regular season ends only the top 8 by record are priced",cbb:"Adj net 30 · Adj off 20 · Adj def 20 · Win% 15 · vs top-50 15",wcbb:"Adj net 30 · Adj off 20 · Adj def 20 · Win% 15 · vs top-50 15",mlb:"Run diff 22 · ERA 16 · DRS 14 · RBI 13 · Win% 12 · pBABIP 12 · DEF 11"};
   html+=`<div class="note"><b>Top pick vs Value play:</b> <b>Top pick</b> = the strongest team (most likely champion) — a strength call, not a bet. <b>Value play</b> = the best bet vs the ${MK(cur)} price (the one card tagged <span class="vd best" style="padding:1px 6px">⭐ BEST VALUE</span>). They're usually <i>different</i> teams: the best team is normally priced too short to also be the best bet. A big-EV longshot (price > +2500) shows as <span class="vd longshot" style="padding:1px 6px">🎯 longshot value</span> and is never crowned. <b>The Read</b> is the automated trust call — it reads the component ranks, not the composite, and flags a top team hiding a playoff-fatal hole (🔴) vs a complete one (🟢). <b>Index weights:</b> ${FOOTY.includes(cur)?"Every-champion profile: "+(d.cats||[]).join(" · ")+". ":""}${W[cur]} (the tier counts categories equally). <b>Nw</b> = top-two tier into its Nth straight week (hover for exact days); ⭐ = every snapshot this season.${cur==="nhl"?" NHL depth is already in the team-level numbers.":cur==="nba"?` Depth (10+ PPG scorers) is rewarded in the index. From game 25 the index is 50% these + 50% record vs .500+ teams (backtested: champ top-3 12/15 vs 10/15)${d.vs500_on?" — <b>active</b>.":" — inactive until every team has 25 games."}`:""}${early?' <span class="warn">⚠ Early sample — market sharper than model; big EVs are usually model-lag.</span>':''}</div>`;
   app.innerHTML=html;
+  if(cur==="nfl") loadParlay();
 }
 
 /* ---------- 📷 Update prices (2026-11-06): boards priced from the user's sportsbook screenshots ----------
