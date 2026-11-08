@@ -520,5 +520,200 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-08",
+  "gp": 162,
+  "teams": {
+   "Brewers": {
+    "sc": 7,
+    "idx": 85.1,
+    "fp": 17.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Dodgers": {
+    "sc": 7,
+    "idx": 84.5,
+    "fp": 16.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Braves": {
+    "sc": 7,
+    "idx": 74.5,
+    "fp": 11.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Cubs": {
+    "sc": 6,
+    "idx": 84.7,
+    "fp": 14.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Padres": {
+    "sc": 6,
+    "idx": 64.1,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Yankees": {
+    "sc": 5,
+    "idx": 67.1,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Rays": {
+    "sc": 5,
+    "idx": 66.6,
+    "fp": 5.6,
+    "mkt": null,
+    "ev": null
+   },
+   "White Sox": {
+    "sc": 5,
+    "idx": 60.0,
+    "fp": 4.1,
+    "mkt": null,
+    "ev": null
+   },
+   "D-backs": {
+    "sc": 4,
+    "idx": 64.1,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Red Sox": {
+    "sc": 4,
+    "idx": 59.0,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigers": {
+    "sc": 4,
+    "idx": 56.1,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Rangers": {
+    "sc": 3,
+    "idx": 48.6,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Blue Jays": {
+    "sc": 3,
+    "idx": 43.0,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Guardians": {
+    "sc": 2,
+    "idx": 50.4,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Cardinals": {
+    "sc": 2,
+    "idx": 49.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Astros": {
+    "sc": 2,
+    "idx": 49.5,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Marlins": {
+    "sc": 2,
+    "idx": 48.5,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Phillies": {
+    "sc": 2,
+    "idx": 47.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Nationals": {
+    "sc": 2,
+    "idx": 44.5,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Twins": {
+    "sc": 2,
+    "idx": 43.5,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Royals": {
+    "sc": 2,
+    "idx": 37.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pirates": {
+    "sc": 1,
+    "idx": 47.7,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Mets": {
+    "sc": 1,
+    "idx": 39.0,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Giants": {
+    "sc": 1,
+    "idx": 30.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Reds": {
+    "sc": 1,
+    "idx": 29.7,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Athletics": {
+    "sc": 1,
+    "idx": 15.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Rockies": {
+    "sc": 1,
+    "idx": 13.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]

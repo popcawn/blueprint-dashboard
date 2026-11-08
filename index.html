@@ -116,6 +116,20 @@
   .muwhy{font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.45}
   .munote{font-size:11px;color:var(--ink3);margin-top:5px}
   .muwarn{font-size:12px;color:var(--bad)}
+  .muodds{margin-top:12px;border-top:1px dashed var(--line2);padding-top:10px}
+  .oddsrow{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:7px 0;font-size:12.5px}
+  .oddsrow .ol{width:70px;color:var(--ink3);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em}
+  .oddsrow .ot{color:var(--ink2);font-weight:600;min-width:48px} .oddsrow .at{color:var(--ink3);font-size:11.5px} .oddsrow .spb{color:var(--ink2);font-weight:600;min-width:30px}
+  .oddsrow input{width:64px;font-family:var(--sans);font-size:13px;padding:6px 7px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--ink)}
+  .oddst{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}
+  .oddst th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink3);font-weight:700;padding:4px 6px;border-bottom:1px solid var(--line)}
+  .oddst td{padding:5px 6px;border-bottom:1px solid var(--line);color:var(--ink)} .oddst td.g{color:var(--good);font-weight:700} .oddst td.r{color:var(--bad)} .oddst td.dim{color:var(--ink3)}
+  .oddst tr.tk td{background:var(--goodbg)}
+  .muverd{margin-top:9px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13px;line-height:1.45;color:var(--ink)}
+  .muverd .vh{display:block;font-weight:800;margin-bottom:3px;letter-spacing:.02em}
+  .muverd.take{border-color:var(--good);background:var(--goodbg)} .muverd.take .vh{color:var(--good)}
+  .muverd.pass{border-color:var(--bad);background:var(--badbg)} .muverd.pass .vh{color:var(--bad)}
+  .muverd .vsmall{font-size:11px;color:var(--ink3);margin-top:6px}
   .tier{display:flex;align-items:center;gap:9px;margin:32px 0 13px;padding:9px 14px;font-family:var(--head);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);border-left:5px solid var(--tc,var(--line2));background:linear-gradient(90deg,color-mix(in srgb,var(--tc,var(--line2)) 15%,transparent),transparent);border-radius:0 10px 10px 0}
   .tier:first-of-type{margin-top:6px}
   .tier .n{color:var(--ink3);font-weight:600;font-size:12px;letter-spacing:.03em;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
@@ -316,18 +330,29 @@ function _erf(x){const t=1/(1+0.3275911*Math.abs(x));const y=1-(((((1.061405429*
 const _phi=x=>0.5*(1+_erf(x/Math.SQRT2));
 // fair American odds from a win probability (no vig): favorites negative, dogs positive
 const _amer=p=>{p=Math.min(Math.max(p,0.01),0.99);return p>=0.5?`-${Math.round(100*p/(1-p))}`:`+${Math.round(100*(1-p)/p)}`;};
-function simMatchup(){
-  const d=DATA[cur], by={}; (d.teams||[]).forEach(t=>by[t.name]=t);
-  const A=by[document.getElementById('muA').value], B=by[document.getElementById('muB').value], out=document.getElementById('muout');
-  if(!A||!B||A.name===B.name){out.innerHTML='<span class="muwarn">Pick two different teams.</span>';return;}
-  if(A.rtg==null||B.rtg==null){out.innerHTML='<span class="muwarn">Ratings not in this data yet — run the board once to enable.</span>';return;}
-  const sd=d.sig||MU_SD[cur],hfa=MU_HFA[cur],unit=MU_UNIT[cur],sn=SERIES[cur]||0,dp=unit==='goals'?1:0;
+/* matchup teams = every team with a rating: the board's cards plus d.rtgs (all teams -- the board only lists contenders) */
+function muTeams(d){ const by={}; (d.teams||[]).forEach(t=>{ if(t.rtg!=null) by[t.name]=t; });
+  if(d.rtgs) for(const [n,r] of Object.entries(d.rtgs)) if(!by[n]&&r!=null) by[n]={name:n,rtg:r};
+  return by; }
+function muModel(){   // the current matchup's numbers: margin for the LEFT team (home edge included), win %, series or one game
+  const d=DATA[cur], by=muTeams(d), gv=id=>{const e=document.getElementById(id);return e?e.value:null;};
+  const A=by[gv('muA')], B=by[gv('muB')];
+  if(!A||!B||A.name===B.name) return {err:'Pick two different teams.'};
+  const sd=d.sig||MU_SD[cur], hfa=MU_HFA[cur], sn=SERIES[cur]||0, series=!!sn&&gv('muM')==='s';
   const hfaOf=(home,away)=>d.hfa2&&home.reg&&away.reg?(home.reg!==away.reg?d.hfa2.inter:d.hfa2.same):hfa;   // AFL/NRL/Super League: edge by travel
+  const h=gv('muH')||'0'; let hf=0; if(!series){ if(h==='A')hf=hfaOf(A,B); if(h==='B')hf=-hfaOf(B,A); }
+  const mN=A.rtg-B.rtg, m=mN+hf;
+  return {d,A,B,sd,hfa,sn,series,h,hf,mN,m,pA:_phi(m/sd)};
+}
+function simMatchup(){
+  const out=document.getElementById('muout'), M=muModel();
+  if(M.err){out.innerHTML=`<span class="muwarn">${M.err}</span>`; oddsCheck(); return;}
+  const {d,A,B,sd,hfa}=M, unit=MU_UNIT[cur], dp=unit==='goals'?1:0;
   const tw={champion:'a complete team',contender:'a real contender',pretender:'a flawed team'};
   const tier=t=>tw[t.read&&t.read.tier]||'the stronger side', tierd=t=>tw[t.read&&t.read.tier]||'the weaker side';
   let hdr, note, why;
-  const mN=A.rtg-B.rtg, fav0=mN>=0?A:B, dog0=mN>=0?B:A, spread=Math.abs(mN);
-  if(sn){
+  const mN=M.mN, fav0=mN>=0?A:B, dog0=mN>=0?B:A, spread=Math.abs(mN);
+  if(M.series){
     // playoffs: better team gets home-court (hosts 4 of 7); predict winner + series length
     const ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa), pe=(4*ph+3*pa)/7;
     // competitive best-of-7s cluster at 6-7 games — only a real gap projects a shorter series
@@ -337,9 +362,8 @@ function simMatchup(){
     hdr=`<b>${fav0.name}</b> win the series <b>${Math.round(showP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(${_amer(showP)})</span> — projected: <b>${len}</b>`;
     note='';
   } else {
-    const Hel=document.getElementById('muH'), h=Hel?Hel.value:'0';
-    let hf=0; if(h==='A')hf=hfaOf(A,B); if(h==='B')hf=-hfaOf(B,A);
-    const margin=mN+hf, pA=_phi(margin/sd), fav=margin>=0?A:B, dog=margin>=0?B:A, gameP=Math.max(pA,1-pA), ssp=Math.abs(margin);
+    const h=M.h, hf=M.hf;
+    const margin=M.m, pA=M.pA, fav=margin>=0?A:B, dog=margin>=0?B:A, gameP=Math.max(pA,1-pA), ssp=Math.abs(margin);
     const site=h==='0'?'neutral':((h==='A'?A.name:B.name)+' home');
     // (2026-11-07) when the home edge flips the favourite, the rating gap runs the OTHER way -- say so instead of calling the home side "better"
     why=fav===fav0?`${fav.name} is ${tier(fav)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog.name} (${tierd(dog)}).`
@@ -350,6 +374,64 @@ function simMatchup(){
       :`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested straight-up: CFB 71%, NHL 58%, NFL 58.5%${['nba','wnba','mlb'].includes(cur)?'; this sport estimated':''}.`;
   }
   out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>${note?`<div class="munote">${note}</div>`:''}`;
+  oddsCheck();
+}
+/* ---------- 💵 Odds check (2026-11-07, user: "plug in odds and spread and based on ev tell me take or pass", like the UFC sim) ----------
+   Backtested first (baseball-blueprint/matchup-lines-backtest.mjs, ESPN's pre-game lines, median of the books): this matchup model
+   does NOT beat real lines. NFL 2,368 games 2015-25: betting its moneyline edges lost 8.4% / 10.2% (the two halves), its spread picks
+   3+ pts off the line covered 48-49% (lost 7-8%), and a UFC-style anchored blend put ~0 weight on it. CFB 6,290 games 2014-25: same
+   (moneyline -9.5% / -8.3%, spreads -6% to -7%). So, like the UFC sim, the call is ANCHORED to the market with the model's weight at 0:
+   fair % = the prices you type with the book's margin removed, and TAKE only flags a real PRICE edge (two prices that disagree:
+   line shopping, a stale or boosted line). The model's own % is shown for information. */
+const MU_TEST={nfl:{n:"2,368",yrs:"2015–25",ml:"8–10%",sp:"7–8%"},cfb:{n:"6,290",yrs:"2014–25",ml:"8–10%",sp:"6–7%"}};
+const _odds=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(s==='ev'||s==='even') return 100; const v=+s; return isFinite(v)&&Math.abs(v)>=100?v:NaN; };
+const _lineIn=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(/^pk|^pick/.test(s)) return 0; const v=+s; return isFinite(v)?v:NaN; };
+const _dec=a=>a>0?1+a/100:1+100/-a;
+const _fmtLine=x=>x===0?'PK':(x>0?'+':'')+x;
+const _fmtPx=x=>(x>0?'+':'')+x;
+function bankDefault(){ try{ const b=localStorage.getItem('bp_bank'); if(b) return b; const n=JSON.parse(localStorage.getItem('nfltd_bank')||'{}'); return n&&n.amt>0?String(n.amt):''; }catch(e){ return ''; } }
+function oddsPanel(){
+  if(cur==="mls"||cur==="nwsl") return `<div class="munote" style="margin-top:8px">Odds check: soccer moneylines are 3-way (a draw is a result), which this calculator doesn't price.</div>`;
+  const inp=(id,ph,w)=>`<input id="${id}" placeholder="${ph}" inputmode="decimal" autocomplete="off" oninput="oddsCheck()"${w?` style="width:${w}px"`:''}>`;
+  return `<div class="muodds"><div class="muhead" style="margin:0 0 2px">💵 Odds check — type your book's prices, get TAKE or PASS</div>
+    <div class="oddsrow"><span class="ol">Moneyline</span><span class="ot" id="olA">Left</span>${inp('mlA','-150')}<span class="ot" id="olB">Right</span>${inp('mlB','+130')}</div>
+    <div class="oddsrow"><span class="ol">Spread</span><span class="ot" id="slA">Left</span>${inp('spA','-3.5',58)}<span class="at">at</span>${inp('spPA','-110')}<span class="ot" id="slB">Right</span><span class="spb" id="spBtxt"></span><span class="at">at</span>${inp('spPB','-110')}</div>
+    <div class="oddsrow"><span class="ol">Bankroll</span><span class="at">$</span><input id="bpBank" placeholder="125" inputmode="decimal" value="${bankDefault()}" oninput="oddsCheck()" style="width:72px"><span class="at">for the stake on a TAKE</span></div>
+    <div id="oddsout"></div></div>`;
+}
+function oddsCheck(){
+  const out=document.getElementById('oddsout'); if(!out) return;
+  const M=muModel(), gv=id=>{const e=document.getElementById(id);return e?e.value:'';}, setT=(id,t)=>{const e=document.getElementById(id); if(e) e.textContent=t;};
+  const nA=M.A?shortNm(M.A.name):'Left', nB=M.B?shortNm(M.B.name):'Right';
+  setT('olA',nA); setT('slA',nA); setT('olB',nB); setT('slB',nB);
+  const L=_lineIn(gv('spA')); setT('spBtxt', L==null||Number.isNaN(L)?'':_fmtLine(-L));
+  const bank=+(gv('bpBank')||0); try{ localStorage.setItem('bp_bank', gv('bpBank')||''); }catch(e){}
+  if(M.err){ out.innerHTML=''; return; }
+  if(M.series){ out.innerHTML='<div class="munote">Set the matchup to <b>one game</b> to check game odds.</div>'; return; }
+  const mlA=_odds(gv('mlA')), mlB=_odds(gv('mlB')), pxA=_odds(gv('spPA')), pxB=_odds(gv('spPB'));
+  if([mlA,mlB,L,pxA,pxB].some(x=>Number.isNaN(x))){ out.innerHTML='<div class="muwarn" style="margin-top:6px">Prices look like -150 or +130 (100 or more either way); a spread like -3.5, +7 or PK.</div>'; return; }
+  const bets=[];
+  if(mlA!=null&&mlB!=null){ const a=1/_dec(mlA), b=1/_dec(mlB), f=a/(a+b);
+    bets.push({k:'ml',label:`${nA} to win`,price:mlA,fair:f,model:M.pA},{k:'ml',label:`${nB} to win`,price:mlB,fair:1-f,model:1-M.pA}); }
+  if(L!=null){ const pa=pxA??-110, pb=pxB??-110, a=1/_dec(pa), b=1/_dec(pb), f=a/(a+b), mc=_phi((M.m+L)/M.sd);
+    bets.push({k:'sp',label:`${nA} ${_fmtLine(L)}`,price:pa,fair:f,model:mc},{k:'sp',label:`${nB} ${_fmtLine(-L)}`,price:pb,fair:1-f,model:1-mc}); }
+  const unit=MU_UNIT[cur], fav=M.m>=0?M.A:M.B, pf=Math.max(M.pA,1-M.pA), T=MU_TEST[cur];
+  const modelLine=`Model: ${fav.name} by ~${Math.abs(M.m).toFixed(1)} ${unit}, wins ${Math.round(pf*100)}% (fair ${_amer(pf)})${M.h==='0'?' at a neutral site':''}`;
+  const testNote=T?`Tested on ${T.n} real ${cur.toUpperCase()} games (${T.yrs}): betting the model's disagreements with the line lost ${T.ml} on moneylines and ${T.sp} on spreads, in both halves — so the call ignores the model and only flags a real price edge.`
+    :`Not tested on real ${(M.d.sport||cur).toUpperCase()} lines yet; the same kind of model lost money against NFL and CFB lines, so the call ignores it here too.`;
+  if(!bets.length){ out.innerHTML=`<div class="munote" style="margin-top:6px">Type <b>both moneylines</b>, or the <b>spread</b> (prices default to -110). ${modelLine}${M.h==='0'?' — set who\'s home first':''}.</div>`; return; }
+  for(const x of bets){ x.ev=x.fair*_dec(x.price)-1; x.mev=x.model*_dec(x.price)-1; }
+  const pct=p=>(100*p).toFixed(1)+'%', sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%', TH=0.03, CAP=0.15;
+  let h=`<table class="oddst"><tr><th>Bet</th><th>Price</th><th title="The chance your book's own prices give, with its margin (vig) removed">Fair %</th><th title="Expected value at your price, against the fair %">EV</th><th title="The matchup model alone, for information: betting its disagreements with real lines lost money">Model %</th></tr>`;
+  for(const x of bets) h+=`<tr class="${x.ev>=TH&&x.ev<=CAP?'tk':''}"><td>${x.label}</td><td>${_fmtPx(x.price)}</td><td>${pct(x.fair)}</td><td class="${x.ev>=0?'g':'r'}">${sev(x.ev)}</td><td class="dim">${pct(x.model)}</td></tr>`;
+  h+='</table>';
+  const best=bets.slice().sort((a,b)=>b.ev-a.ev)[0]; let v;
+  if(best.ev>CAP) v={c:'pass',t:'PASS — CHECK THE PRICES',b:`${best.label} shows ${sev(best.ev)} EV, which is too good to be real — usually a typo (a missing minus sign?) or two prices from different moments.`};
+  else if(best.ev>=TH){ const k=best.ev/(_dec(best.price)-1), f=Math.min(0.03,k/4), both=bets.filter(x=>x.k===best.k&&x.ev>0).length>1;
+    v={c:'take',t:'TAKE — PRICE EDGE',b:`<b>${best.label}</b> at ${_fmtPx(best.price)}: <b>${sev(best.ev)} EV</b> against the fair line your two prices imply.${both?' Both sides are +EV — that\'s an arbitrage; make sure both prices are live at the same time.':''} The edge comes from the prices (line shopping, a stale or boosted line), not the model. Stake ~<b>${bank>0?'$'+(f*bank).toFixed(2):(100*f).toFixed(1)+'% of your bankroll'}</b> (¼-Kelly, max 3%).`}; }
+  else v={c:'pass',t:'PASS',b:`No edge at these prices: with the book's margin, the best bet here is ${sev(best.ev)} EV.`};
+  h+=`<div class="muverd ${v.c}"><span class="vh">${v.c==='take'?'✅':'❌'} ${v.t}</span>${v.b}<div class="vsmall">${modelLine}. ${testNote}</div></div>`;
+  out.innerHTML=h;
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
@@ -475,14 +557,15 @@ function render(){
     <div class="runmore" id="runmore" hidden><div class="lgs">${checks}</div><button class="btn sm" id="runbtn" onclick="runBlueprint()">▶ Run selected</button><a class="pplink" href="#" onclick="return chgTok()">🔑 GitHub token</a><span class="runmsg" id="runmsg"></span></div>
     <span class="runmsg" id="rfmsg"></span><div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div>
     ${statusRow(d,pct)}${trustDetails(d)}${top8(d,cur)}`;
-  if(teams.length>1){
-    const ml=teams.slice().sort((a,b)=>a.name.localeCompare(b.name));
-    const opt=(sel)=>ml.map(t=>`<option value="${t.name}"${t.name===sel?' selected':''}>${t.name}</option>`).join("");
+  const MT=muTeams(d), ml=Object.keys(MT).sort((a,b)=>a.localeCompare(b));   // every rated team (d.rtgs), not just the board's cards
+  if(ml.length>1){
+    const opt=(sel)=>ml.map(n=>`<option value="${n}"${n===sel?' selected':''}>${n}</option>`).join("");
     html+=`<div class="matchup"><div class="muhead">⚔️ Matchup simulator — who wins, and why</div>
-      <div class="murow"><select id="muA">${opt(ml[0].name)}</select><span class="muvs">vs</span><select id="muB">${opt(ml[1].name)}</select>
-      ${SERIES[cur]?'':'<select id="muH"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>'}
+      <div class="murow"><select id="muA" onchange="oddsCheck()">${opt(ml[0])}</select><span class="muvs">vs</span><select id="muB" onchange="oddsCheck()">${opt(ml[1])}</select>
+      ${SERIES[cur]?'<select id="muM" onchange="simMatchup()"><option value="g">one game</option><option value="s">best-of-7 series</option></select>':''}
+      <select id="muH" onchange="oddsCheck()"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
       <button class="btn" onclick="simMatchup()">Simulate</button></div>
-      <div class="muout" id="muout"></div></div>`;
+      <div class="muout" id="muout"></div>${oddsPanel()}</div>`;
   }
   for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
     html+=`<div class="tier ${tier(sc,mx)[1]}">${tier(sc,mx)[0]} <span class="n"${d.use_pre?' title="Projection phase: tier = projected title odds from the preseason roster model, not the 5-point checklist. The checklist takes over ~8 games in."':''}>${d.use_pre?{5:"proj ≥10%",4:"proj 4–10%",3:"proj 2–4%",2:"proj 1–2%",1:"proj <1%",0:"proj <1%"}[sc]:`${sc}/${mx}`}</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }

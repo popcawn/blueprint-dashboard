@@ -1,7 +1,7 @@
 {
   "sport": "WNBA",
   "season": "2026",
-  "generated": "2026-11-07T20:36:56Z",
+  "generated": "2026-11-08T01:42:11Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Golden State Valkyries",
@@ -231,6 +231,23 @@
       }
     }
   ],
+  "rtgs": {
+    "Golden State Valkyries": 7.0,
+    "Minnesota Lynx": 7.2,
+    "Atlanta Dream": 6.9,
+    "Las Vegas Aces": 5.7,
+    "Dallas Wings": 4.1,
+    "Washington Mystics": 1.3,
+    "Indiana Fever": 5.5,
+    "New York Liberty": 3.2,
+    "Phoenix Mercury": -3.2,
+    "Chicago Sky": -3.9,
+    "Los Angeles Sparks": -4.3,
+    "Portland Fire": -4.8,
+    "Seattle Storm": -6.8,
+    "Toronto Tempo": -8.7,
+    "Connecticut Sun": -9.2
+  },
   "signal": {
     "status": "trust",
     "emoji": "\ud83d\udfe2",

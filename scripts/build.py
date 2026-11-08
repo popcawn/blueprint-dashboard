@@ -413,7 +413,8 @@ def build_cfb():
             "season_pct": season_pct(teams, "cfb"),
             "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
             "labels": ["Win%", "PPG", "Opp PPG", "Opp YPG", "Margin"],
-            "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet, "cfp_week": cfp_week}
+            "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet, "cfp_week": cfp_week,
+            "rtgs": {t["name"]: round(0.5 * t["margin"] + 0.5 * t.get("srs", 0.0), 1) for t in teams}}   # every FBS team, for the matchup sim
 
 def cfb_row(t):
     sr = t["srsrank"]
@@ -576,7 +577,8 @@ def build_nhl():
             "season_pct": season_pct(rows, "nhl"),
             "cats": ["Goal diff/game top-10", "Corsi top-14", "xGoals% top-12", "Goals Against top-12"],
             "labels": ["GD/g", "Corsi", "xG%", "GA"],
-            "teams": [nhl_row(t) for t in rows if t["score"] >= 1 or (t.get("p") or 0) >= 0.01]}
+            "teams": [nhl_row(t) for t in rows if t["score"] >= 1 or (t.get("p") or 0) >= 0.01],
+            "rtgs": {t["name"]: nhl_row(t)["rtg"] for t in rows}}   # every team, for the matchup sim
 
 def nhl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
@@ -1133,7 +1135,8 @@ def build_nba():
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t['pdg'], 1),
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec")} for t in rows if t["score"] >= 1],
+        "rtgs": {t["name"]: round(t["pdg"], 1) for t in rows}})   # every team, for the matchup sim
     return base
 
 # ----------------------------------------------------------------------------- shared
@@ -1448,7 +1451,8 @@ def build_wnba():
             "vals": [f"{t['winpct']:.3f}", f"{t['nrtg']:+.1f} #{t['rk_pd']}", f"{t['drtg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t["pdg"], 1),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1 or t["p"] >= 0.01]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1 or t["p"] >= 0.01],
+        "rtgs": {t["name"]: round(t["pdg"], 1) for t in rows}})   # every team, for the matchup sim
     return base
 
 def mlb_data(season):
@@ -1543,7 +1547,8 @@ def build_mlb():
                      f"{t['pbabip']:.3f} #{t['rk_pb']}", f"{t['deff']:.3f} #{t['rk_def']}", (f"{t['oaa']:+.0f} #{t['rk_drs']}" if t['oaa'] is not None else "n/a")],
             "rtg": round(t["rdg"], 2),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1]})
+            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1],
+        "rtgs": {t["name"]: round(t["rdg"], 2) for t in rows}})   # every team, for the matchup sim
     return base
 
 # ----------------------------------------------------------------------------- College basketball (men + women)

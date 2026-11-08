@@ -155,5 +155,6 @@ def build(key, data_dir, fd_raw, year, alt_raw=None):
                      "alt": None if r.alt != r.alt else (f"+{int(r.alt)}" if r.alt > 0 else str(int(r.alt))),
                      "confirmed": r.confirmed, "pre_rank": r.pre_rank})
     base.update({"cats": CATS[key], "labels": LABELS, "teams": rows, "use_pre": use_pre, "median_gp": med,
-                 "pre_generated": pre.get("generated") if pre else None, "pre_confirmed": pre.get("confirmed_teams") if pre else None})
+                 "pre_generated": pre.get("generated") if pre else None, "pre_confirmed": pre.get("confirmed_teams") if pre else None,
+                 "rtgs": {r.name: round(float(r.adj_net), 1) for r in F.itertuples() if r.adj_net == r.adj_net}})   # every D1 team, for the matchup sim
     return base
