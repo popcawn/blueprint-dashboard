@@ -108,6 +108,9 @@
   .cal b{color:var(--ink);font-weight:700} .cal .lbl{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:10px;opacity:.7;margin-right:6px}
   .matchup{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0 6px}
   .muhead{font-weight:800;font-size:13px;letter-spacing:.02em;color:var(--ink2);margin-bottom:8px}
+  .matchup>summary.muhead{cursor:pointer;list-style:none;margin-bottom:0} .matchup>summary::-webkit-details-marker{display:none}
+  .matchup>summary:before{content:"▸ ";color:var(--ink3)} .matchup[open]>summary:before{content:"▾ "} .matchup[open]>summary.muhead{margin-bottom:8px}
+  .matchup>summary:hover{color:var(--accent)} .matchup .musub{font-weight:600;font-size:12px;letter-spacing:0;color:var(--ink3)}
   .murow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .murow select{font-family:var(--sans);font-size:13px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--ink);max-width:46%}
   .muvs{color:var(--ink3);font-weight:700;font-size:12px}
@@ -320,6 +323,7 @@ const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chan
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
 /* matchup simulator — backtested SDs (NFL 24.5, CFB 20.0 out-of-sample); NBA/NHL estimated */
+let MU_OPEN=false;   // (2026-11-07, user: "collapse the matchup sim") folded by default; stays the way you left it when you switch leagues, folded again on reload
 const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.8,wnba:14.0,mlb:5.0,cbb:11.0,wcbb:12.0,mls:1.65,fcs:20.0,cfl:27.0,nwsl:1.6,afl:33,nrl:24,superleague:22}, MU_HFA={nfl:2.0,cfb:4.0,nba:2.8,nhl:0.2,wnba:2.5,mlb:0.2,cbb:3.0,wcbb:3.0,mls:0.3,fcs:4.0,cfl:10.5,nwsl:0.2,afl:9.1,nrl:2.2,superleague:3.2}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts",mlb:"runs",cbb:"pts",wcbb:"pts",mls:"goals",fcs:"pts",cfl:"pts",nwsl:"goals",afl:"pts",nrl:"pts",superleague:"pts"};   // MLS rtg = expected goal margin vs an average team (Poisson model); knockout draws -> penalties ~50/50
 const SERIES={nba:7,nhl:7,mlb:7,wnba:7};   // playoffs are best-of-7 series; NFL/CFB are single-elimination
 function _nCk(n,k){let r=1;for(let i=0;i<k;i++)r=r*(n-i)/(i+1);return r;}
@@ -560,12 +564,12 @@ function render(){
   const MT=muTeams(d), ml=Object.keys(MT).sort((a,b)=>a.localeCompare(b));   // every rated team (d.rtgs), not just the board's cards
   if(ml.length>1){
     const opt=(sel)=>ml.map(n=>`<option value="${n}"${n===sel?' selected':''}>${n}</option>`).join("");
-    html+=`<div class="matchup"><div class="muhead">⚔️ Matchup simulator — who wins, and why</div>
+    html+=`<details class="matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary class="muhead">⚔️ Matchup simulator <span class="musub">${cur==="mls"||cur==="nwsl"?'· who wins, and why':'· who wins + 💵 TAKE or PASS at your odds'}</span></summary>
       <div class="murow"><select id="muA" onchange="oddsCheck()">${opt(ml[0])}</select><span class="muvs">vs</span><select id="muB" onchange="oddsCheck()">${opt(ml[1])}</select>
       ${SERIES[cur]?'<select id="muM" onchange="simMatchup()"><option value="g">one game</option><option value="s">best-of-7 series</option></select>':''}
       <select id="muH" onchange="oddsCheck()"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
       <button class="btn" onclick="simMatchup()">Simulate</button></div>
-      <div class="muout" id="muout"></div>${oddsPanel()}</div>`;
+      <div class="muout" id="muout"></div>${oddsPanel()}</details>`;
   }
   for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
     html+=`<div class="tier ${tier(sc,mx)[1]}">${tier(sc,mx)[0]} <span class="n"${d.use_pre?' title="Projection phase: tier = projected title odds from the preseason roster model, not the 5-point checklist. The checklist takes over ~8 games in."':''}>${d.use_pre?{5:"proj ≥10%",4:"proj 4–10%",3:"proj 2–4%",2:"proj 1–2%",1:"proj <1%",0:"proj <1%"}[sc]:`${sc}/${mx}`}</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }
