@@ -1559,72 +1559,71 @@
   "teams": {
    "Notre Dame Fighting Irish": {
     "sc": 4,
-    "idx": 91.2,
-    "fp": 13.5,
-    "mkt": "+450",
-    "ev": -26,
-    "mw": 14.88
+    "idx": 91.5,
+    "fp": 22.2,
+    "mkt": "+390",
+    "ev": 9,
+    "mw": 28.15
    },
    "Georgia Bulldogs": {
     "sc": 4,
     "idx": 88.0,
-    "fp": 18.9,
+    "fp": 26.7,
     "mkt": "+250",
-    "ev": -34,
-    "mw": 20.86
-   },
-   "Miami Hurricanes": {
-    "sc": 3,
-    "idx": 91.6,
-    "fp": 32.1,
-    "mkt": "+700",
-    "ev": 157,
-    "mw": 35.38
+    "ev": -7,
+    "mw": 33.91
    },
    "New Mexico Lobos": {
     "sc": 3,
     "idx": 88.1,
-    "fp": 0.1,
-    "mkt": "+50000",
-    "ev": -36,
-    "mw": 0.14
+    "fp": 0.2,
+    "mkt": "+40000",
+    "ev": -37,
+    "mw": 0.2
    },
    "UCLA Bruins": {
     "sc": 3,
     "idx": 85.2,
-    "fp": 14.1,
-    "mkt": "+3500",
-    "ev": 407,
-    "mw": 15.53
+    "fp": 16.5,
+    "mkt": "+4000",
+    "ev": 575,
+    "mw": 20.9
    },
    "LSU Tigers": {
     "sc": 3,
     "idx": 82.5,
-    "fp": 12.0,
+    "fp": 13.3,
     "mkt": "+1900",
-    "ev": 139,
-    "mw": 13.21
+    "ev": 165,
+    "mw": 16.84
+   },
+   "Miami Hurricanes": {
+    "sc": 2,
+    "idx": 89.4,
+    "fp": 10.8,
+    "mkt": "+750",
+    "ev": -8
    },
    "Utah Utes": {
     "sc": 2,
     "idx": 83.8,
-    "fp": 3.9,
+    "fp": 4.4,
     "mkt": "+2500",
-    "ev": 1
+    "ev": 15
    },
    "Indiana Hoosiers": {
     "sc": 2,
     "idx": 83.1,
-    "fp": 5.4,
+    "fp": 6.0,
     "mkt": "+900",
-    "ev": -46
+    "ev": -40
    },
    "North Dakota State Bison": {
     "sc": 2,
     "idx": 77.7,
-    "fp": 0.0,
+    "fp": 0.1,
     "mkt": "+125000",
-    "ev": -41
+    "ev": -29
    }
   }
  }
