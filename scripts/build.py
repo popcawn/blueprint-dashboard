@@ -1524,10 +1524,21 @@ def mlb_postseason(season):
     if first and _ts(first) > datetime.datetime.now(datetime.timezone.utc): first = None
     return first, sorted(teams), next((n for n, w in wins.items() if w >= 4), None)
 
+def cal_season(fetch):
+    """(2026-11-08) MLB and the WNBA play inside one calendar year, but YEAR flips on Jul 1 (right for the fall leagues). For these two
+       that meant May-June would still show LAST season (the WNBA tips off in May, MLB in late March) -- and, built daily, the board
+       would be stuck on the old year until July. Season = this calendar year once it has a regular-season game, else last year's: the
+       finished board (with its pre-playoff prices) stays up through the offseason, until opening day. SEASON_YEAR still overrides.
+       -> (season, fetch(season))"""
+    if os.environ.get("SEASON_YEAR"):
+        y = int(os.environ["SEASON_YEAR"]); return y, fetch(y)
+    y = datetime.datetime.now().year
+    d = fetch(y)
+    return (y, d) if d else (y - 1, fetch(y - 1))
+
 def build_wnba():
-    season = YEAR   # ESPN tags the WNBA season by its own year
+    season, scoring = cal_season(wnba_scoring)   # ESPN tags the WNBA season by its own year (calendar-year league, see cal_season)
     base = {"sport": "WNBA", "season": str(season), "generated": now_iso()}
-    scoring = wnba_scoring(season)
     if not scoring:
         base.update({"status": "preseason", "odds_remaining": None,
             "note": "The WNBA tips off in May — the blueprint goes live on the first games.", "teams": []})
@@ -1615,6 +1626,8 @@ def mlb_data(season):
             tid = t["team"]["id"]; w = t.get("wins", 0); l = t.get("losses", 0); g = w + l
             if g == 0: continue
             by[tid] = {"name": t["team"]["name"], "w": w, "l": l, "gp": g, "winpct": w/g, "rd": t.get("runDifferential", 0), "oaa": None}
+    if not by:
+        return {}   # no regular-season game yet (offseason / spring training): cal_season falls back to last season
     for grp in ("hitting", "pitching", "fielding"):
         try:
             d = get(f"https://statsapi.mlb.com/api/v1/teams/stats?season={season}&group={grp}&stats=season&sportId=1")
@@ -1646,9 +1659,8 @@ def mlb_data(season):
     return {v["name"]: v for v in by.values() if "era" in v and "rbi" in v}
 
 def build_mlb():
-    season = YEAR
+    season, data = cal_season(mlb_data)   # calendar-year league (see cal_season)
     base = {"sport": "MLB", "season": str(season), "generated": now_iso()}
-    data = mlb_data(season)
     if not data:
         base.update({"status": "preseason", "odds_remaining": None,
             "note": "MLB opens in late March — the blueprint goes live on the first games.", "teams": []})
@@ -1714,6 +1726,7 @@ def build_mlb():
     if first_po and pred: pred = closed_prediction(pred, rows, champ, f"{season} World Series", snap, asof)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "mlb"), "mlb_waronly": True,
+        "hist_off": bool(first_po),   # (2026-11-08, MLB now built daily) frozen once the playoffs start -> no daily history all offseason
         "market_name": snap.get("book", "FanDuel") if snap else "FanDuel", "market_asof": f"{asof:%b} {asof.day}" if (fd and asof) else None,
         "stage": ("done" if champ else "playoffs") if first_po else "regular", "window_closed": bool(first_po),
         "first_playoff": first_po, "champion": champ,
@@ -2213,7 +2226,7 @@ def main():
                                                "The playoffs are under way — you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now.")}
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"): attach_beat_reads(name, data)   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)

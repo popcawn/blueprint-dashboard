@@ -1,7 +1,7 @@
 {
   "sport": "MLB",
   "season": "2026",
-  "generated": "2026-11-08T12:27:10Z",
+  "generated": "2026-11-08T14:30:08Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Brewers",
@@ -9,6 +9,7 @@
   },
   "season_pct": 100,
   "mlb_waronly": true,
+  "hist_off": true,
   "market_name": "FanDuel",
   "market_asof": "Sep 29",
   "stage": "done",
