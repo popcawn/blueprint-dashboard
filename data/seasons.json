@@ -14,7 +14,6 @@
   {"key": "fcs", "name": "FCS", "title": "FCS title", "site": true, "start": "2026-08-29", "po": "2026-11-28", "final": "2027-01-04", "next": "2027-08-28", "approx": ["final", "next"]},
   {"key": "cfl", "name": "CFL", "title": "Grey Cup", "site": true, "start": "2026-06-04", "po": "2026-10-31", "final": "2026-11-15", "next": "2027-06-03", "approx": ["next"]},
   {"key": "nwsl", "name": "NWSL", "title": "NWSL final", "site": true, "start": "2026-03-14", "po": "2026-11-06", "final": "2026-11-21", "next": "2027-03-13", "approx": ["next"]},
-  {"key": "wcvb", "name": "College volleyball", "title": "NCAA final", "site": false, "start": "2026-08-28", "po": "2026-12-03", "final": "2026-12-20", "next": "2027-08-27", "approx": ["po", "final", "next"], "short": "Volleyball"},
   {"key": "chk", "name": "College hockey", "title": "Frozen Four", "site": false, "start": "2026-10-03", "po": "2027-03-26", "final": "2027-04-10", "approx": ["start", "po", "final"], "short": "College hockey"},
   {"key": "afl", "name": "AFL", "title": "Grand Final", "site": true, "start": "2027-03-17", "po": "2027-08-29", "final": "2027-09-25", "approx": ["po", "final"], "short": "AFL"},
   {"key": "nrl", "name": "NRL", "title": "Grand Final", "site": true, "start": "2027-03-06", "po": "2027-09-10", "final": "2027-10-03", "approx": ["start", "po", "final"], "short": "NRL"},
