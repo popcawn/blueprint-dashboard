@@ -1,11 +1,11 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-08T18:34:13Z",
-  "odds_remaining": "74281",
+  "generated": "2026-11-09T19:55:59Z",
+  "odds_remaining": "71447",
   "prediction": {
     "pick": "Georgia Bulldogs",
-    "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +220), the order that picked 10 of 12 CFP champions. Committee has it <b>#2</b> (83% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+    "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +221), the order that picked 10 of 12 CFP champions. Committee has it <b>#2</b> (83% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
   },
   "gp_min": 9,
   "gp_max": 10,
@@ -50,19 +50,20 @@
       ],
       "rtg": 38.7,
       "fair_pct": 31.2,
-      "fair_odds": "+220",
-      "market": "+240",
-      "ev": 6,
+      "fair_odds": "+221",
+      "market": "+250",
+      "ev": 9,
       "verdict": {
         "kind": "small",
         "label": "small value",
-        "ev": 6
+        "ev": 9
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 41.38,
+      "mw": 41.33,
+      "held": 0,
       "cfp": 2,
       "infield": 83
     },
@@ -71,7 +72,7 @@
       "conf": "Ind",
       "rec": "8-1",
       "score": 4,
-      "index": 90.7,
+      "index": 90.8,
       "q": [
         false,
         true,
@@ -86,24 +87,25 @@
         "0.889",
         "39.3 #9",
         "14.6 #9",
-        "252 #3",
+        "251 #3",
         "+24.8 #4"
       ],
       "rtg": 35.2,
-      "fair_pct": 24.5,
-      "fair_odds": "+308",
-      "market": "+390",
-      "ev": 20,
+      "fair_pct": 24.6,
+      "fair_odds": "+307",
+      "market": "+400",
+      "ev": 23,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 20
+        "kind": "value",
+        "label": "value",
+        "ev": 23
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #9) and SRS #4 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 32.48,
+      "mw": 32.55,
+      "held": 0,
       "cfp": 11,
       "infield": 66
     },
@@ -133,18 +135,19 @@
       "rtg": 24.0,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+50000",
-      "ev": -7,
+      "market": "+75000",
+      "ev": 40,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -7
+        "kind": "trap",
+        "label": "trap",
+        "ev": 40
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #1 scoring defense; the #25 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #41 says the schedule hasn't fully tested it yet."
       },
       "mw": 0.25,
+      "held": 0,
       "cfp": null,
       "infield": 1
     },
@@ -185,7 +188,8 @@
         "v": "caution",
         "why": "Leads with its #7 total defense; the #31 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #13 says the schedule hasn't fully tested it yet."
       },
-      "mw": 25.9,
+      "mw": 25.87,
+      "held": 0,
       "cfp": 8,
       "infield": 83
     },
@@ -214,7 +218,7 @@
       ],
       "rtg": 32.1,
       "fair_pct": 1.7,
-      "fair_odds": "+5770",
+      "fair_odds": "+5775",
       "market": "+4500",
       "ev": -22,
       "verdict": {
@@ -227,6 +231,7 @@
         "why": "Leads with its #1 margin; the #24 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #12 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
+      "held": 0,
       "cfp": 16,
       "infield": 29
     },
@@ -255,19 +260,20 @@
       ],
       "rtg": 34.6,
       "fair_pct": 10.9,
-      "fair_odds": "+817",
-      "market": "+800",
-      "ev": -2,
+      "fair_odds": "+818",
+      "market": "+850",
+      "ev": 3,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -2
+        "kind": "small",
+        "label": "small value",
+        "ev": 3
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #1 offense; the #33 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
       },
       "mw": null,
+      "held": 0,
       "cfp": 1,
       "infield": 83
     },
@@ -296,19 +302,20 @@
       ],
       "rtg": 27.5,
       "fair_pct": 6.6,
-      "fair_odds": "+1417",
-      "market": "+900",
-      "ev": -34,
+      "fair_odds": "+1418",
+      "market": "+950",
+      "ev": -31,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -34
+        "ev": -31
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #4 scoring defense; the #39 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #15 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
+      "held": 0,
       "cfp": 4,
       "infield": 83
     },
@@ -337,7 +344,7 @@
       ],
       "rtg": 30.5,
       "fair_pct": 5.1,
-      "fair_odds": "+1867",
+      "fair_odds": "+1869",
       "market": "+2500",
       "ev": 32,
       "verdict": {
@@ -350,6 +357,7 @@
         "why": "Leads with its #6 margin; the #44 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
+      "held": 0,
       "cfp": 3,
       "infield": 83
     },
@@ -379,18 +387,15 @@
       "rtg": 16.3,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+125000",
-      "ev": -21,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -21
-      },
+      "market": null,
+      "ev": null,
+      "verdict": null,
       "read": {
         "v": "caution",
         "why": "Leads with its #2 scoring defense; the #70 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #67 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
+      "held": 0,
       "cfp": null,
       "infield": 1
     },
@@ -419,7 +424,7 @@
       ],
       "rtg": 24.4,
       "fair_pct": 0.2,
-      "fair_odds": "+44043",
+      "fair_odds": "+44079",
       "market": "+10000",
       "ev": -77,
       "verdict": {
@@ -432,6 +437,7 @@
         "why": "Leads with its #3 scoring defense; the #71 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #20 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
+      "held": 0,
       "cfp": 19,
       "infield": 4
     }
@@ -471,6 +477,17 @@
     }
   ],
   "cfp_week": 10,
+  "rel_tops": {
+    "1": {
+      "top": "Miami Hurricanes",
+      "week": 10,
+      "date": "2026-11-04"
+    }
+  },
+  "held_top": {
+    "name": "Georgia Bulldogs",
+    "releases": 0
+  },
   "rtgs": {
     "Georgia Bulldogs": 38.7,
     "Notre Dame Fighting Irish": 35.2,
@@ -552,8 +569,8 @@
     "Virginia Cavaliers": 10.1,
     "App State Mountaineers": 3.8,
     "UAB Blazers": 0.8,
-    "Miami (OH) RedHawks": 0.5,
     "Florida International Panthers": -0.1,
+    "Miami (OH) RedHawks": 0.5,
     "Buffalo Bulls": -2.1,
     "Cincinnati Bearcats": 11.5,
     "NC State Wolfpack": 5.7,
@@ -617,12 +634,5 @@
     "label": "Trust the board",
     "note": "10 games in \u2014 stats have stabilized; the read is actionable."
   },
-  "value_plays": [
-    {
-      "name": "Notre Dame Fighting Irish",
-      "ev": 20,
-      "market": "+390",
-      "fair_odds": "+308"
-    }
-  ]
+  "value_plays": []
 }

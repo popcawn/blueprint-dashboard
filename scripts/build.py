@@ -45,16 +45,19 @@ def value_plays(teams, maxcat, sport=None):
        This replaces raw 'best EV', which lights up junk longshots (e.g. a 40000-1 phantom line)."""
     out = []
     if sport == "cfb":
-        # CFB: the NBA 'complete profile + trust read' gate contradicts the CFB backtest, where 3/5 champions are
-        # normal (2020 Alabama, 2024 Ohio State) and the champion-picker is the uncapped index x schedule order
-        # (10/12). CFB value = model top-4 in that order + schedule-verified (SRS top-10, so not a soft-slate
-        # mirage) + EV >= +10% at a believable price (<= +2500). Not odds-backtested: no historical CFB futures.
-        order = sorted([t for t in teams if t.get("mw")], key=lambda t: -t["mw"])[:4]
-        for t in order:
-            p = _price_num(t.get("market"))
-            if (t.get("ev") or 0) >= 10 and p is not None and p <= 2500 and (t.get("srsrank") or 999) <= 10:
-                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
-        out.sort(key=lambda x: -x["ev"])
+        # CFB (2026-11-09, user: "switch the cfb value play to that rule but only if it makes sense"): the value play is the board's
+        # #1 (the uncapped index x schedule x playoff-odds order = the Top pick) ONCE IT HAS HELD #1 THROUGH A COMMITTEE RELEASE
+        # (held >= 2, set in build_cfb), at EV >= +10% and a believable price (<= +2500). Tested against real FanDuel prices 2023-25
+        # (baseball-blueprint/cfb-trust-by-week.mjs --rule, 23 checkpoints, $10 a bet): this rule 8 bets / 8 won / +$316; the old rule
+        # (best EV >= +10% in the model's top 4, SRS top-10) 22 / 3 / +$103 and 1 for 17 once the committee ranked (Ohio State +750,
+        # Notre Dame +2000, Texas Tech +1600 ...). Only 3 seasons have FanDuel CFB prices: a lean, not proof (no prices 2014-22, when
+        # the board's #1 at the 2nd release won 2/6 in 2014-19 and 6/6 in 2020-25). Empty before a #1 has held through a release,
+        # when the #1 is priced fairly, and once a CFP game has been played (build_cfb sets held = 0 -- never bet within the playoffs).
+        top = max((t for t in teams if t.get("mw")), key=lambda t: t["mw"], default=None)
+        if top and (top.get("held") or 0) >= 2:
+            p = _price_num(top.get("market"))
+            if (top.get("ev") or 0) >= 10 and p is not None and p <= 2500:
+                out.append({"name": top["name"], "ev": top["ev"], "market": top.get("market"), "fair_odds": top.get("fair_odds")})
         return out
     if sport == "mls":
         # MLS (2026-11-06): only teams that clear all 5 every-champion criteria (every champion 2010-25 had all 5; a hidden
@@ -446,7 +449,7 @@ def build_cfb():
     # Backtest 2026-11-04 (board rebuilt from games before each season's first release, rates leave-one-season-out,
     # baseball-blueprint/cfb-firstcfp-backtest.mjs): champ top-3 7/12 -> 8/12, champ avg prob 20% -> 27%,
     # log-loss 2.20 -> 2.12, #1 pick unchanged 6/12. The one champion it hurt: 2014 Ohio State (first ranked #16).
-    cfp, cfp_week, cfp_rel = fetch_cfp_ranks(id2name)
+    cfp, cfp_week, cfp_rel, cfp_n = fetch_cfp_ranks(id2name)
     if cfp:
         for t in pool:
             r = cfp.get(t["name"]); t["cfp"] = r; t["infield"] = cfp_infield(r, cfp_rel)
@@ -471,6 +474,13 @@ def build_cfb():
         pred = {"pick": a["name"], "why": f"<b>{a['name']}</b> is the pick — the model's #1 by index × schedule{' × playoff odds' if cfp else ''}{f' (fair {odds})' if odds else ''}, the order that picked 10 of 12 CFP champions.{sel} {a['read']['why']}"}
     else:
         pred = make_prediction(teams, 5)
+    # HELD #1 (2026-11-09) for the value play (value_plays): rel_tops = the board's #1 at each committee release (recorded by the first
+    # build after the release comes out, carried from the last data/cfb.json); held = how many releases in a row, up to the latest,
+    # had today's #1 on top (0 if today's #1 is not the latest release's #1). Switched off (0) once a CFP game has been played.
+    top = ranked[0]["name"] if ranked else None
+    rel_tops, held = cfb_held(top, cfp_n, cfp_week)
+    started, champ = cfb_cfp_status(id2name) if cfp_rel == "F" else (False, None)
+    for t in teams: t["held"] = held if (t["name"] == top and not started) else 0
     teams.sort(key=lambda t: (-t["score"], -t["index"]))
     # gauntlet watch: SRS top-10 not in pool
     poolnames = {t["name"] for t in pool if t.get("mw")}
@@ -481,6 +491,8 @@ def build_cfb():
             "cats": ["Win% ≥.900", "PPG top-15", "Opp PPG top-10", "Opp YPG top-10", "Margin top-5"],
             "labels": ["Win%", "PPG", "Opp PPG", "Opp YPG", "Margin"],
             "teams": [cfb_row(t) for t in teams if t["score"] >= 2], "gauntlet": gauntlet, "cfp_week": cfp_week,
+            "rel_tops": rel_tops, "held_top": {"name": top, "releases": held} if top else None,
+            **({"stage": "done" if champ else "playoffs", "window_closed": True, "champion": champ} if started else {}),
             "rtgs": {t["name"]: round(0.5 * t["margin"] + 0.5 * t.get("srs", 0.0), 1) for t in teams}}   # every FBS team, for the matchup sim
 
 def cfb_row(t):
@@ -499,6 +511,7 @@ def cfb_row(t):
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
         "mw": round(t["mw"]*100, 2) if t.get("mw") else None,
+        "held": t.get("held") or 0,   # the #1's releases in a row on top (value-play gate, see cfb_held)
         "cfp": t.get("cfp"), "infield": round(t["infield"]*100) if t.get("infield") is not None else None}
 
 # P(final top-12 | committee rank) BY RELEASE (2026-11-07, baseball-blueprint/cfb-blindspot-backtest.mjs --sel). The board used the FIRST
@@ -515,13 +528,13 @@ def cfp_infield(r, rel=0):
     return next((p for hi, p in zip(CFP_BUCKETS, tab) if r <= hi), .01)
 
 def fetch_cfp_ranks(id2name):
-    """Latest CFP committee top 25 as {ESPN displayName: rank}, its ESPN week, and which release it is (0 = first ... 4; "F" = selection day);
-    ({}, None, 0) before the first release."""
+    """Latest CFP committee top 25 as {ESPN displayName: rank}, its ESPN week, which release it is (0 = first ... 4; "F" = selection day)
+    and how many releases there have been (1 = the first); ({}, None, 0, 0) before the first release."""
     try:
         idx = get(f"https://sports.core.api.espn.com/v2/sports/football/leagues/college-football/seasons/{YEAR}/rankings/21?limit=50")
         tw = lambda u: (int(re.search(r"types/(\d+)", u).group(1)), int(re.search(r"weeks/(\d+)", u).group(1)))
         refs = sorted((r["$ref"] for r in (idx or {}).get("rankings", []) if r.get("$ref")), key=tw)
-        if not refs: return {}, None, 0
+        if not refs: return {}, None, 0, 0
         j = get(refs[-1].replace("http://", "https://"))
         out = {}
         for r in j.get("ranks", []):
@@ -532,10 +545,49 @@ def fetch_cfp_ranks(id2name):
         try: sunday = datetime.date.fromisoformat(str(j.get("date", ""))[:10]).weekday() == 6
         except Exception: sunday = False
         final = tw(refs[-1])[0] == 3 or "Final" in str(j.get("headline", "")) or sunday
-        return out, tw(refs[-1])[1], ("F" if final else len(refs) - 1)
+        return out, tw(refs[-1])[1], ("F" if final else len(refs) - 1), len(refs)
     except Exception as e:
         print(f"  cfp rankings pull failed: {e}", file=sys.stderr)
-        return {}, None, 0
+        return {}, None, 0, 0
+
+# The board's #1 right after the FIRST 2026 committee release (Nov 3), from the git history of data/cfb.json: every build Nov 4-7 had
+# Miami on top; Georgia took over on Nov 8 after Miami lost at Notre Dame. Seeds rel_tops so the first build with the held rule doesn't
+# record today's #1 for a release it never topped. Values carried in data/cfb.json win over the seed.
+CFB_REL_SEED = {2026: {"1": {"top": "Miami Hurricanes", "week": 10, "date": "2026-11-04"}}}
+def cfb_held(top, cfp_n, cfp_week):
+    """(rel_tops, held). rel_tops = {release # (1 = first): {top, week, date}}, carried from the last data/cfb.json (this season only),
+    plus today's release if it isn't recorded yet -- the first build after a release comes out records the board's #1 then. held = how
+    many releases in a row, counting back from the latest, had today's #1 on top (0 when today's #1 isn't the latest release's #1)."""
+    try: prev = json.load(open(os.path.join(DATA, "cfb.json"), encoding="utf-8"))
+    except Exception: prev = {}
+    rel = {**CFB_REL_SEED.get(YEAR, {}), **((prev.get("rel_tops") or {}) if str(prev.get("season")) == str(YEAR) else {})}
+    if top and cfp_n and str(cfp_n) not in rel:
+        rel[str(cfp_n)] = {"top": top, "week": cfp_week, "date": now_iso()[:10]}
+    held = 0
+    for k in sorted(rel, key=int, reverse=True):
+        if rel[k].get("top") != top: break
+        held += 1
+    return rel, held
+
+def cfb_cfp_status(id2name):
+    """(started, champion) for this season's College Football Playoff. ESPN files every bowl and CFP game under seasontype 3, week 1;
+    CFP games carry a 'College Football Playoff ...' note (checked on 2025: First Round Game, Quarterfinal at ..., Semifinal at ...,
+    National Championship). The user never bets within the playoffs, so the value play switches off at the first completed CFP game."""
+    try:
+        j = get(f"https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates={YEAR}&seasontype=3&week=1&groups=80&limit=300")
+        started, champ = False, None
+        for e in (j or {}).get("events", []):
+            c = (e.get("competitions") or [{}])[0]
+            note = " ".join(n.get("headline", "") for n in (c.get("notes") or []))
+            if "College Football Playoff" not in note or not ((c.get("status") or {}).get("type") or {}).get("completed"): continue
+            started = True
+            if "National Championship" in note:
+                w = next((x for x in c.get("competitors", []) if x.get("winner")), None)
+                if w: champ = id2name.get(str(w["team"]["id"]), w["team"].get("displayName"))
+        return started, champ
+    except Exception as e:
+        print(f"  cfp status pull failed: {e}", file=sys.stderr)
+        return False, None
 
 def compute_srs(games, fbs):
     sched = {}
