@@ -1,7 +1,7 @@
 {
   "sport": "MLS",
   "season": "2026",
-  "generated": "2026-11-08T18:34:37Z",
+  "generated": "2026-11-09T14:55:17Z",
   "cats": [
     "Attack rating top-12",
     "Form (pts/g, last 8) \u2265 1.25",
@@ -38,14 +38,18 @@
         "1.69 #2"
       ],
       "rtg": 0.683,
-      "conf_pct": 38.7,
+      "conf_pct": 38.8,
       "index": 76.6,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "site": "home",
+        "date": "2026-11-23"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 23.5,
-      "fair_odds": "+325",
+      "fair_pct": 23.6,
+      "fair_odds": "+324",
       "read": null,
       "mk": 430,
       "market": "+430",
@@ -76,23 +80,27 @@
         "#1",
         "1.84 #1"
       ],
-      "rtg": 0.496,
-      "conf_pct": 29.9,
+      "rtg": 0.495,
+      "conf_pct": 30.2,
       "index": 87.3,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "site": "home",
+        "date": "2026-11-22"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 18.4,
-      "fair_odds": "+443",
+      "fair_pct": 19.1,
+      "fair_odds": "+424",
       "read": null,
       "mk": 340,
       "market": "+340",
-      "ev": -19,
+      "ev": -16,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -19
+        "ev": -16
       }
     },
     {
@@ -116,22 +124,27 @@
         "1.42 #3"
       ],
       "rtg": 0.443,
-      "conf_pct": 19.4,
+      "conf_pct": 19.3,
       "index": 68.5,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Columbus Crew",
+        "site": "home",
+        "date": "2026-11-21"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 10.5,
-      "fair_odds": "+851",
+      "fair_pct": 10.1,
+      "fair_odds": "+889",
       "read": null,
       "mk": 500,
       "market": "+500",
-      "ev": -37,
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -39
       }
     },
     {
@@ -154,23 +167,28 @@
         "#4",
         "1.15 #8"
       ],
-      "rtg": 0.361,
-      "conf_pct": 14.7,
+      "rtg": 0.36,
+      "conf_pct": 14.9,
       "index": 53.9,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Charlotte FC",
+        "site": "home",
+        "date": "2026-11-22"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 7.2,
-      "fair_odds": "+1280",
+      "fair_pct": 7.4,
+      "fair_odds": "+1252",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": 9,
+      "ev": 11,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 9
+        "kind": "value",
+        "label": "value",
+        "ev": 11
       }
     },
     {
@@ -194,14 +212,19 @@
         "1.24 #6"
       ],
       "rtg": -0.018,
-      "conf_pct": 5.3,
+      "conf_pct": 5.2,
       "index": 52.3,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Chicago Fire FC",
+        "site": "away",
+        "date": "2026-11-22"
+      },
       "champion": false,
       "bet_ok": true,
       "fair_pct": 2.2,
-      "fair_odds": "+4425",
+      "fair_odds": "+4405",
       "read": null,
       "mk": 2700,
       "market": "+2700",
@@ -236,19 +259,24 @@
       "conf_pct": 15.8,
       "index": 51.5,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Portland Timbers",
+        "site": "home",
+        "date": "2026-11-21"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 7.2,
-      "fair_odds": "+1281",
+      "fair_pct": 6.9,
+      "fair_odds": "+1344",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": 9,
+      "ev": 4,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 9
+        "ev": 4
       }
     },
     {
@@ -275,19 +303,24 @@
       "conf_pct": 5.7,
       "index": 63.3,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Inter Miami CF",
+        "site": "away",
+        "date": "2026-11-21"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 2.4,
-      "fair_odds": "+4128",
+      "fair_pct": 2.3,
+      "fair_odds": "+4174",
       "read": null,
       "mk": 5500,
       "market": "+5500",
-      "ev": 32,
+      "ev": 31,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 32
+        "ev": 31
       }
     },
     {
@@ -310,23 +343,28 @@
         "#9",
         "1.38 #4"
       ],
-      "rtg": 0.545,
-      "conf_pct": 15.8,
+      "rtg": 0.544,
+      "conf_pct": 15.6,
       "index": 54.3,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "New England Revolution",
+        "site": "away",
+        "date": "2026-11-21"
+      },
       "champion": false,
       "bet_ok": true,
       "fair_pct": 7.6,
-      "fair_odds": "+1216",
+      "fair_odds": "+1208",
       "read": null,
       "mk": 2000,
       "market": "+2000",
-      "ev": 60,
+      "ev": 61,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 60
+        "ev": 61
       }
     },
     {
@@ -350,22 +388,27 @@
         "1.09 #11"
       ],
       "rtg": 0.087,
-      "conf_pct": 9.1,
-      "index": 41.3,
+      "conf_pct": 9.2,
+      "index": 41.4,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "LAFC",
+        "site": "home",
+        "date": "2026-11-24"
+      },
       "champion": false,
       "bet_ok": true,
       "fair_pct": 3.7,
-      "fair_odds": "+2606",
+      "fair_odds": "+2621",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -37,
+      "ev": -38,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -38
       }
     },
     {
@@ -389,22 +432,27 @@
         "1.07 #12"
       ],
       "rtg": -0.066,
-      "conf_pct": 6.3,
+      "conf_pct": 6.2,
       "index": 50.4,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Philadelphia Union",
+        "site": "home",
+        "date": "2026-11-21"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 2.6,
-      "fair_odds": "+3754",
+      "fair_pct": 2.7,
+      "fair_odds": "+3550",
       "read": null,
       "mk": 1300,
       "market": "+1300",
-      "ev": -64,
+      "ev": -62,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -64
+        "ev": -62
       }
     },
     {
@@ -428,7 +476,7 @@
         "0.96 #18"
       ],
       "rtg": -0.017,
-      "conf_pct": 1.5,
+      "conf_pct": 1.6,
       "index": 45.1,
       "alive": null,
       "next": {
@@ -439,16 +487,16 @@
       },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.6,
-      "fair_odds": "+17918",
+      "fair_pct": 0.5,
+      "fair_odds": "+19317",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -77,
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -79
       }
     },
     {
@@ -484,15 +532,15 @@
       "champion": false,
       "bet_ok": true,
       "fair_pct": 0.4,
-      "fair_odds": "+24591",
+      "fair_odds": "+22122",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -83,
+      "ev": -82,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -83
+        "ev": -82
       }
     },
     {
@@ -551,22 +599,27 @@
         "0.97 #16"
       ],
       "rtg": -0.093,
-      "conf_pct": 4.1,
+      "conf_pct": 4.2,
       "index": 48.6,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "FC Dallas",
+        "site": "away",
+        "date": "2026-11-21"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.2,
-      "fair_odds": "+7997",
+      "fair_pct": 1.3,
+      "fair_odds": "+7363",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": 25,
+      "ev": 35,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 25
+        "ev": 35
       }
     },
     {
@@ -590,7 +643,7 @@
         "0.94 #20"
       ],
       "rtg": -0.08,
-      "conf_pct": 1.3,
+      "conf_pct": 1.4,
       "index": 45.4,
       "alive": null,
       "next": {
@@ -602,15 +655,15 @@
       "champion": false,
       "bet_ok": true,
       "fair_pct": 0.5,
-      "fair_odds": "+19702",
+      "fair_odds": "+21878",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -59,
+      "ev": -63,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -59
+        "ev": -63
       }
     },
     {
@@ -704,22 +757,27 @@
         "1.25 #5"
       ],
       "rtg": 0.371,
-      "conf_pct": 13.4,
+      "conf_pct": 13.2,
       "index": 38.4,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "St. Louis CITY SC",
+        "site": "away",
+        "date": "2026-11-24"
+      },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 5.6,
-      "fair_odds": "+1675",
+      "fair_pct": 5.3,
+      "fair_odds": "+1771",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -4,
+      "ev": -9,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -4
+        "ev": -9
       }
     },
     {
@@ -746,11 +804,16 @@
       "conf_pct": 11.0,
       "index": 38.1,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "Houston Dynamo FC",
+        "site": "home",
+        "date": "2026-11-25"
+      },
       "champion": false,
       "bet_ok": true,
       "fair_pct": 4.2,
-      "fair_odds": "+2292",
+      "fair_odds": "+2295",
       "read": null,
       "mk": 2200,
       "market": "+2200",
@@ -782,7 +845,7 @@
         "0.99 #14"
       ],
       "rtg": -0.053,
-      "conf_pct": 2.3,
+      "conf_pct": 2.2,
       "index": 33.8,
       "alive": null,
       "next": {
@@ -793,16 +856,16 @@
       },
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.8,
-      "fair_odds": "+12972",
+      "fair_pct": 0.6,
+      "fair_odds": "+15648",
       "read": null,
       "mk": 3300,
       "market": "+3300",
-      "ev": -74,
+      "ev": -78,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -74
+        "ev": -78
       }
     },
     {
@@ -825,7 +888,7 @@
         "#24",
         "0.85 #25"
       ],
-      "rtg": -0.287,
+      "rtg": -0.286,
       "conf_pct": 0,
       "index": 27.2,
       "alive": null,
@@ -860,23 +923,28 @@
         "#9",
         "0.93 #21"
       ],
-      "rtg": -0.246,
-      "conf_pct": 4.1,
+      "rtg": -0.245,
+      "conf_pct": 4.2,
       "index": 29.2,
       "alive": null,
-      "next": null,
+      "next": {
+        "round": "Round One",
+        "opp": "San Jose Earthquakes",
+        "site": "away",
+        "date": "2026-11-25"
+      },
       "champion": false,
       "bet_ok": true,
       "fair_pct": 1.3,
-      "fair_odds": "+7563",
+      "fair_odds": "+7391",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -78,
+      "ev": -77,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -78
+        "ev": -77
       }
     },
     {
@@ -1109,7 +1177,7 @@
         "#27",
         "0.71 #27"
       ],
-      "rtg": -0.596,
+      "rtg": -0.595,
       "conf_pct": 0,
       "index": 11.5,
       "alive": null,
@@ -1144,7 +1212,7 @@
         "#24",
         "0.99 #15"
       ],
-      "rtg": -0.046,
+      "rtg": -0.045,
       "conf_pct": 0,
       "index": 29.7,
       "alive": null,
@@ -1171,7 +1239,7 @@
   "champion": null,
   "prediction": {
     "pick": "Vancouver Whitecaps",
-    "why": "<b>Vancouver Whitecaps</b> is the model's #1: 23.5% to win MLS Cup (fair +325) and 38.7% to win the West. Seeding is final; the full bracket is simulated (20,000 runs). Betting window open until the first playoff match."
+    "why": "<b>Vancouver Whitecaps</b> is the model's #1: 23.6% to win MLS Cup (fair +324) and 38.8% to win the West. Seeding is final; the full bracket is simulated (20,000 runs). Betting window open until the first playoff match."
   },
   "season_pct": 100,
   "gp_min": 34,
@@ -1188,7 +1256,13 @@
       "name": "Vancouver Whitecaps",
       "ev": 25,
       "market": "+430",
-      "fair_odds": "+325"
+      "fair_odds": "+324"
+    },
+    {
+      "name": "Chicago Fire FC",
+      "ev": 11,
+      "market": "+1400",
+      "fair_odds": "+1252"
     }
   ]
 }
