@@ -1,7 +1,7 @@
 {
   "sport": "FCS",
   "season": "2026",
-  "generated": "2026-11-08T18:34:38Z",
+  "generated": "2026-11-09T11:25:17Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -46,16 +46,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 31.6,
-      "fair_odds": "+216",
+      "fair_pct": 33.0,
+      "fair_odds": "+203",
       "read": null,
       "mk": 380,
       "market": "+380",
-      "ev": 52,
+      "ev": 58,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 52
+        "ev": 58
       },
       "alt_ev": 27
     },
@@ -88,8 +88,8 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 4.7,
-      "fair_odds": "+2015",
+      "fair_pct": 2.6,
+      "fair_odds": "+3716",
       "read": null,
       "mk": null,
       "market": null,
@@ -126,16 +126,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 3.9,
-      "fair_odds": "+2487",
+      "fair_pct": 2.0,
+      "fair_odds": "+4892",
       "read": null,
       "mk": 900,
       "market": "+900",
-      "ev": -61,
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -61
+        "ev": -80
       },
       "alt_ev": -73
     },
@@ -168,16 +168,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 30.3,
-      "fair_odds": "+230",
+      "fair_pct": 39.3,
+      "fair_odds": "+154",
       "read": null,
       "mk": 275,
       "market": "+275",
-      "ev": 14,
+      "ev": 47,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 14
+        "ev": 47
       },
       "alt_ev": -36
     },
@@ -210,16 +210,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 12.7,
-      "fair_odds": "+689",
+      "fair_pct": 12.3,
+      "fair_odds": "+715",
       "read": null,
       "mk": 400,
       "market": "+400",
-      "ev": -37,
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -37
+        "ev": -39
       },
       "alt_ev": -16
     },
@@ -252,16 +252,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 5.7,
-      "fair_odds": "+1654",
+      "fair_pct": 4.2,
+      "fair_odds": "+2262",
       "read": null,
       "mk": 1000,
       "market": "+1000",
-      "ev": -37,
+      "ev": -53,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -37
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -53
       },
       "alt_ev": -48
     },
@@ -294,16 +294,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.6,
-      "fair_odds": "+6122",
+      "fair_pct": 0.8,
+      "fair_odds": "+12636",
       "read": null,
       "mk": 12000,
       "market": "+12000",
-      "ev": 94,
+      "ev": -5,
       "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 94
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -5
       },
       "alt_ev": 737
     },
@@ -336,16 +336,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.1,
-      "fair_odds": "+9150",
+      "fair_pct": 0.5,
+      "fair_odds": "+21428",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -12,
+      "ev": -62,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -12
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -62
       },
       "alt_ev": 19
     },
@@ -378,16 +378,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.6,
-      "fair_odds": "+16778",
+      "fair_pct": 0.2,
+      "fair_odds": "+47289",
       "read": null,
       "mk": 6000,
       "market": "+6000",
-      "ev": -64,
+      "ev": -87,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -64
+        "ev": -87
       },
       "alt_ev": -68
     },
@@ -420,16 +420,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.0,
-      "fair_odds": "+9551",
+      "fair_pct": 0.6,
+      "fair_odds": "+18036",
       "read": null,
       "mk": 2200,
       "market": "+2200",
-      "ev": -76,
+      "ev": -87,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -76
+        "ev": -87
       },
       "alt_ev": -66
     },
@@ -462,8 +462,8 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.4,
-      "fair_odds": "+22547",
+      "fair_pct": 0.2,
+      "fair_odds": "+50000+",
       "read": null,
       "mk": null,
       "market": null,
@@ -500,7 +500,7 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.1,
+      "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
       "mk": null,
@@ -538,7 +538,7 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.1,
+      "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
       "mk": null,
@@ -576,16 +576,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.7,
-      "fair_odds": "+5669",
+      "fair_pct": 1.4,
+      "fair_odds": "+7182",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -74,
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -74
+        "ev": -79
       },
       "alt_ev": 9
     },
@@ -618,8 +618,8 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.5,
-      "fair_odds": "+6384",
+      "fair_pct": 1.2,
+      "fair_odds": "+8407",
       "read": null,
       "mk": null,
       "market": null,
@@ -656,56 +656,18 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.9,
-      "fair_odds": "+10951",
+      "fair_pct": 0.6,
+      "fair_odds": "+17183",
       "read": null,
       "mk": 3000,
       "market": "+3000",
-      "ev": -72,
+      "ev": -82,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -72
+        "ev": -82
       },
       "alt_ev": 27
-    },
-    {
-      "name": "Incarnate Word",
-      "conf": "FCS",
-      "rec": "6-4",
-      "gp": 10,
-      "score": 2,
-      "q": [
-        true,
-        false,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "14.7 #7",
-        ".600 #29",
-        "25.6 #56",
-        ".543 #26",
-        ".000 #30"
-      ],
-      "index": 74.9,
-      "rtg": 12.11,
-      "alt_pct": 0.6,
-      "srsrank": 15,
-      "sosrank": 49,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 0.3,
-      "fair_odds": "+39455",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
     }
   ],
   "odds_remaining": null,
@@ -717,8 +679,8 @@
   "first_playoff": null,
   "champion": null,
   "prediction": {
-    "pick": "Montana State",
-    "why": "<b>Montana State</b> is the model's #1: 31.6% to win the FCS title (fair +216); the plain power rating alone gives 26.5%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
+    "pick": "South Dakota State",
+    "why": "<b>South Dakota State</b> is the model's #1: 39.3% to win the FCS title (fair +154); the plain power rating alone gives 17.2%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
   },
   "season_pct": 89,
   "gp_min": 4,
@@ -733,9 +695,9 @@
   "value_plays": [
     {
       "name": "Montana State",
-      "ev": 52,
+      "ev": 58,
       "market": "+380",
-      "fair_odds": "+216"
+      "fair_odds": "+203"
     }
   ]
 }
