@@ -1,233 +1,81 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-08T18:34:01Z",
-  "odds_remaining": "74282",
+  "generated": "2026-11-09T00:07:52Z",
+  "odds_remaining": "73278",
   "prediction": {
     "pick": "Jacksonville Jaguars",
-    "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +373). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
+    "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +429). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
   },
   "game_lines": {
     "book": "FanDuel",
-    "at": "2026-11-08T18:34:01Z",
+    "at": "2026-11-09T00:07:52Z",
     "games": [
-      {
-        "home": "Miami Dolphins",
-        "away": "Detroit Lions",
-        "commence": "2026-11-08T18:02:36Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Detroit Lions": -340,
-          "Miami Dolphins": 250
-        },
-        "spread": {
-          "Detroit Lions": [
-            -5.5,
-            -122
-          ],
-          "Miami Dolphins": [
-            5.5,
-            -108
-          ]
-        }
-      },
-      {
-        "home": "New Orleans Saints",
-        "away": "Cleveland Browns",
-        "commence": "2026-11-08T18:02:45Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Cleveland Browns": 330,
-          "New Orleans Saints": -480
-        },
-        "spread": {
-          "Cleveland Browns": [
-            7.5,
-            -120
-          ],
-          "New Orleans Saints": [
-            -7.5,
-            -110
-          ]
-        }
-      },
-      {
-        "home": "Kansas City Chiefs",
-        "away": "New York Jets",
-        "commence": "2026-11-08T18:02:51Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Kansas City Chiefs": -240,
-          "New York Jets": 182
-        },
-        "spread": {
-          "Kansas City Chiefs": [
-            -4.5,
-            -102
-          ],
-          "New York Jets": [
-            4.5,
-            -130
-          ]
-        }
-      },
-      {
-        "home": "Philadelphia Eagles",
-        "away": "New York Giants",
-        "commence": "2026-11-08T18:02:51Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "New York Giants": -245,
-          "Philadelphia Eagles": 186
-        },
-        "spread": {
-          "New York Giants": [
-            -5.5,
-            -114
-          ],
-          "Philadelphia Eagles": [
-            5.5,
-            -114
-          ]
-        }
-      },
-      {
-        "home": "Carolina Panthers",
-        "away": "Denver Broncos",
-        "commence": "2026-11-08T18:03:03Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Carolina Panthers": 310,
-          "Denver Broncos": -440
-        },
-        "spread": {
-          "Carolina Panthers": [
-            7.5,
-            -118
-          ],
-          "Denver Broncos": [
-            -7.5,
-            -112
-          ]
-        }
-      },
-      {
-        "home": "Indianapolis Colts",
-        "away": "Dallas Cowboys",
-        "commence": "2026-11-08T18:03:06Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Dallas Cowboys": -178,
-          "Indianapolis Colts": 138
-        },
-        "spread": {
-          "Dallas Cowboys": [
-            -2.5,
-            -136
-          ],
-          "Indianapolis Colts": [
-            2.5,
-            102
-          ]
-        }
-      },
-      {
-        "home": "Washington Commanders",
-        "away": "Los Angeles Rams",
-        "commence": "2026-11-08T18:03:09Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Los Angeles Rams": -220,
-          "Washington Commanders": 168
-        },
-        "spread": {
-          "Los Angeles Rams": [
-            -3.5,
-            -112
-          ],
-          "Washington Commanders": [
-            3.5,
-            -118
-          ]
-        }
-      },
       {
         "home": "Los Angeles Chargers",
         "away": "Houston Texans",
-        "commence": "2026-11-08T21:05:00Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Houston Texans": -240,
-          "Los Angeles Chargers": 198
-        },
+        "commence": "2026-11-08T21:05:49Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {},
         "spread": {
           "Houston Texans": [
-            -5.5,
-            -110
+            -19.5,
+            -148
           ],
           "Los Angeles Chargers": [
-            5.5,
-            -110
-          ]
-        }
-      },
-      {
-        "home": "Seattle Seahawks",
-        "away": "Arizona Cardinals",
-        "commence": "2026-11-08T21:25:00Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Arizona Cardinals": 350,
-          "Seattle Seahawks": -460
-        },
-        "spread": {
-          "Arizona Cardinals": [
-            8.5,
-            -105
-          ],
-          "Seattle Seahawks": [
-            -8.5,
-            -115
+            19.5,
+            112
           ]
         }
       },
       {
         "home": "New England Patriots",
         "away": "Green Bay Packers",
-        "commence": "2026-11-08T21:25:00Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Green Bay Packers": 146,
-          "New England Patriots": -174
-        },
+        "commence": "2026-11-08T21:25:34Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {},
         "spread": {
           "Green Bay Packers": [
-            3.0,
-            -105
+            -21.5,
+            -104
           ],
           "New England Patriots": [
-            -3.0,
-            -115
+            21.5,
+            -128
           ]
         }
       },
       {
         "home": "San Francisco 49ers",
         "away": "Las Vegas Raiders",
-        "commence": "2026-11-08T21:25:00Z",
-        "updated": "2026-11-08T18:33:34Z",
-        "ml": {
-          "Las Vegas Raiders": 380,
-          "San Francisco 49ers": -490
-        },
+        "commence": "2026-11-08T21:25:35Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {},
         "spread": {
           "Las Vegas Raiders": [
-            9.5,
-            -110
+            20.5,
+            640
           ],
           "San Francisco 49ers": [
-            -9.5,
-            -110
+            -20.5,
+            -1450
+          ]
+        }
+      },
+      {
+        "home": "Seattle Seahawks",
+        "away": "Arizona Cardinals",
+        "commence": "2026-11-08T21:25:42Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {},
+        "spread": {
+          "Arizona Cardinals": [
+            13.5,
+            290
+          ],
+          "Seattle Seahawks": [
+            -13.5,
+            -440
           ]
         }
       },
@@ -235,10 +83,10 @@
         "home": "Chicago Bears",
         "away": "Tampa Bay Buccaneers",
         "commence": "2026-11-09T01:20:00Z",
-        "updated": "2026-11-08T18:33:34Z",
+        "updated": "2026-11-09T00:07:40Z",
         "ml": {
-          "Chicago Bears": -270,
-          "Tampa Bay Buccaneers": 220
+          "Chicago Bears": -260,
+          "Tampa Bay Buccaneers": 215
         },
         "spread": {
           "Chicago Bears": [
@@ -255,7 +103,7 @@
         "home": "Minnesota Vikings",
         "away": "Buffalo Bills",
         "commence": "2026-11-10T01:15:00Z",
-        "updated": "2026-11-08T18:33:34Z",
+        "updated": "2026-11-09T00:07:40Z",
         "ml": {
           "Buffalo Bills": -174,
           "Minnesota Vikings": 146
@@ -270,13 +118,293 @@
             -105
           ]
         }
+      },
+      {
+        "home": "New York Giants",
+        "away": "Washington Commanders",
+        "commence": "2026-11-13T01:15:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "New York Giants": -122,
+          "Washington Commanders": 104
+        },
+        "spread": {
+          "New York Giants": [
+            -1.5,
+            -110
+          ],
+          "Washington Commanders": [
+            1.5,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "Detroit Lions",
+        "away": "New England Patriots",
+        "commence": "2026-11-15T14:30:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Detroit Lions": -122,
+          "New England Patriots": 104
+        },
+        "spread": {
+          "Detroit Lions": [
+            -1.5,
+            -110
+          ],
+          "New England Patriots": [
+            1.5,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "Atlanta Falcons",
+        "away": "Kansas City Chiefs",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Atlanta Falcons": 146,
+          "Kansas City Chiefs": -174
+        },
+        "spread": {
+          "Atlanta Falcons": [
+            3.5,
+            -120
+          ],
+          "Kansas City Chiefs": [
+            -3.5,
+            100
+          ]
+        }
+      },
+      {
+        "home": "New York Jets",
+        "away": "Buffalo Bills",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Buffalo Bills": -520,
+          "New York Jets": 400
+        },
+        "spread": {
+          "Buffalo Bills": [
+            -8.5,
+            -110
+          ],
+          "New York Jets": [
+            8.5,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "New Orleans Saints",
+        "away": "Carolina Panthers",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Carolina Panthers": -118,
+          "New Orleans Saints": 100
+        },
+        "spread": {
+          "Carolina Panthers": [
+            -1.5,
+            -105
+          ],
+          "New Orleans Saints": [
+            1.5,
+            -115
+          ]
+        }
+      },
+      {
+        "home": "Cleveland Browns",
+        "away": "Houston Texans",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Cleveland Browns": 176,
+          "Houston Texans": -210
+        },
+        "spread": {
+          "Cleveland Browns": [
+            4.5,
+            -110
+          ],
+          "Houston Texans": [
+            -4.5,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "Green Bay Packers",
+        "away": "Minnesota Vikings",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Green Bay Packers": -164,
+          "Minnesota Vikings": 138
+        },
+        "spread": {
+          "Green Bay Packers": [
+            -3.0,
+            -110
+          ],
+          "Minnesota Vikings": [
+            3.0,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "Indianapolis Colts",
+        "away": "Miami Dolphins",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Indianapolis Colts": -138,
+          "Miami Dolphins": 118
+        },
+        "spread": {
+          "Indianapolis Colts": [
+            -2.5,
+            -110
+          ],
+          "Miami Dolphins": [
+            2.5,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "Tennessee Titans",
+        "away": "Jacksonville Jaguars",
+        "commence": "2026-11-15T18:00:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Jacksonville Jaguars": -620,
+          "Tennessee Titans": 460
+        },
+        "spread": {
+          "Jacksonville Jaguars": [
+            -9.5,
+            -120
+          ],
+          "Tennessee Titans": [
+            9.5,
+            100
+          ]
+        }
+      },
+      {
+        "home": "Arizona Cardinals",
+        "away": "Los Angeles Rams",
+        "commence": "2026-11-15T21:05:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Arizona Cardinals": 285,
+          "Los Angeles Rams": -355
+        },
+        "spread": {
+          "Arizona Cardinals": [
+            7.5,
+            -120
+          ],
+          "Los Angeles Rams": [
+            -7.5,
+            100
+          ]
+        }
+      },
+      {
+        "home": "Las Vegas Raiders",
+        "away": "Seattle Seahawks",
+        "commence": "2026-11-15T21:05:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Las Vegas Raiders": 160,
+          "Seattle Seahawks": -190
+        },
+        "spread": {
+          "Las Vegas Raiders": [
+            3.5,
+            -110
+          ],
+          "Seattle Seahawks": [
+            -3.5,
+            -110
+          ]
+        }
+      },
+      {
+        "home": "Dallas Cowboys",
+        "away": "San Francisco 49ers",
+        "commence": "2026-11-15T21:25:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Dallas Cowboys": 180,
+          "San Francisco 49ers": -215
+        },
+        "spread": {
+          "Dallas Cowboys": [
+            4.5,
+            -120
+          ],
+          "San Francisco 49ers": [
+            -4.5,
+            100
+          ]
+        }
+      },
+      {
+        "home": "Cincinnati Bengals",
+        "away": "Pittsburgh Steelers",
+        "commence": "2026-11-16T01:20:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Cincinnati Bengals": -200,
+          "Pittsburgh Steelers": 168
+        },
+        "spread": {
+          "Cincinnati Bengals": [
+            -3.5,
+            -115
+          ],
+          "Pittsburgh Steelers": [
+            3.5,
+            -105
+          ]
+        }
+      },
+      {
+        "home": "Baltimore Ravens",
+        "away": "Los Angeles Chargers",
+        "commence": "2026-11-17T01:15:00Z",
+        "updated": "2026-11-09T00:07:40Z",
+        "ml": {
+          "Baltimore Ravens": -176,
+          "Los Angeles Chargers": 148
+        },
+        "spread": {
+          "Baltimore Ravens": [
+            -3.5,
+            -105
+          ],
+          "Los Angeles Chargers": [
+            3.5,
+            -115
+          ]
+        }
       }
     ]
   },
   "sig": 13.5,
   "gp_min": 7,
   "gp_max": 9,
-  "season_pct": 45,
+  "season_pct": 48,
   "cats": [
     "Win% \u2265.625",
     "Pt Diff top-6",
@@ -308,19 +436,19 @@
       "vals": [
         "0.750",
         "+108 #1",
-        "28.6 #4",
+        "28.6 #3",
         "15.1 #2",
         "+13.5"
       ],
       "rtg": 8.9,
-      "fair_pct": 21.1,
-      "fair_odds": "+373",
-      "market": "+900",
-      "ev": 111,
+      "fair_pct": 18.9,
+      "fair_odds": "+429",
+      "market": "+850",
+      "ev": 79,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 111
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 79
       },
       "read": {
         "v": "trust",
@@ -342,24 +470,59 @@
       ],
       "vals": [
         "0.857",
-        "+58 #3",
-        "28.1 #5",
+        "+58 #4",
+        "28.1 #4",
         "19.9 #6",
         "+8.3"
       ],
       "rtg": 5.0,
-      "fair_pct": 15.8,
-      "fair_odds": "+533",
+      "fair_pct": 16.5,
+      "fair_odds": "+505",
       "market": "+550",
-      "ev": 3,
+      "ev": 7,
       "verdict": {
         "kind": "small",
         "label": "small value",
-        "ev": 3
+        "ev": 7
       },
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#3) and a top-6 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-6 defense. Complete and earned \u2014 trust it."
+      }
+    },
+    {
+      "name": "Kansas City Chiefs",
+      "conf": "AFC",
+      "rec": "6-2",
+      "score": 5,
+      "index": 72.5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "0.750",
+        "+59 #3",
+        "25.2 #9",
+        "17.9 #3",
+        "+7.4"
+      ],
+      "rtg": 4.4,
+      "fair_pct": 9.6,
+      "fair_odds": "+947",
+      "market": "+1200",
+      "ev": 24,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 24
+      },
+      "read": {
+        "v": "trust",
+        "why": "Built for January \u2014 a real #3 point margin AND a #3 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
       }
     },
     {
@@ -377,24 +540,24 @@
       ],
       "vals": [
         "0.750",
-        "+54 #4",
+        "+54 #5",
         "26.8 #8",
         "20.0 #8",
         "+6.8"
       ],
       "rtg": 3.9,
-      "fair_pct": 12.7,
-      "fair_odds": "+687",
+      "fair_pct": 13.3,
+      "fair_odds": "+652",
       "market": "+800",
-      "ev": 14,
+      "ev": 20,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 14
+        "ev": 20
       },
       "read": {
         "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#4) and a top-8 defense. Complete and earned \u2014 trust it."
+        "why": "The two traits that survive single-elimination: dominant margin (#5) and a top-8 defense. Complete and earned \u2014 trust it."
       }
     },
     {
@@ -414,57 +577,22 @@
         "0.750",
         "+65 #2",
         "30.0 #2",
-        "21.9 #14",
+        "21.9 #15",
         "+8.1"
       ],
       "rtg": 3.4,
-      "fair_pct": 8.9,
-      "fair_odds": "+1027",
+      "fair_pct": 7.9,
+      "fair_odds": "+1160",
       "market": "+1300",
-      "ev": 24,
+      "ev": 11,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 24
+        "ev": 11
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #2 unit, but the #14 area is where a good playoff team picks it apart."
-      }
-    },
-    {
-      "name": "Minnesota Vikings",
-      "conf": "NFC",
-      "rec": "6-1",
-      "score": 4,
-      "index": 72.3,
-      "q": [
-        true,
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "0.857",
-        "+47 #6",
-        "20.0 #27",
-        "13.3 #1",
-        "+6.7"
-      ],
-      "rtg": 3.5,
-      "fair_pct": 10.8,
-      "fair_odds": "+827",
-      "market": "+2500",
-      "ev": 181,
-      "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 181
-      },
-      "read": {
-        "v": "trust",
-        "why": "The two traits that survive single-elimination: dominant margin (#6) and a top-1 defense. Complete and earned \u2014 trust it."
+        "why": "A middling profile \u2014 leads with its #2 unit, but the #15 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -482,32 +610,32 @@
       ],
       "vals": [
         "0.857",
-        "+52 #5",
+        "+52 #6",
         "33.3 #1",
-        "25.9 #23",
+        "25.9 #25",
         "+7.4"
       ],
       "rtg": 5.2,
-      "fair_pct": 8.2,
-      "fair_odds": "+1119",
+      "fair_pct": 7.3,
+      "fair_odds": "+1263",
       "market": "+600",
-      "ev": -43,
+      "ev": -49,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -43
+        "ev": -49
       },
       "read": {
         "v": "fools_gold",
-        "why": "Shootout-or-bust: a #1 offense papering over a #23 defense. You can't out-score a real team in January when you can't get a stop. Fade."
+        "why": "Shootout-or-bust: a #1 offense papering over a #25 defense. You can't out-score a real team in January when you can't get a stop. Fade."
       }
     },
     {
-      "name": "Kansas City Chiefs",
-      "conf": "AFC",
-      "rec": "5-2",
+      "name": "Minnesota Vikings",
+      "conf": "NFC",
+      "rec": "6-1",
       "score": 3,
-      "index": 64.4,
+      "index": 72.3,
       "q": [
         true,
         false,
@@ -516,25 +644,25 @@
         true
       ],
       "vals": [
-        "0.714",
-        "+36 #7",
-        "23.9 #11",
-        "18.7 #4",
-        "+5.1"
+        "0.857",
+        "+47 #7",
+        "20.0 #27",
+        "13.3 #1",
+        "+6.7"
       ],
-      "rtg": 3.0,
-      "fair_pct": 4.7,
-      "fair_odds": "+2037",
-      "market": "+1200",
-      "ev": -39,
+      "rtg": 3.5,
+      "fair_pct": 9.0,
+      "fair_odds": "+1007",
+      "market": "+2700",
+      "ev": 153,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -39
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 153
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #4 unit, but the #11 area is where a good playoff team picks it apart."
+        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #1 defense, but a #27 offense that can't go cold at the wrong time."
       }
     },
     {
@@ -552,15 +680,15 @@
       ],
       "vals": [
         "0.750",
-        "+36 #7",
-        "22.5 #18",
-        "18.0 #3",
+        "+36 #8",
+        "22.5 #17",
+        "18.0 #4",
         "+4.5"
       ],
       "rtg": 2.5,
-      "fair_pct": 3.2,
-      "fair_odds": "+3011",
-      "market": "+4000",
+      "fair_pct": 2.9,
+      "fair_odds": "+3379",
+      "market": "+4500",
       "ev": 32,
       "verdict": {
         "kind": "longshot",
@@ -569,15 +697,15 @@
       },
       "read": {
         "v": "caution",
-        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #3 defense, but a #18 offense that can't go cold at the wrong time."
+        "why": "Wins ugly, and that plays in the playoffs \u2014 elite #4 defense, but a #17 offense that can't go cold at the wrong time."
       }
     },
     {
       "name": "Detroit Lions",
       "conf": "NFC",
-      "rec": "5-2",
+      "rec": "6-2",
       "score": 2,
-      "index": 58.0,
+      "index": 61.9,
       "q": [
         true,
         false,
@@ -586,25 +714,25 @@
         false
       ],
       "vals": [
-        "0.714",
-        "+23 #12",
-        "29.0 #3",
-        "25.7 #22",
-        "+3.3"
+        "0.750",
+        "+33 #9",
+        "27.8 #5",
+        "23.6 #16",
+        "+4.1"
       ],
-      "rtg": 2.5,
-      "fair_pct": 3.1,
-      "fair_odds": "+3105",
-      "market": "+1700",
-      "ev": -44,
+      "rtg": 3.0,
+      "fair_pct": 4.0,
+      "fair_odds": "+2419",
+      "market": "+1600",
+      "ev": -33,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -44
+        "kind": "fade",
+        "label": "fade",
+        "ev": -33
       },
       "read": {
-        "v": "fools_gold",
-        "why": "All gas, no brakes \u2014 #3 offense but a #22 defense. Playoff football tightens and defense travels; the first time they're held near their floor, they're done."
+        "v": "caution",
+        "why": "A middling profile \u2014 leads with its #5 unit, but the #16 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -623,58 +751,58 @@
       "vals": [
         "0.625",
         "+22 #13",
-        "23.0 #16",
-        "20.2 #9",
+        "23.0 #15",
+        "20.2 #10",
         "+2.8"
       ],
       "rtg": 3.6,
-      "fair_pct": 2.2,
-      "fair_odds": "+4495",
-      "market": "+2000",
-      "ev": -54,
+      "fair_pct": 1.9,
+      "fair_odds": "+5038",
+      "market": "+2500",
+      "ev": -49,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -54
+        "ev": -49
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #9 unit, but the #16 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #10 unit, but the #15 area is where a good playoff team picks it apart."
       }
     },
     {
-      "name": "Green Bay Packers",
+      "name": "Los Angeles Rams",
       "conf": "NFC",
-      "rec": "5-3",
-      "score": 2,
-      "index": 50.6,
+      "rec": "5-4",
+      "score": 1,
+      "index": 58.2,
       "q": [
-        true,
+        false,
         false,
         false,
         true,
         false
       ],
       "vals": [
-        "0.625",
-        "+7 #14",
-        "21.4 #22",
-        "20.5 #10",
-        "+0.9"
+        "0.556",
+        "+33 #9",
+        "23.8 #11",
+        "20.1 #9",
+        "+3.7"
       ],
-      "rtg": 0.8,
-      "fair_pct": 2.1,
-      "fair_odds": "+4727",
-      "market": "+2700",
-      "ev": -42,
+      "rtg": 4.1,
+      "fair_pct": 1.4,
+      "fair_odds": "+6972",
+      "market": "+1300",
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -42
+        "ev": -80
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #10 unit, but the #22 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #9 unit, but the #11 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -692,59 +820,59 @@
       ],
       "vals": [
         "0.500",
-        "+26 #10",
-        "23.1 #15",
+        "+26 #12",
+        "23.1 #13",
         "19.9 #7",
         "+3.2"
       ],
       "rtg": 4.1,
       "fair_pct": 1.2,
-      "fair_odds": "+8389",
-      "market": "+1400",
-      "ev": -82,
+      "fair_odds": "+8011",
+      "market": "+1500",
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -82
+        "ev": -80
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #7 unit, but the #15 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #7 unit, but the #13 area is where a good playoff team picks it apart."
       }
     },
     {
-      "name": "Los Angeles Rams",
-      "conf": "NFC",
-      "rec": "4-4",
+      "name": "Denver Broncos",
+      "conf": "AFC",
+      "rec": "7-2",
       "score": 1,
-      "index": 55.4,
+      "index": 54.8,
       "q": [
-        false,
-        false,
         true,
+        false,
+        false,
         false,
         false
       ],
       "vals": [
-        "0.500",
-        "+26 #10",
-        "24.2 #10",
-        "21.0 #12",
-        "+3.2"
+        "0.778",
+        "+12 #14",
+        "22.0 #19",
+        "20.7 #12",
+        "+1.3"
       ],
-      "rtg": 3.9,
-      "fair_pct": 1.2,
-      "fair_odds": "+8481",
-      "market": "+1200",
-      "ev": -85,
+      "rtg": 1.8,
+      "fair_pct": 0.8,
+      "fair_odds": "+12830",
+      "market": "+1700",
+      "ev": -86,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -85
+        "ev": -86
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #10 unit, but the #12 area is where a good playoff team picks it apart."
+        "why": "A record that outruns the margin \u2014 #4 by win%, only #14 in point differential. Close-game records don't persist, and single-elimination January is where they come due."
       }
     },
     {
@@ -762,67 +890,32 @@
       ],
       "vals": [
         "0.375",
-        "+27 #9",
-        "22.2 #19",
+        "+27 #11",
+        "22.2 #18",
         "18.9 #5",
         "+3.4"
       ],
       "rtg": 1.4,
       "fair_pct": 1.1,
-      "fair_odds": "+9218",
+      "fair_odds": "+8803",
       "market": "+5000",
-      "ev": -45,
+      "ev": -43,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -45
+        "ev": -43
       },
       "read": {
         "v": "caution",
-        "why": "Defense-first \u2014 a #5 unit keeps every game winnable, which is exactly what holds up in January. The only question is whether a #19 offense scratches out enough."
-      }
-    },
-    {
-      "name": "Denver Broncos",
-      "conf": "AFC",
-      "rec": "6-2",
-      "score": 1,
-      "index": 52.8,
-      "q": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "0.750",
-        "+7 #14",
-        "21.5 #21",
-        "20.6 #11",
-        "+0.9"
-      ],
-      "rtg": 1.6,
-      "fair_pct": 0.8,
-      "fair_odds": "+12828",
-      "market": "+1700",
-      "ev": -86,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -86
-      },
-      "read": {
-        "v": "caution",
-        "why": "A record that outruns the margin \u2014 #4 by win%, only #14 in point differential. Close-game records don't persist, and single-elimination January is where they come due."
+        "why": "Defense-first \u2014 a #5 unit keeps every game winnable, which is exactly what holds up in January. The only question is whether a #18 offense scratches out enough."
       }
     },
     {
       "name": "New York Giants",
       "conf": "NFC",
-      "rec": "4-2-1",
+      "rec": "5-2-1",
       "score": 1,
-      "index": 48.7,
+      "index": 52.7,
       "q": [
         true,
         false,
@@ -831,33 +924,68 @@
         false
       ],
       "vals": [
-        "0.643",
-        "+2 #17",
-        "23.3 #13",
-        "23.0 #15",
-        "+0.3"
+        "0.688",
+        "+10 #15",
+        "22.8 #16",
+        "21.5 #13",
+        "+1.2"
       ],
-      "rtg": -0.6,
-      "fair_pct": 0.8,
-      "fair_odds": "+12532",
+      "rtg": -0.0,
+      "fair_pct": 1.0,
+      "fair_odds": "+9425",
       "market": "+5500",
-      "ev": -56,
+      "ev": -41,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -56
+        "ev": -41
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #13 unit, but the #17 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #13 unit, but the #16 area is where a good playoff team picks it apart."
+      }
+    },
+    {
+      "name": "Green Bay Packers",
+      "conf": "NFC",
+      "rec": "5-3",
+      "score": 1,
+      "index": 50.6,
+      "q": [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.625",
+        "+7 #17",
+        "21.4 #22",
+        "20.5 #11",
+        "+0.9"
+      ],
+      "rtg": 0.8,
+      "fair_pct": 0.9,
+      "fair_odds": "+10660",
+      "market": "+1900",
+      "ev": -81,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -81
+      },
+      "read": {
+        "v": "caution",
+        "why": "A middling profile \u2014 leads with its #11 unit, but the #22 area is where a good playoff team picks it apart."
       }
     },
     {
       "name": "Dallas Cowboys",
       "conf": "NFC",
-      "rec": "3-5",
+      "rec": "4-5",
       "score": 1,
-      "index": 44.9,
+      "index": 47.4,
       "q": [
         false,
         false,
@@ -866,25 +994,25 @@
         false
       ],
       "vals": [
-        "0.375",
-        "+6 #16",
-        "27.4 #7",
-        "26.6 #27",
-        "+0.8"
+        "0.444",
+        "+10 #15",
+        "27.3 #7",
+        "26.2 #26",
+        "+1.1"
       ],
-      "rtg": -0.1,
-      "fair_pct": 0.6,
-      "fair_odds": "+16019",
-      "market": "+6500",
-      "ev": -59,
+      "rtg": 0.2,
+      "fair_pct": 0.8,
+      "fair_odds": "+12990",
+      "market": "+5500",
+      "ev": -57,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -59
+        "ev": -57
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #7 unit, but the #27 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #7 unit, but the #26 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -908,14 +1036,14 @@
         "-1.1"
       ],
       "rtg": -3.0,
-      "fair_pct": 0.4,
-      "fair_odds": "+27309",
-      "market": "+10000",
-      "ev": -63,
+      "fair_pct": 0.3,
+      "fair_odds": "+30549",
+      "market": "+15000",
+      "ev": -51,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -63
+        "ev": -51
       },
       "read": {
         "v": "caution",
@@ -925,9 +1053,9 @@
     {
       "name": "Carolina Panthers",
       "conf": "NFC",
-      "rec": "3-4",
+      "rec": "3-5",
       "score": 1,
-      "index": 37.4,
+      "index": 35.1,
       "q": [
         false,
         false,
@@ -936,60 +1064,25 @@
         false
       ],
       "vals": [
-        "0.429",
-        "-15 #20",
-        "25.4 #9",
-        "27.6 #28",
-        "-2.1"
+        "0.375",
+        "-20 #20",
+        "24.9 #10",
+        "27.4 #29",
+        "-2.5"
       ],
-      "rtg": -2.0,
-      "fair_pct": 0.4,
-      "fair_odds": "+27790",
-      "market": "+8000",
-      "ev": -71,
+      "rtg": -2.2,
+      "fair_pct": 0.3,
+      "fair_odds": "+32137",
+      "market": "+10000",
+      "ev": -69,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -71
+        "ev": -69
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #9 unit, but the #28 area is where a good playoff team picks it apart."
-      }
-    },
-    {
-      "name": "Cleveland Browns",
-      "conf": "AFC",
-      "rec": "5-3",
-      "score": 1,
-      "index": 35.3,
-      "q": [
-        true,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "0.625",
-        "-34 #24",
-        "17.4 #29",
-        "21.6 #13",
-        "-4.2"
-      ],
-      "rtg": -3.5,
-      "fair_pct": 0.2,
-      "fair_odds": "+43161",
-      "market": "+17500",
-      "ev": -59,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -59
-      },
-      "read": {
-        "v": "caution",
-        "why": "A middling profile \u2014 leads with its #13 unit, but the #29 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #10 unit, but the #29 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -1013,14 +1106,14 @@
         "-0.7"
       ],
       "rtg": 1.1,
-      "fair_pct": 0.2,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "market": "+3500",
-      "ev": -94,
+      "ev": -95,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -94
+        "ev": -95
       },
       "read": {
         "v": "caution",
@@ -1028,11 +1121,11 @@
       }
     },
     {
-      "name": "New York Jets",
+      "name": "Cleveland Browns",
       "conf": "AFC",
-      "rec": "2-6",
+      "rec": "5-4",
       "score": 0,
-      "index": 34.3,
+      "index": 34.6,
       "q": [
         false,
         false,
@@ -1041,33 +1134,68 @@
         false
       ],
       "vals": [
-        "0.250",
-        "-18 #21",
-        "21.2 #23",
-        "23.5 #16",
-        "-2.2"
+        "0.556",
+        "-35 #23",
+        "17.9 #29",
+        "21.8 #14",
+        "-3.9"
       ],
-      "rtg": -3.7,
+      "rtg": -3.3,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+75000",
-      "ev": -20,
+      "market": "+20000",
+      "ev": -80,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -20
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -80
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #16 unit, but the #23 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #14 unit, but the #29 area is where a good playoff team picks it apart."
+      }
+    },
+    {
+      "name": "New Orleans Saints",
+      "conf": "NFC",
+      "rec": "3-5",
+      "score": 0,
+      "index": 31.1,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.375",
+        "-31 #22",
+        "23.1 #13",
+        "27.0 #28",
+        "-3.9"
+      ],
+      "rtg": -3.0,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "market": "+10000",
+      "ev": -89,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -89
+      },
+      "read": {
+        "v": "caution",
+        "why": "A middling profile \u2014 leads with its #13 unit, but the #28 area is where a good playoff team picks it apart."
       }
     },
     {
       "name": "Washington Commanders",
       "conf": "NFC",
-      "rec": "2-4-1",
+      "rec": "2-5-1",
       "score": 0,
-      "index": 33.2,
+      "index": 30.7,
       "q": [
         false,
         false,
@@ -1076,25 +1204,25 @@
         false
       ],
       "vals": [
-        "0.357",
-        "-23 #22",
-        "22.7 #17",
-        "26.0 #25",
-        "-3.3"
+        "0.312",
+        "-30 #21",
+        "21.5 #21",
+        "25.2 #24",
+        "-3.8"
       ],
-      "rtg": -2.9,
+      "rtg": -3.2,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+10000",
-      "ev": -87,
+      "market": "+15000",
+      "ev": -84,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -84
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #17 unit, but the #25 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #21 unit, but the #24 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -1112,9 +1240,9 @@
       ],
       "vals": [
         "0.333",
-        "-35 #25",
-        "20.9 #25",
-        "24.8 #18",
+        "-35 #23",
+        "20.9 #24",
+        "24.8 #19",
         "-3.9"
       ],
       "rtg": -2.7,
@@ -1129,42 +1257,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #18 unit, but the #25 area is where a good playoff team picks it apart."
-      }
-    },
-    {
-      "name": "New Orleans Saints",
-      "conf": "NFC",
-      "rec": "2-5",
-      "score": 0,
-      "index": 28.0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "0.286",
-        "-32 #23",
-        "23.1 #14",
-        "27.7 #29",
-        "-4.6"
-      ],
-      "rtg": -3.3,
-      "fair_pct": 0.1,
-      "fair_odds": "+50000+",
-      "market": "+12500",
-      "ev": -91,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -91
-      },
-      "read": {
-        "v": "caution",
-        "why": "A middling profile \u2014 leads with its #14 unit, but the #29 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #19 unit, but the #24 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -1183,7 +1276,7 @@
       "vals": [
         "0.444",
         "-47 #26",
-        "21.0 #24",
+        "21.0 #23",
         "26.2 #26",
         "-5.2"
       ],
@@ -1191,15 +1284,50 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "market": "+17500",
-      "ev": -90,
+      "ev": -91,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -90
+        "ev": -91
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #24 unit, but the #26 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #23 unit, but the #26 area is where a good playoff team picks it apart."
+      }
+    },
+    {
+      "name": "New York Jets",
+      "conf": "AFC",
+      "rec": "2-7",
+      "score": 0,
+      "index": 26.2,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.222",
+        "-41 #25",
+        "20.2 #26",
+        "24.8 #19",
+        "-4.6"
+      ],
+      "rtg": -4.9,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "market": "+100000",
+      "ev": -58,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -58
+      },
+      "read": {
+        "v": "caution",
+        "why": "A middling profile \u2014 leads with its #19 unit, but the #26 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -1217,7 +1345,7 @@
       ],
       "vals": [
         "0.375",
-        "-63 #29",
+        "-63 #28",
         "21.9 #20",
         "29.8 #32",
         "-7.9"
@@ -1225,12 +1353,12 @@
       "rtg": -5.8,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+75000",
-      "ev": -83,
+      "market": "+100000",
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -83
+        "ev": -76
       },
       "read": {
         "v": "caution",
@@ -1254,30 +1382,30 @@
         "0.125",
         "-55 #27",
         "18.0 #28",
-        "24.9 #19",
+        "24.9 #21",
         "-6.9"
       ],
       "rtg": -6.1,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": -84,
+      "ev": -86,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -86
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #19 unit, but the #28 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #21 unit, but the #28 area is where a good playoff team picks it apart."
       }
     },
     {
       "name": "Indianapolis Colts",
       "conf": "AFC",
-      "rec": "2-6",
+      "rec": "2-7",
       "score": 0,
-      "index": 17.7,
+      "index": 17.5,
       "q": [
         false,
         false,
@@ -1286,33 +1414,33 @@
         false
       ],
       "vals": [
-        "0.250",
-        "-61 #28",
-        "20.1 #26",
-        "27.8 #30",
-        "-7.6"
+        "0.222",
+        "-65 #29",
+        "20.4 #25",
+        "27.7 #30",
+        "-7.2"
       ],
       "rtg": -3.4,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": -85,
+      "ev": -87,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -85
+        "ev": -87
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #26 unit, but the #30 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #25 unit, but the #30 area is where a good playoff team picks it apart."
       }
     },
     {
       "name": "Philadelphia Eagles",
       "conf": "NFC",
-      "rec": "2-6",
+      "rec": "2-7",
       "score": 0,
-      "index": 16.7,
+      "index": 15.3,
       "q": [
         false,
         false,
@@ -1321,33 +1449,33 @@
         false
       ],
       "vals": [
-        "0.250",
-        "-65 #31",
-        "17.1 #30",
-        "25.2 #21",
+        "0.222",
+        "-73 #30",
+        "16.4 #30",
+        "24.6 #18",
         "-8.1"
       ],
-      "rtg": -3.7,
+      "rtg": -3.9,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+50000",
-      "ev": -92,
+      "market": "+100000",
+      "ev": -87,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -92
+        "ev": -87
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #21 unit, but the #31 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #18 unit, but the #30 area is where a good playoff team picks it apart."
       }
     },
     {
       "name": "Miami Dolphins",
       "conf": "AFC",
-      "rec": "1-6",
+      "rec": "1-7",
       "score": 0,
-      "index": 13.0,
+      "index": 11.2,
       "q": [
         false,
         false,
@@ -1356,25 +1484,25 @@
         false
       ],
       "vals": [
-        "0.143",
-        "-64 #30",
-        "16.7 #31",
-        "25.9 #23",
-        "-9.1"
+        "0.125",
+        "-74 #31",
+        "15.8 #31",
+        "25.0 #22",
+        "-9.2"
       ],
-      "rtg": -5.6,
+      "rtg": -5.9,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "market": "+100000",
-      "ev": -94,
+      "ev": -97,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -94
+        "ev": -97
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #23 unit, but the #31 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #22 unit, but the #31 area is where a good playoff team picks it apart."
       }
     },
     {
@@ -1394,13 +1522,13 @@
         "0.000",
         "-76 #32",
         "14.1 #32",
-        "25.0 #20",
+        "25.0 #22",
         "-10.9"
       ],
       "rtg": -5.1,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+75000",
+      "market": "+100000",
       "ev": -100,
       "verdict": {
         "kind": "bigfade",
@@ -1409,7 +1537,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "A middling profile \u2014 leads with its #20 unit, but the #32 area is where a good playoff team picks it apart."
+        "why": "A middling profile \u2014 leads with its #22 unit, but the #32 area is where a good playoff team picks it apart."
       }
     }
   ],
@@ -1421,28 +1549,28 @@
   },
   "value_plays": [
     {
-      "name": "Minnesota Vikings",
-      "ev": 181,
-      "market": "+2500",
-      "fair_odds": "+827"
+      "name": "Jacksonville Jaguars",
+      "ev": 79,
+      "market": "+850",
+      "fair_odds": "+429"
     },
     {
-      "name": "Jacksonville Jaguars",
-      "ev": 111,
-      "market": "+900",
-      "fair_odds": "+373"
+      "name": "Kansas City Chiefs",
+      "ev": 24,
+      "market": "+1200",
+      "fair_odds": "+947"
     },
     {
       "name": "Chicago Bears",
-      "ev": 14,
+      "ev": 20,
       "market": "+800",
-      "fair_odds": "+687"
+      "fair_odds": "+652"
     },
     {
       "name": "San Francisco 49ers",
-      "ev": 3,
+      "ev": 7,
       "market": "+550",
-      "fair_odds": "+533"
+      "fair_odds": "+505"
     }
   ]
 }
