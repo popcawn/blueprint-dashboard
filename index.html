@@ -676,7 +676,7 @@ function render(){
     `<div class="stat" title="The model's strongest team — most likely to win the title. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they're usually different teams)."><small>Top pick</small><b class="tx">${FULLNM.includes(cur)?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
     `<div class="stat" title="${cur==="mls"?"The best BET vs the DraftKings price: the top +EV team (>=+10%) among teams that clear all 5 every-champion criteria, at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":FOOTY.includes(cur)?"Small stakes, before the finals only (the board freezes once a final is played, and the preseason odds are untested): EV >= +15% at most +2500 against your DraftKings/FanDuel screenshot, and "+(cur==="superleague"?"a top-2 ladder spot (a top-2 seed won 9 of the 10 title seasons tested).":"all 5 every-champion criteria.")+" Same team the board tags ⭐ BEST VALUE.":cur==="nwsl"?"NOT a bet-able board: NWSL knockouts have been no better than 'the home side advances'. Odds appear once the bracket is set; a value play needs a wide margin (5/5, EV >= +25%, <= +2500) and only before the first playoff game.":cur==="cfl"?"Before the playoffs only (you never bet within them): a value play needs a wide margin — 4/5 or better, EV >= +25%, at most +2500. Once a playoff game is played the window closes and no value play is shown. Check injuries first — QB news moves CFL prices.":cur==="fcs"?"Small stakes only. A value play needs a 5/5 team at EV >= +10% and <= +2500 that is ALSO priced longer than the rating-only fair odds and is SRS top-15 (not a soft-schedule record). Empty until you post a screenshot.":(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The best BET vs the market: the top +EV team (>=+10%) among the model's top-4 by index × schedule, schedule-verified (SRS top-10), at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years."}"><small>${d.window_closed&&bv?"Pre-playoff value":"Value play"}</small><b class="tx ${bv?'g':''}">${bv?(FULLNM.includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(d.window_closed&&d.stage!=="done"?"window closed":teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb"||d.stage==="done")?"season over":"no market")}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
-  const checks=Object.entries(SPORTS).map(([k,v])=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${v}</label>`).join("");
+  const checks=tabKeys().map(k=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${SPORTS[k]}</label>`).join("");   // same order as the tab strip
   const rfTitle=PRICE_FILES[cur]?`Rebuilds the ${d.sport} board (free, ~2–3 min). Prices come from your screenshot — use 📷 Update to change them.`
     :`Re-pulls ${MK(cur)} prices and rebuilds the ${d.sport} board (~1–2 min; ${cur==="nfl"?"3 Odds API credits: futures + this week's game lines":"1 Odds API credit"})`;
   // simplified head (2026-11-06, user: "it has a lot going on in this area. i want it simplified"):
@@ -783,6 +783,19 @@ function phase(L,now=Date.now()){
 }
 // a site board's own games-played % beats the calendar estimate
 function sitePct(L,p){ const d=DATA[L.key]; return L.site&&p.k==="open"&&d&&d.season_pct!=null?Math.round(d.season_pct):p.pct; }
+// Tab order (2026-11-09, user: "can you move the sports out of season to the end"): tabs in the clock's Offseason group (phase "off" =
+// not started yet, or title decided) go last, in their usual order; the rest -- playoffs included -- keep their places. Worked out from
+// data/seasons.json on every load, so a league moves back up by itself when its season starts. No seasons.json = the usual order.
+function offPhase(k){ try{ const L=SEASONS.find(x=>x.key===k), p=L&&phase(L);
+  if(!p||p.k!=="off"||(p.over&&L.next&&Date.now()>=D0(L.next).getTime())) return null;   // past its "next" start but the row isn't rolled yet = back in season
+  return {L,p}; }catch(e){ return null; } }
+function tabKeys(){ const ks=Object.keys(SPORTS); return [...ks.filter(k=>!offPhase(k)), ...ks.filter(k=>offPhase(k))]; }
+function renderTabs(){
+  document.getElementById("tabs").innerHTML=tabKeys().map(k=>{ const o=offPhase(k);
+    const tip=o?` title="Offseason · ${o.p.over?(o.L.next?`next season starts ${fD(o.L,"next")}`:"season over"):`season starts ${fD(o.L,"start")}`}"`:"";
+    return `<button data-s="${k}"${tip}>${SPORTS[k]}</button>`; }).join("");
+  document.querySelectorAll(".sportbar button").forEach(b=>{ b.onclick=()=>{cur=b.dataset.s;render();}; b.classList.toggle("on",b.dataset.s===cur); });
+}
 function renderClock(){
   const el=document.getElementById("clock"); if(!el) return; if(!SEASONS.length){ el.innerHTML=""; return; }
   const keep=el.querySelector(".ck-wrap"), sl=keep?keep.scrollLeft:0;   // phone strip keeps its scroll across tab switches
@@ -996,11 +1009,9 @@ async function pollFresh(){ let before=null; try{before=(await(await fetch("data
 let BUILDS={};
 async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await fetch(u+"?t="+t); return r.ok?await r.json():null; }catch(e){ return null; } };
   await Promise.all([...Object.keys(SPORTS).flatMap(k=>[J(`data/${k}.json`).then(x=>{ if(x) DATA[k]=x; }), J(`data/history/${k}.json`).then(x=>{ if(x) HIST[k]=x; })]),
-    J("data/seasons.json").then(x=>{ if(x) SEASONS=x.leagues||[]; }), J("data/index.json").then(x=>{ if(x) BUILDS=x.builds||{}; })]); }
+    J("data/seasons.json").then(x=>{ if(x) SEASONS=x.leagues||[]; renderTabs(); }), J("data/index.json").then(x=>{ if(x) BUILDS=x.builds||{}; })]); }
 async function load(){
-  document.getElementById("tabs").innerHTML=Object.entries(SPORTS).map(([k,v])=>`<button data-s="${k}">${v}</button>`).join("");
-  document.querySelectorAll(".sportbar button").forEach(b=>b.onclick=()=>{cur=b.dataset.s;render();});
-  await loadData(); render();
+  await loadData(); render();   // the tab strip is drawn by loadData the moment data/seasons.json arrives (renderTabs), so it never reshuffles
 }
 load();
 </script>
