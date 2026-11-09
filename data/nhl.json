@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-09T14:44:05Z",
-  "odds_remaining": "72854",
+  "generated": "2026-11-09T23:13:13Z",
+  "odds_remaining": "70505",
   "prediction": {
     "pick": "Minnesota Wild",
     "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape. (It's early and the NHL is the lowest-chalk sport \u2014 treat it as 'best profile,' not a lock.)"
@@ -143,12 +143,12 @@
       "rtg": 0.68,
       "fair_pct": 8.0,
       "fair_odds": "+1151",
-      "market": "+1000",
-      "ev": -12,
+      "market": "+1100",
+      "ev": -4,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -12
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -4
       },
       "read": {
         "v": "caution",
@@ -469,12 +469,12 @@
       "rtg": -0.15,
       "fair_pct": 1.6,
       "fair_odds": "+6134",
-      "market": "+6500",
-      "ev": 6,
+      "market": "+6000",
+      "ev": -2,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 6
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -2
       },
       "read": {
         "v": "caution",
@@ -733,12 +733,12 @@
       "rtg": 0.06,
       "fair_pct": 0.7,
       "fair_odds": "+14054",
-      "market": "+8000",
-      "ev": -43,
+      "market": "+10000",
+      "ev": -29,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -43
+        "kind": "fade",
+        "label": "fade",
+        "ev": -29
       },
       "read": {
         "v": "caution",

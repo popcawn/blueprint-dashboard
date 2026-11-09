@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-08T18:34:42Z",
+  "generated": "2026-11-09T23:13:46Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -38,13 +38,13 @@
         "0.17 #1"
       ],
       "index": 91.2,
-      "rtg": 0.436,
+      "rtg": 0.452,
       "alive": true,
       "next": {
-        "round": "Quarterfinal",
-        "opp": "Seattle Reign FC",
+        "round": "Semifinal",
+        "opp": "Kansas City Current",
         "site": "home",
-        "date": "2026-11-08"
+        "date": "2026-11-15"
       },
       "seed": 1,
       "bet_ok": false,
@@ -81,9 +81,14 @@
         "0.30 #5"
       ],
       "index": 82.4,
-      "rtg": 0.631,
+      "rtg": 0.632,
       "alive": true,
-      "next": null,
+      "next": {
+        "round": "Semifinal",
+        "opp": "Gotham FC",
+        "site": "away",
+        "date": "2026-11-15"
+      },
       "seed": 4,
       "bet_ok": false,
       "fair_pct": 18.1,
@@ -119,7 +124,7 @@
         "0.27 #2"
       ],
       "index": 85.5,
-      "rtg": 0.293,
+      "rtg": 0.292,
       "alive": false,
       "next": null,
       "seed": 2,
@@ -157,13 +162,13 @@
         "0.30 #5"
       ],
       "index": 82,
-      "rtg": 0.339,
+      "rtg": 0.405,
       "alive": true,
       "next": {
-        "round": "Quarterfinal",
-        "opp": "Portland Thorns FC",
+        "round": "Semifinal",
+        "opp": "Utah Royals",
         "site": "home",
-        "date": "2026-11-08"
+        "date": "2026-11-14"
       },
       "seed": 3,
       "bet_ok": false,
@@ -200,7 +205,7 @@
         "0.27 #2"
       ],
       "index": 90.3,
-      "rtg": 0.411,
+      "rtg": 0.413,
       "alive": false,
       "next": null,
       "seed": 5,
@@ -238,14 +243,9 @@
         "0.27 #2"
       ],
       "index": 74.8,
-      "rtg": 0.19,
-      "alive": true,
-      "next": {
-        "round": "Quarterfinal",
-        "opp": "Washington Spirit",
-        "site": "away",
-        "date": "2026-11-08"
-      },
+      "rtg": 0.121,
+      "alive": false,
+      "next": null,
       "seed": 6,
       "bet_ok": false,
       "fair_pct": 8.1,
@@ -281,14 +281,9 @@
         "0.37 #7"
       ],
       "index": 69.9,
-      "rtg": 0.099,
-      "alive": true,
-      "next": {
-        "round": "Quarterfinal",
-        "opp": "Gotham FC",
-        "site": "away",
-        "date": "2026-11-08"
-      },
+      "rtg": 0.084,
+      "alive": false,
+      "next": null,
       "seed": 8,
       "bet_ok": false,
       "fair_pct": 5.9,
@@ -326,7 +321,12 @@
       "index": 65,
       "rtg": 0.016,
       "alive": true,
-      "next": null,
+      "next": {
+        "round": "Semifinal",
+        "opp": "Washington Spirit",
+        "site": "away",
+        "date": "2026-11-14"
+      },
       "seed": 7,
       "bet_ok": false,
       "fair_pct": 5.0,
@@ -362,7 +362,7 @@
         "0.50 #11"
       ],
       "index": 49.7,
-      "rtg": -0.262,
+      "rtg": -0.261,
       "alive": false,
       "next": null,
       "seed": 13,
@@ -396,7 +396,7 @@
         "0.37 #7"
       ],
       "index": 69.8,
-      "rtg": 0.302,
+      "rtg": 0.301,
       "alive": false,
       "next": null,
       "seed": 10,
@@ -498,7 +498,7 @@
         "0.53 #13"
       ],
       "index": 49.3,
-      "rtg": -0.147,
+      "rtg": -0.148,
       "alive": false,
       "next": null,
       "seed": 11,
@@ -532,7 +532,7 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.541,
+      "rtg": -0.54,
       "alive": false,
       "next": null,
       "seed": 15,
@@ -600,7 +600,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.276,
+      "rtg": -1.275,
       "alive": false,
       "next": null,
       "seed": 16,
@@ -621,7 +621,7 @@
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Portland Thorns FC, Seattle Reign FC, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
+    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit, Utah Royals. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
   },
   "season_pct": 100,
   "gp_min": 30,
