@@ -724,6 +724,7 @@ def build_nhl():
             nhl_new = "mix"
     except Exception as e:
         print(f"  nhl new odds failed, index odds kept: {e}", file=sys.stderr)
+    for t in pool: t["fair_odds"] = american(t["p"]) if t.get("p") else None   # (2026-11-10 fix) cap_odds set these from the index odds; the cards showed +669 beside 23.5%
     bk_started = any((sr.get("topSeedWins") or 0) + (sr.get("bottomSeedWins") or 0) > 0 for sr in br_series if sr.get("playoffRound") == 1)
     fin_ser = next((sr for sr in br_series if sr.get("seriesLetter") == "O" and sr.get("winningTeamId")), None)
     nhl_champ = None

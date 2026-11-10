@@ -1,11 +1,11 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-10T16:55:09Z",
-  "odds_remaining": "67307",
+  "generated": "2026-11-10T17:02:42Z",
+  "odds_remaining": "67155",
   "prediction": {
     "pick": "Minnesota Wild",
-    "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +669). Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
+    "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +764). Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
   },
   "gp_min": 15,
   "gp_max": 20,
@@ -43,7 +43,7 @@
       ],
       "rtg": 1.14,
       "fair_pct": 23.5,
-      "fair_odds": "+669",
+      "fair_odds": "+325",
       "market": "+650",
       "ev": 77,
       "verdict": {
@@ -76,7 +76,7 @@
       ],
       "rtg": 0.64,
       "fair_pct": 6.5,
-      "fair_odds": "+831",
+      "fair_odds": "+1431",
       "market": "+1100",
       "ev": -22,
       "verdict": {
@@ -109,7 +109,7 @@
       ],
       "rtg": 0.38,
       "fair_pct": 11.6,
-      "fair_odds": "+669",
+      "fair_odds": "+764",
       "market": "+1100",
       "ev": 39,
       "verdict": {
@@ -142,7 +142,7 @@
       ],
       "rtg": 0.68,
       "fair_pct": 6.6,
-      "fair_odds": "+1129",
+      "fair_odds": "+1404",
       "market": "+1100",
       "ev": -20,
       "verdict": {
@@ -175,7 +175,7 @@
       ],
       "rtg": 0.11,
       "fair_pct": 6.7,
-      "fair_odds": "+937",
+      "fair_odds": "+1402",
       "market": "+1700",
       "ev": 20,
       "verdict": {
@@ -208,7 +208,7 @@
       ],
       "rtg": 0.13,
       "fair_pct": 6.8,
-      "fair_odds": "+1055",
+      "fair_odds": "+1381",
       "market": "+950",
       "ev": -29,
       "verdict": {
@@ -241,7 +241,7 @@
       ],
       "rtg": 0.6,
       "fair_pct": 14.6,
-      "fair_odds": "+1148",
+      "fair_odds": "+585",
       "market": "+700",
       "ev": 17,
       "verdict": {
@@ -274,7 +274,7 @@
       ],
       "rtg": 0.42,
       "fair_pct": 2.3,
-      "fair_odds": "+3325",
+      "fair_odds": "+4329",
       "market": "+3500",
       "ev": -19,
       "verdict": {
@@ -307,7 +307,7 @@
       ],
       "rtg": 0.13,
       "fair_pct": 1.6,
-      "fair_odds": "+3700",
+      "fair_odds": "+6054",
       "market": "+1000",
       "ev": -82,
       "verdict": {
@@ -340,7 +340,7 @@
       ],
       "rtg": 0.18,
       "fair_pct": 3.3,
-      "fair_odds": "+2457",
+      "fair_odds": "+2913",
       "market": "+1700",
       "ev": -40,
       "verdict": {
@@ -373,7 +373,7 @@
       ],
       "rtg": 0.06,
       "fair_pct": 4.0,
-      "fair_odds": "+2660",
+      "fair_odds": "+2369",
       "market": "+950",
       "ev": -57,
       "verdict": {
@@ -406,7 +406,7 @@
       ],
       "rtg": 0.41,
       "fair_pct": 1.4,
-      "fair_odds": "+4977",
+      "fair_odds": "+7051",
       "market": null,
       "ev": null,
       "verdict": null,
@@ -435,7 +435,7 @@
       ],
       "rtg": 0.16,
       "fair_pct": 1.3,
-      "fair_odds": "+5771",
+      "fair_odds": "+7891",
       "market": "+1800",
       "ev": -76,
       "verdict": {
@@ -468,7 +468,7 @@
       ],
       "rtg": 0.02,
       "fair_pct": 0.7,
-      "fair_odds": "+8691",
+      "fair_odds": "+14641",
       "market": "+15000",
       "ev": 2,
       "verdict": {
@@ -501,7 +501,7 @@
       ],
       "rtg": 0.11,
       "fair_pct": 1.5,
-      "fair_odds": "+9706",
+      "fair_odds": "+6536",
       "market": "+2700",
       "ev": -58,
       "verdict": {
@@ -534,7 +534,7 @@
       ],
       "rtg": 0.11,
       "fair_pct": 0.7,
-      "fair_odds": "+9920",
+      "fair_odds": "+14716",
       "market": "+25000",
       "ev": 69,
       "verdict": {
@@ -567,7 +567,7 @@
       ],
       "rtg": -0.2,
       "fair_pct": 0.7,
-      "fair_odds": "+10485",
+      "fair_odds": "+13656",
       "market": "+6000",
       "ev": -56,
       "verdict": {
@@ -600,7 +600,7 @@
       ],
       "rtg": 0.25,
       "fair_pct": 0.7,
-      "fair_odds": "+10663",
+      "fair_odds": "+13565",
       "market": "+3300",
       "ev": -75,
       "verdict": {
@@ -633,7 +633,7 @@
       ],
       "rtg": -0.19,
       "fair_pct": 0.8,
-      "fair_odds": "+7968",
+      "fair_odds": "+12216",
       "market": "+8000",
       "ev": -34,
       "verdict": {
@@ -666,7 +666,7 @@
       ],
       "rtg": -0.09,
       "fair_pct": 0.9,
-      "fair_odds": "+8064",
+      "fair_odds": "+10521",
       "market": "+4500",
       "ev": -57,
       "verdict": {
@@ -699,7 +699,7 @@
       ],
       "rtg": -0.49,
       "fair_pct": 0.9,
-      "fair_odds": "+8412",
+      "fair_odds": "+11372",
       "market": "+10000",
       "ev": -12,
       "verdict": {
@@ -732,7 +732,7 @@
       ],
       "rtg": 0.06,
       "fair_pct": 0.6,
-      "fair_odds": "+13546",
+      "fair_odds": "+15848",
       "market": "+8000",
       "ev": -49,
       "verdict": {
@@ -765,13 +765,13 @@
       ],
       "rtg": -0.21,
       "fair_pct": 0.3,
-      "fair_odds": "+20376",
-      "market": "+10000",
-      "ev": -65,
+      "fair_odds": "+28630",
+      "market": "+8000",
+      "ev": -72,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -65
+        "ev": -72
       },
       "read": {
         "v": "caution",
@@ -798,7 +798,7 @@
       ],
       "rtg": -0.33,
       "fair_pct": 0.3,
-      "fair_odds": "+17868",
+      "fair_odds": "+30353",
       "market": "+50000",
       "ev": 65,
       "verdict": {
@@ -858,7 +858,7 @@
       "name": "Minnesota Wild",
       "ev": 39,
       "market": "+1100",
-      "fair_odds": "+669"
+      "fair_odds": "+764"
     }
   ]
 }
