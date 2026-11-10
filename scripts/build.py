@@ -677,9 +677,10 @@ def build_nhl():
     # Champion log-loss 2.541 vs 2.925 before, better in both halves (2014-19 2.804 vs 3.547; 2020-26 2.316 vs 2.392).
     # The index blend itself stays: on 225 playoff series 2012-26 it beat every single stat and a fresh weight search
     # (series log-loss 0.662 vs 0.669 best single stat, 0.677 searched blend, 0.693 coin; the higher seed won only 56%).
-    field = set()
+    field = set(); br_series = []
     try:
         br = get(f"https://api-web.nhle.com/v1/playoff-bracket/{YEAR + 1}")
+        br_series = br.get("series", []) or []
         for sr in br.get("series", []):
             if sr.get("playoffRound") == 1:
                 for k in ("topSeedTeam", "bottomSeedTeam"):
@@ -695,6 +696,40 @@ def build_nhl():
         for t in cs: t["_pc"] = ((max(t["index"], 5)**3)/1e5*tm[t["score"]]) / tot if tot else 0
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
     cap_odds(pool, 0.13)
+    # NEW ODDS (2026-11-10, user: "do the same for nhl ... improve from weak to fair"; study baseball-blueprint/nhl-study.py on MoneyPuck game
+    # logs 2008-26 + 225 playoff series + 15 Cups): a game rating r = 0.5 x goal diff/game / 0.4906 + 0.5 x score/venue-adjusted xG diff/game
+    # / 0.3753 (league-centred), with last season's r as a 30-game prior at 60%. Game: P(home) = logistic(0.4 x (r_home - r_away) + 0.175).
+    #  - playoff series log-loss 0.656/0.633 vs the index's 0.669/0.654 (2012-19 / 2020-26), no tuning on playoff games
+    #  - in-season Cup odds = 50/50 mix of the index odds above and a conference softmax of r: better than the index alone in BOTH halves on
+    #    Dec 1, Jan 1, Feb 1 and Mar 1 (e.g. Jan 1 3.46/2.56 vs 3.65/2.77); Apr 1 about even
+    #  - once the 16-team bracket exists: an exact bracket simulation (best-of-7, 2-2-1-1-1 home ice by points %), frozen on regular-season
+    #    numbers: Cup log-loss 2.63/2.32 vs 2.69/2.34 for the index odds
+    #  - vs FanDuel at the start of the playoffs 2022-26 (5 Cups): 2.24 vs the market's 2.20, and its value plays went 0 for 5 -> fair, NOT an edge
+    nhl_new = None
+    try:
+        R = nhl_rating(by, YEAR)
+        bk = nhl_bracket(br_series, field)
+        if bk:
+            sim = nhl_bracket_sim(bk, R)
+            for t in pool: t["p"] = sim.get(t["ab"], 0.0)
+            nhl_new = "bracket"
+        else:
+            mo = (datetime.date.today().month, datetime.date.today().day)
+            beta = 3.0 if (3, 15) <= mo < (7, 1) else 2.5 if (2, 15) <= mo < (7, 1) else 2.0
+            soft = {}
+            for cf in ("E", "W"):
+                cs = [t for t in pool if t["conf"] == cf]; z = {t["ab"]: math.exp(beta * R.get(t["ab"], 0.0)) for t in cs}; tot = sum(z.values())
+                for t in cs: soft[t["ab"]] = z[t["ab"]] / tot * 0.5 if tot else 0
+            for t in pool: t["p"] = 0.5 * t["p"] + 0.5 * soft.get(t["ab"], 0.0)
+            nhl_new = "mix"
+    except Exception as e:
+        print(f"  nhl new odds failed, index odds kept: {e}", file=sys.stderr)
+    bk_started = any((sr.get("topSeedWins") or 0) + (sr.get("bottomSeedWins") or 0) > 0 for sr in br_series if sr.get("playoffRound") == 1)
+    fin_ser = next((sr for sr in br_series if sr.get("seriesLetter") == "O" and sr.get("winningTeamId")), None)
+    nhl_champ = None
+    if fin_ser:
+        wid = fin_ser["winningTeamId"]; wt = fin_ser.get("topSeedTeam") if (fin_ser.get("topSeedTeam") or {}).get("id") == wid else fin_ser.get("bottomSeedTeam")
+        ab_ = (wt or {}).get("abbrev"); nhl_champ = NHL_TEAMS.get({"PHX": "ARI"}.get(ab_, ab_), (None,))[0]
     fd, rem = fetch_futures("icehockey_nhl_championship_winner")
     attach(rows, pool, fd)
     pred = make_prediction(rows, 4)
@@ -707,7 +742,76 @@ def build_nhl():
             "cats": ["Goal diff/game top-10", "Corsi top-14", "xGoals% top-12", "Goals Against top-12"],
             "labels": ["GD/g", "Corsi", "xG%", "GA"],
             "teams": [nhl_row(t) for t in rows if t["score"] >= 1 or (t.get("p") or 0) >= 0.01],
+            "odds_model": nhl_new,   # "mix" in-season, "bracket" once the 16-team bracket exists, None = the new rating failed (index odds only)
+            **({"window_closed": True, "stage": "done" if nhl_champ else "playoffs", "champion": nhl_champ} if bk_started else {}),
             "rtgs": {t["name"]: nhl_row(t)["rtg"] for t in rows}}   # every team, for the matchup sim
+
+NHL_SD_G, NHL_SD_X, NHL_PRIOR_GAMES, NHL_PRIOR_KEEP, NHL_SCALE, NHL_HOME = 0.4906, 0.3753, 30, 0.6, 0.4, 0.175
+def _nhl_z(by_sit):
+    """({abbrev: 0.5 x goal diff/g / SD + 0.5 x adjusted xG diff/g / SD}, {abbrev: games}), league-centred, from a MoneyPuck seasonSummary ('all')."""
+    g, x, n = {}, {}, {}
+    for ab, sits in by_sit.items():
+        a = sits.get("all")
+        if not a: continue
+        try:
+            gp = float(a["games_played"] or 0)
+            if gp <= 0: continue
+            g[ab] = (float(a["goalsFor"]) - float(a["goalsAgainst"])) / gp
+            x[ab] = (float(a["flurryScoreVenueAdjustedxGoalsFor"]) - float(a["flurryScoreVenueAdjustedxGoalsAgainst"])) / gp; n[ab] = gp
+        except Exception: continue
+    if not g: return {}, {}
+    mg, mx = sum(g.values()) / len(g), sum(x.values()) / len(x)
+    return {ab: 0.5 * (g[ab] - mg) / NHL_SD_G + 0.5 * (x[ab] - mx) / NHL_SD_X for ab in g}, n
+def nhl_rating(by_cur, year):
+    import csv, io
+    z, n = _nhl_z(by_cur); prev = {}
+    try:
+        req = urllib.request.Request(f"https://moneypuck.com/moneypuck/playerData/seasonSummary/{year - 1}/regular/teams.csv", headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
+        pb = {}
+        for r in csv.DictReader(io.StringIO(urllib.request.urlopen(req, timeout=50).read().decode("utf-8", "replace"))): pb.setdefault(r["team"], {})[r["situation"]] = r
+        prev, _ = _nhl_z(pb)
+    except Exception as e:
+        print(f"  nhl prior season unavailable: {e}", file=sys.stderr)
+    moved = {"UTA": "ARI"}
+    return {ab: (n[ab] * z[ab] + NHL_PRIOR_GAMES * NHL_PRIOR_KEEP * prev.get(ab, prev.get(moved.get(ab, ""), 0.0))) / (n[ab] + NHL_PRIOR_GAMES) for ab in z}
+def nhl_bracket(series, field):
+    """Round-1 pairs by bracket letter (A-H) + points % for home ice, or None until the 16-team bracket is complete."""
+    if len(field) < 16: return None
+    r1 = {}
+    for sr in series:
+        if sr.get("playoffRound") == 1 and sr.get("seriesLetter") in tuple("ABCDEFGH"):
+            t1, t2 = (sr.get("topSeedTeam") or {}).get("abbrev"), (sr.get("bottomSeedTeam") or {}).get("abbrev")
+            if t1 and t2: r1[sr["seriesLetter"]] = ({"PHX": "ARI"}.get(t1, t1), {"PHX": "ARI"}.get(t2, t2))
+    if len(r1) != 8: return None
+    pts = {}
+    try:
+        for s_ in get("https://api-web.nhle.com/v1/standings/now").get("standings", []): pts[(s_.get("teamAbbrev") or {}).get("default")] = float(s_.get("pointPctg") or 0)
+    except Exception: pass
+    for L, (t1, t2) in r1.items():   # no standings: the bracket's own top seed has home ice
+        if t1 not in pts or t2 not in pts: pts.setdefault(t1, 1.0 - 0.01 * "ABCDEFGH".index(L)); pts.setdefault(t2, 0.0)
+    return {"r1": r1, "pts": pts}
+def _nhl_series(p_home_top, p_away_top):
+    home = [1, 1, 0, 0, 1, 0, 1]; memo = {}
+    def go(a, b, i):
+        if a == 4: return 1.0
+        if b == 4: return 0.0
+        if (a, b) not in memo:
+            p = p_home_top if home[i] else p_away_top; memo[(a, b)] = p * go(a + 1, b, i + 1) + (1 - p) * go(a, b + 1, i + 1)
+        return memo[(a, b)]
+    return go(0, 0, 0)
+def nhl_bracket_sim(bk, R):
+    """Exact Cup odds over the standard tree: A+B -> I, C+D -> J, E+F -> K, G+H -> L, I+J -> M, K+L -> N, M+N -> the Cup final."""
+    ex = lambda v: 1 / (1 + math.exp(-v))
+    def meet(A, B):
+        out = {}
+        for a, pa in A.items():
+            for b, pb in B.items():
+                top, bot = (a, b) if bk["pts"].get(a, 0) >= bk["pts"].get(b, 0) else (b, a); d = R.get(top, 0.0) - R.get(bot, 0.0)
+                x = _nhl_series(ex(NHL_SCALE * d + NHL_HOME), ex(NHL_SCALE * d - NHL_HOME))
+                out[top] = out.get(top, 0) + pa * pb * x; out[bot] = out.get(bot, 0) + pa * pb * (1 - x)
+        return out
+    lf = {L: meet({bk["r1"][L][0]: 1.0}, {bk["r1"][L][1]: 1.0}) for L in "ABCDEFGH"}
+    return meet(meet(meet(lf["A"], lf["B"]), meet(lf["C"], lf["D"])), meet(meet(lf["E"], lf["F"]), meet(lf["G"], lf["H"])))
 
 def nhl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
