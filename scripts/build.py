@@ -15,10 +15,10 @@ import json, math, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "cfl": 18, "nwsl": 30, "afl": 23, "nrl": 24, "superleague": 27}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "chk": 34, "cfl": 18, "nwsl": 30, "afl": 23, "nrl": 24, "superleague": 27}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10), "fcs": (6, 4), "cfl": (9, 5), "nwsl": (15, 9), "afl": (10, 6), "nrl": (10, 6), "superleague": (10, 6)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (17, 10), "fcs": (6, 4), "chk": (12, 8), "cfl": (9, 5), "nwsl": (15, 9), "afl": (10, 6), "nrl": (10, 6), "superleague": (10, 6)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -100,6 +100,10 @@ def value_plays(teams, maxcat, sport=None):
             if t.get("alive") and (t.get("score") or 0) >= 4 and (t.get("ev") or 0) >= 25 and p is not None and p <= 2500:
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
+        return out
+    if sport == "chk":
+        # College hockey (2026-11-10, user: "add college hockey to site"): NOT bet-able -- the tournament is close to a lottery
+        # (the rating's #1 won 3 of 17; the every-champion profile did no better than a coin flip). Never a value play.
         return out
     if sport == "fcs":
         # FCS (2026-11-06) is PAPER: 10 of the 15 titles 2010-25 were North Dakota State (now FBS). If a screenshot is posted,
@@ -1936,7 +1940,15 @@ def build_mls():
 def _college_key(s):
     return re.sub(r"\s+", " ", re.sub(r"[^a-z ]", " ", str(s).lower().replace("&", "and"))).strip()
 
-def build_fcs():
+CBOARD = {"fcs": {"sport": "FCS", "conf": "FCS", "title": "FCS title", "alt": "the plain power rating alone",
+                   "field": "The 24-team field is announced the Sunday before Thanksgiving."},
+          "chk": {"sport": "College hockey", "conf": "D1", "title": "national title", "alt": "the every-champion profile model",
+                   "field": "The 16-team field is set on selection Sunday in late March."}}
+
+def build_fcs(): return _build_college("fcs")
+def build_chk(): return _build_college("chk")   # men's college hockey (2026-11-10, user: "add college hockey to site"): same engine, chk.mjs adapter
+
+def _build_college(sk):
     """FCS national-title board (added 2026-11-06, user: "add fcs to site"). The engine is Node: scripts/college/run.mjs fcs, copied
        from baseball-blueprint/college (run.mjs + lib.mjs + fcs.mjs, keep in sync). ESPN FCS scoreboards (groups=81); every team's
        numbers come from game results (SRS, two-way adjusted offense/defense, RPI, win% vs the top teams).
@@ -1946,11 +1958,12 @@ def build_fcs():
        Verdict: PAPER -- at the bracket the #1 pick won 10/15, but 9 of those 10 were North Dakota State (now FBS).
        Market: no odds feed and no Kalshi -> the user's screenshot in data/fcs_book.json, if any, shown while <= 14 days old."""
     import subprocess, tempfile
-    out = os.path.join(tempfile.gettempdir(), "fcs_export.json")
-    subprocess.run(["node", os.path.join(HERE, "scripts", "college", "run.mjs"), "fcs", "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
+    C = CBOARD[sk]
+    out = os.path.join(tempfile.gettempdir(), f"{sk}_export.json")
+    subprocess.run(["node", os.path.join(HERE, "scripts", "college", "run.mjs"), sk, "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
     E = json.load(open(out, encoding="utf-8"))
     snap = {}
-    try: snap = json.load(open(os.path.join(DATA, "fcs_book.json"), encoding="utf-8"))
+    try: snap = json.load(open(os.path.join(DATA, f"{sk}_book.json"), encoding="utf-8"))
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
@@ -1959,8 +1972,8 @@ def build_fcs():
     stg = E.get("stage") or ("field" if E["field_known"] else "regular"); closed = stg in ("playoffs", "done"); first = E.get("first_playoff")
     pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first and d0.year == int(E["season"])
     fresh = (not closed and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
-    if not E.get("teams"): raise RuntimeError(f"FCS engine returned no teams for {E.get('season')}")
-    rows = [{"name": t["name"], "conf": "FCS", "rec": t["rec"], "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"],
+    if not E.get("teams"): raise RuntimeError(f"{C['sport']} engine returned no teams for {E.get('season')}")
+    rows = [{"name": t["name"], "conf": C["conf"], "rec": t["rec"], "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"],
              "index": t["idx"], "rtg": t["srs"], "p": t["p"], "alt_p": t["alt"], "alt_pct": round(100 * t["alt"], 1),
              "srsrank": t["r_srs"], "sosrank": t["r_sos"], "in_field": t["in_field"],
              "alive": t.get("alive"), "champion": bool(t.get("champion")), "bet_ok": not closed} for t in E["teams"]]
@@ -1980,7 +1993,9 @@ def build_fcs():
         mk = t.get("mk")
         t["alt_ev"] = round((t["alt_p"] * ((1 + mk / 100) if mk > 0 else (1 + 100 / abs(mk))) - 1) * 100) if mk is not None and t["alt_p"] > 0 else None
         v = t.get("verdict") or {}
-        if v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:
+        if sk == "chk" and v.get("kind") in ("value", "small", "longshot"):   # never a bet on this board
+            t["verdict"] = {"kind": "trap", "label": "not bet-able", "ev": v.get("ev")}
+        elif v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:
             t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
         elif v.get("kind") in ("value", "small") and (t["alt_ev"] or -1) < 0:
             t["verdict"] = {"kind": "trap", "label": "rating disagrees", "ev": v.get("ev")}
@@ -1988,21 +2003,21 @@ def build_fcs():
     top = max(rows, key=lambda t: t["p"])
     if closed:
         alive = [t["name"] for t in sorted(rows, key=lambda t: -t["p"]) if t.get("alive")]
-        status = (f"<b>{E['champion']}</b> won the {E['season']} FCS title." if stg == "done" and E.get("champion")
+        status = (f"<b>{E['champion']}</b> won the {E['season']} {C['title']}." if stg == "done" and E.get("champion")
                   else f"{len(alive)} teams still alive: {', '.join(alive[:6])}{' …' if len(alive) > 6 else ''}.")
-        why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win the FCS title (fair {top['fair_odds']}). "
+        why = (f"{status} Going into the playoffs the model's #1 was <b>{top['name']}</b>: {top['fair_pct']}% to win the {C['title']} (fair {top['fair_odds']}). "
                f"The betting window is closed: these fair odds are frozen at the start of the bracket (you don't bet within the playoffs)"
                + (f"; EV is against the prices you saved before it ({d0:%b} {d0.day})." if fresh else ", so no EV is shown against in-playoff prices."))
     else:
         stage = (f"Field set ({E['field_size']} teams) — odds over the bracket only; betting window open until the first bracket game." if E["field_known"]
-                 else "Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving.")
-        why = (f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win the FCS title (fair {top['fair_odds']}); "
-               f"the plain power rating alone gives {top['alt_pct']}%. {stage}")
-    base = {"sport": "FCS", "season": str(E["season"]), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
+                 else f"Pre-bracket: odds over every {C['conf']} team, tuned on past seasons' boards as of this date. {C['field']}")
+        why = (f"<b>{top['name']}</b> is the model's #1: {top['fair_pct']}% to win the {C['title']} (fair {top['fair_odds']}); "
+               f"{C['alt']} gives {top['alt_pct']}%. {stage}")
+    base = {"sport": C["sport"], "season": str(E["season"]), "alt_name": E.get("alt_name"), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
             "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
             "field_known": E["field_known"], "stage": stg, "window_closed": closed, "first_playoff": first, "champion": E.get("champion"),
             "prediction": {"pick": top["name"], "why": why},
-            "season_pct": 100 if closed else season_pct(rows, "fcs"), "gp_min": E["gp_min"], "gp_max": E["gp_max"],
+            "season_pct": 100 if closed else season_pct(rows, sk), "gp_min": E["gp_min"], "gp_max": E["gp_max"],
             "hist_off": stg == "done"}   # a finished board doesn't change -> no daily history
     for t in rows:
         for k in ("p", "alt_p"): t.pop(k, None)
@@ -2289,7 +2304,7 @@ def main():
     # just kept its old file). The site flags a board whose last refresh failed; the Action log gets a ::warning:: annotation.
     try: builds = json.load(open(os.path.join(DATA, "index.json"), encoding="utf-8")).get("builds") or {}
     except Exception: builds = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("chk", build_chk), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague)]:
         if name not in LEAGUES:
             continue
         try:
@@ -2305,9 +2320,12 @@ def main():
                     data["signal"] = {"status": "closed", "emoji": "🔒", "label": "Season over" if done else "Window closed",
                                       "note": ("The season is decided — the board shows the fair odds frozen at the start of the playoffs, for the record." if done else
                                                "The playoffs are under way — you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now.")}
+                if name == "chk" and not data.get("window_closed"):   # (2026-11-10) never "Trust the board -- actionable" on a not-bet-able board
+                    data["signal"] = {"status": "closed", "emoji": "🎲", "label": "Not bet-able",
+                                      "note": "For interest only: the NCAA hockey tournament has been close to a lottery (the rating's #1 won 3 of 17 titles). Never bet this board; at most paper-track it at the bracket (late March)."}
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name not in ("cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+                if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
@@ -2323,7 +2341,7 @@ def main():
             built[name] = f"FAILED: {msg}"
             builds[name] = {"ok": False, "at": now_iso(), "error": msg[:300]}
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague"], "generated": now_iso(),
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague"], "generated": now_iso(),
                    "builds": builds}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
