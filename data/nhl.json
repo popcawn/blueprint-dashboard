@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-10T17:02:42Z",
-  "odds_remaining": "67155",
+  "generated": "2026-11-10T17:10:12Z",
+  "odds_remaining": "67153",
   "prediction": {
     "pick": "Minnesota Wild",
     "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +764). Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
@@ -53,7 +53,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #1 goal differential, but the #14 spot is the one a seven-game series finds."
+        "why": "Carried by its #1 even-strength goal differential, but its weakest link \u2014 #14 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -185,7 +185,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #13 goal differential, but the #19 spot is the one a seven-game series finds."
+        "why": "No standout strength (#13 even-strength goal differential), and its weakest link \u2014 #19 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -218,7 +218,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #10 goal differential, but the #14 spot is the one a seven-game series finds."
+        "why": "Carried by its #10 even-strength goal differential, but its weakest link \u2014 #14 in Corsi \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -275,12 +275,12 @@
       "rtg": 0.42,
       "fair_pct": 2.3,
       "fair_odds": "+4329",
-      "market": "+3500",
-      "ev": -19,
+      "market": "+3300",
+      "ev": -23,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -19
+        "ev": -23
       },
       "read": {
         "v": "caution",
@@ -412,7 +412,7 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #5 goal differential, but the #13 spot is the one a seven-game series finds."
+        "why": "Carried by its #5 even-strength goal differential, but its weakest link \u2014 #13 in goals against \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -445,7 +445,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #10 goal differential, but the #28 spot is the one a seven-game series finds."
+        "why": "Carried by its #10 even-strength goal differential, but its weakest link \u2014 #28 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -478,7 +478,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #15 goal differential, but the #14 spot is the one a seven-game series finds."
+        "why": "No standout strength (#15 even-strength goal differential), and its weakest link \u2014 #14 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -544,7 +544,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #16 goal differential, but the #15 spot is the one a seven-game series finds."
+        "why": "No standout strength (#16 even-strength goal differential), and its weakest link \u2014 #15 in goals against \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -577,7 +577,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #18 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "No standout strength (#18 even-strength goal differential), and its weakest link \u2014 #21 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -610,7 +610,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #13 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "No standout strength (#13 even-strength goal differential), and its weakest link \u2014 #21 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -643,7 +643,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #26 goal differential, but the #22 spot is the one a seven-game series finds."
+        "why": "No standout strength (#26 even-strength goal differential), and its weakest link \u2014 #22 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -709,7 +709,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #24 goal differential, but the #29 spot is the one a seven-game series finds."
+        "why": "No standout strength (#24 even-strength goal differential), and its weakest link \u2014 #29 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -742,7 +742,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #23 goal differential, but the #30 spot is the one a seven-game series finds."
+        "why": "No standout strength (#23 even-strength goal differential), and its weakest link \u2014 #30 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -766,16 +766,16 @@
       "rtg": -0.21,
       "fair_pct": 0.3,
       "fair_odds": "+28630",
-      "market": "+8000",
-      "ev": -72,
+      "market": "+10000",
+      "ev": -65,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -72
+        "ev": -65
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #18 goal differential, but the #21 spot is the one a seven-game series finds."
+        "why": "No standout strength (#18 even-strength goal differential), and its weakest link \u2014 #21 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -808,7 +808,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #30 goal differential, but the #26 spot is the one a seven-game series finds."
+        "why": "No standout strength (#30 even-strength goal differential), and its weakest link \u2014 #26 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     }
   ],

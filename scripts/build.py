@@ -1502,7 +1502,12 @@ def team_read(t, sport, n, maxcat):
             return {"v": "trust", "why": _pick([
                 f"Drives play AND gets saves — underlying numbers (#{cf} Corsi) and goaltending (#{sv}) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape.",
                 f"No goaltending asterisk, no possession hole — #{cf} driving play and #{sv} in net. The team you want when the games get low-scoring and tight. Trust it."], nm)}
-        return {"v": "caution", "why": f"Carried by its #{ed} goal differential, but the #{max(sv,cf,ga)} spot is the one a seven-game series finds."}
+        # (2026-11-10 fix, user: "theres no #14 spot") name the weak stat -- 5v5 save% isn't one of the card's four chips
+        wk_lab, wk_rk = max((("5v5 save %", sv), ("Corsi", cf), ("goals against", ga)), key=lambda x: x[1])
+        wk = f"#{wk_rk} in {wk_lab}{' (goaltending, not shown on the card)' if wk_lab == '5v5 save %' else ''}"
+        if ed <= 10:
+            return {"v": "caution", "why": f"Carried by its #{ed} even-strength goal differential, but its weakest link — {wk} — is the one a seven-game series finds."}
+        return {"v": "caution", "why": f"No standout strength (#{ed} even-strength goal differential), and its weakest link — {wk} — is what a seven-game series exposes."}
 
     if sport in ("nba", "wnba"):
         net, off, dfn = t["rk_pd"], t["rk_ppg"], t["rk_opp"]
