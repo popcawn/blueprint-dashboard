@@ -10,13 +10,14 @@
     "wcbb",
     "mls",
     "fcs",
+    "chk",
     "cfl",
     "nwsl",
     "afl",
     "nrl",
     "superleague"
   ],
-  "generated": "2026-11-10T14:49:44Z",
+  "generated": "2026-11-10T15:55:54Z",
   "builds": {
     "nfl": {
       "ok": true,
@@ -77,6 +78,10 @@
     "wcbb": {
       "ok": true,
       "at": "2026-11-09T23:13:38Z"
+    },
+    "chk": {
+      "ok": true,
+      "at": "2026-11-10T15:55:54Z"
     }
   }
 }
