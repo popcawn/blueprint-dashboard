@@ -23,7 +23,18 @@ if (arg('--cover')) C.cover = +arg('--cover');
 const minD = (a, b) => (a < b ? a : b);
 const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
 
-async function seasonData(Y) { const S = await A.load(Y, today), tr = A.tourney ? A.tourney(S) : tourney(S, A.isFinal); return {Y, S, tr}; }
+const SD = new Map();
+async function seasonData0(Y) { if (!SD.has(Y)) SD.set(Y, (async () => { const S = await A.load(Y, today), tr = A.tourney ? A.tourney(S) : tourney(S, A.isFinal); return {Y, S, tr}; })()); return SD.get(Y); }
+// cfg.priorW (college hockey, 2026-11-10): each season's board starts from last season's final rating (lib.mjs board)
+async function seasonData(Y) {
+  const d = await seasonData0(Y);
+  if (A.cfg.priorW && !d.S.prior) {
+    const P = A.prevSeason ? A.prevSeason(Y) : Y - 1;
+    try { const {S: S0, tr: t0} = await seasonData0(P); const B0 = board(S0, t0.final ? addDays(t0.final.d, 1) : addDays(today, 1), {...A.cfg, priorW: 0});
+      d.S.prior = new Map(B0.teams.map(t => [t.id, t.srs])); } catch { d.S.prior = new Map(); }
+  }
+  return d;
+}
 async function history(mmdd) {
   const out = [];
   for (const Y of A.seasons) {

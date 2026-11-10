@@ -11,7 +11,12 @@ export const sport = 'chk', label = "Men's college hockey", cmd = 'college-hocke
 export const seasons = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026];   // 2020 tournament cancelled
 export const currentSeason = today => { const [y, m] = today.split('-').map(Number); return m >= 7 ? y + 1 : y; };
 export const asOfFor = (Y, mmdd) => (+mmdd.slice(0, 2) >= 7 ? `${Y - 1}-${mmdd}` : `${Y}-${mmdd}`);
-export const cfg = {cap: 4, topN: 16, minFrac: 0.4};
+// rating (2026-11-10, user: "improve from weak to fair"; chk-study.py): margins capped at 5 (was 4), 0.2 goals of home ice removed, and last season's
+// final rating (halved) counts as 12 games -- walk-forward log-loss on 5,238 late-season games and title odds at Nov 10 / Dec 15 / Jan 31 / Mar 1 / the
+// bracket all better in BOTH halves (2009-17, 2018-26)
+export const cfg = {cap: 5, topN: 16, minFrac: 0.4, hfa: 0.2, priorW: 12};
+// the prior is simply last season (Y - 1): 2019-20 had no tournament, but its games are on file, so 2020-21 starts from them
+
 export const dec = 2;
 // every-champion rule (2026-11-06 search, 17 champions 2009-26): each cutoff = the loosest champion's value, so every past champion clears all 5
 export let crit = [{f: 'adjD', kind: 'rank'}, {f: 'wp', kind: 'rank'}, {f: 'off', kind: 'rank'}, {f: 'def', kind: 'rank'}, {f: 'rpi', kind: 'value'}];

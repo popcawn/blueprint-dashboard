@@ -111,7 +111,8 @@ export function board(S, asOf, cfg) {
     for (const [X, Y, xs, ys, r] of [[A, B, g.as, g.bs, ra], [B, A, g.bs, g.as, 1 - ra]]) {
       X.gp++; X.pf += xs; X.pa += ys;
       if (r === 1) X.w++; else if (r === 0) X.l++; else X.t++;
-      X.games.push({o: Y.id, pf: xs, pa: ys, r, m: Math.max(-cfg.cap, Math.min(cfg.cap, xs - ys))});
+      // cfg.hfa (college hockey, 2026-11-10): home ice removed from the margin -- the first-listed team (g.a) is the home side in ESPN's feed
+      X.games.push({o: Y.id, pf: xs, pa: ys, r, m: Math.max(-cfg.cap, Math.min(cfg.cap, xs - ys - (cfg.hfa ? (X === A ? cfg.hfa : -cfg.hfa) : 0)))});
     }
   }
   const nodes = [...T.values()], d1n = nodes.filter(x => x.d1);
@@ -141,6 +142,9 @@ export function board(S, asOf, cfg) {
     O = NO; D = ND;
   }
   const byId = new Map(nodes.map(x => [x.id, x]));
+  // cfg.priorW (college hockey, 2026-11-10): last season's final rating, halved, counts as priorW games (S.prior, set by run.mjs) -- walk-forward on
+  // 5,238 late-season games: better in both halves; title odds better in both halves at every date (baseball-blueprint/college/chk-study.py)
+  if (cfg.priorW && S.prior) for (const x of nodes) R.set(x.id, (x.gp * R.get(x.id) + cfg.priorW * 0.5 * (S.prior.get(x.id) || 0)) / (x.gp + cfg.priorW));
   for (const x of nodes) { x.srs = R.get(x.id); x.adjO = O.get(x.id); x.adjD = D.get(x.id); x.owp = x.games.reduce((a, g) => a + byId.get(g.o).wp, 0) / x.games.length; }
   for (const x of nodes) { x.oowp = x.games.reduce((a, g) => a + byId.get(g.o).owp, 0) / x.games.length; x.sos = x.owp; x.rpi = 0.25 * x.wp + 0.5 * x.owp + 0.25 * x.oowp; }
   const top = new Set(d1n.slice().sort((a, b) => b.srs - a.srs).slice(0, cfg.topN).map(x => x.id));

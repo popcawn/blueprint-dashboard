@@ -102,8 +102,14 @@ def value_plays(teams, maxcat, sport=None):
         out.sort(key=lambda x: -x["ev"])
         return out
     if sport == "chk":
-        # College hockey (2026-11-10, user: "add college hockey to site"): NOT bet-able -- the tournament is close to a lottery
-        # (the rating's #1 won 3 of 17; the every-champion profile did no better than a coin flip). Never a value play.
+        # College hockey (2026-11-10, user: "improve from weak to fair"): a value play only from March 1 until the first NCAA-tournament game (bet_ok),
+        # a team in the board's top 5 by title odds (the champion was there at Mar 1 in 14 of 17 seasons, all 8 since 2018), EV >= +25% (a wide
+        # margin: the #1 still wins only ~1 title in 6) at <= +2500. Never price-tested (no title-price history) -> small stakes.
+        for t in sorted([t for t in teams if t.get("fair_pct")], key=lambda t: -t["fair_pct"])[:5]:
+            p = _price_num(t.get("market"))
+            if t.get("bet_ok") and (t.get("ev") or 0) >= 25 and p is not None and p <= 2500:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
         return out
     if sport == "fcs":
         # FCS (2026-11-06) is PAPER: 10 of the 15 titles 2010-25 were North Dakota State (now FBS). If a screenshot is posted,
@@ -1973,10 +1979,11 @@ def _build_college(sk):
     pre_px = bool(snap.get("odds")) and d0 is not None and bool(first) and d0.isoformat() < first and d0.year == int(E["season"])
     fresh = (not closed and bool(snap.get("odds")) and d0 is not None and (datetime.date.today() - d0).days <= 14) or (closed and pre_px)
     if not E.get("teams"): raise RuntimeError(f"{C['sport']} engine returned no teams for {E.get('season')}")
+    chk_open = datetime.date.today() >= datetime.date(int(E["season"]), 3, 1)   # college hockey: bets only from March 1 (see value_plays)
     rows = [{"name": t["name"], "conf": C["conf"], "rec": t["rec"], "gp": t["gp"], "score": t["score"], "q": t["q"], "vals": t["vals"],
              "index": t["idx"], "rtg": t["srs"], "p": t["p"], "alt_p": t["alt"], "alt_pct": round(100 * t["alt"], 1),
              "srsrank": t["r_srs"], "sosrank": t["r_sos"], "in_field": t["in_field"],
-             "alive": t.get("alive"), "champion": bool(t.get("champion")), "bet_ok": not closed} for t in E["teams"]]
+             "alive": t.get("alive"), "champion": bool(t.get("champion")), "bet_ok": not closed and (sk != "chk" or chk_open)} for t in E["teams"]]
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None
         t["fair_odds"] = american(t["p"]) if t["p"] else None
@@ -1993,11 +2000,13 @@ def _build_college(sk):
         mk = t.get("mk")
         t["alt_ev"] = round((t["alt_p"] * ((1 + mk / 100) if mk > 0 else (1 + 100 / abs(mk))) - 1) * 100) if mk is not None and t["alt_p"] > 0 else None
         v = t.get("verdict") or {}
-        if sk == "chk" and v.get("kind") in ("value", "small", "longshot"):   # never a bet on this board
-            t["verdict"] = {"kind": "trap", "label": "not bet-able", "ev": v.get("ev")}
-        elif v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:
+        if sk == "chk" and v.get("kind") in ("value", "small", "longshot") and not chk_open:   # shortlist only before March 1
+            t["verdict"] = {"kind": "trap", "label": "too early", "ev": v.get("ev")}
+        elif sk == "chk" and v.get("kind") in ("value", "small", "longshot") and t["p"] < sorted((x["p"] for x in rows), reverse=True)[min(4, len(rows) - 1)]:
+            t["verdict"] = {"kind": "trap", "label": "outside top 5", "ev": v.get("ev")}
+        elif sk == "fcs" and v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:   # FCS-only checks (the hockey profile isn't trusted)
             t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
-        elif v.get("kind") in ("value", "small") and (t["alt_ev"] or -1) < 0:
+        elif sk == "fcs" and v.get("kind") in ("value", "small") and (t["alt_ev"] or -1) < 0:
             t["verdict"] = {"kind": "trap", "label": "rating disagrees", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["score"], -t["p"]))   # tier first, then fair title odds
     top = max(rows, key=lambda t: t["p"])
@@ -2019,6 +2028,7 @@ def _build_college(sk):
             "prediction": {"pick": top["name"], "why": why},
             "season_pct": 100 if closed else season_pct(rows, sk), "gp_min": E["gp_min"], "gp_max": E["gp_max"],
             "hist_off": stg == "done"}   # a finished board doesn't change -> no daily history
+    if sk == "chk": base["bet_from"] = f"{E['season']}-03-01"
     for t in rows:
         for k in ("p", "alt_p"): t.pop(k, None)
     return base
@@ -2320,9 +2330,9 @@ def main():
                     data["signal"] = {"status": "closed", "emoji": "🔒", "label": "Season over" if done else "Window closed",
                                       "note": ("The season is decided — the board shows the fair odds frozen at the start of the playoffs, for the record." if done else
                                                "The playoffs are under way — you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now.")}
-                if name == "chk" and not data.get("window_closed"):   # (2026-11-10) never "Trust the board -- actionable" on a not-bet-able board
-                    data["signal"] = {"status": "closed", "emoji": "🎲", "label": "Not bet-able",
-                                      "note": "For interest only: the NCAA hockey tournament has been close to a lottery (the rating's #1 won 3 of 17 titles). Never bet this board; at most paper-track it at the bracket (late March)."}
+                if name == "chk" and not data.get("window_closed") and datetime.date.today().isoformat() < data.get("bet_from", "9999"):   # (2026-11-10) shortlist only before March 1
+                    data["signal"] = {"status": "firming", "emoji": "🟡", "label": "Shortlist only",
+                                      "note": f"Fair as a top-5 shortlist (17-season backtest), but no bets before March 1: a value play needs a top-5 team at EV >= +25%, from March 1 until the first NCAA-tournament game. The #1 still wins only about 1 title in 6."}
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
                 if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads

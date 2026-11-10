@@ -3,390 +3,313 @@
   "date": "2026-11-10",
   "gp": 12,
   "teams": {
-   "Wisconsin": {
-    "sc": 5,
-    "idx": 93.1,
-    "fp": 7.1,
-    "mkt": "+1000",
-    "ev": -21
-   },
-   "Colorado College": {
-    "sc": 5,
-    "idx": 83.7,
-    "fp": 6.7,
-    "mkt": "+1800",
-    "ev": 26
-   },
-   "Quinnipiac": {
-    "sc": 5,
-    "idx": 87,
-    "fp": 6.2,
-    "mkt": "+1200",
-    "ev": -19
-   },
    "Michigan": {
     "sc": 5,
-    "idx": 92.8,
-    "fp": 5.7,
+    "idx": 94.6,
+    "fp": 14.2,
     "mkt": "+475",
-    "ev": -67
+    "ev": -18
    },
    "Michigan State": {
     "sc": 5,
-    "idx": 81.7,
-    "fp": 5.5,
+    "idx": 81.3,
+    "fp": 8.5,
     "mkt": "+750",
-    "ev": -54
+    "ev": -27
    },
-   "Providence": {
+   "Wisconsin": {
     "sc": 5,
-    "idx": 75.8,
-    "fp": 3.9,
+    "idx": 89.8,
+    "fp": 7.3,
+    "mkt": "+1000",
+    "ev": -20
+   },
+   "Quinnipiac": {
+    "sc": 5,
+    "idx": 84.1,
+    "fp": 6.3,
+    "mkt": "+1200",
+    "ev": -18
+   },
+   "Colorado College": {
+    "sc": 5,
+    "idx": 79.7,
+    "fp": 5.6,
     "mkt": "+1800",
-    "ev": -25
-   },
-   "Boston University": {
-    "sc": 5,
-    "idx": 75.3,
-    "fp": 3.7,
-    "mkt": "+1600",
-    "ev": -37
-   },
-   "Augustana (SD)": {
-    "sc": 5,
-    "idx": 85.8,
-    "fp": 3.7,
-    "mkt": "+4500",
-    "ev": 69
+    "ev": 7
    },
    "Minnesota Duluth": {
     "sc": 5,
-    "idx": 74.4,
-    "fp": 3.4,
+    "idx": 75.2,
+    "fp": 5.2,
     "mkt": "+1600",
-    "ev": -41
+    "ev": -12
    },
    "Denver": {
     "sc": 5,
-    "idx": 73.7,
-    "fp": 3.3,
+    "idx": 74.6,
+    "fp": 5.1,
     "mkt": "+900",
-    "ev": -67
+    "ev": -49
+   },
+   "Providence": {
+    "sc": 5,
+    "idx": 75,
+    "fp": 4.6,
+    "mkt": "+1800",
+    "ev": -13
    },
    "North Dakota": {
     "sc": 5,
-    "idx": 67.6,
-    "fp": 2.6,
+    "idx": 70.1,
+    "fp": 4.6,
     "mkt": "+1200",
-    "ev": -67
+    "ev": -41
    },
-   "Army": {
+   "Augustana (SD)": {
     "sc": 5,
-    "idx": 68.3,
-    "fp": 2.4,
-    "mkt": null,
-    "ev": null
+    "idx": 83.8,
+    "fp": 3.2,
+    "mkt": "+4500",
+    "ev": 49
+   },
+   "Boston University": {
+    "sc": 5,
+    "idx": 71.9,
+    "fp": 2.5,
+    "mkt": "+1600",
+    "ev": -57
    },
    "Bowling Green": {
     "sc": 5,
-    "idx": 62.8,
-    "fp": 2.0,
+    "idx": 61.4,
+    "fp": 1.4,
     "mkt": "+9000",
-    "ev": 81
+    "ev": 26
    },
-   "Western Michigan": {
-    "sc": 4,
-    "idx": 73.6,
-    "fp": 3.5,
-    "mkt": "+1300",
-    "ev": -51
-   },
-   "Northeastern": {
-    "sc": 4,
-    "idx": 64.6,
-    "fp": 2.8,
-    "mkt": "+7000",
-    "ev": 97
-   },
-   "Vermont": {
-    "sc": 4,
-    "idx": 61.8,
-    "fp": 1.8,
-    "mkt": "+10000",
-    "ev": 82
-   },
-   "Miami (OH)": {
-    "sc": 4,
-    "idx": 54.8,
-    "fp": 1.3,
-    "mkt": "+8000",
-    "ev": 4
-   },
-   "Michigan Tech": {
-    "sc": 4,
-    "idx": 57.2,
-    "fp": 1.2,
-    "mkt": "+5000",
-    "ev": -38
-   },
-   "Merrimack": {
-    "sc": 3,
-    "idx": 76.6,
-    "fp": 3.2,
-    "mkt": "+3500",
-    "ev": 14
-   },
-   "Ohio State": {
-    "sc": 3,
-    "idx": 61,
-    "fp": 1.8,
-    "mkt": "+5000",
-    "ev": -8
-   },
-   "Omaha": {
-    "sc": 3,
-    "idx": 56.8,
-    "fp": 1.7,
-    "mkt": "+10000",
-    "ev": 69
-   },
-   "Maine": {
-    "sc": 2,
-    "idx": 58.2,
-    "fp": 2.2,
-    "mkt": "+3000",
-    "ev": -31
-   },
-   "New Hampshire": {
-    "sc": 2,
-    "idx": 56.7,
-    "fp": 1.9,
-    "mkt": "+7000",
-    "ev": 32
-   },
-   "Massachusetts": {
-    "sc": 2,
-    "idx": 53,
-    "fp": 1.5,
+   "Army": {
+    "sc": 5,
+    "idx": 63.3,
+    "fp": 0.9,
     "mkt": null,
     "ev": null
    },
+   "Western Michigan": {
+    "sc": 4,
+    "idx": 76.2,
+    "fp": 7.7,
+    "mkt": "+1300",
+    "ev": 8
+   },
+   "Northeastern": {
+    "sc": 4,
+    "idx": 61.3,
+    "fp": 1.6,
+    "mkt": "+7000",
+    "ev": 13
+   },
+   "Miami (OH)": {
+    "sc": 4,
+    "idx": 55.1,
+    "fp": 1.0,
+    "mkt": "+8000",
+    "ev": -22
+   },
+   "Michigan Tech": {
+    "sc": 4,
+    "idx": 56.6,
+    "fp": 0.7,
+    "mkt": "+5000",
+    "ev": -63
+   },
+   "Vermont": {
+    "sc": 4,
+    "idx": 57,
+    "fp": 0.6,
+    "mkt": "+10000",
+    "ev": -41
+   },
+   "Merrimack": {
+    "sc": 3,
+    "idx": 73.5,
+    "fp": 2.1,
+    "mkt": "+3500",
+    "ev": -26
+   },
+   "Ohio State": {
+    "sc": 3,
+    "idx": 60.4,
+    "fp": 1.4,
+    "mkt": "+5000",
+    "ev": -30
+   },
+   "Omaha": {
+    "sc": 3,
+    "idx": 55.4,
+    "fp": 1.0,
+    "mkt": "+10000",
+    "ev": 3
+   },
+   "Maine": {
+    "sc": 2,
+    "idx": 56.5,
+    "fp": 1.5,
+    "mkt": "+3000",
+    "ev": -52
+   },
    "UConn": {
     "sc": 2,
-    "idx": 58.7,
-    "fp": 1.4,
+    "idx": 59.1,
+    "fp": 1.1,
     "mkt": "+3500",
-    "ev": -50
+    "ev": -60
    },
    "Union": {
     "sc": 2,
-    "idx": 54.4,
-    "fp": 1.3,
+    "idx": 55.2,
+    "fp": 1.1,
     "mkt": "+10000",
-    "ev": 33
+    "ev": 10
+   },
+   "Massachusetts": {
+    "sc": 2,
+    "idx": 52.1,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "New Hampshire": {
+    "sc": 2,
+    "idx": 53,
+    "fp": 0.8,
+    "mkt": "+7000",
+    "ev": -45
    },
    "Clarkson": {
     "sc": 2,
-    "idx": 51.2,
-    "fp": 1.2,
+    "idx": 50.6,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "St. Thomas": {
+    "sc": 2,
+    "idx": 41.1,
+    "fp": 0.6,
+    "mkt": "+7500",
+    "ev": -57
+   },
+   "Minnesota State": {
+    "sc": 2,
+    "idx": 43.3,
+    "fp": 0.5,
+    "mkt": "+7500",
+    "ev": -63
+   },
+   "Sacred Heart": {
+    "sc": 2,
+    "idx": 45.2,
+    "fp": 0.4,
     "mkt": null,
     "ev": null
    },
    "Niagara": {
     "sc": 2,
-    "idx": 50.1,
-    "fp": 1.0,
+    "idx": 46.6,
+    "fp": 0.3,
     "mkt": null,
     "ev": null
-   },
-   "Sacred Heart": {
-    "sc": 2,
-    "idx": 46,
-    "fp": 0.8,
-    "mkt": null,
-    "ev": null
-   },
-   "Minnesota State": {
-    "sc": 2,
-    "idx": 42.5,
-    "fp": 0.8,
-    "mkt": "+7500",
-    "ev": -40
-   },
-   "St. Thomas": {
-    "sc": 2,
-    "idx": 39.5,
-    "fp": 0.8,
-    "mkt": "+7500",
-    "ev": -40
    },
    "Rensselaer": {
     "sc": 2,
-    "idx": 33.6,
-    "fp": 0.6,
+    "idx": 32.3,
+    "fp": 0.2,
     "mkt": null,
     "ev": null
    },
    "Minnesota": {
     "sc": 1,
-    "idx": 54.4,
-    "fp": 1.2,
+    "idx": 53.4,
+    "fp": 0.7,
     "mkt": "+2800",
-    "ev": -64
-   },
-   "Arizona State": {
-    "sc": 1,
-    "idx": 41.5,
-    "fp": 0.9,
-    "mkt": "+5000",
-    "ev": -55
-   },
-   "Lindenwood": {
-    "sc": 1,
-    "idx": 38.1,
-    "fp": 0.8,
-    "mkt": null,
-    "ev": null
-   },
-   "Notre Dame": {
-    "sc": 1,
-    "idx": 46.3,
-    "fp": 0.8,
-    "mkt": null,
-    "ev": null
+    "ev": -80
    },
    "St. Cloud State": {
     "sc": 1,
-    "idx": 37.7,
-    "fp": 0.8,
+    "idx": 40.3,
+    "fp": 0.6,
     "mkt": "+6500",
-    "ev": -50
+    "ev": -58
+   },
+   "Arizona State": {
+    "sc": 1,
+    "idx": 42.4,
+    "fp": 0.6,
+    "mkt": "+5000",
+    "ev": -70
    },
    "Bentley": {
     "sc": 1,
-    "idx": 41.5,
-    "fp": 0.7,
+    "idx": 41.2,
+    "fp": 0.3,
     "mkt": "+8000",
-    "ev": -42
+    "ev": -73
    },
-   "Robert Morris": {
+   "Notre Dame": {
     "sc": 1,
-    "idx": 33.1,
-    "fp": 0.6,
+    "idx": 44.7,
+    "fp": 0.3,
     "mkt": null,
     "ev": null
    },
-   "Lake Superior State": {
+   "Lindenwood": {
     "sc": 1,
-    "idx": 25.1,
-    "fp": 0.4,
-    "mkt": null,
-    "ev": null
-   },
-   "Stonehill": {
-    "sc": 1,
-    "idx": 19.2,
+    "idx": 36.2,
     "fp": 0.3,
     "mkt": null,
     "ev": null
    },
    "Boston College": {
     "sc": 0,
-    "idx": 42.5,
-    "fp": 1.0,
-    "mkt": "+3000",
-    "ev": -70
-   },
-   "Air Force": {
-    "sc": 0,
-    "idx": 42,
+    "idx": 44.2,
     "fp": 0.8,
-    "mkt": null,
-    "ev": null
+    "mkt": "+3000",
+    "ev": -76
    },
    "Bemidji State": {
     "sc": 0,
-    "idx": 33.7,
-    "fp": 0.6,
+    "idx": 35.2,
+    "fp": 0.4,
     "mkt": null,
     "ev": null
+   },
+   "Air Force": {
+    "sc": 0,
+    "idx": 40.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Penn State": {
+    "sc": 0,
+    "idx": 26.9,
+    "fp": 0.3,
+    "mkt": "+4500",
+    "ev": -85
    },
    "Holy Cross": {
     "sc": 0,
-    "idx": 37.5,
-    "fp": 0.6,
-    "mkt": null,
-    "ev": null
-   },
-   "Northern Michigan": {
-    "sc": 0,
-    "idx": 32.4,
-    "fp": 0.5,
-    "mkt": null,
-    "ev": null
-   },
-   "RIT": {
-    "sc": 0,
-    "idx": 32.2,
-    "fp": 0.5,
+    "idx": 36.2,
+    "fp": 0.2,
     "mkt": null,
     "ev": null
    },
    "UMass Lowell ": {
     "sc": 0,
-    "idx": 20.8,
-    "fp": 0.4,
+    "idx": 22.2,
+    "fp": 0.2,
     "mkt": "+3500",
-    "ev": -85
-   },
-   "Penn State": {
-    "sc": 0,
-    "idx": 22.6,
-    "fp": 0.4,
-    "mkt": "+4500",
-    "ev": -82
-   },
-   "Colgate": {
-    "sc": 0,
-    "idx": 17.7,
-    "fp": 0.4,
-    "mkt": null,
-    "ev": null
-   },
-   "St. Lawrence": {
-    "sc": 0,
-    "idx": 18.4,
-    "fp": 0.3,
-    "mkt": null,
-    "ev": null
-   },
-   "Canisius": {
-    "sc": 0,
-    "idx": 12.6,
-    "fp": 0.2,
-    "mkt": null,
-    "ev": null
-   },
-   "Alaska Anchorage": {
-    "sc": 0,
-    "idx": 14.1,
-    "fp": 0.2,
-    "mkt": null,
-    "ev": null
-   },
-   "Alaska": {
-    "sc": 0,
-    "idx": 18.7,
-    "fp": 0.2,
-    "mkt": null,
-    "ev": null
-   },
-   "Long Island University": {
-    "sc": 0,
-    "idx": 9.7,
-    "fp": 0.2,
-    "mkt": null,
-    "ev": null
+    "ev": -93
    }
   }
  }
