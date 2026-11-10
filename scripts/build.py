@@ -710,7 +710,7 @@ def build_nhl():
         R = nhl_rating(by, YEAR)
         bk = nhl_bracket(br_series, field)
         if bk:
-            sim = nhl_bracket_sim(bk, R)
+            sim = nhl_bracket_sim(bk, R, {t["ab"]: (t.get("read") or {}).get("v", "caution") for t in rows})
             for t in pool: t["p"] = sim.get(t["ab"], 0.0)
             nhl_new = "bracket"
         else:
@@ -722,6 +722,11 @@ def build_nhl():
                 for t in cs: soft[t["ab"]] = z[t["ab"]] / tot * 0.5 if tot else 0
             for t in pool: t["p"] = 0.5 * t["p"] + 0.5 * soft.get(t["ab"], 0.0)
             nhl_new = "mix"
+            if (3, 1) <= mo < (7, 1):   # from March 1 the Read joins the odds (x e^(1.0 x verdict)); earlier it didn't help (Dec 1-Feb 1)
+                for cf in ("E", "W"):
+                    cs = [t for t in pool if t["conf"] == cf]; w = {t["ab"]: t["p"] * math.exp(NHL_READ_K * NHL_VW.get((t.get("read") or {}).get("v"), 1)) for t in cs}; tot = sum(w.values())
+                    for t in cs: t["p"] = w[t["ab"]] / tot * 0.5 if tot else 0
+                nhl_new = "mix+read"
     except Exception as e:
         print(f"  nhl new odds failed, index odds kept: {e}", file=sys.stderr)
     for t in pool: t["fair_odds"] = american(t["p"]) if t.get("p") else None   # (2026-11-10 fix) cap_odds set these from the index odds; the cards showed +669 beside 23.5%
@@ -748,6 +753,12 @@ def build_nhl():
             "rtgs": {t["name"]: nhl_row(t)["rtg"] for t in rows}}   # every team, for the matchup sim
 
 NHL_SD_G, NHL_SD_X, NHL_PRIOR_GAMES, NHL_PRIOR_KEEP, NHL_SCALE, NHL_HOME = 0.4906, 0.3753, 30, 0.6, 0.4, 0.175
+# The Read in the odds (2026-11-10, user: "do both"; nhl-study.py readodds/readrobust/readmkt). Verdict weight trust 2 / caution 1 / fool's gold 0.
+# Series: logit + 0.6 x (verdict difference) -- the weight was 0.6 in all 15 leave-one-season-out fits; Cup log-loss 2.30/1.99 vs 2.63/2.32 without it,
+# series 0.625/0.622 vs 0.657/0.633, robust to nudged Read thresholds; 11 of 15 champions were read "trust" vs 56 of 240 playoff teams.
+# vs FanDuel 2022-26 (5 Cups): 1.95 vs the market's 2.20 (the model alone 2.24); value plays 1 of 5 (+$30 at $10). Small sample, and the Read's rules
+# were written (Oct 2026) with past seasons in view -> promising, not proven. In-season: from March 1 only (k = 1.0; it hurt on Dec 1-Feb 1).
+NHL_VW, NHL_SERIES_C, NHL_READ_K = {"trust": 2, "caution": 1, "fools_gold": 0}, 0.6, 1.0
 def _nhl_z(by_sit):
     """({abbrev: 0.5 x goal diff/g / SD + 0.5 x adjusted xG diff/g / SD}, {abbrev: games}), league-centred, from a MoneyPuck seasonSummary ('all')."""
     g, x, n = {}, {}, {}
@@ -800,7 +811,7 @@ def _nhl_series(p_home_top, p_away_top):
             p = p_home_top if home[i] else p_away_top; memo[(a, b)] = p * go(a + 1, b, i + 1) + (1 - p) * go(a, b + 1, i + 1)
         return memo[(a, b)]
     return go(0, 0, 0)
-def nhl_bracket_sim(bk, R):
+def nhl_bracket_sim(bk, R, V=None):
     """Exact Cup odds over the standard tree: A+B -> I, C+D -> J, E+F -> K, G+H -> L, I+J -> M, K+L -> N, M+N -> the Cup final."""
     ex = lambda v: 1 / (1 + math.exp(-v))
     def meet(A, B):
@@ -808,7 +819,8 @@ def nhl_bracket_sim(bk, R):
         for a, pa in A.items():
             for b, pb in B.items():
                 top, bot = (a, b) if bk["pts"].get(a, 0) >= bk["pts"].get(b, 0) else (b, a); d = R.get(top, 0.0) - R.get(bot, 0.0)
-                x = _nhl_series(ex(NHL_SCALE * d + NHL_HOME), ex(NHL_SCALE * d - NHL_HOME))
+                x = min(max(_nhl_series(ex(NHL_SCALE * d + NHL_HOME), ex(NHL_SCALE * d - NHL_HOME)), 1e-6), 1 - 1e-6)
+                if V: x = ex(math.log(x / (1 - x)) + NHL_SERIES_C * (NHL_VW.get(V.get(top), 1) - NHL_VW.get(V.get(bot), 1)))
                 out[top] = out.get(top, 0) + pa * pb * x; out[bot] = out.get(bot, 0) + pa * pb * (1 - x)
         return out
     lf = {L: meet({bk["r1"][L][0]: 1.0}, {bk["r1"][L][1]: 1.0}) for L in "ABCDEFGH"}
@@ -824,6 +836,7 @@ def nhl_row(t):
         # Corsi (shot share) is the sustainable part, so blend them — hot-goalie teams get pulled
         # toward their possession level, matching "that gap closes in a seven-game series."
         "rtg": round(0.4 * (t['esdiff'] / t['gp']) + 0.6 * ((t['corsi'] - 50) * 0.11), 2) if t.get('gp') else 0,
+        "sv5": f"{t['essv']:.1f}% #{t['rk_sv']}",   # display only: 5v5 save% (goaltending) -- not a criterion, but the Read and the odds use it
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
         "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 
