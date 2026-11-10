@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-10T14:49:38Z",
-  "odds_remaining": "68158",
+  "generated": "2026-11-10T20:39:26Z",
+  "odds_remaining": "66284",
   "prediction": {
     "pick": "San Antonio Spurs",
     "why": "<b>San Antonio Spurs</b> is the pick \u2014 the top team the model actually trusts (fair +777). A #1 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
@@ -326,12 +326,12 @@
       "rtg": 7.1,
       "fair_pct": 3.3,
       "fair_odds": "+2954",
-      "market": "+17500",
-      "ev": 476,
+      "market": "+20000",
+      "ev": 558,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 476
+        "ev": 558
       },
       "read": {
         "v": "caution",
@@ -431,12 +431,12 @@
       "rtg": 4.6,
       "fair_pct": 2.5,
       "fair_odds": "+3904",
-      "market": "+17500",
-      "ev": 340,
+      "market": "+20000",
+      "ev": 402,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 340
+        "ev": 402
       },
       "read": {
         "v": "caution",
@@ -536,12 +536,12 @@
       "rtg": 2.1,
       "fair_pct": 1.6,
       "fair_odds": "+6061",
-      "market": "+6000",
-      "ev": -1,
+      "market": "+6500",
+      "ev": 7,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -1
+        "kind": "small",
+        "label": "small value",
+        "ev": 7
       },
       "read": {
         "v": "fools_gold",

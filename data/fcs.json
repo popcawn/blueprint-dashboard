@@ -1,7 +1,8 @@
 {
   "sport": "FCS",
   "season": "2026",
-  "generated": "2026-11-09T23:13:41Z",
+  "alt_name": "rating-only",
+  "generated": "2026-11-10T20:39:59Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -46,16 +47,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 33.0,
-      "fair_odds": "+203",
+      "fair_pct": 31.6,
+      "fair_odds": "+216",
       "read": null,
       "mk": 400,
       "market": "+400",
-      "ev": 65,
+      "ev": 58,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 65
+        "ev": 58
       },
       "alt_ev": 33
     },
@@ -88,8 +89,8 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 2.6,
-      "fair_odds": "+3716",
+      "fair_pct": 4.7,
+      "fair_odds": "+2015",
       "read": null,
       "mk": null,
       "market": null,
@@ -126,16 +127,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 2.0,
-      "fair_odds": "+4892",
+      "fair_pct": 3.9,
+      "fair_odds": "+2487",
       "read": null,
       "mk": 900,
       "market": "+900",
-      "ev": -80,
+      "ev": -61,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -61
       },
       "alt_ev": -73
     },
@@ -168,16 +169,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 39.3,
-      "fair_odds": "+154",
+      "fair_pct": 30.3,
+      "fair_odds": "+230",
       "read": null,
       "mk": 225,
       "market": "+225",
-      "ev": 28,
+      "ev": -1,
       "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 28
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -1
       },
       "alt_ev": -44
     },
@@ -210,16 +211,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 12.3,
-      "fair_odds": "+715",
+      "fair_pct": 12.7,
+      "fair_odds": "+689",
       "read": null,
       "mk": 380,
       "market": "+380",
-      "ev": -41,
+      "ev": -39,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -41
+        "kind": "fade",
+        "label": "fade",
+        "ev": -39
       },
       "alt_ev": -19
     },
@@ -252,16 +253,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 4.2,
-      "fair_odds": "+2262",
+      "fair_pct": 5.7,
+      "fair_odds": "+1654",
       "read": null,
       "mk": 1300,
       "market": "+1300",
-      "ev": -41,
+      "ev": -20,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -41
+        "kind": "fade",
+        "label": "fade",
+        "ev": -20
       },
       "alt_ev": -33
     },
@@ -294,16 +295,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.8,
-      "fair_odds": "+12636",
+      "fair_pct": 1.6,
+      "fair_odds": "+6122",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -21,
+      "ev": 62,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -21
+        "kind": "trap",
+        "label": "fails profile",
+        "ev": 62
       },
       "alt_ev": 599
     },
@@ -336,16 +337,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.5,
-      "fair_odds": "+21428",
+      "fair_pct": 1.1,
+      "fair_odds": "+9150",
       "read": null,
       "mk": 6000,
       "market": "+6000",
-      "ev": -72,
+      "ev": -34,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -72
+        "kind": "fade",
+        "label": "fade",
+        "ev": -34
       },
       "alt_ev": -10
     },
@@ -378,16 +379,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.2,
-      "fair_odds": "+47289",
+      "fair_pct": 0.6,
+      "fair_odds": "+16778",
       "read": null,
       "mk": 6000,
       "market": "+6000",
-      "ev": -87,
+      "ev": -64,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -87
+        "ev": -64
       },
       "alt_ev": -68
     },
@@ -415,21 +416,21 @@
       "rtg": 14.48,
       "alt_pct": 1.5,
       "srsrank": 11,
-      "sosrank": 92,
+      "sosrank": 91,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.6,
-      "fair_odds": "+18036",
+      "fair_pct": 1.0,
+      "fair_odds": "+9551",
       "read": null,
       "mk": 2500,
       "market": "+2500",
-      "ev": -86,
+      "ev": -73,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -73
       },
       "alt_ev": -62
     },
@@ -462,16 +463,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.2,
-      "fair_odds": "+50000+",
+      "fair_pct": 0.4,
+      "fair_odds": "+22547",
       "read": null,
       "mk": 25000,
       "market": "+25000",
-      "ev": -55,
+      "ev": 11,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -55
+        "kind": "trap",
+        "label": "trap",
+        "ev": 11
       },
       "alt_ev": -67
     },
@@ -504,7 +505,7 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.0,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": null,
@@ -542,7 +543,7 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.0,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": null,
@@ -580,16 +581,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.4,
-      "fair_odds": "+7182",
+      "fair_pct": 1.7,
+      "fair_odds": "+5669",
       "read": null,
       "mk": 1300,
       "market": "+1300",
-      "ev": -81,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -81
+        "ev": -76
       },
       "alt_ev": 1
     },
@@ -622,8 +623,8 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.2,
-      "fair_odds": "+8407",
+      "fair_pct": 1.5,
+      "fair_odds": "+6384",
       "read": null,
       "mk": null,
       "market": null,
@@ -660,18 +661,56 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.6,
-      "fair_odds": "+17183",
+      "fair_pct": 0.9,
+      "fair_odds": "+10951",
       "read": null,
       "mk": 2000,
       "market": "+2000",
-      "ev": -88,
+      "ev": -81,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -88
+        "ev": -81
       },
       "alt_ev": -14
+    },
+    {
+      "name": "Incarnate Word",
+      "conf": "FCS",
+      "rec": "6-4",
+      "gp": 10,
+      "score": 2,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "14.7 #7",
+        ".600 #29",
+        "25.6 #56",
+        ".543 #26",
+        ".000 #30"
+      ],
+      "index": 74.9,
+      "rtg": 12.11,
+      "alt_pct": 0.6,
+      "srsrank": 15,
+      "sosrank": 49,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 0.3,
+      "fair_odds": "+39455",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     }
   ],
   "odds_remaining": null,
@@ -683,8 +722,8 @@
   "first_playoff": null,
   "champion": null,
   "prediction": {
-    "pick": "South Dakota State",
-    "why": "<b>South Dakota State</b> is the model's #1: 39.3% to win the FCS title (fair +154); the plain power rating alone gives 17.2%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
+    "pick": "Montana State",
+    "why": "<b>Montana State</b> is the model's #1: 31.6% to win the FCS title (fair +216); the plain power rating alone gives 26.5%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
   },
   "season_pct": 89,
   "gp_min": 4,
@@ -699,9 +738,9 @@
   "value_plays": [
     {
       "name": "Montana State",
-      "ev": 65,
+      "ev": 58,
       "market": "+400",
-      "fair_odds": "+203"
+      "fair_odds": "+216"
     }
   ]
 }

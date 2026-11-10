@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-09T23:13:10Z",
-  "odds_remaining": "70506",
+  "generated": "2026-11-10T20:39:16Z",
+  "odds_remaining": "66286",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +221), the order that picked 10 of 12 CFP champions. Committee has it <b>#2</b> (83% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -93,12 +93,12 @@
       "rtg": 35.2,
       "fair_pct": 24.6,
       "fair_odds": "+307",
-      "market": "+410",
-      "ev": 25,
+      "market": "+390",
+      "ev": 20,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 25
+        "ev": 20
       },
       "read": {
         "v": "trust",
@@ -135,12 +135,12 @@
       "rtg": 24.0,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+75000",
-      "ev": 40,
+      "market": "+60000",
+      "ev": 12,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 40
+        "ev": 12
       },
       "read": {
         "v": "caution",
@@ -177,12 +177,12 @@
       "rtg": 27.9,
       "fair_pct": 19.5,
       "fair_odds": "+412",
-      "market": "+4000",
-      "ev": 700,
+      "market": "+3500",
+      "ev": 603,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 700
+        "ev": 603
       },
       "read": {
         "v": "caution",
@@ -219,12 +219,12 @@
       "rtg": 32.1,
       "fair_pct": 1.7,
       "fair_odds": "+5775",
-      "market": "+4500",
-      "ev": -22,
+      "market": "+5000",
+      "ev": -13,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -22
+        "ev": -13
       },
       "read": {
         "v": "caution",
@@ -261,12 +261,12 @@
       "rtg": 34.6,
       "fair_pct": 10.9,
       "fair_odds": "+818",
-      "market": "+850",
-      "ev": 3,
+      "market": "+950",
+      "ev": 14,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 3
+        "kind": "value",
+        "label": "value",
+        "ev": 14
       },
       "read": {
         "v": "caution",
@@ -303,12 +303,12 @@
       "rtg": 27.5,
       "fair_pct": 6.6,
       "fair_odds": "+1418",
-      "market": "+950",
-      "ev": -31,
+      "market": "+850",
+      "ev": -37,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -31
+        "ev": -37
       },
       "read": {
         "v": "caution",
@@ -345,12 +345,12 @@
       "rtg": 30.5,
       "fair_pct": 5.1,
       "fair_odds": "+1869",
-      "market": "+2500",
-      "ev": 32,
+      "market": "+2700",
+      "ev": 42,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 32
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 42
       },
       "read": {
         "v": "caution",

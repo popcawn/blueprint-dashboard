@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-10T17:17:58Z",
-  "odds_remaining": "67138",
+  "generated": "2026-11-10T20:39:20Z",
+  "odds_remaining": "66285",
   "prediction": {
     "pick": "Minnesota Wild",
     "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +764). Drives play AND gets saves \u2014 underlying numbers (#11 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
@@ -283,12 +283,12 @@
       "sv5": "94.2% #1",
       "fair_pct": 2.3,
       "fair_odds": "+4329",
-      "market": "+3300",
-      "ev": -23,
+      "market": "+3500",
+      "ev": -19,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -23
+        "ev": -19
       },
       "read": {
         "v": "caution",
@@ -483,12 +483,12 @@
       "sv5": "91.5% #6",
       "fair_pct": 0.7,
       "fair_odds": "+14641",
-      "market": "+15000",
-      "ev": 2,
+      "market": "+17500",
+      "ev": 19,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": 2
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 19
       },
       "read": {
         "v": "caution",
