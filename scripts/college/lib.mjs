@@ -156,6 +156,12 @@ export function board(S, asOf, cfg) {
     for (const x of teams) x['r_' + f] = 1 + teams.filter(o => dir > 0 ? v(o) > v(x) : v(o) < v(x)).length;
   }
   for (const x of teams) x.rec = x.t ? `${x.w}-${x.l}-${x.t}` : `${x.w}-${x.l}`;
+  // cfg.priorAdj (FCS, 2026-11-10; study baseball-blueprint/strong-swarm/college/fcs-prior2.mjs + fcs-final.mjs): BEFORE the field is set, last season's
+  // pre-playoff adjusted offense / defense, halved, count as priorAdj games (S.priorAdj, set by run.mjs). Applied after the ranks, so the criteria and tiers
+  // are untouched -- only the index (and so the odds) moves. Title log-loss, leave-one-season-out, 2010-17 / 2018-25: Oct 15 2.700/1.638 -> 2.013/1.212,
+  // Nov 1 2.331/1.348 -> 1.866/1.161, Nov 15 1.844/1.430 -> 1.607/1.171; a shuffled prior is WORSE than none. Not used once the field is set (2010-17 got worse).
+  if (cfg.priorAdj && S.priorAdj) for (const x of teams) { const p = S.priorAdj.get(x.id), k = cfg.priorAdj; x.adjO0 = x.adjO; x.adjD0 = x.adjD;   // adjO0/adjD0 = this season only (shown beside the rank)
+    x.adjO = (x.gp * x.adjO + k * 0.5 * (p ? p[0] : 0)) / (x.gp + k); x.adjD = (x.gp * x.adjD + k * 0.5 * (p ? p[1] : 0)) / (x.gp + k); }
   return {teams, asOf, games: G.length, gpMin: gps[0], gpMax: gps[gps.length - 1], gpMed: med};
 }
 

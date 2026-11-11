@@ -10,7 +10,8 @@ export const sport = 'fcs', label = 'FCS football', cmd = 'fcs-blueprint';
 export const seasons = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025];   // 2020 = spring-2021 COVID season, skipped
 export const currentSeason = today => { const [y, m] = today.split('-').map(Number); return m >= 7 ? y : y - 1; };
 export const asOfFor = (Y, mmdd) => `${Y}-${mmdd}`;
-export const cfg = {cap: 28, topN: 24, minFrac: 0.4};
+export const cfg = {cap: 28, topN: 24, minFrac: 0.4, priorAdj: 4};   // priorAdj: last season as a 4-game prior on adj offense/defense, in season only (lib.mjs board)
+export const prevSeason = Y => Y === 2021 ? 2019 : Y - 1;   // 2020 (the spring-2021 COVID season) is skipped
 // every-champion rule (2026-11-06 search, 15 champions 2010-25): each cutoff = the loosest champion's value, so every past champion clears all 5
 export let crit = [{f: 'adjO', kind: 'rank'}, {f: 'wp', kind: 'rank'}, {f: 'def', kind: 'rank'}, {f: 'rpi', kind: 'value'}, {f: 'wpTop', kind: 'value'}];
 export const cover = 1;

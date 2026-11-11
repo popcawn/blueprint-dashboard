@@ -24,6 +24,7 @@ const minD = (a, b) => (a < b ? a : b);
 const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
 
 const SD = new Map();
+const NOPRIOR = {...A.cfg, priorAdj: 0};   // boards at the bracket (field set) never use the in-season adjusted-stat prior
 async function seasonData0(Y) { if (!SD.has(Y)) SD.set(Y, (async () => { const S = await A.load(Y, today), tr = A.tourney ? A.tourney(S) : tourney(S, A.isFinal); return {Y, S, tr}; })()); return SD.get(Y); }
 // cfg.priorW (college hockey, 2026-11-10): each season's board starts from last season's final rating (lib.mjs board)
 async function seasonData(Y) {
@@ -33,13 +34,19 @@ async function seasonData(Y) {
     try { const {S: S0, tr: t0} = await seasonData0(P); const B0 = board(S0, t0.final ? addDays(t0.final.d, 1) : addDays(today, 1), {...A.cfg, priorW: 0});
       d.S.prior = new Map(B0.teams.map(t => [t.id, t.srs])); } catch { d.S.prior = new Map(); }
   }
+  // cfg.priorAdj (FCS, 2026-11-10): last season's pre-playoff adjusted offense / defense as an in-season prior (lib.mjs board)
+  if (A.cfg.priorAdj && !d.S.priorAdj) {
+    const P = A.prevSeason ? A.prevSeason(Y) : Y - 1;
+    try { const {S: S0, tr: t0} = await seasonData0(P); const B0 = board(S0, t0.start || addDays(today, 1), NOPRIOR);
+      d.S.priorAdj = new Map(B0.teams.map(t => [t.id, [t.adjO, t.adjD]])); } catch { d.S.priorAdj = new Map(); }
+  }
   return d;
 }
 async function history(mmdd) {
   const out = [];
   for (const Y of A.seasons) {
     const {S, tr} = await seasonData(Y);
-    const Bf = board(S, tr.start, A.cfg);
+    const Bf = board(S, tr.start, NOPRIOR);
     indexTeams(Bf.teams, C.W || {srs: 1});
     const d = {Y, S, tr, Bf, champ: tr.champ, field: tr.field, champName: S.names.get(tr.champ)};
     if (mmdd) { d.Ba = board(S, minD(A.asOfFor(Y, mmdd), tr.start), A.cfg); indexTeams(d.Ba.teams, C.W || {srs: 1}); }
@@ -63,7 +70,7 @@ const critLabel = (c, cut) => `${FEAT[c.f].label} ${c.kind === 'rank' ? 'top-' +
 if (mode === 'check') {
   for (const Y of [...A.seasons, A.currentSeason(today)]) {
     const {S, tr} = await seasonData(Y);
-    const B = board(S, tr.start || addDays(today, 1), A.cfg);
+    const B = board(S, tr.start || addDays(today, 1), NOPRIOR);
     const inB = tr.champ ? B.teams.some(t => t.id === tr.champ) : null;
     console.log(`${Y}: ${S.games.length} games · D1 teams ${B.teams.length} (gp ${B.gpMin}-${B.gpMax}) · field ${tr.field.size} · bracket ${tr.start || '—'} · final ${tr.final ? tr.final.d + ' ' + (tr.final.round || '') : '—'} · champion ${tr.champ ? S.names.get(tr.champ) : '—'}${inB === false ? ' (NOT on board!)' : ''}`);
   }
@@ -163,7 +170,7 @@ const fieldKnown = tr.field.size >= (A.fieldMin || 8);
 const TG = S.games.filter(g => g.round), winnerOf = g => g.as > g.bs ? g.a : g.bs > g.as ? g.b : g.aw ? g.a : g.bw ? g.b : null;
 const stage = tr.champ ? 'done' : TG.some(g => g.fin) ? 'playoffs' : fieldKnown ? 'field' : 'regular', frozen = stage === 'playoffs' || stage === 'done';
 const alive = new Set(tr.field); for (const g of TG.filter(g => g.fin)) { const w = winnerOf(g); if (w) alive.delete(w === g.a ? g.b : g.a); }
-const B = board(S, frozen ? tr.start : addDays(today, 1), A.cfg);
+const B = board(S, frozen ? tr.start : addDays(today, 1), fieldKnown ? NOPRIOR : A.cfg);
 indexTeams(B.teams, C.W);
 const mmdd = today.slice(5);
 const H = await history(fieldKnown ? null : mmdd);
@@ -188,7 +195,7 @@ const tierName = {5: '🏆 Best (5/5)', 4: '🔵 Great (4/5)', 3: '🟢 Good (3/
 for (const s of [5, 4, 3]) {
   const L = B.teams.filter(t => t.score === s).sort((a, b) => b.idx - a.idx);
   console.log(`\n${tierName[s]} -- ${L.length} team(s)`);
-  for (const t of L.slice(0, 14)) console.log(`  ${String(t.name).padEnd(20)} ${t.rec.padEnd(8)} idx ${t.idx.toFixed(1).padStart(5)} | ` + C.crit.map((c, i) => `${t.q[i] ? '✓' : '✗'} ${FEAT[c.f].label} ${fmtV(c.f, t[c.f])} #${t['r_' + c.f]}`).join(' | ') + ` | SRS #${t.r_srs} · SOS #${t.r_sos}${fieldKnown || !tr.field.size ? '' : ''}`);
+  for (const t of L.slice(0, 14)) console.log(`  ${String(t.name).padEnd(20)} ${t.rec.padEnd(8)} idx ${t.idx.toFixed(1).padStart(5)} | ` + C.crit.map((c, i) => `${t.q[i] ? '✓' : '✗'} ${FEAT[c.f].label} ${fmtV(c.f, t[c.f + '0'] ?? t[c.f])} #${t['r_' + c.f]}`).join(' | ') + ` | SRS #${t.r_srs} · SOS #${t.r_sos}${fieldKnown || !tr.field.size ? '' : ''}`);
   if (L.length > 14) console.log(`  … +${L.length - 14} more`);
 }
 console.log(`\nFAIR TITLE ODDS -- bet only at a sportsbook price LONGER than fair. No odds feed for this sport: post a DraftKings (else FanDuel) screenshot and rerun with --book`);
@@ -215,7 +222,7 @@ if (arg('--export')) {   // board JSON for the blueprint dashboard (blueprint-da
     gp_min: B.gpMin, gp_max: B.gpMax, gp_med: B.gpMed, champions: H.length, alt_name: altName, weights: C.W,
     odds_model: A.oddsModel === 'srs' ? `rating model, spread ${tuned.beta}` : `tier x index^${tuned.prm.k} (tiers ${tuned.prm.tier})`,
     cats: C.crit.map((c, i) => critLabel(c, cut[i])), labels: C.crit.map(c => SHORT[c.f] || FEAT[c.f].label),
-    teams: keep.map(t => ({name: t.name, rec: t.rec, gp: t.gp, score: t.score, q: t.q, vals: C.crit.map(c => `${fmtV(c.f, t[c.f])} #${t['r_' + c.f]}`),
+    teams: keep.map(t => ({name: t.name, rec: t.rec, gp: t.gp, score: t.score, q: t.q, vals: C.crit.map(c => `${fmtV(c.f, t[c.f + '0'] ?? t[c.f])} #${t['r_' + c.f]}`),
       idx: +t.idx.toFixed(1), p: P.get(t) || 0, alt: ALT.get(t) || 0, srs: +(t.srs ?? 0).toFixed(2), r_srs: t.r_srs, sos: +(t.sos ?? 0).toFixed(3), r_sos: t.r_sos,
       in_field: tr.field.has(t.id), alive: frozen ? alive.has(t.id) : null, champion: !!tr.champ && t.id === tr.champ}))};
   fs.writeFileSync(arg('--export'), JSON.stringify(out));
