@@ -335,11 +335,11 @@ let DATA={},HIST={},cur="nfl",VPSET=new Set();
    ratings (2026-11-08, build.py NFL_MU_*); MU_SD.nfl 24.5 only applies to an older nfl.json with raw points-per-game ratings */
 let MU_OPEN=false;   // (2026-11-07, user: "collapse the matchup sim") folded by default; stays the way you left it when you switch leagues, folded again on reload
 const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.8,wnba:14.0,mlb:5.0,cbb:11.0,wcbb:12.0,mls:1.65,fcs:20.0,chk:2.0,cfl:27.0,nwsl:1.6,afl:33,nrl:24,superleague:22}, MU_HFA={nfl:2.0,cfb:4.0,nba:2.8,nhl:0.2,wnba:2.5,mlb:0.2,cbb:3.0,wcbb:3.0,mls:0.3,fcs:4.0,chk:0.2,cfl:10.5,nwsl:0.2,afl:9.1,nrl:2.2,superleague:3.2}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts",mlb:"runs",cbb:"pts",wcbb:"pts",mls:"goals",fcs:"pts",chk:"goals",cfl:"pts",nwsl:"goals",afl:"pts",nrl:"pts",superleague:"pts"};   // MLS rtg = expected goal margin vs an average team (Poisson model); knockout draws -> penalties ~50/50
-const SERIES={nba:7,nhl:7,mlb:7,wnba:7};   // playoffs are best-of-7 series; NFL/CFB are single-elimination
+const SERIES={nba:[7],nhl:[7],mlb:[3,5,7],wnba:[3,5,7]};   // series lengths each league really plays (2026-11-11: MLB wild card and WNBA round 1 are best-of-3, MLB division series and WNBA semis best-of-5 -- every series used to be scored as a best-of-7, which overstated the favourite); NFL/CFB are single-elimination
 function _nCk(n,k){let r=1;for(let i=0;i<k;i++)r=r*(n-i)/(i+1);return r;}
 function seriesProb(p,n){const w=Math.ceil(n/2);let s=0;for(let k=w;k<=n;k++)s+=_nCk(n,k)*Math.pow(p,k)*Math.pow(1-p,n-k);return s;}
-// best-of-7 where the better team hosts 4 (prob ph) and visits 3 (prob pa): win >=4 of 7
-function seriesProbHome(ph,pa){let s=0;for(let h=0;h<=4;h++)for(let a=0;a<=3;a++)if(h+a>=4)s+=_nCk(4,h)*Math.pow(ph,h)*Math.pow(1-ph,4-h)*_nCk(3,a)*Math.pow(pa,a)*Math.pow(1-pa,3-a);return s;}
+// best-of-n where the better team hosts ceil(n/2) games (prob ph) and visits the rest (prob pa): win a majority (playing all n games gives the same answer as stopping early)
+function seriesProbHome(ph,pa,n=7){const H=Math.ceil(n/2),V=n-H;let s=0;for(let h=0;h<=H;h++)for(let a=0;a<=V;a++)if(h+a>=H)s+=_nCk(H,h)*Math.pow(ph,h)*Math.pow(1-ph,H-h)*_nCk(V,a)*Math.pow(pa,a)*Math.pow(1-pa,V-a);return s;}
 function _erf(x){const t=1/(1+0.3275911*Math.abs(x));const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x);return x>=0?y:-y;}
 const _phi=x=>0.5*(1+_erf(x/Math.SQRT2));
 // fair American odds from a win probability (no vig): favorites negative, dogs positive
@@ -359,7 +359,7 @@ function muModel(){   // the current matchup's numbers: margin for the LEFT team
   const d=DATA[cur], by=muTeams(d), gv=id=>{const e=document.getElementById(id);return e?e.value:null;};
   const A=by[gv('muA')], B=by[gv('muB')];
   if(!A||!B||A.name===B.name) return {err:'Pick two different teams.'};
-  const series=!!(SERIES[cur]||0)&&gv('muM')==='s';
+  const mm=gv('muM')||'g', series=SERIES[cur]&&mm[0]==='s'?(+mm.slice(1)||7):0;   // 0 = one game, else the series length
   return muModelFor(cur,A,B,gv('muH')||'0',series);
 }
 function simMatchup(){
@@ -371,10 +371,10 @@ function simMatchup(){
   let hdr, note, why;
   const mN=M.mN, fav0=mN>=0?A:B, dog0=mN>=0?B:A, spread=Math.abs(mN);
   if(M.series){
-    // playoffs: better team gets home-court (hosts 4 of 7); predict winner + series length
-    const ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa), pe=(4*ph+3*pa)/7;
-    // competitive best-of-7s cluster at 6-7 games — only a real gap projects a shorter series
-    const len = pe>=0.64 ? `${fav0.name} in 5` : (pe>=0.54 ? `${fav0.name} in 6` : 'a toss-up, likely 6-7 games');
+    // playoffs: better team gets home-court (hosts the extra game); predict winner + series length
+    const n=M.series, nh=Math.ceil(n/2), ph=_phi((spread+hfa)/sd), pa=_phi((spread-hfa)/sd), showP=seriesProbHome(ph,pa,n), pe=(nh*ph+(n-nh)*pa)/n;
+    // competitive series cluster at the last two games — only a real gap projects a shorter one
+    const len = n===3 ? (pe>=0.64 ? `${fav0.name} in 2` : 'a toss-up, likely 3 games') : pe>=0.64 ? `${fav0.name} in ${n-2}` : (pe>=0.54 ? `${fav0.name} in ${n-1}` : `a toss-up, likely ${n-1}-${n} games`);
     why=`${fav0.name} is ${tier(fav0)}, rating ~${spread.toFixed(dp)} ${unit}/game better than ${dog0.name} (${tierd(dog0)}).`;
     why+= showP<0.58?' Close to a coin-flip — a live underdog.':(showP>0.72?' A clear edge.':'');
     hdr=`<b>${fav0.name}</b> win the series <b>${Math.round(showP*100)}%</b> <span style="color:var(--ink3);font-size:12px">(${_amer(showP)})</span> — projected: <b>${len}</b>`;
@@ -697,7 +697,7 @@ function render(){
     const opt=(sel)=>ml.map(n=>`<option value="${n}"${n===sel?' selected':''}>${n}</option>`).join("");
     html+=`<details class="matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary class="muhead">⚔️ Matchup simulator <span class="musub">${cur==="mls"||cur==="nwsl"?'· who wins, and why':'· who wins + 💵 TAKE or PASS at your odds'}</span></summary>
       <div class="murow"><select id="muA" onchange="oddsCheck()">${opt(ml[0])}</select><span class="muvs">vs</span><select id="muB" onchange="oddsCheck()">${opt(ml[1])}</select>
-      ${SERIES[cur]?'<select id="muM" onchange="simMatchup()"><option value="g">one game</option><option value="s">best-of-7 series</option></select>':''}
+      ${SERIES[cur]?'<select id="muM" onchange="simMatchup()"><option value="g">one game</option>'+SERIES[cur].map(n=>`<option value="s${n}">best-of-${n} series</option>`).join('')+'</select>':''}
       <select id="muH" onchange="oddsCheck()"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
       <button class="btn" onclick="simMatchup()">Simulate</button></div>
       <div class="muout" id="muout"></div>${oddsPanel()}</details>`;
