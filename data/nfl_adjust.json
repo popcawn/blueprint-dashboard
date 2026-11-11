@@ -1,0 +1,3 @@
+{
+ "_how": "Manual rating adjustments for the NFL Super Bowl simulation. Add a row per team: key = team code (KC) or full name, pts = points added to the team's rating (negative = worse, limit 10), until = last day it applies (YYYY-MM-DD), note = why. Example: \"KC\": {\"pts\": -4.5, \"until\": \"2026-12-15\", \"note\": \"QB out\"}. Your judgment, not backtested; the NFL tab shows a notice while a row is active."
+}

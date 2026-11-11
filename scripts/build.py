@@ -333,9 +333,11 @@ def build_nfl():
     # champion's average rank #3.6 vs #5.0, #1 won 6/24 vs 3/24. vs FanDuel 2021-25 it is closer than the index at most checkpoints but still
     # BEHIND the market at every one (e.g. pre-playoff 2.27 vs 2.11) -> fair, not strong. Tested and NOT added: EPA margins, recency, the Read in
     # the odds, a backup-QB penalty (helps single games, not Super Bowl odds).
-    nfl_new, nfl_post = None, False
+    # 2026-11-11: NFL tiebreakers in the simulation + the manual adjustment file data/nfl_adjust.json (see nfl_season_odds / nfl_load_adjust)
+    nfl_new, nfl_post, nfl_adj = None, False, {}
     try:
-        sim, nfl_post = nfl_season_odds(YEAR)
+        nfl_adj = nfl_load_adjust()
+        sim, nfl_post = nfl_season_odds(YEAR, adjust={k: v["pts"] for k, v in nfl_adj.items()})
         for t in pool: t["p"] = sim.get(NFL_CODE.get(t["name"], ""), 0.0)
         for t in pool: t["fair_odds"] = american(t["p"]) if t.get("p") else None
         nfl_new = "season sim"
@@ -350,6 +352,7 @@ def build_nfl():
     if rem2 is not None: rem = rem2   # the later pull's count is the current one
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred, "game_lines": lines,
             "odds_model": nfl_new, **({"window_closed": True, "stage": "playoffs"} if nfl_post else {}),
+            "manual_adjust": [{"team": next((n for n, c in NFL_CODE.items() if c == k), k), **v} for k, v in sorted(nfl_adj.items())] if nfl_new else [],
             "sig": NFL_MU_SD,   # matchup SD that goes with the prior-blended rtg (index.html's MU_SD.nfl 24.5 = the old raw-PD/g fallback)
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
             "season_pct": season_pct(rows, "nfl"),
@@ -366,7 +369,7 @@ NFL_CODE = {"Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Rav
     "Washington Commanders": "WAS"}
 NFL_DIVS = {"AFC East": "BUF MIA NE NYJ", "AFC North": "BAL CIN CLE PIT", "AFC South": "HOU IND JAX TEN", "AFC West": "DEN KC LV LAC",
             "NFC East": "DAL NYG PHI WAS", "NFC North": "CHI DET GB MIN", "NFC South": "ATL CAR NO TB", "NFC West": "ARI LA SF SEA"}
-NFL_SIM = {"cap": 21, "prior_games": 8, "prior_keep": 0.5, "scale": 0.14, "home": 0.2, "sims": 10000}
+NFL_SIM = {"cap": 21, "prior_games": 8, "prior_keep": 0.5, "scale": 0.14, "home": 0.2, "sims": 50000, "tiebreak": "nfl"}
 def nfl_official_seeds(year):
     """{conference: {seed: nflverse code}} for seeds 1-7 from ESPN's standings (playoffSeed). Only meaningful once the regular season is over."""
     fix = {"LAR": "LA", "WSH": "WAS"}; out = {}
@@ -379,25 +382,46 @@ def nfl_official_seeds(year):
     teams = {t for v in NFL_DIVS.values() for t in v.split()}
     if set(out) != {"AFC", "NFC"} or any(sorted(d) != [1, 2, 3, 4, 5, 6, 7] or not set(d.values()) <= teams for d in out.values()): raise ValueError(f"bad seeds {out}")
     return out
-def nfl_season_odds(year, through_week=None, games_csv=None, seed=7):
+def nfl_load_adjust(path=None, today=None):
+    """Manual rating adjustments (2026-11-11, user: "yes put it on the site"): data/nfl_adjust.json, hand-edited, e.g.
+    {"KC": {"pts": -4.5, "until": "2026-12-15", "note": "QB out"}}. Key = team code (KC) or full name; pts = points added to the team's rating
+    (negative = worse), limited to +/-10; a row is ignored after its `until` date (a row without one never expires). The box scores cannot
+    see a quarterback injury until the losses arrive; this is the user's judgment and is NOT backtested, so the site shows a notice while one is active.
+    Returns {code: {"pts", "until", "note"}}."""
+    path = path or os.path.join(HERE, "data", "nfl_adjust.json"); today = today or datetime.date.today().isoformat()
+    try: raw = json.load(open(path, encoding="utf-8"))
+    except Exception: return {}
+    codes = set(NFL_CODE.values()); byname = {k.lower(): v for k, v in NFL_CODE.items()}; out = {}
+    for k, v in (raw.items() if isinstance(raw, dict) else []):
+        code = k.upper() if k.upper() in codes else byname.get(str(k).lower())
+        try: pts = float(v.get("pts", 0)) if isinstance(v, dict) else None
+        except Exception: pts = None
+        if not code or not pts or str(v.get("until") or "9999-12-31") < today: continue
+        out[code] = {"pts": max(-10.0, min(10.0, pts)), "until": v.get("until"), "note": str(v.get("note") or "")[:120]}
+    return out
+def nfl_season_odds(year, through_week=None, games_csv=None, seed=7, sims=None, tiebreak=None, adjust=None):
     """({nflverse code: P(win the Super Bowl)}, playoffs_started) from the season simulation (see build_nfl). Data: nflverse games.csv
-    (scores + the remaining schedule). through_week: score only games up to that week (backtests)."""
-    import csv, io, random
+    (scores + the remaining schedule). through_week: score only games up to that week (backtests). adjust: {code: points} added to the ratings.
+    REWRITTEN 2026-11-11 (audit: baseball-blueprint/nfl-audit.py; user: "yes put it on the site") -- the rating and the win model are unchanged:
+    * vectorized with numpy: 50,000 runs in ~1.5 s (the old Python loop did 10,000); same odds within simulation noise on the old rule (audit `equiv`)
+    * tiebreak "nfl": wins -> head-to-head among the tied clubs -> division record (division title) / conference record -> strength of victory ->
+      point differential -> coin. The old rule ("pd": wins -> point differential) reproduced the real playoff field in 10 of 24 seasons and the exact
+      seeds in 2; this one 17 and 13 (common games and the multi-club restart are not modelled). Super Bowl log-loss, 2002-13 / 2014-25, old -> new:
+      week 6 2.703/2.496 -> 2.664/2.507, week 9 2.415/2.208 -> 2.411/2.220, week 12 2.703/2.204 -> 2.643/2.206, week 15 2.774/2.189 -> 2.672/2.141
+      (older half better everywhere; newer half within noise through week 12, better at week 15).
+    Tested in the same audit and NOT changed: the exact SRS solve (worse: 0.6247/0.6402 vs 0.6244/0.6383 game log-loss), a fixed home edge (no gain),
+    the prior inside the solve (games better, Super Bowl odds worse in the older half)."""
+    import csv, io
+    import numpy as np
+    C = NFL_SIM; sims = sims or C["sims"]; tiebreak = tiebreak or C["tiebreak"]
     rows = list(csv.DictReader(io.StringIO(games_csv if games_csv is not None else get_text("https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv", timeout=60))))
     num = lambda x: float(x) if x not in ("", "NA", None) else None
     reg = lambda y: [g for g in rows if int(g["season"]) == y and g["game_type"] == "REG"]
     scored = lambda g: num(g["home_score"]) is not None and num(g["away_score"]) is not None
     cur = reg(year); prev = [g for g in reg(year - 1) if scored(g)]
-    played = [g for g in cur if scored(g) and (through_week is None or int(g["week"]) <= through_week)]; left = [g for g in cur if g not in played]
+    isp = lambda g: scored(g) and (through_week is None or int(g["week"]) <= through_week)
+    played = [g for g in cur if isp(g)]; left = [g for g in cur if not isp(g)]
     post = through_week is None and any(int(g["season"]) == year and g["game_type"] != "REG" and scored(g) for g in rows)
-    # Regular season over -> the OFFICIAL seeds (2026-11-10, baseball-blueprint/strong-swarm/nfl/t1_seeds.py): the quick tiebreak below (wins, then point
-    # diff + coin) reproduced the real seeds in only 2 of 24 seasons and the real field in 10. Pre-playoff Super Bowl log-loss 2002-13 / 2014-25:
-    # 2.403/2.126 with the quick tiebreak -> 2.358/1.987 on the real seeds (what the nfl-strong.py study scored). In season the quick tiebreak stays.
-    seeds = None
-    if cur and not left and through_week is None:
-        try: seeds = nfl_official_seeds(year)
-        except Exception as e: print(f"  nfl official seeds unavailable, quick tiebreak kept: {e}", file=sys.stderr)
-    C = NFL_SIM
     def srs(G):
         if not G: return {}
         nn = [g for g in G if g.get("location") != "Neutral"]; hfa = sum(num(g["home_score"]) - num(g["away_score"]) for g in nn) / max(1, len(nn))
@@ -411,40 +435,66 @@ def nfl_season_odds(year, through_week=None, games_csv=None, seed=7):
             mu = sum(N.values()) / len(N); R = {t: v - mu for t, v in N.items()}
         return R
     Rp, Rc = srs(prev), srs(played)
-    teams = {c for d in NFL_DIVS.values() for c in d.split()}; ng = {t: 0 for t in teams}
+    teams = sorted(t for d in NFL_DIVS.values() for t in d.split()); ix = {t: i for i, t in enumerate(teams)}; n = len(teams)
+    ng = {t: 0 for t in teams}
     for g in played: ng[g["home_team"]] = ng.get(g["home_team"], 0) + 1; ng[g["away_team"]] = ng.get(g["away_team"], 0) + 1
-    R = {t: (ng[t] * Rc.get(t, 0.0) + C["prior_games"] * C["prior_keep"] * Rp.get(t, 0.0)) / (ng[t] + C["prior_games"]) for t in teams}
-    P = lambda h, a, neu: 1 / (1 + math.exp(-(C["scale"] * (R.get(h, 0) - R.get(a, 0)) + (0 if neu else C["home"]))))
-    w0 = {t: 0.0 for t in teams}; pd0 = {t: 0.0 for t in teams}
+    R = {t: (ng[t] * Rc.get(t, 0.0) + C["prior_games"] * C["prior_keep"] * Rp.get(t, 0.0)) / (ng[t] + C["prior_games"]) + float((adjust or {}).get(t, 0.0)) for t in teams}
+    # ---- arrays
+    dname = sorted(NFL_DIVS); div = np.zeros(n, int); conf = np.zeros(n, int)
+    for d, v in NFL_DIVS.items():
+        for t in v.split(): div[ix[t]] = dname.index(d); conf[ix[t]] = 0 if d.startswith("AFC") else 1
+    r = np.array([R[t] for t in teams]); gap = r[:, None] - r[None, :]
+    Ph = 1 / (1 + np.exp(-(C["scale"] * gap + C["home"]))); Pn = 1 / (1 + np.exp(-C["scale"] * gap))
+    w0 = np.zeros(n); pd0 = np.zeros(n); W0 = np.zeros((n, n))
     for g in played:
-        hs, as_ = num(g["home_score"]), num(g["away_score"]); h, a = g["home_team"], g["away_team"]
-        w0[h] += 1 if hs > as_ else 0.5 if hs == as_ else 0; w0[a] += 1 if as_ > hs else 0.5 if hs == as_ else 0; pd0[h] += hs - as_; pd0[a] += as_ - hs
-    pl = [(g["home_team"], g["away_team"], P(g["home_team"], g["away_team"], g.get("location") == "Neutral")) for g in left]
-    divs = {d: v.split() for d, v in NFL_DIVS.items()}; rng = random.Random(seed); wins = {t: 0 for t in teams}
-    for _ in range(C["sims"]):
-        w = dict(w0)
-        for h, a, p in pl:
-            if rng.random() < p: w[h] += 1
-            else: w[a] += 1
-        key = lambda t: (w[t], pd0[t] + rng.random())
+        i, j = ix[g["home_team"]], ix[g["away_team"]]; hs, as_ = num(g["home_score"]), num(g["away_score"]); res = 1.0 if hs > as_ else 0.5 if hs == as_ else 0.0
+        w0[i] += res; w0[j] += 1 - res; pd0[i] += hs - as_; pd0[j] -= hs - as_; W0[i, j] += res; W0[j, i] += 1 - res
+    gh = np.array([ix[g["home_team"]] for g in left], int); ga = np.array([ix[g["away_team"]] for g in left], int); G = len(left)
+    gp = np.array([(Pn if g.get("location") == "Neutral" else Ph)[ix[g["home_team"]], ix[g["away_team"]]] for g in left])
+    # Regular season over -> the OFFICIAL seeds (2026-11-10, baseball-blueprint/strong-swarm/nfl/t1_seeds.py): pre-playoff Super Bowl log-loss
+    # 2002-13 / 2014-25 2.403/2.126 with the old tiebreak -> 2.358/1.987 on the real seeds (what the nfl-strong.py study scored).
+    fixed = None
+    if cur and not left and through_week is None:
+        try: s_ = nfl_official_seeds(year); fixed = [np.array([ix[s_[c][k]] for k in range(1, 8)]) for c in ("AFC", "NFC")]
+        except Exception as e: print(f"  nfl official seeds unavailable, tiebreak rule kept: {e}", file=sys.stderr)
+    # ---- simulation, 10,000 seasons at a time
+    rng = np.random.default_rng(seed); title = np.zeros(n)
+    same_div = div[:, None] == div[None, :]; same_conf = conf[:, None] == conf[None, :]
+    Hm = np.zeros((G, n)); Am = np.zeros((G, n)); Hm[np.arange(G), gh] = 1; Am[np.arange(G), ga] = 1
+    gdiv = same_div[gh, ga].astype(float); gconf = same_conf[gh, ga].astype(float); dw0 = (W0 * same_div).sum(1); cw0 = (W0 * same_conf).sum(1)
+    for c0 in range(0, sims, 10000):
+        m = min(10000, sims - c0); ar = np.arange(m)
+        HW = (rng.random((m, G)) < gp).astype(np.float64); AW = 1 - HW                 # every remaining game, every run
+        w = w0 + HW @ Hm + AW @ Am; jit = rng.random((m, n))                           # wins; one coin per team per run
+        if tiebreak == "pd": dkey = w * 1e4 + pd0 + 2000 + jit
+        else:
+            dw = dw0 + (HW * gdiv) @ Hm + (AW * gdiv) @ Am; cw = cw0 + (HW * gconf) @ Hm + (AW * gconf) @ Am      # division / conference wins
+            Wt = np.broadcast_to(W0, (m, n, n)).copy()                                 # Wt[run, i, j] = i's wins over j
+            for g in range(G): Wt[:, gh[g], ga[g]] += HW[:, g]; Wt[:, ga[g], gh[g]] += AW[:, g]
+            eq = w[:, :, None] == w[:, None, :]; net = Wt - Wt.transpose(0, 2, 1)
+            tail = np.round((Wt * w[:, None, :]).sum(2) / np.maximum(w, 0.5), 2) * 5e3 + pd0 + 2000 + jit      # strength of victory, point diff, coin (< 1e5)
+            dkey = ((((2 * w) * 32 + 2 * (Wt * (eq & same_div)).sum(2)) * 32 + 2 * dw) * 32 + 2 * cw) * 1e5 + tail   # division title
         champs = []
-        for cf in ("AFC", "NFC"):
-            if seeds: alive = dict(seeds[cf])
+        for cf in (0, 1):
+            if fixed is not None: sd = np.broadcast_to(fixed[cf], (m, 7))
             else:
-                winners = sorted((max(v, key=key) for d, v in divs.items() if d.startswith(cf)), key=key, reverse=True)
-                rest = sorted((t for d, v in divs.items() if d.startswith(cf) for t in v if t not in winners), key=key, reverse=True)
-                alive = {i + 1: t for i, t in enumerate(winners + rest[:3])}
-            for a_, b_ in ((2, 7), (3, 6), (4, 5)):
-                if rng.random() < P(alive[a_], alive[b_], False): del alive[b_]
-                else: del alive[a_]
-            for _r in range(2):
-                ss = sorted(alive); prs = [(ss[0], ss[-1]), (ss[1], ss[2])] if len(ss) == 4 else [(ss[0], ss[1])]
-                for a_, b_ in prs:
-                    if rng.random() < P(alive[a_], alive[b_], False): del alive[b_]
-                    else: del alive[a_]
-            champs.append(next(iter(alive.values())))
-        a_, b_ = champs; wins[a_ if rng.random() < P(a_, b_, True) else b_] += 1
-    return {t: c / C["sims"] for t, c in wins.items()}, post
+                winners = np.stack([idx[np.argmax(dkey[:, idx], axis=1)] for idx in (np.where(div == d)[0] for d in sorted(set(div[conf == cf])))], 1)
+                cidx = np.where(conf == cf)[0]; isw = (cidx[None, None, :] == winners[:, :, None]).any(1)
+                if tiebreak == "pd": sk = np.take_along_axis(dkey, winners, 1); rest = dkey[:, cidx].copy()
+                else:   # seeds 1-4 among the division winners, then the wild cards among the rest: wins, net head-to-head vs the tied clubs, conference record
+                    ww = np.take_along_axis(w, winners, 1); netw = net[ar[:, None, None], winners[:, :, None], winners[:, None, :]]
+                    sk = (((2 * ww) * 64 + (2 * (netw * (ww[:, :, None] == ww[:, None, :])).sum(2) + 32)) * 32 + 2 * np.take_along_axis(cw, winners, 1)) * 1e5 + np.take_along_axis(tail, winners, 1)
+                    wc_ = w[:, cidx]; eqr = (wc_[:, :, None] == wc_[:, None, :]) & ~isw[:, :, None] & ~isw[:, None, :]
+                    rest = (((2 * wc_) * 64 + (2 * (net[:, cidx][:, :, cidx] * eqr).sum(2) + 32)) * 32 + 2 * cw[:, cidx]) * 1e5 + tail[:, cidx]
+                winners = np.take_along_axis(winners, np.argsort(-sk, axis=1), 1); rest[isw] = -1e18
+                sd = np.concatenate([winners, cidx[np.argsort(-rest, axis=1)[:, :3]]], 1)   # (runs, 7) team by seed
+            def play(sa, sb): return np.where(rng.random(m) < Ph[sd[ar, sa], sd[ar, sb]], sa, sb)   # seed position sa hosts sb
+            full = lambda v: np.full(m, v)
+            wl = np.stack([play(full(1), full(6)), play(full(2), full(5)), play(full(3), full(4))], 1); wl.sort(axis=1)
+            a1 = play(full(0), wl[:, 2]); a2 = play(wl[:, 0], wl[:, 1])                # reseeding: the 1 seed hosts the worst seed left
+            champs.append(sd[ar, play(np.minimum(a1, a2), np.maximum(a1, a2))])
+        a, b = champs; title += np.bincount(np.where(rng.random(m) < Pn[a, b], a, b), minlength=n)   # Super Bowl: neutral site
+    return {t: title[i] / sims for i, t in enumerate(teams)}, post
 
 def nfl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
