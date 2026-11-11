@@ -1,15 +1,15 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-10T20:39:16Z",
-  "odds_remaining": "66286",
+  "generated": "2026-11-11T09:41:11Z",
+  "odds_remaining": "63698",
   "prediction": {
     "pick": "Georgia Bulldogs",
-    "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +221), the order that picked 10 of 12 CFP champions. Committee has it <b>#2</b> (83% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+    "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +209), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (92% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
   },
   "gp_min": 9,
   "gp_max": 10,
-  "season_pct": 75,
+  "season_pct": 76,
   "cats": [
     "Win% \u2265.900",
     "PPG top-15",
@@ -38,7 +38,7 @@
         true,
         true
       ],
-      "sosrank": 80,
+      "sosrank": 79,
       "srsrank": 2,
       "srs_flag": "elite",
       "vals": [
@@ -49,23 +49,23 @@
         "+27.1 #2"
       ],
       "rtg": 38.7,
-      "fair_pct": 31.2,
-      "fair_odds": "+221",
+      "fair_pct": 32.4,
+      "fair_odds": "+209",
       "market": "+250",
-      "ev": 9,
+      "ev": 13,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 9
+        "kind": "value",
+        "label": "value",
+        "ev": 13
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 41.33,
-      "held": 0,
-      "cfp": 2,
-      "infield": 83
+      "mw": 41.42,
+      "held": 1,
+      "cfp": 1,
+      "infield": 92
     },
     {
       "name": "Notre Dame Fighting Irish",
@@ -91,23 +91,23 @@
         "+24.8 #4"
       ],
       "rtg": 35.2,
-      "fair_pct": 24.6,
-      "fair_odds": "+307",
+      "fair_pct": 25.4,
+      "fair_odds": "+294",
       "market": "+390",
-      "ev": 20,
+      "ev": 24,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 20
+        "ev": 24
       },
       "read": {
         "v": "trust",
         "why": "The genuine article \u2014 complete (worst spot: offense #9) and SRS #4 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 32.55,
+      "mw": 32.43,
       "held": 0,
-      "cfp": 11,
-      "infield": 66
+      "cfp": 5,
+      "infield": 72
     },
     {
       "name": "New Mexico Lobos",
@@ -122,7 +122,7 @@
         true,
         true
       ],
-      "sosrank": 132,
+      "sosrank": 133,
       "srsrank": 41,
       "srs_flag": "mirage",
       "vals": [
@@ -132,21 +132,21 @@
         "240 #1",
         "+23.7 #5"
       ],
-      "rtg": 24.0,
+      "rtg": 23.9,
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
-      "market": "+60000",
-      "ev": 12,
+      "market": "+100000",
+      "ev": 75,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 12
+        "ev": 75
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #1 scoring defense; the #25 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #41 says the schedule hasn't fully tested it yet."
       },
-      "mw": 0.25,
+      "mw": 0.22,
       "held": 0,
       "cfp": null,
       "infield": 1
@@ -164,7 +164,7 @@
         true,
         false
       ],
-      "sosrank": 111,
+      "sosrank": 109,
       "srsrank": 13,
       "srs_flag": "ok",
       "vals": [
@@ -174,24 +174,24 @@
         "265 #7",
         "+19.4 #11"
       ],
-      "rtg": 27.9,
-      "fair_pct": 19.5,
-      "fair_odds": "+412",
+      "rtg": 27.8,
+      "fair_pct": 20.3,
+      "fair_odds": "+393",
       "market": "+3500",
-      "ev": 603,
+      "ev": 630,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 603
+        "ev": 630
       },
       "read": {
         "v": "caution",
         "why": "Leads with its #7 total defense; the #31 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #13 says the schedule hasn't fully tested it yet."
       },
-      "mw": 25.87,
+      "mw": 25.92,
       "held": 0,
-      "cfp": 8,
-      "infield": 83
+      "cfp": 4,
+      "infield": 92
     },
     {
       "name": "Wake Forest Demon Deacons",
@@ -206,7 +206,7 @@
         false,
         true
       ],
-      "sosrank": 125,
+      "sosrank": 128,
       "srsrank": 12,
       "srs_flag": "ok",
       "vals": [
@@ -216,15 +216,15 @@
         "310 #24",
         "+27.4 #1"
       ],
-      "rtg": 32.1,
+      "rtg": 32.0,
       "fair_pct": 1.7,
-      "fair_odds": "+5775",
-      "market": "+5000",
-      "ev": -13,
+      "fair_odds": "+5627",
+      "market": "+4000",
+      "ev": -28,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -13
+        "ev": -28
       },
       "read": {
         "v": "caution",
@@ -232,8 +232,8 @@
       },
       "mw": null,
       "held": 0,
-      "cfp": 16,
-      "infield": 29
+      "cfp": 13,
+      "infield": 32
     },
     {
       "name": "Miami Hurricanes",
@@ -259,14 +259,14 @@
         "+25.8 #3"
       ],
       "rtg": 34.6,
-      "fair_pct": 10.9,
-      "fair_odds": "+818",
-      "market": "+950",
-      "ev": 14,
+      "fair_pct": 8.9,
+      "fair_odds": "+1029",
+      "market": "+900",
+      "ev": -11,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 14
+        "kind": "fade",
+        "label": "fade",
+        "ev": -11
       },
       "read": {
         "v": "caution",
@@ -274,8 +274,8 @@
       },
       "mw": null,
       "held": 0,
-      "cfp": 1,
-      "infield": 83
+      "cfp": 7,
+      "infield": 72
     },
     {
       "name": "Indiana Hoosiers",
@@ -290,7 +290,7 @@
         true,
         false
       ],
-      "sosrank": 69,
+      "sosrank": 71,
       "srsrank": 15,
       "srs_flag": "ok",
       "vals": [
@@ -301,14 +301,14 @@
         "+20.0 #9"
       ],
       "rtg": 27.5,
-      "fair_pct": 6.6,
-      "fair_odds": "+1418",
-      "market": "+850",
-      "ev": -37,
+      "fair_pct": 4.4,
+      "fair_odds": "+2188",
+      "market": "+1000",
+      "ev": -52,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -37
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -52
       },
       "read": {
         "v": "caution",
@@ -316,8 +316,8 @@
       },
       "mw": null,
       "held": 0,
-      "cfp": 4,
-      "infield": 83
+      "cfp": 9,
+      "infield": 59
     },
     {
       "name": "Utah Utes",
@@ -342,15 +342,15 @@
         "337 #44",
         "+21.3 #6"
       ],
-      "rtg": 30.5,
-      "fair_pct": 5.1,
-      "fair_odds": "+1869",
-      "market": "+2700",
-      "ev": 42,
+      "rtg": 30.6,
+      "fair_pct": 5.3,
+      "fair_odds": "+1796",
+      "market": "+2200",
+      "ev": 21,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 42
+        "kind": "value",
+        "label": "value",
+        "ev": 21
       },
       "read": {
         "v": "caution",
@@ -358,8 +358,8 @@
       },
       "mw": null,
       "held": 0,
-      "cfp": 3,
-      "infield": 83
+      "cfp": 2,
+      "infield": 92
     },
     {
       "name": "North Dakota State Bison",
@@ -384,7 +384,7 @@
         "249 #2",
         "+16.2 #17"
       ],
-      "rtg": 16.3,
+      "rtg": 16.2,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "market": null,
@@ -423,14 +423,14 @@
         "+15.6 #18"
       ],
       "rtg": 24.4,
-      "fair_pct": 0.2,
-      "fair_odds": "+44079",
+      "fair_pct": 1.5,
+      "fair_odds": "+6502",
       "market": "+10000",
-      "ev": -77,
+      "ev": 53,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -77
+        "kind": "trap",
+        "label": "trap",
+        "ev": 53
       },
       "read": {
         "v": "caution",
@@ -438,8 +438,8 @@
       },
       "mw": null,
       "held": 0,
-      "cfp": 19,
-      "infield": 4
+      "cfp": 15,
+      "infield": 32
     }
   ],
   "gauntlet": [
@@ -476,44 +476,49 @@
       "srsrank": 10
     }
   ],
-  "cfp_week": 10,
+  "cfp_week": 11,
   "rel_tops": {
     "1": {
       "top": "Miami Hurricanes",
       "week": 10,
       "date": "2026-11-04"
+    },
+    "2": {
+      "top": "Georgia Bulldogs",
+      "week": 11,
+      "date": "2026-11-11"
     }
   },
   "held_top": {
     "name": "Georgia Bulldogs",
-    "releases": 0
+    "releases": 1
   },
   "rtgs": {
     "Georgia Bulldogs": 38.7,
     "Notre Dame Fighting Irish": 35.2,
-    "New Mexico Lobos": 24.0,
-    "UCLA Bruins": 27.9,
-    "Wake Forest Demon Deacons": 32.1,
+    "New Mexico Lobos": 23.9,
+    "UCLA Bruins": 27.8,
+    "Wake Forest Demon Deacons": 32.0,
     "Miami Hurricanes": 34.6,
     "Indiana Hoosiers": 27.5,
-    "Utah Utes": 30.5,
-    "North Dakota State Bison": 16.3,
+    "Utah Utes": 30.6,
+    "North Dakota State Bison": 16.2,
     "Iowa Hawkeyes": 24.4,
     "Liberty Flames": 20.8,
-    "Duke Blue Devils": 24.1,
+    "Duke Blue Devils": 24.2,
     "LSU Tigers": 33.5,
     "James Madison Dukes": 21.1,
     "Tennessee Volunteers": 29.7,
     "Texas Longhorns": 29.4,
-    "Boise State Broncos": 21.2,
+    "Boise State Broncos": 21.3,
     "Oklahoma State Cowboys": 25.1,
     "Texas Tech Red Raiders": 21.7,
     "Memphis Tigers": 16.2,
     "South Florida Bulls": 9.9,
     "North Texas Mean Green": 17.2,
     "Louisville Cardinals": 22.9,
-    "Oregon State Beavers": 15.4,
-    "Michigan Wolverines": 12.9,
+    "Oregon State Beavers": 15.5,
+    "Michigan Wolverines": 13.0,
     "Texas State Bobcats": 14.0,
     "Florida Atlantic Owls": 6.9,
     "Ohio State Buckeyes": 28.0,
@@ -522,88 +527,88 @@
     "Arizona Wildcats": 22.7,
     "Louisiana Tech Bulldogs": 15.6,
     "BYU Cougars": 21.3,
-    "Houston Cougars": 22.6,
-    "Nebraska Cornhuskers": 22.2,
+    "Houston Cougars": 22.7,
+    "Nebraska Cornhuskers": 22.0,
     "Baylor Bears": 23.9,
-    "Toledo Rockets": 8.0,
-    "Pittsburgh Panthers": 18.0,
-    "Jacksonville State Gamecocks": 9.4,
+    "Toledo Rockets": 8.1,
+    "Pittsburgh Panthers": 18.1,
+    "Jacksonville State Gamecocks": 9.2,
     "Air Force Falcons": 8.5,
     "Oregon Ducks": 23.9,
     "Wisconsin Badgers": 19.0,
     "Missouri Tigers": 22.5,
     "Northwestern Wildcats": 21.5,
-    "South Carolina Gamecocks": 24.3,
-    "Virginia Tech Hokies": 12.6,
+    "South Carolina Gamecocks": 24.2,
+    "Virginia Tech Hokies": 12.7,
     "USC Trojans": 19.0,
-    "Ohio Bobcats": 6.4,
     "Penn State Nittany Lions": 18.3,
     "Louisiana Ragin' Cajuns": 9.8,
-    "Western Michigan Broncos": 7.6,
+    "Ohio Bobcats": 5.2,
+    "Western Michigan Broncos": 8.1,
     "Tulsa Golden Hurricane": 14.1,
-    "TCU Horned Frogs": 17.0,
+    "TCU Horned Frogs": 17.1,
     "Georgia Southern Eagles": 10.9,
     "Georgia State Panthers": 8.5,
     "Ole Miss Rebels": 23.4,
     "Kentucky Wildcats": 19.0,
     "Texas A&M Aggies": 20.2,
-    "Massachusetts Minutemen": 0.7,
+    "Massachusetts Minutemen": 0.8,
     "Illinois Fighting Illini": 15.3,
     "Oklahoma Sooners": 17.6,
     "Clemson Tigers": 11.7,
     "Fresno State Bulldogs": 10.8,
     "Army Black Knights": 9.2,
     "Washington Huskies": 14.1,
-    "Minnesota Golden Gophers": 11.6,
+    "Minnesota Golden Gophers": 11.5,
     "UTSA Roadrunners": 7.7,
     "Florida Gators": 19.4,
-    "North Carolina Tar Heels": 15.9,
+    "North Carolina Tar Heels": 16.0,
     "Kansas State Wildcats": 9.0,
-    "UCF Knights": 13.3,
-    "UConn Huskies": 7.2,
-    "Syracuse Orange": 9.9,
+    "UCF Knights": 13.4,
+    "UConn Huskies": 7.3,
+    "Syracuse Orange": 10.0,
     "Wyoming Cowboys": 1.7,
     "Arizona State Sun Devils": 8.2,
-    "East Carolina Pirates": 3.5,
+    "East Carolina Pirates": 3.6,
     "Kansas Jayhawks": 13.7,
     "Virginia Cavaliers": 10.1,
     "App State Mountaineers": 3.8,
     "UAB Blazers": 0.8,
+    "Miami (OH) RedHawks": 1.6,
     "Florida International Panthers": -0.1,
-    "Miami (OH) RedHawks": 0.5,
-    "Buffalo Bulls": -2.1,
-    "Cincinnati Bearcats": 11.5,
+    "Buffalo Bulls": -1.9,
+    "Cincinnati Bearcats": 11.7,
     "NC State Wolfpack": 5.7,
-    "UNLV Rebels": 3.3,
-    "Arkansas State Red Wolves": 2.0,
+    "UNLV Rebels": 3.2,
+    "Arkansas State Red Wolves": 1.9,
     "Florida State Seminoles": 12.9,
     "San Jos\u00e9 State Spartans": 1.1,
-    "Delaware Blue Hens": 2.0,
+    "Delaware Blue Hens": 1.9,
     "Iowa State Cyclones": 12.2,
     "Utah State Aggies": 5.5,
     "Auburn Tigers": 13.6,
-    "Mississippi State Bulldogs": 13.9,
-    "South Alabama Jaguars": 3.1,
-    "West Virginia Mountaineers": 12.2,
-    "Central Michigan Chippewas": -0.2,
+    "Mississippi State Bulldogs": 13.8,
+    "South Alabama Jaguars": 2.9,
+    "West Virginia Mountaineers": 12.3,
+    "Central Michigan Chippewas": -0.3,
     "Nevada Wolf Pack": 2.2,
     "Navy Midshipmen": 5.1,
     "Troy Trojans": -0.4,
-    "Coastal Carolina Chanticleers": 2.5,
+    "Coastal Carolina Chanticleers": 2.4,
     "Boston College Eagles": 2.0,
-    "Middle Tennessee Blue Raiders": -3.5,
+    "Middle Tennessee Blue Raiders": -3.6,
     "Hawai'i Rainbow Warriors": -1.3,
     "Michigan State Spartans": 8.0,
-    "Kennesaw State Owls": 0.1,
+    "Kennesaw State Owls": 0.0,
     "Vanderbilt Commodores": 5.5,
-    "New Mexico State Aggies": -3.9,
+    "New Mexico State Aggies": -4.0,
     "Maryland Terrapins": 3.7,
     "Purdue Boilermakers": 9.5,
-    "Eastern Michigan Eagles": -6.8,
+    "Eastern Michigan Eagles": -7.0,
     "Arkansas Razorbacks": 7.6,
     "Temple Owls": -0.7,
     "Old Dominion Monarchs": -5.9,
-    "Marshall Thundering Herd": -5.5,
+    "Marshall Thundering Herd": -5.6,
     "Colorado Buffaloes": 1.7,
     "Missouri State Bears": -5.6,
     "Tulane Green Wave": -2.9,
@@ -612,16 +617,16 @@
     "California Golden Bears": -3.3,
     "Rutgers Scarlet Knights": 0.8,
     "Western Kentucky Hilltoppers": -8.0,
+    "Bowling Green Falcons": -8.8,
     "Washington State Cougars": -1.9,
     "Georgia Tech Yellow Jackets": -0.7,
     "Sam Houston Bearkats": -9.7,
-    "Bowling Green Falcons": -8.9,
-    "Sacramento State Hornets": -15.8,
+    "Sacramento State Hornets": -15.9,
     "Ball State Cardinals": -10.7,
-    "Kent State Golden Flashes": -14.8,
-    "Colorado State Rams": -3.5,
-    "Rice Owls": -6.9,
-    "Akron Zips": -11.6,
+    "Kent State Golden Flashes": -14.9,
+    "Colorado State Rams": -3.4,
+    "Rice Owls": -6.8,
+    "Akron Zips": -12.1,
     "UL Monroe Warhawks": -11.7,
     "Stanford Cardinal": -7.1,
     "UTEP Miners": -16.0,
