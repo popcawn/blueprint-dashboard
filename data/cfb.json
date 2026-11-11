@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-11T09:41:11Z",
-  "odds_remaining": "63698",
+  "generated": "2026-11-11T16:15:13Z",
+  "odds_remaining": "62317",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +209), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (92% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -51,12 +51,12 @@
       "rtg": 38.7,
       "fair_pct": 32.4,
       "fair_odds": "+209",
-      "market": "+250",
-      "ev": 13,
+      "market": "+240",
+      "ev": 10,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 13
+        "ev": 10
       },
       "read": {
         "v": "trust",
@@ -93,12 +93,12 @@
       "rtg": 35.2,
       "fair_pct": 25.4,
       "fair_odds": "+294",
-      "market": "+390",
-      "ev": 24,
+      "market": "+400",
+      "ev": 27,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 24
+        "ev": 27
       },
       "read": {
         "v": "trust",
@@ -219,12 +219,12 @@
       "rtg": 32.0,
       "fair_pct": 1.7,
       "fair_odds": "+5627",
-      "market": "+4000",
-      "ev": -28,
+      "market": "+4500",
+      "ev": -20,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -28
+        "ev": -20
       },
       "read": {
         "v": "caution",
@@ -417,7 +417,7 @@
       "srs_flag": "mirage",
       "vals": [
         "0.778",
-        "27.8 #71",
+        "27.8 #73",
         "12.2 #3",
         "277 #9",
         "+15.6 #18"
@@ -434,7 +434,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 scoring defense; the #71 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #20 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 scoring defense; the #73 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #20 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "held": 0,
@@ -543,8 +543,8 @@
     "USC Trojans": 19.0,
     "Penn State Nittany Lions": 18.3,
     "Louisiana Ragin' Cajuns": 9.8,
-    "Ohio Bobcats": 5.2,
-    "Western Michigan Broncos": 8.1,
+    "Western Michigan Broncos": 8.9,
+    "Ohio Bobcats": 4.6,
     "Tulsa Golden Hurricane": 14.1,
     "TCU Horned Frogs": 17.1,
     "Georgia Southern Eagles": 10.9,
@@ -571,10 +571,10 @@
     "Arizona State Sun Devils": 8.2,
     "East Carolina Pirates": 3.6,
     "Kansas Jayhawks": 13.7,
+    "Miami (OH) RedHawks": 2.0,
     "Virginia Cavaliers": 10.1,
     "App State Mountaineers": 3.8,
     "UAB Blazers": 0.8,
-    "Miami (OH) RedHawks": 1.6,
     "Florida International Panthers": -0.1,
     "Buffalo Bulls": -1.9,
     "Cincinnati Bearcats": 11.7,
@@ -613,22 +613,22 @@
     "Missouri State Bears": -5.6,
     "Tulane Green Wave": -2.9,
     "San Diego State Aztecs": -3.2,
+    "Bowling Green Falcons": -8.1,
     "Southern Miss Golden Eagles": -6.1,
     "California Golden Bears": -3.3,
     "Rutgers Scarlet Knights": 0.8,
     "Western Kentucky Hilltoppers": -8.0,
-    "Bowling Green Falcons": -8.8,
     "Washington State Cougars": -1.9,
     "Georgia Tech Yellow Jackets": -0.7,
     "Sam Houston Bearkats": -9.7,
     "Sacramento State Hornets": -15.9,
     "Ball State Cardinals": -10.7,
-    "Kent State Golden Flashes": -14.9,
+    "Kent State Golden Flashes": -14.2,
     "Colorado State Rams": -3.4,
     "Rice Owls": -6.8,
-    "Akron Zips": -12.1,
     "UL Monroe Warhawks": -11.7,
     "Stanford Cardinal": -7.1,
+    "Akron Zips": -12.4,
     "UTEP Miners": -16.0,
     "Charlotte 49ers": -13.3,
     "Northern Illinois Huskies": -15.2
