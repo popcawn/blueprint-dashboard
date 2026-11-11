@@ -367,6 +367,18 @@ NFL_CODE = {"Arizona Cardinals": "ARI", "Atlanta Falcons": "ATL", "Baltimore Rav
 NFL_DIVS = {"AFC East": "BUF MIA NE NYJ", "AFC North": "BAL CIN CLE PIT", "AFC South": "HOU IND JAX TEN", "AFC West": "DEN KC LV LAC",
             "NFC East": "DAL NYG PHI WAS", "NFC North": "CHI DET GB MIN", "NFC South": "ATL CAR NO TB", "NFC West": "ARI LA SF SEA"}
 NFL_SIM = {"cap": 21, "prior_games": 8, "prior_keep": 0.5, "scale": 0.14, "home": 0.2, "sims": 10000}
+def nfl_official_seeds(year):
+    """{conference: {seed: nflverse code}} for seeds 1-7 from ESPN's standings (playoffSeed). Only meaningful once the regular season is over."""
+    fix = {"LAR": "LA", "WSH": "WAS"}; out = {}
+    for c in get(f"https://site.api.espn.com/apis/v2/sports/football/nfl/standings?season={year}&seasontype=2")["children"]:
+        d = {}
+        for e in c["standings"]["entries"]:
+            sd = next((x.get("value") for x in e["stats"] if x.get("name") == "playoffSeed"), None); ab = e["team"]["abbreviation"]
+            if sd and 1 <= int(sd) <= 7: d[int(sd)] = fix.get(ab, ab)
+        out[c["abbreviation"]] = d
+    teams = {t for v in NFL_DIVS.values() for t in v.split()}
+    if set(out) != {"AFC", "NFC"} or any(sorted(d) != [1, 2, 3, 4, 5, 6, 7] or not set(d.values()) <= teams for d in out.values()): raise ValueError(f"bad seeds {out}")
+    return out
 def nfl_season_odds(year, through_week=None, games_csv=None, seed=7):
     """({nflverse code: P(win the Super Bowl)}, playoffs_started) from the season simulation (see build_nfl). Data: nflverse games.csv
     (scores + the remaining schedule). through_week: score only games up to that week (backtests)."""
@@ -378,6 +390,13 @@ def nfl_season_odds(year, through_week=None, games_csv=None, seed=7):
     cur = reg(year); prev = [g for g in reg(year - 1) if scored(g)]
     played = [g for g in cur if scored(g) and (through_week is None or int(g["week"]) <= through_week)]; left = [g for g in cur if g not in played]
     post = through_week is None and any(int(g["season"]) == year and g["game_type"] != "REG" and scored(g) for g in rows)
+    # Regular season over -> the OFFICIAL seeds (2026-11-10, baseball-blueprint/strong-swarm/nfl/t1_seeds.py): the quick tiebreak below (wins, then point
+    # diff + coin) reproduced the real seeds in only 2 of 24 seasons and the real field in 10. Pre-playoff Super Bowl log-loss 2002-13 / 2014-25:
+    # 2.403/2.126 with the quick tiebreak -> 2.358/1.987 on the real seeds (what the nfl-strong.py study scored). In season the quick tiebreak stays.
+    seeds = None
+    if cur and not left and through_week is None:
+        try: seeds = nfl_official_seeds(year)
+        except Exception as e: print(f"  nfl official seeds unavailable, quick tiebreak kept: {e}", file=sys.stderr)
     C = NFL_SIM
     def srs(G):
         if not G: return {}
@@ -410,9 +429,11 @@ def nfl_season_odds(year, through_week=None, games_csv=None, seed=7):
         key = lambda t: (w[t], pd0[t] + rng.random())
         champs = []
         for cf in ("AFC", "NFC"):
-            winners = sorted((max(v, key=key) for d, v in divs.items() if d.startswith(cf)), key=key, reverse=True)
-            rest = sorted((t for d, v in divs.items() if d.startswith(cf) for t in v if t not in winners), key=key, reverse=True)
-            alive = {i + 1: t for i, t in enumerate(winners + rest[:3])}
+            if seeds: alive = dict(seeds[cf])
+            else:
+                winners = sorted((max(v, key=key) for d, v in divs.items() if d.startswith(cf)), key=key, reverse=True)
+                rest = sorted((t for d, v in divs.items() if d.startswith(cf) for t in v if t not in winners), key=key, reverse=True)
+                alive = {i + 1: t for i, t in enumerate(winners + rest[:3])}
             for a_, b_ in ((2, 7), (3, 6), (4, 5)):
                 if rng.random() < P(alive[a_], alive[b_], False): del alive[b_]
                 else: del alive[a_]
