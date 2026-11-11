@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-11T16:15:15Z",
-  "odds_remaining": "62316",
+  "generated": "2026-11-11T20:57:38Z",
+  "odds_remaining": "61764",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +322). No goaltending asterisk, no possession hole \u2014 #1 driving play and #12 in net. The team you want when the games get low-scoring and tight. Trust it."
@@ -147,12 +147,12 @@
       "sv5": "93.8% #2",
       "fair_pct": 10.6,
       "fair_odds": "+841",
-      "market": "+1200",
-      "ev": 38,
+      "market": "+1100",
+      "ev": 27,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 38
+        "ev": 27
       },
       "read": {
         "v": "trust",
@@ -249,12 +249,12 @@
       "sv5": "90.7% #14",
       "fair_pct": 15.2,
       "fair_odds": "+557",
-      "market": "+700",
-      "ev": 22,
+      "market": "+750",
+      "ev": 29,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 22
+        "ev": 29
       },
       "read": {
         "v": "fools_gold",
@@ -721,12 +721,12 @@
       "sv5": "90.7% #13",
       "fair_pct": 0.6,
       "fair_odds": "+17185",
-      "market": "+35000",
-      "ev": 103,
+      "market": "+30000",
+      "ev": 74,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 103
+        "ev": 74
       },
       "read": {
         "v": "caution",
@@ -886,8 +886,8 @@
     },
     {
       "name": "Minnesota Wild",
-      "ev": 38,
-      "market": "+1200",
+      "ev": 27,
+      "market": "+1100",
       "fair_odds": "+841"
     }
   ]

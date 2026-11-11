@@ -2,7 +2,7 @@
   "sport": "College hockey",
   "season": "2027",
   "alt_name": "profile",
-  "generated": "2026-11-11T16:15:35Z",
+  "generated": "2026-11-11T20:58:06Z",
   "cats": [
     "Adj defense top-27",
     "Win% top-20",
@@ -32,13 +32,13 @@
         true
       ],
       "vals": [
-        "-0.69 #12",
+        "-0.68 #12",
         ".889 #2",
         "5.11 #1",
-        "2.56 #17",
+        "2.56 #18",
         ".606 #1"
       ],
-      "index": 94.7,
+      "index": 94.6,
       "rtg": 1.74,
       "alt_pct": 10.2,
       "srsrank": 1,
@@ -47,16 +47,16 @@
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 14.6,
-      "fair_odds": "+584",
+      "fair_pct": 14.2,
+      "fair_odds": "+602",
       "read": null,
       "mk": 475,
       "market": "+475",
-      "ev": -16,
+      "ev": -18,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -16
+        "ev": -18
       },
       "alt_ev": -42
     },
@@ -74,33 +74,33 @@
         true
       ],
       "vals": [
-        "-1.10 #10",
+        "-1.05 #10",
         ".750 #6",
         "3.75 #8",
         "1.88 #6",
-        ".568 #6"
+        ".576 #6"
       ],
-      "index": 80.2,
-      "rtg": 1.42,
-      "alt_pct": 6.2,
+      "index": 81.3,
+      "rtg": 1.46,
+      "alt_pct": 6.5,
       "srsrank": 2,
-      "sosrank": 31,
+      "sosrank": 25,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 8.1,
-      "fair_odds": "+1128",
+      "fair_pct": 8.5,
+      "fair_odds": "+1070",
       "read": null,
       "mk": 750,
       "market": "+750",
-      "ev": -31,
+      "ev": -27,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -31
+        "ev": -27
       },
-      "alt_ev": -48
+      "alt_ev": -45
     },
     {
       "name": "Wisconsin",
@@ -122,25 +122,25 @@
         "0.75 #1",
         ".585 #3"
       ],
-      "index": 90.1,
+      "index": 89.8,
       "rtg": 1.37,
       "alt_pct": 8.7,
       "srsrank": 4,
-      "sosrank": 50,
+      "sosrank": 49,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 7.4,
-      "fair_odds": "+1256",
+      "fair_pct": 7.3,
+      "fair_odds": "+1271",
       "read": null,
       "mk": 1000,
       "market": "+1000",
-      "ev": -19,
+      "ev": -20,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -19
+        "ev": -20
       },
       "alt_ev": -4
     },
@@ -158,15 +158,15 @@
         true
       ],
       "vals": [
-        "-0.19 #25",
+        "-0.19 #26",
         ".778 #4",
         "4.78 #2",
-        "2.56 #17",
-        ".581 #4"
+        "2.56 #18",
+        ".582 #4"
       ],
-      "index": 83.9,
-      "rtg": 1.28,
-      "alt_pct": 7.1,
+      "index": 84.1,
+      "rtg": 1.29,
+      "alt_pct": 7.2,
       "srsrank": 5,
       "sosrank": 16,
       "in_field": false,
@@ -174,17 +174,17 @@
       "champion": false,
       "bet_ok": false,
       "fair_pct": 6.3,
-      "fair_odds": "+1497",
+      "fair_odds": "+1482",
       "read": null,
       "mk": 1200,
       "market": "+1200",
-      "ev": -19,
+      "ev": -18,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -19
+        "ev": -18
       },
-      "alt_ev": -8
+      "alt_ev": -7
     },
     {
       "name": "Colorado College",
@@ -200,33 +200,33 @@
         true
       ],
       "vals": [
-        "-1.89 #1",
+        "-1.91 #1",
         ".750 #6",
-        "3.60 #12",
+        "3.60 #11",
         "1.50 #2",
-        ".564 #8"
+        ".564 #9"
       ],
-      "index": 80.3,
-      "rtg": 1.23,
-      "alt_pct": 6.2,
+      "index": 79.7,
+      "rtg": 1.22,
+      "alt_pct": 6.1,
       "srsrank": 6,
       "sosrank": 35,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 5.8,
-      "fair_odds": "+1627",
+      "fair_pct": 5.6,
+      "fair_odds": "+1682",
       "read": null,
       "mk": 1800,
       "market": "+1800",
-      "ev": 10,
+      "ev": 7,
       "verdict": {
         "kind": "trap",
         "label": "too early",
-        "ev": 10
+        "ev": 7
       },
-      "alt_ev": 18
+      "alt_ev": 16
     },
     {
       "name": "Minnesota Duluth",
@@ -242,15 +242,15 @@
         true
       ],
       "vals": [
-        "-1.15 #9",
-        ".667 #14",
-        "3.25 #20",
+        "-1.13 #9",
+        ".667 #15",
+        "3.25 #19",
         "1.83 #5",
-        ".559 #9"
+        ".559 #10"
       ],
-      "index": 75.5,
+      "index": 75.2,
       "rtg": 1.18,
-      "alt_pct": 5.2,
+      "alt_pct": 5.1,
       "srsrank": 7,
       "sosrank": 15,
       "in_field": false,
@@ -258,17 +258,17 @@
       "champion": false,
       "bet_ok": false,
       "fair_pct": 5.2,
-      "fair_odds": "+1815",
+      "fair_odds": "+1831",
       "read": null,
       "mk": 1600,
       "market": "+1600",
-      "ev": -11,
+      "ev": -12,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -11
+        "ev": -12
       },
-      "alt_ev": -12
+      "alt_ev": -13
     },
     {
       "name": "Denver",
@@ -284,23 +284,23 @@
         true
       ],
       "vals": [
-        "-1.46 #4",
+        "-1.44 #4",
         ".750 #6",
         "3.40 #16",
         "2.00 #10",
         ".548 #12"
       ],
-      "index": 75,
+      "index": 74.6,
       "rtg": 1.17,
-      "alt_pct": 5.1,
+      "alt_pct": 5.0,
       "srsrank": 8,
-      "sosrank": 42,
+      "sosrank": 41,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 5.1,
-      "fair_odds": "+1856",
+      "fair_odds": "+1878",
       "read": null,
       "mk": 900,
       "market": "+900",
@@ -310,49 +310,7 @@
         "label": "big fade",
         "ev": -49
       },
-      "alt_ev": -49
-    },
-    {
-      "name": "North Dakota",
-      "conf": "D1",
-      "rec": "5-3-1",
-      "gp": 9,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "-0.41 #21",
-        ".611 #17",
-        "3.56 #14",
-        "2.56 #17",
-        ".537 #17"
-      ],
-      "index": 70.2,
-      "rtg": 1.1,
-      "alt_pct": 4.1,
-      "srsrank": 9,
-      "sosrank": 19,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": false,
-      "fair_pct": 4.5,
-      "fair_odds": "+2106",
-      "read": null,
-      "mk": 1200,
-      "market": "+1200",
-      "ev": -41,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -41
-      },
-      "alt_ev": -46
+      "alt_ev": -50
     },
     {
       "name": "Providence",
@@ -368,33 +326,75 @@
         true
       ],
       "vals": [
-        "-1.15 #7",
+        "-1.17 #6",
         ".750 #6",
         "4.38 #6",
         "2.25 #14",
-        ".539 #15"
+        ".539 #16"
       ],
       "index": 75,
-      "rtg": 1.1,
-      "alt_pct": 5.0,
-      "srsrank": 10,
-      "sosrank": 43,
+      "rtg": 1.11,
+      "alt_pct": 5.1,
+      "srsrank": 9,
+      "sosrank": 42,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 4.5,
-      "fair_odds": "+2110",
+      "fair_pct": 4.6,
+      "fair_odds": "+2072",
       "read": null,
       "mk": 1800,
       "market": "+1800",
-      "ev": -14,
+      "ev": -13,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -14
+        "ev": -13
       },
       "alt_ev": -4
+    },
+    {
+      "name": "North Dakota",
+      "conf": "D1",
+      "rec": "5-3-1",
+      "gp": 9,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "-0.42 #19",
+        ".611 #17",
+        "3.56 #13",
+        "2.56 #18",
+        ".537 #17"
+      ],
+      "index": 70.1,
+      "rtg": 1.11,
+      "alt_pct": 4.2,
+      "srsrank": 10,
+      "sosrank": 20,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": false,
+      "fair_pct": 4.6,
+      "fair_odds": "+2095",
+      "read": null,
+      "mk": 1200,
+      "market": "+1200",
+      "ev": -41,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -41
+      },
+      "alt_ev": -46
     },
     {
       "name": "Augustana (SD)",
@@ -410,23 +410,23 @@
         true
       ],
       "vals": [
-        "-1.26 #5",
+        "-1.24 #5",
         ".850 #3",
         "3.70 #9",
         "1.70 #4",
         ".604 #2"
       ],
-      "index": 84.1,
+      "index": 83.8,
       "rtg": 0.92,
       "alt_pct": 7.1,
       "srsrank": 11,
-      "sosrank": 28,
+      "sosrank": 30,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 3.2,
-      "fair_odds": "+2983",
+      "fair_odds": "+2978",
       "read": null,
       "mk": 4500,
       "market": "+4500",
@@ -436,7 +436,49 @@
         "label": "too early",
         "ev": 49
       },
-      "alt_ev": 227
+      "alt_ev": 226
+    },
+    {
+      "name": "Boston University",
+      "conf": "D1",
+      "rec": "7-3",
+      "gp": 10,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "-0.44 #17",
+        ".700 #12",
+        "3.50 #14",
+        "2.30 #15",
+        ".570 #8"
+      ],
+      "index": 71.9,
+      "rtg": 0.78,
+      "alt_pct": 4.5,
+      "srsrank": 12,
+      "sosrank": 27,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": false,
+      "fair_pct": 2.5,
+      "fair_odds": "+3894",
+      "read": null,
+      "mk": 1600,
+      "market": "+1600",
+      "ev": -57,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -57
+      },
+      "alt_ev": -24
     },
     {
       "name": "Bowling Green",
@@ -452,33 +494,33 @@
         true
       ],
       "vals": [
-        "-0.32 #24",
+        "-0.29 #25",
         ".600 #19",
-        "3.60 #12",
+        "3.60 #11",
         "2.90 #30",
         ".533 #19"
       ],
-      "index": 61.7,
+      "index": 61.4,
       "rtg": 0.44,
       "alt_pct": 2.8,
       "srsrank": 16,
-      "sosrank": 17,
+      "sosrank": 18,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 1.4,
-      "fair_odds": "+7155",
+      "fair_odds": "+7150",
       "read": null,
       "mk": 9000,
       "market": "+9000",
-      "ev": 25,
+      "ev": 26,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 25
+        "ev": 26
       },
-      "alt_ev": 157
+      "alt_ev": 155
     },
     {
       "name": "Army",
@@ -494,23 +536,23 @@
         true
       ],
       "vals": [
-        "-1.53 #3",
+        "-1.51 #3",
         ".750 #6",
-        "2.88 #25",
+        "2.88 #24",
         "1.63 #3",
-        ".541 #14"
+        ".541 #15"
       ],
-      "index": 63.8,
-      "rtg": 0.2,
+      "index": 63.3,
+      "rtg": 0.21,
       "alt_pct": 3.1,
       "srsrank": 23,
-      "sosrank": 44,
+      "sosrank": 43,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.9,
-      "fair_odds": "+11072",
+      "fair_odds": "+10941",
       "read": null,
       "mk": null,
       "market": null,
@@ -532,75 +574,33 @@
         false
       ],
       "vals": [
-        "-1.18 #6",
+        "-1.17 #7",
         ".722 #11",
         "4.78 #2",
         "1.89 #7",
-        ".524 #22"
+        ".524 #21"
       ],
-      "index": 76.4,
+      "index": 76.2,
       "rtg": 1.4,
       "alt_pct": 4.0,
       "srsrank": 3,
-      "sosrank": 47,
+      "sosrank": 46,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 7.8,
-      "fair_odds": "+1185",
+      "fair_pct": 7.7,
+      "fair_odds": "+1193",
       "read": null,
       "mk": 1300,
       "market": "+1300",
-      "ev": 9,
+      "ev": 8,
       "verdict": {
         "kind": "trap",
         "label": "too early",
-        "ev": 9
+        "ev": 8
       },
       "alt_ev": -44
-    },
-    {
-      "name": "Boston University",
-      "conf": "D1",
-      "rec": "7-4",
-      "gp": 11,
-      "score": 4,
-      "q": [
-        false,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "-0.08 #29",
-        ".636 #16",
-        "3.64 #11",
-        "2.64 #21",
-        ".553 #10"
-      ],
-      "index": 67.2,
-      "rtg": 0.67,
-      "alt_pct": 2.7,
-      "srsrank": 12,
-      "sosrank": 23,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": false,
-      "fair_pct": 2.1,
-      "fair_odds": "+4715",
-      "read": null,
-      "mk": 1600,
-      "market": "+1600",
-      "ev": -65,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -65
-      },
-      "alt_ev": -53
     },
     {
       "name": "Northeastern",
@@ -616,33 +616,33 @@
         false
       ],
       "vals": [
-        "-0.62 #14",
-        ".667 #14",
-        "3.50 #15",
+        "-0.63 #14",
+        ".667 #15",
+        "3.50 #14",
         "2.17 #13",
-        ".512 #27"
+        ".510 #25"
       ],
-      "index": 62,
-      "rtg": 0.54,
-      "alt_pct": 2.2,
+      "index": 61.3,
+      "rtg": 0.52,
+      "alt_pct": 2.1,
       "srsrank": 14,
-      "sosrank": 48,
+      "sosrank": 47,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 1.6,
-      "fair_odds": "+6047",
+      "fair_odds": "+6192",
       "read": null,
       "mk": 7000,
       "market": "+7000",
-      "ev": 16,
+      "ev": 13,
       "verdict": {
         "kind": "trap",
         "label": "too early",
-        "ev": 16
+        "ev": 13
       },
-      "alt_ev": 53
+      "alt_ev": 49
     },
     {
       "name": "Miami (OH)",
@@ -658,33 +658,33 @@
         false
       ],
       "vals": [
-        "-0.64 #13",
+        "-0.63 #13",
         ".700 #12",
-        "2.90 #24",
+        "2.90 #23",
         "1.90 #8",
         ".504 #29"
       ],
-      "index": 55.5,
+      "index": 55.1,
       "rtg": 0.24,
-      "alt_pct": 1.6,
-      "srsrank": 22,
-      "sosrank": 53,
+      "alt_pct": 1.5,
+      "srsrank": 21,
+      "sosrank": 52,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 0.9,
-      "fair_odds": "+10432",
+      "fair_pct": 1.0,
+      "fair_odds": "+10333",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -23,
+      "ev": -22,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -23
+        "ev": -22
       },
-      "alt_ev": 26
+      "alt_ev": 24
     },
     {
       "name": "Michigan Tech",
@@ -700,71 +700,33 @@
         true
       ],
       "vals": [
-        "-0.59 #15",
+        "-0.62 #15",
         ".700 #12",
-        "2.70 #31",
+        "2.70 #30",
         "1.90 #8",
-        ".527 #21"
+        ".527 #20"
       ],
-      "index": 56.8,
-      "rtg": 0.07,
-      "alt_pct": 1.7,
+      "index": 56.6,
+      "rtg": 0.08,
+      "alt_pct": 1.6,
       "srsrank": 26,
-      "sosrank": 45,
+      "sosrank": 44,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.7,
-      "fair_odds": "+14064",
+      "fair_odds": "+13711",
       "read": null,
       "mk": 5000,
       "market": "+5000",
-      "ev": -64,
+      "ev": -63,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -64
+        "ev": -63
       },
-      "alt_ev": -15
-    },
-    {
-      "name": "Harvard",
-      "conf": "D1",
-      "rec": "3-2",
-      "gp": 5,
-      "score": 4,
-      "q": [
-        false,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "0.43 #37",
-        ".600 #19",
-        "3.40 #16",
-        "3.00 #31",
-        ".528 #20"
-      ],
-      "index": 54.1,
-      "rtg": 0.01,
-      "alt_pct": 1.4,
-      "srsrank": 29,
-      "sosrank": 39,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": false,
-      "fair_pct": 0.6,
-      "fair_odds": "+15791",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "alt_ev": -16
     },
     {
       "name": "Vermont",
@@ -780,33 +742,33 @@
         true
       ],
       "vals": [
-        "-0.97 #11",
+        "-0.93 #11",
         ".611 #17",
-        "2.33 #43",
+        "2.33 #42",
         "2.11 #12",
-        ".538 #16"
+        ".545 #14"
       ],
-      "index": 56,
-      "rtg": -0.08,
-      "alt_pct": 1.6,
-      "srsrank": 33,
-      "sosrank": 21,
+      "index": 57,
+      "rtg": -0.04,
+      "alt_pct": 1.7,
+      "srsrank": 31,
+      "sosrank": 17,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 0.5,
-      "fair_odds": "+18555",
+      "fair_pct": 0.6,
+      "fair_odds": "+17098",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": -46,
+      "ev": -41,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -46
+        "ev": -41
       },
-      "alt_ev": 61
+      "alt_ev": 70
     },
     {
       "name": "Merrimack",
@@ -822,14 +784,14 @@
         true
       ],
       "vals": [
-        "0.20 #31",
+        "0.18 #31",
         ".778 #4",
         "4.67 #4",
-        "3.22 #40",
-        ".576 #5"
+        "3.22 #39",
+        ".577 #5"
       ],
-      "index": 73.4,
-      "rtg": 0.66,
+      "index": 73.5,
+      "rtg": 0.67,
       "alt_pct": 2.7,
       "srsrank": 13,
       "sosrank": 38,
@@ -837,18 +799,18 @@
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 2.0,
-      "fair_odds": "+4843",
+      "fair_pct": 2.1,
+      "fair_odds": "+4741",
       "read": null,
       "mk": 3500,
       "market": "+3500",
-      "ev": -27,
+      "ev": -26,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -27
+        "ev": -26
       },
-      "alt_ev": -4
+      "alt_ev": -3
     },
     {
       "name": "Ohio State",
@@ -864,13 +826,13 @@
         true
       ],
       "vals": [
-        "-0.44 #19",
-        ".375 #41",
-        "3.13 #22",
-        "3.13 #35",
+        "-0.43 #18",
+        ".375 #40",
+        "3.13 #21",
+        "3.13 #34",
         ".552 #11"
       ],
-      "index": 60.6,
+      "index": 60.4,
       "rtg": 0.44,
       "alt_pct": 1.5,
       "srsrank": 17,
@@ -880,7 +842,7 @@
       "champion": false,
       "bet_ok": false,
       "fair_pct": 1.4,
-      "fair_odds": "+7226",
+      "fair_odds": "+7155",
       "read": null,
       "mk": 5000,
       "market": "+5000",
@@ -907,32 +869,32 @@
       ],
       "vals": [
         "-0.56 #16",
-        ".438 #35",
-        "2.88 #25",
+        ".438 #34",
+        "2.88 #24",
         "2.88 #28",
-        ".521 #23"
+        ".521 #22"
       ],
-      "index": 55.7,
+      "index": 55.4,
       "rtg": 0.27,
       "alt_pct": 1.2,
-      "srsrank": 21,
+      "srsrank": 20,
       "sosrank": 9,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 1.0,
-      "fair_odds": "+9760",
+      "fair_odds": "+9685",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": 2,
+      "ev": 3,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": 2
+        "kind": "trap",
+        "label": "too early",
+        "ev": 3
       },
-      "alt_ev": 19
+      "alt_ev": 18
     },
     {
       "name": "Maine",
@@ -948,33 +910,75 @@
         false
       ],
       "vals": [
-        "-1.15 #8",
-        ".500 #26",
-        "2.50 #39",
+        "-1.14 #8",
+        ".500 #25",
+        "2.50 #38",
         "2.10 #11",
-        ".503 #32"
+        ".508 #27"
       ],
-      "index": 56.1,
-      "rtg": 0.49,
+      "index": 56.5,
+      "rtg": 0.51,
       "alt_pct": 0.8,
       "srsrank": 15,
-      "sosrank": 30,
+      "sosrank": 26,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 1.5,
-      "fair_odds": "+6629",
+      "fair_odds": "+6386",
       "read": null,
       "mk": 3000,
       "market": "+3000",
-      "ev": -54,
+      "ev": -52,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -54
+        "ev": -52
       },
-      "alt_ev": -75
+      "alt_ev": -74
+    },
+    {
+      "name": "UConn",
+      "conf": "D1",
+      "rec": "4-5-1",
+      "gp": 10,
+      "score": 2,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "1.00 #49",
+        ".450 #30",
+        "3.30 #17",
+        "4.60 #54",
+        ".571 #7"
+      ],
+      "index": 59.1,
+      "rtg": 0.32,
+      "alt_pct": 0.9,
+      "srsrank": 18,
+      "sosrank": 2,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": false,
+      "fair_pct": 1.1,
+      "fair_odds": "+8884",
+      "read": null,
+      "mk": 3500,
+      "market": "+3500",
+      "ev": -60,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -60
+      },
+      "alt_ev": -66
     },
     {
       "name": "Union",
@@ -990,31 +994,31 @@
         false
       ],
       "vals": [
-        "0.55 #40",
-        ".556 #22",
+        "0.54 #39",
+        ".556 #21",
         "3.67 #10",
         "2.89 #29",
         ".507 #28"
       ],
       "index": 55.2,
-      "rtg": 0.3,
+      "rtg": 0.31,
       "alt_pct": 0.8,
-      "srsrank": 18,
-      "sosrank": 25,
+      "srsrank": 19,
+      "sosrank": 24,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 1.1,
-      "fair_odds": "+9251",
+      "fair_odds": "+9050",
       "read": null,
       "mk": 10000,
       "market": "+10000",
-      "ev": 8,
+      "ev": 10,
       "verdict": {
         "kind": "trap",
-        "label": "too early",
-        "ev": 8
+        "label": "trap",
+        "ev": 10
       },
       "alt_ev": -22
     },
@@ -1032,71 +1036,29 @@
         false
       ],
       "vals": [
-        "-0.52 #17",
-        ".500 #26",
-        "2.27 #46",
-        "2.36 #16",
-        ".520 #24"
+        "-0.29 #24",
+        ".500 #25",
+        "2.27 #45",
+        "2.36 #17",
+        ".509 #26"
       ],
-      "index": 54.8,
-      "rtg": 0.3,
-      "alt_pct": 0.8,
-      "srsrank": 19,
-      "sosrank": 13,
+      "index": 52.1,
+      "rtg": 0.23,
+      "alt_pct": 0.7,
+      "srsrank": 22,
+      "sosrank": 14,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 1.1,
-      "fair_odds": "+9292",
+      "fair_pct": 0.9,
+      "fair_odds": "+10513",
       "read": null,
       "mk": null,
       "market": null,
       "ev": null,
       "verdict": null,
       "alt_ev": null
-    },
-    {
-      "name": "UConn",
-      "conf": "D1",
-      "rec": "4-5-1",
-      "gp": 10,
-      "score": 2,
-      "q": [
-        false,
-        false,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "0.95 #51",
-        ".450 #31",
-        "3.30 #18",
-        "4.60 #55",
-        ".565 #7"
-      ],
-      "index": 58.1,
-      "rtg": 0.29,
-      "alt_pct": 0.9,
-      "srsrank": 20,
-      "sosrank": 2,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": false,
-      "fair_pct": 1.0,
-      "fair_odds": "+9462",
-      "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -62,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -62
-      },
-      "alt_ev": -68
     },
     {
       "name": "New Hampshire",
@@ -1112,75 +1074,33 @@
         false
       ],
       "vals": [
-        "-0.32 #23",
-        ".550 #23",
-        "2.60 #34",
+        "-0.36 #22",
+        ".550 #22",
+        "2.60 #33",
         "2.70 #22",
-        ".514 #26"
+        ".515 #24"
       ],
-      "index": 52.8,
-      "rtg": 0.09,
+      "index": 53,
+      "rtg": 0.12,
       "alt_pct": 0.7,
-      "srsrank": 25,
-      "sosrank": 24,
+      "srsrank": 24,
+      "sosrank": 23,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
-      "fair_pct": 0.7,
-      "fair_odds": "+13545",
+      "fair_pct": 0.8,
+      "fair_odds": "+12811",
       "read": null,
       "mk": 7000,
       "market": "+7000",
-      "ev": -48,
+      "ev": -45,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -48
+        "ev": -45
       },
-      "alt_ev": -52
-    },
-    {
-      "name": "Minnesota",
-      "conf": "D1",
-      "rec": "3-4-3",
-      "gp": 10,
-      "score": 2,
-      "q": [
-        true,
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "-0.11 #27",
-        ".450 #31",
-        "2.20 #48",
-        "3.20 #37",
-        ".546 #13"
-      ],
-      "index": 53.6,
-      "rtg": 0.04,
-      "alt_pct": 0.7,
-      "srsrank": 27,
-      "sosrank": 6,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": false,
-      "fair_pct": 0.7,
-      "fair_odds": "+14904",
-      "read": null,
-      "mk": 2800,
-      "market": "+2800",
-      "ev": -81,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -81
-      },
-      "alt_ev": -79
+      "alt_ev": -51
     },
     {
       "name": "Clarkson",
@@ -1196,23 +1116,23 @@
         false
       ],
       "vals": [
-        "-0.13 #26",
-        ".550 #23",
-        "2.80 #28",
+        "-0.15 #27",
+        ".550 #22",
+        "2.80 #27",
         "2.30 #15",
-        ".500 #33"
+        ".500 #32"
       ],
       "index": 50.6,
-      "rtg": 0.03,
+      "rtg": 0.05,
       "alt_pct": 0.6,
-      "srsrank": 28,
-      "sosrank": 26,
+      "srsrank": 27,
+      "sosrank": 28,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.7,
-      "fair_odds": "+15135",
+      "fair_odds": "+14541",
       "read": null,
       "mk": null,
       "market": null,
@@ -1235,32 +1155,32 @@
       ],
       "vals": [
         "0.24 #33",
-        ".500 #26",
-        "2.88 #25",
-        "2.63 #20",
-        ".460 #42"
+        ".500 #25",
+        "2.88 #24",
+        "2.63 #21",
+        ".460 #41"
       ],
-      "index": 41.4,
+      "index": 41.1,
       "rtg": -0.06,
       "alt_pct": 0.3,
       "srsrank": 32,
-      "sosrank": 51,
+      "sosrank": 50,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.6,
-      "fair_odds": "+17813",
+      "fair_odds": "+17642",
       "read": null,
       "mk": 7500,
       "market": "+7500",
-      "ev": -58,
+      "ev": -57,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -58
+        "ev": -57
       },
-      "alt_ev": -74
+      "alt_ev": -75
     },
     {
       "name": "Minnesota State",
@@ -1276,23 +1196,23 @@
         false
       ],
       "vals": [
-        "-0.47 #18",
-        ".400 #36",
-        "1.90 #54",
+        "-0.42 #20",
+        ".400 #35",
+        "1.90 #53",
         "2.70 #22",
         ".504 #30"
       ],
-      "index": 43.8,
+      "index": 43.3,
       "rtg": -0.14,
       "alt_pct": 0.4,
-      "srsrank": 34,
+      "srsrank": 33,
       "sosrank": 10,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.5,
-      "fair_odds": "+20500",
+      "fair_odds": "+20258",
       "read": null,
       "mk": 7500,
       "market": "+7500",
@@ -1302,7 +1222,7 @@
         "label": "big fade",
         "ev": -63
       },
-      "alt_ev": -70
+      "alt_ev": -71
     },
     {
       "name": "Sacred Heart",
@@ -1318,23 +1238,23 @@
         false
       ],
       "vals": [
-        "0.50 #38",
+        "0.52 #37",
         ".600 #19",
-        "3.20 #21",
-        "3.10 #34",
-        ".487 #36"
+        "3.20 #20",
+        "3.10 #33",
+        ".487 #35"
       ],
-      "index": 45.3,
-      "rtg": -0.31,
+      "index": 45.2,
+      "rtg": -0.3,
       "alt_pct": 0.4,
-      "srsrank": 35,
-      "sosrank": 52,
+      "srsrank": 34,
+      "sosrank": 51,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.4,
-      "fair_odds": "+27573",
+      "fair_odds": "+26746",
       "read": null,
       "mk": null,
       "market": null,
@@ -1356,23 +1276,23 @@
         false
       ],
       "vals": [
-        "-0.41 #20",
-        ".550 #23",
-        "2.60 #34",
+        "-0.39 #21",
+        ".550 #22",
+        "2.60 #33",
         "2.70 #22",
-        ".517 #25"
+        ".517 #23"
       ],
-      "index": 46.9,
-      "rtg": -0.47,
+      "index": 46.6,
+      "rtg": -0.46,
       "alt_pct": 0.5,
-      "srsrank": 42,
+      "srsrank": 41,
       "sosrank": 34,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.3,
-      "fair_odds": "+36468",
+      "fair_odds": "+35337",
       "read": null,
       "mk": null,
       "market": null,
@@ -1394,29 +1314,71 @@
         false
       ],
       "vals": [
-        "-0.37 #22",
-        ".450 #31",
-        "2.60 #34",
+        "-0.35 #23",
+        ".450 #30",
+        "2.60 #33",
         "2.70 #22",
-        ".434 #48"
+        ".434 #47"
       ],
-      "index": 32.6,
+      "index": 32.3,
       "rtg": -0.62,
       "alt_pct": 0.2,
-      "srsrank": 43,
-      "sosrank": 54,
+      "srsrank": 42,
+      "sosrank": 53,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.2,
-      "fair_odds": "+47193",
+      "fair_odds": "+45589",
       "read": null,
       "mk": null,
       "market": null,
       "ev": null,
       "verdict": null,
       "alt_ev": null
+    },
+    {
+      "name": "Minnesota",
+      "conf": "D1",
+      "rec": "3-4-3",
+      "gp": 10,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "-0.09 #28",
+        ".450 #30",
+        "2.20 #47",
+        "3.20 #36",
+        ".546 #13"
+      ],
+      "index": 53.4,
+      "rtg": 0.05,
+      "alt_pct": 0.4,
+      "srsrank": 28,
+      "sosrank": 6,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": false,
+      "fair_pct": 0.7,
+      "fair_odds": "+14548",
+      "read": null,
+      "mk": 2800,
+      "market": "+2800",
+      "ev": -80,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -80
+      },
+      "alt_ev": -90
     },
     {
       "name": "St. Cloud State",
@@ -1432,31 +1394,31 @@
         false
       ],
       "vals": [
-        "0.04 #30",
-        ".389 #40",
-        "2.56 #38",
+        "0.07 #30",
+        ".389 #39",
+        "2.56 #37",
         "3.00 #31",
-        ".456 #44"
+        ".456 #43"
       ],
-      "index": 40.5,
+      "index": 40.3,
       "rtg": 0.01,
       "alt_pct": 0.2,
-      "srsrank": 30,
+      "srsrank": 29,
       "sosrank": 36,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.6,
-      "fair_odds": "+15814",
+      "fair_odds": "+15486",
       "read": null,
       "mk": 6500,
       "market": "+6500",
-      "ev": -59,
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -59
+        "ev": -58
       },
       "alt_ev": -89
     },
@@ -1474,23 +1436,23 @@
         false
       ],
       "vals": [
-        "0.23 #32",
-        ".500 #26",
-        "3.30 #18",
-        "3.20 #37",
-        ".452 #47"
+        "0.22 #32",
+        ".500 #25",
+        "3.30 #17",
+        "3.20 #36",
+        ".452 #46"
       ],
-      "index": 42.6,
+      "index": 42.4,
       "rtg": -0.04,
       "alt_pct": 0.2,
-      "srsrank": 31,
-      "sosrank": 49,
+      "srsrank": 30,
+      "sosrank": 48,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.6,
-      "fair_odds": "+17162",
+      "fair_odds": "+16823",
       "read": null,
       "mk": 5000,
       "market": "+5000",
@@ -1516,71 +1478,33 @@
         false
       ],
       "vals": [
-        "-0.10 #28",
-        ".500 #26",
-        "2.20 #48",
+        "-0.08 #29",
+        ".500 #25",
+        "2.20 #47",
         "2.70 #22",
-        ".485 #37"
+        ".485 #36"
       ],
-      "index": 41.4,
-      "rtg": -0.37,
+      "index": 41.2,
+      "rtg": -0.36,
       "alt_pct": 0.2,
-      "srsrank": 37,
-      "sosrank": 41,
+      "srsrank": 36,
+      "sosrank": 40,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.3,
-      "fair_odds": "+30558",
+      "fair_odds": "+29688",
       "read": null,
       "mk": 8000,
       "market": "+8000",
-      "ev": -74,
+      "ev": -73,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -74
+        "ev": -73
       },
       "alt_ev": -86
-    },
-    {
-      "name": "Lindenwood",
-      "conf": "D1",
-      "rec": "3-6-1",
-      "gp": 10,
-      "score": 1,
-      "q": [
-        false,
-        false,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "1.55 #54",
-        ".350 #43",
-        "3.90 #7",
-        "4.50 #54",
-        ".454 #45"
-      ],
-      "index": 36.4,
-      "rtg": -0.38,
-      "alt_pct": 0.1,
-      "srsrank": 38,
-      "sosrank": 27,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": false,
-      "fair_pct": 0.3,
-      "fair_odds": "+31096",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
     },
     {
       "name": "Notre Dame",
@@ -1596,23 +1520,61 @@
         true
       ],
       "vals": [
-        "0.62 #42",
-        ".400 #36",
-        "2.30 #45",
-        "4.10 #52",
+        "0.63 #41",
+        ".400 #35",
+        "2.30 #44",
+        "4.10 #51",
         ".535 #18"
       ],
-      "index": 44.9,
-      "rtg": -0.38,
+      "index": 44.7,
+      "rtg": -0.37,
       "alt_pct": 0.2,
-      "srsrank": 39,
-      "sosrank": 4,
+      "srsrank": 37,
+      "sosrank": 5,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.3,
-      "fair_odds": "+31218",
+      "fair_odds": "+30162",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
+    },
+    {
+      "name": "Lindenwood",
+      "conf": "D1",
+      "rec": "3-6-1",
+      "gp": 10,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "1.61 #54",
+        ".350 #42",
+        "3.90 #7",
+        "4.50 #53",
+        ".454 #44"
+      ],
+      "index": 36.2,
+      "rtg": -0.39,
+      "alt_pct": 0.1,
+      "srsrank": 39,
+      "sosrank": 29,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": false,
+      "fair_pct": 0.3,
+      "fair_odds": "+30918",
       "read": null,
       "mk": null,
       "market": null,
@@ -1634,31 +1596,31 @@
         false
       ],
       "vals": [
-        "0.69 #43",
-        ".333 #45",
-        "2.78 #30",
-        "3.33 #42",
-        ".484 #38"
+        "0.68 #42",
+        ".333 #44",
+        "2.78 #29",
+        "3.33 #41",
+        ".485 #37"
       ],
       "index": 44.2,
-      "rtg": 0.11,
+      "rtg": 0.12,
       "alt_pct": 0.1,
-      "srsrank": 24,
+      "srsrank": 25,
       "sosrank": 12,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.8,
-      "fair_odds": "+13133",
+      "fair_odds": "+12824",
       "read": null,
       "mk": 3000,
       "market": "+3000",
-      "ev": -77,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -76
       },
       "alt_ev": -97
     },
@@ -1676,23 +1638,23 @@
         false
       ],
       "vals": [
-        "0.32 #35",
-        ".278 #50",
-        "2.67 #33",
-        "3.44 #45",
-        ".457 #43"
+        "0.33 #35",
+        ".278 #49",
+        "2.67 #32",
+        "3.44 #44",
+        ".457 #42"
       ],
-      "index": 35.4,
-      "rtg": -0.31,
+      "index": 35.2,
+      "rtg": -0.3,
       "alt_pct": 0.1,
-      "srsrank": 36,
-      "sosrank": 20,
+      "srsrank": 35,
+      "sosrank": 21,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.4,
-      "fair_odds": "+27615",
+      "fair_odds": "+26888",
       "read": null,
       "mk": null,
       "market": null,
@@ -1714,23 +1676,23 @@
         false
       ],
       "vals": [
-        "0.42 #36",
-        ".400 #36",
-        "2.60 #34",
-        "3.30 #41",
-        ".487 #35"
+        "0.44 #36",
+        ".400 #35",
+        "2.60 #33",
+        "3.30 #40",
+        ".487 #34"
       ],
-      "index": 40.7,
+      "index": 40.4,
       "rtg": -0.38,
       "alt_pct": 0.1,
-      "srsrank": 40,
-      "sosrank": 14,
+      "srsrank": 38,
+      "sosrank": 13,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.3,
-      "fair_odds": "+31247",
+      "fair_odds": "+30767",
       "read": null,
       "mk": null,
       "market": null,
@@ -1752,31 +1714,31 @@
         false
       ],
       "vals": [
-        "0.88 #48",
-        ".250 #51",
-        "2.70 #31",
-        "3.70 #47",
-        ".427 #49"
+        "0.87 #47",
+        ".250 #50",
+        "2.70 #30",
+        "3.70 #46",
+        ".428 #48"
       ],
-      "index": 27,
-      "rtg": -0.4,
+      "index": 26.9,
+      "rtg": -0.39,
       "alt_pct": 0.0,
-      "srsrank": 41,
-      "sosrank": 40,
+      "srsrank": 40,
+      "sosrank": 39,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.3,
-      "fair_odds": "+32273",
+      "fair_odds": "+31041",
       "read": null,
       "mk": 4500,
       "market": "+4500",
-      "ev": -86,
+      "ev": -85,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -85
       },
       "alt_ev": -98
     },
@@ -1794,29 +1756,71 @@
         false
       ],
       "vals": [
-        "0.51 #39",
-        ".333 #45",
-        "2.25 #47",
-        "3.33 #42",
-        ".490 #34"
+        "0.52 #38",
+        ".333 #44",
+        "2.25 #46",
+        "3.33 #41",
+        ".490 #33"
       ],
-      "index": 36.4,
+      "index": 36.2,
       "rtg": -0.62,
       "alt_pct": 0.1,
-      "srsrank": 44,
+      "srsrank": 43,
       "sosrank": 8,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": false,
       "fair_pct": 0.2,
-      "fair_odds": "+47481",
+      "fair_odds": "+45803",
       "read": null,
       "mk": null,
       "market": null,
       "ev": null,
       "verdict": null,
       "alt_ev": null
+    },
+    {
+      "name": "UMass Lowell ",
+      "conf": "D1",
+      "rec": "2-8",
+      "gp": 10,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "0.91 #48",
+        ".200 #52",
+        "2.50 #38",
+        "3.70 #46",
+        ".406 #52"
+      ],
+      "index": 22.2,
+      "rtg": -0.66,
+      "alt_pct": 0.0,
+      "srsrank": 44,
+      "sosrank": 33,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": false,
+      "fair_pct": 0.2,
+      "fair_odds": "+49034",
+      "read": null,
+      "mk": 3500,
+      "market": "+3500",
+      "ev": -93,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -93
+      },
+      "alt_ev": -99
     }
   ],
   "odds_remaining": null,
@@ -1829,7 +1833,7 @@
   "champion": null,
   "prediction": {
     "pick": "Michigan",
-    "why": "<b>Michigan</b> is the model's #1: 14.6% to win the national title (fair +584); the every-champion profile model gives 10.2%. Pre-bracket: odds over every D1 team, tuned on past seasons' boards as of this date. The 16-team field is set on selection Sunday in late March."
+    "why": "<b>Michigan</b> is the model's #1: 14.2% to win the national title (fair +602); the every-champion profile model gives 10.2%. Pre-bracket: odds over every D1 team, tuned on past seasons' boards as of this date. The 16-team field is set on selection Sunday in late March."
   },
   "season_pct": 28,
   "gp_min": 4,

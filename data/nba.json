@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-11T16:15:20Z",
-  "odds_remaining": "62315",
+  "generated": "2026-11-11T20:57:45Z",
+  "odds_remaining": "61763",
   "prediction": {
     "pick": "San Antonio Spurs",
     "why": "<b>San Antonio Spurs</b> is the pick \u2014 the top team the model actually trusts (fair +770). A #1 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
@@ -46,12 +46,12 @@
       "rtg": 11.7,
       "fair_pct": 11.5,
       "fair_odds": "+770",
-      "market": "+280",
-      "ev": -56,
+      "market": "+260",
+      "ev": -59,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -56
+        "ev": -59
       },
       "read": {
         "v": "trust",
@@ -81,12 +81,12 @@
       "rtg": 11.1,
       "fair_pct": 10.1,
       "fair_odds": "+894",
-      "market": "+1800",
-      "ev": 91,
+      "market": "+2000",
+      "ev": 111,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 91
+        "ev": 111
       },
       "read": {
         "v": "trust",
@@ -116,12 +116,12 @@
       "rtg": 11.7,
       "fair_pct": 21.5,
       "fair_odds": "+365",
-      "market": "+1000",
-      "ev": 137,
+      "market": "+950",
+      "ev": 126,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 137
+        "ev": 126
       },
       "read": {
         "v": "trust",
@@ -151,12 +151,12 @@
       "rtg": 9.1,
       "fair_pct": 6.2,
       "fair_odds": "+1518",
-      "market": "+1500",
-      "ev": -1,
+      "market": "+1600",
+      "ev": 5,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -1
+        "kind": "small",
+        "label": "small value",
+        "ev": 5
       },
       "read": {
         "v": "trust",
@@ -186,12 +186,12 @@
       "rtg": 9.2,
       "fair_pct": 6.0,
       "fair_odds": "+1570",
-      "market": "+3500",
-      "ev": 116,
+      "market": "+3300",
+      "ev": 104,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 116
+        "ev": 104
       },
       "read": {
         "v": "trust",
@@ -221,12 +221,12 @@
       "rtg": 7.7,
       "fair_pct": 3.9,
       "fair_odds": "+2459",
-      "market": "+2200",
-      "ev": -10,
+      "market": "+2000",
+      "ev": -18,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -10
+        "ev": -18
       },
       "read": {
         "v": "fools_gold",
@@ -256,12 +256,12 @@
       "rtg": 8.1,
       "fair_pct": 9.8,
       "fair_odds": "+923",
-      "market": "+1900",
-      "ev": 95,
+      "market": "+2000",
+      "ev": 105,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 95
+        "ev": 105
       },
       "read": {
         "v": "trust",
@@ -291,12 +291,12 @@
       "rtg": 8.3,
       "fair_pct": 9.0,
       "fair_odds": "+1008",
-      "market": "+950",
-      "ev": -5,
+      "market": "+850",
+      "ev": -14,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -5
+        "kind": "fade",
+        "label": "fade",
+        "ev": -14
       },
       "read": {
         "v": "trust",
@@ -466,12 +466,12 @@
       "rtg": 1.0,
       "fair_pct": 5.5,
       "fair_odds": "+1704",
-      "market": "+900",
-      "ev": -45,
+      "market": "+950",
+      "ev": -42,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -45
+        "ev": -42
       },
       "read": {
         "v": "caution",
@@ -501,12 +501,12 @@
       "rtg": 3.3,
       "fair_pct": 1.5,
       "fair_odds": "+6739",
-      "market": "+1700",
-      "ev": -74,
+      "market": "+1800",
+      "ev": -72,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -74
+        "ev": -72
       },
       "read": {
         "v": "caution",
@@ -536,12 +536,12 @@
       "rtg": 2.1,
       "fair_pct": 1.4,
       "fair_odds": "+6964",
-      "market": "+6500",
-      "ev": -7,
+      "market": "+7500",
+      "ev": 8,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -7
+        "kind": "small",
+        "label": "small value",
+        "ev": 8
       },
       "read": {
         "v": "fools_gold",
@@ -571,12 +571,12 @@
       "rtg": 1.5,
       "fair_pct": 1.1,
       "fair_odds": "+8801",
-      "market": "+3000",
-      "ev": -65,
+      "market": "+3500",
+      "ev": -60,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -65
+        "ev": -60
       },
       "read": {
         "v": "caution",
@@ -641,12 +641,12 @@
       "rtg": -11.5,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+15000",
-      "ev": -77,
+      "market": "+12500",
+      "ev": -81,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -81
       },
       "read": {
         "v": "caution",
@@ -697,15 +697,21 @@
   "value_plays": [
     {
       "name": "Boston Celtics",
-      "ev": 137,
-      "market": "+1000",
+      "ev": 126,
+      "market": "+950",
       "fair_odds": "+365"
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 91,
-      "market": "+1800",
+      "ev": 111,
+      "market": "+2000",
       "fair_odds": "+894"
+    },
+    {
+      "name": "Houston Rockets",
+      "ev": 5,
+      "market": "+1600",
+      "fair_odds": "+1518"
     }
   ]
 }

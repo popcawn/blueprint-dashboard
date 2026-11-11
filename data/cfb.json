@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-11T16:15:13Z",
-  "odds_remaining": "62317",
+  "generated": "2026-11-11T20:57:34Z",
+  "odds_remaining": "61765",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +209), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (92% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -219,12 +219,12 @@
       "rtg": 32.0,
       "fair_pct": 1.7,
       "fair_odds": "+5627",
-      "market": "+4500",
-      "ev": -20,
+      "market": "+5500",
+      "ev": -2,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -20
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -2
       },
       "read": {
         "v": "caution",
@@ -254,7 +254,7 @@
       "vals": [
         "0.889",
         "45.0 #1",
-        "19.2 #23",
+        "19.2 #24",
         "324 #33",
         "+25.8 #3"
       ],
@@ -345,12 +345,12 @@
       "rtg": 30.6,
       "fair_pct": 5.3,
       "fair_odds": "+1796",
-      "market": "+2200",
-      "ev": 21,
+      "market": "+2500",
+      "ev": 37,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 21
+        "ev": 37
       },
       "read": {
         "v": "caution",
@@ -542,11 +542,11 @@
     "Virginia Tech Hokies": 12.7,
     "USC Trojans": 19.0,
     "Penn State Nittany Lions": 18.3,
+    "Western Michigan Broncos": 9.1,
     "Louisiana Ragin' Cajuns": 9.8,
-    "Western Michigan Broncos": 8.9,
-    "Ohio Bobcats": 4.6,
     "Tulsa Golden Hurricane": 14.1,
     "TCU Horned Frogs": 17.1,
+    "Ohio Bobcats": 4.0,
     "Georgia Southern Eagles": 10.9,
     "Georgia State Panthers": 8.5,
     "Ole Miss Rebels": 23.4,
@@ -567,11 +567,11 @@
     "UCF Knights": 13.4,
     "UConn Huskies": 7.3,
     "Syracuse Orange": 10.0,
+    "Miami (OH) RedHawks": 2.4,
     "Wyoming Cowboys": 1.7,
     "Arizona State Sun Devils": 8.2,
     "East Carolina Pirates": 3.6,
     "Kansas Jayhawks": 13.7,
-    "Miami (OH) RedHawks": 2.0,
     "Virginia Cavaliers": 10.1,
     "App State Mountaineers": 3.8,
     "UAB Blazers": 0.8,
@@ -613,7 +613,7 @@
     "Missouri State Bears": -5.6,
     "Tulane Green Wave": -2.9,
     "San Diego State Aztecs": -3.2,
-    "Bowling Green Falcons": -8.1,
+    "Bowling Green Falcons": -8.0,
     "Southern Miss Golden Eagles": -6.1,
     "California Golden Bears": -3.3,
     "Rutgers Scarlet Knights": 0.8,
@@ -623,12 +623,12 @@
     "Sam Houston Bearkats": -9.7,
     "Sacramento State Hornets": -15.9,
     "Ball State Cardinals": -10.7,
-    "Kent State Golden Flashes": -14.2,
+    "Kent State Golden Flashes": -14.3,
     "Colorado State Rams": -3.4,
     "Rice Owls": -6.8,
     "UL Monroe Warhawks": -11.7,
     "Stanford Cardinal": -7.1,
-    "Akron Zips": -12.4,
+    "Akron Zips": -12.9,
     "UTEP Miners": -16.0,
     "Charlotte 49ers": -13.3,
     "Northern Illinois Huskies": -15.2
