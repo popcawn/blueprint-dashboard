@@ -1,15 +1,15 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-11T20:57:38Z",
-  "odds_remaining": "61764",
+  "generated": "2026-11-12T21:12:59Z",
+  "odds_remaining": "59294",
   "prediction": {
-    "pick": "Carolina Hurricanes",
-    "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the top team the model actually trusts (fair +322). No goaltending asterisk, no possession hole \u2014 #1 driving play and #12 in net. The team you want when the games get low-scoring and tight. Trust it."
+    "pick": "Minnesota Wild",
+    "why": "<b>Minnesota Wild</b> is the pick \u2014 the top team the model actually trusts (fair +812). Drives play AND gets saves \u2014 underlying numbers (#10 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
   },
   "gp_min": 16,
-  "gp_max": 20,
-  "season_pct": 22,
+  "gp_max": 21,
+  "season_pct": 23,
   "cats": [
     "Goal diff/game top-10",
     "Corsi top-14",
@@ -42,19 +42,19 @@
         "44 #3"
       ],
       "rtg": 1.14,
-      "sv5": "90.7% #12",
-      "fair_pct": 23.7,
-      "fair_odds": "+322",
+      "sv5": "90.7% #13",
+      "fair_pct": 23.3,
+      "fair_odds": "+329",
       "market": "+700",
-      "ev": 90,
+      "ev": 87,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 90
+        "kind": "value",
+        "label": "value",
+        "ev": 87
       },
       "read": {
-        "v": "trust",
-        "why": "No goaltending asterisk, no possession hole \u2014 #1 driving play and #12 in net. The team you want when the games get low-scoring and tight. Trust it."
+        "v": "caution",
+        "why": "Carried by its #1 even-strength goal differential, but its weakest link \u2014 #13 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -73,56 +73,22 @@
         "+0.63 #8",
         "57.0 #2",
         "58.0 #2",
-        "55 #12"
+        "55 #10"
       ],
       "rtg": 0.65,
-      "sv5": "90.6% #15",
-      "fair_pct": 5.8,
-      "fair_odds": "+1637",
+      "sv5": "90.6% #17",
+      "fair_pct": 5.9,
+      "fair_odds": "+1602",
       "market": "+1200",
-      "ev": -25,
+      "ev": -24,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -25
+        "ev": -24
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#2) but can't fully trust the net (#15). The dangerous kind of team: the process says contender, the goaltending says coin flip."
-      }
-    },
-    {
-      "name": "Tampa Bay Lightning",
-      "conf": "E",
-      "rec": "17 GP",
-      "score": 4,
-      "index": 75.4,
-      "q": [
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "+0.65 #7",
-        "56.0 #3",
-        "55.4 #6",
-        "52 #9"
-      ],
-      "rtg": 0.68,
-      "sv5": "89.3% #24",
-      "fair_pct": 6.8,
-      "fair_odds": "+1370",
-      "market": "+1100",
-      "ev": -18,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -18
-      },
-      "read": {
-        "v": "caution",
-        "why": "Controls the puck (#3) but can't fully trust the net (#24). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+        "why": "Controls the puck (#2) but can't fully trust the net (#17). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -145,18 +111,52 @@
       ],
       "rtg": 0.39,
       "sv5": "93.8% #2",
-      "fair_pct": 10.6,
-      "fair_odds": "+841",
-      "market": "+1100",
-      "ev": 27,
+      "fair_pct": 11.0,
+      "fair_odds": "+812",
+      "market": "+1200",
+      "ev": 43,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 27
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 43
       },
       "read": {
         "v": "trust",
         "why": "Drives play AND gets saves \u2014 underlying numbers (#10 Corsi) and goaltending (#2) both hold up, which is the rare combination that survives four rounds. The genuine Cup shape."
+      }
+    },
+    {
+      "name": "Tampa Bay Lightning",
+      "conf": "E",
+      "rec": "18 GP",
+      "score": 4,
+      "index": 74.2,
+      "q": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "+0.89 #6",
+        "55.0 #3",
+        "55.1 #6",
+        "55 #10"
+      ],
+      "rtg": 0.69,
+      "sv5": "89.6% #22",
+      "fair_pct": 7.2,
+      "fair_odds": "+1288",
+      "market": "+1100",
+      "ev": -14,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -14
+      },
+      "read": {
+        "v": "caution",
+        "why": "Controls the puck (#3) but can't fully trust the net (#22). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -178,27 +178,27 @@
         "39 #1"
       ],
       "rtg": 0.11,
-      "sv5": "90.3% #18",
-      "fair_pct": 6.4,
-      "fair_odds": "+1472",
+      "sv5": "90.3% #19",
+      "fair_pct": 6.6,
+      "fair_odds": "+1408",
       "market": "+1800",
-      "ev": 21,
+      "ev": 26,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 21
+        "ev": 26
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#13 even-strength goal differential), and its weakest link \u2014 #18 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#13 even-strength goal differential), and its weakest link \u2014 #19 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
       "name": "Vegas Golden Knights",
       "conf": "W",
-      "rec": "19 GP",
+      "rec": "20 GP",
       "score": 4,
-      "index": 65.9,
+      "index": 66.1,
       "q": [
         true,
         true,
@@ -206,25 +206,25 @@
         true
       ],
       "vals": [
-        "+0.68 #6",
+        "+0.75 #7",
         "50.0 #14",
-        "54.4 #7",
-        "50 #6"
+        "55.1 #5",
+        "53 #8"
       ],
-      "rtg": 0.13,
-      "sv5": "91.1% #10",
-      "fair_pct": 6.4,
-      "fair_odds": "+1462",
+      "rtg": 0.12,
+      "sv5": "90.6% #16",
+      "fair_pct": 7.1,
+      "fair_odds": "+1309",
       "market": "+850",
-      "ev": -39,
+      "ev": -33,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -39
+        "ev": -33
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #10 even-strength goal differential, but its weakest link \u2014 #14 in Corsi \u2014 is the one a seven-game series finds."
+        "why": "Carried by its #10 even-strength goal differential, but its weakest link \u2014 #16 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -242,57 +242,23 @@
       "vals": [
         "+1.05 #4",
         "53.0 #6",
-        "55.4 #5",
-        "58 #22"
+        "55.4 #4",
+        "58 #21"
       ],
       "rtg": 0.62,
-      "sv5": "90.7% #14",
-      "fair_pct": 15.2,
-      "fair_odds": "+557",
-      "market": "+750",
-      "ev": 29,
+      "sv5": "90.7% #15",
+      "fair_pct": 15.4,
+      "fair_odds": "+549",
+      "market": "+700",
+      "ev": 23,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 29
+        "ev": 23
       },
       "read": {
         "v": "fools_gold",
-        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #22 goals-against is exactly what gets punished when goals dry up in May."
-      }
-    },
-    {
-      "name": "Edmonton Oilers",
-      "conf": "W",
-      "rec": "19 GP",
-      "score": 3,
-      "index": 62.0,
-      "q": [
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+1.21 #3",
-        "48.0 #22",
-        "51.6 #12",
-        "54 #11"
-      ],
-      "rtg": 0.06,
-      "sv5": "91.7% #5",
-      "fair_pct": 4.6,
-      "fair_odds": "+2093",
-      "market": "+850",
-      "ev": -57,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -57
-      },
-      "read": {
-        "v": "caution",
-        "why": "That #5 save% is riding variance \u2014 they're #22 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
+        "why": "Outscores its problems in the regular season, but playoff hockey tightens and a #21 goals-against is exactly what gets punished when goals dry up in May."
       }
     },
     {
@@ -316,13 +282,13 @@
       "rtg": 0.42,
       "sv5": "94.3% #1",
       "fair_pct": 2.3,
-      "fair_odds": "+4250",
+      "fair_odds": "+4200",
       "market": "+3500",
-      "ev": -17,
+      "ev": -16,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -17
+        "ev": -16
       },
       "read": {
         "v": "caution",
@@ -344,13 +310,13 @@
       "vals": [
         "+0.21 #12",
         "54.0 #4",
-        "53.0 #8",
-        "56 #17"
+        "53.0 #9",
+        "56 #15"
       ],
       "rtg": 0.07,
-      "sv5": "89.2% #25",
+      "sv5": "89.2% #24",
       "fair_pct": 1.7,
-      "fair_odds": "+5869",
+      "fair_odds": "+5763",
       "market": "+950",
       "ev": -82,
       "verdict": {
@@ -360,15 +326,49 @@
       },
       "read": {
         "v": "caution",
-        "why": "Drives play like a champion (#4 Corsi) but the goaltending (#25) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
+        "why": "Drives play like a champion (#4 Corsi) but the goaltending (#24) has to show up. Elite underlying game held hostage to the crease \u2014 one hot goalie from a deep run, one cold week from a first-round exit."
+      }
+    },
+    {
+      "name": "Edmonton Oilers",
+      "conf": "W",
+      "rec": "20 GP",
+      "score": 2,
+      "index": 59.2,
+      "q": [
+        true,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "+1.20 #3",
+        "47.0 #26",
+        "51.4 #12",
+        "56 #15"
+      ],
+      "rtg": -0.02,
+      "sv5": "92.0% #3",
+      "fair_pct": 3.6,
+      "fair_odds": "+2659",
+      "market": "+850",
+      "ev": -66,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -66
+      },
+      "read": {
+        "v": "caution",
+        "why": "That #3 save% is riding variance \u2014 they're #26 in possession (Corsi), so the goalie is masking thin even-strength play. Playoff save%s regress to the underlying game."
       }
     },
     {
       "name": "Utah Mammoth",
       "conf": "W",
-      "rec": "18 GP",
+      "rec": "19 GP",
       "score": 2,
-      "index": 63.5,
+      "index": 59.1,
       "q": [
         false,
         true,
@@ -376,25 +376,25 @@
         false
       ],
       "vals": [
-        "+0.00 #17",
+        "-0.11 #18",
         "54.0 #4",
-        "55.9 #4",
-        "63 #23"
+        "54.6 #7",
+        "68 #26"
       ],
       "rtg": 0.18,
-      "sv5": "89.0% #28",
-      "fair_pct": 3.1,
-      "fair_odds": "+3117",
-      "market": "+1700",
-      "ev": -44,
+      "sv5": "88.9% #27",
+      "fair_pct": 2.6,
+      "fair_odds": "+3775",
+      "market": "+1800",
+      "ev": -51,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -44
+        "ev": -51
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#4) but can't fully trust the net (#28). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+        "why": "Controls the puck (#4) but can't fully trust the net (#27). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -412,19 +412,19 @@
       "vals": [
         "+0.28 #11",
         "52.0 #9",
-        "49.7 #18",
-        "55 #12"
+        "49.7 #17",
+        "55 #10"
       ],
       "rtg": 0.38,
       "sv5": "91.5% #8",
       "fair_pct": 1.4,
-      "fair_odds": "+7181",
+      "fair_odds": "+7079",
       "market": null,
       "ev": null,
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Carried by its #6 even-strength goal differential, but its weakest link \u2014 #12 in goals against \u2014 is the one a seven-game series finds."
+        "why": "Carried by its #6 even-strength goal differential, but its weakest link \u2014 #10 in goals against \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -443,12 +443,12 @@
         "+0.05 #15",
         "50.0 #14",
         "52.6 #11",
-        "57 #19"
+        "57 #18"
       ],
       "rtg": 0.17,
-      "sv5": "91.7% #4",
+      "sv5": "91.7% #5",
       "fair_pct": 1.8,
-      "fair_odds": "+5322",
+      "fair_odds": "+5310",
       "market": "+2700",
       "ev": -48,
       "verdict": {
@@ -458,41 +458,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #9 even-strength goal differential, but its weakest link \u2014 #19 in goals against \u2014 is the one a seven-game series finds."
-      }
-    },
-    {
-      "name": "New York Rangers",
-      "conf": "E",
-      "rec": "19 GP",
-      "score": 2,
-      "index": 54.2,
-      "q": [
-        false,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "+0.05 #15",
-        "48.0 #22",
-        "53.0 #9",
-        "55 #12"
-      ],
-      "rtg": -0.2,
-      "sv5": "90.4% #17",
-      "fair_pct": 1.0,
-      "fair_odds": "+9527",
-      "market": "+6000",
-      "ev": -37,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -37
-      },
-      "read": {
-        "v": "caution",
-        "why": "No standout strength (#16 even-strength goal differential), and its weakest link \u2014 #22 in Corsi \u2014 is what a seven-game series exposes."
+        "why": "Carried by its #9 even-strength goal differential, but its weakest link \u2014 #18 in goals against \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -511,18 +477,18 @@
         "-0.11 #19",
         "50.0 #14",
         "49.0 #20",
-        "55 #12"
+        "55 #10"
       ],
       "rtg": -0.13,
       "sv5": "89.9% #21",
       "fair_pct": 1.2,
-      "fair_odds": "+8420",
+      "fair_odds": "+8021",
       "market": "+10000",
-      "ev": 19,
+      "ev": 24,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 19
+        "ev": 24
       },
       "read": {
         "v": "caution",
@@ -532,9 +498,9 @@
     {
       "name": "Nashville Predators",
       "conf": "W",
-      "rec": "18 GP",
+      "rec": "19 GP",
       "score": 2,
-      "index": 51.1,
+      "index": 50.4,
       "q": [
         true,
         false,
@@ -542,25 +508,25 @@
         true
       ],
       "vals": [
-        "+0.33 #10",
+        "+0.42 #10",
         "45.0 #29",
-        "50.2 #16",
-        "48 #5"
+        "49.7 #18",
+        "50 #5"
       ],
-      "rtg": -0.44,
+      "rtg": -0.39,
       "sv5": "91.6% #7",
       "fair_pct": 1.3,
-      "fair_odds": "+7770",
-      "market": "+12500",
-      "ev": 60,
+      "fair_odds": "+7593",
+      "market": "+10000",
+      "ev": 31,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 60
+        "ev": 31
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#22 even-strength goal differential), and its weakest link \u2014 #29 in Corsi \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#17 even-strength goal differential), and its weakest link \u2014 #29 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -579,22 +545,22 @@
         "-0.62 #25",
         "50.0 #14",
         "50.8 #13",
-        "55 #12"
+        "55 #10"
       ],
       "rtg": -0.08,
-      "sv5": "91.9% #3",
-      "fair_pct": 1.1,
-      "fair_odds": "+8804",
+      "sv5": "91.9% #4",
+      "fair_pct": 1.2,
+      "fair_odds": "+8417",
       "market": "+4500",
-      "ev": -48,
+      "ev": -46,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -48
+        "ev": -46
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#16 even-strength goal differential), and its weakest link \u2014 #14 in Corsi \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#17 even-strength goal differential), and its weakest link \u2014 #14 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -613,56 +579,56 @@
         "-0.12 #20",
         "50.0 #14",
         "45.7 #25",
-        "50 #6"
+        "50 #5"
       ],
       "rtg": 0.02,
       "sv5": "91.5% #9",
       "fair_pct": 0.7,
-      "fair_odds": "+14303",
+      "fair_odds": "+14006",
       "market": "+12500",
-      "ev": -13,
+      "ev": -11,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -13
+        "ev": -11
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#15 even-strength goal differential), and its weakest link \u2014 #14 in Corsi \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#14 even-strength goal differential), and its weakest link \u2014 #14 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
-      "name": "Buffalo Sabres",
+      "name": "New York Rangers",
       "conf": "E",
-      "rec": "17 GP",
+      "rec": "20 GP",
       "score": 1,
-      "index": 54.0,
+      "index": 54.8,
       "q": [
         false,
-        true,
         false,
+        true,
         false
       ],
       "vals": [
-        "-0.35 #22",
-        "53.0 #6",
-        "49.3 #19",
-        "56 #17"
+        "+0.15 #14",
+        "48.0 #22",
+        "53.2 #8",
+        "56 #15"
       ],
-      "rtg": 0.25,
-      "sv5": "89.8% #22",
+      "rtg": -0.17,
+      "sv5": "91.0% #10",
       "fair_pct": 0.8,
-      "fair_odds": "+13151",
-      "market": "+3000",
-      "ev": -77,
+      "fair_odds": "+12240",
+      "market": "+5500",
+      "ev": -55,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -55
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#13 even-strength goal differential), and its weakest link \u2014 #22 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#15 even-strength goal differential), and its weakest link \u2014 #22 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -680,23 +646,23 @@
       "vals": [
         "+0.19 #13",
         "49.0 #19",
-        "50.0 #17",
-        "53 #10"
+        "50.0 #16",
+        "53 #8"
       ],
       "rtg": 0.08,
-      "sv5": "89.1% #27",
+      "sv5": "89.1% #26",
       "fair_pct": 0.9,
-      "fair_odds": "+11150",
-      "market": "+1700",
-      "ev": -84,
+      "fair_odds": "+11082",
+      "market": "+1800",
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -83
       },
       "read": {
         "v": "caution",
-        "why": "Carried by its #10 even-strength goal differential, but its weakest link \u2014 #27 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
+        "why": "Carried by its #10 even-strength goal differential, but its weakest link \u2014 #26 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
       }
     },
     {
@@ -712,33 +678,33 @@
         false
       ],
       "vals": [
-        "-0.42 #24",
+        "-0.42 #23",
         "51.0 #10",
         "50.6 #14",
-        "57 #19"
+        "57 #18"
       ],
       "rtg": 0.0,
-      "sv5": "90.7% #13",
+      "sv5": "90.7% #14",
       "fair_pct": 0.6,
-      "fair_odds": "+17185",
-      "market": "+30000",
-      "ev": 74,
+      "fair_odds": "+16923",
+      "market": "+25000",
+      "ev": 47,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 74
+        "ev": 47
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#16 even-strength goal differential), and its weakest link \u2014 #19 in goals against \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#17 even-strength goal differential), and its weakest link \u2014 #18 in goals against \u2014 is what a seven-game series exposes."
       }
     },
     {
       "name": "Pittsburgh Penguins",
       "conf": "E",
-      "rec": "18 GP",
+      "rec": "19 GP",
       "score": 1,
-      "index": 49.8,
+      "index": 49.3,
       "q": [
         false,
         true,
@@ -746,15 +712,15 @@
         false
       ],
       "vals": [
-        "-0.39 #23",
+        "-0.37 #22",
         "53.0 #6",
         "48.7 #22",
-        "64 #25"
+        "66 #24"
       ],
-      "rtg": 0.06,
-      "sv5": "88.3% #30",
+      "rtg": 0.05,
+      "sv5": "88.5% #29",
       "fair_pct": 0.6,
-      "fair_odds": "+15439",
+      "fair_odds": "+15448",
       "market": "+8000",
       "ev": -48,
       "verdict": {
@@ -764,7 +730,41 @@
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#23 even-strength goal differential), and its weakest link \u2014 #30 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#25 even-strength goal differential), and its weakest link \u2014 #29 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
+      }
+    },
+    {
+      "name": "Buffalo Sabres",
+      "conf": "E",
+      "rec": "18 GP",
+      "score": 1,
+      "index": 48.8,
+      "q": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "-0.61 #24",
+        "53.0 #6",
+        "49.3 #19",
+        "64 #22"
+      ],
+      "rtg": 0.15,
+      "sv5": "88.4% #30",
+      "fair_pct": 0.6,
+      "fair_odds": "+17258",
+      "market": "+3500",
+      "ev": -79,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -79
+      },
+      "read": {
+        "v": "caution",
+        "why": "No standout strength (#15 even-strength goal differential), and its weakest link \u2014 #30 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -783,30 +783,30 @@
         "-0.75 #27",
         "49.0 #19",
         "45.6 #26",
-        "51 #8"
+        "51 #7"
       ],
       "rtg": -0.14,
       "sv5": "91.6% #6",
       "fair_pct": 0.3,
-      "fair_odds": "+31305",
+      "fair_odds": "+30836",
       "market": "+10000",
-      "ev": -68,
+      "ev": -67,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -68
+        "ev": -67
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#16 even-strength goal differential), and its weakest link \u2014 #19 in Corsi \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#17 even-strength goal differential), and its weakest link \u2014 #19 in Corsi \u2014 is what a seven-game series exposes."
       }
     },
     {
       "name": "Calgary Flames",
       "conf": "W",
-      "rec": "18 GP",
+      "rec": "19 GP",
       "score": 1,
-      "index": 38.9,
+      "index": 37.1,
       "q": [
         false,
         true,
@@ -814,25 +814,25 @@
         false
       ],
       "vals": [
-        "-0.94 #28",
+        "-1.00 #28",
         "51.0 #10",
-        "45.4 #27",
-        "63 #23"
+        "45.2 #27",
+        "66 #24"
       ],
       "rtg": -0.33,
-      "sv5": "89.2% #26",
+      "sv5": "89.3% #23",
       "fair_pct": 0.3,
-      "fair_odds": "+32012",
+      "fair_odds": "+34907",
       "market": "+50000",
-      "ev": 56,
+      "ev": 43,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 56
+        "ev": 43
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#30 even-strength goal differential), and its weakest link \u2014 #26 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#30 even-strength goal differential), and its weakest link \u2014 #24 in goals against \u2014 is what a seven-game series exposes."
       }
     }
   ],
@@ -840,34 +840,34 @@
   "rtgs": {
     "Carolina Hurricanes": 1.14,
     "New Jersey Devils": 0.65,
-    "Tampa Bay Lightning": 0.68,
     "Minnesota Wild": 0.39,
+    "Tampa Bay Lightning": 0.69,
     "Dallas Stars": 0.11,
-    "Vegas Golden Knights": 0.13,
+    "Vegas Golden Knights": 0.12,
     "Colorado Avalanche": 0.62,
-    "Edmonton Oilers": 0.06,
     "Boston Bruins": 0.42,
     "Florida Panthers": 0.07,
+    "Edmonton Oilers": -0.02,
     "Utah Mammoth": 0.18,
     "Montreal Canadiens": 0.38,
     "Ottawa Senators": 0.17,
-    "New York Rangers": -0.2,
     "St Louis Blues": -0.13,
-    "Nashville Predators": -0.44,
+    "Nashville Predators": -0.39,
     "Los Angeles Kings": -0.08,
     "New York Islanders": 0.02,
-    "Buffalo Sabres": 0.25,
+    "New York Rangers": -0.17,
     "Washington Capitals": 0.08,
     "Detroit Red Wings": 0.0,
-    "Pittsburgh Penguins": 0.06,
+    "Pittsburgh Penguins": 0.05,
+    "Buffalo Sabres": 0.15,
     "Columbus Blue Jackets": -0.14,
     "Calgary Flames": -0.33,
-    "Anaheim Ducks": -0.13,
+    "Anaheim Ducks": -0.17,
     "Winnipeg Jets": -0.26,
     "Toronto Maple Leafs": -0.31,
     "Seattle Kraken": -0.31,
-    "Philadelphia Flyers": -0.58,
-    "San Jose Sharks": -0.54,
+    "Philadelphia Flyers": -0.57,
+    "San Jose Sharks": -0.5,
     "Chicago Blackhawks": -0.97,
     "Vancouver Canucks": -0.84
   },
@@ -875,20 +875,14 @@
     "status": "trust",
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
-    "note": "20 games in \u2014 stats have stabilized; the read is actionable."
+    "note": "21 games in \u2014 stats have stabilized; the read is actionable."
   },
   "value_plays": [
     {
-      "name": "Carolina Hurricanes",
-      "ev": 90,
-      "market": "+700",
-      "fair_odds": "+322"
-    },
-    {
       "name": "Minnesota Wild",
-      "ev": 27,
-      "market": "+1100",
-      "fair_odds": "+841"
+      "ev": 43,
+      "market": "+1200",
+      "fair_odds": "+812"
     }
   ]
 }
