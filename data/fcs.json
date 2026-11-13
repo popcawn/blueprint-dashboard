@@ -2,7 +2,7 @@
   "sport": "FCS",
   "season": "2026",
   "alt_name": "rating-only",
-  "generated": "2026-11-12T21:13:24Z",
+  "generated": "2026-11-13T20:42:14Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -40,7 +40,7 @@
       ],
       "index": 92.4,
       "rtg": 21.43,
-      "alt_pct": 26.5,
+      "alt_pct": 32.9,
       "srsrank": 1,
       "sosrank": 37,
       "in_field": false,
@@ -58,7 +58,7 @@
         "label": "BEST VALUE",
         "ev": 134
       },
-      "alt_ev": 33
+      "alt_ev": 65
     },
     {
       "name": "Tarleton State",
@@ -82,7 +82,7 @@
       ],
       "index": 81.9,
       "rtg": 15.95,
-      "alt_pct": 2.7,
+      "alt_pct": 1.9,
       "srsrank": 9,
       "sosrank": 100,
       "in_field": false,
@@ -100,7 +100,7 @@
         "label": "big fade",
         "ev": -58
       },
-      "alt_ev": -73
+      "alt_ev": -81
     },
     {
       "name": "Lamar",
@@ -124,7 +124,7 @@
       ],
       "index": 78.3,
       "rtg": 16.12,
-      "alt_pct": 2.9,
+      "alt_pct": 2.1,
       "srsrank": 8,
       "sosrank": 59,
       "in_field": false,
@@ -162,7 +162,7 @@
       ],
       "index": 93.2,
       "rtg": 20.39,
-      "alt_pct": 17.2,
+      "alt_pct": 19.2,
       "srsrank": 2,
       "sosrank": 69,
       "in_field": false,
@@ -180,7 +180,7 @@
         "label": "\u2248 fair",
         "ev": -9
       },
-      "alt_ev": -44
+      "alt_ev": -38
     },
     {
       "name": "Youngstown State",
@@ -204,7 +204,7 @@
       ],
       "index": 87.7,
       "rtg": 20.34,
-      "alt_pct": 16.8,
+      "alt_pct": 18.7,
       "srsrank": 3,
       "sosrank": 77,
       "in_field": false,
@@ -222,7 +222,7 @@
         "label": "big fade",
         "ev": -60
       },
-      "alt_ev": -19
+      "alt_ev": -10
     },
     {
       "name": "Stephen F. Austin",
@@ -246,7 +246,7 @@
       ],
       "index": 85.5,
       "rtg": 17.3,
-      "alt_pct": 4.8,
+      "alt_pct": 3.8,
       "srsrank": 6,
       "sosrank": 102,
       "in_field": false,
@@ -264,7 +264,7 @@
         "label": "fade",
         "ev": -30
       },
-      "alt_ev": -33
+      "alt_ev": -46
     },
     {
       "name": "Harvard",
@@ -288,7 +288,7 @@
       ],
       "index": 79.2,
       "rtg": 18.2,
-      "alt_pct": 6.9,
+      "alt_pct": 6.1,
       "srsrank": 5,
       "sosrank": 65,
       "in_field": false,
@@ -306,7 +306,7 @@
         "label": "fails profile",
         "ev": 7
       },
-      "alt_ev": 599
+      "alt_ev": 520
     },
     {
       "name": "Tennessee Tech",
@@ -330,7 +330,7 @@
       ],
       "index": 76.8,
       "rtg": 14.48,
-      "alt_pct": 1.5,
+      "alt_pct": 0.9,
       "srsrank": 10,
       "sosrank": 114,
       "in_field": false,
@@ -348,7 +348,7 @@
         "label": "big fade",
         "ev": -64
       },
-      "alt_ev": -10
+      "alt_ev": -46
     },
     {
       "name": "Northern Arizona",
@@ -372,7 +372,7 @@
       ],
       "index": 71.9,
       "rtg": 11.98,
-      "alt_pct": 0.5,
+      "alt_pct": 0.2,
       "srsrank": 17,
       "sosrank": 71,
       "in_field": false,
@@ -390,7 +390,7 @@
         "label": "big fade",
         "ev": -90
       },
-      "alt_ev": -68
+      "alt_ev": -85
     },
     {
       "name": "Austin Peay",
@@ -414,9 +414,9 @@
       ],
       "index": 79,
       "rtg": 14.48,
-      "alt_pct": 1.5,
+      "alt_pct": 0.9,
       "srsrank": 11,
-      "sosrank": 92,
+      "sosrank": 91,
       "in_field": false,
       "alive": null,
       "champion": false,
@@ -432,7 +432,7 @@
         "label": "big fade",
         "ev": -87
       },
-      "alt_ev": -62
+      "alt_ev": -77
     },
     {
       "name": "Mercer",
@@ -456,7 +456,7 @@
       ],
       "index": 75.4,
       "rtg": 8.56,
-      "alt_pct": 0.1,
+      "alt_pct": 0.0,
       "srsrank": 26,
       "sosrank": 115,
       "in_field": false,
@@ -474,7 +474,7 @@
         "label": "big fade",
         "ev": -48
       },
-      "alt_ev": -67
+      "alt_ev": -88
     },
     {
       "name": "Princeton",
@@ -498,7 +498,7 @@
       ],
       "index": 67.2,
       "rtg": 10.67,
-      "alt_pct": 0.3,
+      "alt_pct": 0.1,
       "srsrank": 19,
       "sosrank": 50,
       "in_field": false,
@@ -574,7 +574,7 @@
       ],
       "index": 84,
       "rtg": 16.95,
-      "alt_pct": 4.1,
+      "alt_pct": 3.2,
       "srsrank": 7,
       "sosrank": 45,
       "in_field": false,
@@ -592,7 +592,7 @@
         "label": "big fade",
         "ev": -82
       },
-      "alt_ev": -14
+      "alt_ev": -33
     },
     {
       "name": "South Dakota",
@@ -616,7 +616,7 @@
       ],
       "index": 83.6,
       "rtg": 18.31,
-      "alt_pct": 7.2,
+      "alt_pct": 6.5,
       "srsrank": 4,
       "sosrank": 58,
       "in_field": false,
@@ -634,7 +634,7 @@
         "label": "big fade",
         "ev": -89
       },
-      "alt_ev": 1
+      "alt_ev": -9
     },
     {
       "name": "Illinois State",
@@ -658,7 +658,7 @@
       ],
       "index": 83.2,
       "rtg": 12.82,
-      "alt_pct": 0.7,
+      "alt_pct": 0.4,
       "srsrank": 13,
       "sosrank": 93,
       "in_field": false,
@@ -685,7 +685,7 @@
   "champion": null,
   "prediction": {
     "pick": "Montana State",
-    "why": "<b>Montana State</b> is the model's #1: 46.8% to win the FCS title (fair +114); the plain power rating alone gives 26.5%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
+    "why": "<b>Montana State</b> is the model's #1: 46.8% to win the FCS title (fair +114); the plain power rating alone gives 32.9%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
   },
   "season_pct": 89,
   "gp_min": 4,

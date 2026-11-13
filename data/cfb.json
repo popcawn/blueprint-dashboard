@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-12T21:12:57Z",
-  "odds_remaining": "59295",
+  "generated": "2026-11-13T20:41:45Z",
+  "odds_remaining": "56481",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +210), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (92% to make the field). The genuine article \u2014 complete (worst spot: total defense #8) and SRS #2 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -38,7 +38,7 @@
         true,
         true
       ],
-      "sosrank": 79,
+      "sosrank": 81,
       "srsrank": 2,
       "srs_flag": "elite",
       "vals": [
@@ -51,12 +51,12 @@
       "rtg": 38.7,
       "fair_pct": 32.3,
       "fair_odds": "+210",
-      "market": "+240",
-      "ev": 10,
+      "market": "+250",
+      "ev": 13,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 10
+        "ev": 13
       },
       "read": {
         "v": "trust",
@@ -80,7 +80,7 @@
         true,
         true
       ],
-      "sosrank": 75,
+      "sosrank": 76,
       "srsrank": 4,
       "srs_flag": "elite",
       "vals": [
@@ -93,12 +93,12 @@
       "rtg": 35.2,
       "fair_pct": 25.3,
       "fair_odds": "+296",
-      "market": "+390",
-      "ev": 24,
+      "market": "+380",
+      "ev": 21,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 24
+        "ev": 21
       },
       "read": {
         "v": "trust",
@@ -164,7 +164,7 @@
         true,
         false
       ],
-      "sosrank": 108,
+      "sosrank": 107,
       "srsrank": 13,
       "srs_flag": "ok",
       "vals": [
@@ -177,12 +177,12 @@
       "rtg": 27.8,
       "fair_pct": 20.2,
       "fair_odds": "+395",
-      "market": "+3500",
-      "ev": 627,
+      "market": "+4000",
+      "ev": 728,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 627
+        "ev": 728
       },
       "read": {
         "v": "caution",
@@ -212,7 +212,7 @@
       "vals": [
         "0.889",
         "43.3 #4",
-        "15.9 #13",
+        "15.9 #12",
         "310 #25",
         "+27.4 #1"
       ],
@@ -255,7 +255,7 @@
         "0.889",
         "45.0 #1",
         "19.2 #24",
-        "324 #33",
+        "324 #31",
         "+25.8 #3"
       ],
       "rtg": 34.6,
@@ -270,7 +270,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #33 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
+        "why": "Leads with its #1 offense; the #31 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
       },
       "mw": null,
       "held": 0,
@@ -303,12 +303,12 @@
       "rtg": 27.4,
       "fair_pct": 4.4,
       "fair_odds": "+2195",
-      "market": "+1000",
-      "ev": -52,
+      "market": "+950",
+      "ev": -54,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -52
+        "ev": -54
       },
       "read": {
         "v": "caution",
@@ -337,9 +337,9 @@
       "srs_flag": "ok",
       "vals": [
         "1.000",
-        "37.7 #13",
-        "16.3 #15",
-        "337 #44",
+        "37.7 #14",
+        "16.3 #14",
+        "337 #43",
         "+21.3 #6"
       ],
       "rtg": 30.6,
@@ -354,7 +354,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #6 margin; the #44 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #6 margin; the #43 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "held": 0,
@@ -374,7 +374,7 @@
         true,
         false
       ],
-      "sosrank": 76,
+      "sosrank": 77,
       "srsrank": 67,
       "srs_flag": "mirage",
       "vals": [
@@ -412,7 +412,7 @@
         true,
         false
       ],
-      "sosrank": 87,
+      "sosrank": 88,
       "srsrank": 20,
       "srs_flag": "mirage",
       "vals": [
@@ -509,12 +509,11 @@
     "LSU Tigers": 33.5,
     "James Madison Dukes": 21.1,
     "Tennessee Volunteers": 29.7,
-    "Texas Longhorns": 29.4,
+    "Texas Longhorns": 29.3,
     "Boise State Broncos": 21.3,
     "Oklahoma State Cowboys": 25.1,
     "Texas Tech Red Raiders": 21.7,
-    "Memphis Tigers": 16.2,
-    "South Florida Bulls": 9.9,
+    "Memphis Tigers": 16.1,
     "North Texas Mean Green": 17.2,
     "Louisville Cardinals": 22.9,
     "Oregon State Beavers": 15.5,
@@ -527,7 +526,7 @@
     "Arizona Wildcats": 22.7,
     "Toledo Rockets": 9.5,
     "Louisiana Tech Bulldogs": 15.6,
-    "BYU Cougars": 21.3,
+    "BYU Cougars": 21.4,
     "Houston Cougars": 22.7,
     "Nebraska Cornhuskers": 22.0,
     "Baylor Bears": 23.9,
@@ -537,13 +536,14 @@
     "Oregon Ducks": 23.9,
     "Wisconsin Badgers": 19.0,
     "Missouri Tigers": 22.5,
+    "Louisiana Ragin' Cajuns": 10.5,
     "Northwestern Wildcats": 21.4,
     "South Carolina Gamecocks": 24.2,
-    "Virginia Tech Hokies": 12.6,
+    "Virginia Tech Hokies": 12.7,
     "USC Trojans": 19.0,
     "Penn State Nittany Lions": 18.4,
     "Western Michigan Broncos": 9.3,
-    "Louisiana Ragin' Cajuns": 9.8,
+    "South Florida Bulls": 8.8,
     "Tulsa Golden Hurricane": 14.1,
     "TCU Horned Frogs": 17.1,
     "Ohio Bobcats": 3.9,
@@ -580,7 +580,7 @@
     "Central Michigan Chippewas": 0.9,
     "Cincinnati Bearcats": 11.7,
     "NC State Wolfpack": 5.7,
-    "UNLV Rebels": 3.2,
+    "UNLV Rebels": 3.3,
     "Arkansas State Red Wolves": 1.9,
     "Florida State Seminoles": 12.9,
     "San Jos\u00e9 State Spartans": 1.1,
@@ -590,7 +590,7 @@
     "Auburn Tigers": 13.6,
     "Mississippi State Bulldogs": 13.8,
     "South Alabama Jaguars": 2.9,
-    "West Virginia Mountaineers": 12.2,
+    "West Virginia Mountaineers": 12.3,
     "Nevada Wolf Pack": 2.2,
     "Navy Midshipmen": 5.1,
     "Troy Trojans": -0.4,
@@ -626,8 +626,8 @@
     "Ball State Cardinals": -11.9,
     "Colorado State Rams": -3.4,
     "Rice Owls": -6.7,
-    "UL Monroe Warhawks": -11.7,
     "Stanford Cardinal": -7.1,
+    "UL Monroe Warhawks": -12.1,
     "Akron Zips": -12.8,
     "UTEP Miners": -16.0,
     "Charlotte 49ers": -13.3,

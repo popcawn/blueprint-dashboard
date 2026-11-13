@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-12T21:13:28Z",
+  "generated": "2026-11-13T20:42:19Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -396,7 +396,7 @@
         "0.37 #7"
       ],
       "index": 69.8,
-      "rtg": 0.301,
+      "rtg": 0.3,
       "alive": false,
       "next": null,
       "seed": 10,
@@ -464,7 +464,7 @@
         "0.50 #11"
       ],
       "index": 50.4,
-      "rtg": -0.22,
+      "rtg": -0.219,
       "alive": false,
       "next": null,
       "seed": 12,
@@ -532,7 +532,7 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.54,
+      "rtg": -0.539,
       "alive": false,
       "next": null,
       "seed": 15,
@@ -566,7 +566,7 @@
         "0.57 #14"
       ],
       "index": 38.9,
-      "rtg": -0.487,
+      "rtg": -0.486,
       "alive": false,
       "next": null,
       "seed": 14,
@@ -600,7 +600,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.274,
+      "rtg": -1.273,
       "alive": false,
       "next": null,
       "seed": 16,

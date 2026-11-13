@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-13T16:36:05Z",
-  "odds_remaining": "56900",
+  "generated": "2026-11-13T20:41:55Z",
+  "odds_remaining": "56479",
   "prediction": {
     "pick": "Minnesota Timberwolves",
     "why": "<b>Minnesota Timberwolves</b> is the pick \u2014 the top team the model actually trusts (fair +705). Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
@@ -466,12 +466,12 @@
       "rtg": 2.1,
       "fair_pct": 1.6,
       "fair_odds": "+5976",
-      "market": "+8000",
-      "ev": 33,
+      "market": "+7500",
+      "ev": 25,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 33
+        "ev": 25
       },
       "read": {
         "v": "caution",
