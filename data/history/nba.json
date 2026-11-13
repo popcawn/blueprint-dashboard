@@ -2929,5 +2929,137 @@
     "ev": -79
    }
   }
+ },
+ {
+  "date": "2026-11-13",
+  "gp": 13,
+  "teams": {
+   "Minnesota Timberwolves": {
+    "sc": 4,
+    "idx": 93.5,
+    "fp": 12.4,
+    "mkt": "+1700",
+    "ev": 123
+   },
+   "San Antonio Spurs": {
+    "sc": 4,
+    "idx": 90.8,
+    "fp": 11.4,
+    "mkt": "+270",
+    "ev": -58
+   },
+   "Boston Celtics": {
+    "sc": 3,
+    "idx": 92.1,
+    "fp": 24.0,
+    "mkt": "+950",
+    "ev": 152
+   },
+   "Houston Rockets": {
+    "sc": 3,
+    "idx": 84.0,
+    "fp": 6.4,
+    "mkt": "+1400",
+    "ev": -5
+   },
+   "Los Angeles Lakers": {
+    "sc": 3,
+    "idx": 82.8,
+    "fp": 6.1,
+    "mkt": "+2200",
+    "ev": 40
+   },
+   "Golden State Warriors": {
+    "sc": 3,
+    "idx": 77.9,
+    "fp": 5.1,
+    "mkt": "+4000",
+    "ev": 108
+   },
+   "Detroit Pistons": {
+    "sc": 2,
+    "idx": 80.5,
+    "fp": 11.4,
+    "mkt": "+2000",
+    "ev": 139
+   },
+   "Portland Trail Blazers": {
+    "sc": 2,
+    "idx": 78.4,
+    "fp": 3.4,
+    "mkt": "+3000",
+    "ev": 7
+   },
+   "Memphis Grizzlies": {
+    "sc": 2,
+    "idx": 73.1,
+    "fp": 2.8,
+    "mkt": "+20000",
+    "ev": 461
+   },
+   "Oklahoma City Thunder": {
+    "sc": 2,
+    "idx": 71.6,
+    "fp": 2.6,
+    "mkt": "+500",
+    "ev": -84
+   },
+   "Philadelphia 76ers": {
+    "sc": 2,
+    "idx": 69.1,
+    "fp": 7.2,
+    "mkt": "+900",
+    "ev": -28
+   },
+   "New York Knicks": {
+    "sc": 1,
+    "idx": 74.3,
+    "fp": 2.8,
+    "mkt": "+900",
+    "ev": -72
+   },
+   "Atlanta Hawks": {
+    "sc": 1,
+    "idx": 62.3,
+    "fp": 1.6,
+    "mkt": "+8000",
+    "ev": 33
+   },
+   "Denver Nuggets": {
+    "sc": 1,
+    "idx": 61.7,
+    "fp": 0.5,
+    "mkt": "+2500",
+    "ev": -86
+   },
+   "Cleveland Cavaliers": {
+    "sc": 1,
+    "idx": 60.3,
+    "fp": 1.5,
+    "mkt": "+3000",
+    "ev": -54
+   },
+   "Miami Heat": {
+    "sc": 1,
+    "idx": 44.2,
+    "fp": 0.6,
+    "mkt": "+6000",
+    "ev": -64
+   },
+   "New Orleans Pelicans": {
+    "sc": 1,
+    "idx": 33.1,
+    "fp": 0.1,
+    "mkt": "+100000",
+    "ev": -19
+   },
+   "Charlotte Hornets": {
+    "sc": 1,
+    "idx": 29.5,
+    "fp": 0.2,
+    "mkt": "+17500",
+    "ev": -69
+   }
+  }
  }
 ]
