@@ -3061,5 +3061,137 @@
     "ev": -69
    }
   }
+ },
+ {
+  "date": "2026-11-14",
+  "gp": 13,
+  "teams": {
+   "San Antonio Spurs": {
+    "sc": 4,
+    "idx": 95.8,
+    "fp": 12.8,
+    "mkt": "+270",
+    "ev": -53
+   },
+   "Minnesota Timberwolves": {
+    "sc": 4,
+    "idx": 93.4,
+    "fp": 11.9,
+    "mkt": "+1600",
+    "ev": 102
+   },
+   "Memphis Grizzlies": {
+    "sc": 4,
+    "idx": 77.7,
+    "fp": 6.8,
+    "mkt": "+20000",
+    "ev": 1274
+   },
+   "Boston Celtics": {
+    "sc": 3,
+    "idx": 91.9,
+    "fp": 24.0,
+    "mkt": "+950",
+    "ev": 152
+   },
+   "Houston Rockets": {
+    "sc": 3,
+    "idx": 83.5,
+    "fp": 6.0,
+    "mkt": "+1400",
+    "ev": -10
+   },
+   "Portland Trail Blazers": {
+    "sc": 3,
+    "idx": 79.4,
+    "fp": 5.1,
+    "mkt": "+2700",
+    "ev": 44
+   },
+   "Los Angeles Lakers": {
+    "sc": 2,
+    "idx": 82.0,
+    "fp": 3.8,
+    "mkt": "+2200",
+    "ev": -13
+   },
+   "Detroit Pistons": {
+    "sc": 2,
+    "idx": 79.9,
+    "fp": 11.6,
+    "mkt": "+1900",
+    "ev": 133
+   },
+   "Oklahoma City Thunder": {
+    "sc": 2,
+    "idx": 68.2,
+    "fp": 2.2,
+    "mkt": "+500",
+    "ev": -87
+   },
+   "Golden State Warriors": {
+    "sc": 2,
+    "idx": 67.9,
+    "fp": 2.1,
+    "mkt": "+4000",
+    "ev": -12
+   },
+   "Philadelphia 76ers": {
+    "sc": 2,
+    "idx": 67.9,
+    "fp": 7.1,
+    "mkt": "+900",
+    "ev": -29
+   },
+   "New York Knicks": {
+    "sc": 1,
+    "idx": 70.9,
+    "fp": 2.5,
+    "mkt": "+850",
+    "ev": -76
+   },
+   "Denver Nuggets": {
+    "sc": 1,
+    "idx": 60.5,
+    "fp": 0.5,
+    "mkt": "+2700",
+    "ev": -87
+   },
+   "Atlanta Hawks": {
+    "sc": 1,
+    "idx": 57.8,
+    "fp": 1.4,
+    "mkt": "+8000",
+    "ev": 11
+   },
+   "Cleveland Cavaliers": {
+    "sc": 1,
+    "idx": 55.1,
+    "fp": 1.2,
+    "mkt": "+3000",
+    "ev": -63
+   },
+   "Miami Heat": {
+    "sc": 1,
+    "idx": 46.6,
+    "fp": 0.7,
+    "mkt": "+6500",
+    "ev": -52
+   },
+   "Charlotte Hornets": {
+    "sc": 1,
+    "idx": 27.4,
+    "fp": 0.1,
+    "mkt": "+15000",
+    "ev": -78
+   },
+   "New Orleans Pelicans": {
+    "sc": 1,
+    "idx": 25.8,
+    "fp": 0.0,
+    "mkt": "+100000",
+    "ev": -63
+   }
+  }
  }
 ]
