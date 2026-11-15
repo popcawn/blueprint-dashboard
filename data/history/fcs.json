@@ -2572,5 +2572,116 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-15",
+  "gp": 11,
+  "teams": {
+   "South Dakota State": {
+    "sc": 5,
+    "idx": 95.1,
+    "fp": 48.1,
+    "mkt": "+225",
+    "ev": 56
+   },
+   "Montana State": {
+    "sc": 5,
+    "idx": 89.9,
+    "fp": 20.9,
+    "mkt": "+400",
+    "ev": 5
+   },
+   "Stephen F. Austin": {
+    "sc": 5,
+    "idx": 88.1,
+    "fp": 15.4,
+    "mkt": "+1300",
+    "ev": 115
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 81.7,
+    "fp": 5.0,
+    "mkt": "+900",
+    "ev": -50
+   },
+   "Lamar": {
+    "sc": 5,
+    "idx": 77.5,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Harvard": {
+    "sc": 4,
+    "idx": 77.2,
+    "fp": 1.1,
+    "mkt": "+10000",
+    "ev": 8
+   },
+   "Abilene Christian": {
+    "sc": 3,
+    "idx": 76.8,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Mercer": {
+    "sc": 3,
+    "idx": 75.7,
+    "fp": 0.4,
+    "mkt": "+25000",
+    "ev": 1
+   },
+   "Tennessee Tech": {
+    "sc": 3,
+    "idx": 74.7,
+    "fp": 0.3,
+    "mkt": "+6000",
+    "ev": -80
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 64.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 86.9,
+    "fp": 1.6,
+    "mkt": "+380",
+    "ev": -92
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 84.2,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 84,
+    "fp": 0.9,
+    "mkt": "+2000",
+    "ev": -80
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 83.1,
+    "fp": 0.8,
+    "mkt": "+1300",
+    "ev": -89
+   },
+   "Austin Peay": {
+    "sc": 2,
+    "idx": 77.6,
+    "fp": 0.3,
+    "mkt": "+2500",
+    "ev": -92
+   }
+  }
  }
 ]

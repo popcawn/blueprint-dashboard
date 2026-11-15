@@ -3193,5 +3193,130 @@
     "ev": -63
    }
   }
+ },
+ {
+  "date": "2026-11-15",
+  "gp": 14,
+  "teams": {
+   "San Antonio Spurs": {
+    "sc": 4,
+    "idx": 95.9,
+    "fp": 13.4,
+    "mkt": "+270",
+    "ev": -51
+   },
+   "Minnesota Timberwolves": {
+    "sc": 4,
+    "idx": 87.4,
+    "fp": 10.1,
+    "mkt": "+1700",
+    "ev": 82
+   },
+   "Houston Rockets": {
+    "sc": 4,
+    "idx": 83.5,
+    "fp": 8.8,
+    "mkt": "+1500",
+    "ev": 41
+   },
+   "Memphis Grizzlies": {
+    "sc": 4,
+    "idx": 80.0,
+    "fp": 7.8,
+    "mkt": "+20000",
+    "ev": 1459
+   },
+   "Boston Celtics": {
+    "sc": 3,
+    "idx": 92.2,
+    "fp": 24.0,
+    "mkt": "+950",
+    "ev": 152
+   },
+   "Los Angeles Lakers": {
+    "sc": 2,
+    "idx": 81.5,
+    "fp": 3.9,
+    "mkt": "+2200",
+    "ev": -11
+   },
+   "Portland Trail Blazers": {
+    "sc": 2,
+    "idx": 79.1,
+    "fp": 3.5,
+    "mkt": "+3000",
+    "ev": 9
+   },
+   "Detroit Pistons": {
+    "sc": 2,
+    "idx": 72.2,
+    "fp": 9.2,
+    "mkt": "+2000",
+    "ev": 94
+   },
+   "Oklahoma City Thunder": {
+    "sc": 2,
+    "idx": 68.1,
+    "fp": 2.3,
+    "mkt": "+500",
+    "ev": -86
+   },
+   "Philadelphia 76ers": {
+    "sc": 2,
+    "idx": 67.7,
+    "fp": 7.6,
+    "mkt": "+900",
+    "ev": -24
+   },
+   "Golden State Warriors": {
+    "sc": 2,
+    "idx": 67.5,
+    "fp": 2.2,
+    "mkt": "+4000",
+    "ev": -10
+   },
+   "New York Knicks": {
+    "sc": 1,
+    "idx": 71.0,
+    "fp": 2.7,
+    "mkt": "+850",
+    "ev": -74
+   },
+   "Denver Nuggets": {
+    "sc": 1,
+    "idx": 62.6,
+    "fp": 0.5,
+    "mkt": "+2500",
+    "ev": -86
+   },
+   "Atlanta Hawks": {
+    "sc": 1,
+    "idx": 57.1,
+    "fp": 1.4,
+    "mkt": "+8000",
+    "ev": 16
+   },
+   "Cleveland Cavaliers": {
+    "sc": 1,
+    "idx": 57.0,
+    "fp": 1.4,
+    "mkt": "+3000",
+    "ev": -56
+   },
+   "Miami Heat": {
+    "sc": 1,
+    "idx": 50.7,
+    "fp": 1.0,
+    "mkt": "+6000",
+    "ev": -39
+   },
+   "Charlotte Hornets": {
+    "sc": 1,
+    "idx": 27.0,
+    "fp": 0.2,
+    "mkt": "+15000",
+    "ev": -77
+   }
+  }
  }
 ]
