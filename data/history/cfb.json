@@ -2117,96 +2117,110 @@
   "date": "2026-11-15",
   "gp": 11,
   "teams": {
-   "Georgia Bulldogs": {
-    "sc": 5,
-    "idx": 92.6,
-    "fp": 24.8,
-    "mkt": "+210",
-    "ev": -23,
-    "mw": 26.11
-   },
    "Notre Dame Fighting Irish": {
     "sc": 5,
-    "idx": 91.0,
-    "fp": 14.2,
-    "mkt": "+370",
-    "ev": -33,
-    "mw": 14.92
+    "idx": 92.7,
+    "fp": 15.0,
+    "mkt": "+380",
+    "ev": -28,
+    "mw": 16.05
+   },
+   "Georgia Bulldogs": {
+    "sc": 5,
+    "idx": 92.5,
+    "fp": 24.9,
+    "mkt": "+210",
+    "ev": -23,
+    "mw": 26.56
    },
    "Wake Forest Demon Deacons": {
     "sc": 3,
-    "idx": 90.6,
-    "fp": 5.5,
-    "mkt": "+3300",
-    "ev": 88,
-    "mw": 5.81
-   },
-   "New Mexico Lobos": {
-    "sc": 3,
-    "idx": 88.6,
-    "fp": 0.1,
-    "mkt": "+125000",
-    "ev": 62,
-    "mw": 0.14
+    "idx": 92.6,
+    "fp": 5.9,
+    "mkt": "+2700",
+    "ev": 66,
+    "mw": 6.32
    },
    "Miami Hurricanes": {
     "sc": 3,
-    "idx": 87.8,
-    "fp": 24.2,
+    "idx": 86.5,
+    "fp": 23.0,
     "mkt": "+1100",
-    "ev": 191,
-    "mw": 25.48
-   },
-   "Indiana Hoosiers": {
-    "sc": 3,
-    "idx": 85.3,
-    "fp": 12.6,
-    "mkt": "+900",
-    "ev": 26,
-    "mw": 13.21
+    "ev": 176,
+    "mw": 24.61
    },
    "UCLA Bruins": {
     "sc": 3,
     "idx": 85.2,
-    "fp": 13.6,
-    "mkt": "+3300",
-    "ev": 364,
-    "mw": 14.34
+    "fp": 13.7,
+    "mkt": "+3000",
+    "ev": 324,
+    "mw": 14.6
    },
-   "Utah Utes": {
-    "sc": 2,
-    "idx": 84.3,
-    "fp": 3.6,
-    "mkt": "+2500",
-    "ev": -5
+   "New Mexico Lobos": {
+    "sc": 3,
+    "idx": 84.9,
+    "fp": 0.1,
+    "mkt": "+125000",
+    "ev": 36,
+    "mw": 0.12
+   },
+   "Indiana Hoosiers": {
+    "sc": 3,
+    "idx": 83.8,
+    "fp": 11.0,
+    "mkt": "+900",
+    "ev": 10,
+    "mw": 11.74
    },
    "Liberty Flames": {
     "sc": 2,
-    "idx": 83.6,
+    "idx": 82.1,
     "fp": 0.0,
     "mkt": "+125000",
-    "ev": -75
+    "ev": -77
+   },
+   "Utah Utes": {
+    "sc": 2,
+    "idx": 81.9,
+    "fp": 3.8,
+    "mkt": "+2500",
+    "ev": -2
    },
    "North Dakota State Bison": {
     "sc": 2,
-    "idx": 79.3,
+    "idx": 78.7,
     "fp": 0.0,
     "mkt": null,
     "ev": null
    },
    "Iowa Hawkeyes": {
     "sc": 2,
-    "idx": 77.4,
+    "idx": 77.9,
     "fp": 0.8,
     "mkt": "+10000",
-    "ev": -16
+    "ev": -17
+   },
+   "Nebraska Cornhuskers": {
+    "sc": 2,
+    "idx": 73.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Texas Tech Red Raiders": {
+    "sc": 2,
+    "idx": 71.3,
+    "fp": 1.4,
+    "mkt": "+7000",
+    "ev": 0
    },
    "Boise State Broncos": {
     "sc": 2,
-    "idx": 71.2,
-    "fp": 0.4,
+    "idx": 70.4,
+    "fp": 0.3,
     "mkt": "+12500",
-    "ev": -56
+    "ev": -58
    }
   }
  }
