@@ -189,22 +189,45 @@ def american(p):
     if p < 1/501: return "+50000+"   # bottom-of-board teams: books cap around here, a 7-digit price is just noise
     return f"+{round(100*(1-p)/p)}" if p < 0.5 else f"-{round(100*p/(1-p))}"
 
+BOOKS = {"fanduel": "FanDuel", "draftkings": "DraftKings"}   # the books the user bets at
+_dec = lambda a: 1 + a / 100 if a > 0 else 1 + 100 / abs(a)
+
+class Prices(dict):
+    """{team: best American price}; .books = {team: {book: price}} for the cards (which book has the better number)."""
+    books = {}
+
 def fetch_futures(sport_key):
-    """Return {team: american_odds} from FanDuel, or {} if no key / error. Also returns remaining credits."""
+    """Title futures from FanDuel AND DraftKings (2026-11-16, user: "blueprints should pull odds from fanduel and draftkings" -- DraftKings
+       had the Wild +1100 against FanDuel's +850). Returns ({team: the better of the two prices}, credits left); the per-book prices ride
+       along as .books so each card can show both. Still one credit a pull (up to 10 bookmakers count as one region). {} if no key / error."""
     if not ODDS_KEY:
         return {}, None
     url = (f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/"
-           f"?apiKey={ODDS_KEY}&regions=us&markets=outrights&oddsFormat=american&bookmakers=fanduel")
+           f"?apiKey={ODDS_KEY}&regions=us&markets=outrights&oddsFormat=american&bookmakers={','.join(BOOKS)}")
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "blueprint-dashboard"})
         resp = urllib.request.urlopen(req, timeout=40)
         remaining = resp.headers.get("x-requests-remaining")
-        d = json.load(resp)
-        fd = [b for b in d[0]["bookmakers"] if b["key"] == "fanduel"][0]
-        return {o["name"]: o["price"] for o in fd["markets"][0]["outcomes"]}, remaining
+        d = json.load(resp); per = {}
+        for ev in d:
+            for b in ev.get("bookmakers", []):
+                if b["key"] not in BOOKS: continue
+                for m in b.get("markets", []):
+                    for o in m.get("outcomes", []): per.setdefault(o["name"], {})[BOOKS[b["key"]]] = o["price"]
+        if not per: raise ValueError("no FanDuel or DraftKings prices in the feed")
+        out = Prices({n: max(v.values(), key=_dec) for n, v in per.items()}); out.books = per
+        return out, remaining
     except Exception as e:
         print(f"  odds pull failed ({sport_key}): {e}", file=sys.stderr)
         return {}, None
+
+def with_books(matched, live, matcher):
+    """Keep the per-book prices when a board renames the feed's teams: matched = {board name: best price}, matcher = the same renaming."""
+    out = Prices(matched); per = {}
+    for bk in BOOKS.values():
+        for n, px in matcher({k: v[bk] for k, v in getattr(live, "books", {}).items() if bk in v}).items(): per.setdefault(n, {})[bk] = px
+    out.books = per
+    return out
 
 def fetch_game_lines(sport_key, book="fanduel"):
     """(2026-11-08, user: "pull prices from fanduel") upcoming games' moneylines + spreads from ONE book via the Odds API -- for the NFL
@@ -506,7 +529,7 @@ def nfl_row(t):
                  f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
         "rtg": round(t['mrtg'], 1),   # matchup rating: last season's PD/g as a 7-game prior (see NFL_MU_*)
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
+        "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 
 # ----------------------------------------------------------------------------- CFB
 def build_cfb():
@@ -678,7 +701,7 @@ def cfb_row(t):
         # out-of-sample (70.8% vs 70.0%, Brier .1916 vs .1969) by deflating soft-schedule margins.
         "rtg": round(0.5 * t['margin'] + 0.5 * t.get('srs', 0.0), 1),
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
+        "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"),
         "mw": round(t["mw"]*100, 2) if t.get("mw") else None,
         "held": t.get("held") or 0,   # the #1's releases in a row on top (value-play gate, see cfb_held)
         "cfp": t.get("cfp"), "infield": round(t["infield"]*100) if t.get("infield") is not None else None}
@@ -997,7 +1020,7 @@ def nhl_row(t):
         "rtg": round(0.4 * (t['esdiff'] / t['gp']) + 0.6 * ((t['corsi'] - 50) * 0.11), 2) if t.get('gp') else 0,
         "sv5": f"{t['essv']:.1f}% #{t['rk_sv']}",   # display only: 5v5 save% (goaltending) -- not a criterion, but the Read and the odds use it
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
+        "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
 
 # ----------------------------------------------------------------------------- NBA (ESPN; live once the season tips off ~late Oct)
 NBA_EAST = {"Boston Celtics","Brooklyn Nets","New York Knicks","Philadelphia 76ers","Toronto Raptors",
@@ -1541,7 +1564,7 @@ def build_nba():
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t['pdg'], 1),
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec")} for t in rows if t["score"] >= 1],
+            "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec")} for t in rows if t["score"] >= 1],
         "rtgs": {t["name"]: round(t["pdg"], 1) for t in rows}})   # every team, for the matchup sim
     return base
 
@@ -1557,10 +1580,11 @@ def cap_odds(pool, cap):
     for t in pool: t["fair_odds"] = american(t["p"])
 
 def attach(allteams, pool, fd, srs_rank=None):
-    pmap = {t["name"]: t["p"] for t in pool}
+    pmap = {t["name"]: t["p"] for t in pool}; books = getattr(fd, "books", {})
     for t in allteams:
         mk = fd.get(t["name"])
         t["mk"] = mk
+        if books.get(t["name"]): t["books"] = books[t["name"]]   # {"FanDuel": 850, "DraftKings": 1100}; mk = the better one
         t["market"] = (f"+{mk}" if mk > 0 else str(mk)) if mk is not None else None
         p = pmap.get(t["name"], 0)
         if mk is not None and p > 0:
@@ -1972,7 +1996,7 @@ def build_wnba():
             "vals": [f"{t['winpct']:.3f}", f"{t['nrtg']:+.1f} #{t['rk_pd']}", f"{t['drtg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t["pdg"], 1),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1 or t["p"] >= 0.01],
+            "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1 or t["p"] >= 0.01],
         "rtgs": {t["name"]: round(t["pdg"], 1) for t in rows}})   # every team, for the matchup sim
     return base
 
@@ -2073,12 +2097,12 @@ def build_mlb():
     fd, rem, snap, asof = {}, None, {}, None
     if not first_po:
         live, rem = fetch_futures("baseball_mlb_world_series_winner")
-        fd = match_book(names, live)
+        fd = with_books(match_book(names, live), live, lambda o: match_book(names, o))
         if live and len(field) >= 12:
             try:
                 with open(os.path.join(DATA, "mlb_book.json"), "w", encoding="utf-8") as f:
-                    json.dump({"date": datetime.date.today().isoformat(), "time": now_iso(), "book": "FanDuel",
-                               "source": "auto-saved by the bot: FanDuel via the Odds API, the last pull before the first playoff game",
+                    json.dump({"date": datetime.date.today().isoformat(), "time": now_iso(), "book": "FanDuel / DraftKings",
+                               "source": "auto-saved by the bot: the better of FanDuel and DraftKings via the Odds API, the last pull before the first playoff game",
                                "odds": live}, f, indent=1)
             except Exception:
                 pass
@@ -2103,7 +2127,7 @@ def build_mlb():
                      f"{t['pbabip']:.3f} #{t['rk_pb']}", f"{t['deff']:.3f} #{t['rk_def']}", (f"{t['oaa']:+.0f} #{t['rk_drs']}" if t['oaa'] is not None else "n/a")],
             "rtg": round(t["rdg"], 2),
             "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1],
+            "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")} for t in rows if t["score"] >= 1],
         "rtgs": {t["name"]: round(t["rdg"], 2) for t in rows}})   # every team, for the matchup sim
     return base
 
@@ -2115,7 +2139,9 @@ def build_college_bb(key):
     import cbb as C
     fd_raw, rem, asof, alt_raw, mname, alt_name = {}, None, None, None, "FanDuel", None
     if key == "cbb":
-        fd_raw, rem = fetch_futures("basketball_ncaab_championship_winner")
+        both, rem = fetch_futures("basketball_ncaab_championship_winner"); bk = getattr(both, "books", {})
+        fd_raw = {n: v["FanDuel"] for n, v in bk.items() if "FanDuel" in v}; alt_raw = {n: v["DraftKings"] for n, v in bk.items() if "DraftKings" in v}
+        if not fd_raw: fd_raw, alt_raw = alt_raw, None   # DraftKings only
     else:
         snap = {}
         try: snap = json.load(open(os.path.join(DATA, "wcbb_fd.json"), encoding="utf-8"))
@@ -2128,10 +2154,15 @@ def build_college_bb(key):
     base["generated"] = now_iso(); base["odds_remaining"] = rem; base["market_asof"] = asof
     base["market_name"] = mname; base["alt_name"] = alt_name
     if base.get("status") == "preseason": return base
-    rows = base["teams"]
+    rows = base["teams"]; two = {}
     for t in rows:
         t["fair_pct"] = round(t["p"] * 100, 1) if t["p"] else None; t["fair_odds"] = american(t["p"]) if t["p"] else None; t["read"] = None
-    attach(rows, [t for t in rows if t["p"] > 0], {t["name"]: t["mk"] for t in rows if t.get("mk") is not None})
+        if key == "cbb" and t.get("alt") is not None:   # both books: show both on the card, price the EV off the better one
+            dk = _price_num(t["alt"]); two[t["name"]] = {**({"FanDuel": t["mk"]} if t.get("mk") is not None else {}), "DraftKings": dk}
+            t["mk"] = max(two[t["name"]].values(), key=_dec); t["alt"] = None
+        elif key == "cbb" and t.get("mk") is not None and alt_raw is not None: two[t["name"]] = {"FanDuel": t["mk"]}
+    px = Prices({t["name"]: t["mk"] for t in rows if t.get("mk") is not None}); px.books = two
+    attach(rows, [t for t in rows if t["p"] > 0], px)
     top = max(rows, key=lambda t: t["p"]) if rows else None
     if top:
         src = "preseason roster projection" if base.get("use_pre") else "blueprint (index × fair odds)"
@@ -2609,6 +2640,8 @@ def main():
                 if name == "chk" and not data.get("window_closed") and datetime.date.today().isoformat() < data.get("bet_from", "9999"):   # (2026-11-10) shortlist only before March 1
                     data["signal"] = {"status": "firming", "emoji": "🟡", "label": "Shortlist only",
                                       "note": f"Fair as a top-5 shortlist (17-season backtest), but no bets before March 1: a value play needs a top-5 team at EV >= +25%, from March 1 until the first NCAA-tournament game. The #1 still wins only about 1 title in 6."}
+                seen = {b for t in data.get("teams", []) for b in (t.get("books") or {})}
+                if seen: data["market_name"] = " / ".join(b for b in BOOKS.values() if b in seen)   # (2026-11-16) the books this board's prices came from (the feed has no DraftKings for NHL / NBA / college hoops titles); with two, each card shows both and the EV uses the better price
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
                 if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads

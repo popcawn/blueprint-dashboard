@@ -166,6 +166,7 @@
   .vd.bigfade{background:var(--bad);color:#fff}
   .vd.trap{background:#fde6c7;color:#b45309}
   .vd.gap{background:var(--panel2);color:var(--ink3);font-weight:700}
+  .foot b.bestpx{color:var(--good)}
   .read{display:flex;gap:9px;align-items:flex-start;margin:11px 0 3px;padding:10px 12px;border-radius:12px}
   .read.trust{background:var(--goodbg);border:1px solid #bfe6d0} .read.caution{background:var(--warnbg);border:1px solid #ecd9a6} .read.fools_gold{background:var(--badbg);border:1px solid #f3c2c7}
   .rv{flex:0 0 auto;font-size:10px;font-weight:800;letter-spacing:.05em;padding:3px 8px;border-radius:7px;white-space:nowrap;margin-top:1px;color:#fff}
@@ -590,7 +591,11 @@ function verdictPill(v){ if(!v) return "";
   const ic=VICON[v.kind]?VICON[v.kind]+" ":"";
   return `<span class="vd ${v.kind}" title="${VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
 }
-const MK=sp=>(DATA[sp]&&DATA[sp].market_name)||"FanDuel";   // screenshot-priced boards (MLS/FCS/WCBB) carry the saved book's name
+const MK=sp=>(DATA[sp]&&DATA[sp].market_name)||"FanDuel";
+// (2026-11-16) boards priced off FanDuel AND DraftKings: t.books = {book: price}, t.market = the better one (the EV uses it)
+const fmtA=p=>(p>0?"+":"")+p, BKAB={FanDuel:"FD",DraftKings:"DK"};
+const bestBk=t=>{ const e=t.books&&Object.entries(t.books).find(([b,p])=>fmtA(p)===t.market); return e?e[0]:null; };
+const bkAb=(t,sp)=>{ const b=bestBk(t); return b?(BKAB[b]||b):(MK(sp)==="FanDuel"?"FD":MK(sp)); };   // screenshot-priced boards (MLS/FCS/WCBB) carry the saved book's name
 const shortNm=n=>n? n.split(" ").slice(-1)[0] : "—";
 function spark(v){ if(v.length<2)return""; const w=56,h=15,mn=Math.min(...v),mx=Math.max(...v),r=(mx-mn)||1;
   const p=v.map((x,i)=>`${(i/(v.length-1)*w).toFixed(1)},${(h-(x-mn)/r*(h-3)-1.5).toFixed(1)}`).join(" ");
@@ -622,9 +627,9 @@ function top8(d,sp){
     const mv=rk.length<2?"":was==null||was>8?`<span class="t8mv nw">NEW</span>`:was>n?`<span class="t8mv up">▲${was-n}</span>`:was<n?`<span class="t8mv dn">▼${n-was}</span>`:"";
     const k=t.verdict?T8EV[t.verdict.kind]||"n":"n";
     const tr=rk.length?`<div class="t8tr">${rk.map(r=>{const x=r[t.name];return `<i class="${x<=3?'a':x<=5?'b':x<=8?'c':''}"></i>`;}).join("")}</div>`:"";
-    return `<div class="t8c ${k==="g"?"g":""}" title="${t.name} · ${MK(sp)} ${t.market||"—"} · fair ${t.fair_odds||"—"}${t.verdict?" · "+t.verdict.label:""}">
+    return `<div class="t8c ${k==="g"?"g":""}" title="${t.name} · ${t.books?Object.entries(t.books).map(([b,p])=>b+" "+fmtA(p)).join(" · "):MK(sp)+" "+(t.market||"—")} · fair ${t.fair_odds||"—"}${t.verdict?" · "+t.verdict.label:""}">
       <div class="t8top"><span class="t8rk">#${n}</span>${mv}<span class="t8ev ${k}">${t.ev!=null?fmtEV(t.ev):"—"}</span></div>
-      <div class="t8nm">${FULLNM.includes(sp)?t.name:shortNm(t.name)}</div><div class="t8m">${t.market?`${MK(sp)==="FanDuel"?"FD":MK(sp)} ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
+      <div class="t8nm">${FULLNM.includes(sp)?t.name:shortNm(t.name)}</div><div class="t8m">${t.market?`${bkAb(t,sp)} ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
   return `<div class="t8"><div class="t8h"><b>🏁 Top 8</b><span>${sp==="cfb"?"model rank (index × schedule)":sp==="mls"?"model rank (title % from the season + playoff sim)":sp==="cfl"?"model rank (Grey Cup % from the bracket sim)":FOOTY.includes(sp)?"model rank (title % from the season + finals sim)":sp==="nwsl"?"model rank (title % from the playoff bracket sim)":BYODDS.includes(sp)?"model rank (fair title odds)":"rank by index"} · EV vs ${MK(sp)} beside each · green = value</span>${rk.length>1?`<span class="r">▲▼ vs ${wks} week${wks===1?"":"s"} ago · bars = ${rk.length} weekly snapshots (dark top-3 · mid top-5 · light top-8)</span>`:""}</div><div class="t8g">${cells}</div></div>`;
 }
 
@@ -659,7 +664,7 @@ function card(t,sp){
       <span class="idx">${t._irank?`<span class="irank" title="${sp==="cfb"?"Model rank: index × schedule strength (the backtested order, same as the Top 8)":"Overall rank by index (strength). The calibration line's 'top-N' is measured here."}">#${t._irank}</span> `:""}<span${t.vs500?` title="vs .500+ teams: ${t.vs500} (half the NBA index)"`:""}>index <b>${t.index??"—"}</b></span></span></div>
     ${read}<div class="chips">${pre}${chips}</div>
     <div class="foot"><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
-      <div><span class="k">${MK(sp)}</span><b>${t.market||"—"}</b></div>${t.alt&&DATA[sp].alt_name?`<div><span class="k" title="hand-entered sportsbook screenshot — not live">${DATA[sp].alt_name}</span><b>${t.alt}</b></div>`:""}${srs}${cons}</div></div>`;
+      ${t.books?Object.entries(t.books).map(([b,p])=>{const top=fmtA(p)===t.market&&new Set(Object.values(t.books)).size>1; return `<div${top?' title="The better of the two prices — the EV on this card uses it"':''}><span class="k">${b}</span><b class="${top?'bestpx':''}">${fmtA(p)}</b></div>`;}).join(""):`<div><span class="k">${MK(sp)}</span><b>${t.market||"—"}</b></div>`}${t.alt&&DATA[sp].alt_name?`<div><span class="k" title="hand-entered sportsbook screenshot — not live">${DATA[sp].alt_name}</span><b>${t.alt}</b></div>`:""}${srs}${cons}</div></div>`;
 }
 
 function render(){

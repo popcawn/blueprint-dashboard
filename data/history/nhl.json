@@ -5084,173 +5084,173 @@
     "mkt": "+550",
     "ev": 65
    },
+   "New Jersey Devils": {
+    "sc": 4,
+    "idx": 75.8,
+    "fp": 5.3,
+    "mkt": "+1000",
+    "ev": -42
+   },
    "Minnesota Wild": {
     "sc": 4,
     "idx": 74.4,
-    "fp": 11.9,
+    "fp": 12.0,
     "mkt": "+850",
-    "ev": 13
+    "ev": 14
    },
    "Tampa Bay Lightning": {
     "sc": 4,
-    "idx": 71.9,
-    "fp": 6.4,
+    "idx": 72.1,
+    "fp": 5.9,
     "mkt": "+1200",
-    "ev": -17
-   },
-   "Vegas Golden Knights": {
-    "sc": 4,
-    "idx": 66.0,
-    "fp": 7.0,
-    "mkt": "+950",
-    "ev": -26
+    "ev": -23
    },
    "Dallas Stars": {
     "sc": 4,
-    "idx": 64.7,
+    "idx": 64.4,
     "fp": 5.8,
     "mkt": "+1800",
-    "ev": 10
+    "ev": 11
    },
-   "New Jersey Devils": {
-    "sc": 3,
-    "idx": 75.5,
-    "fp": 4.4,
+   "Vegas Golden Knights": {
+    "sc": 4,
+    "idx": 62.3,
+    "fp": 6.1,
     "mkt": "+1000",
-    "ev": -51
+    "ev": -33
    },
    "Colorado Avalanche": {
     "sc": 3,
-    "idx": 70.8,
-    "fp": 16.2,
-    "mkt": "+900",
-    "ev": 62
+    "idx": 71.1,
+    "fp": 16.5,
+    "mkt": "+850",
+    "ev": 57
    },
    "Boston Bruins": {
     "sc": 3,
-    "idx": 64.1,
-    "fp": 2.5,
+    "idx": 64.0,
+    "fp": 2.3,
     "mkt": "+3500",
-    "ev": -9
+    "ev": -17
+   },
+   "New York Rangers": {
+    "sc": 3,
+    "idx": 58.0,
+    "fp": 1.7,
+    "mkt": "+6500",
+    "ev": 11
+   },
+   "Ottawa Senators": {
+    "sc": 3,
+    "idx": 57.0,
+    "fp": 2.2,
+    "mkt": "+2700",
+    "ev": -40
    },
    "Florida Panthers": {
     "sc": 2,
-    "idx": 61.6,
-    "fp": 1.6,
+    "idx": 61.9,
+    "fp": 1.5,
     "mkt": "+900",
-    "ev": -84
+    "ev": -85
    },
    "Edmonton Oilers": {
     "sc": 2,
-    "idx": 60.5,
-    "fp": 3.5,
-    "mkt": "+1000",
-    "ev": -61
-   },
-   "New York Rangers": {
-    "sc": 2,
-    "idx": 57.9,
-    "fp": 1.4,
-    "mkt": "+6500",
-    "ev": -9
-   },
-   "Ottawa Senators": {
-    "sc": 2,
-    "idx": 56.8,
-    "fp": 1.9,
-    "mkt": "+2700",
-    "ev": -48
+    "idx": 60.7,
+    "fp": 3.6,
+    "mkt": "+950",
+    "ev": -62
    },
    "Utah Mammoth": {
     "sc": 2,
-    "idx": 56.5,
+    "idx": 57.0,
     "fp": 2.4,
-    "mkt": "+1500",
-    "ev": -62
+    "mkt": "+1400",
+    "ev": -63
    },
-   "Nashville Predators": {
+   "Montreal Canadiens": {
     "sc": 2,
-    "idx": 53.2,
-    "fp": 1.5,
-    "mkt": "+10000",
-    "ev": 54
+    "idx": 55.1,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
    },
    "St Louis Blues": {
     "sc": 2,
     "idx": 50.1,
     "fp": 1.2,
     "mkt": "+7500",
-    "ev": -9
+    "ev": -7
    },
    "Los Angeles Kings": {
     "sc": 2,
-    "idx": 47.5,
+    "idx": 47.6,
     "fp": 1.1,
-    "mkt": "+5500",
-    "ev": -40
+    "mkt": "+5000",
+    "ev": -44
    },
    "Columbus Blue Jackets": {
     "sc": 2,
-    "idx": 42.4,
-    "fp": 0.5,
+    "idx": 42.3,
+    "fp": 0.4,
     "mkt": "+20000",
-    "ev": -2
+    "ev": -12
    },
-   "Montreal Canadiens": {
+   "Nashville Predators": {
     "sc": 1,
-    "idx": 55.0,
-    "fp": 0.8,
-    "mkt": null,
-    "ev": null
-   },
-   "New York Islanders": {
-    "sc": 1,
-    "idx": 49.3,
-    "fp": 0.5,
-    "mkt": "+12500",
-    "ev": -33
+    "idx": 51.0,
+    "fp": 1.0,
+    "mkt": "+8000",
+    "ev": -21
    },
    "Detroit Red Wings": {
     "sc": 1,
-    "idx": 49.3,
+    "idx": 49.5,
     "fp": 0.5,
     "mkt": "+25000",
-    "ev": 36
+    "ev": 26
+   },
+   "New York Islanders": {
+    "sc": 1,
+    "idx": 49.2,
+    "fp": 0.5,
+    "mkt": "+12500",
+    "ev": -39
    },
    "Washington Capitals": {
     "sc": 1,
-    "idx": 48.4,
+    "idx": 48.6,
     "fp": 0.6,
     "mkt": "+2200",
-    "ev": -86
+    "ev": -87
    },
    "Buffalo Sabres": {
     "sc": 1,
-    "idx": 46.0,
-    "fp": 0.5,
+    "idx": 46.3,
+    "fp": 0.4,
     "mkt": "+3500",
-    "ev": -83
+    "ev": -84
    },
    "Anaheim Ducks": {
     "sc": 1,
-    "idx": 45.3,
+    "idx": 45.8,
     "fp": 0.8,
-    "mkt": "+10000",
-    "ev": -21
+    "mkt": "+12500",
+    "ev": 3
    },
    "Pittsburgh Penguins": {
     "sc": 1,
-    "idx": 45.3,
+    "idx": 45.6,
     "fp": 0.5,
     "mkt": "+10000",
-    "ev": -50
+    "ev": -53
    },
    "Calgary Flames": {
     "sc": 1,
-    "idx": 32.5,
+    "idx": 32.8,
     "fp": 0.2,
     "mkt": "+40000",
-    "ev": -16
+    "ev": -12
    }
   }
  }
