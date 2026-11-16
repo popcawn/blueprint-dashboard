@@ -2,7 +2,7 @@
   "sport": "FCS",
   "season": "2026",
   "alt_name": "rating-only",
-  "generated": "2026-11-15T19:30:29Z",
+  "generated": "2026-11-16T15:47:43Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -500,11 +500,15 @@
       "fair_pct": 1.0,
       "fair_odds": "+10158",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 2000,
+      "market": "+2000",
+      "ev": -80,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -80
+      },
+      "alt_ev": -77
     },
     {
       "name": "North Dakota",
@@ -635,7 +639,7 @@
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": "Nov 9",
+  "market_asof": "Nov 16",
   "field_known": false,
   "stage": "regular",
   "window_closed": false,
