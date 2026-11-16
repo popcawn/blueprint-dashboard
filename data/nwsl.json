@@ -55,8 +55,8 @@
       "market": "+270",
       "ev": -29,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -29
       }
     },
@@ -98,8 +98,8 @@
       "market": "+400",
       "ev": -10,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -10
       }
     },
@@ -136,8 +136,8 @@
       "market": "+300",
       "ev": -32,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -32
       }
     },
@@ -174,8 +174,8 @@
       "market": "+350",
       "ev": -26,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -26
       }
     },
@@ -212,8 +212,8 @@
       "market": "+1100",
       "ev": 24,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "value",
+        "label": "value",
         "ev": 24
       }
     },
@@ -250,8 +250,8 @@
       "market": "+1600",
       "ev": 38,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "fails profile",
         "ev": 38
       }
     },
@@ -288,8 +288,8 @@
       "market": "+1400",
       "ev": -12,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -12
       }
     },
@@ -326,8 +326,8 @@
       "market": "+2500",
       "ev": 30,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "fails profile",
         "ev": 30
       }
     },

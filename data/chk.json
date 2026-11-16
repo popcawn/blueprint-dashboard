@@ -54,8 +54,8 @@
       "market": "+475",
       "ev": -26,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -26
       },
       "alt_ev": -28
@@ -96,8 +96,8 @@
       "market": "+1300",
       "ev": 69,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "too early",
         "ev": 69
       },
       "alt_ev": 25
@@ -138,8 +138,8 @@
       "market": "+1800",
       "ev": 39,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "too early",
         "ev": 39
       },
       "alt_ev": 55
@@ -180,8 +180,8 @@
       "market": "+1000",
       "ev": -23,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -23
       },
       "alt_ev": 4
@@ -222,8 +222,8 @@
       "market": "+1200",
       "ev": -25,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -25
       },
       "alt_ev": -6
@@ -264,8 +264,8 @@
       "market": "+900",
       "ev": -44,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -44
       },
       "alt_ev": -51
@@ -306,8 +306,8 @@
       "market": "+750",
       "ev": -55,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -55
       },
       "alt_ev": -70
@@ -348,8 +348,8 @@
       "market": "+1600",
       "ev": -12,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -12
       },
       "alt_ev": -30
@@ -390,8 +390,8 @@
       "market": "+1200",
       "ev": -36,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -36
       },
       "alt_ev": -54
@@ -470,8 +470,8 @@
       "market": "+1800",
       "ev": -39,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -39
       },
       "alt_ev": -50
@@ -512,8 +512,8 @@
       "market": "+4500",
       "ev": 11,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "too early",
         "ev": 11
       },
       "alt_ev": 193
@@ -554,8 +554,8 @@
       "market": "+1600",
       "ev": -66,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -66
       },
       "alt_ev": -60
@@ -596,8 +596,8 @@
       "market": "+7000",
       "ev": 32,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "too early",
         "ev": 32
       },
       "alt_ev": 54
@@ -676,8 +676,8 @@
       "market": "+8000",
       "ev": -40,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -40
       },
       "alt_ev": -54
@@ -718,8 +718,8 @@
       "market": "+10000",
       "ev": -50,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -50
       },
       "alt_ev": -36
@@ -760,8 +760,8 @@
       "market": "+3500",
       "ev": -51,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -51
       },
       "alt_ev": -31
@@ -802,8 +802,8 @@
       "market": "+10000",
       "ev": 13,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "trap",
         "ev": 13
       },
       "alt_ev": -37
@@ -844,8 +844,8 @@
       "market": "+10000",
       "ev": -18,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -18
       },
       "alt_ev": -36
@@ -924,8 +924,8 @@
       "market": "+5000",
       "ev": -72,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -72
       },
       "alt_ev": -74
@@ -966,8 +966,8 @@
       "market": "+3000",
       "ev": -51,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -51
       },
       "alt_ev": -68
@@ -1008,8 +1008,8 @@
       "market": "+5000",
       "ev": -34,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -34
       },
       "alt_ev": -32
@@ -1050,8 +1050,8 @@
       "market": "+3500",
       "ev": -74,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -74
       },
       "alt_ev": -84
@@ -1168,8 +1168,8 @@
       "market": "+7500",
       "ev": -69,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -69
       },
       "alt_ev": -88
@@ -1210,8 +1210,8 @@
       "market": "+8000",
       "ev": -74,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -74
       },
       "alt_ev": -88
@@ -1290,8 +1290,8 @@
       "market": "+3000",
       "ev": -73,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -73
       },
       "alt_ev": -86
@@ -1332,8 +1332,8 @@
       "market": "+9000",
       "ev": -40,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -40
       },
       "alt_ev": -70
@@ -1374,8 +1374,8 @@
       "market": "+2800",
       "ev": -83,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -83
       },
       "alt_ev": -85
@@ -1416,8 +1416,8 @@
       "market": "+7000",
       "ev": -60,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -60
       },
       "alt_ev": -73
@@ -1458,8 +1458,8 @@
       "market": "+5000",
       "ev": -74,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -74
       },
       "alt_ev": -92
@@ -1576,8 +1576,8 @@
       "market": "+7500",
       "ev": -75,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -75
       },
       "alt_ev": -95
@@ -1656,8 +1656,8 @@
       "market": "+6500",
       "ev": -75,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -75
       },
       "alt_ev": -95
@@ -1736,8 +1736,8 @@
       "market": "+3500",
       "ev": -90,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -90
       },
       "alt_ev": -98
@@ -1778,8 +1778,8 @@
       "market": "+4500",
       "ev": -88,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -88
       },
       "alt_ev": -99

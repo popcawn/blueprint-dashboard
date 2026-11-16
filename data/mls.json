@@ -55,8 +55,8 @@
       "market": "+450",
       "ev": 28,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 28
       }
     },
@@ -98,8 +98,8 @@
       "market": "+400",
       "ev": -3,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fair",
+        "label": "\u2248 fair",
         "ev": -3
       }
     },
@@ -142,8 +142,8 @@
       "market": "+450",
       "ev": -43,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -43
       }
     },
@@ -186,8 +186,8 @@
       "market": "+1400",
       "ev": 10,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "value",
+        "label": "value",
         "ev": 10
       }
     },
@@ -230,8 +230,8 @@
       "market": "+2500",
       "ev": -48,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -48
       }
     },
@@ -274,8 +274,8 @@
       "market": "+1400",
       "ev": 9,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "fails profile",
         "ev": 9
       }
     },
@@ -318,8 +318,8 @@
       "market": "+6500",
       "ev": 47,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "fails profile",
         "ev": 47
       }
     },
@@ -362,8 +362,8 @@
       "market": "+2500",
       "ev": 109,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "fails profile",
         "ev": 109
       }
     },
@@ -406,8 +406,8 @@
       "market": "+1400",
       "ev": -46,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -46
       }
     },
@@ -450,8 +450,8 @@
       "market": "+1400",
       "ev": -63,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -63
       }
     },
@@ -494,8 +494,8 @@
       "market": "+6500",
       "ev": -66,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -66
       }
     },
@@ -538,8 +538,8 @@
       "market": "+8000",
       "ev": -68,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -68
       }
     },
@@ -617,8 +617,8 @@
       "market": "+6500",
       "ev": -21,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -21
       }
     },
@@ -661,8 +661,8 @@
       "market": "+10000",
       "ev": -53,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -53
       }
     },
@@ -775,8 +775,8 @@
       "market": "+2000",
       "ev": 11,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "fails profile",
         "ev": 11
       }
     },
@@ -819,8 +819,8 @@
       "market": "+1800",
       "ev": -18,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -18
       }
     },
@@ -863,8 +863,8 @@
       "market": "+10000",
       "ev": -32,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -32
       }
     },
@@ -942,8 +942,8 @@
       "market": "+1600",
       "ev": -79,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -79
       }
     },
@@ -1251,5 +1251,18 @@
     "label": "Trust the board",
     "note": "34 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Vancouver Whitecaps",
+      "ev": 28,
+      "market": "+450",
+      "fair_odds": "+329"
+    },
+    {
+      "name": "Chicago Fire FC",
+      "ev": 10,
+      "market": "+1400",
+      "fair_odds": "+1267"
+    }
+  ]
 }

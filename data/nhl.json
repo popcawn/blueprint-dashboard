@@ -48,8 +48,8 @@
       "market": "+550",
       "ev": 65,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "value",
+        "label": "value",
         "ev": 65
       },
       "read": {
@@ -82,8 +82,8 @@
       "market": "+850",
       "ev": 13,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 13
       },
       "read": {
@@ -116,8 +116,8 @@
       "market": "+1200",
       "ev": -17,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -17
       },
       "read": {
@@ -150,8 +150,8 @@
       "market": "+950",
       "ev": -26,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -26
       },
       "read": {
@@ -184,8 +184,8 @@
       "market": "+1800",
       "ev": 10,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "value",
+        "label": "value",
         "ev": 10
       },
       "read": {
@@ -218,8 +218,8 @@
       "market": "+1000",
       "ev": -51,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -51
       },
       "read": {
@@ -252,8 +252,8 @@
       "market": "+900",
       "ev": 62,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "trap",
+        "label": "trap",
         "ev": 62
       },
       "read": {
@@ -286,8 +286,8 @@
       "market": "+3500",
       "ev": -9,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fair",
+        "label": "\u2248 fair",
         "ev": -9
       },
       "read": {
@@ -320,8 +320,8 @@
       "market": "+900",
       "ev": -84,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -84
       },
       "read": {
@@ -354,8 +354,8 @@
       "market": "+1000",
       "ev": -61,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -61
       },
       "read": {
@@ -388,8 +388,8 @@
       "market": "+6500",
       "ev": -9,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fair",
+        "label": "\u2248 fair",
         "ev": -9
       },
       "read": {
@@ -422,8 +422,8 @@
       "market": "+2700",
       "ev": -48,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -48
       },
       "read": {
@@ -456,8 +456,8 @@
       "market": "+1500",
       "ev": -62,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -62
       },
       "read": {
@@ -490,8 +490,8 @@
       "market": "+10000",
       "ev": 54,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "longshot",
+        "label": "longshot value",
         "ev": 54
       },
       "read": {
@@ -524,8 +524,8 @@
       "market": "+7500",
       "ev": -9,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fair",
+        "label": "\u2248 fair",
         "ev": -9
       },
       "read": {
@@ -558,8 +558,8 @@
       "market": "+5500",
       "ev": -40,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -40
       },
       "read": {
@@ -592,8 +592,8 @@
       "market": "+20000",
       "ev": -2,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fair",
+        "label": "\u2248 fair",
         "ev": -2
       },
       "read": {
@@ -656,8 +656,8 @@
       "market": "+12500",
       "ev": -33,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -33
       },
       "read": {
@@ -690,8 +690,8 @@
       "market": "+25000",
       "ev": 36,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "longshot",
+        "label": "longshot value",
         "ev": 36
       },
       "read": {
@@ -724,8 +724,8 @@
       "market": "+2200",
       "ev": -86,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -86
       },
       "read": {
@@ -758,8 +758,8 @@
       "market": "+3500",
       "ev": -83,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -83
       },
       "read": {
@@ -792,8 +792,8 @@
       "market": "+10000",
       "ev": -21,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -21
       },
       "read": {
@@ -826,8 +826,8 @@
       "market": "+10000",
       "ev": -50,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "bigfade",
+        "label": "big fade",
         "ev": -50
       },
       "read": {
@@ -860,8 +860,8 @@
       "market": "+40000",
       "ev": -16,
       "verdict": {
-        "kind": "gap",
-        "label": "price gap",
+        "kind": "fade",
+        "label": "fade",
         "ev": -16
       },
       "read": {
@@ -911,5 +911,12 @@
     "label": "Trust the board",
     "note": "23 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Minnesota Wild",
+      "ev": 13,
+      "market": "+850",
+      "fair_odds": "+738"
+    }
+  ]
 }
