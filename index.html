@@ -285,11 +285,15 @@
 <div class="pop" id="pop"><div class="box">
   <b>GitHub token</b>
   <p>The Run button triggers the refresh bot via GitHub Actions. Paste a <b>fine-grained token</b> on <b>popcawn/blueprint-dashboard</b> with <i>Actions: Read&nbsp;and&nbsp;write</i> (runs the bot) and <i>Contents: Read&nbsp;and&nbsp;write</i> (📷 Update prices saves the prices). Stored in this browser only — never committed.</p>
-  <input id="tok" type="password" placeholder="github_pat_…" autocomplete="off">
+  <p>🔑 <b>iPhone:</b> Safari wipes a site's saved data now and then, this token included. When it offers <b>Save Password</b>, say yes — next time tap the box and pick it from Passwords.</p>
+  <form id="tokForm" action="#" method="post" onsubmit="event.preventDefault();saveTok()" style="margin:0">
+  <input type="text" name="username" autocomplete="username" value="dashboard-bot" readonly tabindex="-1" aria-hidden="true" style="position:absolute;width:1px;height:1px;margin:0;padding:0;border:0;opacity:0;pointer-events:none">
+  <input id="tok" name="password" type="password" placeholder="github_pat_…" autocomplete="current-password" autocapitalize="off" spellcheck="false">
   <div style="display:flex;gap:8px;justify-content:flex-end">
-    <button class="btn ghost" onclick="document.getElementById('pop').classList.remove('on')">Cancel</button>
-    <button class="btn" onclick="saveTok()">Save</button>
+    <button type="button" class="btn ghost" onclick="document.getElementById('pop').classList.remove('on')">Cancel</button>
+    <button type="submit" class="btn">Save</button>
   </div>
+  </form>
 </div></div>
 
 <script>
@@ -979,7 +983,8 @@ async function savePrices(){ const d=DATA[cur], path=PRICE_FILES[cur], st=docume
 
 /* run button */
 function tok(){try{return localStorage.getItem("gh_token")||""}catch(e){return""}}
-function saveTok(){try{localStorage.setItem("gh_token",document.getElementById("tok").value.trim())}catch(e){}document.getElementById("pop").classList.remove("on");}
+// 🔑 2026-11-15 (user's iPhone kept asking for tokens): the box is a login form so Safari's Passwords can save + refill it; ask to keep storage
+function saveTok(){try{localStorage.setItem("gh_token",document.getElementById("tok").value.trim())}catch(e){}try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist().catch(()=>{})}catch(e){}document.getElementById("pop").classList.remove("on");}
 function ago(iso){ const m=Math.round((Date.now()-Date.parse(iso))/6e4);
   return m<2?"just now":m<60?`${m} min ago`:m<1440?`${Math.round(m/60)} hr ago`:new Date(iso).toLocaleDateString(); }
 let MSGID="runmsg";
