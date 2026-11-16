@@ -38,11 +38,11 @@ def _price_num(mk):
     except Exception: return None
 
 def value_plays(teams, maxcat, sport=None):
-    """QUALIFIED VALUE = complete profile (score >= maxcat-1) + a 🟢 trust read + positive EV
-       + a believable price (<= +2500). Backtested on 5 odds-era seasons (2021-22..2025-26):
-       isolates the value-DOG champions (GSW '22 +68%, DEN '23 +100%, NYK '26 +140/+174%) and
-       correctly stays empty when the champ is chalk (BOS '24, OKC '25 — fade or bet the favorite).
-       This replaces raw 'best EV', which lights up junk longshots (e.g. a 40000-1 phantom line)."""
+    """The board's value play. Since 2026-11-16 (over-engineering audit) only CFB has one: it is the only rule that was tested
+       against real prices. Every other board returns none -- their rules were hand-set thresholds never price-tested (MLS, FCS,
+       CFL, NWSL, college hockey, college hoops, AFL, NRL, Super League) or did not hold up when they were (NFL value plays 0 for 5
+       and 1 for 25 against FanDuel; NHL 1 for 5; MLB 3 for 12, all from two seasons; NBA fitted on 5 seasons). Each card still
+       shows its price gap (EV) as information."""
     out = []
     if sport == "cfb":
         # CFB (2026-11-09, user: "switch the cfb value play to that rule but only if it makes sense"): the value play is the board's
@@ -59,28 +59,13 @@ def value_plays(teams, maxcat, sport=None):
             if (top.get("ev") or 0) >= 10 and p is not None and p <= 2500:
                 out.append({"name": top["name"], "ev": top["ev"], "market": top.get("market"), "fair_odds": top.get("fair_odds")})
         return out
-    if sport != "nfl":
-        # 2026-11-16 (over-engineering audit; user: "what is best"): no value play on any other board. Their rules were hand-set
-        # thresholds never tested against real prices (MLS, FCS, CFL, NWSL, college hockey, college hoops, AFL, NRL, Super League)
-        # or rested on a handful of seasons (NBA: 5; NHL value plays 1 for 5; MLB 3 for 12, all from two seasons). Each card still
-        # shows its price gap (EV) as information. The NFL keeps the rule below: the user locked the NFL board.
-        return []
-    for t in teams:
-        if t.get("score", 0) < maxcat - 1: continue
-        if (t.get("read") or {}).get("v") != "trust": continue
-        if t.get("ev") is None or t["ev"] <= 0: continue
-        p = _price_num(t.get("market"))
-        if p is None or p > 2500: continue
-        out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
-    out.sort(key=lambda x: -x["ev"])
     return out
 
 def signal_status(sport, gp):
     trust, firm = SIGNAL_THRESH[sport]
     if gp >= trust:
         return {"status": "trust", "emoji": "🟢", "label": "Trust the board",
-                "note": f"{gp} games in — stats have stabilized; the read is actionable." if sport == "nfl" else
-                        f"{gp} games in — stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."}
+                "note": f"{gp} games in — stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."}
     if gp >= firm:
         return {"status": "firming", "emoji": "🟡", "label": "Firming up",
                 "note": f"{gp} games in — directional, but records still carry schedule noise. Lean on point differential."}
@@ -827,7 +812,7 @@ def build_nhl():
         ab_ = (wt or {}).get("abbrev"); nhl_champ = NHL_TEAMS.get({"PHX": "ARI"}.get(ab_, ab_), (None,))[0]
     fd, rem = fetch_futures("icehockey_nhl_championship_winner")
     attach(rows, pool, fd)
-    pred = make_prediction(rows, 4, by_odds=True)
+    pred = make_prediction(rows, 4)
     if pred and max(t["gp"] for t in rows) < 20:
         pred["why"] += " (It's early and the NHL is the lowest-chalk sport — treat it as 'best profile,' not a lock.)"
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
@@ -1460,7 +1445,7 @@ def build_nba():
     cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
     fd, rem = fetch_futures("basketball_nba_championship_winner")
     attach(rows, pool, fd)
-    pred = make_prediction(rows, 4, by_odds=True)
+    pred = make_prediction(rows, 4)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "nba"),
         "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth, "vs500_on": vs500_on,
@@ -1501,35 +1486,12 @@ def attach(allteams, pool, fd, srs_rank=None):
     assign_verdicts(allteams)
 
 def assign_verdicts(teams):
-    """Market EV verdict per team — the value/fade spectrum from the chat runs. ONE price cap is
-       used everywhere: <= +2500 is a 'believable' price (the same cap value_plays uses), so a
-       positive-EV team priced LONGER than that is 'longshot value', never 'value'/'BEST VALUE'.
-       'trap' = positive EV on a team the playoff-translation read distrusts (fool's gold /
-       pretender / SRS mirage) — a mirage price, not a bet. The single BEST VALUE crown is NOT set
-       here: crown_best_value() awards it to the top QUALIFIED value play (value_plays[0]) so the
-       card crown and the header 'Value play' are always the same team."""
+    """Each priced team's card shows its price gap (EV = model fair odds vs the book's price) as a plain number. Until 2026-11-16
+       this was a seven-step bet label ('value', 'longshot value', 'trap', 'fade' ...) from hand-set EV bands, which contradicted the
+       tested rules (the CFB board tagged Miami 'value' -- a kind of pick that went 1 for 17 -- and its own pick 'fade'). The one bet
+       tag left is BEST VALUE, set by crown_best_value() on the board's value play."""
     for t in teams:
-        ev = t.get("ev"); mk = t.get("mk"); rd = t.get("read") or {}
-        if ev is None or mk is None:
-            t["verdict"] = None; continue
-        unsustain = (rd.get("v") == "fools_gold" or rd.get("tier") == "pretender"
-                     or (t.get("srsrank") is not None and t["srsrank"] > 15))
-        if ev >= 10 and unsustain:
-            v = {"kind": "trap", "label": "trap"}
-        elif ev >= 10 and mk > 2500:
-            v = {"kind": "longshot", "label": "longshot value"}
-        elif ev >= 10:
-            v = {"kind": "value", "label": "value"}
-        elif ev >= 3:
-            v = {"kind": "small", "label": "small value"}
-        elif ev > -10:
-            v = {"kind": "fair", "label": "≈ fair"}
-        elif ev > -40:
-            v = {"kind": "fade", "label": "fade"}
-        else:
-            v = {"kind": "bigfade", "label": "big fade"}
-        v["ev"] = ev
-        t["verdict"] = v
+        t["verdict"] = {"kind": "gap", "label": "price gap", "ev": t["ev"]} if t.get("ev") is not None and t.get("mk") is not None else None
 
 
 def crown_best_value(teams, vp):
@@ -1543,14 +1505,6 @@ def crown_best_value(teams, vp):
         if t.get("name") == top["name"]:
             t["verdict"] = {"kind": "best", "label": "BEST VALUE", "ev": top["ev"]}
             break
-
-def plain_price_gaps(teams):
-    """(2026-11-16) Every board but the NFL: a card shows its price gap as a plain number, not a bet label ('value', 'longshot
-       value', 'trap', 'fade'). Those labels came from hand-set EV bands and contradicted the tested rules (the CFB board tagged
-       Miami 'value' -- a kind of pick that went 1 for 17 -- and its own pick 'fade'). Only the crowned value play keeps its tag."""
-    for t in teams:
-        v = t.get("verdict")
-        if v and v.get("kind") != "best": t["verdict"] = {"kind": "gap", "label": "price gap", "ev": v["ev"]}
 
 def now_iso():
     return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -1666,30 +1620,18 @@ def team_read(t, sport, n, maxcat):
         return {"v": "caution", "why": f"Leads with its #{br} {b}; the #{wr} {w} is the one soft spot — but SRS #{sr} says it's done this against a real schedule, not cupcakes."}
     return {"v": "caution", "why": f"Leads with its #{br} {b}; the #{wr} {w} is the crack a playoff-caliber opponent widens — and SRS #{sr} says the schedule hasn't fully tested it yet."}
 
-def make_prediction(scored, maxcat, by_odds=False):
-    """The banner pick. by_odds (NHL / NBA / WNBA / MLB since 2026-11-16) = the team with the best fair title odds: the Read-first
-       order below never used the odds at all, so the banner could name a different team from the board's own favourite (NHL: the
-       Wild at 12% over Carolina at 25%, because Carolina's 5v5 save % ranked 13th and the Read's cutoff is 12th). That override
-       was never tested for NBA / WNBA / MLB and was in-sample only for the NHL. The Read stays on the card as context.
-       Otherwise (NFL, locked by the user): prefer the team the Read trusts, then tier, then index."""
-    if by_odds:
-        priced = [t for t in scored if t.get("p") and t.get("read")]
-        if priced:
-            top = max(priced, key=lambda t: (t["p"], t["index"])); odds = top.get("fair_odds")
-            return {"pick": top["name"], "why": f"<b>{top['name']}</b> is the pick — the best title odds on the board{f' (fair {odds})' if odds else ''}. The Read: {top['read']['why']}"}
-    cand = [t for t in scored if t["score"] >= maxcat - 1 and t.get("read")] or [t for t in scored if t.get("read")]
+def make_prediction(scored, maxcat):
+    """The banner pick = the team with the best fair title odds (2026-11-16, over-engineering audit). Until then the pick went to
+       the team the Read 'trusted', then tier, then index, and never looked at the odds, so the banner could name a different team
+       from the board's own favourite (NHL: the Wild at 12% over Carolina at 25%, because Carolina's 5v5 save % ranked 13th and the
+       Read's cutoff is 12th). That override was never tested for NBA / WNBA / MLB, was in-sample only for the NHL, and for the NFL
+       the simulation's #1 won 6 of 24 against 3 of 24 for the index order. The Read stays on the card as context."""
+    priced = [t for t in scored if t.get("p") and t.get("read")]
+    cand = priced or [t for t in scored if t.get("read")]
     if not cand: return None
-    vw = {"trust": 2, "caution": 1, "fools_gold": 0}
-    top = sorted(cand, key=lambda t: (vw.get(t["read"]["v"], 1), t["score"], t["index"]), reverse=True)[0]
-    rd = top["read"]; odds = top.get("fair_odds")
-    any_trust = any(t["read"]["v"] == "trust" for t in cand)
-    if rd["v"] == "trust":
-        lead = f"<b>{top['name']}</b> is the pick — the top team the model actually trusts{f' (fair {odds})' if odds else ''}. "
-    elif not any_trust:
-        lead = f"<b>{top['name']}</b> is the pick by default — no team on the board is clean right now, so this is the least-flawed. "
-    else:
-        lead = f"<b>{top['name']}</b> is the pick{f' (fair {odds})' if odds else ''}. "
-    return {"pick": top["name"], "why": lead + rd["why"]}
+    top = max(cand, key=lambda t: (t.get("p") or 0, t["score"], t["index"])); odds = top.get("fair_odds")
+    lead = "the best title odds on the board" if priced else "the best profile on the board (no odds yet)"
+    return {"pick": top["name"], "why": f"<b>{top['name']}</b> is the pick — {lead}{f' (fair {odds})' if odds and priced else ''}. The Read: {top['read']['why']}"}
 
 def log_history(name, data):
     """Append a compact dated snapshot of the contenders to data/history/<name>.json (keep last 400 runs — a full season of daily runs, so streaks aren't truncated).
@@ -1905,7 +1847,7 @@ def build_wnba():
     first_po, champ = wnba_postseason(season)
     odds, snap, asof = preplayoff_book("wnba_book.json", season, first_po)
     attach(rows, [t for t in rows if t["p"] > 0], match_book([t["name"] for t in rows], odds))
-    pred = make_prediction(rows, 3, by_odds=True)
+    pred = make_prediction(rows, 3)
     if first_po and pred: pred = closed_prediction(pred, rows, champ, f"{season} WNBA title", snap, asof)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": None, "prediction": pred, "season_pct": season_pct(rows, "wnba"),
@@ -2034,7 +1976,7 @@ def build_mlb():
         odds, snap, asof = preplayoff_book("mlb_book.json", season, first_po)
         fd = match_book(names, odds)
     attach(rows, pool, fd)
-    pred = make_prediction([t for t in rows if t["name"] in field] if len(field) >= 12 else rows, 7, by_odds=True)
+    pred = make_prediction([t for t in rows if t["name"] in field] if len(field) >= 12 else rows, 7)
     if first_po and pred: pred = closed_prediction(pred, rows, champ, f"{season} World Series", snap, asof)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "mlb"), "mlb_waronly": True,
@@ -2138,10 +2080,6 @@ def build_mls():
             hit = keys.get(k) or next((v for kk, v in keys.items() if kk.startswith(k) or k.startswith(kk)), None)
             if hit: fd[hit] = int(price)
     attach(rows, [t for t in rows if t["p"] > 0], fd)
-    for t in rows:   # a +EV price on a team that misses the every-champion profile is not a bet on this board
-        v = t.get("verdict") or {}
-        if t["score"] < 5 and v.get("kind") in ("value", "small", "longshot"):
-            t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["score"], -t["p"]))   # tier first, then title odds (the order the cards show)
     top = max(rows, key=lambda t: t["p"])
     if closed:
@@ -2216,19 +2154,10 @@ def _build_college(sk):
             k = _college_key(nm)
             hit = keys.get(k) or next((v for kk, v in keys.items() if kk.startswith(k) or k.startswith(kk)), None)
             if hit: fd[hit] = int(price)
-    attach(rows, [t for t in rows if t["p"] > 0], fd)   # sets market/ev/verdict; SRS rank > 15 with +EV is tagged a trap (soft schedule)
+    attach(rows, [t for t in rows if t["p"] > 0], fd)
     for t in rows:
         mk = t.get("mk")
         t["alt_ev"] = round((t["alt_p"] * ((1 + mk / 100) if mk > 0 else (1 + 100 / abs(mk))) - 1) * 100) if mk is not None and t["alt_p"] > 0 else None
-        v = t.get("verdict") or {}
-        if sk == "chk" and v.get("kind") in ("value", "small", "longshot") and not chk_open:   # shortlist only before March 1
-            t["verdict"] = {"kind": "trap", "label": "too early", "ev": v.get("ev")}
-        elif sk == "chk" and v.get("kind") in ("value", "small", "longshot") and t["p"] < sorted((x["p"] for x in rows), reverse=True)[min(4, len(rows) - 1)]:
-            t["verdict"] = {"kind": "trap", "label": "outside top 5", "ev": v.get("ev")}
-        elif sk == "fcs" and v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:   # FCS-only checks (the hockey profile isn't trusted)
-            t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
-        elif sk == "fcs" and v.get("kind") in ("value", "small") and (t["alt_ev"] or -1) < 0:
-            t["verdict"] = {"kind": "trap", "label": "rating disagrees", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["score"], -t["p"]))   # tier first, then fair title odds
     top = max(rows, key=lambda t: t["p"])
     if closed:
@@ -2303,10 +2232,6 @@ def build_cfl():
             hit = keys.get(k) or next((v for kk, v in keys.items() if kk.startswith(k) or k.startswith(kk) or kk.split()[-1] == k.split()[-1]), None)
             if hit: fd[hit] = int(price)
     attach(rows, [t for t in rows if t["p"] > 0], fd)
-    for t in rows:
-        v = t.get("verdict") or {}
-        if v.get("kind") in ("value", "small", "longshot") and t["score"] < 4:
-            t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))   # by Grey Cup chance (frozen pre-playoff order once the playoffs start)
     top = max(rows, key=lambda t: (t["p"], t["index"]))
     nx = top.get("next") or {}
@@ -2374,10 +2299,6 @@ def build_nwsl():
             hit = keys.get(k) or next((v for kk, v in keys.items() if kk.startswith(k) or k.startswith(kk) or kk.split()[-1] == k.split()[-1]), None)
             if hit: fd[hit] = int(price)
     attach(rows, [t for t in rows if t["p"] > 0], fd)
-    for t in rows:   # a +EV price on a team that misses the every-champion profile is not a bet on this board
-        v = t.get("verdict") or {}
-        if v.get("kind") in ("value", "small", "longshot") and t["score"] < 5:
-            t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))
     top = max(rows, key=lambda t: (t["p"], t["index"]))
     if stage == "regular":
@@ -2488,11 +2409,6 @@ def build_footy(key):
             hit = _footy_match(nm, keys, C["alias"])
             if hit: fd[hit] = int(price)
     attach(rows, [t for t in rows if t["p"] > 0], fd)
-    for t in rows:   # +EV on a team the board's rule rules out is not a bet here (AFL/NRL: the 5/5 profile; Super League: a top-2 ladder spot)
-        v = t.get("verdict") or {}
-        if v.get("kind") in ("value", "small", "longshot"):
-            if key in ("afl", "nrl") and t["score"] < 5: t["verdict"] = {"kind": "trap", "label": "fails profile", "ev": v.get("ev")}
-            elif key == "superleague" and not (t.get("pos") or 99) <= 2: t["verdict"] = {"kind": "trap", "label": "outside top 2", "ev": v.get("ev")}
     rows.sort(key=lambda t: (-t["p"], -t["score"], -t["index"]))
     top = max(rows, key=lambda t: (t["p"], t["index"]))
     rank = {t["name"]: i + 1 for i, t in enumerate(rows)}
@@ -2559,7 +2475,6 @@ def main():
                                       "note": f"Fair as a top-5 shortlist (17-season backtest), but no bets before March 1: a value play needs a top-5 team at EV >= +25%, from March 1 until the first NCAA-tournament game. The #1 still wins only about 1 title in 6."}
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name != "nfl": plain_price_gaps(data.get("teams", []))
                 if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)

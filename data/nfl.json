@@ -5,7 +5,7 @@
   "odds_remaining": "51820",
   "prediction": {
     "pick": "Jacksonville Jaguars",
-    "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the top team the model actually trusts (fair +489). Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
+    "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the best title odds on the board (fair +489). The Read: Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
   },
   "game_lines": {
     "book": "FanDuel",
@@ -340,8 +340,8 @@
       "market": "+750",
       "ev": 44,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 44
       },
       "read": {
@@ -375,8 +375,8 @@
       "market": "+1000",
       "ev": -22,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -22
       },
       "read": {
@@ -410,8 +410,8 @@
       "market": "+1100",
       "ev": -30,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -30
       },
       "read": {
@@ -445,8 +445,8 @@
       "market": "+500",
       "ev": -6,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -6
       },
       "read": {
@@ -480,8 +480,8 @@
       "market": "+500",
       "ev": -1,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -1
       },
       "read": {
@@ -515,8 +515,8 @@
       "market": "+800",
       "ev": -47,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -47
       },
       "read": {
@@ -550,8 +550,8 @@
       "market": "+2200",
       "ev": 42,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 42
       },
       "read": {
@@ -585,8 +585,8 @@
       "market": "+1400",
       "ev": 16,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 16
       },
       "read": {
@@ -620,8 +620,8 @@
       "market": "+1400",
       "ev": -58,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -58
       },
       "read": {
@@ -655,8 +655,8 @@
       "market": "+1700",
       "ev": -22,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -22
       },
       "read": {
@@ -690,8 +690,8 @@
       "market": "+7000",
       "ev": 6,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 6
       },
       "read": {
@@ -725,8 +725,8 @@
       "market": "+1500",
       "ev": -38,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -38
       },
       "read": {
@@ -760,8 +760,8 @@
       "market": "+5000",
       "ev": -1,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -1
       },
       "read": {
@@ -795,8 +795,8 @@
       "market": "+5000",
       "ev": -84,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -84
       },
       "read": {
@@ -830,8 +830,8 @@
       "market": "+7000",
       "ev": -82,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -82
       },
       "read": {
@@ -865,8 +865,8 @@
       "market": "+50000",
       "ev": -87,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -87
       },
       "read": {
@@ -900,8 +900,8 @@
       "market": "+8000",
       "ev": -62,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -62
       },
       "read": {
@@ -935,8 +935,8 @@
       "market": "+3300",
       "ev": -72,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -72
       },
       "read": {
@@ -970,8 +970,8 @@
       "market": "+8000",
       "ev": -23,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -23
       },
       "read": {
@@ -1005,8 +1005,8 @@
       "market": "+8000",
       "ev": -71,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -71
       },
       "read": {
@@ -1040,8 +1040,8 @@
       "market": "+12500",
       "ev": -82,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -82
       },
       "read": {
@@ -1075,8 +1075,8 @@
       "market": "+10000",
       "ev": -96,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -96
       },
       "read": {
@@ -1110,8 +1110,8 @@
       "market": "+22500",
       "ev": -90,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -90
       },
       "read": {
@@ -1145,8 +1145,8 @@
       "market": "+15000",
       "ev": -87,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -87
       },
       "read": {
@@ -1180,8 +1180,8 @@
       "market": "+17500",
       "ev": -80,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -80
       },
       "read": {
@@ -1215,8 +1215,8 @@
       "market": "+100000",
       "ev": -88,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -88
       },
       "read": {
@@ -1281,8 +1281,8 @@
       "market": "+100000",
       "ev": -92,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -92
       },
       "read": {
@@ -1419,14 +1419,7 @@
     "status": "trust",
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
-    "note": "10 games in \u2014 stats have stabilized; the read is actionable."
+    "note": "10 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "value_plays": [
-    {
-      "name": "Jacksonville Jaguars",
-      "ev": 44,
-      "market": "+750",
-      "fair_odds": "+489"
-    }
-  ]
+  "value_plays": []
 }

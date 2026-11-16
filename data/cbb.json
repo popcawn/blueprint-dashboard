@@ -47,8 +47,8 @@
       "market": "+550",
       "ev": -4,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -4
       }
     },
@@ -83,8 +83,8 @@
       "market": "+650",
       "ev": -28,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -28
       }
     },
@@ -119,8 +119,8 @@
       "market": "+5000",
       "ev": 321,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 321
       }
     },
@@ -155,8 +155,8 @@
       "market": "+2200",
       "ev": 25,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 25
       }
     },
@@ -191,8 +191,8 @@
       "market": "+2500",
       "ev": 10,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 10
       }
     },
@@ -227,8 +227,8 @@
       "market": "+1000",
       "ev": -54,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -54
       }
     },
@@ -263,8 +263,8 @@
       "market": "+10000",
       "ev": 247,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 247
       }
     },
@@ -299,8 +299,8 @@
       "market": "+5000",
       "ev": 75,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 75
       }
     },
@@ -335,8 +335,8 @@
       "market": "+1200",
       "ev": -56,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -56
       }
     },
@@ -371,8 +371,8 @@
       "market": "+3500",
       "ev": 7,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 7
       }
     },
@@ -407,8 +407,8 @@
       "market": "+1000",
       "ev": -69,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -69
       }
     },
@@ -443,8 +443,8 @@
       "market": "+8000",
       "ev": 124,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 124
       }
     },
@@ -479,8 +479,8 @@
       "market": "+6500",
       "ev": 64,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 64
       }
     },
@@ -515,8 +515,8 @@
       "market": "+5000",
       "ev": 3,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 3
       }
     },
@@ -551,8 +551,8 @@
       "market": "+10000",
       "ev": 93,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 93
       }
     },
@@ -587,8 +587,8 @@
       "market": "+6500",
       "ev": 2,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 2
       }
     },
@@ -623,8 +623,8 @@
       "market": "+20000",
       "ev": 205,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 205
       }
     },
@@ -659,8 +659,8 @@
       "market": "+15000",
       "ev": 101,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 101
       }
     },
@@ -695,8 +695,8 @@
       "market": "+2500",
       "ev": -68,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -68
       }
     },
@@ -731,8 +731,8 @@
       "market": "+2200",
       "ev": -72,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -72
       }
     },
@@ -767,8 +767,8 @@
       "market": "+2500",
       "ev": -71,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -71
       }
     },
@@ -803,8 +803,8 @@
       "market": "+10000",
       "ev": 14,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 14
       }
     },
@@ -839,8 +839,8 @@
       "market": "+10000",
       "ev": 8,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 8
       }
     },
@@ -875,8 +875,8 @@
       "market": "+6500",
       "ev": -42,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -42
       }
     },
@@ -911,8 +911,8 @@
       "market": "+6500",
       "ev": -46,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -46
       }
     },
@@ -947,8 +947,8 @@
       "market": "+15000",
       "ev": 16,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 16
       }
     },
@@ -983,8 +983,8 @@
       "market": "+15000",
       "ev": 2,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 2
       }
     },
@@ -1019,8 +1019,8 @@
       "market": "+2500",
       "ev": -82,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -82
       }
     },
@@ -1055,8 +1055,8 @@
       "market": "+3000",
       "ev": -81,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -81
       }
     },
@@ -1091,8 +1091,8 @@
       "market": "+15000",
       "ev": -5,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -5
       }
     },
@@ -1127,8 +1127,8 @@
       "market": "+6500",
       "ev": -60,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -60
       }
     },
@@ -1163,8 +1163,8 @@
       "market": "+3500",
       "ev": -79,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -79
       }
     },
@@ -1199,8 +1199,8 @@
       "market": "+2500",
       "ev": -87,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -87
       }
     },
@@ -1235,8 +1235,8 @@
       "market": "+1400",
       "ev": -93,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -93
       }
     },
@@ -1271,8 +1271,8 @@
       "market": "+8000",
       "ev": -62,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -62
       }
     },
@@ -1307,8 +1307,8 @@
       "market": "+20000",
       "ev": -9,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -9
       }
     },
@@ -1343,8 +1343,8 @@
       "market": "+10000",
       "ev": -56,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -56
       }
     },
@@ -1379,8 +1379,8 @@
       "market": "+15000",
       "ev": -36,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -36
       }
     },
@@ -1415,8 +1415,8 @@
       "market": "+10000",
       "ev": -57,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -57
       }
     }
@@ -1831,24 +1831,5 @@
     "label": "Too early",
     "note": "only 5 games \u2014 records are mostly schedule luck; don't bet the board on stats alone yet."
   },
-  "value_plays": [
-    {
-      "name": "Iowa State Cyclones",
-      "ev": 321,
-      "market": "+5000",
-      "fair_odds": "+1111"
-    },
-    {
-      "name": "Houston Cougars",
-      "ev": 25,
-      "market": "+2200",
-      "fair_odds": "+1744"
-    },
-    {
-      "name": "Arizona Wildcats",
-      "ev": 10,
-      "market": "+2500",
-      "fair_odds": "+2273"
-    }
-  ]
+  "value_plays": []
 }

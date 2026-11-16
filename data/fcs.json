@@ -54,8 +54,8 @@
       "market": "+225",
       "ev": 56,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 56
       },
       "alt_ev": 5
@@ -96,8 +96,8 @@
       "market": "+400",
       "ev": 5,
       "verdict": {
-        "kind": "trap",
-        "label": "rating disagrees",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 5
       },
       "alt_ev": -20
@@ -138,8 +138,8 @@
       "market": "+1300",
       "ev": 115,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 115
       },
       "alt_ev": 5
@@ -180,8 +180,8 @@
       "market": "+900",
       "ev": -50,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -50
       },
       "alt_ev": -71
@@ -260,8 +260,8 @@
       "market": "+10000",
       "ev": 8,
       "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 8
       },
       "alt_ev": 372
@@ -340,8 +340,8 @@
       "market": "+25000",
       "ev": 1,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 1
       },
       "alt_ev": -55
@@ -382,8 +382,8 @@
       "market": "+6000",
       "ev": -80,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -80
       },
       "alt_ev": -55
@@ -462,8 +462,8 @@
       "market": "+380",
       "ev": -92,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -92
       },
       "alt_ev": -38
@@ -542,8 +542,8 @@
       "market": "+2000",
       "ev": -80,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -80
       },
       "alt_ev": 2
@@ -584,8 +584,8 @@
       "market": "+1300",
       "ev": -89,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -89
       },
       "alt_ev": -2
@@ -626,8 +626,8 @@
       "market": "+2500",
       "ev": -92,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -92
       },
       "alt_ev": -74
@@ -653,20 +653,7 @@
     "status": "trust",
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
-    "note": "11 games in \u2014 stats have stabilized; the read is actionable."
+    "note": "11 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "value_plays": [
-    {
-      "name": "Stephen F. Austin",
-      "ev": 115,
-      "market": "+1300",
-      "fair_odds": "+551"
-    },
-    {
-      "name": "South Dakota State",
-      "ev": 56,
-      "market": "+225",
-      "fair_odds": "+108"
-    }
-  ]
+  "value_plays": []
 }

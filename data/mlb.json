@@ -67,8 +67,8 @@
       "market": "+500",
       "ev": 18,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 18
       },
       "read": {
@@ -106,8 +106,8 @@
       "market": "+230",
       "ev": -36,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -36
       },
       "read": {
@@ -145,8 +145,8 @@
       "market": "+1400",
       "ev": 98,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 98
       },
       "read": {
@@ -184,8 +184,8 @@
       "market": "+1900",
       "ev": 227,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 227
       },
       "read": {
@@ -223,8 +223,8 @@
       "market": "+2200",
       "ev": 63,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 63
       },
       "read": {
@@ -262,8 +262,8 @@
       "market": "+800",
       "ev": -40,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -40
       },
       "read": {
@@ -301,8 +301,8 @@
       "market": "+750",
       "ev": -45,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -45
       },
       "read": {
@@ -340,8 +340,8 @@
       "market": "+4000",
       "ev": 94,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 94
       },
       "read": {
@@ -414,8 +414,8 @@
       "market": "+1600",
       "ev": -41,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -41
       },
       "read": {
@@ -558,8 +558,8 @@
       "market": "+1000",
       "ev": -88,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -88
       },
       "read": {
@@ -632,8 +632,8 @@
       "market": "+2000",
       "ev": -79,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -79
       },
       "read": {
@@ -706,8 +706,8 @@
       "market": "+1800",
       "ev": -82,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -82
       },
       "read": {
@@ -1069,18 +1069,5 @@
     "label": "Season over",
     "note": "The season is decided \u2014 the board shows the fair odds frozen at the start of the playoffs, for the record."
   },
-  "value_plays": [
-    {
-      "name": "Braves",
-      "ev": 98,
-      "market": "+1400",
-      "fair_odds": "+656"
-    },
-    {
-      "name": "Brewers",
-      "ev": 18,
-      "market": "+500",
-      "fair_odds": "+407"
-    }
-  ]
+  "value_plays": []
 }

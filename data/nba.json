@@ -4,8 +4,8 @@
   "generated": "2026-11-16T11:27:55Z",
   "odds_remaining": "51811",
   "prediction": {
-    "pick": "San Antonio Spurs",
-    "why": "<b>San Antonio Spurs</b> is the pick \u2014 the top team the model actually trusts (fair +648). Defense wins in May \u2014 a #3 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+    "pick": "Boston Celtics",
+    "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +317). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
   },
   "season_pct": 16,
   "gp_min": 11,
@@ -49,8 +49,8 @@
       "market": "+260",
       "ev": -52,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -52
       },
       "read": {
@@ -84,8 +84,8 @@
       "market": "+1700",
       "ev": 81,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 81
       },
       "read": {
@@ -119,8 +119,8 @@
       "market": "+1500",
       "ev": 42,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 42
       },
       "read": {
@@ -154,8 +154,8 @@
       "market": "+22500",
       "ev": 1640,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 1640
       },
       "read": {
@@ -189,8 +189,8 @@
       "market": "+900",
       "ev": 140,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 140
       },
       "read": {
@@ -224,8 +224,8 @@
       "market": "+2200",
       "ev": -11,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -11
       },
       "read": {
@@ -259,8 +259,8 @@
       "market": "+2700",
       "ev": -2,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -2
       },
       "read": {
@@ -294,8 +294,8 @@
       "market": "+2000",
       "ev": 91,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 91
       },
       "read": {
@@ -329,8 +329,8 @@
       "market": "+550",
       "ev": -85,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -85
       },
       "read": {
@@ -364,8 +364,8 @@
       "market": "+900",
       "ev": -24,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -24
       },
       "read": {
@@ -399,8 +399,8 @@
       "market": "+4000",
       "ev": -11,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -11
       },
       "read": {
@@ -434,8 +434,8 @@
       "market": "+950",
       "ev": -70,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -70
       },
       "read": {
@@ -469,8 +469,8 @@
       "market": "+2200",
       "ev": -88,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -88
       },
       "read": {
@@ -504,8 +504,8 @@
       "market": "+8000",
       "ev": 20,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 20
       },
       "read": {
@@ -539,8 +539,8 @@
       "market": "+3300",
       "ev": -52,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -52
       },
       "read": {
@@ -574,8 +574,8 @@
       "market": "+5500",
       "ev": -45,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -45
       },
       "read": {
@@ -609,8 +609,8 @@
       "market": "+15000",
       "ev": -79,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -79
       },
       "read": {
@@ -659,24 +659,5 @@
     "label": "Firming up",
     "note": "14 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": [
-    {
-      "name": "Boston Celtics",
-      "ev": 140,
-      "market": "+900",
-      "fair_odds": "+317"
-    },
-    {
-      "name": "Minnesota Timberwolves",
-      "ev": 81,
-      "market": "+1700",
-      "fair_odds": "+895"
-    },
-    {
-      "name": "Houston Rockets",
-      "ev": 42,
-      "market": "+1500",
-      "fair_odds": "+1026"
-    }
-  ]
+  "value_plays": []
 }

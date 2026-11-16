@@ -54,8 +54,8 @@
       "market": "+370",
       "ev": -29,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -29
       },
       "read": {
@@ -96,8 +96,8 @@
       "market": "+210",
       "ev": -23,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -23
       },
       "read": {
@@ -138,8 +138,8 @@
       "market": "+2700",
       "ev": 66,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 66
       },
       "read": {
@@ -180,8 +180,8 @@
       "market": "+1000",
       "ev": 153,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 153
       },
       "read": {
@@ -222,8 +222,8 @@
       "market": "+3000",
       "ev": 324,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 324
       },
       "read": {
@@ -264,8 +264,8 @@
       "market": "+125000",
       "ev": 36,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 36
       },
       "read": {
@@ -306,8 +306,8 @@
       "market": "+950",
       "ev": 15,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 15
       },
       "read": {
@@ -348,8 +348,8 @@
       "market": "+125000",
       "ev": -77,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -77
       },
       "read": {
@@ -390,8 +390,8 @@
       "market": "+2500",
       "ev": -2,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -2
       },
       "read": {
@@ -470,8 +470,8 @@
       "market": "+10000",
       "ev": -17,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -17
       },
       "read": {
@@ -550,8 +550,8 @@
       "market": "+6500",
       "ev": -7,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -7
       },
       "read": {
@@ -592,8 +592,8 @@
       "market": "+17500",
       "ev": -42,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -42
       },
       "read": {
@@ -793,7 +793,7 @@
     "status": "trust",
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
-    "note": "11 games in \u2014 stats have stabilized; the read is actionable."
+    "note": "11 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
   "value_plays": []
 }

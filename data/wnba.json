@@ -49,8 +49,8 @@
       "market": "+600",
       "ev": 69,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 69
       },
       "read": {
@@ -79,8 +79,8 @@
       "market": "+115",
       "ev": -53,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -53
       },
       "read": {
@@ -109,8 +109,8 @@
       "market": "+750",
       "ev": 55,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 55
       },
       "read": {
@@ -139,8 +139,8 @@
       "market": "+475",
       "ev": -32,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -32
       },
       "read": {
@@ -169,8 +169,8 @@
       "market": "+8000",
       "ev": 441,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 441
       },
       "read": {
@@ -199,8 +199,8 @@
       "market": "+6500",
       "ev": 43,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 43
       },
       "read": {
@@ -229,8 +229,8 @@
       "market": "+950",
       "ev": 11,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
+        "kind": "gap",
+        "label": "price gap",
         "ev": 11
       },
       "read": {
@@ -259,8 +259,8 @@
       "market": "+1400",
       "ev": -32,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
+        "kind": "gap",
+        "label": "price gap",
         "ev": -32
       },
       "read": {
@@ -292,18 +292,5 @@
     "label": "Season over",
     "note": "The season is decided \u2014 the board shows the fair odds frozen at the start of the playoffs, for the record."
   },
-  "value_plays": [
-    {
-      "name": "Golden State Valkyries",
-      "ev": 69,
-      "market": "+600",
-      "fair_odds": "+314"
-    },
-    {
-      "name": "Atlanta Dream",
-      "ev": 55,
-      "market": "+750",
-      "fair_odds": "+447"
-    }
-  ]
+  "value_plays": []
 }
