@@ -1,7 +1,7 @@
 {
   "sport": "CFL",
   "season": "2026",
-  "generated": "2026-11-15T19:30:33Z",
+  "generated": "2026-11-16T23:06:32Z",
   "cats": [
     "Win% top-5",
     "Scoring \u2265 24.6",
@@ -39,12 +39,8 @@
       ],
       "index": 93.8,
       "rtg": 8.22,
-      "alive": true,
-      "next": {
-        "round": "Grey Cup",
-        "opp": "Edmonton Elks",
-        "site": "neutral"
-      },
+      "alive": false,
+      "next": null,
       "fair_pct": 42.8,
       "fair_odds": "+133",
       "read": null,
@@ -76,11 +72,7 @@
       "index": 87.6,
       "rtg": 5.89,
       "alive": true,
-      "next": {
-        "round": "Grey Cup",
-        "opp": "Montreal Alouettes",
-        "site": "neutral"
-      },
+      "next": null,
       "fair_pct": 35.6,
       "fair_odds": "+181",
       "read": null,
@@ -317,11 +309,11 @@
   "odds_remaining": null,
   "market_name": "DraftKings",
   "market_asof": null,
-  "stage": "final",
+  "stage": "done",
   "window_closed": true,
   "prediction": {
     "pick": "Montreal Alouettes",
-    "why": "Still alive: Montreal Alouettes, Edmonton Elks. Going into the playoffs the model's #1 was <b>Montreal Alouettes</b>: 42.8% to win the Grey Cup (fair +133). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
+    "why": "<b>Edmonton Elks</b> won the 2026 Grey Cup. Going into the playoffs the model's #1 was <b>Montreal Alouettes</b>: 42.8% to win the Grey Cup (fair +133). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
   },
   "season_pct": 100,
   "gp_min": 18,
@@ -329,8 +321,8 @@
   "signal": {
     "status": "closed",
     "emoji": "\ud83d\udd12",
-    "label": "Window closed",
-    "note": "The playoffs are under way \u2014 you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now."
+    "label": "Season over",
+    "note": "The season is decided \u2014 the board shows the fair odds frozen at the start of the playoffs, for the record."
   },
   "value_plays": []
 }

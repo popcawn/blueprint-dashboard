@@ -1,7 +1,7 @@
 {
   "sport": "MLB",
   "season": "2026",
-  "generated": "2026-11-15T19:30:10Z",
+  "generated": "2026-11-16T23:06:21Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Brewers",
@@ -65,6 +65,7 @@
       "fair_pct": 19.7,
       "fair_odds": "+407",
       "market": "+500",
+      "books": null,
       "ev": 18,
       "verdict": {
         "kind": "value",
@@ -104,6 +105,7 @@
       "fair_pct": 19.3,
       "fair_odds": "+418",
       "market": "+230",
+      "books": null,
       "ev": -36,
       "verdict": {
         "kind": "fade",
@@ -143,6 +145,7 @@
       "fair_pct": 13.2,
       "fair_odds": "+656",
       "market": "+1400",
+      "books": null,
       "ev": 98,
       "verdict": {
         "kind": "best",
@@ -182,6 +185,7 @@
       "fair_pct": 16.4,
       "fair_odds": "+511",
       "market": "+1900",
+      "books": null,
       "ev": 227,
       "verdict": {
         "kind": "trap",
@@ -215,12 +219,13 @@
         "3.99 #10",
         "0.286 #12",
         "0.989 #2",
-        "+21 #6"
+        "+21 #7"
       ],
       "rtg": 0.25,
       "fair_pct": 7.1,
-      "fair_odds": "+1309",
+      "fair_odds": "+1310",
       "market": "+2200",
+      "books": null,
       "ev": 63,
       "verdict": {
         "kind": "value",
@@ -258,8 +263,9 @@
       ],
       "rtg": 0.86,
       "fair_pct": 6.6,
-      "fair_odds": "+1412",
+      "fair_odds": "+1413",
       "market": "+800",
+      "books": null,
       "ev": -40,
       "verdict": {
         "kind": "bigfade",
@@ -299,6 +305,7 @@
       "fair_pct": 6.5,
       "fair_odds": "+1447",
       "market": "+750",
+      "books": null,
       "ev": -45,
       "verdict": {
         "kind": "bigfade",
@@ -315,7 +322,7 @@
       "conf": "AL",
       "rec": "84-78",
       "score": 5,
-      "index": 60.0,
+      "index": 60.1,
       "q": [
         false,
         true,
@@ -332,17 +339,18 @@
         "4.12 #14",
         "0.287 #13",
         "0.986 #13",
-        "+14 #12"
+        "+15 #11"
       ],
       "rtg": 0.35,
-      "fair_pct": 4.7,
-      "fair_odds": "+2015",
+      "fair_pct": 4.8,
+      "fair_odds": "+2005",
       "market": "+4000",
-      "ev": 94,
+      "books": null,
+      "ev": 95,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 94
+        "ev": 95
       },
       "read": {
         "v": "fools_gold",
@@ -377,6 +385,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -412,6 +421,7 @@
       "fair_pct": 3.5,
       "fair_odds": "+2792",
       "market": "+1600",
+      "books": null,
       "ev": -41,
       "verdict": {
         "kind": "bigfade",
@@ -451,6 +461,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -463,7 +474,7 @@
       "conf": "AL",
       "rec": "80-82",
       "score": 3,
-      "index": 48.6,
+      "index": 48.7,
       "q": [
         false,
         false,
@@ -480,12 +491,13 @@
         "4.32 #22",
         "0.293 #17",
         "0.988 #6",
-        "+21 #6"
+        "+22 #6"
       ],
       "rtg": -0.28,
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -498,7 +510,7 @@
       "conf": "AL",
       "rec": "79-83",
       "score": 3,
-      "index": 43.0,
+      "index": 42.9,
       "q": [
         false,
         false,
@@ -515,12 +527,13 @@
         "3.90 #9",
         "0.285 #11",
         "0.983 #22",
-        "+15 #11"
+        "+14 #12"
       ],
       "rtg": -0.28,
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -554,8 +567,9 @@
       ],
       "rtg": 0.07,
       "fair_pct": 1.1,
-      "fair_odds": "+9178",
+      "fair_odds": "+9180",
       "market": "+1000",
+      "books": null,
       "ev": -88,
       "verdict": {
         "kind": "bigfade",
@@ -595,6 +609,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -628,8 +643,9 @@
       ],
       "rtg": -0.2,
       "fair_pct": 1.0,
-      "fair_odds": "+9694",
+      "fair_odds": "+9696",
       "market": "+2000",
+      "books": null,
       "ev": -79,
       "verdict": {
         "kind": "bigfade",
@@ -669,6 +685,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -702,8 +719,9 @@
       ],
       "rtg": 0.09,
       "fair_pct": 0.9,
-      "fair_odds": "+10708",
+      "fair_odds": "+10711",
       "market": "+1800",
+      "books": null,
       "ev": -82,
       "verdict": {
         "kind": "bigfade",
@@ -720,7 +738,7 @@
       "conf": "NL",
       "rec": "77-85",
       "score": 2,
-      "index": 44.5,
+      "index": 44.4,
       "q": [
         false,
         true,
@@ -737,12 +755,13 @@
         "4.67 #26",
         "0.290 #15",
         "0.982 #28",
-        "-22 #24"
+        "-23 #24"
       ],
       "rtg": 0.04,
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -772,12 +791,13 @@
         "4.56 #25",
         "0.297 #23",
         "0.987 #7",
-        "-15 #19"
+        "-15 #20"
       ],
       "rtg": -0.36,
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -813,6 +833,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -848,6 +869,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -877,12 +899,13 @@
         "4.15 #17",
         "0.291 #16",
         "0.983 #22",
-        "-23 #25"
+        "-23 #24"
       ],
       "rtg": -0.2,
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -918,6 +941,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -953,6 +977,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -988,6 +1013,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {
@@ -1023,6 +1049,7 @@
       "fair_pct": null,
       "fair_odds": null,
       "market": null,
+      "books": null,
       "ev": null,
       "verdict": null,
       "read": {

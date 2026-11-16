@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-16T16:33:12Z",
-  "odds_remaining": "51615",
+  "generated": "2026-11-16T23:06:10Z",
+  "odds_remaining": "51015",
   "prediction": {
     "pick": "Boston Celtics",
     "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +317). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -163,16 +163,16 @@
       "rtg": 8.9,
       "fair_pct": 7.8,
       "fair_odds": "+1190",
-      "market": "+22500",
+      "market": "+20000",
       "books": {
-        "FanDuel": 22500,
+        "FanDuel": 20000,
         "DraftKings": 14000
       },
-      "ev": 1652,
+      "ev": 1458,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1652
+        "ev": 1458
       },
       "read": {
         "v": "trust",
@@ -397,16 +397,16 @@
       "rtg": 2.1,
       "fair_pct": 7.3,
       "fair_odds": "+1274",
-      "market": "+900",
+      "market": "+950",
       "books": {
-        "FanDuel": 900,
+        "FanDuel": 950,
         "DraftKings": 850
       },
-      "ev": -27,
+      "ev": -24,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -27
+        "ev": -24
       },
       "read": {
         "v": "caution",
@@ -438,7 +438,7 @@
       "fair_odds": "+4517",
       "market": "+4500",
       "books": {
-        "FanDuel": 4000,
+        "FanDuel": 3500,
         "DraftKings": 4500
       },
       "ev": 0,

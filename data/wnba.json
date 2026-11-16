@@ -1,7 +1,7 @@
 {
   "sport": "WNBA",
   "season": "2026",
-  "generated": "2026-11-15T19:30:07Z",
+  "generated": "2026-11-16T23:06:17Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Golden State Valkyries",
@@ -47,6 +47,7 @@
       "fair_pct": 24.2,
       "fair_odds": "+314",
       "market": "+600",
+      "books": null,
       "ev": 69,
       "verdict": {
         "kind": "best",
@@ -77,6 +78,7 @@
       "fair_pct": 21.7,
       "fair_odds": "+360",
       "market": "+115",
+      "books": null,
       "ev": -53,
       "verdict": {
         "kind": "bigfade",
@@ -107,6 +109,7 @@
       "fair_pct": 18.3,
       "fair_odds": "+447",
       "market": "+750",
+      "books": null,
       "ev": 55,
       "verdict": {
         "kind": "value",
@@ -137,6 +140,7 @@
       "fair_pct": 11.9,
       "fair_odds": "+742",
       "market": "+475",
+      "books": null,
       "ev": -32,
       "verdict": {
         "kind": "fade",
@@ -167,6 +171,7 @@
       "fair_pct": 6.7,
       "fair_odds": "+1399",
       "market": "+8000",
+      "books": null,
       "ev": 441,
       "verdict": {
         "kind": "longshot",
@@ -197,6 +202,7 @@
       "fair_pct": 2.2,
       "fair_odds": "+4509",
       "market": "+6500",
+      "books": null,
       "ev": 43,
       "verdict": {
         "kind": "longshot",
@@ -227,6 +233,7 @@
       "fair_pct": 10.6,
       "fair_odds": "+843",
       "market": "+950",
+      "books": null,
       "ev": 11,
       "verdict": {
         "kind": "trap",
@@ -257,6 +264,7 @@
       "fair_pct": 4.5,
       "fair_odds": "+2115",
       "market": "+1400",
+      "books": null,
       "ev": -32,
       "verdict": {
         "kind": "fade",

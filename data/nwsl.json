@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-15T19:30:34Z",
+  "generated": "2026-11-16T23:06:33Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -38,14 +38,9 @@
         "0.17 #1"
       ],
       "index": 91.2,
-      "rtg": 0.45,
-      "alive": true,
-      "next": {
-        "round": "Semifinal",
-        "opp": "Kansas City Current",
-        "site": "home",
-        "date": "2026-11-15"
-      },
+      "rtg": 0.421,
+      "alive": false,
+      "next": null,
       "seed": 1,
       "bet_ok": false,
       "fair_pct": 19.1,
@@ -81,13 +76,13 @@
         "0.30 #5"
       ],
       "index": 82.4,
-      "rtg": 0.63,
+      "rtg": 0.66,
       "alive": true,
       "next": {
-        "round": "Semifinal",
-        "opp": "Gotham FC",
+        "round": "Final",
+        "opp": "Washington Spirit",
         "site": "away",
-        "date": "2026-11-15"
+        "date": "2026-11-22"
       },
       "seed": 4,
       "bet_ok": false,
@@ -164,7 +159,12 @@
       "index": 82,
       "rtg": 0.415,
       "alive": true,
-      "next": null,
+      "next": {
+        "round": "Final",
+        "opp": "Kansas City Current",
+        "site": "home",
+        "date": "2026-11-22"
+      },
       "seed": 3,
       "bet_ok": false,
       "fair_pct": 16.5,
@@ -238,7 +238,7 @@
         "0.27 #2"
       ],
       "index": 74.8,
-      "rtg": 0.122,
+      "rtg": 0.121,
       "alive": false,
       "next": null,
       "seed": 6,
@@ -276,7 +276,7 @@
         "0.37 #7"
       ],
       "index": 69.9,
-      "rtg": 0.084,
+      "rtg": 0.083,
       "alive": false,
       "next": null,
       "seed": 8,
@@ -314,7 +314,7 @@
         "0.37 #7"
       ],
       "index": 65,
-      "rtg": 0.005,
+      "rtg": 0.004,
       "alive": false,
       "next": null,
       "seed": 7,
@@ -420,7 +420,7 @@
         "0.43 #10"
       ],
       "index": 64.4,
-      "rtg": 0.216,
+      "rtg": 0.215,
       "alive": false,
       "next": null,
       "seed": 9,
@@ -522,7 +522,7 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.539,
+      "rtg": -0.538,
       "alive": false,
       "next": null,
       "seed": 15,
@@ -556,7 +556,7 @@
         "0.57 #14"
       ],
       "index": 38.9,
-      "rtg": -0.486,
+      "rtg": -0.485,
       "alive": false,
       "next": null,
       "seed": 14,
@@ -590,7 +590,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.272,
+      "rtg": -1.271,
       "alive": false,
       "next": null,
       "seed": 16,
@@ -611,7 +611,7 @@
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Gotham FC, Kansas City Current, Washington Spirit. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
+    "why": "Still alive: Kansas City Current, Washington Spirit. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
   },
   "season_pct": 100,
   "gp_min": 30,

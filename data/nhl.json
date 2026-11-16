@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-16T16:43:34Z",
-  "odds_remaining": "51614",
+  "generated": "2026-11-16T23:06:05Z",
+  "odds_remaining": "51016",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +294). The Read: Carried by its #1 even-strength goal differential, but its weakest link \u2014 #14 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
@@ -692,7 +692,7 @@
       "fair_odds": "+10112",
       "market": "+17000",
       "books": {
-        "FanDuel": 8000,
+        "FanDuel": 10000,
         "DraftKings": 17000
       },
       "ev": 67,
@@ -880,16 +880,16 @@
       "sv5": "88.8% #29",
       "fair_pct": 0.8,
       "fair_odds": "+12174",
-      "market": "+12500",
+      "market": "+10000",
       "books": {
-        "FanDuel": 12500,
+        "FanDuel": 10000,
         "DraftKings": 9000
       },
-      "ev": 3,
+      "ev": -18,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 3
+        "kind": "fade",
+        "label": "fade",
+        "ev": -18
       },
       "read": {
         "v": "caution",
