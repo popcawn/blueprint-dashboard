@@ -370,7 +370,7 @@ function muModel(){   // the current matchup's numbers: margin for the LEFT team
 }
 function simMatchup(){
   const out=document.getElementById('muout'), M=muModel();
-  if(M.err){out.innerHTML=`<span class="muwarn">${M.err}</span>`; oddsCheck(); return;}
+  if(M.err){out.innerHTML=`<span class="muwarn">${M.err}</span>`; return;}
   const {d,A,B,sd,hfa}=M, unit=MU_UNIT[cur], dp=unit==='goals'?1:0;
   const tw={champion:'a complete team',contender:'a real contender',pretender:'a flawed team'};
   const tier=t=>tw[t.read&&t.read.tier]||'the stronger side', tierd=t=>tw[t.read&&t.read.tier]||'the weaker side';
@@ -398,9 +398,9 @@ function simMatchup(){
       :`One game is high-variance — the underdog still wins ~${Math.round((1-gameP)*100)}%. Backtested straight-up: CFB 71%, NHL 58%, NFL 64%${['nba','wnba','mlb'].includes(cur)?'; this sport estimated':''}.`;
   }
   out.innerHTML=`<div class="mures">${hdr}</div><div class="muwhy">${why}</div>${note?`<div class="munote">${note}</div>`:''}`;
-  oddsCheck();
 }
-/* ---------- 💵 Odds check = the UFC Classic sim's rules (2026-11-07, user: "take or pass should match classic sim approach" · "no anchoring" · "and backtest") ----------
+/* (2026-11-16, user: "remove this") the 💵 Odds check panel under the matchup simulator is gone; its rules (oddsVerdict below) stay because the NFL weekly parlay card uses them.
+   ---------- the rules = the UFC Classic sim's rules (2026-11-07, user: "take or pass should match classic sim approach" · "no anchoring" · "and backtest") ----------
    No market anchoring: EV = the MODEL's % x decimal - 1, every price you type checked on its own (ufc-fight-simulator/classic.html verdictFor):
    PASS THIS GAME when the no-vig moneyline favourite is over 70% and the model has it 8+ points lower; otherwise TAKE the bet with the biggest
    Kelly among EV 4-50% (under 4% = too thin, over 50% = too good to be real), stake = min(3%, Kelly/4) of the bankroll; LEAN PASS on thin data
@@ -425,24 +425,12 @@ function simMatchup(){
    sports, both stake sizes. Each filter alone failed somewhere (NFL needs both for moneyline-only; CFB needs the long-shot cap).
    Fewer losses, still not a proven edge. Rejected on the way: EV caps, sharper/flatter SD, shrinking margins, trust-weeks-only,
    log-odds gaps, no-spread, no-favourite, rank by EV, the 1.5-pt agreement gate (--gate). */
-const MU_TEST={nfl:{n:"2,368",yrs:"2015–25",take:"about 6 in 10",won:"41–44%",said:"~50%",roi:"0.5–4%",was:"2–6%",bank:"8 of 11"},cfb:{n:"6,290",yrs:"2014–25",take:"about half of the",won:"44–45%",said:"~54%",roi:"3–6%",was:"5–11%",bank:"9 of 12"}};
 const MU_GAP={nfl:5.4,cfb:8.0}, MU_LONG={nfl:600,cfb:400}, MU_MSD={nfl:11.7,cfb:15.8};
 const _invphi=p=>{ let lo=-8,hi=8; for(let i=0;i<60;i++){ const m=(lo+hi)/2; if(_phi(m)<p) lo=m; else hi=m; } return (lo+hi)/2; };
-const _odds=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(s==='ev'||s==='even') return 100; const v=+s; return isFinite(v)&&Math.abs(v)>=100?v:NaN; };
-const _lineIn=s=>{ s=String(s||'').trim().replace(/[−–]/g,'-').toLowerCase(); if(!s) return null; if(/^pk|^pick/.test(s)) return 0; const v=+s; return isFinite(v)?v:NaN; };
 const _dec=a=>a>0?1+a/100:1+100/-a;
 const _fmtLine=x=>x===0?'PK':(x>0?'+':'')+x;
 const _fmtPx=x=>(x>0?'+':'')+x;
 function bankDefault(){ try{ const b=localStorage.getItem('bp_bank'); if(b) return b; const n=JSON.parse(localStorage.getItem('nfltd_bank')||'{}'); return n&&n.amt>0?String(n.amt):''; }catch(e){ return ''; } }
-function oddsPanel(){
-  if(cur==="mls"||cur==="nwsl") return `<div class="munote" style="margin-top:8px">Odds check: soccer moneylines are 3-way (a draw is a result), which this calculator doesn't price.</div>`;
-  const inp=(id,ph,w)=>`<input id="${id}" placeholder="${ph}" inputmode="decimal" autocomplete="off" oninput="oddsCheck()"${w?` style="width:${w}px"`:''}>`;
-  return `<div class="muodds"><div class="muhead" style="margin:0 0 2px">💵 Odds check — the model's odds vs your book's price → TAKE or PASS <span class="musub">(Classic rules, no anchoring)</span></div>
-    <div class="oddsrow"><span class="ol">Moneyline</span><span class="ot" id="olA">Left</span>${inp('mlA','-150')}<span class="ot" id="olB">Right</span>${inp('mlB','+130')}</div>
-    <div class="oddsrow"><span class="ol">Spread</span><span class="ot" id="slA">Left</span>${inp('spA','-3.5',58)}<span class="at">at</span>${inp('spPA','-110')}<span class="ot" id="slB">Right</span><span class="spb" id="spBtxt"></span><span class="at">at</span>${inp('spPB','-110')}</div>
-    <div class="oddsrow"><span class="ol">Bankroll</span><span class="at">$</span><input id="bpBank" placeholder="125" inputmode="decimal" value="${bankDefault()}" oninput="oddsCheck()" style="width:72px"><span class="at">for the stake on a TAKE</span></div>
-    <div id="oddsout"></div></div>`;
-}
 /* the odds check's rules as a pure function (2026-11-08: shared by the odds check and the weekly parlay, so both say exactly the same thing).
    q = {mlA, mlB, L, pxA, pxB, nA, nB, bank}: American prices or null, L = the LEFT team's spread or null. -> {bets, v, mkt, mkM} */
 function oddsVerdict(sp,M,q){
@@ -476,34 +464,6 @@ function oddsVerdict(sp,M,q){
         :bets.some(x=>x.ev>0)?{c:'pass',t:'PASS',b:`Only razor-thin edges (under 4%) — inside the model's margin of error. Not worth a bet.`}
         :{c:'pass',t:'PASS',b:`No positive expected value at these prices — the book's lines look efficient here.`}; } }
   return {bets,v,mkt,mkM};
-}
-function oddsCheck(){
-  const out=document.getElementById('oddsout'); if(!out) return;
-  const M=muModel(), gv=id=>{const e=document.getElementById(id);return e?e.value:'';}, setT=(id,t)=>{const e=document.getElementById(id); if(e) e.textContent=t;};
-  const nA=M.A?shortNm(M.A.name):'Left', nB=M.B?shortNm(M.B.name):'Right';
-  setT('olA',nA); setT('slA',nA); setT('olB',nB); setT('slB',nB);
-  const L=_lineIn(gv('spA')); setT('spBtxt', L==null||Number.isNaN(L)?'':_fmtLine(-L));
-  const bank=+(gv('bpBank')||0); try{ localStorage.setItem('bp_bank', gv('bpBank')||''); }catch(e){}
-  if(M.err){ out.innerHTML=''; return; }
-  if(M.series){ out.innerHTML='<div class="munote">Set the matchup to <b>one game</b> to check game odds.</div>'; return; }
-  const mlA=_odds(gv('mlA')), mlB=_odds(gv('mlB')), pxA=_odds(gv('spPA')), pxB=_odds(gv('spPB'));
-  if([mlA,mlB,L,pxA,pxB].some(x=>Number.isNaN(x))){ out.innerHTML='<div class="muwarn" style="margin-top:6px">Prices look like -150 or +130 (100 or more either way); a spread like -3.5, +7 or PK.</div>'; return; }
-  // Classic: every price you type is checked on its own -- EV = the MODEL's % x decimal - 1 (no market anchoring); the rules live in oddsVerdict
-  const {bets,v,mkt}=oddsVerdict(cur,M,{mlA,mlB,L,pxA,pxB,nA,nB,bank});
-  const unit=MU_UNIT[cur], fav=M.m>=0?M.A:M.B, pf=Math.max(M.pA,1-M.pA), T=MU_TEST[cur], sport=(M.d.sport||cur).toUpperCase();
-  const modelLine=`Model: ${fav.name} by ~${Math.abs(M.m).toFixed(1)} ${unit}, wins ${Math.round(pf*100)}% (fair ${_amer(pf)})${M.h==='0'?' at a neutral site':''}`;
-  const testNote=T?`Backtest of these exact rules on ${T.n} real ${sport} games (${T.yrs}, median book prices): it said TAKE on ${T.take} games, and those bets won ${T.won} when the model said ${T.said} — down ${T.roi} per dollar in both halves (${T.was} before the gap and long-shot filters); $125 at these stakes finished down in ${T.bank} seasons.`
-    :`Not backtested on real ${sport} lines; the same kind of model lost 2–11% per dollar on NFL and CFB lines under these rules.`;
-  if(!bets.length){ out.innerHTML=`<div class="munote" style="margin-top:6px">Type a <b>moneyline</b> (one side or both) or the <b>spread</b> (prices default to -110). ${modelLine}${M.h==='0'?' — set who\'s home first':''}.</div>`; return; }
-  const pct=p=>(100*p).toFixed(1)+'%', sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%';
-  let h=`<table class="oddst"><tr><th>Bet</th><th>Price</th><th title="The matchup model's chance, and its fair price">Model %</th><th title="Your book's chance: its margin (vig) removed when both sides are typed">Market %</th><th title="Expected value per $1 at your price, on the model's %">EV</th></tr>`;
-  for(const x of bets){ const isB=v.c==='take'&&v.best===x;
-    const evc=x.ev<=0?`<td>${sev(x.ev)}</td>`:v.c!=='take'?`<td class="sus">${sev(x.ev)} ⚠ ${x.tag==='long'?'long shot':'suspect'}</td>`:isB?`<td class="best">★ BEST ${sev(x.ev)}</td>`
-      :x.tag==='take'?`<td class="g">${sev(x.ev)} ✓ value</td>`:x.tag==='toogood'?`<td class="sus">${sev(x.ev)} ⚠ suspect</td>`:x.tag==='long'?`<td class="sus">${sev(x.ev)} ⚠ long shot</td>`:`<td>${sev(x.ev)}</td>`;
-    h+=`<tr class="${isB?'tk':''}"><td>${x.label}</td><td>${_fmtPx(x.price)}</td><td>${pct(x.p)} <span class="dim">${_amer(x.p)}</span></td><td>${pct(mkt(x))}</td>${evc}</tr>`; }
-  h+='</table>';
-  h+=`<div class="muverd ${v.c}"><span class="vh">${v.c==='take'?'✅':v.c==='caution'?'⚠':'🚫'} ${v.t}</span>${v.b}<div class="vsmall">${modelLine}. ${testNote} Model-based suggestion, not financial advice.</div></div>`;
-  out.innerHTML=h;
 }
 /* ---------- 🎯 Weekly parlay (2026-11-08, user: "add that rule to the sim that tells me automatically") ----------
    FanDuel lines (2026-11-08, user: "pull prices from fanduel"): the bot pulls them with the Odds API key into DATA.nfl.game_lines (the key
@@ -546,9 +506,9 @@ function drawParlay(){
   const el=document.getElementById('wkparlay'); if(!el||!WKP) return;
   const d=DATA.nfl, bank=+(bankDefault()||0), sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%', GL=d.game_lines;
   const hdr=`<div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span><button class="btn ghost rf" title="Pull fresh FanDuel prices: rebuilds the NFL board (~1–2 min, 3 Odds API credits)" onclick="document.getElementById('rfbtn').click()">↻ FanDuel</button></div>`;
-  if(WKP.err){ el.innerHTML=hdr+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}). Use the odds check below by hand.</div>`; return; }
+  if(WKP.err){ el.innerHTML=hdr+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}).</div>`; return; }
   if(WKP.season.type&&WKP.season.type!==2){ el.innerHTML=hdr+`<div class="munote">Regular season only — the rule was never tested on ${WKP.season.type===3?'playoff':'preseason'} games.</div>`; return; }
-  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (daily at 10 AM ET, or press ↻ FanDuel). Until then, use the odds check below by hand.</div>`; return; }
+  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (daily at 10 AM ET, or press ↻ FanDuel).</div>`; return; }
   const G=WKP.games=wkpGames(WKP.sb), up=G.filter(g=>g.r), legs=up.filter(g=>g.r.v&&g.r.v.c==='take'&&g.r.v.best.k==='ml').sort((x,y)=>y.r.v.best.kelly-x.r.v.best.kelly), top=legs.slice(0,2);
   const book=GL.book||'FanDuel', at=new Date(GL.at), age=(Date.now()-at)/36e5, t=at.toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
   let h=hdr;
@@ -556,20 +516,19 @@ function drawParlay(){
     h+=`<div class="wkpick">${top.map(g=>`<b>${g.r.v.best.label} ${_fmtPx(g.r.v.best.price)}</b>`).join(' + ')} → <b style="color:var(--good)">parlay ${_fmtPx(am)}</b> · bet $1–2</div>`; }
   else h+=`<div class="wkpick">No parlay ${up.length?'yet':'this week'} — ${legs.length?'only one game has':'no game has'} a moneyline TAKE${up.length?` among the ${up.length} game${up.length===1?'':'s'} still to play`:''} (the rule needs two).${d.signal&&d.signal.status==='early'?' Early in the season every pick is LEAN PASS.':''}</div>`;
   const started=G.filter(g=>g.skip==='started').length, nolines=G.filter(g=>g.skip==='no FanDuel line').length;
-  h+=`<div class="munote">${book} prices pulled ${t}${age>12?' — <b>over 12 hours old</b>, press ↻ FanDuel for fresh ones':''}${started?` · ${started} game${started===1?'':'s'} already started (left out)`:''}${nolines?` · ${nolines} without a ${book} line`:''}. Backtest 2015–25: +65% / +75% per $1, hits ~1 in 4 — the best of ~45 versions and fragile, so treat it as a lottery-sized bet. Tap a game to open it in the odds check.</div>`;
-  if(up.length){ h+=`<details class="wkrows"><summary>All ${up.length} game${up.length===1?'':'s'} still to play</summary><table class="oddst"><tr><th>Game</th><th>Lines</th><th>Odds check</th></tr>`;
+  h+=`<div class="munote">${book} prices pulled ${t}${age>12?' — <b>over 12 hours old</b>, press ↻ FanDuel for fresh ones':''}${started?` · ${started} game${started===1?'':'s'} already started (left out)`:''}${nolines?` · ${nolines} without a ${book} line`:''}. Backtest 2015–25: +65% / +75% per $1, hits ~1 in 4 — the best of ~45 versions and fragile, so treat it as a lottery-sized bet. Tap a game to open it in the matchup simulator.</div>`;
+  if(up.length){ h+=`<details class="wkrows"><summary>All ${up.length} game${up.length===1?'':'s'} still to play</summary><table class="oddst"><tr><th>Game</th><th>Lines</th><th>Verdict</th></tr>`;
     up.forEach(g=>{ const i=G.indexOf(g), v=g.r.v, b=v&&v.best, k=new Date(g.when).toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
       const pick=!v?'—':v.c==='take'?`<td class="${b.k==='ml'?'best':'g'}">TAKE ${b.label} ${_fmtPx(b.price)} · ${sev(b.ev)}${bank>0?` · $${(Math.min(0.03,b.kelly/4)*bank).toFixed(2)}`:''}${top.includes(g)?' ★':''}</td>`:`<td class="dim">${v.t==='PASS THIS GAME'?'PASS (gap)':v.t==='LEAN PASS — THIN DATA'?'LEAN PASS':'PASS'}</td>`;
       h+=`<tr class="gm" onclick="wkpOpen(${i})"><td>${shortNm(g.away)} ${g.neutral?'vs':'@'} ${shortNm(g.home)} <span class="dim">${k}</span></td><td>${shortNm(g.home)} ${_fmtLine(-g.L)} · ${_fmtPx(g.mlA)} / ${_fmtPx(g.mlB)}</td>${typeof pick==='string'&&!pick.startsWith('<td')?`<td>${pick}</td>`:pick}</tr>`; });
     h+='</table></details>'; }
   el.innerHTML=h;
 }
-function wkpOpen(i){   // load one game into the matchup sim + odds check (to see the full table or type your own book's prices)
+function wkpOpen(i){   // load one game into the matchup sim
   const g=WKP&&WKP.games[i]; if(!g||!g.r) return;
   const det=document.querySelector('details.matchup'); if(det){ det.open=true; MU_OPEN=true; }
   const set=(id,v)=>{ const e=document.getElementById(id); if(e) e.value=v; };
   set('muA',g.away); set('muB',g.home); set('muH',g.neutral?'0':'B');
-  set('mlA',_fmtPx(g.mlA)); set('mlB',_fmtPx(g.mlB)); set('spA',_fmtLine(g.L)); set('spPA',g.pxA!=null?_fmtPx(g.pxA):''); set('spPB',g.pxB!=null?_fmtPx(g.pxB):'');
   simMatchup(); if(det) det.scrollIntoView({behavior:'smooth',block:'start'});
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
@@ -706,12 +665,12 @@ function render(){
   if(cur==="nfl") html+=parlayCard();   // 🎯 automatic weekly parlay (2026-11-08)
   if(ml.length>1){
     const opt=(sel)=>ml.map(n=>`<option value="${n}"${n===sel?' selected':''}>${n}</option>`).join("");
-    html+=`<details class="matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary class="muhead">⚔️ Matchup simulator <span class="musub">${cur==="mls"||cur==="nwsl"?'· who wins, and why':'· who wins + 💵 TAKE or PASS at your odds'}</span></summary>
-      <div class="murow"><select id="muA" onchange="oddsCheck()">${opt(ml[0])}</select><span class="muvs">vs</span><select id="muB" onchange="oddsCheck()">${opt(ml[1])}</select>
+    html+=`<details class="matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary class="muhead">⚔️ Matchup simulator <span class="musub">· who wins, and why</span></summary>
+      <div class="murow"><select id="muA" onchange="simMatchup()">${opt(ml[0])}</select><span class="muvs">vs</span><select id="muB" onchange="simMatchup()">${opt(ml[1])}</select>
       ${SERIES[cur]?'<select id="muM" onchange="simMatchup()"><option value="g">one game</option>'+SERIES[cur].map(n=>`<option value="s${n}">best-of-${n} series</option>`).join('')+'</select>':''}
-      <select id="muH" onchange="oddsCheck()"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
+      <select id="muH" onchange="simMatchup()"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
       <button class="btn" onclick="simMatchup()">Simulate</button></div>
-      <div class="muout" id="muout"></div>${oddsPanel()}</details>`;
+      <div class="muout" id="muout"></div></details>`;
   }
   if(NOPROFILE.includes(cur)) html+=`<div class="tier t3">By title odds <span class="n" title="No tiers on this board: its every-champion checklist did no better than a coin flip when tested on seasons it had not seen, so teams are listed by title odds. The stats on each card are context.">no checklist</span></div><div class="cards">${teams.slice().sort((a,b)=>((b.fair_pct||0)-(a.fair_pct||0))||((b.index||0)-(a.index||0))).map(t=>card(t,cur)).join("")}</div>`;
   else for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
