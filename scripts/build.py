@@ -56,6 +56,9 @@ def value_plays(teams, maxcat, sport=None):
         # Notre Dame +2000, Texas Tech +1600 ...). Only 3 seasons have FanDuel CFB prices: a lean, not proof (no prices 2014-22, when
         # the board's #1 at the 2nd release won 2/6 in 2014-19 and 6/6 in 2020-25). Empty before a #1 has held through a release,
         # when the #1 is priced fairly, and once a CFP game has been played (build_cfb sets held = 0 -- never bet within the playoffs).
+        # 2026-11-16 (user: "should fanduel test go back further than 2023"): 2014-22 on hand-collected prices (baseball-blueprint/
+        # cfb-hand-prices.json, mixed books; cfb-trust-by-week.mjs --hand): 12 bets, 6 won, +$129 (+$123 to +$135 across books); it lost in
+        # 2014, 2015, 2016, 2019 and won in 2018 (Clemson x5 at +300..+400) and 2021 (Georgia -110); one bet a season 2/6, +$9. No rule change.
         top = max((t for t in teams if t.get("mw")), key=lambda t: t["mw"], default=None)
         if top and (top.get("held") or 0) >= 2:
             p = _price_num(top.get("market"))
