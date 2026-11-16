@@ -1,639 +1,1201 @@
 [
  {
-  "date": "2026-10-25",
-  "gp": 44,
+  "date": "2026-05-17",
+  "gp": 5,
   "teams": {
-   "Golden State Valkyries": {
+   "Las Vegas Aces": {
     "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
+    "idx": 78.0,
+    "fp": 5.5,
     "mkt": null,
     "ev": null
    },
-   "Minnesota Lynx": {
-    "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+   "New York Liberty": {
+    "sc": 2,
+    "idx": 100.0,
+    "fp": 69.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 83.1,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Phoenix Mercury": {
+    "sc": 2,
+    "idx": 75.8,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Sky": {
+    "sc": 2,
+    "idx": 74.9,
+    "fp": 3.9,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
-    "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
-    "mkt": null,
-    "ev": null
-   },
-   "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
-    "mkt": null,
-    "ev": null
-   },
-   "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 63.6,
+    "fp": 1.1,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 58.2,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Tempo": {
+    "sc": 0,
+    "idx": 71.7,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 2.2,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-10-26",
-  "gp": 44,
+  "date": "2026-05-24",
+  "gp": 7,
   "teams": {
-   "Golden State Valkyries": {
+   "Atlanta Dream": {
     "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
+    "idx": 91.9,
+    "fp": 11.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 2,
+    "idx": 100.0,
+    "fp": 20.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 99.8,
+    "fp": 19.9,
     "mkt": null,
     "ev": null
    },
    "Minnesota Lynx": {
-    "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "sc": 2,
+    "idx": 99.7,
+    "fp": 19.8,
     "mkt": null,
     "ev": null
    },
-   "Atlanta Dream": {
-    "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 66.9,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Sky": {
+    "sc": 1,
+    "idx": 66.9,
+    "fp": 1.8,
     "mkt": null,
     "ev": null
    },
    "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "sc": 0,
+    "idx": 87.8,
+    "fp": 8.3,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
-    "sc": 1,
-    "idx": 69.8,
+    "sc": 0,
+    "idx": 86.1,
+    "fp": 7.3,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 0,
+    "idx": 84.3,
     "fp": 6.4,
     "mkt": null,
     "ev": null
    },
-   "Washington Mystics": {
-    "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+   "Phoenix Mercury": {
+    "sc": 0,
+    "idx": 68.4,
+    "fp": 2.0,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-10-27",
-  "gp": 44,
+  "date": "2026-05-31",
+  "gp": 10,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 49.3,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "idx": 76.9,
+    "fp": 7.3,
     "mkt": null,
     "ev": null
    },
-   "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 86.8,
+    "fp": 16.5,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 77.2,
+    "fp": 7.5,
     "mkt": null,
     "ev": null
    },
-   "Washington Mystics": {
+   "New York Liberty": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 73.1,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Sky": {
+    "sc": 1,
+    "idx": 41.6,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 39.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 0,
+    "idx": 72.8,
+    "fp": 5.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 0,
+    "idx": 69.8,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Toronto Tempo": {
+    "sc": 0,
+    "idx": 60.2,
+    "fp": 1.8,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-10-28",
-  "gp": 44,
+  "date": "2026-06-07",
+  "gp": 13,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 66.2,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
-    "mkt": null,
-    "ev": null
-   },
-   "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "idx": 77.9,
+    "fp": 8.5,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
-    "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "sc": 2,
+    "idx": 77.6,
+    "fp": 8.3,
     "mkt": null,
     "ev": null
    },
-   "Washington Mystics": {
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 73.7,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 2,
+    "idx": 67.7,
+    "fp": 3.3,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 70.7,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 21.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 0,
+    "idx": 61.0,
+    "fp": 1.8,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-10-29",
-  "gp": 44,
+  "date": "2026-06-14",
+  "gp": 15,
   "teams": {
-   "Golden State Valkyries": {
+   "Minnesota Lynx": {
     "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 62.6,
     "mkt": null,
     "ev": null
    },
-   "Minnesota Lynx": {
+   "New York Liberty": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 79.7,
+    "fp": 10.4,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "idx": 77.1,
+    "fp": 8.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 73.0,
+    "fp": 5.8,
     "mkt": null,
     "ev": null
    },
    "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "sc": 1,
+    "idx": 72.6,
+    "fp": 5.6,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 67.3,
+    "fp": 3.5,
     "mkt": null,
     "ev": null
    },
-   "Washington Mystics": {
+   "Indiana Fever": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 63.8,
+    "fp": 2.6,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-10-30",
-  "gp": 44,
+  "date": "2026-06-21",
+  "gp": 17,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 67.4,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "idx": 79.0,
+    "fp": 11.0,
     "mkt": null,
     "ev": null
    },
-   "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+   "New York Liberty": {
+    "sc": 2,
+    "idx": 72.3,
+    "fp": 6.2,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
-    "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "sc": 2,
+    "idx": 68.1,
+    "fp": 4.3,
     "mkt": null,
     "ev": null
    },
-   "Washington Mystics": {
+   "Golden State Valkyries": {
+    "sc": 1,
+    "idx": 67.8,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
     "sc": 1,
     "idx": 66.9,
-    "fp": 5.6,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 59.0,
+    "fp": 1.9,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-10-31",
-  "gp": 44,
+  "date": "2026-06-28",
+  "gp": 20,
   "teams": {
-   "Golden State Valkyries": {
+   "Minnesota Lynx": {
     "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 68.7,
     "mkt": null,
     "ev": null
    },
-   "Minnesota Lynx": {
-    "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 68.1,
+    "fp": 7.0,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
-    "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "sc": 2,
+    "idx": 64.5,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 2,
+    "idx": 63.9,
+    "fp": 5.1,
     "mkt": null,
     "ev": null
    },
    "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "sc": 1,
+    "idx": 63.8,
+    "fp": 5.1,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 55.5,
+    "fp": 2.8,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 23.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 0,
+    "idx": 60.8,
+    "fp": 4.1,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-11-01",
-  "gp": 44,
+  "date": "2026-07-05",
+  "gp": 22,
   "teams": {
-   "Golden State Valkyries": {
+   "Minnesota Lynx": {
     "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 58.4,
     "mkt": null,
     "ev": null
    },
-   "Minnesota Lynx": {
-    "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+   "Golden State Valkyries": {
+    "sc": 2,
+    "idx": 72.0,
+    "fp": 9.3,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 2,
+    "idx": 69.9,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 67.7,
+    "fp": 7.0,
     "mkt": null,
     "ev": null
    },
    "Atlanta Dream": {
-    "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "sc": 1,
+    "idx": 62.8,
+    "fp": 5.0,
     "mkt": null,
     "ev": null
    },
    "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "sc": 1,
+    "idx": 62.7,
+    "fp": 5.0,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 61.3,
+    "fp": 4.6,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 25.3,
+    "fp": 0.4,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-11-02",
-  "gp": 44,
+  "date": "2026-07-12",
+  "gp": 25,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 48.2,
     "mkt": null,
     "ev": null
    },
-   "Atlanta Dream": {
+   "Golden State Valkyries": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "idx": 81.7,
+    "fp": 15.4,
     "mkt": null,
     "ev": null
    },
-   "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 73.6,
+    "fp": 9.3,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 69.4,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 1,
+    "idx": 68.9,
+    "fp": 6.9,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 1,
+    "idx": 65.0,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 1,
+    "idx": 64.2,
+    "fp": 5.2,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 25.7,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 12.4,
+    "fp": 0.2,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-11-03",
-  "gp": 44,
+  "date": "2026-07-19",
+  "gp": 27,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 45.1,
     "mkt": null,
     "ev": null
    },
-   "Atlanta Dream": {
+   "Golden State Valkyries": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
-    "mkt": null,
-    "ev": null
-   },
-   "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "idx": 83.6,
+    "fp": 17.6,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
+    "sc": 3,
+    "idx": 69.3,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 71.6,
+    "fp": 8.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 1,
+    "idx": 67.7,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 1,
+    "idx": 67.7,
+    "fp": 7.1,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 20.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 6.9,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 0,
+    "idx": 57.1,
+    "fp": 3.9,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-11-04",
-  "gp": 44,
+  "date": "2026-07-26",
+  "gp": 29,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 42.3,
     "mkt": null,
     "ev": null
    },
-   "Atlanta Dream": {
+   "Golden State Valkyries": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "idx": 82.1,
+    "fp": 14.3,
     "mkt": null,
     "ev": null
    },
    "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "sc": 2,
+    "idx": 74.8,
+    "fp": 9.2,
     "mkt": null,
     "ev": null
    },
-   "Dallas Wings": {
+   "Indiana Fever": {
     "sc": 1,
-    "idx": 69.8,
-    "fp": 6.4,
+    "idx": 81.2,
+    "fp": 13.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 1,
+    "idx": 70.7,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 1,
+    "idx": 59.9,
+    "fp": 3.7,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 30.1,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 12.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 0,
+    "idx": 70.8,
+    "fp": 7.2,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-11-05",
-  "gp": 44,
+  "date": "2026-08-02",
+  "gp": 31,
   "teams": {
-   "Golden State Valkyries": {
-    "sc": 3,
-    "idx": 98.6,
-    "fp": 24.0,
-    "mkt": null,
-    "ev": null
-   },
    "Minnesota Lynx": {
     "sc": 3,
-    "idx": 86.7,
-    "fp": 24.0,
+    "idx": 100.0,
+    "fp": 48.2,
     "mkt": null,
     "ev": null
    },
-   "Atlanta Dream": {
+   "Golden State Valkyries": {
     "sc": 3,
-    "idx": 81.5,
-    "fp": 21.6,
+    "idx": 80.1,
+    "fp": 13.3,
     "mkt": null,
     "ev": null
    },
    "Las Vegas Aces": {
-    "sc": 3,
-    "idx": 77.1,
-    "fp": 18.3,
+    "sc": 2,
+    "idx": 73.4,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 78.2,
+    "fp": 11.7,
     "mkt": null,
     "ev": null
    },
    "Dallas Wings": {
     "sc": 1,
-    "idx": 69.8,
+    "idx": 68.9,
+    "fp": 6.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 1,
+    "idx": 68.9,
     "fp": 6.4,
     "mkt": null,
     "ev": null
    },
    "Washington Mystics": {
     "sc": 1,
-    "idx": 66.9,
-    "fp": 5.6,
+    "idx": 34.6,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Sky": {
+    "sc": 1,
+    "idx": 34.1,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 0,
+    "idx": 57.3,
+    "fp": 3.0,
     "mkt": null,
     "ev": null
    }
   }
  },
  {
-  "date": "2026-11-07",
+  "date": "2026-08-09",
+  "gp": 34,
+  "teams": {
+   "Minnesota Lynx": {
+    "sc": 3,
+    "idx": 100.0,
+    "fp": 46.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 3,
+    "idx": 85.0,
+    "fp": 18.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 77.3,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 1,
+    "idx": 67.1,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 1,
+    "idx": 64.5,
+    "fp": 5.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 1,
+    "idx": 60.7,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Washington Mystics": {
+    "sc": 1,
+    "idx": 40.7,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Connecticut Sun": {
+    "sc": 1,
+    "idx": 0.0,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 0,
+    "idx": 65.5,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-16",
+  "gp": 37,
+  "teams": {
+   "Minnesota Lynx": {
+    "sc": 3,
+    "idx": 100.0,
+    "fp": 41.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 3,
+    "idx": 89.6,
+    "fp": 21.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 2,
+    "idx": 72.9,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 81.6,
+    "fp": 12.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Washington Mystics": {
+    "sc": 1,
+    "idx": 43.3,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Sky": {
+    "sc": 1,
+    "idx": 34.2,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 17.9,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 0,
+    "idx": 68.5,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 0,
+    "idx": 67.4,
+    "fp": 5.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 0,
+    "idx": 61.8,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-23",
+  "gp": 39,
+  "teams": {
+   "Minnesota Lynx": {
+    "sc": 3,
+    "idx": 100.0,
+    "fp": 43.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 3,
+    "idx": 84.3,
+    "fp": 15.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 2,
+    "idx": 79.8,
+    "fp": 11.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 79.8,
+    "fp": 11.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 1,
+    "idx": 63.3,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Washington Mystics": {
+    "sc": 1,
+    "idx": 44.3,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Sky": {
+    "sc": 1,
+    "idx": 33.0,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 0,
+    "idx": 69.1,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 0,
+    "idx": 65.8,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-30",
+  "gp": 40,
+  "teams": {
+   "Minnesota Lynx": {
+    "sc": 3,
+    "idx": 100.0,
+    "fp": 29.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Golden State Valkyries": {
+    "sc": 3,
+    "idx": 98.3,
+    "fp": 26.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 2,
+    "idx": 82.7,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 87.6,
+    "fp": 13.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 1,
+    "idx": 74.8,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Washington Mystics": {
+    "sc": 1,
+    "idx": 51.5,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Seattle Storm": {
+    "sc": 1,
+    "idx": 21.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 0,
+    "idx": 77.2,
+    "fp": 6.8,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 0,
+    "idx": 70.5,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-20",
+  "gp": 43,
+  "teams": {
+   "Golden State Valkyries": {
+    "sc": 3,
+    "idx": 100.0,
+    "fp": 27.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Minnesota Lynx": {
+    "sc": 3,
+    "idx": 97.3,
+    "fp": 22.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlanta Dream": {
+    "sc": 2,
+    "idx": 90.9,
+    "fp": 14.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Indiana Fever": {
+    "sc": 1,
+    "idx": 86.6,
+    "fp": 10.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Las Vegas Aces": {
+    "sc": 1,
+    "idx": 84.6,
+    "fp": 9.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Dallas Wings": {
+    "sc": 1,
+    "idx": 78.0,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "New York Liberty": {
+    "sc": 1,
+    "idx": 77.4,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Washington Mystics": {
+    "sc": 1,
+    "idx": 60.1,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-24",
   "gp": 44,
   "teams": {
    "Golden State Valkyries": {
     "sc": 3,
     "idx": 100.0,
     "fp": 24.2,
-    "mkt": null,
-    "ev": null
+    "mkt": "+600",
+    "ev": 69
    },
    "Minnesota Lynx": {
     "sc": 3,
     "idx": 98.4,
     "fp": 21.7,
-    "mkt": null,
-    "ev": null
+    "mkt": "+115",
+    "ev": -53
    },
    "Atlanta Dream": {
     "sc": 3,
     "idx": 95.7,
     "fp": 18.3,
-    "mkt": null,
-    "ev": null
+    "mkt": "+750",
+    "ev": 55
    },
    "Las Vegas Aces": {
     "sc": 3,
     "idx": 89.1,
     "fp": 11.9,
-    "mkt": null,
-    "ev": null
+    "mkt": "+475",
+    "ev": -32
    },
    "Dallas Wings": {
     "sc": 1,
     "idx": 80.2,
     "fp": 6.7,
-    "mkt": null,
-    "ev": null
+    "mkt": "+8000",
+    "ev": 441
    },
    "Washington Mystics": {
     "sc": 1,
     "idx": 62.9,
     "fp": 2.2,
-    "mkt": null,
-    "ev": null
+    "mkt": "+6500",
+    "ev": 43
    },
    "Indiana Fever": {
     "sc": 0,
     "idx": 87.3,
     "fp": 10.6,
-    "mkt": null,
-    "ev": null
+    "mkt": "+950",
+    "ev": 11
    },
    "New York Liberty": {
     "sc": 0,
     "idx": 74.2,
     "fp": 4.5,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1400",
+    "ev": -32
    }
   }
  }
