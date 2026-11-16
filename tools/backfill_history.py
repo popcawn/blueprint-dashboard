@@ -7,7 +7,7 @@ feeding them stats through that date only:
         feed, so the season-final figure is used in every week (it is a rank / min-max input, so scaling it by the share of the
         season played would give the same result).
 No prices: weekly EV is not backfilled. Output: tools/backfill_<sport>.json (list of history snapshots) + a printout.
-Usage: python -X utf8 tools/backfill_history.py wnba|mlb [--write]   (--write merges into data/history/<sport>.json)"""
+Usage: python -X utf8 tools/backfill_history.py wnba|mlb|nfl [--write]   (nfl = weeks 1-5 only, see run_nfl)   (--write merges into data/history/<sport>.json)"""
 import sys, os, json, datetime, urllib.request, time
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(HERE, "scripts"))
@@ -140,8 +140,57 @@ def run_mlb():
         out.append((day, B.build_mlb()))
     return out, last
 
+# ----------------------------------------------------------------------------- NFL
+def run_nfl(weeks=(1, 2, 3, 4, 5)):
+    """(2026-11-16, user: "4 weeks are missing from index traj. nfl") The bot's NFL history starts Oct 15 (after week 5, and that day only
+    kept 9 teams), so the cards' trajectory had no weeks 1-4. This rebuilds the board after each of those weeks with build_nfl() itself:
+    standings through that week from nflverse games.csv (the file the season sim already reads), and the season sim scored through that
+    week (nfl_season_odds through_week). No prices. Each snapshot is dated the Tuesday after the week's Monday game."""
+    import csv, io
+    txt = B.get_text("https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv", timeout=60)
+    reg = [g for g in csv.DictReader(io.StringIO(txt)) if g["season"] == str(SEASON) and g["game_type"] == "REG" and g["home_score"] not in ("", "NA")]
+    name = {c: n for n, c in B.NFL_CODE.items()}
+    real_st, real_sim = B.nfl_standings, B.nfl_season_odds
+    B.fetch_futures = lambda k: (B.Prices(), None); B.fetch_game_lines = lambda *a, **k: (None, None); B.nfl_load_adjust = lambda *a, **k: {}
+    out = []
+    for w in weeks:
+        st = {}
+        for g in reg:
+            if int(g["week"]) > w: continue
+            hs, as_ = float(g["home_score"]), float(g["away_score"])
+            for code, pf, pa in ((g["home_team"], hs, as_), (g["away_team"], as_, hs)):
+                t = st.setdefault(name[code], {"wins": 0, "losses": 0, "ties": 0, "pointsFor": 0.0, "pointsAgainst": 0.0})
+                t["pointsFor"] += pf; t["pointsAgainst"] += pa; t["wins" if pf > pa else "losses" if pf < pa else "ties"] += 1
+        B.nfl_standings = lambda season, st=st: st if season == B.YEAR else real_st(season)
+        B.nfl_season_odds = lambda year, w=w, **k: real_sim(year, through_week=w, games_csv=txt, **k)
+        last = max(datetime.date.fromisoformat(g["gameday"]) for g in reg if int(g["week"]) == w)
+        out.append((last + datetime.timedelta(days=1), B.build_nfl()))
+    B.nfl_standings, B.nfl_season_odds = real_st, real_sim
+    return out
+
+def main_nfl():
+    weeks = run_nfl(); hp = os.path.join(HERE, "data", "history", "nfl.json"); hist = json.load(open(hp, encoding="utf-8"))
+    print(f"\n  {'dated':<11} {'GP':>4}  top 5 by index (index, tier)")
+    for day, d in weeks:
+        top = sorted(d["teams"], key=lambda t: -t["index"])[:5]
+        print(f"  {day.isoformat():<11} {d['gp_min']}-{d['gp_max']}  " + " · ".join(f"{t['name'].split()[-1]} {t['index']} {t['score']}/5" for t in top))
+    snaps = [snap(day, d) for day, d in weeks]
+    # check: the bot's own first snapshot (Oct 15, before the week-6 Thursday game) must equal the rebuilt week 5 for the teams it kept
+    first = next(x for x in hist if x["date"] >= "2026-10-15")
+    bad = [(n, v["idx"], snaps[-1]["teams"][n]["idx"], v["sc"], snaps[-1]["teams"][n]["sc"]) for n, v in first["teams"].items()
+           if abs(v["idx"] - snaps[-1]["teams"][n]["idx"]) > 0.11 or v["sc"] != snaps[-1]["teams"][n]["sc"]]
+    print(f"  check vs the bot's {first['date']} snapshot ({len(first['teams'])} teams): " + ("index and tier match on every team" if not bad else f"MISMATCH {bad}"))
+    json.dump(snaps, open(os.path.join(HERE, "tools", "backfill_nfl.json"), "w", encoding="utf-8"), indent=1)
+    if "--write" in sys.argv:
+        if bad: sys.exit("  not written: the rebuilt week 5 does not match the bot's own snapshot")
+        new = {x["date"] for x in snaps}
+        merged = sorted([x for x in hist if x["date"] not in new] + snaps, key=lambda x: x["date"])
+        json.dump(merged, open(hp, "w", encoding="utf-8"), indent=1)
+        print(f"  wrote {len(merged)} snapshots to data/history/nfl.json (was {len(hist)})")
+
 # ----------------------------------------------------------------------------- report + merge
 def main():
+    if sys.argv[1] == "nfl": return main_nfl()
     sport = sys.argv[1]; champ = {"wnba": "Golden State Valkyries", "mlb": "Brewers"}[sport]
     weeks, last = run_wnba() if sport == "wnba" else run_mlb()
     print(f"\n  {'through':<11} {'GP':>7}  champion: rank by index / title odds   index  fair %   tier | board #1 by title odds")
