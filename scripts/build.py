@@ -855,6 +855,14 @@ def build_nhl():
             "esdiff": gf - ga5, "essv": (saved/sa*100) if sa else 0, "corsi": corsi, "totalGA": total_ga,
             "gdpg": (gf_all - total_ga)/gp if gp else 0,                       # overall goal diff / game — best champ signal
             "xgpct": (axgf/(axgf+axga)*100) if (axgf+axga) else 0})            # all-situations expected-goals share
+    # records (2026-11-16, user: "add records to nhl"): W-L-OTL from the NHL's standings feed; the card showed only "21 GP". Display only.
+    try:
+        for s_ in get("https://api-web.nhle.com/v1/standings/now").get("standings", []):
+            ab_ = {"PHX": "ARI"}.get((s_.get("teamAbbrev") or {}).get("default"), (s_.get("teamAbbrev") or {}).get("default"))
+            for t in rows:
+                if t["ab"] == ab_: t["rec"] = f"{s_.get('wins', 0)}-{s_.get('losses', 0)}-{s_.get('otLosses', 0)}"
+    except Exception as e:
+        print(f"  nhl records unavailable, showing games played: {e}", file=sys.stderr)
     rk_ed = ranks(rows, "esdiff", True); rk_sv = ranks(rows, "essv", True)   # rk_sv/rk_cf still feed the hot-goalie Read
     rk_cf = ranks(rows, "corsi", True); rk_ga = ranks(rows, "totalGA", False)
     rk_gd = ranks(rows, "gdpg", True); rk_xg = ranks(rows, "xgpct", True)
@@ -1032,7 +1040,7 @@ def nhl_bracket_sim(bk, R, V=None):
     return meet(meet(meet(lf["A"], lf["B"]), meet(lf["C"], lf["D"])), meet(meet(lf["E"], lf["F"]), meet(lf["G"], lf["H"])))
 
 def nhl_row(t):
-    return {"name": t["name"], "conf": t["conf"], "rec": f"{t['gp']} GP", "score": t["score"], "index": t["index"],
+    return {"name": t["name"], "conf": t["conf"], "rec": t.get("rec") or f"{t['gp']} GP", "score": t["score"], "index": t["index"],
         "q": [bool(x) for x in t["q"]],
         "vals": [f"{t['gdpg']:+.2f} #{t['rk_gd']}", f"{t['corsi']:.1f} #{t['rk_cf']}",
                  f"{t['xgpct']:.1f} #{t['rk_xg']}", f"{t['totalGA']:.0f} #{t['rk_ga']}"],

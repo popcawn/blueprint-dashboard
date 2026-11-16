@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-16T16:29:34Z",
-  "odds_remaining": "51617",
+  "generated": "2026-11-16T16:43:34Z",
+  "odds_remaining": "51614",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +294). The Read: Carried by its #1 even-strength goal differential, but its weakest link \u2014 #14 in 5v5 save % (goaltending, not shown on the card) \u2014 is the one a seven-game series finds."
@@ -26,7 +26,7 @@
     {
       "name": "Carolina Hurricanes",
       "conf": "E",
-      "rec": "21 GP",
+      "rec": "16-3-2",
       "score": 4,
       "index": 100.0,
       "q": [
@@ -64,7 +64,7 @@
     {
       "name": "New Jersey Devils",
       "conf": "E",
-      "rec": "21 GP",
+      "rec": "15-6-0",
       "score": 4,
       "index": 75.8,
       "q": [
@@ -102,7 +102,7 @@
     {
       "name": "Minnesota Wild",
       "conf": "W",
-      "rec": "22 GP",
+      "rec": "15-3-4",
       "score": 4,
       "index": 74.4,
       "q": [
@@ -140,7 +140,7 @@
     {
       "name": "Tampa Bay Lightning",
       "conf": "E",
-      "rec": "20 GP",
+      "rec": "13-5-2",
       "score": 4,
       "index": 72.1,
       "q": [
@@ -178,7 +178,7 @@
     {
       "name": "Dallas Stars",
       "conf": "W",
-      "rec": "20 GP",
+      "rec": "12-6-2",
       "score": 4,
       "index": 64.4,
       "q": [
@@ -216,7 +216,7 @@
     {
       "name": "Vegas Golden Knights",
       "conf": "W",
-      "rec": "22 GP",
+      "rec": "13-6-3",
       "score": 4,
       "index": 62.3,
       "q": [
@@ -254,7 +254,7 @@
     {
       "name": "Colorado Avalanche",
       "conf": "W",
-      "rec": "21 GP",
+      "rec": "12-6-3",
       "score": 3,
       "index": 71.1,
       "q": [
@@ -292,7 +292,7 @@
     {
       "name": "Boston Bruins",
       "conf": "E",
-      "rec": "20 GP",
+      "rec": "13-6-1",
       "score": 3,
       "index": 64.0,
       "q": [
@@ -330,7 +330,7 @@
     {
       "name": "New York Rangers",
       "conf": "E",
-      "rec": "21 GP",
+      "rec": "12-8-1",
       "score": 3,
       "index": 58.0,
       "q": [
@@ -368,7 +368,7 @@
     {
       "name": "Ottawa Senators",
       "conf": "E",
-      "rec": "21 GP",
+      "rec": "13-6-2",
       "score": 3,
       "index": 57.0,
       "q": [
@@ -406,7 +406,7 @@
     {
       "name": "Florida Panthers",
       "conf": "E",
-      "rec": "22 GP",
+      "rec": "12-7-3",
       "score": 2,
       "index": 61.9,
       "q": [
@@ -444,7 +444,7 @@
     {
       "name": "Edmonton Oilers",
       "conf": "W",
-      "rec": "22 GP",
+      "rec": "16-3-3",
       "score": 2,
       "index": 60.7,
       "q": [
@@ -482,7 +482,7 @@
     {
       "name": "Utah Mammoth",
       "conf": "W",
-      "rec": "21 GP",
+      "rec": "10-8-3",
       "score": 2,
       "index": 57.0,
       "q": [
@@ -520,7 +520,7 @@
     {
       "name": "Montreal Canadiens",
       "conf": "E",
-      "rec": "20 GP",
+      "rec": "12-4-4",
       "score": 2,
       "index": 55.1,
       "q": [
@@ -557,7 +557,7 @@
     {
       "name": "St Louis Blues",
       "conf": "W",
-      "rec": "20 GP",
+      "rec": "9-9-2",
       "score": 2,
       "index": 50.1,
       "q": [
@@ -595,7 +595,7 @@
     {
       "name": "Los Angeles Kings",
       "conf": "W",
-      "rec": "18 GP",
+      "rec": "5-11-2",
       "score": 2,
       "index": 47.6,
       "q": [
@@ -633,7 +633,7 @@
     {
       "name": "Columbus Blue Jackets",
       "conf": "E",
-      "rec": "18 GP",
+      "rec": "7-11-0",
       "score": 2,
       "index": 42.3,
       "q": [
@@ -671,7 +671,7 @@
     {
       "name": "Nashville Predators",
       "conf": "W",
-      "rec": "21 GP",
+      "rec": "11-5-5",
       "score": 1,
       "index": 51.0,
       "q": [
@@ -709,7 +709,7 @@
     {
       "name": "Detroit Red Wings",
       "conf": "E",
-      "rec": "21 GP",
+      "rec": "8-10-3",
       "score": 1,
       "index": 49.5,
       "q": [
@@ -747,7 +747,7 @@
     {
       "name": "New York Islanders",
       "conf": "E",
-      "rec": "19 GP",
+      "rec": "9-6-4",
       "score": 1,
       "index": 49.2,
       "q": [
@@ -785,7 +785,7 @@
     {
       "name": "Washington Capitals",
       "conf": "E",
-      "rec": "18 GP",
+      "rec": "10-8-0",
       "score": 1,
       "index": 48.6,
       "q": [
@@ -823,7 +823,7 @@
     {
       "name": "Buffalo Sabres",
       "conf": "E",
-      "rec": "20 GP",
+      "rec": "8-8-4",
       "score": 1,
       "index": 46.3,
       "q": [
@@ -861,7 +861,7 @@
     {
       "name": "Anaheim Ducks",
       "conf": "W",
-      "rec": "21 GP",
+      "rec": "11-9-1",
       "score": 1,
       "index": 45.8,
       "q": [
@@ -899,7 +899,7 @@
     {
       "name": "Pittsburgh Penguins",
       "conf": "E",
-      "rec": "20 GP",
+      "rec": "7-11-2",
       "score": 1,
       "index": 45.6,
       "q": [
@@ -937,7 +937,7 @@
     {
       "name": "Calgary Flames",
       "conf": "W",
-      "rec": "21 GP",
+      "rec": "9-11-1",
       "score": 1,
       "index": 32.8,
       "q": [
