@@ -232,6 +232,25 @@ def with_books(matched, live, matcher):
     out.books = per
     return out
 
+DK_ASOF = {}   # board -> "Nov 16": the date of the DraftKings screenshot it used (main() puts it on the board as dk_asof)
+def second_book(name, fd, names):
+    """DraftKings prices from the user's screenshot, for the boards whose odds feed has FanDuel but no DraftKings title market (NHL, NBA,
+       men's college hoops). 2026-11-16, user: "add the screenshot box for draftkings on nhl nba cbb". The site's box saves
+       data/<name>_dk.json = {date, book, odds: {team: price}}; while it is <= 14 days old each team's DraftKings price joins its FanDuel
+       one and the board uses the better of the two. Returns the merged Prices (fd unchanged if there is no fresh file)."""
+    try:
+        snap = json.load(open(os.path.join(DATA, f"{name}_dk.json"), encoding="utf-8")); d0 = datetime.date.fromisoformat(str(snap.get("date"))[:10])
+    except Exception:
+        return fd
+    if not snap.get("odds") or not 0 <= (datetime.date.today() - d0).days <= 14: return fd
+    out = Prices(fd); out.books = {k: dict(v) for k, v in getattr(fd, "books", {}).items()}
+    for n in out: out.books.setdefault(n, {"FanDuel": out[n]})
+    for n, px in match_book(names, snap["odds"]).items():
+        out.books.setdefault(n, {})["DraftKings"] = px
+        out[n] = max(out.books[n].values(), key=_dec)
+    DK_ASOF[name] = f"{d0:%b} {d0.day}"
+    return out
+
 def fetch_game_lines(sport_key, book="fanduel"):
     """(2026-11-08, user: "pull prices from fanduel") upcoming games' moneylines + spreads from ONE book via the Odds API -- for the NFL
        tab's automatic weekly parlay (index.html wkpGames). The key stays server-side (the site is public). Cost: 2 credits a call
@@ -922,6 +941,7 @@ def build_nhl():
         wid = fin_ser["winningTeamId"]; wt = fin_ser.get("topSeedTeam") if (fin_ser.get("topSeedTeam") or {}).get("id") == wid else fin_ser.get("bottomSeedTeam")
         ab_ = (wt or {}).get("abbrev"); nhl_champ = NHL_TEAMS.get({"PHX": "ARI"}.get(ab_, ab_), (None,))[0]
     fd, rem = fetch_futures("icehockey_nhl_championship_winner")
+    fd = second_book("nhl", fd, [t["name"] for t in rows])   # + the user's DraftKings screenshot, if one is fresh
     attach(rows, pool, fd)
     pred = make_prediction(rows, 4)
     if pred and max(t["gp"] for t in rows) < 20:
@@ -1555,6 +1575,7 @@ def build_nba():
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
     cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
     fd, rem = fetch_futures("basketball_nba_championship_winner")
+    fd = second_book("nba", fd, [t["name"] for t in rows])   # + the user's DraftKings screenshot, if one is fresh
     attach(rows, pool, fd)
     pred = make_prediction(rows, 4)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
@@ -2165,6 +2186,7 @@ def build_college_bb(key):
             t["mk"] = max(two[t["name"]].values(), key=_dec); t["alt"] = None
         elif key == "cbb" and t.get("mk") is not None and alt_raw is not None: two[t["name"]] = {"FanDuel": t["mk"]}
     px = Prices({t["name"]: t["mk"] for t in rows if t.get("mk") is not None}); px.books = two
+    if key == "cbb": px = second_book("cbb", px, [t["name"] for t in rows])   # + the user's DraftKings screenshot, if one is fresh
     attach(rows, [t for t in rows if t["p"] > 0], px)
     top = max(rows, key=lambda t: t["p"]) if rows else None
     if top:
@@ -2643,6 +2665,7 @@ def main():
                 if name == "chk" and not data.get("window_closed") and datetime.date.today().isoformat() < data.get("bet_from", "9999"):   # (2026-11-10) shortlist only before March 1
                     data["signal"] = {"status": "firming", "emoji": "🟡", "label": "Shortlist only",
                                       "note": f"Fair as a top-5 shortlist (17-season backtest), but no bets before March 1: a value play needs a top-5 team at EV >= +25%, from March 1 until the first NCAA-tournament game. The #1 still wins only about 1 title in 6."}
+                if DK_ASOF.get(name): data["dk_asof"] = DK_ASOF[name]
                 seen = {b for t in data.get("teams", []) for b in (t.get("books") or {})}
                 if seen: data["market_name"] = " / ".join(b for b in BOOKS.values() if b in seen)   # (2026-11-16) the books this board's prices came from (the feed has no DraftKings for NHL / NBA / college hoops titles); with two, each card shows both and the EV uses the better price
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)

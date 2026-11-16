@@ -735,6 +735,10 @@ const _nrm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""
   .replace(/\b(fc|sc|cf|the|club|w)\b/g," ").replace(/\s+/g," ").trim().replace(/ st$/," state");
 const _ALIAS={"los angeles":"lafc","la fc":"lafc","minnesota utd":"minnesota united","ny red bulls":"new york red bulls","nycfc":"new york city",
   "sfa":"stephen f austin","gws":"greater western sydney","gws giants":"greater western sydney","hull kr":"hull kingston rovers","hkr":"hull kingston rovers","souths":"south sydney rabbitohs","sf austin":"stephen f austin","ndsu":"north dakota state","sdsu":"south dakota state","st louis city":"st louis city"};
+// (2026-11-16) DraftKings screenshot slot on the boards whose odds feed has FanDuel but no DraftKings title market: the same box, saved
+// to its own file; build.py (second_book) adds those prices beside FanDuel's and the board uses the better one. PPMODE = which file the box edits.
+const DK_FILES={nhl:"data/nhl_dk.json",nba:"data/nba_dk.json",cbb:"data/cbb_dk.json"}; let PPMODE="main";
+const ppPath=()=>PPMODE==="dk"?DK_FILES[cur]:PRICE_FILES[cur];
 function matchTeam(raw,teams,strict){
   let n=_nrm(raw); if(!n||n.length<3) return null; n=_ALIAS[n]||n;
   const T=teams.map(t=>({t,m:_nrm(t.name)}));
@@ -770,14 +774,16 @@ function checkPP(){ const {out,bad}=parsePP(document.getElementById("pptxt").val
 // has now -- a team that would LOSE its price, or a price that moved a lot, is listed for a second look before saving
 function ppDiff(out){ const now=new Map(ppTeams().filter(t=>t.market).map(t=>[t.name,_parseOdds(t.market)])); if(!now.size||!out.length) return "";
   const imp=o=>o>0?100/(o+100):-o/(-o+100), f=o=>(o>0?"+":"")+o, have=new Set(out.map(x=>x.name));
-  const gone=[...now.keys()].filter(n=>!have.has(n)).sort((a,b)=>now.get(a)-now.get(b));
-  const moved=out.filter(x=>now.has(x.name)&&Math.abs(imp(x.odds)-imp(now.get(x.name)))>0.2*imp(now.get(x.name))).map(x=>`${x.name} ${f(now.get(x.name))} → ${f(x.odds)}`);
+  const dk=PPMODE==="dk", gone=dk?[]:[...now.keys()].filter(n=>!have.has(n)).sort((a,b)=>now.get(a)-now.get(b));
+  const moved=out.filter(x=>now.has(x.name)&&Math.abs(imp(x.odds)-imp(now.get(x.name)))>(dk?0.4:0.2)*imp(now.get(x.name))).map(x=>`${x.name} ${f(now.get(x.name))} → ${f(x.odds)}`);
   return (gone.length?`<br><b class="w">⚠ missing from your list (they'd lose their price):</b> ${gone.slice(0,6).map(esc).join(", ")}${gone.length>6?` +${gone.length-6} more`:""}`:"")
-    +(moved.length?`<br><b class="w">⚠ big moves vs the board now — double-check:</b> ${moved.slice(0,6).map(esc).join(" · ")}${moved.length>6?" …":""}`:""); }
-function openPP(){ const d=DATA[cur]; if(!d||!PRICE_FILES[cur]) return;
-  document.getElementById("pptitle").textContent=`Update ${d.sport} prices`;
-  document.getElementById("ppbook").value=d.market_name==="FanDuel"?"FanDuel":"DraftKings";
-  document.getElementById("pptxt").value=(d.teams||[]).filter(t=>t.market).sort((a,b)=>(a.mk??0)-(b.mk??0)).map(t=>`${t.name}: ${t.market}`).join("\n");
+    +(moved.length?`<br><b class="w">⚠ ${PPMODE==="dk"?"far from the board's current price":"big moves vs the board now"} — double-check:</b> ${moved.slice(0,6).map(esc).join(" · ")}${moved.length>6?" …":""}`:""); }
+function openPP(mode){ const d=DATA[cur]; PPMODE=mode==="dk"?"dk":"main"; if(!d||!ppPath()) return;
+  const dk=PPMODE==="dk", bk=document.getElementById("ppbook");
+  document.getElementById("pptitle").textContent=dk?`Add DraftKings prices — ${d.sport}`:`Update ${d.sport} prices`;
+  bk.value=dk?"DraftKings":d.market_name==="FanDuel"?"FanDuel":"DraftKings"; bk.disabled=dk;   // this slot is DraftKings only: FanDuel comes from the odds feed
+  document.getElementById("pptxt").value=dk?(d.teams||[]).filter(t=>t.books&&t.books.DraftKings!=null).sort((a,b)=>a.books.DraftKings-b.books.DraftKings).map(t=>`${t.name}: ${fmtA(t.books.DraftKings)}`).join("\n")
+    :(d.teams||[]).filter(t=>t.market).sort((a,b)=>(a.mk??0)-(b.mk??0)).map(t=>`${t.name}: ${t.market}`).join("\n");
   document.getElementById("ppstat").textContent=""; document.getElementById("ppimg").value=""; document.getElementById("ppprev").hidden=true; checkPP();
   document.getElementById("ppop").classList.add("on"); }
 // ---- simplified board head: one status line + one collapsed "how much to trust this board" line ----
@@ -859,12 +865,14 @@ function statusRow(d,pct){
   const prices=PRICE_FILES[cur]
     ?`<span class="pr ${d.market_asof?"":"stale"}">${d.market_asof?`${esc(d.market_name||"DraftKings")} · ${d.market_asof} screenshot`:"no current prices"}<button class="rfb" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update</button></span>`
     :hasMk?`<span title="${d.odds_remaining?d.odds_remaining+" Odds API credits left":""}">${esc(MK(cur))} ${d.market_asof?`· ${d.market_asof}${d.window_closed?" · last prices before the playoffs":""}`:"odds"}</span>`:"";
+  // the feed has no DraftKings title odds for these boards -> the user's screenshot adds them (kept 14 days, shown beside FanDuel)
+  const dkbtn=DK_FILES[cur]&&!d.window_closed?`<span class="pr ${d.dk_asof?"":"stale"}">${d.dk_asof?`DraftKings · ${d.dk_asof} screenshot`:"no DraftKings prices"}<button class="rfb" onclick="openPP('dk')" title="The odds feed has FanDuel but not DraftKings for this title market. Add a DraftKings screenshot (or paste the prices): each card then shows both books and uses the better price. Kept for 14 days.">📷 DraftKings</button></span>`:"";
   const warn=s&&s.status!=="trust"?`<div class="signote ${s.status}">${s.note}</div>`:"";
   // (2026-11-07) the bot's last build of this board failed -> the board is older than it looks; say so
   const b=BUILDS[cur], failed=b&&b.ok===false?`<span class="pr stale" title="${esc(b.error||"")}">⚠ last refresh failed ${ago(b.at)} — this is the ${ago(d.generated)} build</span>`:"";
   const tl=timeline(d,pct);   // the season timeline replaces the small bar when the board has dates in data/seasons.json
   return `<div class="status">${sig}${proj}${tl?"":`<span class="bar" title="${pct}% of the regular season played (games played ${d.gp_min}–${d.gp_max})"><i style="width:${pct}%"></i></span>`}`
-    +`<span>${tl?"":pct+"% of season · "}updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}${failed}</div>${tl}${warn}`;
+    +`<span>${tl?"":pct+"% of season · "}updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}${dkbtn}${failed}</div>${tl}${warn}`;
 }
 function trustDetails(d){
   const c=CAL[cur], lvl=!c?null:c.c==="low"?["🔴","weak"]:c.c==="ok"?["🟡","fair"]:["🟢","strong"];
@@ -968,7 +976,7 @@ async function ocrPrices(file,teamsOverride){ const st=document.getElementById("
     checkPP(); return rows;
   }catch(e){ st.innerHTML=`<span class="r">${esc(e.message||e)}</span> — you can still paste the prices as text.`; return []; }
   finally{ if(worker) worker.terminate(); } }
-async function savePrices(){ const d=DATA[cur], path=PRICE_FILES[cur], st=document.getElementById("ppstat"), out=checkPP(); if(!d||!path||!out.length) return;
+async function savePrices(){ const d=DATA[cur], path=ppPath(), st=document.getElementById("ppstat"), out=checkPP(); if(!d||!path||!out.length) return;
   if(!tok()){ st.innerHTML='<span class="r">Add your GitHub token first</span> — it needs <b>Contents: Read and write</b>.'; document.getElementById("pop").classList.add("on"); return; }
   const today=new Date().toLocaleDateString("en-CA"), book=document.getElementById("ppbook").value;
   const body={date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds:Object.fromEntries(out.map(x=>[x.name,x.odds]))};
