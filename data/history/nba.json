@@ -3443,5 +3443,123 @@
     "ev": -52
    }
   }
+ },
+ {
+  "date": "2026-11-17",
+  "gp": 15,
+  "teams": {
+   "San Antonio Spurs": {
+    "sc": 4,
+    "idx": 94.5,
+    "fp": 13.7,
+    "mkt": "+310",
+    "ev": -44
+   },
+   "Minnesota Timberwolves": {
+    "sc": 4,
+    "idx": 87.1,
+    "fp": 10.7,
+    "mkt": "+1800",
+    "ev": 104
+   },
+   "Houston Rockets": {
+    "sc": 4,
+    "idx": 84.1,
+    "fp": 9.7,
+    "mkt": "+1400",
+    "ev": 45
+   },
+   "Memphis Grizzlies": {
+    "sc": 4,
+    "idx": 79.7,
+    "fp": 8.2,
+    "mkt": "+20000",
+    "ev": 1554
+   },
+   "Boston Celtics": {
+    "sc": 3,
+    "idx": 94.2,
+    "fp": 24.0,
+    "mkt": "+900",
+    "ev": 140
+   },
+   "Los Angeles Lakers": {
+    "sc": 2,
+    "idx": 80.6,
+    "fp": 4.0,
+    "mkt": "+2200",
+    "ev": -8
+   },
+   "Portland Trail Blazers": {
+    "sc": 2,
+    "idx": 76.4,
+    "fp": 3.4,
+    "mkt": "+4000",
+    "ev": 40
+   },
+   "Detroit Pistons": {
+    "sc": 2,
+    "idx": 71.1,
+    "fp": 8.7,
+    "mkt": "+2000",
+    "ev": 82
+   },
+   "Oklahoma City Thunder": {
+    "sc": 2,
+    "idx": 70.7,
+    "fp": 2.7,
+    "mkt": "+500",
+    "ev": -84
+   },
+   "Philadelphia 76ers": {
+    "sc": 2,
+    "idx": 67.8,
+    "fp": 7.5,
+    "mkt": "+900",
+    "ev": -25
+   },
+   "New York Knicks": {
+    "sc": 1,
+    "idx": 70.6,
+    "fp": 2.7,
+    "mkt": "+1000",
+    "ev": -71
+   },
+   "Golden State Warriors": {
+    "sc": 1,
+    "idx": 65.2,
+    "fp": 0.7,
+    "mkt": "+4500",
+    "ev": -70
+   },
+   "Atlanta Hawks": {
+    "sc": 1,
+    "idx": 58.2,
+    "fp": 1.5,
+    "mkt": "+10000",
+    "ev": 50
+   },
+   "Cleveland Cavaliers": {
+    "sc": 1,
+    "idx": 57.0,
+    "fp": 1.4,
+    "mkt": "+3300",
+    "ev": -52
+   },
+   "Miami Heat": {
+    "sc": 1,
+    "idx": 50.6,
+    "fp": 1.0,
+    "mkt": "+6000",
+    "ev": -40
+   },
+   "Charlotte Hornets": {
+    "sc": 1,
+    "idx": 25.3,
+    "fp": 0.1,
+    "mkt": "+40000",
+    "ev": -51
+   }
+  }
  }
 ]

@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-16T23:06:01Z",
-  "odds_remaining": "51017",
+  "generated": "2026-11-17T11:35:44Z",
+  "odds_remaining": "50520",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +306), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (92% to make the field). The genuine article \u2014 complete (worst spot: scoring defense #9) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -51,16 +51,16 @@
       "rtg": 35.7,
       "fair_pct": 15.1,
       "fair_odds": "+564",
-      "market": "+430",
+      "market": "+450",
       "books": {
-        "FanDuel": 430,
+        "FanDuel": 450,
         "DraftKings": 425
       },
-      "ev": -20,
+      "ev": -17,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -20
+        "ev": -17
       },
       "read": {
         "v": "trust",
