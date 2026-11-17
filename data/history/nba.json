@@ -3450,115 +3450,115 @@
   "teams": {
    "San Antonio Spurs": {
     "sc": 4,
-    "idx": 94.5,
-    "fp": 13.7,
+    "idx": 95.6,
+    "fp": 14.2,
     "mkt": "+310",
-    "ev": -44
+    "ev": -42
    },
    "Minnesota Timberwolves": {
     "sc": 4,
-    "idx": 87.1,
-    "fp": 10.7,
+    "idx": 87.9,
+    "fp": 11.0,
     "mkt": "+1800",
-    "ev": 104
+    "ev": 110
    },
    "Houston Rockets": {
     "sc": 4,
-    "idx": 84.1,
-    "fp": 9.7,
-    "mkt": "+1400",
-    "ev": 45
-   },
-   "Memphis Grizzlies": {
-    "sc": 4,
-    "idx": 79.7,
-    "fp": 8.2,
-    "mkt": "+20000",
-    "ev": 1554
+    "idx": 80.5,
+    "fp": 8.5,
+    "mkt": "+1500",
+    "ev": 36
    },
    "Boston Celtics": {
     "sc": 3,
-    "idx": 94.2,
+    "idx": 91.5,
     "fp": 24.0,
-    "mkt": "+900",
-    "ev": 140
+    "mkt": "+950",
+    "ev": 152
+   },
+   "Memphis Grizzlies": {
+    "sc": 3,
+    "idx": 81.5,
+    "fp": 6.2,
+    "mkt": "+20000",
+    "ev": 1149
+   },
+   "Portland Trail Blazers": {
+    "sc": 3,
+    "idx": 74.8,
+    "fp": 4.8,
+    "mkt": "+4000",
+    "ev": 97
    },
    "Los Angeles Lakers": {
     "sc": 2,
-    "idx": 80.6,
-    "fp": 4.0,
+    "idx": 81.4,
+    "fp": 4.1,
     "mkt": "+2200",
-    "ev": -8
-   },
-   "Portland Trail Blazers": {
-    "sc": 2,
-    "idx": 76.4,
-    "fp": 3.4,
-    "mkt": "+4000",
-    "ev": 40
+    "ev": -5
    },
    "Detroit Pistons": {
     "sc": 2,
-    "idx": 71.1,
-    "fp": 8.7,
+    "idx": 72.0,
+    "fp": 8.9,
     "mkt": "+2000",
-    "ev": 82
+    "ev": 88
    },
    "Oklahoma City Thunder": {
     "sc": 2,
-    "idx": 70.7,
-    "fp": 2.7,
+    "idx": 71.7,
+    "fp": 2.8,
     "mkt": "+500",
-    "ev": -84
+    "ev": -83
    },
    "Philadelphia 76ers": {
     "sc": 2,
-    "idx": 67.8,
-    "fp": 7.5,
+    "idx": 69.7,
+    "fp": 8.1,
     "mkt": "+900",
-    "ev": -25
+    "ev": -19
    },
    "New York Knicks": {
     "sc": 1,
-    "idx": 70.6,
-    "fp": 2.7,
+    "idx": 71.7,
+    "fp": 2.8,
     "mkt": "+1000",
-    "ev": -71
-   },
-   "Golden State Warriors": {
-    "sc": 1,
-    "idx": 65.2,
-    "fp": 0.7,
-    "mkt": "+4500",
     "ev": -70
-   },
-   "Atlanta Hawks": {
-    "sc": 1,
-    "idx": 58.2,
-    "fp": 1.5,
-    "mkt": "+10000",
-    "ev": 50
    },
    "Cleveland Cavaliers": {
     "sc": 1,
-    "idx": 57.0,
-    "fp": 1.4,
+    "idx": 59.0,
+    "fp": 1.5,
     "mkt": "+3300",
-    "ev": -52
+    "ev": -48
+   },
+   "Atlanta Hawks": {
+    "sc": 1,
+    "idx": 58.8,
+    "fp": 1.5,
+    "mkt": "+10000",
+    "ev": 54
    },
    "Miami Heat": {
     "sc": 1,
-    "idx": 50.6,
-    "fp": 1.0,
-    "mkt": "+6000",
-    "ev": -40
+    "idx": 54.4,
+    "fp": 1.2,
+    "mkt": "+5000",
+    "ev": -38
+   },
+   "New Orleans Pelicans": {
+    "sc": 1,
+    "idx": 29.9,
+    "fp": 0.1,
+    "mkt": "+100000",
+    "ev": -36
    },
    "Charlotte Hornets": {
     "sc": 1,
-    "idx": 25.3,
+    "idx": 25.9,
     "fp": 0.1,
     "mkt": "+40000",
-    "ev": -51
+    "ev": -48
    }
   }
  }

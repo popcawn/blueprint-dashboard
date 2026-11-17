@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-17T11:35:44Z",
-  "odds_remaining": "50520",
+  "generated": "2026-11-17T21:57:08Z",
+  "odds_remaining": "49493",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +306), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (92% to make the field). The genuine article \u2014 complete (worst spot: scoring defense #9) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -97,16 +97,16 @@
       "rtg": 40.0,
       "fair_pct": 24.6,
       "fair_odds": "+306",
-      "market": "+210",
+      "market": "+200",
       "books": {
-        "FanDuel": 210,
+        "FanDuel": 200,
         "DraftKings": 200
       },
-      "ev": -24,
+      "ev": -26,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -24
+        "ev": -26
       },
       "read": {
         "v": "trust",
@@ -143,16 +143,16 @@
       "rtg": 34.4,
       "fair_pct": 5.9,
       "fair_odds": "+1586",
-      "market": "+3000",
+      "market": "+3300",
       "books": {
-        "FanDuel": 3000,
+        "FanDuel": 3300,
         "DraftKings": 2400
       },
-      "ev": 84,
+      "ev": 102,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 84
+        "ev": 102
       },
       "read": {
         "v": "caution",
@@ -189,16 +189,16 @@
       "rtg": 33.8,
       "fair_pct": 23.1,
       "fair_odds": "+333",
-      "market": "+1100",
+      "market": "+1200",
       "books": {
-        "FanDuel": 1100,
+        "FanDuel": 1200,
         "DraftKings": 1000
       },
-      "ev": 177,
+      "ev": 200,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 177
+        "ev": 200
       },
       "read": {
         "v": "caution",
@@ -237,7 +237,7 @@
       "fair_odds": "+630",
       "market": "+3200",
       "books": {
-        "FanDuel": 2700,
+        "FanDuel": 3000,
         "DraftKings": 3200
       },
       "ev": 352,
@@ -329,7 +329,7 @@
       "fair_odds": "+807",
       "market": "+1050",
       "books": {
-        "FanDuel": 950,
+        "FanDuel": 900,
         "DraftKings": 1050
       },
       "ev": 27,
@@ -413,26 +413,26 @@
         "1.000",
         "37.9 #15",
         "18.6 #21",
-        "345 #54",
+        "345 #53",
         "+19.3 #7"
       ],
       "rtg": 29.7,
       "fair_pct": 3.8,
       "fair_odds": "+2536",
-      "market": "+2500",
+      "market": "+2700",
       "books": {
-        "FanDuel": 2500,
+        "FanDuel": 2700,
         "DraftKings": 2200
       },
-      "ev": -1,
+      "ev": 6,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -1
+        "kind": "small",
+        "label": "small value",
+        "ev": 6
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #7 margin; the #54 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #7 margin; the #53 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "held": 0,

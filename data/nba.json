@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-17T11:36:00Z",
-  "odds_remaining": "50518",
+  "generated": "2026-11-17T21:57:22Z",
+  "odds_remaining": "49491",
   "prediction": {
     "pick": "Boston Celtics",
     "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +317). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -30,7 +30,7 @@
       "conf": "W",
       "rec": "12-2",
       "score": 4,
-      "index": 94.5,
+      "index": 95.6,
       "q": [
         true,
         true,
@@ -39,23 +39,23 @@
       ],
       "vals": [
         "0.857",
-        "+12.9 #2",
+        "+12.9 #1",
         "118.8 #4",
         "105.9 #3"
       ],
       "rtg": 12.9,
-      "fair_pct": 13.7,
-      "fair_odds": "+629",
+      "fair_pct": 14.2,
+      "fair_odds": "+604",
       "market": "+310",
       "books": {
         "FanDuel": 260,
         "DraftKings": 310
       },
-      "ev": -44,
+      "ev": -42,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -44
+        "ev": -42
       },
       "read": {
         "v": "trust",
@@ -69,7 +69,7 @@
       "conf": "W",
       "rec": "10-4",
       "score": 4,
-      "index": 87.1,
+      "index": 87.9,
       "q": [
         true,
         true,
@@ -78,23 +78,23 @@
       ],
       "vals": [
         "0.714",
-        "+11.5 #3",
-        "118.3 #7",
-        "106.8 #4"
+        "+11.3 #3",
+        "117.4 #9",
+        "106.1 #4"
       ],
-      "rtg": 11.5,
-      "fair_pct": 10.7,
-      "fair_odds": "+831",
+      "rtg": 11.3,
+      "fair_pct": 11.0,
+      "fair_odds": "+805",
       "market": "+1800",
       "books": {
         "FanDuel": 1700,
         "DraftKings": 1800
       },
-      "ev": 104,
+      "ev": 110,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 104
+        "ev": 110
       },
       "read": {
         "v": "trust",
@@ -108,7 +108,7 @@
       "conf": "W",
       "rec": "11-4",
       "score": 4,
-      "index": 84.1,
+      "index": 80.5,
       "q": [
         true,
         true,
@@ -117,62 +117,23 @@
       ],
       "vals": [
         "0.733",
-        "+10.1 #4",
-        "118.4 #6",
-        "108.2 #6"
+        "+8.3 #5",
+        "117.8 #7",
+        "109.5 #6"
       ],
-      "rtg": 10.1,
-      "fair_pct": 9.7,
-      "fair_odds": "+934",
-      "market": "+1400",
+      "rtg": 8.3,
+      "fair_pct": 8.5,
+      "fair_odds": "+1079",
+      "market": "+1500",
       "books": {
-        "FanDuel": 1400,
+        "FanDuel": 1500,
         "DraftKings": 1000
       },
-      "ev": 45,
+      "ev": 36,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 45
-      },
-      "read": {
-        "v": "trust",
-        "why": "A #4 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
-      "name": "Memphis Grizzlies",
-      "conf": "W",
-      "rec": "10-4",
-      "score": 4,
-      "index": 79.7,
-      "q": [
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "0.714",
-        "+8.9 #5",
-        "120.6 #2",
-        "111.7 #10"
-      ],
-      "rtg": 8.9,
-      "fair_pct": 8.2,
-      "fair_odds": "+1115",
-      "market": "+20000",
-      "books": {
-        "FanDuel": 20000,
-        "DraftKings": 14000
-      },
-      "ev": 1554,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 1554
+        "ev": 36
       },
       "read": {
         "v": "trust",
@@ -186,7 +147,7 @@
       "conf": "E",
       "rec": "11-3",
       "score": 3,
-      "index": 94.2,
+      "index": 91.5,
       "q": [
         true,
         true,
@@ -195,23 +156,23 @@
       ],
       "vals": [
         "0.786",
-        "+13.2 #1",
-        "115.5 #13",
-        "102.4 #1"
+        "+11.5 #2",
+        "114.8 #13",
+        "103.3 #1"
       ],
-      "rtg": 13.2,
+      "rtg": 11.5,
       "fair_pct": 24.0,
       "fair_odds": "+317",
-      "market": "+900",
+      "market": "+950",
       "books": {
-        "FanDuel": 900,
+        "FanDuel": 950,
         "DraftKings": 650
       },
-      "ev": 140,
+      "ev": 152,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 140
+        "ev": 152
       },
       "read": {
         "v": "trust",
@@ -221,11 +182,89 @@
       "vs500": null
     },
     {
+      "name": "Memphis Grizzlies",
+      "conf": "W",
+      "rec": "10-4",
+      "score": 3,
+      "index": 81.5,
+      "q": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "vals": [
+        "0.714",
+        "+9.4 #4",
+        "121.7 #2",
+        "112.3 #12"
+      ],
+      "rtg": 9.4,
+      "fair_pct": 6.2,
+      "fair_odds": "+1509",
+      "market": "+20000",
+      "books": {
+        "FanDuel": 20000,
+        "DraftKings": 14000
+      },
+      "ev": 1149,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 1149
+      },
+      "read": {
+        "v": "trust",
+        "why": "A #4 net rating \u2014 the single best predictor of a title run \u2014 with no obvious end to attack. Balanced and battle-ready."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
+      "name": "Portland Trail Blazers",
+      "conf": "W",
+      "rec": "9-4",
+      "score": 3,
+      "index": 74.8,
+      "q": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "0.692",
+        "+6.5 #7",
+        "117.9 #6",
+        "111.4 #10"
+      ],
+      "rtg": 6.5,
+      "fair_pct": 4.8,
+      "fair_odds": "+1981",
+      "market": "+4000",
+      "books": {
+        "FanDuel": 3000,
+        "DraftKings": 4000
+      },
+      "ev": 97,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 97
+      },
+      "read": {
+        "v": "caution",
+        "why": "Net-rating-driven (#7) but leans one way; the #10 end is where a playoff defense makes it uncomfortable."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
       "name": "Los Angeles Lakers",
       "conf": "W",
       "rec": "12-2",
       "score": 2,
-      "index": 80.6,
+      "index": 81.4,
       "q": [
         true,
         false,
@@ -239,18 +278,18 @@
         "114.9 #18"
       ],
       "rtg": 7.9,
-      "fair_pct": 4.0,
-      "fair_odds": "+2396",
+      "fair_pct": 4.1,
+      "fair_odds": "+2322",
       "market": "+2200",
       "books": {
-        "FanDuel": 2000,
+        "FanDuel": 2200,
         "DraftKings": 2200
       },
-      "ev": -8,
+      "ev": -5,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -8
+        "ev": -5
       },
       "read": {
         "v": "fools_gold",
@@ -260,50 +299,11 @@
       "vs500": null
     },
     {
-      "name": "Portland Trail Blazers",
-      "conf": "W",
-      "rec": "9-4",
-      "score": 2,
-      "index": 76.4,
-      "q": [
-        true,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "0.692",
-        "+7.8 #7",
-        "119.6 #3",
-        "111.8 #11"
-      ],
-      "rtg": 7.8,
-      "fair_pct": 3.4,
-      "fair_odds": "+2831",
-      "market": "+4000",
-      "books": {
-        "FanDuel": 2700,
-        "DraftKings": 4000
-      },
-      "ev": 40,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 40
-      },
-      "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#7) but leans one way; the #11 end is where a playoff defense makes it uncomfortable."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
       "name": "Detroit Pistons",
       "conf": "E",
       "rec": "8-4",
       "score": 2,
-      "index": 71.1,
+      "index": 72.0,
       "q": [
         true,
         false,
@@ -313,26 +313,26 @@
       "vals": [
         "0.667",
         "+5.4 #9",
-        "115.7 #12",
+        "115.7 #11",
         "110.2 #8"
       ],
       "rtg": 5.4,
-      "fair_pct": 8.7,
-      "fair_odds": "+1052",
+      "fair_pct": 8.9,
+      "fair_odds": "+1018",
       "market": "+2000",
       "books": {
         "FanDuel": 1900,
         "DraftKings": 2000
       },
-      "ev": 82,
+      "ev": 88,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 82
+        "ev": 88
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#9) but leans one way; the #12 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#9) but leans one way; the #11 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -342,7 +342,7 @@
       "conf": "W",
       "rec": "9-5",
       "score": 2,
-      "index": 70.7,
+      "index": 71.7,
       "q": [
         true,
         false,
@@ -356,18 +356,18 @@
         "107.1 #5"
       ],
       "rtg": 5.1,
-      "fair_pct": 2.7,
-      "fair_odds": "+3599",
+      "fair_pct": 2.8,
+      "fair_odds": "+3445",
       "market": "+500",
       "books": {
         "FanDuel": 500,
         "DraftKings": 475
       },
-      "ev": -84,
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -83
       },
       "read": {
         "v": "trust",
@@ -381,7 +381,7 @@
       "conf": "E",
       "rec": "12-3",
       "score": 2,
-      "index": 67.8,
+      "index": 69.7,
       "q": [
         true,
         false,
@@ -390,27 +390,27 @@
       ],
       "vals": [
         "0.800",
-        "+2.1 #12",
-        "112.6 #18",
-        "110.4 #9"
+        "+2.8 #11",
+        "114.1 #15",
+        "111.3 #9"
       ],
-      "rtg": 2.1,
-      "fair_pct": 7.5,
-      "fair_odds": "+1228",
+      "rtg": 2.8,
+      "fair_pct": 8.1,
+      "fair_odds": "+1132",
       "market": "+900",
       "books": {
         "FanDuel": 900,
         "DraftKings": 850
       },
-      "ev": -25,
+      "ev": -19,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -25
+        "ev": -19
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#12) but leans one way; the #18 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#11) but leans one way; the #15 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -420,7 +420,7 @@
       "conf": "E",
       "rec": "7-6",
       "score": 1,
-      "index": 70.6,
+      "index": 71.7,
       "q": [
         false,
         false,
@@ -434,18 +434,18 @@
         "104.0 #2"
       ],
       "rtg": 5.9,
-      "fair_pct": 2.7,
-      "fair_odds": "+3664",
+      "fair_pct": 2.8,
+      "fair_odds": "+3521",
       "market": "+1000",
       "books": {
         "FanDuel": 900,
         "DraftKings": 1000
       },
-      "ev": -71,
+      "ev": -70,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -71
+        "ev": -70
       },
       "read": {
         "v": "trust",
@@ -455,11 +455,11 @@
       "vs500": null
     },
     {
-      "name": "Golden State Warriors",
-      "conf": "W",
-      "rec": "8-6",
+      "name": "Cleveland Cavaliers",
+      "conf": "E",
+      "rec": "8-7",
       "score": 1,
-      "index": 65.2,
+      "index": 59.0,
       "q": [
         false,
         false,
@@ -467,28 +467,28 @@
         false
       ],
       "vals": [
-        "0.571",
-        "+4.3 #11",
-        "116.7 #10",
-        "112.4 #12"
+        "0.533",
+        "+2.3 #13",
+        "118.1 #5",
+        "115.8 #19"
       ],
-      "rtg": 4.3,
-      "fair_pct": 0.7,
-      "fair_odds": "+14991",
-      "market": "+4500",
+      "rtg": 2.3,
+      "fair_pct": 1.5,
+      "fair_odds": "+6399",
+      "market": "+3300",
       "books": {
-        "FanDuel": 4000,
-        "DraftKings": 4500
+        "FanDuel": 3300,
+        "DraftKings": 2800
       },
-      "ev": -70,
+      "ev": -48,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -70
+        "ev": -48
       },
       "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#11) but leans one way; the #12 end is where a playoff defense makes it uncomfortable."
+        "v": "fools_gold",
+        "why": "Scoreboard-stuffing against regular-season pace \u2014 but playoff games crawl into the half-court, and a #19 defense can't get the stop when it matters. Points don't travel; defense does."
       },
       "ftt": "pending",
       "vs500": null
@@ -498,7 +498,7 @@
       "conf": "E",
       "rec": "8-6",
       "score": 1,
-      "index": 58.2,
+      "index": 58.8,
       "q": [
         false,
         false,
@@ -513,17 +513,17 @@
       ],
       "rtg": 1.7,
       "fair_pct": 1.5,
-      "fair_odds": "+6619",
+      "fair_odds": "+6466",
       "market": "+10000",
       "books": {
         "FanDuel": 8000,
         "DraftKings": 10000
       },
-      "ev": 50,
+      "ev": 54,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 50
+        "ev": 54
       },
       "read": {
         "v": "caution",
@@ -533,50 +533,11 @@
       "vs500": null
     },
     {
-      "name": "Cleveland Cavaliers",
-      "conf": "E",
-      "rec": "8-7",
-      "score": 1,
-      "index": 57.0,
-      "q": [
-        false,
-        false,
-        true,
-        false
-      ],
-      "vals": [
-        "0.533",
-        "+1.6 #15",
-        "117.5 #9",
-        "115.9 #19"
-      ],
-      "rtg": 1.6,
-      "fair_pct": 1.4,
-      "fair_odds": "+7053",
-      "market": "+3300",
-      "books": {
-        "FanDuel": 3300,
-        "DraftKings": 2800
-      },
-      "ev": -52,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -52
-      },
-      "read": {
-        "v": "caution",
-        "why": "Net-rating-driven (#15) but leans one way; the #19 end is where a playoff defense makes it uncomfortable."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
       "name": "Miami Heat",
       "conf": "E",
       "rec": "8-6",
       "score": 1,
-      "index": 50.6,
+      "index": 54.4,
       "q": [
         false,
         false,
@@ -585,27 +546,65 @@
       ],
       "vals": [
         "0.571",
-        "-1.2 #17",
-        "118.7 #5",
-        "119.8 #27"
+        "+0.2 #17",
+        "119.4 #3",
+        "119.1 #25"
       ],
-      "rtg": -1.2,
-      "fair_pct": 1.0,
-      "fair_odds": "+10125",
-      "market": "+6000",
+      "rtg": 0.2,
+      "fair_pct": 1.2,
+      "fair_odds": "+8191",
+      "market": "+5000",
       "books": {
-        "FanDuel": 6000,
+        "FanDuel": 5000,
         "DraftKings": 3500
       },
-      "ev": -40,
+      "ev": -38,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -40
+        "kind": "fade",
+        "label": "fade",
+        "ev": -38
       },
       "read": {
         "v": "fools_gold",
-        "why": "All offense (#5), no stops (#27 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
+        "why": "All offense (#3), no stops (#25 defense). In a half-court playoff series the easy buckets vanish and this profile can't grind one out. Fade."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
+      "name": "New Orleans Pelicans",
+      "conf": "W",
+      "rec": "5-10",
+      "score": 1,
+      "index": 29.9,
+      "q": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "vals": [
+        "0.333",
+        "-7.1 #24",
+        "115.8 #10",
+        "122.9 #29"
+      ],
+      "rtg": -7.1,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "market": "+100000",
+      "books": {
+        "FanDuel": 100000
+      },
+      "ev": -36,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -36
+      },
+      "read": {
+        "v": "caution",
+        "why": "Net-rating-driven (#24) but leans one way; the #29 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -615,7 +614,7 @@
       "conf": "E",
       "rec": "4-9",
       "score": 1,
-      "index": 25.3,
+      "index": 25.9,
       "q": [
         false,
         false,
@@ -633,14 +632,14 @@
       "fair_odds": "+50000+",
       "market": "+40000",
       "books": {
-        "FanDuel": 15000,
+        "FanDuel": 17500,
         "DraftKings": 40000
       },
-      "ev": -51,
+      "ev": -48,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -51
+        "ev": -48
       },
       "read": {
         "v": "caution",
@@ -652,31 +651,31 @@
   ],
   "rtgs": {
     "San Antonio Spurs": 12.9,
-    "Minnesota Timberwolves": 11.5,
-    "Houston Rockets": 10.1,
-    "Memphis Grizzlies": 8.9,
-    "Boston Celtics": 13.2,
+    "Minnesota Timberwolves": 11.3,
+    "Houston Rockets": 8.3,
+    "Boston Celtics": 11.5,
+    "Memphis Grizzlies": 9.4,
+    "Portland Trail Blazers": 6.5,
     "Los Angeles Lakers": 7.9,
-    "Portland Trail Blazers": 7.8,
     "Detroit Pistons": 5.4,
     "Oklahoma City Thunder": 5.1,
-    "Philadelphia 76ers": 2.1,
+    "Philadelphia 76ers": 2.8,
     "New York Knicks": 5.9,
-    "Golden State Warriors": 4.3,
+    "Cleveland Cavaliers": 2.3,
     "Atlanta Hawks": 1.7,
-    "Cleveland Cavaliers": 1.6,
-    "Miami Heat": -1.2,
+    "Miami Heat": 0.2,
+    "New Orleans Pelicans": -7.1,
     "Charlotte Hornets": -10.8,
-    "Denver Nuggets": 1.8,
+    "Golden State Warriors": 2.5,
+    "Denver Nuggets": 0.7,
     "Toronto Raptors": 1.0,
     "Dallas Mavericks": -2.5,
+    "Orlando Magic": -3.3,
+    "Phoenix Suns": -3.4,
     "Indiana Pacers": -2.4,
-    "Orlando Magic": -4.4,
-    "Phoenix Suns": -4.7,
     "LA Clippers": -4.2,
-    "Brooklyn Nets": -6.2,
-    "Washington Wizards": -7.4,
-    "New Orleans Pelicans": -9.1,
+    "Brooklyn Nets": -6.7,
+    "Washington Wizards": -7.9,
     "Chicago Bulls": -11.3,
     "Utah Jazz": -10.9,
     "Milwaukee Bucks": -13.6,
@@ -693,21 +692,21 @@
   "value_plays": [
     {
       "name": "Boston Celtics",
-      "ev": 140,
-      "market": "+900",
+      "ev": 152,
+      "market": "+950",
       "fair_odds": "+317"
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 104,
+      "ev": 110,
       "market": "+1800",
-      "fair_odds": "+831"
+      "fair_odds": "+805"
     },
     {
       "name": "Houston Rockets",
-      "ev": 45,
-      "market": "+1400",
-      "fair_odds": "+934"
+      "ev": 36,
+      "market": "+1500",
+      "fair_odds": "+1079"
     }
   ]
 }
