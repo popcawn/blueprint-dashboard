@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-18T11:21:27Z",
-  "odds_remaining": "48628",
+  "generated": "2026-11-18T11:54:51Z",
+  "odds_remaining": "48624",
   "prediction": {
     "pick": "Boston Celtics",
     "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +317). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -46,16 +46,16 @@
       "rtg": 12.9,
       "fair_pct": 13.7,
       "fair_odds": "+632",
-      "market": "+310",
+      "market": "+300",
       "books": {
         "FanDuel": 270,
-        "DraftKings": 310
+        "DraftKings": 300
       },
-      "ev": -44,
+      "ev": -45,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -44
+        "ev": -45
       },
       "read": {
         "v": "trust",
@@ -85,16 +85,16 @@
       "rtg": 11.3,
       "fair_pct": 11.4,
       "fair_odds": "+778",
-      "market": "+1800",
+      "market": "+1600",
       "books": {
         "FanDuel": 1600,
-        "DraftKings": 1800
+        "DraftKings": 1500
       },
-      "ev": 116,
+      "ev": 94,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 116
+        "ev": 94
       },
       "read": {
         "v": "trust",
@@ -127,7 +127,7 @@
       "market": "+1400",
       "books": {
         "FanDuel": 1400,
-        "DraftKings": 1000
+        "DraftKings": 1100
       },
       "ev": 29,
       "verdict": {
@@ -166,7 +166,7 @@
       "market": "+950",
       "books": {
         "FanDuel": 950,
-        "DraftKings": 650
+        "DraftKings": 750
       },
       "ev": 152,
       "verdict": {
@@ -205,7 +205,7 @@
       "market": "+17500",
       "books": {
         "FanDuel": 17500,
-        "DraftKings": 14000
+        "DraftKings": 15000
       },
       "ev": 1008,
       "verdict": {
@@ -241,16 +241,16 @@
       "rtg": 6.5,
       "fair_pct": 4.6,
       "fair_odds": "+2076",
-      "market": "+4000",
+      "market": "+3000",
       "books": {
         "FanDuel": 3000,
-        "DraftKings": 4000
+        "DraftKings": 3000
       },
-      "ev": 88,
+      "ev": 42,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 88
+        "ev": 42
       },
       "read": {
         "v": "caution",
@@ -322,7 +322,7 @@
       "market": "+2000",
       "books": {
         "FanDuel": 2000,
-        "DraftKings": 2000
+        "DraftKings": 1900
       },
       "ev": 91,
       "verdict": {
@@ -361,7 +361,7 @@
       "market": "+500",
       "books": {
         "FanDuel": 500,
-        "DraftKings": 475
+        "DraftKings": 500
       },
       "ev": -83,
       "verdict": {
@@ -400,7 +400,7 @@
       "market": "+950",
       "books": {
         "FanDuel": 950,
-        "DraftKings": 850
+        "DraftKings": 800
       },
       "ev": -16,
       "verdict": {
@@ -514,16 +514,16 @@
       "rtg": 1.7,
       "fair_pct": 1.5,
       "fair_odds": "+6514",
-      "market": "+10000",
+      "market": "+8000",
       "books": {
         "FanDuel": 8000,
-        "DraftKings": 10000
+        "DraftKings": 8000
       },
-      "ev": 53,
+      "ev": 22,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 53
+        "ev": 22
       },
       "read": {
         "v": "caution",
@@ -556,7 +556,7 @@
       "market": "+5000",
       "books": {
         "FanDuel": 5000,
-        "DraftKings": 3500
+        "DraftKings": 4000
       },
       "ev": -39,
       "verdict": {
@@ -594,7 +594,8 @@
       "fair_odds": "+50000+",
       "market": "+100000",
       "books": {
-        "FanDuel": 100000
+        "FanDuel": 100000,
+        "DraftKings": 80000
       },
       "ev": -35,
       "verdict": {
@@ -630,16 +631,16 @@
       "rtg": -10.8,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+40000",
+      "market": "+35000",
       "books": {
         "FanDuel": 17500,
-        "DraftKings": 40000
+        "DraftKings": 35000
       },
-      "ev": -52,
+      "ev": -58,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -52
+        "ev": -58
       },
       "read": {
         "v": "caution",
@@ -687,7 +688,7 @@
     "label": "Trust the board",
     "note": "15 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "dk_asof": "Nov 16",
+  "dk_asof": "Nov 18",
   "market_name": "FanDuel / DraftKings",
   "value_plays": [
     {
@@ -698,8 +699,8 @@
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 116,
-      "market": "+1800",
+      "ev": 94,
+      "market": "+1600",
       "fair_odds": "+778"
     },
     {
