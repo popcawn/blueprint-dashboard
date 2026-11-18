@@ -572,6 +572,9 @@ function consistency(sp,nm){ const h=HIST[sp]; if(!h||!h.length)return{spark:"",
 // Top-8 strip: the backtested shortlist (top 8 by index; CFB by index × schedule, the order that
 // picked 10/12 champions) with each team's EV beside it — green = value (incl. small value).
 const T8EV={best:"g",value:"g",small:"g",longshot:"g",trap:"w",fair:"n",fade:"r",bigfade:"r",gap:"n"};
+// (2026-11-18) fair_pct is rounded to 0.1, so two teams can tie on it (NFL: Jaguars 16.7 / 49ers 16.7) and the cards fell back to index order
+// while the header's Top pick (build.py, unrounded) named the other team. The fair odds carry more precision: break the tie on them first.
+const _fo=o=>{const x=parseFloat(o);return isNaN(x)?0:x>0?100/(x+100):-x/(-x+100);};
 function top8(d,sp){
   const ord=d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
   const top=ord.slice(0,8); if(top.length<3)return "";
@@ -640,7 +643,7 @@ function render(){
   const teams=d.teams, contenders=NOPROFILE.includes(cur)?teams.filter(t=>t.fair_pct>=5).length:teams.filter(t=>t.score>=2).length;
   // overall rank by index (strength) — what the calibration line's "top-N" refers to
   // CFB ranks by index × schedule (uncapped mw) — the backtested order, same as the Top 8 strip
-  teams.slice().filter(t=>t.index!=null||cur==="cbb"||cur==="wcbb").sort((a,b)=>cur==="cfb"?((b.mw||-1)-(a.mw||-1))||(b.index-a.index):BYODDS.includes(cur)?((b.fair_pct||0)-(a.fair_pct||0))||(b.index-a.index):b.index-a.index).forEach((t,i)=>t._irank=i+1);
+  teams.slice().filter(t=>t.index!=null||cur==="cbb"||cur==="wcbb").sort((a,b)=>cur==="cfb"?((b.mw||-1)-(a.mw||-1))||(b.index-a.index):BYODDS.includes(cur)?((b.fair_pct||0)-(a.fair_pct||0))||(_fo(b.fair_odds)-_fo(a.fair_odds))||(b.index-a.index):b.index-a.index).forEach((t,i)=>t._irank=i+1);
   const vp=(d.value_plays||[]); VPSET=new Set(vp.map(x=>x.name));
   const bv=vp[0], traps=teams.filter(t=>t.read&&t.read.v==="fools_gold").length;
   strip.innerHTML=[
