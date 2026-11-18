@@ -4200,280 +4200,259 @@
  },
  {
   "date": "2026-11-18",
-  "gp": 6,
+  "gp": 5,
   "teams": {
-   "Duke Blue Devils": {
+   "UCLA Bruins": {
     "sc": 5,
-    "idx": 68.3,
-    "fp": 14.7,
-    "mkt": "+800",
-    "ev": 32
-   },
-   "Florida Gators": {
-    "sc": 4,
-    "idx": 87.9,
-    "fp": 9.6,
-    "mkt": "+650",
-    "ev": -28
-   },
-   "Iowa State Cyclones": {
-    "sc": 4,
-    "idx": 62.6,
-    "fp": 8.3,
-    "mkt": "+5000",
-    "ev": 321
-   },
-   "Houston Cougars": {
-    "sc": 4,
-    "idx": 76.7,
-    "fp": 5.4,
-    "mkt": "+2000",
-    "ev": 14
-   },
-   "Arizona Wildcats": {
-    "sc": 4,
-    "idx": 78.6,
-    "fp": 4.2,
+    "idx": 93.4,
+    "fp": 10.1,
     "mkt": "+2500",
-    "ev": 10
+    "ev": 162
    },
    "UConn Huskies": {
     "sc": 4,
     "idx": 93.4,
-    "fp": 4.2,
+    "fp": 10.1,
     "mkt": "+1000",
-    "ev": -54
+    "ev": 11
    },
-   "Purdue Boilermakers": {
-    "sc": 3,
-    "idx": 65.4,
-    "fp": 3.4,
-    "mkt": "+10000",
-    "ev": 247
+   "Vanderbilt Commodores": {
+    "sc": 4,
+    "idx": 93.4,
+    "fp": 10.1,
+    "mkt": "+3500",
+    "ev": 263
    },
-   "Tennessee Volunteers": {
+   "LSU Tigers": {
+    "sc": 4,
+    "idx": 91.2,
+    "fp": 7.0,
+    "mkt": "+3500",
+    "ev": 154
+   },
+   "Nebraska Cornhuskers": {
+    "sc": 4,
+    "idx": 91.1,
+    "fp": 6.9,
+    "mkt": "+6500",
+    "ev": 357
+   },
+   "Texas A&M Aggies": {
     "sc": 3,
-    "idx": 83.3,
-    "fp": 3.4,
-    "mkt": "+5000",
-    "ev": 75
+    "idx": 90.8,
+    "fp": 6.6,
+    "mkt": "+8000",
+    "ev": 434
+   },
+   "Texas Tech Red Raiders": {
+    "sc": 3,
+    "idx": 90.6,
+    "fp": 6.4,
+    "mkt": "+2000",
+    "ev": 34
+   },
+   "Texas Longhorns": {
+    "sc": 3,
+    "idx": 89.7,
+    "fp": 5.5,
+    "mkt": "+2500",
+    "ev": 43
+   },
+   "South Dakota State Jackrabbits": {
+    "sc": 3,
+    "idx": 89.0,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "West Virginia Mountaineers": {
+    "sc": 3,
+    "idx": 87.6,
+    "fp": 3.8,
+    "mkt": "+15000",
+    "ev": 481
+   },
+   "Santa Clara Broncos": {
+    "sc": 3,
+    "idx": 85.2,
+    "fp": 2.5,
+    "mkt": "+25000",
+    "ev": 537
+   },
+   "High Point Panthers": {
+    "sc": 3,
+    "idx": 84.4,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
    },
    "Illinois Fighting Illini": {
     "sc": 3,
     "idx": 84.1,
-    "fp": 3.4,
+    "fp": 2.1,
     "mkt": "+900",
-    "ev": -66
-   },
-   "Gonzaga Bulldogs": {
-    "sc": 3,
-    "idx": 80.3,
-    "fp": 3.0,
-    "mkt": "+3500",
-    "ev": 7
-   },
-   "Michigan State Spartans": {
-    "sc": 3,
-    "idx": 84.5,
-    "fp": 2.8,
-    "mkt": "+1000",
-    "ev": -69
-   },
-   "Michigan Wolverines": {
-    "sc": 3,
-    "idx": 79.4,
-    "fp": 2.8,
-    "mkt": "+8000",
-    "ev": 124
-   },
-   "BYU Cougars": {
-    "sc": 3,
-    "idx": 73.0,
-    "fp": 2.5,
-    "mkt": "+6500",
-    "ev": 64
-   },
-   "Alabama Crimson Tide": {
-    "sc": 3,
-    "idx": 69.6,
-    "fp": 2.0,
-    "mkt": "+3500",
-    "ev": -27
-   },
-   "Auburn Tigers": {
-    "sc": 2,
-    "idx": 64.4,
-    "fp": 1.9,
-    "mkt": "+10000",
-    "ev": 93
-   },
-   "Kentucky Wildcats": {
-    "sc": 2,
-    "idx": 63.7,
-    "fp": 1.6,
-    "mkt": "+6500",
-    "ev": 2
-   },
-   "Oklahoma Sooners": {
-    "sc": 2,
-    "idx": 54.6,
-    "fp": 1.5,
-    "mkt": "+20000",
-    "ev": 205
-   },
-   "Wisconsin Badgers": {
-    "sc": 2,
-    "idx": 62.7,
-    "fp": 1.3,
-    "mkt": "+15000",
-    "ev": 101
-   },
-   "Louisville Cardinals": {
-    "sc": 2,
-    "idx": 65.6,
-    "fp": 1.2,
-    "mkt": "+3500",
-    "ev": -55
-   },
-   "Texas Tech Red Raiders": {
-    "sc": 2,
-    "idx": 90.6,
-    "fp": 1.2,
-    "mkt": "+2000",
-    "ev": -74
-   },
-   "UCLA Bruins": {
-    "sc": 2,
-    "idx": 93.4,
-    "fp": 1.1,
-    "mkt": "+2500",
-    "ev": -71
-   },
-   "North Carolina Tar Heels": {
-    "sc": 2,
-    "idx": 63.5,
-    "fp": 1.1,
-    "mkt": "+10000",
-    "ev": 14
-   },
-   "Ohio State Buckeyes": {
-    "sc": 2,
-    "idx": 63.7,
-    "fp": 1.1,
-    "mkt": "+10000",
-    "ev": 8
-   },
-   "Nebraska Cornhuskers": {
-    "sc": 1,
-    "idx": 91.1,
-    "fp": 0.9,
-    "mkt": "+6500",
-    "ev": -42
-   },
-   "Baylor Bears": {
-    "sc": 1,
-    "idx": 65.1,
-    "fp": 0.8,
-    "mkt": "+6500",
-    "ev": -46
-   },
-   "Georgia Bulldogs": {
-    "sc": 1,
-    "idx": 67.7,
-    "fp": 0.8,
-    "mkt": "+15000",
-    "ev": 16
-   },
-   "Virginia Cavaliers": {
-    "sc": 1,
-    "idx": 72.9,
-    "fp": 0.7,
-    "mkt": "+2500",
-    "ev": -82
-   },
-   "Marquette Golden Eagles": {
-    "sc": 1,
-    "idx": 68.5,
-    "fp": 0.7,
-    "mkt": "+20000",
-    "ev": 36
-   },
-   "St. John's Red Storm": {
-    "sc": 1,
-    "idx": 74.2,
-    "fp": 0.6,
-    "mkt": "+3000",
-    "ev": -81
-   },
-   "Clemson Tigers": {
-    "sc": 1,
-    "idx": 60.7,
-    "fp": 0.6,
-    "mkt": "+20000",
-    "ev": 26
-   },
-   "Indiana Hoosiers": {
-    "sc": 1,
-    "idx": 69.2,
-    "fp": 0.6,
-    "mkt": "+6500",
-    "ev": -60
-   },
-   "Vanderbilt Commodores": {
-    "sc": 1,
-    "idx": 93.4,
-    "fp": 0.6,
-    "mkt": "+3500",
     "ev": -79
    },
-   "Texas Longhorns": {
-    "sc": 1,
-    "idx": 89.7,
-    "fp": 0.5,
-    "mkt": "+2500",
-    "ev": -87
+   "Missouri Tigers": {
+    "sc": 3,
+    "idx": 83.9,
+    "fp": 2.0,
+    "mkt": "+10000",
+    "ev": 104
+   },
+   "Tennessee Volunteers": {
+    "sc": 3,
+    "idx": 83.3,
+    "fp": 1.8,
+    "mkt": "+5000",
+    "ev": -8
    },
    "Kansas Jayhawks": {
-    "sc": 1,
+    "sc": 3,
     "idx": 79.9,
-    "fp": 0.5,
+    "fp": 1.0,
     "mkt": "+1400",
-    "ev": -93
+    "ev": -85
    },
-   "Texas A&M Aggies": {
-    "sc": 1,
-    "idx": 90.8,
+   "Houston Cougars": {
+    "sc": 3,
+    "idx": 76.7,
     "fp": 0.5,
-    "mkt": "+8000",
-    "ev": -62
+    "mkt": "+2000",
+    "ev": -89
    },
-   "Oregon Ducks": {
-    "sc": 1,
-    "idx": 70.9,
-    "fp": 0.5,
-    "mkt": "+20000",
-    "ev": -9
+   "Florida Gators": {
+    "sc": 2,
+    "idx": 87.9,
+    "fp": 4.1,
+    "mkt": "+650",
+    "ev": -70
    },
-   "Missouri Tigers": {
-    "sc": 1,
-    "idx": 83.9,
-    "fp": 0.4,
+   "Saint Louis Billikens": {
+    "sc": 2,
+    "idx": 87.8,
+    "fp": 4.0,
     "mkt": "+10000",
+    "ev": 302
+   },
+   "Virginia Tech Hokies": {
+    "sc": 2,
+    "idx": 86.2,
+    "fp": 3.0,
+    "mkt": "+25000",
+    "ev": 659
+   },
+   "Michigan State Spartans": {
+    "sc": 2,
+    "idx": 84.5,
+    "fp": 2.2,
+    "mkt": "+1000",
+    "ev": -75
+   },
+   "Utah State Aggies": {
+    "sc": 2,
+    "idx": 74.8,
+    "fp": 0.4,
+    "mkt": "+25000",
+    "ev": -10
+   },
+   "George Washington Revolutionaries": {
+    "sc": 2,
+    "idx": 74.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "St. John's Red Storm": {
+    "sc": 2,
+    "idx": 74.2,
+    "fp": 0.3,
+    "mkt": "+3000",
+    "ev": -90
+   },
+   "USC Trojans": {
+    "sc": 2,
+    "idx": 74.1,
+    "fp": 0.3,
+    "mkt": "+5000",
+    "ev": -84
+   },
+   "Ole Miss Rebels": {
+    "sc": 2,
+    "idx": 74.1,
+    "fp": 0.3,
+    "mkt": "+20000",
+    "ev": -37
+   },
+   "BYU Cougars": {
+    "sc": 2,
+    "idx": 73.0,
+    "fp": 0.2,
+    "mkt": "+6500",
+    "ev": -84
+   },
+   "Arizona State Sun Devils": {
+    "sc": 2,
+    "idx": 72.2,
+    "fp": 0.2,
+    "mkt": "+15000",
+    "ev": -68
+   },
+   "UC Santa Barbara Gauchos": {
+    "sc": 2,
+    "idx": 71.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "DePaul Blue Demons": {
+    "sc": 2,
+    "idx": 71.6,
+    "fp": 0.2,
+    "mkt": "+25000",
+    "ev": -53
+   },
+   "Pittsburgh Panthers": {
+    "sc": 2,
+    "idx": 71.3,
+    "fp": 0.2,
+    "mkt": "+25000",
     "ev": -56
    },
-   "VCU Rams": {
-    "sc": 1,
-    "idx": 61.3,
-    "fp": 0.4,
-    "mkt": "+15000",
-    "ev": -36
+   "Oregon Ducks": {
+    "sc": 2,
+    "idx": 70.9,
+    "fp": 0.2,
+    "mkt": "+20000",
+    "ev": -68
    },
-   "Iowa Hawkeyes": {
-    "sc": 1,
-    "idx": 63.8,
-    "fp": 0.4,
+   "Alabama Crimson Tide": {
+    "sc": 2,
+    "idx": 69.6,
+    "fp": 0.1,
+    "mkt": "+3500",
+    "ev": -96
+   },
+   "Xavier Musketeers": {
+    "sc": 2,
+    "idx": 68.6,
+    "fp": 0.1,
+    "mkt": "+15000",
+    "ev": -85
+   },
+   "Miami Hurricanes": {
+    "sc": 2,
+    "idx": 67.4,
+    "fp": 0.1,
+    "mkt": "+5000",
+    "ev": -96
+   },
+   "Providence Friars": {
+    "sc": 2,
+    "idx": 66.0,
+    "fp": 0.1,
     "mkt": "+10000",
-    "ev": -57
+    "ev": -94
    }
   }
  }

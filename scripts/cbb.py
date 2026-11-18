@@ -19,7 +19,9 @@ CATS = {"cbb":  ["Adj net top-8", "Adj off top-18", "Adj def top-29", "Win% ≥.
 LABELS = ["Adj net", "Adj off", "Adj def", "Win%", "vs top-50"]
 W = [.30, .20, .20, .15, .15]
 K = {"cbb": 15, "wcbb": 10}; CAP = {"cbb": .20, "wcbb": .45}; POOL = {"cbb": 2, "wcbb": 3}
-PRE_UNTIL = 8                                     # median games before the blueprint takes over from the projection
+PRE_UNTIL = 0   # 2026-11-18 user: "disregard preseason projections for college bball" / "mcbb tiers are not ranking properly" -- the projection
+                # (a weak champion-picker: 2023-26 men's champs were preseason #10-33) used to set the tiers and odds until a median 8 games;
+                # now tiers, order and fair odds come from this season's games from game 1. Set back to 8 to restore the projection phase.
 
 def _adjust(games, col_o, col_d, n=30):
     O = games.groupby("team_id")[col_o].mean().to_dict(); Dd = games.groupby("team_id")[col_d].mean().to_dict()
@@ -97,7 +99,7 @@ def build(key, data_dir, fd_raw, year, alt_raw=None):
             locs.update(dict(zip(x.team_display_name, x.team_location)))
         except Exception: pass
     pre = None; pp = os.path.join(data_dir, f"{key}_preseason.json")
-    if os.path.exists(pp): pre = json.load(open(pp, encoding="utf-8"))
+    if os.path.exists(pp) and PRE_UNTIL: pre = json.load(open(pp, encoding="utf-8"))   # projection off -> not loaded at all (no zero-game rows)
     # (2026-11-07) the projection must belong to THIS season (generated Aug 1 .. Jul 31 around it): from Jul 1 the board moves to next season, and
     # last year's projection would have been shown -- and priced against next season's futures -- as the new board until a fresh one was made
     try:
