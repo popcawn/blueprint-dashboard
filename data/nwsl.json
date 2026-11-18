@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-17T21:57:43Z",
+  "generated": "2026-11-18T21:39:41Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -157,7 +157,7 @@
         "0.30 #5"
       ],
       "index": 82,
-      "rtg": 0.415,
+      "rtg": 0.414,
       "alive": true,
       "next": {
         "round": "Final",
@@ -590,7 +590,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.271,
+      "rtg": -1.27,
       "alive": false,
       "next": null,
       "seed": 16,

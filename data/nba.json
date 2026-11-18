@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-18T11:54:51Z",
-  "odds_remaining": "48624",
+  "generated": "2026-11-18T21:39:21Z",
+  "odds_remaining": "47446",
   "prediction": {
     "pick": "Boston Celtics",
     "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +317). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -30,7 +30,7 @@
       "conf": "W",
       "rec": "12-3",
       "score": 4,
-      "index": 93.7,
+      "index": 92.4,
       "q": [
         true,
         true,
@@ -39,23 +39,23 @@
       ],
       "vals": [
         "0.800",
-        "+12.9 #1",
-        "118.8 #4",
+        "+11.2 #2",
+        "117.1 #7",
         "105.9 #3"
       ],
-      "rtg": 12.9,
-      "fair_pct": 13.7,
-      "fair_odds": "+632",
+      "rtg": 11.2,
+      "fair_pct": 12.7,
+      "fair_odds": "+689",
       "market": "+300",
       "books": {
-        "FanDuel": 270,
+        "FanDuel": 260,
         "DraftKings": 300
       },
-      "ev": -45,
+      "ev": -49,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -45
+        "ev": -49
       },
       "read": {
         "v": "trust",
@@ -69,7 +69,7 @@
       "conf": "W",
       "rec": "11-4",
       "score": 4,
-      "index": 88.2,
+      "index": 89.0,
       "q": [
         true,
         true,
@@ -78,23 +78,23 @@
       ],
       "vals": [
         "0.733",
-        "+11.3 #3",
-        "117.4 #9",
+        "+10.6 #3",
+        "116.7 #9",
         "106.1 #4"
       ],
-      "rtg": 11.3,
-      "fair_pct": 11.4,
-      "fair_odds": "+778",
+      "rtg": 10.6,
+      "fair_pct": 11.3,
+      "fair_odds": "+783",
       "market": "+1600",
       "books": {
         "FanDuel": 1600,
         "DraftKings": 1500
       },
-      "ev": 94,
+      "ev": 92,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 94
+        "ev": 92
       },
       "read": {
         "v": "trust",
@@ -108,7 +108,7 @@
       "conf": "W",
       "rec": "11-4",
       "score": 4,
-      "index": 80.3,
+      "index": 82.3,
       "q": [
         true,
         true,
@@ -118,22 +118,22 @@
       "vals": [
         "0.733",
         "+8.3 #5",
-        "117.8 #7",
-        "109.5 #6"
+        "117.8 #5",
+        "109.5 #7"
       ],
       "rtg": 8.3,
-      "fair_pct": 8.6,
-      "fair_odds": "+1064",
-      "market": "+1400",
+      "fair_pct": 9.0,
+      "fair_odds": "+1017",
+      "market": "+1500",
       "books": {
-        "FanDuel": 1400,
+        "FanDuel": 1500,
         "DraftKings": 1100
       },
-      "ev": 29,
+      "ev": 43,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 29
+        "ev": 43
       },
       "read": {
         "v": "trust",
@@ -147,7 +147,7 @@
       "conf": "E",
       "rec": "11-3",
       "score": 3,
-      "index": 91.3,
+      "index": 93.5,
       "q": [
         true,
         true,
@@ -156,7 +156,7 @@
       ],
       "vals": [
         "0.786",
-        "+11.5 #2",
+        "+11.5 #1",
         "114.8 #13",
         "103.3 #1"
       ],
@@ -186,7 +186,7 @@
       "conf": "W",
       "rec": "10-4",
       "score": 3,
-      "index": 81.3,
+      "index": 83.5,
       "q": [
         true,
         true,
@@ -200,18 +200,18 @@
         "112.3 #12"
       ],
       "rtg": 9.4,
-      "fair_pct": 6.3,
-      "fair_odds": "+1489",
+      "fair_pct": 6.6,
+      "fair_odds": "+1415",
       "market": "+17500",
       "books": {
         "FanDuel": 17500,
         "DraftKings": 15000
       },
-      "ev": 1008,
+      "ev": 1062,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 1008
+        "ev": 1062
       },
       "read": {
         "v": "trust",
@@ -225,7 +225,7 @@
       "conf": "W",
       "rec": "9-5",
       "score": 3,
-      "index": 73.2,
+      "index": 73.9,
       "q": [
         true,
         false,
@@ -234,13 +234,13 @@
       ],
       "vals": [
         "0.643",
-        "+6.5 #7",
-        "117.9 #6",
-        "111.4 #10"
+        "+6.0 #8",
+        "117.0 #8",
+        "111.0 #9"
       ],
-      "rtg": 6.5,
+      "rtg": 6.0,
       "fair_pct": 4.6,
-      "fair_odds": "+2076",
+      "fair_odds": "+2085",
       "market": "+3000",
       "books": {
         "FanDuel": 3000,
@@ -254,7 +254,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#7) but leans one way; the #10 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#8) but leans one way; the #9 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -264,7 +264,7 @@
       "conf": "W",
       "rec": "13-2",
       "score": 2,
-      "index": 81.4,
+      "index": 82.9,
       "q": [
         true,
         false,
@@ -273,23 +273,23 @@
       ],
       "vals": [
         "0.867",
-        "+7.9 #6",
-        "122.8 #1",
-        "114.9 #18"
+        "+7.7 #6",
+        "122.5 #1",
+        "114.8 #18"
       ],
-      "rtg": 7.9,
-      "fair_pct": 4.2,
-      "fair_odds": "+2274",
+      "rtg": 7.7,
+      "fair_pct": 4.3,
+      "fair_odds": "+2222",
       "market": "+2200",
       "books": {
         "FanDuel": 2200,
         "DraftKings": 2200
       },
-      "ev": -3,
+      "ev": -1,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -3
+        "ev": -1
       },
       "read": {
         "v": "fools_gold",
@@ -303,7 +303,7 @@
       "conf": "E",
       "rec": "9-4",
       "score": 2,
-      "index": 72.5,
+      "index": 75.9,
       "q": [
         true,
         false,
@@ -312,27 +312,27 @@
       ],
       "vals": [
         "0.692",
-        "+5.4 #9",
-        "115.7 #11",
-        "110.2 #8"
+        "+5.9 #9",
+        "114.8 #12",
+        "108.9 #6"
       ],
-      "rtg": 5.4,
-      "fair_pct": 9.1,
-      "fair_odds": "+997",
-      "market": "+2000",
+      "rtg": 5.9,
+      "fair_pct": 9.6,
+      "fair_odds": "+942",
+      "market": "+1900",
       "books": {
-        "FanDuel": 2000,
+        "FanDuel": 1900,
         "DraftKings": 1900
       },
-      "ev": 91,
+      "ev": 92,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 91
+        "ev": 92
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#9) but leans one way; the #11 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#9) but leans one way; the #12 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
@@ -342,7 +342,7 @@
       "conf": "W",
       "rec": "9-5",
       "score": 2,
-      "index": 71.5,
+      "index": 73.1,
       "q": [
         true,
         false,
@@ -352,22 +352,22 @@
       "vals": [
         "0.643",
         "+5.1 #10",
-        "112.1 #20",
+        "112.1 #19",
         "107.1 #5"
       ],
       "rtg": 5.1,
-      "fair_pct": 2.9,
-      "fair_odds": "+3403",
+      "fair_pct": 3.0,
+      "fair_odds": "+3287",
       "market": "+500",
       "books": {
         "FanDuel": 500,
         "DraftKings": 500
       },
-      "ev": -83,
+      "ev": -82,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -83
+        "ev": -82
       },
       "read": {
         "v": "trust",
@@ -381,7 +381,7 @@
       "conf": "E",
       "rec": "12-3",
       "score": 2,
-      "index": 69.5,
+      "index": 70.9,
       "q": [
         true,
         false,
@@ -392,21 +392,21 @@
         "0.800",
         "+2.8 #11",
         "114.1 #15",
-        "111.3 #9"
+        "111.3 #10"
       ],
       "rtg": 2.8,
-      "fair_pct": 8.0,
-      "fair_odds": "+1145",
-      "market": "+950",
+      "fair_pct": 7.8,
+      "fair_odds": "+1179",
+      "market": "+900",
       "books": {
-        "FanDuel": 950,
+        "FanDuel": 900,
         "DraftKings": 800
       },
-      "ev": -16,
+      "ev": -22,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -16
+        "ev": -22
       },
       "read": {
         "v": "caution",
@@ -420,7 +420,7 @@
       "conf": "E",
       "rec": "8-6",
       "score": 1,
-      "index": 72.5,
+      "index": 74.6,
       "q": [
         false,
         false,
@@ -429,16 +429,16 @@
       ],
       "vals": [
         "0.571",
-        "+5.9 #8",
-        "109.9 #25",
-        "104.0 #2"
+        "+6.1 #7",
+        "110.0 #25",
+        "103.9 #2"
       ],
-      "rtg": 5.9,
+      "rtg": 6.1,
       "fair_pct": 2.8,
-      "fair_odds": "+3410",
+      "fair_odds": "+3413",
       "market": "+1000",
       "books": {
-        "FanDuel": 900,
+        "FanDuel": 850,
         "DraftKings": 1000
       },
       "ev": -69,
@@ -459,7 +459,7 @@
       "conf": "E",
       "rec": "8-7",
       "score": 1,
-      "index": 58.9,
+      "index": 60.4,
       "q": [
         false,
         false,
@@ -469,12 +469,12 @@
       "vals": [
         "0.533",
         "+2.3 #13",
-        "118.1 #5",
+        "118.1 #4",
         "115.8 #19"
       ],
       "rtg": 2.3,
       "fair_pct": 1.5,
-      "fair_odds": "+6446",
+      "fair_odds": "+6519",
       "market": "+3000",
       "books": {
         "FanDuel": 3000,
@@ -498,7 +498,7 @@
       "conf": "E",
       "rec": "8-6",
       "score": 1,
-      "index": 58.7,
+      "index": 60.1,
       "q": [
         false,
         false,
@@ -508,22 +508,22 @@
       "vals": [
         "0.571",
         "+1.7 #14",
-        "117.8 #8",
+        "117.8 #6",
         "116.1 #20"
       ],
       "rtg": 1.7,
       "fair_pct": 1.5,
-      "fair_odds": "+6514",
+      "fair_odds": "+6618",
       "market": "+8000",
       "books": {
         "FanDuel": 8000,
         "DraftKings": 8000
       },
-      "ev": 22,
+      "ev": 21,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 22
+        "ev": 21
       },
       "read": {
         "v": "caution",
@@ -537,7 +537,7 @@
       "conf": "E",
       "rec": "8-6",
       "score": 1,
-      "index": 54.2,
+      "index": 55.5,
       "q": [
         false,
         false,
@@ -552,17 +552,17 @@
       ],
       "rtg": 0.2,
       "fair_pct": 1.2,
-      "fair_odds": "+8301",
-      "market": "+5000",
+      "fair_odds": "+8431",
+      "market": "+4500",
       "books": {
-        "FanDuel": 5000,
+        "FanDuel": 4500,
         "DraftKings": 4000
       },
-      "ev": -39,
+      "ev": -46,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -39
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -46
       },
       "read": {
         "v": "fools_gold",
@@ -576,7 +576,7 @@
       "conf": "W",
       "rec": "5-10",
       "score": 1,
-      "index": 29.8,
+      "index": 30.4,
       "q": [
         false,
         false,
@@ -597,11 +597,11 @@
         "FanDuel": 100000,
         "DraftKings": 80000
       },
-      "ev": -35,
+      "ev": -34,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -35
+        "ev": -34
       },
       "read": {
         "v": "caution",
@@ -615,7 +615,7 @@
       "conf": "E",
       "rec": "4-10",
       "score": 1,
-      "index": 25.2,
+      "index": 25.8,
       "q": [
         false,
         false,
@@ -624,60 +624,60 @@
       ],
       "vals": [
         "0.286",
-        "-10.8 #26",
-        "99.1 #30",
-        "109.8 #7"
+        "-10.3 #27",
+        "100.1 #30",
+        "110.4 #8"
       ],
-      "rtg": -10.8,
+      "rtg": -10.3,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "market": "+35000",
       "books": {
-        "FanDuel": 17500,
+        "FanDuel": 15000,
         "DraftKings": 35000
       },
-      "ev": -58,
+      "ev": -59,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -58
+        "ev": -59
       },
       "read": {
         "v": "caution",
-        "why": "Net-rating-driven (#26) but leans one way; the #30 end is where a playoff defense makes it uncomfortable."
+        "why": "Net-rating-driven (#27) but leans one way; the #30 end is where a playoff defense makes it uncomfortable."
       },
       "ftt": "pending",
       "vs500": null
     }
   ],
   "rtgs": {
-    "San Antonio Spurs": 12.9,
-    "Minnesota Timberwolves": 11.3,
+    "San Antonio Spurs": 11.2,
+    "Minnesota Timberwolves": 10.6,
     "Houston Rockets": 8.3,
     "Boston Celtics": 11.5,
     "Memphis Grizzlies": 9.4,
-    "Portland Trail Blazers": 6.5,
-    "Los Angeles Lakers": 7.9,
-    "Detroit Pistons": 5.4,
+    "Portland Trail Blazers": 6.0,
+    "Los Angeles Lakers": 7.7,
+    "Detroit Pistons": 5.9,
     "Oklahoma City Thunder": 5.1,
     "Philadelphia 76ers": 2.8,
-    "New York Knicks": 5.9,
+    "New York Knicks": 6.1,
     "Cleveland Cavaliers": 2.3,
     "Atlanta Hawks": 1.7,
     "Miami Heat": 0.2,
     "New Orleans Pelicans": -7.1,
-    "Charlotte Hornets": -10.8,
+    "Charlotte Hornets": -10.3,
     "Golden State Warriors": 2.5,
     "Denver Nuggets": 0.7,
-    "Toronto Raptors": 1.0,
+    "Toronto Raptors": 0.3,
     "Dallas Mavericks": -2.5,
     "Orlando Magic": -3.3,
     "Phoenix Suns": -3.4,
     "Indiana Pacers": -2.4,
-    "LA Clippers": -4.2,
+    "LA Clippers": -5.8,
     "Brooklyn Nets": -6.7,
     "Washington Wizards": -7.9,
-    "Utah Jazz": -10.9,
+    "Utah Jazz": -8.5,
     "Chicago Bulls": -11.3,
     "Milwaukee Bucks": -13.6,
     "Sacramento Kings": -13.5
@@ -699,15 +699,15 @@
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 94,
+      "ev": 92,
       "market": "+1600",
-      "fair_odds": "+778"
+      "fair_odds": "+783"
     },
     {
       "name": "Houston Rockets",
-      "ev": 29,
-      "market": "+1400",
-      "fair_odds": "+1064"
+      "ev": 43,
+      "market": "+1500",
+      "fair_odds": "+1017"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "sport": "College hockey",
   "season": "2027",
   "alt_name": "profile",
-  "generated": "2026-11-17T21:57:39Z",
+  "generated": "2026-11-18T21:39:37Z",
   "cats": [
     "Adj defense top-27",
     "Win% top-20",
@@ -40,7 +40,7 @@
       ],
       "index": 92.1,
       "rtg": 1.78,
-      "alt_pct": 12.4,
+      "alt_pct": 10.1,
       "srsrank": 1,
       "sosrank": 50,
       "in_field": false,
@@ -58,7 +58,7 @@
         "label": "fade",
         "ev": -26
       },
-      "alt_ev": -28
+      "alt_ev": -42
     },
     {
       "name": "Western Michigan",
@@ -82,7 +82,7 @@
       ],
       "index": 87.2,
       "rtg": 1.74,
-      "alt_pct": 8.9,
+      "alt_pct": 8.1,
       "srsrank": 2,
       "sosrank": 41,
       "in_field": false,
@@ -100,7 +100,7 @@
         "label": "too early",
         "ev": 69
       },
-      "alt_ev": 25
+      "alt_ev": 14
     },
     {
       "name": "Providence",
@@ -124,7 +124,7 @@
       ],
       "index": 85.8,
       "rtg": 1.47,
-      "alt_pct": 8.1,
+      "alt_pct": 7.6,
       "srsrank": 3,
       "sosrank": 39,
       "in_field": false,
@@ -142,7 +142,7 @@
         "label": "too early",
         "ev": 39
       },
-      "alt_ev": 55
+      "alt_ev": 45
     },
     {
       "name": "Wisconsin",
@@ -166,7 +166,7 @@
       ],
       "index": 88,
       "rtg": 1.44,
-      "alt_pct": 9.5,
+      "alt_pct": 8.4,
       "srsrank": 4,
       "sosrank": 47,
       "in_field": false,
@@ -184,7 +184,7 @@
         "label": "fade",
         "ev": -23
       },
-      "alt_ev": 4
+      "alt_ev": -7
     },
     {
       "name": "Quinnipiac",
@@ -208,7 +208,7 @@
       ],
       "index": 84.1,
       "rtg": 1.34,
-      "alt_pct": 7.2,
+      "alt_pct": 7.0,
       "srsrank": 5,
       "sosrank": 10,
       "in_field": false,
@@ -226,7 +226,7 @@
         "label": "fade",
         "ev": -25
       },
-      "alt_ev": -6
+      "alt_ev": -8
     },
     {
       "name": "Denver",
@@ -250,7 +250,7 @@
       ],
       "index": 78.8,
       "rtg": 1.32,
-      "alt_pct": 4.9,
+      "alt_pct": 5.4,
       "srsrank": 6,
       "sosrank": 46,
       "in_field": false,
@@ -268,7 +268,7 @@
         "label": "big fade",
         "ev": -44
       },
-      "alt_ev": -51
+      "alt_ev": -46
     },
     {
       "name": "Michigan State",
@@ -292,7 +292,7 @@
       ],
       "index": 74.7,
       "rtg": 1.29,
-      "alt_pct": 3.5,
+      "alt_pct": 4.4,
       "srsrank": 7,
       "sosrank": 20,
       "in_field": false,
@@ -310,7 +310,7 @@
         "label": "big fade",
         "ev": -55
       },
-      "alt_ev": -70
+      "alt_ev": -63
     },
     {
       "name": "Minnesota Duluth",
@@ -334,7 +334,7 @@
       ],
       "index": 76.6,
       "rtg": 1.28,
-      "alt_pct": 4.1,
+      "alt_pct": 4.8,
       "srsrank": 8,
       "sosrank": 29,
       "in_field": false,
@@ -352,7 +352,7 @@
         "label": "fade",
         "ev": -12
       },
-      "alt_ev": -30
+      "alt_ev": -18
     },
     {
       "name": "North Dakota",
@@ -376,7 +376,7 @@
       ],
       "index": 74.7,
       "rtg": 1.24,
-      "alt_pct": 3.6,
+      "alt_pct": 4.4,
       "srsrank": 9,
       "sosrank": 21,
       "in_field": false,
@@ -394,7 +394,7 @@
         "label": "fade",
         "ev": -36
       },
-      "alt_ev": -54
+      "alt_ev": -43
     },
     {
       "name": "Dartmouth",
@@ -418,7 +418,7 @@
       ],
       "index": 88.9,
       "rtg": 1.18,
-      "alt_pct": 10.1,
+      "alt_pct": 8.8,
       "srsrank": 10,
       "sosrank": 55,
       "in_field": false,
@@ -456,7 +456,7 @@
       ],
       "index": 71.1,
       "rtg": 1.01,
-      "alt_pct": 2.6,
+      "alt_pct": 3.6,
       "srsrank": 11,
       "sosrank": 27,
       "in_field": false,
@@ -474,7 +474,7 @@
         "label": "fade",
         "ev": -39
       },
-      "alt_ev": -50
+      "alt_ev": -32
     },
     {
       "name": "Augustana (SD)",
@@ -498,7 +498,7 @@
       ],
       "index": 82.4,
       "rtg": 0.85,
-      "alt_pct": 6.4,
+      "alt_pct": 6.5,
       "srsrank": 12,
       "sosrank": 40,
       "in_field": false,
@@ -516,7 +516,7 @@
         "label": "too early",
         "ev": 11
       },
-      "alt_ev": 193
+      "alt_ev": 198
     },
     {
       "name": "Boston University",
@@ -540,7 +540,7 @@
       ],
       "index": 69.8,
       "rtg": 0.75,
-      "alt_pct": 2.4,
+      "alt_pct": 3.4,
       "srsrank": 13,
       "sosrank": 42,
       "in_field": false,
@@ -558,7 +558,7 @@
         "label": "big fade",
         "ev": -66
       },
-      "alt_ev": -60
+      "alt_ev": -43
     },
     {
       "name": "Northeastern",
@@ -582,7 +582,7 @@
       ],
       "index": 68.7,
       "rtg": 0.71,
-      "alt_pct": 2.2,
+      "alt_pct": 3.1,
       "srsrank": 14,
       "sosrank": 52,
       "in_field": false,
@@ -600,7 +600,7 @@
         "label": "too early",
         "ev": 32
       },
-      "alt_ev": 54
+      "alt_ev": 123
     },
     {
       "name": "Army",
@@ -624,7 +624,7 @@
       ],
       "index": 66.6,
       "rtg": 0.28,
-      "alt_pct": 1.8,
+      "alt_pct": 2.8,
       "srsrank": 20,
       "sosrank": 49,
       "in_field": false,
@@ -662,7 +662,7 @@
       ],
       "index": 54.7,
       "rtg": 0.19,
-      "alt_pct": 0.6,
+      "alt_pct": 1.0,
       "srsrank": 22,
       "sosrank": 56,
       "in_field": false,
@@ -680,7 +680,7 @@
         "label": "big fade",
         "ev": -40
       },
-      "alt_ev": -54
+      "alt_ev": -22
     },
     {
       "name": "Vermont",
@@ -704,7 +704,7 @@
       ],
       "index": 55.9,
       "rtg": -0.03,
-      "alt_pct": 0.6,
+      "alt_pct": 1.0,
       "srsrank": 32,
       "sosrank": 11,
       "in_field": false,
@@ -722,7 +722,7 @@
         "label": "big fade",
         "ev": -50
       },
-      "alt_ev": -36
+      "alt_ev": 5
     },
     {
       "name": "Merrimack",
@@ -746,7 +746,7 @@
       ],
       "index": 67.4,
       "rtg": 0.53,
-      "alt_pct": 1.9,
+      "alt_pct": 1.6,
       "srsrank": 16,
       "sosrank": 18,
       "in_field": false,
@@ -764,7 +764,7 @@
         "label": "big fade",
         "ev": -51
       },
-      "alt_ev": -31
+      "alt_ev": -41
     },
     {
       "name": "Union",
@@ -788,7 +788,7 @@
       ],
       "index": 55.7,
       "rtg": 0.42,
-      "alt_pct": 0.6,
+      "alt_pct": 0.8,
       "srsrank": 18,
       "sosrank": 35,
       "in_field": false,
@@ -806,7 +806,7 @@
         "label": "trap",
         "ev": 13
       },
-      "alt_ev": -37
+      "alt_ev": -21
     },
     {
       "name": "Omaha",
@@ -830,7 +830,7 @@
       ],
       "index": 55.8,
       "rtg": 0.24,
-      "alt_pct": 0.6,
+      "alt_pct": 0.8,
       "srsrank": 21,
       "sosrank": 8,
       "in_field": false,
@@ -848,7 +848,7 @@
         "label": "fade",
         "ev": -18
       },
-      "alt_ev": -36
+      "alt_ev": -21
     },
     {
       "name": "Clarkson",
@@ -872,7 +872,7 @@
       ],
       "index": 52.6,
       "rtg": 0.12,
-      "alt_pct": 0.4,
+      "alt_pct": 0.6,
       "srsrank": 25,
       "sosrank": 24,
       "in_field": false,
@@ -910,7 +910,7 @@
       ],
       "index": 53.9,
       "rtg": 0.02,
-      "alt_pct": 0.5,
+      "alt_pct": 0.7,
       "srsrank": 29,
       "sosrank": 51,
       "in_field": false,
@@ -928,7 +928,7 @@
         "label": "big fade",
         "ev": -72
       },
-      "alt_ev": -74
+      "alt_ev": -65
     },
     {
       "name": "Maine",
@@ -952,7 +952,7 @@
       ],
       "index": 60.7,
       "rtg": 0.62,
-      "alt_pct": 1.0,
+      "alt_pct": 0.7,
       "srsrank": 15,
       "sosrank": 25,
       "in_field": false,
@@ -970,7 +970,7 @@
         "label": "big fade",
         "ev": -51
       },
-      "alt_ev": -68
+      "alt_ev": -77
     },
     {
       "name": "Ohio State",
@@ -994,7 +994,7 @@
       ],
       "index": 63.4,
       "rtg": 0.51,
-      "alt_pct": 1.3,
+      "alt_pct": 0.9,
       "srsrank": 17,
       "sosrank": 1,
       "in_field": false,
@@ -1012,7 +1012,7 @@
         "label": "fade",
         "ev": -34
       },
-      "alt_ev": -32
+      "alt_ev": -56
     },
     {
       "name": "UConn",
@@ -1054,7 +1054,7 @@
         "label": "big fade",
         "ev": -74
       },
-      "alt_ev": -84
+      "alt_ev": -85
     },
     {
       "name": "Massachusetts",
@@ -1078,7 +1078,7 @@
       ],
       "index": 46,
       "rtg": 0.04,
-      "alt_pct": 0.2,
+      "alt_pct": 0.3,
       "srsrank": 27,
       "sosrank": 19,
       "in_field": false,
@@ -1172,7 +1172,7 @@
         "label": "big fade",
         "ev": -69
       },
-      "alt_ev": -88
+      "alt_ev": -84
     },
     {
       "name": "Bentley",
@@ -1196,7 +1196,7 @@
       ],
       "index": 42.8,
       "rtg": -0.29,
-      "alt_pct": 0.1,
+      "alt_pct": 0.2,
       "srsrank": 38,
       "sosrank": 44,
       "in_field": false,
@@ -1214,7 +1214,7 @@
         "label": "big fade",
         "ev": -74
       },
-      "alt_ev": -88
+      "alt_ev": -84
     },
     {
       "name": "Niagara",
@@ -1276,7 +1276,7 @@
       ],
       "index": 52.7,
       "rtg": 0.29,
-      "alt_pct": 0.5,
+      "alt_pct": 0.2,
       "srsrank": 19,
       "sosrank": 15,
       "in_field": false,
@@ -1294,7 +1294,7 @@
         "label": "big fade",
         "ev": -73
       },
-      "alt_ev": -86
+      "alt_ev": -93
     },
     {
       "name": "Bowling Green",
@@ -1318,7 +1318,7 @@
       ],
       "index": 49.8,
       "rtg": 0.12,
-      "alt_pct": 0.3,
+      "alt_pct": 0.2,
       "srsrank": 24,
       "sosrank": 26,
       "in_field": false,
@@ -1336,7 +1336,7 @@
         "label": "big fade",
         "ev": -40
       },
-      "alt_ev": -70
+      "alt_ev": -84
     },
     {
       "name": "Minnesota",
@@ -1360,7 +1360,7 @@
       ],
       "index": 54.1,
       "rtg": 0.06,
-      "alt_pct": 0.5,
+      "alt_pct": 0.2,
       "srsrank": 26,
       "sosrank": 13,
       "in_field": false,
@@ -1378,7 +1378,7 @@
         "label": "big fade",
         "ev": -83
       },
-      "alt_ev": -85
+      "alt_ev": -93
     },
     {
       "name": "New Hampshire",
@@ -1402,7 +1402,7 @@
       ],
       "index": 51.2,
       "rtg": 0.04,
-      "alt_pct": 0.4,
+      "alt_pct": 0.2,
       "srsrank": 28,
       "sosrank": 36,
       "in_field": false,
@@ -1420,7 +1420,7 @@
         "label": "big fade",
         "ev": -60
       },
-      "alt_ev": -73
+      "alt_ev": -86
     },
     {
       "name": "Arizona State",
@@ -1444,7 +1444,7 @@
       ],
       "index": 44.1,
       "rtg": -0.03,
-      "alt_pct": 0.2,
+      "alt_pct": 0.1,
       "srsrank": 31,
       "sosrank": 53,
       "in_field": false,
@@ -1462,7 +1462,7 @@
         "label": "big fade",
         "ev": -74
       },
-      "alt_ev": -92
+      "alt_ev": -94
     },
     {
       "name": "Notre Dame",
@@ -1486,7 +1486,7 @@
       ],
       "index": 51.1,
       "rtg": -0.17,
-      "alt_pct": 0.4,
+      "alt_pct": 0.2,
       "srsrank": 34,
       "sosrank": 5,
       "in_field": false,
@@ -1524,7 +1524,7 @@
       ],
       "index": 45.1,
       "rtg": -0.24,
-      "alt_pct": 0.2,
+      "alt_pct": 0.1,
       "srsrank": 36,
       "sosrank": 37,
       "in_field": false,
@@ -1642,7 +1642,7 @@
       ],
       "index": 37.9,
       "rtg": -0.2,
-      "alt_pct": 0.1,
+      "alt_pct": 0.0,
       "srsrank": 35,
       "sosrank": 16,
       "in_field": false,
@@ -1660,7 +1660,7 @@
         "label": "big fade",
         "ev": -75
       },
-      "alt_ev": -95
+      "alt_ev": -97
     },
     {
       "name": "Princeton",
@@ -1722,7 +1722,7 @@
       ],
       "index": 34.6,
       "rtg": -0.39,
-      "alt_pct": 0.1,
+      "alt_pct": 0.0,
       "srsrank": 40,
       "sosrank": 31,
       "in_field": false,
@@ -1740,7 +1740,7 @@
         "label": "big fade",
         "ev": -90
       },
-      "alt_ev": -98
+      "alt_ev": -99
     },
     {
       "name": "Penn State",
@@ -1844,7 +1844,7 @@
       ],
       "index": 38.7,
       "rtg": -0.56,
-      "alt_pct": 0.1,
+      "alt_pct": 0.0,
       "srsrank": 45,
       "sosrank": 9,
       "in_field": false,
@@ -1871,7 +1871,7 @@
   "champion": null,
   "prediction": {
     "pick": "Michigan",
-    "why": "<b>Michigan</b> is the model's #1: 12.9% to win the national title (fair +673); the every-champion profile model gives 12.4%. Pre-bracket: odds over every D1 team, tuned on past seasons' boards as of this date. The 16-team field is set on selection Sunday in late March."
+    "why": "<b>Michigan</b> is the model's #1: 12.9% to win the national title (fair +673); the every-champion profile model gives 10.1%. Pre-bracket: odds over every D1 team, tuned on past seasons' boards as of this date. The 16-team field is set on selection Sunday in late March."
   },
   "season_pct": 32,
   "gp_min": 5,

@@ -4213,8 +4213,8 @@
     "sc": 4,
     "idx": 93.4,
     "fp": 10.1,
-    "mkt": "+1000",
-    "ev": 11
+    "mkt": "+1100",
+    "ev": 21
    },
    "Vanderbilt Commodores": {
     "sc": 4,
@@ -4255,8 +4255,8 @@
     "sc": 3,
     "idx": 89.7,
     "fp": 5.5,
-    "mkt": "+2500",
-    "ev": 43
+    "mkt": "+2000",
+    "ev": 15
    },
    "South Dakota State Jackrabbits": {
     "sc": 3,
@@ -4269,15 +4269,15 @@
     "sc": 3,
     "idx": 87.6,
     "fp": 3.8,
-    "mkt": "+15000",
-    "ev": 481
+    "mkt": "+10000",
+    "ev": 289
    },
    "Santa Clara Broncos": {
     "sc": 3,
     "idx": 85.2,
     "fp": 2.5,
-    "mkt": "+25000",
-    "ev": 537
+    "mkt": "+20000",
+    "ev": 410
    },
    "High Point Panthers": {
     "sc": 3,
@@ -4290,8 +4290,8 @@
     "sc": 3,
     "idx": 84.1,
     "fp": 2.1,
-    "mkt": "+900",
-    "ev": -79
+    "mkt": "+800",
+    "ev": -81
    },
    "Missouri Tigers": {
     "sc": 3,
@@ -4311,7 +4311,7 @@
     "sc": 3,
     "idx": 79.9,
     "fp": 1.0,
-    "mkt": "+1400",
+    "mkt": "+1500",
     "ev": -85
    },
    "Houston Cougars": {
@@ -4339,22 +4339,22 @@
     "sc": 2,
     "idx": 86.2,
     "fp": 3.0,
-    "mkt": "+25000",
-    "ev": 659
+    "mkt": "+20000",
+    "ev": 508
    },
    "Michigan State Spartans": {
     "sc": 2,
     "idx": 84.5,
     "fp": 2.2,
-    "mkt": "+1000",
-    "ev": -75
+    "mkt": "+1300",
+    "ev": -69
    },
    "Utah State Aggies": {
     "sc": 2,
     "idx": 74.8,
     "fp": 0.4,
-    "mkt": "+25000",
-    "ev": -10
+    "mkt": "+20000",
+    "ev": -28
    },
    "George Washington Revolutionaries": {
     "sc": 2,
@@ -4409,15 +4409,15 @@
     "sc": 2,
     "idx": 71.6,
     "fp": 0.2,
-    "mkt": "+25000",
-    "ev": -53
+    "mkt": "+20000",
+    "ev": -62
    },
    "Pittsburgh Panthers": {
     "sc": 2,
     "idx": 71.3,
     "fp": 0.2,
-    "mkt": "+25000",
-    "ev": -56
+    "mkt": "+20000",
+    "ev": -65
    },
    "Oregon Ducks": {
     "sc": 2,
@@ -4451,8 +4451,8 @@
     "sc": 2,
     "idx": 66.0,
     "fp": 0.1,
-    "mkt": "+10000",
-    "ev": -94
+    "mkt": "+15000",
+    "ev": -92
    }
   }
  }
