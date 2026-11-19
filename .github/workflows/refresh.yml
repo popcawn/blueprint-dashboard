@@ -6,6 +6,10 @@ on:
     # committee's Tuesday release, so the CFB held-#1 tracker (rel_tops) still sees every release. The site's Run button and
     # the price-screenshot box still trigger a build any day.
     - cron: "0 14 * * 3"
+    # PRE-PLAYOFF RUN (2026-11-19, user: "trigger one last run before each playoff"): a daily check that builds ONLY the leagues whose
+    # first playoff game (po in data/seasons.json) is tomorrow, Eastern time -- so each board's frozen pre-playoff prices are at most a
+    # day old. Most days it builds nothing (no Odds API credits). Keep the po dates in seasons.json right; approximate ones are flagged there.
+    - cron: "30 13 * * *"
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
@@ -22,15 +26,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Pick leagues
+        id: pick
+        env:
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+          INPUT_LEAGUES: ${{ github.event.inputs.leagues }}
+        run: |
+          python3 - <<'PY'
+          import datetime, json, os, zoneinfo
+          ALL = "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague"
+          if os.environ.get("EVENT_SCHEDULE") == "30 13 * * *":            # the daily pre-playoff check
+              tomorrow = datetime.datetime.now(zoneinfo.ZoneInfo("America/New_York")).date() + datetime.timedelta(days=1)
+              lg = json.load(open("data/seasons.json", encoding="utf-8"))["leagues"]
+              due = [L["key"] for L in lg if L.get("site") and L["key"] in ALL.split(",") and L.get("po") == tomorrow.isoformat()]
+              leagues = ",".join(due)
+              print(f"playoffs starting {tomorrow}: {leagues or 'none -- nothing to build'}")
+          else:                                                            # the weekly run, or the Run button / a price save
+              leagues = os.environ.get("INPUT_LEAGUES") or ALL
+          print(f"leagues={leagues}", file=open(os.environ["GITHUB_OUTPUT"], "a"))
+          PY
+
       - uses: actions/setup-python@v5
+        if: steps.pick.outputs.leagues != ''
         with:
           python-version: "3.12"
 
       - uses: actions/setup-node@v4     # the MLS, NWSL, FCS, CFL, AFL, NRL and Super League engines are Node (scripts/mls/soccer.mjs, scripts/college/*.mjs, scripts/pro/*.mjs)
+        if: steps.pick.outputs.leagues != ''
         with:
           node-version: "20"
 
       - uses: actions/cache@v4          # Node engines' data caches (ESPN scoreboards; past seasons never change) -- keeps MLS/FCS builds fast
+        if: steps.pick.outputs.leagues != ''
         with:
           path: |
             /tmp/college_bp_cache
@@ -39,17 +66,20 @@ jobs:
           restore-keys: bp-engine-cache-
 
       - name: Install college-basketball deps (parquet game data)
+        if: steps.pick.outputs.leagues != ''
         run: pip install pandas pyarrow
 
       - name: Build blueprint data
+        if: steps.pick.outputs.leagues != ''
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}        # add in repo Settings → Secrets → Actions
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}  # enables the beat-reporter reads (optional; falls back to template)
-          LEAGUES: ${{ github.event.inputs.leagues || 'nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague' }}
+          LEAGUES: ${{ steps.pick.outputs.leagues }}
           TMPDIR: /tmp                                      # the Node engines cache under os.tmpdir() -- pinned so the cache step below finds it
         run: python scripts/build.py
 
       - name: Commit updated data
+        if: steps.pick.outputs.leagues != ''
         run: |
           git config user.name  "blueprint-bot"
           git config user.email "blueprint-bot@users.noreply.github.com"
