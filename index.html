@@ -508,7 +508,7 @@ function drawParlay(){
   const hdr=`<div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span><button class="btn ghost rf" title="Pull fresh FanDuel prices: rebuilds the NFL board (~1–2 min, 3 Odds API credits)" onclick="document.getElementById('rfbtn').click()">↻ FanDuel</button></div>`;
   if(WKP.err){ el.innerHTML=hdr+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}).</div>`; return; }
   if(WKP.season.type&&WKP.season.type!==2){ el.innerHTML=hdr+`<div class="munote">Regular season only — the rule was never tested on ${WKP.season.type===3?'playoff':'preseason'} games.</div>`; return; }
-  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (daily at 10 AM ET, or press ↻ FanDuel).</div>`; return; }
+  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (Wednesdays about 9 AM ET, or press ↻ FanDuel).</div>`; return; }
   const G=WKP.games=wkpGames(WKP.sb), up=G.filter(g=>g.r), legs=up.filter(g=>g.r.v&&g.r.v.c==='take'&&g.r.v.best.k==='ml').sort((x,y)=>y.r.v.best.kelly-x.r.v.best.kelly), top=legs.slice(0,2);
   const book=GL.book||'FanDuel', at=new Date(GL.at), age=(Date.now()-at)/36e5, t=at.toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
   let h=hdr;
@@ -578,7 +578,7 @@ const _fo=o=>{const x=parseFloat(o);return isNaN(x)?0:x>0?100/(x+100):-x/(-x+100
 function top8(d,sp){
   const ord=d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
   const top=ord.slice(0,8); if(top.length<3)return "";
-  // one snapshot per WEEK (the bot runs daily): the latest run, then the latest run on/before each 7-day step back
+  // one snapshot per WEEK (the bot ran daily until 2026-11-19, weekly since): the latest run, then the latest run on/before each 7-day step back
   const all=d.stage==="preseason"?[]:(HIST[sp]||[]), h=[];
   if(all.length){const last=Date.parse(all[all.length-1].date);
     for(let k=0;k<6;k++){const cut=last-k*7*864e5, s=[...all].reverse().find(x=>Date.parse(x.date)<=cut); if(s&&!h.includes(s))h.unshift(s);}}

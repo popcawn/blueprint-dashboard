@@ -2,8 +2,10 @@ name: Refresh blueprint data
 
 on:
   schedule:
-    # Daily refresh ~14:00 UTC so the beat-reporter reads (injuries, headlines, form) stay current.
-    - cron: "0 14 * * *"
+    # WEEKLY since 2026-11-19 (user: "lets make it once a week"): Wednesdays 14:00 UTC (9 AM ET), the morning after the CFP
+    # committee's Tuesday release, so the CFB held-#1 tracker (rel_tops) still sees every release. The site's Run button and
+    # the price-screenshot box still trigger a build any day.
+    - cron: "0 14 * * 3"
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
