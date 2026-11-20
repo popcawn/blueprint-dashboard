@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-18T21:39:41Z",
+  "generated": "2026-11-20T20:14:35Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -38,7 +38,7 @@
         "0.17 #1"
       ],
       "index": 91.2,
-      "rtg": 0.421,
+      "rtg": 0.42,
       "alive": false,
       "next": null,
       "seed": 1,
@@ -46,14 +46,10 @@
       "fair_pct": 19.1,
       "fair_odds": "+425",
       "read": null,
-      "mk": 270,
-      "market": "+270",
-      "ev": -29,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -29
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Kansas City Current",
@@ -76,7 +72,7 @@
         "0.30 #5"
       ],
       "index": 82.4,
-      "rtg": 0.659,
+      "rtg": 0.658,
       "alive": true,
       "next": {
         "round": "Final",
@@ -89,14 +85,10 @@
       "fair_pct": 18.1,
       "fair_odds": "+453",
       "read": null,
-      "mk": 400,
-      "market": "+400",
-      "ev": -10,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -10
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "San Diego Wave FC",
@@ -127,14 +119,10 @@
       "fair_pct": 17.1,
       "fair_odds": "+486",
       "read": null,
-      "mk": 300,
-      "market": "+300",
-      "ev": -32,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -32
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Washington Spirit",
@@ -170,14 +158,10 @@
       "fair_pct": 16.5,
       "fair_odds": "+505",
       "read": null,
-      "mk": 350,
-      "market": "+350",
-      "ev": -26,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -26
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Angel City FC",
@@ -208,14 +192,10 @@
       "fair_pct": 10.3,
       "fair_odds": "+870",
       "read": null,
-      "mk": 1100,
-      "market": "+1100",
-      "ev": 24,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 24
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Portland Thorns FC",
@@ -246,14 +226,10 @@
       "fair_pct": 8.1,
       "fair_odds": "+1132",
       "read": null,
-      "mk": 1600,
-      "market": "+1600",
-      "ev": 38,
-      "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 38
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Seattle Reign FC",
@@ -284,14 +260,10 @@
       "fair_pct": 5.9,
       "fair_odds": "+1607",
       "read": null,
-      "mk": 1400,
-      "market": "+1400",
-      "ev": -12,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -12
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Utah Royals",
@@ -322,14 +294,10 @@
       "fair_pct": 5.0,
       "fair_odds": "+1906",
       "read": null,
-      "mk": 2500,
-      "market": "+2500",
-      "ev": 30,
-      "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 30
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Boston Legacy FC",
@@ -522,7 +490,7 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.538,
+      "rtg": -0.537,
       "alive": false,
       "next": null,
       "seed": 15,
@@ -590,7 +558,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.27,
+      "rtg": -1.269,
       "alive": false,
       "next": null,
       "seed": 16,
@@ -605,13 +573,13 @@
     }
   ],
   "odds_remaining": null,
-  "market_name": "your book",
-  "market_asof": "Nov 6",
+  "market_name": "DraftKings",
+  "market_asof": null,
   "stage": "playoffs",
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Kansas City Current, Washington Spirit. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs); EV is against the pre-playoff prices you saved (Nov 6)."
+    "why": "Still alive: Kansas City Current, Washington Spirit. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
   },
   "season_pct": 100,
   "gp_min": 30,
