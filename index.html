@@ -40,6 +40,12 @@
      left-aligned row -- set by fitHeader() from measured positions, so it keeps working however many sport tabs are added */
   .strip.wrapped{width:100%;margin-left:0}
   .sportbar{max-width:100%;overflow-x:auto;scrollbar-width:none} .sportbar::-webkit-scrollbar{display:none} .sportbar button{flex:0 0 auto}
+  /* sport carousel (2026-11-22, user: "should be like a carousel"): swipe / arrows, the open tab is kept in view */
+  .sbwrap{position:relative;min-width:0;max-width:100%;display:flex}
+  .sportbar{scroll-behavior:smooth}
+  .sbarr{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:17px;line-height:1;cursor:pointer;box-shadow:var(--shadow);display:none;padding:0}
+  .sbarr.l{left:-6px} .sbarr.r{right:-6px}
+  .sbwrap.cl .sbarr.l,.sbwrap.cr .sbarr.r{display:block}
   /* layout */
   .wrap{max-width:1500px;margin:0 auto;padding:18px clamp(14px,3vw,30px) 70px}
   .hero{background:linear-gradient(135deg,rgba(47,111,228,.10),rgba(106,85,240,.07)),var(--panel);border:1px solid rgba(47,111,228,.28);border-radius:20px;padding:16px 20px;box-shadow:var(--shadow);margin-bottom:6px}
@@ -266,7 +272,7 @@
 <body>
 <header class="topbar"><div class="tb">
   <a class="brand"><span class="trophy">🏆</span>Champions <span>title odds</span></a>
-  <nav class="sportbar" id="tabs"></nav>
+  <div class="sbwrap" id="sbwrap"><button class="sbarr l" onclick="sbScroll(-1)" aria-label="Earlier sports">‹</button><nav class="sportbar" id="tabs" onscroll="sbArrows()"></nav><button class="sbarr r" onclick="sbScroll(1)" aria-label="Later sports">›</button></div>
   <div class="strip" id="strip"></div>
 </div></header>
 <div class="layout"><div class="wrap" id="app"></div><aside class="clock" id="clock" aria-label="Season clock"></aside></div>
@@ -630,7 +636,7 @@ function card(t,sp){
 }
 
 function render(){
-  document.querySelectorAll(".sportbar button").forEach(b=>b.classList.toggle("on",b.dataset.s===cur));
+  document.querySelectorAll(".sportbar button").forEach(b=>b.classList.toggle("on",b.dataset.s===cur)); sbShow();
   renderClock();
   const d=DATA[cur], mx=MAXCAT[cur], app=document.getElementById("app"), strip=document.getElementById("strip");
   if(!d){ app.innerHTML=`<div class="preseason">No data.</div>`; strip.innerHTML=""; return; }
@@ -767,18 +773,28 @@ function phase(L,now=Date.now()){
 }
 // a site board's own games-played % beats the calendar estimate
 function sitePct(L,p){ const d=DATA[L.key]; return L.site&&p.k==="open"&&d&&d.season_pct!=null?Math.round(d.season_pct):p.pct; }
-// Tab order (2026-11-09, user: "can you move the sports out of season to the end"): tabs in the clock's Offseason group (phase "off" =
-// not started yet, or title decided) go last, in their usual order; the rest -- playoffs included -- keep their places. Worked out from
-// data/seasons.json on every load, so a league moves back up by itself when its season starts. No seasons.json = the usual order.
+// Tab order (2026-11-22, user: "Sport row should be ordered by when season ends. Seasons that haven't ended [= have ended] should be
+// ordered by when they come back"): leagues in season or in their playoffs first, soonest title first; then the offseason ones (title
+// decided, or not started yet), soonest return first. From data/seasons.json on every load; no seasons.json = the usual order.
 function offPhase(k){ try{ const L=SEASONS.find(x=>x.key===k), p=L&&phase(L);
   if(!p||p.k!=="off"||(p.over&&L.next&&Date.now()>=D0(L.next).getTime())) return null;   // past its "next" start but the row isn't rolled yet = back in season
   return {L,p}; }catch(e){ return null; } }
-function tabKeys(){ const ks=Object.keys(SPORTS); return [...ks.filter(k=>!offPhase(k)), ...ks.filter(k=>offPhase(k))]; }
+function tabKeys(){ const ks=Object.keys(SPORTS), row=k=>SEASONS.find(x=>x.key===k);
+  const ends=k=>(row(k)||{}).final||"9999", back=k=>{ const o=offPhase(k); return o.p.over?(o.L.next||"9999"):o.L.start; };
+  const on=ks.filter(k=>!offPhase(k)).sort((a,b)=>ends(a).localeCompare(ends(b))), off=ks.filter(k=>offPhase(k)).sort((a,b)=>back(a).localeCompare(back(b)));
+  return [...on,...off]; }
+function sbArrows(){ const t=document.getElementById("tabs"), w=document.getElementById("sbwrap"); if(!t||!w) return;
+  w.classList.toggle("cl",t.scrollLeft>4); w.classList.toggle("cr",t.scrollLeft+t.clientWidth<t.scrollWidth-4); }
+function sbScroll(dir){ const t=document.getElementById("tabs"); t.scrollBy({left:dir*Math.max(120,t.clientWidth*0.7),behavior:"smooth"}); }
+function sbShow(){ const t=document.getElementById("tabs"), b=t&&t.querySelector("button.on"); if(!b) return sbArrows();   // keep the open tab in view (no page jump)
+  const l=b.offsetLeft-t.offsetLeft, r=l+b.offsetWidth; if(l<t.scrollLeft) t.scrollLeft=l-8; else if(r>t.scrollLeft+t.clientWidth) t.scrollLeft=r-t.clientWidth+8; sbArrows(); }
+window.addEventListener("resize",sbArrows);
 function renderTabs(){
   document.getElementById("tabs").innerHTML=tabKeys().map(k=>{ const o=offPhase(k);
     const tip=o?` title="Offseason · ${o.p.over?(o.L.next?`next season starts ${fD(o.L,"next")}`:"season over"):`season starts ${fD(o.L,"start")}`}"`:"";
     return `<button data-s="${k}"${tip}>${SPORTS[k]}</button>`; }).join("");
   document.querySelectorAll(".sportbar button").forEach(b=>{ b.onclick=()=>{cur=b.dataset.s;render();}; b.classList.toggle("on",b.dataset.s===cur); });
+  sbShow();
 }
 function renderClock(){
   const el=document.getElementById("clock"); if(!el) return; if(!SEASONS.length){ el.innerHTML=""; return; }

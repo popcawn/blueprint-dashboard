@@ -78,6 +78,31 @@ jobs:
           TMPDIR: /tmp                                      # the Node engines cache under os.tmpdir() -- pinned so the cache step below finds it
         run: python scripts/build.py
 
+      # 2026-11-22, user: "When running refresh, pasted odds should be removed". A price list pasted from the site (the 📷 box) is used by
+      # the build it triggers, then deleted here, so the next refresh shows only the odds feed (or no prices). A board already frozen
+      # for the playoffs (window_closed) keeps its file: its EV is against the last pre-playoff screenshot. Only after a good build.
+      - name: Drop pasted odds
+        if: steps.pick.outputs.leagues != ''
+        env:
+          LEAGUES: ${{ steps.pick.outputs.leagues }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          PASTED = {"mls": "mls_dk.json", "fcs": "fcs_book.json", "chk": "chk_book.json", "wcbb": "wcbb_fd.json", "cfl": "cfl_book.json",
+                    "nwsl": "nwsl_book.json", "afl": "afl_book.json", "nrl": "nrl_book.json", "superleague": "superleague_book.json",
+                    "nhl": "nhl_dk.json", "nba": "nba_dk.json", "cbb": "cbb_dk.json"}
+          try: builds = json.load(open("data/index.json", encoding="utf-8")).get("builds") or {}
+          except Exception: builds = {}
+          for lg in [x for x in os.environ.get("LEAGUES", "").split(",") if x in PASTED]:
+              f = os.path.join("data", PASTED[lg])
+              if not os.path.exists(f): continue
+              try: board = json.load(open(f"data/{lg}.json", encoding="utf-8"))
+              except Exception: board = {}
+              if not (builds.get(lg) or {}).get("ok"): print(f"{lg}: build failed -- keeping {f}"); continue
+              if board.get("window_closed"): print(f"{lg}: frozen for the playoffs -- keeping {f}"); continue
+              os.remove(f); print(f"{lg}: used and removed {f}")
+          PY
+
       - name: Commit updated data
         if: steps.pick.outputs.leagues != ''
         run: |
