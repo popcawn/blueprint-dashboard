@@ -2,7 +2,7 @@
   "sport": "FCS",
   "season": "2026",
   "alt_name": "rating-only",
-  "generated": "2026-11-18T21:39:36Z",
+  "generated": "2026-11-22T12:25:00Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -19,52 +19,10 @@
   ],
   "teams": [
     {
-      "name": "South Dakota State",
-      "conf": "FCS",
-      "rec": "9-2",
-      "gp": 11,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "16.4 #2",
-        ".818 #6",
-        "16.2 #5",
-        ".584 #7",
-        ".750 #6"
-      ],
-      "index": 95.1,
-      "rtg": 21.91,
-      "alt_pct": 32.2,
-      "srsrank": 1,
-      "sosrank": 80,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 48.1,
-      "fair_odds": "+108",
-      "read": null,
-      "mk": 225,
-      "market": "+225",
-      "ev": 56,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 56
-      },
-      "alt_ev": 5
-    },
-    {
       "name": "Montana State",
       "conf": "FCS",
-      "rec": "10-1",
-      "gp": 11,
+      "rec": "11-1",
+      "gp": 12,
       "score": 5,
       "q": [
         true,
@@ -74,39 +32,39 @@
         true
       ],
       "vals": [
-        "15.6 #5",
-        ".909 #2",
-        "19.7 #14",
-        ".616 #3",
-        ".750 #6"
+        "16.3 #5",
+        ".917 #2",
+        "19.4 #16",
+        ".620 #2",
+        "1.000 #1"
       ],
-      "index": 89.9,
-      "rtg": 20.27,
-      "alt_pct": 16.1,
+      "index": 92,
+      "rtg": 21.86,
+      "alt_pct": 28.1,
       "srsrank": 2,
-      "sosrank": 55,
+      "sosrank": 46,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 20.9,
-      "fair_odds": "+378",
+      "fair_pct": 39.4,
+      "fair_odds": "+154",
       "read": null,
       "mk": 400,
       "market": "+400",
-      "ev": 5,
+      "ev": 97,
       "verdict": {
-        "kind": "trap",
-        "label": "rating disagrees",
-        "ev": 5
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 97
       },
-      "alt_ev": -20
+      "alt_ev": 41
     },
     {
-      "name": "Stephen F. Austin",
+      "name": "Tarleton State",
       "conf": "FCS",
-      "rec": "10-1",
-      "gp": 11,
+      "rec": "12-0",
+      "gp": 12,
       "score": 5,
       "q": [
         true,
@@ -116,199 +74,161 @@
         true
       ],
       "vals": [
-        "16.0 #4",
-        ".909 #2",
-        "15.1 #4",
-        ".596 #4",
-        ".667 #9"
+        "16.2 #6",
+        "1.000 #1",
+        "22.8 #30",
+        ".621 #1",
+        "1.000 #1"
       ],
-      "index": 88.1,
-      "rtg": 18.47,
-      "alt_pct": 7.5,
-      "srsrank": 4,
+      "index": 81.4,
+      "rtg": 16.26,
+      "alt_pct": 2.6,
+      "srsrank": 7,
+      "sosrank": 94,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 6.2,
+      "fair_odds": "+1504",
+      "read": null,
+      "mk": 900,
+      "market": "+900",
+      "ev": -38,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -38
+      },
+      "alt_ev": -74
+    },
+    {
+      "name": "Lamar",
+      "conf": "FCS",
+      "rec": "10-2",
+      "gp": 12,
+      "score": 5,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "vals": [
+        "11.3 #12",
+        ".833 #5",
+        "22.8 #33",
+        ".586 #4",
+        "1.000 #1"
+      ],
+      "index": 76.4,
+      "rtg": 14.92,
+      "alt_pct": 1.4,
+      "srsrank": 9,
+      "sosrank": 84,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 2.4,
+      "fair_odds": "+3990",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
+    },
+    {
+      "name": "South Dakota State",
+      "conf": "FCS",
+      "rec": "10-2",
+      "gp": 12,
+      "score": 4,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "17.2 #2",
+        ".833 #5",
+        "15.9 #5",
+        ".575 #8",
+        ".750 #11"
+      ],
+      "index": 95.7,
+      "rtg": 22.04,
+      "alt_pct": 30.4,
+      "srsrank": 1,
       "sosrank": 100,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 15.4,
-      "fair_odds": "+551",
+      "fair_pct": 35.3,
+      "fair_odds": "+183",
       "read": null,
-      "mk": 1300,
-      "market": "+1300",
-      "ev": 115,
-      "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 115
-      },
-      "alt_ev": 5
-    },
-    {
-      "name": "Tarleton State",
-      "conf": "FCS",
-      "rec": "11-0",
-      "gp": 11,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "16.2 #3",
-        "1.000 #1",
-        "22.6 #31",
-        ".618 #1",
-        "1.000 #1"
-      ],
-      "index": 81.7,
-      "rtg": 16.23,
-      "alt_pct": 2.9,
-      "srsrank": 9,
-      "sosrank": 97,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 5.0,
-      "fair_odds": "+1916",
-      "read": null,
-      "mk": 900,
-      "market": "+900",
-      "ev": -50,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -50
-      },
-      "alt_ev": -71
-    },
-    {
-      "name": "Lamar",
-      "conf": "FCS",
-      "rec": "9-2",
-      "gp": 11,
-      "score": 5,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "12.3 #13",
-        ".818 #6",
-        "23.4 #36",
-        ".589 #6",
-        "1.000 #1"
-      ],
-      "index": 77.5,
-      "rtg": 16.24,
-      "alt_pct": 2.9,
-      "srsrank": 8,
-      "sosrank": 74,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 2.3,
-      "fair_odds": "+4302",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
-    },
-    {
-      "name": "Harvard",
-      "conf": "FCS",
-      "rec": "8-1",
-      "gp": 9,
-      "score": 4,
-      "q": [
-        false,
-        true,
-        true,
-        true,
-        true
-      ],
-      "vals": [
-        "6.2 #29",
-        ".889 #5",
-        "13.9 #2",
-        ".616 #2",
-        "1.000 #1"
-      ],
-      "index": 77.2,
-      "rtg": 17.34,
-      "alt_pct": 4.7,
-      "srsrank": 7,
-      "sosrank": 66,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 1.1,
-      "fair_odds": "+9242",
-      "read": null,
-      "mk": 10000,
-      "market": "+10000",
-      "ev": 8,
+      "mk": 225,
+      "market": "+225",
+      "ev": 15,
       "verdict": {
         "kind": "trap",
         "label": "fails profile",
-        "ev": 8
+        "ev": 15
       },
-      "alt_ev": 372
+      "alt_ev": -1
     },
     {
-      "name": "Abilene Christian",
+      "name": "Stephen F. Austin",
       "conf": "FCS",
-      "rec": "6-5",
-      "gp": 11,
+      "rec": "11-1",
+      "gp": 12,
       "score": 3,
       "q": [
         true,
+        true,
+        true,
         false,
-        true,
-        true,
         false
       ],
       "vals": [
-        "7.6 #22",
-        ".545 #41",
-        "24.8 #48",
-        ".590 #5",
-        ".333 #24"
+        "16.5 #4",
+        ".917 #2",
+        "13.8 #1",
+        ".577 #6",
+        ".500 #16"
       ],
-      "index": 76.8,
-      "rtg": 8.99,
-      "alt_pct": 0.1,
-      "srsrank": 22,
-      "sosrank": 1,
+      "index": 89.8,
+      "rtg": 18.02,
+      "alt_pct": 5.4,
+      "srsrank": 5,
+      "sosrank": 117,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.5,
-      "fair_odds": "+19946",
+      "fair_pct": 6.8,
+      "fair_odds": "+1366",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null,
-      "alt_ev": null
+      "mk": 1300,
+      "market": "+1300",
+      "ev": -5,
+      "verdict": {
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -5
+      },
+      "alt_ev": -24
     },
     {
       "name": "Mercer",
       "conf": "FCS",
-      "rec": "9-2",
-      "gp": 11,
+      "rec": "10-2",
+      "gp": 12,
       "score": 3,
       "q": [
         false,
@@ -318,81 +238,39 @@
         true
       ],
       "vals": [
-        "6.4 #28",
-        ".818 #6",
-        "17.6 #8",
-        ".569 #11",
+        "5.8 #31",
+        ".833 #5",
+        "18.3 #9",
+        ".568 #12",
         "1.000 #1"
       ],
-      "index": 75.7,
-      "rtg": 9.51,
-      "alt_pct": 0.2,
-      "srsrank": 19,
-      "sosrank": 102,
+      "index": 74.6,
+      "rtg": 8.91,
+      "alt_pct": 0.1,
+      "srsrank": 21,
+      "sosrank": 109,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
       "fair_pct": 0.4,
-      "fair_odds": "+24696",
+      "fair_odds": "+23262",
       "read": null,
       "mk": 25000,
       "market": "+25000",
-      "ev": 1,
+      "ev": 7,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": 1
+        "kind": "trap",
+        "label": "fails profile",
+        "ev": 7
       },
-      "alt_ev": -55
-    },
-    {
-      "name": "Tennessee Tech",
-      "conf": "FCS",
-      "rec": "9-2",
-      "gp": 11,
-      "score": 3,
-      "q": [
-        true,
-        true,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "12.5 #11",
-        ".818 #6",
-        "21.9 #26",
-        ".564 #14",
-        ".000 #34"
-      ],
-      "index": 74.7,
-      "rtg": 12.96,
-      "alt_pct": 0.7,
-      "srsrank": 13,
-      "sosrank": 106,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 0.3,
-      "fair_odds": "+29988",
-      "read": null,
-      "mk": 6000,
-      "market": "+6000",
-      "ev": -80,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -80
-      },
-      "alt_ev": -55
+      "alt_ev": -71
     },
     {
       "name": "South Carolina State",
       "conf": "FCS",
-      "rec": "9-2",
-      "gp": 11,
+      "rec": "10-2",
+      "gp": 12,
       "score": 3,
       "q": [
         true,
@@ -402,14 +280,14 @@
         false
       ],
       "vals": [
-        "9.9 #17",
-        ".818 #6",
-        "18.5 #12",
-        ".502 #62",
-        "\u2014 #94"
+        "8.9 #18",
+        ".833 #5",
+        "18.3 #9",
+        ".511 #47",
+        "\u2014 #106"
       ],
-      "index": 64.4,
-      "rtg": 4.28,
+      "index": 64.3,
+      "rtg": 4.42,
       "alt_pct": 0.0,
       "srsrank": 43,
       "sosrank": 127,
@@ -417,7 +295,7 @@
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.0,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": null,
@@ -440,39 +318,39 @@
         false
       ],
       "vals": [
-        "20.2 #1",
-        ".727 #13",
-        "25.6 #58",
-        ".572 #10",
-        ".500 #12"
+        "20.7 #1",
+        ".727 #18",
+        "25.6 #59",
+        ".576 #7",
+        ".500 #16"
       ],
-      "index": 86.9,
-      "rtg": 19.75,
-      "alt_pct": 12.9,
+      "index": 87,
+      "rtg": 20.06,
+      "alt_pct": 13.0,
       "srsrank": 3,
-      "sosrank": 58,
+      "sosrank": 49,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.6,
-      "fair_odds": "+6226",
+      "fair_pct": 2.1,
+      "fair_odds": "+4589",
       "read": null,
       "mk": 380,
       "market": "+380",
-      "ev": -92,
+      "ev": -90,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -92
+        "ev": -90
       },
       "alt_ev": -38
     },
     {
       "name": "Illinois State",
       "conf": "FCS",
-      "rec": "8-3",
-      "gp": 11,
+      "rec": "8-4",
+      "gp": 12,
       "score": 2,
       "q": [
         true,
@@ -482,81 +360,39 @@
         false
       ],
       "vals": [
-        "11.6 #14",
-        ".727 #13",
-        "20.5 #20",
-        ".556 #19",
-        ".333 #24"
+        "9.8 #16",
+        ".667 #20",
+        "19.7 #17",
+        ".555 #19",
+        ".400 #25"
       ],
-      "index": 84.2,
-      "rtg": 13.89,
-      "alt_pct": 1.1,
+      "index": 85.1,
+      "rtg": 14,
+      "alt_pct": 1.0,
       "srsrank": 10,
-      "sosrank": 84,
+      "sosrank": 54,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 1.0,
-      "fair_odds": "+10158",
+      "fair_pct": 1.5,
+      "fair_odds": "+6471",
       "read": null,
       "mk": 2000,
       "market": "+2000",
-      "ev": -80,
+      "ev": -68,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -68
       },
-      "alt_ev": -77
-    },
-    {
-      "name": "North Dakota",
-      "conf": "FCS",
-      "rec": "7-4",
-      "gp": 11,
-      "score": 2,
-      "q": [
-        true,
-        false,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "15.1 #7",
-        ".636 #26",
-        "25.4 #52",
-        ".561 #16",
-        ".500 #12"
-      ],
-      "index": 84,
-      "rtg": 17.44,
-      "alt_pct": 4.9,
-      "srsrank": 6,
-      "sosrank": 37,
-      "in_field": false,
-      "alive": null,
-      "champion": false,
-      "bet_ok": true,
-      "fair_pct": 0.9,
-      "fair_odds": "+10516",
-      "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": -80,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -80
-      },
-      "alt_ev": 2
+      "alt_ev": -79
     },
     {
       "name": "South Dakota",
       "conf": "FCS",
-      "rec": "8-3",
-      "gp": 11,
+      "rec": "9-3",
+      "gp": 12,
       "score": 2,
       "q": [
         true,
@@ -566,39 +402,39 @@
         false
       ],
       "vals": [
-        "15.5 #6",
-        ".727 #13",
-        "25.4 #52",
-        ".565 #13",
-        ".333 #24"
+        "14.0 #8",
+        ".750 #12",
+        "23.5 #40",
+        ".574 #9",
+        ".500 #16"
       ],
-      "index": 83.1,
-      "rtg": 18.31,
-      "alt_pct": 7.0,
-      "srsrank": 5,
-      "sosrank": 75,
+      "index": 85,
+      "rtg": 18.53,
+      "alt_pct": 6.7,
+      "srsrank": 4,
+      "sosrank": 70,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
-      "fair_pct": 0.8,
-      "fair_odds": "+12316",
+      "fair_pct": 1.5,
+      "fair_odds": "+6608",
       "read": null,
       "mk": 1300,
       "market": "+1300",
-      "ev": -89,
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -89
+        "ev": -79
       },
-      "alt_ev": -2
+      "alt_ev": -6
     },
     {
-      "name": "Austin Peay",
+      "name": "North Dakota",
       "conf": "FCS",
-      "rec": "8-3",
-      "gp": 11,
+      "rec": "8-4",
+      "gp": 12,
       "score": 2,
       "q": [
         true,
@@ -608,23 +444,103 @@
         false
       ],
       "vals": [
-        "12.4 #12",
-        ".727 #13",
-        "21.2 #23",
-        ".552 #20",
-        ".000 #34"
+        "14.9 #7",
+        ".667 #20",
+        "25.2 #52",
+        ".570 #11",
+        ".500 #16"
       ],
-      "index": 77.6,
-      "rtg": 13.65,
-      "alt_pct": 1.0,
+      "index": 83.9,
+      "rtg": 17.05,
+      "alt_pct": 3.6,
+      "srsrank": 6,
+      "sosrank": 29,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 1.2,
+      "fair_odds": "+7933",
+      "read": null,
+      "mk": 2000,
+      "market": "+2000",
+      "ev": -74,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -74
+      },
+      "alt_ev": -25
+    },
+    {
+      "name": "Incarnate Word",
+      "conf": "FCS",
+      "rec": "8-4",
+      "gp": 12,
+      "score": 2,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "16.7 #3",
+        ".667 #20",
+        "23.6 #41",
+        ".543 #25",
+        ".000 #39"
+      ],
+      "index": 77.1,
+      "rtg": 13.32,
+      "alt_pct": 0.7,
       "srsrank": 11,
-      "sosrank": 93,
+      "sosrank": 78,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 0.4,
+      "fair_odds": "+27908",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
+    },
+    {
+      "name": "Austin Peay",
+      "conf": "FCS",
+      "rec": "8-4",
+      "gp": 12,
+      "score": 2,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "10.5 #15",
+        ".667 #20",
+        "21.4 #24",
+        ".532 #33",
+        ".500 #16"
+      ],
+      "index": 76,
+      "rtg": 11.92,
+      "alt_pct": 0.4,
+      "srsrank": 15,
+      "sosrank": 101,
       "in_field": false,
       "alive": null,
       "champion": false,
       "bet_ok": true,
       "fair_pct": 0.3,
-      "fair_odds": "+33815",
+      "fair_odds": "+34529",
       "read": null,
       "mk": 2500,
       "market": "+2500",
@@ -634,7 +550,91 @@
         "label": "big fade",
         "ev": -92
       },
-      "alt_ev": -74
+      "alt_ev": -89
+    },
+    {
+      "name": "Harvard",
+      "conf": "FCS",
+      "rec": "8-2",
+      "gp": 10,
+      "score": 2,
+      "q": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "vals": [
+        "4.7 #37",
+        ".800 #11",
+        "14.5 #2",
+        ".599 #3",
+        ".000 #39"
+      ],
+      "index": 75.8,
+      "rtg": 15.79,
+      "alt_pct": 2.1,
+      "srsrank": 8,
+      "sosrank": 45,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 0.3,
+      "fair_odds": "+35984",
+      "read": null,
+      "mk": 10000,
+      "market": "+10000",
+      "ev": -72,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -72
+      },
+      "alt_ev": 111
+    },
+    {
+      "name": "Tennessee Tech",
+      "conf": "FCS",
+      "rec": "9-3",
+      "gp": 12,
+      "score": 2,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "11.4 #11",
+        ".750 #12",
+        "22.9 #35",
+        ".565 #14",
+        ".000 #39"
+      ],
+      "index": 75.3,
+      "rtg": 12.11,
+      "alt_pct": 0.4,
+      "srsrank": 14,
+      "sosrank": 80,
+      "in_field": false,
+      "alive": null,
+      "champion": false,
+      "bet_ok": true,
+      "fair_pct": 0.3,
+      "fair_odds": "+39745",
+      "read": null,
+      "mk": 6000,
+      "market": "+6000",
+      "ev": -85,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -85
+      },
+      "alt_ev": -73
     }
   ],
   "odds_remaining": null,
@@ -643,34 +643,28 @@
   "field_known": false,
   "stage": "regular",
   "window_closed": false,
-  "first_playoff": null,
+  "first_playoff": "2026-11-28",
   "champion": null,
   "prediction": {
-    "pick": "South Dakota State",
-    "why": "<b>South Dakota State</b> is the model's #1: 48.1% to win the FCS title (fair +108); the plain power rating alone gives 32.2%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
+    "pick": "Montana State",
+    "why": "<b>Montana State</b> is the model's #1: 39.4% to win the FCS title (fair +154); the plain power rating alone gives 28.1%. Pre-bracket: odds over every FCS team, tuned on past seasons' boards as of this date. The 24-team field is announced the Sunday before Thanksgiving."
   },
-  "season_pct": 99,
+  "season_pct": 100,
   "gp_min": 5,
-  "gp_max": 11,
+  "gp_max": 12,
   "hist_off": false,
   "signal": {
     "status": "trust",
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
-    "note": "11 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
+    "note": "12 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
   "value_plays": [
     {
-      "name": "Stephen F. Austin",
-      "ev": 115,
-      "market": "+1300",
-      "fair_odds": "+551"
-    },
-    {
-      "name": "South Dakota State",
-      "ev": 56,
-      "market": "+225",
-      "fair_odds": "+108"
+      "name": "Montana State",
+      "ev": 97,
+      "market": "+400",
+      "fair_odds": "+154"
     }
   ]
 }
