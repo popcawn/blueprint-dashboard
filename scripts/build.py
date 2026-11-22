@@ -37,7 +37,25 @@ def _price_num(mk):
     try: return int(str(mk).replace("+", ""))
     except Exception: return None
 
+TOP3_NOTE = "top 3 by fair title odds"
+def top3_names(teams):
+    """The board's top 3 by fair title odds (2026-11-22 best-value cutoff)."""
+    return {t["name"] for t in sorted([t for t in teams if t.get("fair_pct")], key=lambda t: -t["fair_pct"])[:3]}
+
 def value_plays(teams, maxcat, sport=None):
+    """(2026-11-22, user: "yes ship top 3") Every board's value play -- and so its BEST VALUE crown -- must be in the board's TOP 3 BY
+       FAIR TITLE ODDS, except CFB (its held-#1 rule is already the #1). Price test, $10 a bet at every checkpoint before the playoffs,
+       rule A = today's biggest value vs B = the same inside the top 3: MLB 2022-26 +$710 -> +$965 (late season 0/20 -> 4/16), NFL
+       2020-25 -$305 -> -$248 (A's late picks outside the top 3 went 0/9), NHL 2022-26 -$5 -> +$165, men's CBB 2024-26 +$50 -> +$115,
+       CFB 2023-25 +$103 -> +$113. Extra "held top 3 at the last check" / "fair odds not falling" filters were inconsistent -> not used.
+       Scripts: baseball-blueprint/nfl-bestvalue-rules.py, strong-swarm/{mlb/value_rules.py, nhl/bestvalue_rules.py, cbb/value_rule_test.py},
+       cfb-trust-by-week.mjs --bvrule. Fewer losing bets, not more winners -- still not a proven edge outside CFB."""
+    out = _value_plays(teams, maxcat, sport)
+    if sport == "cfb": return out
+    top = top3_names(teams)
+    return [x for x in out if x["name"] in top]
+
+def _value_plays(teams, maxcat, sport=None):
     """QUALIFIED VALUE = complete profile (score >= maxcat-1) + a 🟢 trust read + positive EV
        + a believable price (<= +2500). Backtested on 5 odds-era seasons (2021-22..2025-26):
        isolates the value-DOG champions (GSW '22 +68%, DEN '23 +100%, NYK '26 +140/+174%) and
@@ -1667,7 +1685,8 @@ def crown_best_value(teams, vp):
        best-priced 'value' card (EV >= +10%, <= +2500, not a trap) still gets the crown, marked norule: a price read only, not a bet
        by this board's rule -- the header keeps showing the rule's Value play ('none')."""
     if not vp:
-        vals = [t for t in teams if (t.get("verdict") or {}).get("kind") == "value"]
+        top3 = top3_names(teams)   # (2026-11-22) the price-only crown also needs a top-3 team (see value_plays)
+        vals = [t for t in teams if (t.get("verdict") or {}).get("kind") == "value" and t["name"] in top3]
         if vals:
             top = max(vals, key=lambda t: t["verdict"].get("ev") or 0)
             top["verdict"] = {"kind": "best", "label": "BEST VALUE · price only", "ev": top["verdict"].get("ev"), "norule": True}
