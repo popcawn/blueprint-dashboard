@@ -1,33 +1,33 @@
 {
   "sport": "NFL",
   "season": "2026",
-  "generated": "2026-11-20T20:34:01Z",
-  "odds_remaining": "39608",
+  "generated": "2026-11-22T16:40:53Z",
+  "odds_remaining": "30823",
   "prediction": {
     "pick": "Jacksonville Jaguars",
     "why": "<b>Jacksonville Jaguars</b> is the pick \u2014 the best title odds on the board (fair +504). The Read: Built for January \u2014 a real #1 point margin AND a #2 defense that travels. No shootout required, no luck baked in; this is the shape that wins when games slow down."
   },
   "game_lines": {
     "book": "FanDuel",
-    "at": "2026-11-20T20:34:01Z",
+    "at": "2026-11-22T16:40:53Z",
     "games": [
       {
         "home": "Kansas City Chiefs",
         "away": "Arizona Cardinals",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Arizona Cardinals": 900,
-          "Kansas City Chiefs": -1600
+          "Arizona Cardinals": 870,
+          "Kansas City Chiefs": -1500
         },
         "spread": {
           "Arizona Cardinals": [
-            16.5,
-            -115
+            15.5,
+            -110
           ],
           "Kansas City Chiefs": [
-            -16.5,
-            -105
+            -15.5,
+            -110
           ]
         }
       },
@@ -35,19 +35,19 @@
         "home": "Carolina Panthers",
         "away": "Baltimore Ravens",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Baltimore Ravens": 124,
-          "Carolina Panthers": -146
+          "Baltimore Ravens": 120,
+          "Carolina Panthers": -142
         },
         "spread": {
           "Baltimore Ravens": [
             2.5,
-            -104
+            -105
           ],
           "Carolina Panthers": [
             -2.5,
-            -116
+            -115
           ]
         }
       },
@@ -55,19 +55,19 @@
         "home": "Buffalo Bills",
         "away": "Miami Dolphins",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Buffalo Bills": -1600,
-          "Miami Dolphins": 900
+          "Buffalo Bills": -1800,
+          "Miami Dolphins": 980
         },
         "spread": {
           "Buffalo Bills": [
             -16.5,
-            -110
+            -115
           ],
           "Miami Dolphins": [
             16.5,
-            -110
+            -105
           ]
         }
       },
@@ -75,7 +75,7 @@
         "home": "Chicago Bears",
         "away": "New Orleans Saints",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Chicago Bears": -720,
           "New Orleans Saints": 520
@@ -95,19 +95,19 @@
         "home": "Dallas Cowboys",
         "away": "Tennessee Titans",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Dallas Cowboys": -405,
-          "Tennessee Titans": 320
+          "Dallas Cowboys": -370,
+          "Tennessee Titans": 295
         },
         "spread": {
           "Dallas Cowboys": [
             -7.5,
-            -115
+            -105
           ],
           "Tennessee Titans": [
             7.5,
-            -105
+            -115
           ]
         }
       },
@@ -115,18 +115,18 @@
         "home": "Detroit Lions",
         "away": "Tampa Bay Buccaneers",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Detroit Lions": -230,
-          "Tampa Bay Buccaneers": 194
+          "Detroit Lions": -210,
+          "Tampa Bay Buccaneers": 176
         },
         "spread": {
           "Detroit Lions": [
-            -4.5,
+            -3.5,
             -115
           ],
           "Tampa Bay Buccaneers": [
-            4.5,
+            3.5,
             -105
           ]
         }
@@ -135,19 +135,19 @@
         "home": "Philadelphia Eagles",
         "away": "Pittsburgh Steelers",
         "commence": "2026-11-22T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Philadelphia Eagles": 180,
-          "Pittsburgh Steelers": -215
+          "Philadelphia Eagles": 172,
+          "Pittsburgh Steelers": -205
         },
         "spread": {
           "Philadelphia Eagles": [
-            4.5,
-            -115
+            3.5,
+            -105
           ],
           "Pittsburgh Steelers": [
-            -4.5,
-            -105
+            -3.5,
+            -115
           ]
         }
       },
@@ -155,19 +155,19 @@
         "home": "Los Angeles Chargers",
         "away": "New York Jets",
         "commence": "2026-11-22T21:05:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Los Angeles Chargers": -158,
-          "New York Jets": 134
+          "Los Angeles Chargers": -174,
+          "New York Jets": 146
         },
         "spread": {
           "Los Angeles Chargers": [
             -3.0,
-            -105
+            -116
           ],
           "New York Jets": [
             3.0,
-            -115
+            -104
           ]
         }
       },
@@ -175,19 +175,19 @@
         "home": "Denver Broncos",
         "away": "Las Vegas Raiders",
         "commence": "2026-11-22T21:25:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Denver Broncos": -600,
-          "Las Vegas Raiders": 450
+          "Denver Broncos": -700,
+          "Las Vegas Raiders": 500
         },
         "spread": {
           "Denver Broncos": [
-            -9.5,
-            -120
+            -10.5,
+            -115
           ],
           "Las Vegas Raiders": [
-            9.5,
-            100
+            10.5,
+            -105
           ]
         }
       },
@@ -195,10 +195,10 @@
         "home": "New York Giants",
         "away": "Jacksonville Jaguars",
         "commence": "2026-11-22T21:25:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Jacksonville Jaguars": -255,
-          "New York Giants": 210
+          "Jacksonville Jaguars": -270,
+          "New York Giants": 220
         },
         "spread": {
           "Jacksonville Jaguars": [
@@ -215,19 +215,19 @@
         "home": "San Francisco 49ers",
         "away": "Minnesota Vikings",
         "commence": "2026-11-23T01:20:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Minnesota Vikings": 140,
-          "San Francisco 49ers": -166
+          "Minnesota Vikings": 146,
+          "San Francisco 49ers": -174
         },
         "spread": {
           "Minnesota Vikings": [
             3.5,
-            -120
+            -115
           ],
           "San Francisco 49ers": [
             -3.5,
-            100
+            -105
           ]
         }
       },
@@ -235,10 +235,10 @@
         "home": "Washington Commanders",
         "away": "Cincinnati Bengals",
         "commence": "2026-11-24T01:15:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Cincinnati Bengals": -280,
-          "Washington Commanders": 230
+          "Cincinnati Bengals": -290,
+          "Washington Commanders": 235
         },
         "spread": {
           "Cincinnati Bengals": [
@@ -255,18 +255,18 @@
         "home": "Los Angeles Rams",
         "away": "Green Bay Packers",
         "commence": "2026-11-26T01:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Green Bay Packers": 164,
-          "Los Angeles Rams": -196
+          "Green Bay Packers": 140,
+          "Los Angeles Rams": -166
         },
         "spread": {
           "Green Bay Packers": [
-            3.5,
+            3.0,
             -105
           ],
           "Los Angeles Rams": [
-            -3.5,
+            -3.0,
             -115
           ]
         }
@@ -275,7 +275,7 @@
         "home": "Detroit Lions",
         "away": "Chicago Bears",
         "commence": "2026-11-26T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Chicago Bears": -148,
           "Detroit Lions": 126
@@ -295,7 +295,7 @@
         "home": "Dallas Cowboys",
         "away": "Philadelphia Eagles",
         "commence": "2026-11-26T21:30:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Dallas Cowboys": -460,
           "Philadelphia Eagles": 360
@@ -315,10 +315,10 @@
         "home": "Buffalo Bills",
         "away": "Kansas City Chiefs",
         "commence": "2026-11-27T01:20:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Buffalo Bills": -154,
-          "Kansas City Chiefs": 130
+          "Buffalo Bills": -162,
+          "Kansas City Chiefs": 136
         },
         "spread": {
           "Buffalo Bills": [
@@ -335,19 +335,19 @@
         "home": "Pittsburgh Steelers",
         "away": "Denver Broncos",
         "commence": "2026-11-27T20:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Denver Broncos": -124,
-          "Pittsburgh Steelers": 106
+          "Denver Broncos": -130,
+          "Pittsburgh Steelers": 110
         },
         "spread": {
           "Denver Broncos": [
             -1.5,
-            -110
+            -115
           ],
           "Pittsburgh Steelers": [
             1.5,
-            -110
+            -105
           ]
         }
       },
@@ -355,7 +355,7 @@
         "home": "Minnesota Vikings",
         "away": "Atlanta Falcons",
         "commence": "2026-11-29T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Atlanta Falcons": 265,
           "Minnesota Vikings": -330
@@ -375,10 +375,10 @@
         "home": "Houston Texans",
         "away": "Baltimore Ravens",
         "commence": "2026-11-29T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Baltimore Ravens": 265,
-          "Houston Texans": -330
+          "Baltimore Ravens": 260,
+          "Houston Texans": -320
         },
         "spread": {
           "Baltimore Ravens": [
@@ -395,19 +395,19 @@
         "home": "Cincinnati Bengals",
         "away": "New Orleans Saints",
         "commence": "2026-11-29T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Cincinnati Bengals": -590,
-          "New Orleans Saints": 440
+          "Cincinnati Bengals": -620,
+          "New Orleans Saints": 460
         },
         "spread": {
           "Cincinnati Bengals": [
             -10.5,
-            100
+            -105
           ],
           "New Orleans Saints": [
             10.5,
-            -120
+            -115
           ]
         }
       },
@@ -415,10 +415,10 @@
         "home": "Indianapolis Colts",
         "away": "New York Giants",
         "commence": "2026-11-29T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Indianapolis Colts": 250,
-          "New York Giants": -310
+          "Indianapolis Colts": 245,
+          "New York Giants": -300
         },
         "spread": {
           "Indianapolis Colts": [
@@ -435,7 +435,7 @@
         "home": "Jacksonville Jaguars",
         "away": "Tennessee Titans",
         "commence": "2026-11-29T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Jacksonville Jaguars": -1200,
           "Tennessee Titans": 750
@@ -455,7 +455,7 @@
         "home": "Miami Dolphins",
         "away": "New York Jets",
         "commence": "2026-11-29T18:00:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Miami Dolphins": 146,
           "New York Jets": -174
@@ -475,19 +475,19 @@
         "home": "Los Angeles Chargers",
         "away": "New England Patriots",
         "commence": "2026-11-29T21:05:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Los Angeles Chargers": -230,
-          "New England Patriots": 190
+          "Los Angeles Chargers": -188,
+          "New England Patriots": 158
         },
         "spread": {
           "Los Angeles Chargers": [
-            -5.5,
-            -105
+            -3.5,
+            -110
           ],
           "New England Patriots": [
-            5.5,
-            -115
+            3.5,
+            -110
           ]
         }
       },
@@ -495,7 +495,7 @@
         "home": "Arizona Cardinals",
         "away": "Washington Commanders",
         "commence": "2026-11-29T21:25:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Arizona Cardinals": 260,
           "Washington Commanders": -320
@@ -515,19 +515,19 @@
         "home": "San Francisco 49ers",
         "away": "Seattle Seahawks",
         "commence": "2026-11-29T21:25:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "San Francisco 49ers": -154,
-          "Seattle Seahawks": 130
+          "San Francisco 49ers": -132,
+          "Seattle Seahawks": 112
         },
         "spread": {
           "San Francisco 49ers": [
             -2.5,
-            -120
+            -105
           ],
           "Seattle Seahawks": [
             2.5,
-            100
+            -115
           ]
         }
       },
@@ -535,7 +535,7 @@
         "home": "Cleveland Browns",
         "away": "Las Vegas Raiders",
         "commence": "2026-11-30T01:20:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
           "Cleveland Browns": -215,
           "Las Vegas Raiders": 180
@@ -555,10 +555,10 @@
         "home": "Tampa Bay Buccaneers",
         "away": "Carolina Panthers",
         "commence": "2026-12-01T01:15:00Z",
-        "updated": "2026-11-20T20:33:55Z",
+        "updated": "2026-11-22T16:40:41Z",
         "ml": {
-          "Carolina Panthers": 116,
-          "Tampa Bay Buccaneers": -136
+          "Carolina Panthers": 118,
+          "Tampa Bay Buccaneers": -138
         },
         "spread": {
           "Carolina Panthers": [
@@ -734,16 +734,16 @@
       "rtg": 6.8,
       "fair_pct": 15.8,
       "fair_odds": "+533",
-      "market": "+500",
+      "market": "+550",
       "books": {
-        "FanDuel": 500,
+        "FanDuel": 550,
         "DraftKings": 500
       },
-      "ev": -5,
+      "ev": 3,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -5
+        "kind": "small",
+        "label": "small value",
+        "ev": 3
       },
       "read": {
         "v": "caution",
@@ -892,7 +892,7 @@
       "fair_odds": "+1208",
       "market": "+1500",
       "books": {
-        "FanDuel": 1400,
+        "FanDuel": 1300,
         "DraftKings": 1500
       },
       "ev": 22,
@@ -931,7 +931,7 @@
       "fair_odds": "+3416",
       "market": "+1500",
       "books": {
-        "FanDuel": 1200,
+        "FanDuel": 1300,
         "DraftKings": 1500
       },
       "ev": -54,
@@ -1007,16 +1007,16 @@
       "rtg": 1.1,
       "fair_pct": 1.5,
       "fair_odds": "+6576",
-      "market": "+8000",
+      "market": "+7500",
       "books": {
-        "FanDuel": 8000,
+        "FanDuel": 7500,
         "DraftKings": 5500
       },
-      "ev": 21,
+      "ev": 14,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 21
+        "ev": 14
       },
       "read": {
         "v": "caution",
@@ -1087,7 +1087,7 @@
       "fair_odds": "+18419",
       "market": "+5000",
       "books": {
-        "FanDuel": 4000,
+        "FanDuel": 4500,
         "DraftKings": 5000
       },
       "ev": -72,
@@ -1165,7 +1165,7 @@
       "fair_odds": "+43003",
       "market": "+8000",
       "books": {
-        "FanDuel": 7000,
+        "FanDuel": 8000,
         "DraftKings": 8000
       },
       "ev": -81,
@@ -1202,16 +1202,16 @@
       "rtg": -4.3,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+60000",
+      "market": "+75000",
       "books": {
-        "FanDuel": 60000,
+        "FanDuel": 75000,
         "DraftKings": 50000
       },
-      "ev": -84,
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -80
       },
       "read": {
         "v": "caution",
@@ -1241,16 +1241,16 @@
       "rtg": -0.2,
       "fair_pct": 0.5,
       "fair_odds": "+21926",
-      "market": "+7500",
+      "market": "+7000",
       "books": {
-        "FanDuel": 7500,
+        "FanDuel": 7000,
         "DraftKings": 6500
       },
-      "ev": -65,
+      "ev": -68,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -65
+        "ev": -68
       },
       "read": {
         "v": "caution",
@@ -1282,7 +1282,7 @@
       "fair_odds": "+13377",
       "market": "+4000",
       "books": {
-        "FanDuel": 3000,
+        "FanDuel": 3300,
         "DraftKings": 4000
       },
       "ev": -70,
@@ -1319,16 +1319,16 @@
       "rtg": 0.6,
       "fair_pct": 1.0,
       "fair_odds": "+9781",
-      "market": "+12500",
+      "market": "+10000",
       "books": {
-        "FanDuel": 12500,
+        "FanDuel": 10000,
         "DraftKings": 10000
       },
-      "ev": 28,
+      "ev": 2,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 28
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 2
       },
       "read": {
         "v": "caution",
@@ -1553,16 +1553,16 @@
       "rtg": -3.9,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+20000",
+      "market": "+17500",
       "books": {
-        "FanDuel": 20000,
+        "FanDuel": 17500,
         "DraftKings": 15000
       },
-      "ev": -76,
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -76
+        "ev": -79
       },
       "read": {
         "v": "caution",
