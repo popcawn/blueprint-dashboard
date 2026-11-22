@@ -1,25 +1,23 @@
 {
- "date": "2026-11-16",
+ "date": "2026-11-22",
  "book": "DraftKings",
  "source": "user screenshot, saved from the site (MLS board)",
  "odds": {
-  "Nashville SC": 400,
-  "Vancouver Whitecaps": 450,
-  "Inter Miami CF": 450,
+  "Nashville SC": 300,
+  "Vancouver Whitecaps": 400,
+  "Inter Miami CF": 650,
+  "FC Dallas": 1000,
+  "Philadelphia Union": 1200,
   "New England Revolution": 1400,
   "Chicago Fire FC": 1400,
-  "FC Dallas": 1400,
-  "Houston Dynamo FC": 1600,
   "St. Louis CITY SC": 1600,
+  "Houston Dynamo FC": 1600,
+  "Columbus Crew": 1600,
   "San Jose Earthquakes": 1800,
   "LAFC": 2000,
-  "Philadelphia Union": 2500,
-  "Charlotte FC": 2500,
-  "Portland Timbers": 6500,
+  "Charlotte FC": 2800,
   "FC Cincinnati": 6500,
-  "Columbus Crew": 6500,
-  "Orlando City SC": 8000,
-  "Real Salt Lake": 10000,
-  "Seattle Sounders FC": 10000
+  "Real Salt Lake": 8000,
+  "Portland Timbers": 8000
  }
 }
