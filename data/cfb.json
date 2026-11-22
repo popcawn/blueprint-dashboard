@@ -1,15 +1,15 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-19T19:41:30Z",
-  "odds_remaining": "45154",
+  "generated": "2026-11-22T12:05:27Z",
+  "odds_remaining": "34904",
   "prediction": {
     "pick": "Georgia Bulldogs",
-    "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +350), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (97% to make the field). The genuine article \u2014 complete (worst spot: scoring defense #9) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+    "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +254), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (97% to make the field). The genuine article \u2014 complete (worst spot: scoring defense #6) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
   },
-  "gp_min": 9,
-  "gp_max": 11,
-  "season_pct": 84,
+  "gp_min": 10,
+  "gp_max": 12,
+  "season_pct": 92,
   "cats": [
     "Win% \u2265.900",
     "PPG top-15",
@@ -26,57 +26,11 @@
   ],
   "teams": [
     {
-      "name": "Notre Dame Fighting Irish",
-      "conf": "Ind",
-      "rec": "9-1",
-      "score": 5,
-      "index": 92.7,
-      "q": [
-        true,
-        true,
-        true,
-        true,
-        true
-      ],
-      "sosrank": 98,
-      "srsrank": 4,
-      "srs_flag": "elite",
-      "vals": [
-        "0.900",
-        "39.5 #7",
-        "13.8 #5",
-        "240 #1",
-        "+25.7 #3"
-      ],
-      "rtg": 35.7,
-      "fair_pct": 14.2,
-      "fair_odds": "+606",
-      "market": "+430",
-      "books": {
-        "FanDuel": 430,
-        "DraftKings": 425
-      },
-      "ev": -25,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -25
-      },
-      "read": {
-        "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: offense #7) and SRS #4 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
-      },
-      "mw": 15.1,
-      "held": 0,
-      "cfp": 6,
-      "infield": 79
-    },
-    {
       "name": "Georgia Bulldogs",
       "conf": "SEC",
-      "rec": "9-1",
+      "rec": "10-1",
       "score": 5,
-      "index": 92.5,
+      "index": 93.8,
       "q": [
         true,
         true,
@@ -84,45 +38,91 @@
         true,
         true
       ],
-      "sosrank": 57,
+      "sosrank": 50,
       "srsrank": 1,
       "srs_flag": "elite",
       "vals": [
-        "0.900",
-        "41.8 #4",
-        "14.7 #9",
-        "272 #7",
-        "+27.1 #2"
+        "0.909",
+        "41.1 #3",
+        "13.9 #6",
+        "267 #6",
+        "+27.2 #2"
       ],
-      "rtg": 40.0,
-      "fair_pct": 22.2,
-      "fair_odds": "+350",
+      "rtg": 40.2,
+      "fair_pct": 28.2,
+      "fair_odds": "+254",
       "market": "+200",
       "books": {
-        "FanDuel": 200,
+        "FanDuel": 175,
         "DraftKings": 200
       },
-      "ev": -33,
+      "ev": -15,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -33
+        "ev": -15
       },
       "read": {
         "v": "trust",
-        "why": "The genuine article \u2014 complete (worst spot: scoring defense #9) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+        "why": "The genuine article \u2014 complete (worst spot: scoring defense #6) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
       },
-      "mw": 23.69,
+      "mw": 29.37,
       "held": 2,
       "cfp": 1,
       "infield": 97
     },
     {
+      "name": "Notre Dame Fighting Irish",
+      "conf": "Ind",
+      "rec": "10-1",
+      "score": 5,
+      "index": 92.8,
+      "q": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "sosrank": 72,
+      "srsrank": 4,
+      "srs_flag": "elite",
+      "vals": [
+        "0.909",
+        "38.1 #10",
+        "12.8 #3",
+        "248 #2",
+        "+25.3 #3"
+      ],
+      "rtg": 35.1,
+      "fair_pct": 20.0,
+      "fair_odds": "+400",
+      "market": "+430",
+      "books": {
+        "FanDuel": 430,
+        "DraftKings": 400
+      },
+      "ev": 6,
+      "verdict": {
+        "kind": "small",
+        "label": "small value",
+        "ev": 6
+      },
+      "read": {
+        "v": "trust",
+        "why": "The genuine article \u2014 complete (worst spot: offense #10) and SRS #4 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
+      },
+      "mw": 20.83,
+      "held": 0,
+      "cfp": 6,
+      "infield": 79
+    },
+    {
       "name": "Wake Forest Demon Deacons",
       "conf": "ACC",
-      "rec": "9-1",
+      "rec": "10-1",
       "score": 3,
-      "index": 92.6,
+      "index": 92.2,
       "q": [
         true,
         true,
@@ -130,35 +130,35 @@
         false,
         true
       ],
-      "sosrank": 106,
+      "sosrank": 112,
       "srsrank": 9,
       "srs_flag": "ok",
       "vals": [
-        "0.900",
-        "43.9 #2",
-        "15.0 #11",
-        "306 #23",
-        "+28.9 #1"
+        "0.909",
+        "44.5 #1",
+        "16.3 #12",
+        "314 #25",
+        "+28.2 #1"
       ],
-      "rtg": 34.4,
-      "fair_pct": 11.0,
-      "fair_odds": "+809",
-      "market": "+3000",
+      "rtg": 33.8,
+      "fair_pct": 11.5,
+      "fair_odds": "+769",
+      "market": "+2500",
       "books": {
-        "FanDuel": 3000,
-        "DraftKings": 2400
+        "FanDuel": 2500,
+        "DraftKings": 2200
       },
-      "ev": 241,
+      "ev": 199,
       "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 241
+        "kind": "value",
+        "label": "value",
+        "ev": 199
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 margin; the #23 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #1 offense; the #25 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #9 says the schedule hasn't fully tested it yet."
       },
-      "mw": 11.73,
+      "mw": 11.98,
       "held": 0,
       "cfp": 11,
       "infield": 66
@@ -166,9 +166,9 @@
     {
       "name": "Miami Hurricanes",
       "conf": "ACC",
-      "rec": "9-1",
+      "rec": "10-1",
       "score": 3,
-      "index": 86.5,
+      "index": 86.3,
       "q": [
         true,
         true,
@@ -176,35 +176,35 @@
         false,
         true
       ],
-      "sosrank": 21,
-      "srsrank": 6,
-      "srs_flag": "elite",
+      "sosrank": 22,
+      "srsrank": 7,
+      "srs_flag": "ok",
       "vals": [
-        "0.900",
-        "44.1 #1",
-        "19.8 #31",
-        "325 #32",
-        "+24.3 #4"
+        "0.909",
+        "42.6 #2",
+        "19.8 #30",
+        "315 #27",
+        "+22.8 #4"
       ],
-      "rtg": 33.7,
-      "fair_pct": 21.2,
-      "fair_odds": "+371",
-      "market": "+1200",
+      "rtg": 31.4,
+      "fair_pct": 22.5,
+      "fair_odds": "+345",
+      "market": "+1300",
       "books": {
-        "FanDuel": 1200,
-        "DraftKings": 1000
+        "FanDuel": 1100,
+        "DraftKings": 1300
       },
-      "ev": 176,
+      "ev": 215,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 176
+        "ev": 215
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #1 offense; the #32 total defense is the one soft spot \u2014 but SRS #6 says it's done this against a real schedule, not cupcakes."
+        "why": "Leads with its #2 offense; the #30 scoring defense is the crack a playoff-caliber opponent widens \u2014 and SRS #7 says the schedule hasn't fully tested it yet."
       },
-      "mw": 22.63,
+      "mw": 23.42,
       "held": 0,
       "cfp": 7,
       "infield": 79
@@ -212,9 +212,9 @@
     {
       "name": "UCLA Bruins",
       "conf": "B1G",
-      "rec": "10-0",
+      "rec": "10-1",
       "score": 3,
-      "index": 85.2,
+      "index": 82.6,
       "q": [
         true,
         false,
@@ -222,35 +222,35 @@
         true,
         false
       ],
-      "sosrank": 108,
-      "srsrank": 13,
+      "sosrank": 101,
+      "srsrank": 14,
       "srs_flag": "ok",
       "vals": [
-        "1.000",
-        "32.4 #34",
-        "14.1 #6",
-        "262 #4",
-        "+18.3 #8"
+        "0.909",
+        "30.9 #42",
+        "14.5 #8",
+        "261 #3",
+        "+16.5 #13"
       ],
-      "rtg": 27.2,
-      "fair_pct": 12.4,
-      "fair_odds": "+709",
-      "market": "+3200",
+      "rtg": 25.6,
+      "fair_pct": 13.8,
+      "fair_odds": "+623",
+      "market": "+17500",
       "books": {
-        "FanDuel": 2700,
-        "DraftKings": 3200
+        "FanDuel": 17500,
+        "DraftKings": 12000
       },
-      "ev": 308,
+      "ev": 2335,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 308
+        "ev": 2335
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #4 total defense; the #34 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #13 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #3 total defense; the #42 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #14 says the schedule hasn't fully tested it yet."
       },
-      "mw": 13.19,
+      "mw": 14.4,
       "held": 0,
       "cfp": 4,
       "infield": 97
@@ -258,101 +258,55 @@
     {
       "name": "New Mexico Lobos",
       "conf": "G5",
-      "rec": "8-2",
-      "score": 3,
-      "index": 84.9,
+      "rec": "9-2",
+      "score": 2,
+      "index": 85.2,
       "q": [
         false,
         false,
         true,
         true,
-        true
+        false
       ],
-      "sosrank": 129,
-      "srsrank": 49,
+      "sosrank": 120,
+      "srsrank": 56,
       "srs_flag": "mirage",
       "vals": [
-        "0.800",
-        "32.8 #31",
-        "11.9 #2",
-        "249 #2",
-        "+20.9 #5"
+        "0.818",
+        "32.0 #32",
+        "12.4 #2",
+        "243 #1",
+        "+19.6 #6"
       ],
-      "rtg": 21.2,
-      "fair_pct": 0.1,
+      "rtg": 19.8,
+      "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+150000",
+      "market": "+125000",
       "books": {
         "FanDuel": 125000,
-        "DraftKings": 150000
+        "DraftKings": 70000
       },
-      "ev": 40,
+      "ev": -60,
       "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 40
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -60
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #2 scoring defense; the #31 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #49 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #1 total defense; the #32 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #56 says the schedule hasn't fully tested it yet."
       },
-      "mw": 0.1,
+      "mw": null,
       "held": 0,
       "cfp": null,
       "infield": 1
     },
     {
-      "name": "Indiana Hoosiers",
-      "conf": "B1G",
-      "rec": "9-1",
-      "score": 3,
-      "index": 83.8,
-      "q": [
-        true,
-        false,
-        true,
-        true,
-        false
-      ],
-      "sosrank": 67,
-      "srsrank": 14,
-      "srs_flag": "ok",
-      "vals": [
-        "0.900",
-        "31.9 #38",
-        "12.5 #4",
-        "274 #8",
-        "+19.4 #6"
-      ],
-      "rtg": 27.5,
-      "fair_pct": 12.7,
-      "fair_odds": "+687",
-      "market": "+1050",
-      "books": {
-        "FanDuel": 950,
-        "DraftKings": 1050
-      },
-      "ev": 46,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 46
-      },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #4 scoring defense; the #38 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #14 says the schedule hasn't fully tested it yet."
-      },
-      "mw": 13.55,
-      "held": 0,
-      "cfp": 8,
-      "infield": 79
-    },
-    {
       "name": "Liberty Flames",
       "conf": "G5",
-      "rec": "9-1",
+      "rec": "10-1",
       "score": 2,
-      "index": 82.1,
+      "index": 84.3,
       "q": [
         true,
         false,
@@ -360,33 +314,33 @@
         false,
         false
       ],
-      "sosrank": 138,
-      "srsrank": 56,
+      "sosrank": 137,
+      "srsrank": 57,
       "srs_flag": "mirage",
       "vals": [
-        "0.900",
-        "32.8 #31",
+        "0.909",
+        "33.9 #25",
         "14.5 #8",
-        "284 #11",
-        "+18.3 #8"
+        "288 #15",
+        "+19.5 #7"
       ],
-      "rtg": 18.8,
+      "rtg": 19.7,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+250000",
+      "market": "+125000",
       "books": {
         "FanDuel": 125000,
-        "DraftKings": 250000
+        "DraftKings": 70000
       },
-      "ev": -61,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -61
+        "ev": -76
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #8 scoring defense; the #31 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #56 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #7 margin; the #25 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #57 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "held": 0,
@@ -396,9 +350,9 @@
     {
       "name": "Utah Utes",
       "conf": "Big 12",
-      "rec": "10-0",
+      "rec": "11-0",
       "score": 2,
-      "index": 81.9,
+      "index": 83.3,
       "q": [
         true,
         true,
@@ -406,33 +360,33 @@
         false,
         false
       ],
-      "sosrank": 77,
+      "sosrank": 90,
       "srsrank": 8,
       "srs_flag": "ok",
       "vals": [
         "1.000",
-        "37.9 #15",
-        "18.6 #21",
-        "345 #53",
-        "+19.3 #7"
+        "37.9 #12",
+        "18.5 #22",
+        "337 #40",
+        "+19.5 #7"
       ],
-      "rtg": 29.7,
-      "fair_pct": 3.4,
-      "fair_odds": "+2822",
-      "market": "+2700",
+      "rtg": 29.6,
+      "fair_pct": 3.9,
+      "fair_odds": "+2487",
+      "market": "+2800",
       "books": {
-        "FanDuel": 2700,
-        "DraftKings": 2200
+        "FanDuel": 2500,
+        "DraftKings": 2800
       },
-      "ev": -4,
+      "ev": 12,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -4
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 12
       },
       "read": {
         "v": "caution",
-        "why": "Leads with its #7 margin; the #53 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #7 margin; the #40 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #8 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "held": 0,
@@ -442,9 +396,9 @@
     {
       "name": "North Dakota State Bison",
       "conf": "G5",
-      "rec": "8-2",
+      "rec": "9-2",
       "score": 2,
-      "index": 78.7,
+      "index": 78.4,
       "q": [
         false,
         false,
@@ -452,17 +406,17 @@
         true,
         false
       ],
-      "sosrank": 99,
-      "srsrank": 71,
+      "sosrank": 123,
+      "srsrank": 78,
       "srs_flag": "mirage",
       "vals": [
-        "0.800",
-        "27.4 #71",
-        "12.0 #3",
-        "250 #3",
-        "+15.4 #18"
+        "0.818",
+        "27.7 #71",
+        "13.2 #4",
+        "267 #5",
+        "+14.5 #19"
       ],
-      "rtg": 15.3,
+      "rtg": 13.9,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "market": null,
@@ -471,189 +425,12 @@
       "verdict": null,
       "read": {
         "v": "caution",
-        "why": "Leads with its #3 scoring defense; the #71 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #71 says the schedule hasn't fully tested it yet."
+        "why": "Leads with its #4 scoring defense; the #71 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #78 says the schedule hasn't fully tested it yet."
       },
       "mw": null,
       "held": 0,
       "cfp": null,
       "infield": 1
-    },
-    {
-      "name": "Iowa Hawkeyes",
-      "conf": "B1G",
-      "rec": "8-2",
-      "score": 2,
-      "index": 77.9,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        false
-      ],
-      "sosrank": 118,
-      "srsrank": 16,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.800",
-        "27.8 #69",
-        "11.7 #1",
-        "279 #10",
-        "+16.1 #16"
-      ],
-      "rtg": 25.2,
-      "fair_pct": 0.7,
-      "fair_odds": "+13979",
-      "market": "+17500",
-      "books": {
-        "FanDuel": 17500,
-        "DraftKings": 12000
-      },
-      "ev": 25,
-      "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 25
-      },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #1 scoring defense; the #69 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #16 says the schedule hasn't fully tested it yet."
-      },
-      "mw": null,
-      "held": 0,
-      "cfp": 15,
-      "infield": 32
-    },
-    {
-      "name": "Nebraska Cornhuskers",
-      "conf": "B1G",
-      "rec": "6-4",
-      "score": 2,
-      "index": 73.7,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        false
-      ],
-      "sosrank": 84,
-      "srsrank": 28,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.600",
-        "30.3 #48",
-        "14.9 #10",
-        "268 #6",
-        "+15.4 #17"
-      ],
-      "rtg": 23.7,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
-      "market": null,
-      "books": null,
-      "ev": null,
-      "verdict": null,
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #6 total defense; the #48 offense is the crack a playoff-caliber opponent widens \u2014 and SRS #28 says the schedule hasn't fully tested it yet."
-      },
-      "mw": null,
-      "held": 0,
-      "cfp": null,
-      "infield": 1
-    },
-    {
-      "name": "Texas Tech Red Raiders",
-      "conf": "Big 12",
-      "rec": "9-1",
-      "score": 2,
-      "index": 71.3,
-      "q": [
-        true,
-        true,
-        false,
-        false,
-        false
-      ],
-      "sosrank": 97,
-      "srsrank": 20,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.900",
-        "39.0 #8",
-        "24.4 #67",
-        "409 #118",
-        "+14.6 #20"
-      ],
-      "rtg": 23.9,
-      "fair_pct": 1.4,
-      "fair_odds": "+7288",
-      "market": "+8000",
-      "books": {
-        "FanDuel": 8000,
-        "DraftKings": 8000
-      },
-      "ev": 10,
-      "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 10
-      },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #8 offense; the #118 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #20 says the schedule hasn't fully tested it yet."
-      },
-      "mw": null,
-      "held": 0,
-      "cfp": 12,
-      "infield": 66
-    },
-    {
-      "name": "Boise State Broncos",
-      "conf": "Pac-12",
-      "rec": "9-1",
-      "score": 2,
-      "index": 70.4,
-      "q": [
-        true,
-        true,
-        false,
-        false,
-        false
-      ],
-      "sosrank": 83,
-      "srsrank": 34,
-      "srs_flag": "mirage",
-      "vals": [
-        "0.900",
-        "39.7 #6",
-        "26.8 #93",
-        "390 #101",
-        "+12.9 #24"
-      ],
-      "rtg": 20.5,
-      "fair_pct": 0.7,
-      "fair_odds": "+14388",
-      "market": "+25000",
-      "books": {
-        "FanDuel": 17500,
-        "DraftKings": 25000
-      },
-      "ev": 73,
-      "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 73
-      },
-      "read": {
-        "v": "caution",
-        "why": "Leads with its #6 offense; the #101 total defense is the crack a playoff-caliber opponent widens \u2014 and SRS #34 says the schedule hasn't fully tested it yet."
-      },
-      "mw": null,
-      "held": 0,
-      "cfp": 17,
-      "infield": 32
     }
   ],
   "gauntlet": [
@@ -662,16 +439,16 @@
       "srsrank": 2
     },
     {
-      "name": "LSU Tigers",
+      "name": "Texas Longhorns",
       "srsrank": 3
     },
     {
-      "name": "Texas Longhorns",
+      "name": "LSU Tigers",
       "srsrank": 5
     },
     {
       "name": "Tennessee Volunteers",
-      "srsrank": 7
+      "srsrank": 6
     },
     {
       "name": "Utah Utes",
@@ -705,150 +482,150 @@
     "releases": 2
   },
   "rtgs": {
-    "Notre Dame Fighting Irish": 35.7,
-    "Georgia Bulldogs": 40.0,
-    "Wake Forest Demon Deacons": 34.4,
-    "Miami Hurricanes": 33.7,
-    "UCLA Bruins": 27.2,
-    "New Mexico Lobos": 21.2,
-    "Indiana Hoosiers": 27.5,
-    "Liberty Flames": 18.8,
-    "Utah Utes": 29.7,
-    "North Dakota State Bison": 15.3,
-    "Iowa Hawkeyes": 25.2,
-    "Nebraska Cornhuskers": 23.7,
-    "Texas Tech Red Raiders": 23.9,
-    "Boise State Broncos": 20.5,
-    "Tennessee Volunteers": 30.1,
-    "LSU Tigers": 31.8,
-    "James Madison Dukes": 16.9,
-    "Memphis Tigers": 16.2,
-    "Louisville Cardinals": 22.6,
-    "Oklahoma State Cowboys": 21.9,
-    "North Texas Mean Green": 14.3,
-    "Oregon State Beavers": 15.0,
-    "Texas State Bobcats": 13.2,
-    "Michigan Wolverines": 11.1,
-    "Florida Atlantic Owls": 5.4,
-    "Ohio State Buckeyes": 27.9,
-    "Alabama Crimson Tide": 32.5,
-    "Duke Blue Devils": 23.5,
-    "Louisiana Tech Bulldogs": 16.6,
-    "Texas Longhorns": 28.7,
-    "BYU Cougars": 23.0,
-    "Toledo Rockets": 9.7,
-    "Oregon Ducks": 25.1,
-    "Air Force Falcons": 10.3,
-    "Arizona Wildcats": 23.0,
-    "Penn State Nittany Lions": 20.2,
-    "Houston Cougars": 19.9,
-    "Louisiana Ragin' Cajuns": 10.4,
-    "Pittsburgh Panthers": 16.6,
-    "Baylor Bears": 21.7,
-    "Western Michigan Broncos": 8.7,
-    "Jacksonville State Gamecocks": 6.8,
-    "SMU Mustangs": 14.5,
-    "Wisconsin Badgers": 17.5,
-    "Georgia Southern Eagles": 10.8,
-    "Tulsa Golden Hurricane": 14.8,
-    "South Florida Bulls": 8.8,
-    "Northwestern Wildcats": 20.8,
-    "TCU Horned Frogs": 17.1,
-    "Ohio Bobcats": 3.6,
-    "USC Trojans": 17.5,
-    "Virginia Tech Hokies": 9.4,
-    "South Carolina Gamecocks": 19.9,
-    "Missouri Tigers": 20.2,
-    "Oklahoma Sooners": 17.9,
-    "UTSA Roadrunners": 9.5,
-    "Florida Gators": 19.8,
-    "Washington Huskies": 14.7,
-    "Ole Miss Rebels": 22.4,
-    "UConn Huskies": 10.0,
-    "Virginia Cavaliers": 12.1,
-    "Kentucky Wildcats": 17.8,
-    "Army Black Knights": 9.3,
-    "Miami (OH) RedHawks": 3.1,
+    "Georgia Bulldogs": 40.2,
+    "Notre Dame Fighting Irish": 35.1,
+    "Wake Forest Demon Deacons": 33.8,
+    "Miami Hurricanes": 31.4,
+    "UCLA Bruins": 25.6,
+    "New Mexico Lobos": 19.8,
+    "Liberty Flames": 19.7,
+    "Utah Utes": 29.6,
+    "North Dakota State Bison": 13.9,
+    "Alabama Crimson Tide": 33.6,
+    "Indiana Hoosiers": 26.0,
+    "Tennessee Volunteers": 30.5,
+    "Iowa Hawkeyes": 25.5,
+    "Louisiana Tech Bulldogs": 19.3,
+    "Air Force Falcons": 13.2,
+    "Nebraska Cornhuskers": 23.6,
+    "James Madison Dukes": 17.2,
+    "LSU Tigers": 29.6,
+    "Texas Tech Red Raiders": 24.0,
+    "Duke Blue Devils": 21.4,
+    "Louisville Cardinals": 24.3,
+    "Wisconsin Badgers": 19.6,
+    "Boise State Broncos": 18.7,
+    "Memphis Tigers": 14.6,
+    "Oklahoma State Cowboys": 21.1,
+    "Texas State Bobcats": 15.1,
+    "North Texas Mean Green": 13.0,
+    "Oregon State Beavers": 14.7,
+    "Michigan Wolverines": 11.9,
+    "Florida Atlantic Owls": 7.1,
+    "Texas Longhorns": 31.2,
+    "Toledo Rockets": 10.1,
+    "Oregon Ducks": 26.9,
+    "Ohio State Buckeyes": 26.7,
+    "BYU Cougars": 22.1,
+    "Arizona Wildcats": 21.9,
+    "Georgia Southern Eagles": 13.5,
+    "Louisiana Ragin' Cajuns": 10.9,
+    "Penn State Nittany Lions": 18.7,
+    "Tulsa Golden Hurricane": 15.7,
+    "Houston Cougars": 19.5,
+    "Western Michigan Broncos": 8.6,
+    "Jacksonville State Gamecocks": 6.3,
+    "Ole Miss Rebels": 23.5,
+    "Oklahoma Sooners": 19.4,
+    "USC Trojans": 17.9,
+    "Baylor Bears": 20.3,
+    "Ohio Bobcats": 3.5,
+    "Missouri Tigers": 20.9,
+    "Pittsburgh Panthers": 13.5,
+    "UTSA Roadrunners": 9.4,
+    "Northwestern Wildcats": 19.4,
+    "SMU Mustangs": 13.5,
+    "Florida Gators": 19.6,
+    "UConn Huskies": 9.5,
+    "Virginia Cavaliers": 13.6,
+    "Washington Huskies": 15.0,
+    "Virginia Tech Hokies": 10.0,
+    "South Florida Bulls": 6.2,
+    "TCU Horned Frogs": 15.2,
+    "Auburn Tigers": 18.7,
+    "Miami (OH) RedHawks": 2.8,
+    "Buffalo Bulls": 1.7,
+    "East Carolina Pirates": 3.1,
+    "Clemson Tigers": 10.3,
+    "UCF Knights": 14.0,
+    "South Carolina Gamecocks": 17.8,
+    "UAB Blazers": 3.5,
+    "Army Black Knights": 8.4,
+    "App State Mountaineers": 3.0,
     "Kansas Jayhawks": 15.8,
-    "UAB Blazers": 3.4,
-    "Buffalo Bulls": 2.0,
-    "Texas A&M Aggies": 18.8,
-    "Georgia State Panthers": 6.0,
-    "Illinois Fighting Illini": 15.4,
-    "Wyoming Cowboys": 1.7,
-    "Arizona State Sun Devils": 10.5,
-    "Syracuse Orange": 9.6,
-    "East Carolina Pirates": 2.6,
-    "Fresno State Bulldogs": 10.6,
-    "App State Mountaineers": 3.2,
-    "North Carolina Tar Heels": 15.7,
-    "Clemson Tigers": 9.1,
-    "Kansas State Wildcats": 8.9,
-    "Auburn Tigers": 17.1,
+    "Georgia State Panthers": 5.7,
+    "Kentucky Wildcats": 16.3,
+    "Fresno State Bulldogs": 10.2,
+    "Arizona State Sun Devils": 10.7,
+    "Wyoming Cowboys": 1.9,
+    "Nevada Wolf Pack": 3.9,
+    "Minnesota Golden Gophers": 9.5,
+    "Illinois Fighting Illini": 13.7,
+    "Texas A&M Aggies": 16.4,
+    "UNLV Rebels": 4.0,
     "Massachusetts Minutemen": -1.7,
-    "Iowa State Cyclones": 14.9,
-    "UCF Knights": 11.3,
-    "Minnesota Golden Gophers": 8.8,
-    "UNLV Rebels": 4.2,
-    "Florida State Seminoles": 12.8,
-    "Nevada Wolf Pack": 3.6,
-    "South Alabama Jaguars": 3.8,
-    "Delaware Blue Hens": 3.0,
-    "Florida International Panthers": -0.7,
-    "NC State Wolfpack": 6.2,
-    "Kennesaw State Owls": 1.2,
-    "Arkansas State Red Wolves": 1.1,
-    "Coastal Carolina Chanticleers": 2.5,
-    "Central Michigan Chippewas": -1.2,
-    "Navy Midshipmen": 5.1,
-    "Cincinnati Bearcats": 9.0,
-    "Maryland Terrapins": 5.3,
-    "San Jos\u00e9 State Spartans": -0.6,
-    "Utah State Aggies": 3.2,
-    "Arkansas Razorbacks": 11.9,
-    "Troy Trojans": -2.0,
-    "Hawai'i Rainbow Warriors": -1.1,
-    "West Virginia Mountaineers": 10.2,
-    "Middle Tennessee Blue Raiders": -2.6,
-    "Washington State Cougars": 5.1,
-    "Michigan State Spartans": 7.8,
-    "Mississippi State Bulldogs": 10.4,
-    "New Mexico State Aggies": -4.8,
-    "San Diego State Aztecs": -0.6,
-    "Vanderbilt Commodores": 6.4,
-    "Missouri State Bears": -4.7,
-    "Colorado Buffaloes": 4.6,
-    "Boston College Eagles": 0.3,
-    "Tulane Green Wave": -2.0,
+    "Syracuse Orange": 8.1,
+    "Delaware Blue Hens": 3.6,
+    "NC State Wolfpack": 8.4,
+    "South Alabama Jaguars": 3.7,
+    "Kansas State Wildcats": 8.9,
+    "North Carolina Tar Heels": 13.2,
+    "Kennesaw State Owls": 2.0,
+    "Florida State Seminoles": 10.6,
+    "Central Michigan Chippewas": -1.4,
+    "Florida International Panthers": -1.6,
+    "Iowa State Cyclones": 11.3,
+    "Cincinnati Bearcats": 9.4,
+    "Navy Midshipmen": 5.9,
+    "Mississippi State Bulldogs": 11.6,
+    "Coastal Carolina Chanticleers": 1.6,
+    "Middle Tennessee Blue Raiders": -2.5,
+    "San Jos\u00e9 State Spartans": -0.4,
+    "Utah State Aggies": 3.1,
+    "Hawai'i Rainbow Warriors": -1.5,
+    "Maryland Terrapins": 4.9,
+    "San Diego State Aztecs": 0.9,
+    "Arkansas State Red Wolves": -2.2,
+    "Boston College Eagles": 2.0,
+    "West Virginia Mountaineers": 10.0,
+    "Tulane Green Wave": -0.8,
+    "Vanderbilt Commodores": 6.7,
+    "Washington State Cougars": 3.1,
+    "Troy Trojans": -4.3,
+    "New Mexico State Aggies": -5.5,
     "Eastern Michigan Eagles": -6.9,
-    "Western Kentucky Hilltoppers": -5.7,
-    "Purdue Boilermakers": 8.5,
-    "Old Dominion Monarchs": -6.7,
+    "Arkansas Razorbacks": 9.0,
+    "Missouri State Bears": -4.6,
+    "Marshall Thundering Herd": -4.4,
+    "Michigan State Spartans": 5.4,
+    "Colorado Buffaloes": 4.3,
+    "Old Dominion Monarchs": -5.8,
+    "Stanford Cardinal": -1.3,
+    "Western Kentucky Hilltoppers": -7.2,
+    "Temple Owls": -3.1,
     "Georgia Tech Yellow Jackets": 2.2,
-    "Marshall Thundering Herd": -5.4,
-    "Temple Owls": -2.7,
-    "Bowling Green Falcons": -7.7,
-    "California Golden Bears": -5.4,
-    "Rutgers Scarlet Knights": -0.9,
-    "Southern Miss Golden Eagles": -7.9,
-    "Sam Houston Bearkats": -10.6,
-    "Stanford Cardinal": -3.2,
-    "Sacramento State Hornets": -16.4,
-    "Ball State Cardinals": -11.2,
-    "Kent State Golden Flashes": -14.7,
-    "Rice Owls": -6.5,
-    "Akron Zips": -11.8,
-    "UL Monroe Warhawks": -12.4,
-    "Colorado State Rams": -9.4,
-    "Charlotte 49ers": -12.0,
-    "UTEP Miners": -15.7,
-    "Northern Illinois Huskies": -15.3
+    "Purdue Boilermakers": 6.0,
+    "Rutgers Scarlet Knights": 0.7,
+    "Bowling Green Falcons": -8.8,
+    "Sam Houston Bearkats": -10.0,
+    "Rice Owls": -5.5,
+    "California Golden Bears": -5.7,
+    "Southern Miss Golden Eagles": -7.2,
+    "Sacramento State Hornets": -16.6,
+    "Ball State Cardinals": -11.4,
+    "Kent State Golden Flashes": -14.3,
+    "Akron Zips": -11.9,
+    "UL Monroe Warhawks": -11.0,
+    "Colorado State Rams": -8.4,
+    "Charlotte 49ers": -12.7,
+    "Northern Illinois Huskies": -13.7,
+    "UTEP Miners": -18.1
   },
   "signal": {
     "status": "trust",
     "emoji": "\ud83d\udfe2",
     "label": "Trust the board",
-    "note": "11 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
+    "note": "12 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
   "market_name": "FanDuel / DraftKings",
   "value_plays": []
