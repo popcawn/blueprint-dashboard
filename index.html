@@ -955,6 +955,9 @@ async function ocrPrices(file,teamsOverride){ const st=document.getElementById("
   }catch(e){ st.innerHTML=`<span class="r">${esc(e.message||e)}</span> — you can still paste the prices as text.`; return []; }
   finally{ if(worker) worker.terminate(); } }
 async function savePrices(){ const d=DATA[cur], path=ppPath(), st=document.getElementById("ppstat"), out=checkPP(); if(!d||!path||!out.length) return;
+  // (2026-11-22) a board frozen for the playoffs prices EV only against its last PRE-playoff screenshot (never bet within the playoffs):
+  // saving a new one would replace that file and leave the board with no prices (it happened to MLS on Nov 22)
+  if(d.window_closed){ st.innerHTML=`<span class="r">Not saved — the ${esc(d.sport)} playoffs have started.</span> This board stays frozen on its last pre-playoff prices (you never bet within the playoffs), so a new screenshot would only erase them.`; return; }
   if(!tok()){ st.innerHTML='<span class="r">Add your GitHub token first</span> — it needs <b>Contents: Read and write</b>.'; document.getElementById("pop").classList.add("on"); return; }
   const today=new Date().toLocaleDateString("en-CA"), book=document.getElementById("ppbook").value;
   const body={date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds:Object.fromEntries(out.map(x=>[x.name,x.odds]))};
