@@ -554,7 +554,7 @@ const VDESC={
 function verdictPill(v){ if(!v) return "";
   const ev=v.ev>0?`+${v.ev}%`:`${v.ev}%`, showEv=v.kind!=="fair";
   const ic=VICON[v.kind]?VICON[v.kind]+" ":"";
-  return `<span class="vd ${v.kind}" title="${VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
+  return `<span class="vd ${v.kind}" title="${v.norule?"Best value on price alone — the biggest EV among the value-priced teams, but it doesn't pass this board's betting rule, so the header's Value play stays empty. Not a bet by the rule.":VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
 }
 const MK=sp=>(DATA[sp]&&DATA[sp].market_name)||"FanDuel";
 // (2026-11-16) boards priced off FanDuel AND DraftKings: t.books = {book: price}, t.market = the better one (the EV uses it)

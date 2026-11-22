@@ -1663,8 +1663,14 @@ def assign_verdicts(teams):
 def crown_best_value(teams, vp):
     """Award the single BEST VALUE to the top qualified value play (vp[0]) — the exact team the
        header shows as 'Value play'. Guarantees the card crown and the header can never name
-       different teams. No qualified value play => no card crowned (header shows 'none')."""
+       different teams. No qualified value play => (2026-11-22, user: "always give best value ... same for all blueprints") the
+       best-priced 'value' card (EV >= +10%, <= +2500, not a trap) still gets the crown, marked norule: a price read only, not a bet
+       by this board's rule -- the header keeps showing the rule's Value play ('none')."""
     if not vp:
+        vals = [t for t in teams if (t.get("verdict") or {}).get("kind") == "value"]
+        if vals:
+            top = max(vals, key=lambda t: t["verdict"].get("ev") or 0)
+            top["verdict"] = {"kind": "best", "label": "BEST VALUE · price only", "ev": top["verdict"].get("ev"), "norule": True}
         return
     top = vp[0]
     for t in teams:
