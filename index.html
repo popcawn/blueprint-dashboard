@@ -9,61 +9,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#eef2f8; --panel:#ffffff; --panel2:#f4f7fb; --line:#e4e9f1; --line2:#d6deea;
-    --ink:#0f1726; --ink2:#44536a; --ink3:#73819a;
-    --good:#0b9a5e; --goodbg:#e4f6ec; --bad:#d93a48; --badbg:#fdeaec; --warn:#a86f00; --warnbg:#fbf1dc; --star:#c98a00;
-    --accent:#2f6fe4; --accent2:#6a55f0; --onacc:#fff;
-    --shadow:0 1px 2px rgba(15,23,38,.05),0 10px 28px -16px rgba(15,23,38,.22);
+    color-scheme:light;
+    --bg:#f5f6f8; --panel:#ffffff; --panel2:#f0f2f5; --line:#e2e5ea; --line2:#cdd3db;
+    --ink:#0d1117; --ink2:#444e5c; --ink3:#5f6b7c;
+    --good:#087f4d; --goodbg:#e1f4ea; --bad:#c92a3a; --badbg:#fdebed; --warn:#946200; --warnbg:#fbf0d6; --star:#946200;
+    --accent:#2563eb; --accent2:#2563eb; --onacc:#fff;
+    --shadow:0 1px 2px rgba(13,17,23,.05);
     --head:"Space Grotesk",Inter,system-ui,sans-serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-    --radius:16px;
+    --radius:12px;
+  }
+  /* dark look (2026-11-23): follows the device unless the Theme switch under the gear says otherwise (localStorage bp_theme) */
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0a0d12; --panel:#11151c; --panel2:#171c25; --line:#222a36; --line2:#323c4b;
+    --ink:#e9edf2; --ink2:#aab4c2; --ink3:#818c9b;
+    --good:#3fcf8e; --goodbg:#0f2a1f; --bad:#ff6f7d; --badbg:#35171c; --warn:#e5b454; --warnbg:#2f2510; --star:#e5b454;
+    --accent:#74a9ff; --accent2:#74a9ff; --onacc:#0a0d12; --shadow:none;
+  } }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0a0d12; --panel:#11151c; --panel2:#171c25; --line:#222a36; --line2:#323c4b;
+    --ink:#e9edf2; --ink2:#aab4c2; --ink3:#818c9b;
+    --good:#3fcf8e; --goodbg:#0f2a1f; --bad:#ff6f7d; --badbg:#35171c; --warn:#e5b454; --warnbg:#2f2510; --star:#e5b454;
+    --accent:#74a9ff; --accent2:#74a9ff; --onacc:#0a0d12; --shadow:none;
   }
   *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;
-    background:radial-gradient(1200px 560px at 50% -220px,#dfe8fb,transparent 70%),var(--bg)}
+  body{margin:0;min-height:100vh;color:var(--ink);background:var(--bg);font-family:var(--sans);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
   a{color:var(--accent);text-decoration:none}
-  /* topbar */
-  .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
-  .tb{max-width:1560px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:11px clamp(14px,3vw,30px)}
-  .brand{display:flex;align-items:center;gap:9px;font-family:var(--head);font-weight:700;font-size:20px;letter-spacing:-.3px;color:var(--ink)}
-  .brand .trophy{font-size:22px;line-height:1;filter:drop-shadow(0 4px 10px rgba(201,138,0,.4))}
-  .brand span{color:var(--ink3);font-weight:500;font-size:13px;font-family:var(--sans)}
-  .sportbar{display:flex;gap:4px;padding:4px;background:var(--panel2);border:1px solid var(--line);border-radius:999px}
-  .sportbar button{padding:6px 15px;border:0;border-radius:999px;background:none;color:var(--ink2);font-weight:700;font-size:13.5px;cursor:pointer;font-family:var(--sans)}
-  .sportbar button.on{background:var(--ink);color:#fff}
-  .strip{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:5px 12px;line-height:1.25;min-width:66px}
-  .stat small{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
-  .stat b{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--ink);white-space:nowrap}
-  .stat .g{color:var(--good)} .stat .r{color:var(--bad)}
-  .stat b.tx{font-family:var(--head);font-size:15px;letter-spacing:-.1px}
-  /* header (2026-11-06): when the stat strip cannot share the tabs' row it wraps below and then gets its own full-width,
-     left-aligned row -- set by fitHeader() from measured positions, so it keeps working however many sport tabs are added */
-  .strip.wrapped{width:100%;margin-left:0}
-  .sportbar{max-width:100%;overflow-x:auto;scrollbar-width:none} .sportbar::-webkit-scrollbar{display:none} .sportbar button{flex:0 0 auto}
-  /* sport carousel (2026-11-22, user: "should be like a carousel"): swipe / arrows, the open tab is kept in view */
-  .sbwrap{position:relative;min-width:0;max-width:100%;display:flex}
-  .sportbar{scroll-behavior:smooth}
-  .sbarr{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:17px;line-height:1;cursor:pointer;box-shadow:var(--shadow);display:none;padding:0}
-  .sbarr.l{left:-6px} .sbarr.r{right:-6px}
-  .sbwrap.cl .sbarr.l,.sbwrap.cr .sbarr.r{display:block}
-  /* layout */
-  .wrap{max-width:1500px;margin:0 auto;padding:18px clamp(14px,3vw,30px) 70px}
-  .hero{background:linear-gradient(135deg,rgba(47,111,228,.10),rgba(106,85,240,.07)),var(--panel);border:1px solid rgba(47,111,228,.28);border-radius:20px;padding:16px 20px;box-shadow:var(--shadow);margin-bottom:6px}
-  .heror{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
-  .heror>div:first-child{flex:1 1 420px;min-width:0}
-  .herot{font-family:var(--head);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
-  .heror p{margin:0;font-size:14.5px;line-height:1.5}
   .lgs{display:flex;gap:6px;flex-wrap:wrap}
   .lgs label{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--ink2);background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:3px 8px;cursor:pointer}
   .lgs input{accent-color:var(--accent);margin:0}
-  .btn{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;border:none;border-radius:11px;padding:9px 20px;font-weight:800;font-size:14px;cursor:pointer;font-family:var(--sans);box-shadow:0 6px 16px -8px var(--accent)}
-  .btn:hover{filter:brightness(1.06)} .btn:disabled{opacity:.5}
-  .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--ink2);box-shadow:none;padding:9px 12px}
   .runmsg{font-size:12px;color:var(--ink3)}
-  .herobtns{flex:0 0 auto;display:flex;gap:7px;align-items:center}
-  .runmore{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px dashed var(--line)}
   .runmore[hidden]{display:none}
-  .hero .runmsg{display:block;margin-top:4px} .hero .runmsg:empty{display:none}
   .status{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin:12px 0 4px;font-size:12px;color:var(--ink3)}
   .status .bar{flex:0 1 150px;min-width:70px;height:6px;background:var(--line);border-radius:5px;overflow:hidden}
   .status .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
@@ -80,43 +57,7 @@
   .rfb{background:var(--panel2);border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--sans)}
   .rfb:hover{border-color:var(--accent);color:var(--accent)}
   .rfb:disabled{opacity:.5;cursor:default}
-  .sig{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid var(--line);white-space:nowrap;cursor:help}
-  .sig.trust{background:rgba(11,154,94,.12);color:var(--good);border-color:rgba(11,154,94,.35)}
-  .sig.firming{background:rgba(214,160,20,.14);color:#b98700;border-color:rgba(214,160,20,.4)}
-  .sig.early{background:rgba(217,58,72,.12);color:var(--bad);border-color:rgba(217,58,72,.35)}
-  .sig.closed{background:var(--panel2);color:var(--ink2);border-color:var(--line2)} .signote.closed{color:var(--ink3)}
-  .vbadge{font-size:10px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:999px;background:var(--good);color:#fff;margin-left:2px;white-space:nowrap}
-  .ftt{font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:2px;white-space:nowrap;border:1px solid var(--line)}
-  .ftt.pass{background:var(--goodbg);color:var(--good);border-color:rgba(11,154,94,.35)}
-  .ftt.fail{background:var(--panel2);color:var(--ink3)}
-  .ftt.pending{background:var(--panel2);color:var(--ink3)}
   .signote{font-size:11.5px;color:var(--ink3);margin:2px 0 8px}
-  .signote.early{color:var(--bad)} .signote.firming{color:#b98700}
-  .t8{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 14px 11px;margin:12px 0 2px}
-  .t8h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:9px}
-  .t8h b{font-family:var(--head);font-size:14.5px}.t8h span{font-size:12px;color:var(--ink3)}.t8h .r{margin-left:auto}
-  .t8g{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
-  .t8c{border:1px solid var(--line);border-radius:11px;padding:8px 9px 7px;background:var(--panel2);min-width:0}
-  .t8c.g{border-color:#8fd3b2;background:linear-gradient(180deg,#f0faf4,#fff)}
-  .t8top{display:flex;align-items:center;gap:5px}.t8rk{font:700 19px var(--head);line-height:1}
-  .t8mv{font-size:10.5px;font-weight:800;border-radius:5px;padding:0 4px}
-  .t8mv.up{color:var(--good);background:var(--goodbg)}.t8mv.dn{color:var(--bad);background:var(--badbg)}.t8mv.nw{color:var(--accent);background:#e7efff}
-  .t8ev{margin-left:auto;font-weight:800;font-size:11.5px;border-radius:999px;padding:0 7px;white-space:nowrap}
-  .t8ev.g{background:var(--good);color:#fff}.t8ev.w{background:var(--warnbg);color:var(--warn)}.t8ev.r{background:var(--badbg);color:var(--bad)}.t8ev.n{background:#e9edf3;color:var(--ink3)}
-  .t8nm{font-weight:800;font-size:13.5px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .t8m{font-size:11px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .t8tr{display:flex;gap:2px;margin-top:6px}.t8tr i{flex:1;height:4px;border-radius:2px;background:#dfe5ee}
-  .t8tr i.a{background:var(--good)}.t8tr i.b{background:#7cc9a4}.t8tr i.c{background:#bfe3d0}
-  @media(max-width:1100px){.t8g{grid-template-columns:repeat(4,minmax(0,1fr))}}
-  @media(max-width:560px){.t8g{grid-template-columns:repeat(2,minmax(0,1fr))}.t8h .r{margin-left:0}}
-  .cal{margin:9px 0 3px;padding:8px 13px;font-size:12.5px;line-height:1.5;color:var(--ink2);border-radius:0 9px 9px 0;border-left:4px solid var(--good);background:var(--goodbg)}
-  .cal.ok{border-left-color:var(--warn);background:var(--warnbg)} .cal.low{border-left-color:var(--bad);background:var(--badbg)}
-  .cal b{color:var(--ink);font-weight:700} .cal .lbl{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:10px;opacity:.7;margin-right:6px}
-  .matchup{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0 6px}
-  .muhead{font-weight:800;font-size:13px;letter-spacing:.02em;color:var(--ink2);margin-bottom:8px}
-  .matchup>summary.muhead{cursor:pointer;list-style:none;margin-bottom:0} .matchup>summary::-webkit-details-marker{display:none}
-  .matchup>summary:before{content:"▸ ";color:var(--ink3)} .matchup[open]>summary:before{content:"▾ "} .matchup[open]>summary.muhead{margin-bottom:8px}
-  .matchup>summary:hover{color:var(--accent)} .matchup .musub{font-weight:600;font-size:12px;letter-spacing:0;color:var(--ink3)}
   .murow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .murow select{font-family:var(--sans);font-size:13px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:var(--panel2);color:var(--ink);max-width:46%}
   .muvs{color:var(--ink3);font-weight:700;font-size:12px}
@@ -141,57 +82,9 @@
   .muverd .vsmall{font-size:11px;color:var(--ink3);margin-top:6px}
   .muverd.caution{border-color:var(--warn);background:var(--warnbg)} .muverd.caution .vh{color:var(--warn)}
   .oddst td.best{color:var(--good);font-weight:800} .oddst td.sus{color:var(--warn)} .oddst span.dim{color:var(--ink3);font-size:11px}
-  .wkp{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0 6px}
-  .wkp .wkh{font-weight:800;font-size:14px;color:var(--ink)} .wkp .wkh .musub{font-weight:600;font-size:12px;color:var(--ink3)}
   .wkp .wkpick{margin-top:8px;font-size:14px;line-height:1.5;color:var(--ink)}
   .wkp .wkrows{margin-top:8px} .wkp .wkrows>summary{cursor:pointer;font-size:12px;color:var(--ink3);font-weight:700}
   .wkp .oddst tr.gm{cursor:pointer} .wkp .oddst tr.gm:hover td{background:var(--panel2)} .wkp .rf{margin-left:6px;font-size:11px;padding:2px 8px}
-  .tier{display:flex;align-items:center;gap:9px;margin:32px 0 13px;padding:9px 14px;font-family:var(--head);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);border-left:5px solid var(--tc,var(--line2));background:linear-gradient(90deg,color-mix(in srgb,var(--tc,var(--line2)) 15%,transparent),transparent);border-radius:0 10px 10px 0}
-  .tier:first-of-type{margin-top:6px}
-  .tier .n{color:var(--ink3);font-weight:600;font-size:12px;letter-spacing:.03em;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:13px;align-items:start}
-  .card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--tc,var(--line2));border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
-  .t5{--tc:var(--good)} .t4{--tc:var(--accent)} .t3{--tc:var(--star)} .t2{--tc:#9aa7bb} .t1{--tc:#c7d0dd}
-  .row1{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-  .nm{font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:-.2px;min-width:0;overflow-wrap:anywhere}
-  .conf{font-size:10px;color:var(--ink3);border:1px solid var(--line);border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0}
-  .rec{color:var(--ink3);font-size:13px;white-space:nowrap;flex-shrink:0}
-  .idx{margin-left:auto;text-align:right;font-size:11px;color:var(--ink3)}
-  .irank{font-weight:800;font-size:11px;color:var(--ink);background:var(--panel2,#eef1f6);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
-  .idx b{color:var(--ink);font-size:16px;font-family:var(--mono)}
-  .ev{font-weight:800;padding:2px 9px;border-radius:7px;font-size:12.5px;font-family:var(--mono)}
-  .ev.pos{background:var(--goodbg);color:var(--good)} .ev.neg{background:var(--badbg);color:var(--bad)} .ev.zero{background:var(--panel2);color:var(--ink3)}
-  .vdrow{margin:7px 0 1px}
-  .vd{display:inline-block;font-weight:800;padding:2px 9px;border-radius:7px;font-size:12px;font-family:var(--mono);white-space:nowrap}
-  .vd.best,.vd.value{background:var(--goodbg);color:var(--good)}
-  .vd.best{box-shadow:inset 0 0 0 1.5px var(--good)}
-  .vd.small{background:var(--goodbg);color:var(--good);opacity:.68;font-weight:700}
-  .vd.longshot{background:#fbe3f0;color:#be185d}
-  .vd.fair{background:var(--panel2);color:var(--ink3);font-weight:700}
-  .vd.fade{background:var(--badbg);color:var(--bad)}
-  .vd.bigfade{background:var(--bad);color:#fff}
-  .vd.trap{background:#fde6c7;color:#b45309}
-  .vd.gap{background:var(--panel2);color:var(--ink3);font-weight:700}
-  .foot b.bestpx{color:var(--good)}
-  .read{display:flex;gap:9px;align-items:flex-start;margin:11px 0 3px;padding:10px 12px;border-radius:12px}
-  .read.trust{background:var(--goodbg);border:1px solid #bfe6d0} .read.caution{background:var(--warnbg);border:1px solid #ecd9a6} .read.fools_gold{background:var(--badbg);border:1px solid #f3c2c7}
-  .rv{flex:0 0 auto;font-size:10px;font-weight:800;letter-spacing:.05em;padding:3px 8px;border-radius:7px;white-space:nowrap;margin-top:1px;color:#fff}
-  .rv.trust{background:var(--good)} .rv.caution{background:var(--warn)} .rv.fools_gold{background:var(--bad)}
-  .rwhy{font-size:13px;color:var(--ink)}
-  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
-  .chip{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
-  .chip.prelbl{background:none;border-style:dashed;color:var(--ink3);font-style:italic}
-  .chip.on{background:var(--goodbg);border-color:#bfe6d0;color:var(--good)}
-  .chip.ghost{background:transparent;border-style:dashed;color:var(--ink2)}
-  .chip b{font-weight:700;opacity:.7;margin-right:3px;font-size:9.5px}
-  .foot{display:flex;align-items:center;gap:14px;margin-top:10px;padding-top:9px;border-top:1px solid var(--line);font-size:12.5px;flex-wrap:wrap}
-  .foot .k{color:var(--ink3);font-size:10px;display:block}
-  .foot b{font-family:var(--mono)}
-  .srs{font-size:11.5px;padding:2px 7px;border-radius:6px;font-weight:600}
-  .srs.elite{background:var(--goodbg);color:var(--good)} .srs.ok{background:var(--panel2);color:var(--ink2)} .srs.mirage{background:var(--badbg);color:var(--bad)}
-  .cons{margin-left:auto;display:flex;align-items:center;gap:6px;color:var(--ink3);font-size:11px}
-  .streak{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-weight:700;color:var(--ink)}
-  .streak.star{background:#fbf1dc;border-color:#ecd9a6;color:var(--star)}
   .gauntlet{background:var(--panel2);border:1px dashed var(--line2);border-radius:14px;padding:12px 14px;margin:16px 0}
   .gauntlet h3{margin:0 0 6px;font-size:12px;font-family:var(--head);text-transform:uppercase;letter-spacing:.06em}
   .gauntlet .g{display:inline-block;margin:2px 9px 2px 0;font-size:12.5px} .gauntlet .g b{color:var(--bad)}
@@ -217,8 +110,6 @@
   label.btn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
 
   /* ---- Season clock (side panel) + each board's season timeline (2026-11-07) ---- */
-  .layout{max-width:1560px;margin:0 auto;display:flex;align-items:flex-start;gap:20px;padding:0 clamp(14px,3vw,30px)}
-  .layout>.wrap{flex:1 1 auto;min-width:0;max-width:none;margin:0;padding:18px 0 70px}
   .clock{flex:0 0 258px;position:sticky;top:74px;margin-top:18px;max-height:calc(100vh - 92px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 8px 8px;box-shadow:var(--shadow);scrollbar-width:thin;line-height:1.3}
   .clock:empty{display:none}
   .clock h4{display:flex;align-items:baseline;justify-content:space-between;margin:0 4px 2px;font-family:var(--head);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
@@ -249,38 +140,178 @@
   .tl-lab b{color:var(--ink2);font-weight:600}
   .tl-lab .sw{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--warn);margin-right:5px;vertical-align:-1px}
   .tl-st{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink2);margin-top:3px}
-  @media(max-width:1199px){
-    .layout{flex-direction:column;align-items:stretch;gap:0}
-    .clock{order:-1;position:static;flex:none;width:auto;max-height:none;margin-top:12px;padding:0;overflow:visible;background:none;border:none;border-radius:0;box-shadow:none}
-    .clock h4,.ck-gh,.ck-m{display:none}
-    .ck-wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)} .ck-wrap::-webkit-scrollbar{display:none}
-    .ck-g{display:contents}
-    .ck{flex:0 0 auto;grid-template-columns:auto auto;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
-    .ck.on{box-shadow:inset 0 0 0 1.5px var(--accent)}
-    .ck .pb{display:none}
+
+  /* ================= layout cleanup (2026-11-23, user: "go, start with the layout") =================
+     one-row header · summary + status lines · team ROWS (tap one for its full card) · lower tiers, tools and notes folded.
+     Colour rule: green = value only, red = fade only, amber = warnings, blue = season progress. Four text sizes: 11 / 12.5 / 14 / 16+. */
+  .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .tb{max-width:1360px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:8px clamp(12px,3vw,28px)}
+  .brand{flex:0 0 auto;font-family:var(--head);font-weight:700;font-size:17px;letter-spacing:-.2px;color:var(--ink)}
+  .sbwrap{position:relative;flex:1 1 auto;min-width:0;display:flex}
+  .sportbar{display:flex;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth} .sportbar::-webkit-scrollbar{display:none}
+  .sportbar button{flex:0 0 auto;padding:7px 12px;border:0;border-radius:8px;background:none;color:var(--ink2);font:600 13.5px var(--sans);cursor:pointer}
+  .sportbar button:hover{background:var(--panel2)}
+  .sportbar button.off{color:var(--ink3);font-weight:500}
+  .sportbar button.on{background:var(--ink);color:var(--bg)}
+  .sbarr{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:26px;height:26px;border-radius:50%;border:1px solid var(--line2);background:var(--panel);color:var(--ink);font-size:16px;line-height:1;cursor:pointer;display:none;padding:0}
+  .sbarr.l{left:-4px} .sbarr.r{right:-4px}
+  .sbwrap.cl .sbarr.l,.sbwrap.cr .sbarr.r{display:block}
+  .tbbtns{flex:0 0 auto;display:flex;gap:6px}
+  .ib{width:34px;height:34px;display:grid;place-items:center;padding:0;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:var(--ink2);cursor:pointer}
+  .ib:hover{color:var(--ink);border-color:var(--line2)} .ib:disabled{opacity:.45;cursor:default}
+  .ib svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .layout{max-width:1360px;margin:0 auto;display:flex;align-items:flex-start;gap:20px;padding:0 clamp(12px,3vw,28px)}
+  .layout>.wrap{flex:1 1 auto;min-width:0;padding:4px 0 70px}
+  .btn{background:var(--ink);color:var(--bg);border:none;border-radius:9px;padding:8px 16px;font:700 13.5px var(--sans);cursor:pointer}
+  .btn:hover{opacity:.88} .btn:disabled{opacity:.5}
+  .btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--ink2);padding:8px 12px}
+  /* summary: the board's headline numbers, one quiet line (was five boxes pinned in the header) */
+  .strip{display:flex;gap:4px 24px;flex-wrap:wrap;align-items:baseline;margin:14px 0 6px}
+  .stat{display:flex;align-items:baseline;gap:7px;cursor:default}
+  .stat small{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+  .stat b,.stat b.tx{font:700 16px var(--head);letter-spacing:-.1px;color:var(--ink);white-space:nowrap}
+  .stat .g{color:var(--good)} .stat .r{color:var(--warn)}
+  .runmore{display:grid;gap:10px;margin:10px 0 4px;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;font-size:12.5px;color:var(--ink2)}
+  .rmrow{display:flex;gap:8px 12px;align-items:center;flex-wrap:wrap}
+  .rmrow select{background:var(--panel2);border:1px solid var(--line2);border-radius:8px;color:var(--ink);padding:5px 8px;font:500 12.5px var(--sans);margin-left:4px}
+  .runline{display:flex;align-items:center;gap:10px;flex-wrap:wrap} .runline .runmsg:empty{display:none}
+  .status{margin:6px 0 2px;font-size:12.5px}
+  .status .bar>i,.runprog>i{background:var(--accent)}
+  .sig{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--ink2);white-space:nowrap;cursor:help}
+  .sig::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ink3)}
+  .sig.trust::before{background:var(--good)} .sig.firming::before{background:var(--warn)} .sig.early::before{background:var(--bad)}
+  .signote{font-size:12.5px} .signote.early{color:var(--bad)} .signote.firming{color:var(--warn)}
+  .ftt{font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--ink3);white-space:nowrap}
+  .ftt.pass{color:var(--ink);border-color:var(--line2)}
+  .folds{display:flex;flex-wrap:wrap;gap:2px 20px;margin:2px 0 6px}
+  .folds .trustd{margin:0} .folds .trustd[open]{flex:1 1 100%;margin-bottom:6px}
+  .trustd summary{font-size:12.5px} .trustd p{max-width:96ch}
+  .cal{margin:8px 0 4px;padding:8px 12px;font-size:12.5px;line-height:1.5;color:var(--ink2);background:var(--panel2);border-left:3px solid var(--good);max-width:96ch}
+  .cal.ok{border-left-color:var(--warn)} .cal.low{border-left-color:var(--bad)}
+  .cal b{color:var(--ink);font-weight:700} .cal .lbl{font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:11px;color:var(--ink3);margin-right:6px}
+  /* tiers: each one is a fold; the top tiers start open, Outside and Longshot start folded */
+  .tierd{margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .tier{display:flex;align-items:center;gap:9px;padding:10px 14px;cursor:pointer;list-style:none;font:700 14px var(--head);color:var(--ink)}
+  .tier::-webkit-details-marker{display:none}
+  .tier .n{font:500 12.5px var(--mono);color:var(--ink2);background:var(--panel2);border-radius:6px;padding:1px 7px}
+  .tier .cnt{margin-left:auto;font:500 12.5px var(--sans);color:var(--ink3)}
+  .tier::after,.tm .ch::after{content:"";display:block;width:6px;height:6px;border-right:1.5px solid var(--ink3);border-bottom:1.5px solid var(--ink3);transform:rotate(45deg);transition:transform .15s}
+  .tier::after{margin:0 3px 3px 4px}
+  .tierd[open]>.tier::after{transform:rotate(-135deg);margin-bottom:-3px}
+  .tierd[open]>.tier{border-bottom:1px solid var(--line)}
+  .thead,.tm>summary{display:grid;grid-template-columns:26px minmax(0,1fr) 70px 46px 98px 90px 184px 58px 10px;grid-template-areas:"rk who dots idx fair px tg tr ch";align-items:center;gap:0 12px;padding:9px 14px}
+  .thead{margin-top:14px;padding:0 15px 0;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+  .thead .idx,.thead .fair,.thead .px,.thead .tr{text-align:right}
+  .tm{border-top:1px solid var(--line)} .rows>.tm:first-child{border-top:0}
+  .tm>summary{cursor:pointer;list-style:none} .tm>summary::-webkit-details-marker{display:none}
+  .tm>summary:hover,.tm[open]>summary{background:var(--panel2)}
+  .rk{grid-area:rk} .who{grid-area:who} .dots{grid-area:dots} .idx{grid-area:idx} .fair{grid-area:fair} .px{grid-area:px} .tg{grid-area:tg} .tr{grid-area:tr} .ch{grid-area:ch}
+  .tm .rk{font:500 12.5px var(--mono);color:var(--ink3)}
+  .tm .who{display:flex;align-items:baseline;gap:7px;min-width:0}
+  /* when a row is tight the record gives way first, then the conference, then the name (long records: AFL, NRL, MLS) -- the opened card has them in full */
+  .nm{font:600 14px var(--sans);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
+  .rec{font-size:12.5px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1000 auto}
+  .conf{font-size:11px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 30 auto}
+  .okm{font-size:12.5px;color:var(--ink2);flex:0 0 auto}
+  .mv{font:500 11px var(--mono);color:var(--ink2);white-space:nowrap;flex:0 0 auto} .mv.nw{color:var(--accent)}
+  .wm{flex:0 0 auto;font:700 11px var(--mono);font-style:normal;color:var(--warn);background:var(--warnbg);border-radius:50%;width:16px;height:16px;display:inline-grid;place-items:center;cursor:help}
+  .tm .dots{display:flex;gap:3px;align-items:center}
+  .dots i{width:7px;height:7px;border-radius:50%;border:1.5px solid var(--line2)} .dots i.on{background:var(--ink2);border-color:var(--ink2)}
+  .c{font:500 14px var(--mono);color:var(--ink);white-space:nowrap;text-align:right}
+  .c small{font:500 11px var(--sans);color:var(--ink3);margin-left:6px}
+  .c.idx,.c.fair{color:var(--ink2)} .c.px{font-weight:700} .lb{display:none}
+  .tm .tr{text-align:right;color:var(--ink3);line-height:0}
+  .tm[open] .ch::after{transform:rotate(-135deg)}
+  .vd{display:inline-block;font:700 11px var(--mono);padding:3px 8px;border-radius:6px;white-space:nowrap}
+  .vd.best{background:var(--good);color:var(--panel)}
+  .vd.best.norule{background:none;color:var(--good);box-shadow:inset 0 0 0 1.5px var(--good)}
+  .vd.value,.vd.small{background:var(--goodbg);color:var(--good)} .vd.small{font-weight:500}
+  .vd.longshot{color:var(--good);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--good) 45%,transparent)}
+  .vd.fair,.vd.gap{background:var(--panel2);color:var(--ink3);font-weight:500}
+  .vd.fade,.vd.bigfade{background:var(--badbg);color:var(--bad)} .vd.fade{font-weight:500}
+  .vd.trap{background:var(--warnbg);color:var(--warn)}
+  /* the full card, shown when a row is opened */
+  .tmb{padding:6px 14px 14px 52px;background:var(--panel2)}
+  .read{display:flex;gap:9px;align-items:baseline;margin:4px 0 8px;padding:8px 11px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);max-width:96ch}
+  .rv{flex:0 0 auto;font:700 11px var(--sans);letter-spacing:.04em;color:var(--warn);white-space:nowrap}
+  .rwhy{font-size:12.5px;color:var(--ink2)}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+  .chip{font-size:12.5px;padding:2px 8px;border-radius:6px;background:var(--panel);border:1px solid var(--line);color:var(--ink);white-space:nowrap}
+  .chip b{font-weight:600;font-size:11px;color:var(--ink3);margin-right:4px}
+  .chip.on::after{content:" \2713";color:var(--ink2)} .chip.no{color:var(--ink3);border-style:dashed} .chip.no::after{content:" \2717"}
+  .chip.prelbl,.chip.ghost{background:none;border-style:dashed;color:var(--ink3)}
+  .foot{display:flex;align-items:flex-end;gap:8px 22px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--ink2)}
+  .foot .k{display:block;font-size:11px;color:var(--ink3)}
+  .foot b{font:500 14px var(--mono);color:var(--ink)} .foot b.bestpx{font-weight:700}
+  .srs{font-size:12.5px;padding:1px 7px;border-radius:6px;font-weight:600;background:var(--panel);border:1px solid var(--line);color:var(--ink2)}
+  .srs.elite{color:var(--ink);border-color:var(--line2)} .srs.mirage{color:var(--warn);background:var(--warnbg);border-color:transparent}
+  .cons{display:flex;align-items:center;gap:6px;color:var(--ink3)}
+  .streak{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:11px;font-weight:600;color:var(--ink2)}
+  /* folds: weekly parlay, matchup simulator, how the board works */
+  .tools{margin-top:22px}
+  .fold{background:var(--panel);border:1px solid var(--line);border-radius:12px;margin-top:10px;padding:0 14px}
+  .fold[open]{padding-bottom:13px}
+  .fold>summary{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;cursor:pointer;list-style:none;padding:11px 0;font:600 14px var(--sans);color:var(--ink)}
+  .fold>summary::-webkit-details-marker{display:none}
+  .fold>summary::before{content:"\25B8";color:var(--ink3)} .fold[open]>summary::before{content:"\25BE"}
+  .musub{font-weight:500;font-size:12.5px;color:var(--ink3)}
+  .munote{font-size:12.5px} .oddst th,.oddsrow .ol{font-size:11px}
+  .fold .note{margin:0;padding:0;border:0;background:none;font-size:12.5px;max-width:110ch}
+  .note{font-size:12.5px}
+  .gauntlet h3{font-size:12.5px} .gauntlet{border-radius:12px}
+  /* season clock: desktop side panel only (on narrower screens the tab row already is the sport menu) */
+  .clock{top:64px;margin-top:14px;border-radius:12px;box-shadow:none}
+  .clock h4 span,.ck-gh,.ck-m,.ck .pb,.ck .n i{font-size:11px}
+  .ck .pb>span:first-child>i,.dot.open{background:var(--accent)}
+  .tl-reg{background:color-mix(in srgb,var(--accent) 16%,transparent)} .tl-reg>i{background:var(--accent)}
+  .tl{margin:8px 0 4px;max-width:640px} .tl-bar{height:6px}
+  @media(max-width:1199px){ .clock{display:none} }
+  /* the row drops its Trend column, then Index, as the board gets narrower (both stay in the opened card); the side panel takes 278px from 1200px up */
+  @media (min-width:1200px) and (max-width:1261px),(max-width:983px){
+    .thead,.tm>summary{grid-template-columns:26px minmax(0,1fr) 70px 46px 98px 90px 184px 10px;grid-template-areas:"rk who dots idx fair px tg ch"}
+    .thead .tr,.tm .tr{display:none}
+  }
+  @media(max-width:913px){
+    .thead,.tm>summary{grid-template-columns:26px minmax(0,1fr) 70px 98px 90px 184px 10px;grid-template-areas:"rk who dots fair px tg ch"}
+    .thead .idx,.tm .idx{display:none}
+  }
+  @media(max-width:860px){
+    .thead{display:none}
+    .tm>summary{grid-template-columns:22px auto minmax(0,1fr) auto auto;grid-template-areas:"rk who who who px" ". dots fair tg tg";gap:4px 9px;padding:10px 12px}
+    .tm .tg{text-align:right}
+    .tm .idx,.tm .tr,.tm .ch,.conf{display:none}
+    .c.fair{text-align:left;font-size:12.5px;min-width:0;overflow:hidden;text-overflow:ellipsis} .lb{display:inline;font-family:var(--sans);color:var(--ink3)}
+    .tmb{padding:6px 12px 14px}
   }
   @media(max-width:620px){
-    .brand span{display:none}
-    .strip{width:100%;margin-left:0}
-    .sportbar{order:3;width:100%;overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-    .sportbar::-webkit-scrollbar{display:none}
-    .sportbar button{flex:0 0 auto}
+    .brand{display:none}
+    .tb{gap:8px;padding:7px 10px}
+    .sportbar button{padding:8px 12px}
     .runprog{width:100%}
   }
 </style>
+<script>try{var t=localStorage.getItem("bp_theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <header class="topbar"><div class="tb">
-  <a class="brand"><span class="trophy">🏆</span>Champions <span>title odds</span></a>
+  <a class="brand">Champions</a>
   <div class="sbwrap" id="sbwrap"><button class="sbarr l" onclick="sbScroll(-1)" aria-label="Earlier sports">‹</button><nav class="sportbar" id="tabs" onscroll="sbArrows()"></nav><button class="sbarr r" onclick="sbScroll(1)" aria-label="Later sports">›</button></div>
-  <div class="strip" id="strip"></div>
+  <div class="tbbtns"><button class="ib" id="rfbtn" aria-label="Refresh this board" onclick="runBlueprint([cur],'rfmsg')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button><button class="ib" aria-label="Settings: rebuild several boards, theme, GitHub token" title="Settings: rebuild several boards, theme, GitHub token" onclick="toggleMore()"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></button></div>
 </div></header>
-<div class="layout"><div class="wrap" id="app"></div><aside class="clock" id="clock" aria-label="Season clock"></aside></div>
+<div class="layout"><main class="wrap">
+  <div class="strip" id="strip"></div>
+  <div class="runmore" id="runmore" hidden>
+    <div class="rmrow"><b>Rebuild boards</b><div class="lgs" id="lgs"></div><button class="btn sm" id="runbtn" onclick="runBlueprint()">Run selected</button><span class="runmsg" id="runmsg"></span></div>
+    <div class="rmrow"><label>Theme<select id="thsel" onchange="setTheme(this.value)"><option value="auto">Auto (follows this device)</option><option value="light">Light</option><option value="dark">Dark</option></select></label><a class="pplink" href="#" onclick="return chgTok()">GitHub token</a></div>
+  </div>
+  <div class="runline"><span class="runmsg" id="rfmsg"></span><div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div>
+  <div id="app"></div>
+</main><aside class="clock" id="clock" aria-label="Season clock"></aside></div>
 <div class="pop" id="ppop"><div class="box wide">
   <b id="pptitle">Update prices</b>
-  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap 📷, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
+  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap Screenshot, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
   <div class="pprow"><select id="ppbook" aria-label="Sportsbook"><option>DraftKings</option><option>FanDuel</option></select>
-    <label class="btn ghost sm">📷 Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label><a class="pplink" href="#" onclick="return chgTok()">🔑 change token</a></div>
+    <label class="btn ghost sm">Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label><a class="pplink" href="#" onclick="return chgTok()">Change token</a></div>
   <div class="ppstat" id="ppstat"></div>
   <div class="ppgrid"><textarea id="pptxt" rows="9" spellcheck="false" placeholder="Paste a screenshot here, or type prices:&#10;Nashville SC: +350&#10;Vancouver Whitecaps: +450" oninput="checkPP()"></textarea><div class="ppimgwrap"><img id="ppprev" alt="your screenshot" hidden></div></div>
   <div class="ppcheck" id="ppcheck"></div>
@@ -292,8 +323,8 @@
 
 <div class="pop" id="pop"><div class="box">
   <b>GitHub token</b>
-  <p>The Run button triggers the refresh bot via GitHub Actions. Paste a <b>fine-grained token</b> on <b>popcawn/blueprint-dashboard</b> with <i>Actions: Read&nbsp;and&nbsp;write</i> (runs the bot) and <i>Contents: Read&nbsp;and&nbsp;write</i> (📷 Update prices saves the prices). Stored in this browser only — never committed.</p>
-  <p>🔑 <b>iPhone:</b> Safari wipes a site's saved data now and then, this token included. When it offers <b>Save Password</b>, say yes — next time tap the box and pick it from Passwords.</p>
+  <p>The Run button triggers the refresh bot via GitHub Actions. Paste a <b>fine-grained token</b> on <b>popcawn/blueprint-dashboard</b> with <i>Actions: Read&nbsp;and&nbsp;write</i> (runs the bot) and <i>Contents: Read&nbsp;and&nbsp;write</i> (Update prices saves the prices). Stored in this browser only — never committed.</p>
+  <p><b>iPhone:</b> Safari wipes a site's saved data now and then, this token included. When it offers <b>Save Password</b>, say yes — next time tap the box and pick it from Passwords.</p>
   <form id="tokForm" action="#" method="post" onsubmit="event.preventDefault();saveTok()" style="margin:0">
   <input type="text" name="username" autocomplete="username" value="dashboard-bot" readonly tabindex="-1" aria-hidden="true" style="position:absolute;width:1px;height:1px;margin:0;padding:0;border:0;opacity:0;pointer-events:none">
   <input id="tok" name="password" type="password" placeholder="github_pat_…" autocomplete="current-password" autocapitalize="off" spellcheck="false">
@@ -306,14 +337,8 @@
 
 <script>
 const REPO="popcawn/blueprint-dashboard";
-// Header layout: re-measure whenever the tabs or the stat strip change, the window resizes, or web fonts finish loading.
-function fitHeader(){const s=document.getElementById("strip"),t=document.getElementById("tabs");if(!s||!t)return;s.classList.remove("wrapped");if(s.offsetTop>t.offsetTop+t.offsetHeight/2)s.classList.add("wrapped");}
-window.addEventListener("resize",fitHeader);
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitHeader);
-new MutationObserver(fitHeader).observe(document.getElementById("strip"),{childList:true,subtree:true,characterData:true});
-new MutationObserver(fitHeader).observe(document.getElementById("tabs"),{childList:true,subtree:true});
-// ADDING A BOARD: add it to SPORTS -- the tabs and the Run checkboxes are generated from it, and the header re-measures itself
-// (fitHeader), so no layout change is needed. Then: CAL (trust line), MAXCAT/TOTAL, MU_SD/MU_HFA/MU_UNIT, the early-season % map,
+// ADDING A BOARD: add it to SPORTS -- the tabs and the Run checkboxes are generated from it, so no layout change is
+// needed. Then: CAL (trust line), MAXCAT/TOTAL, MU_SD/MU_HFA/MU_UNIT, the early-season % map,
 // W (method text), and the full-name / fair-% ranking lists if the board uses full team names or ranks by fair odds.
 // build.py: LEAGUES, SEASON_GAMES, SIGNAL_THRESH, value_plays branch, build_<sport>(), main() list, index.json sports;
 // .github/workflows/refresh.yml: the leagues default (both places). Screenshot-priced board: add its price file to PRICE_FILES.
@@ -340,12 +365,13 @@ const CAL={
   superleague:{c:"ok", t:"<b>10 play-off seasons</b>. #1 won <b>4 of 10</b>, top 3 in 9 — but a top-2 seed won 9 of 10. Never checked against prices. <b>Bottom line:</b> small stakes on a top-2 team only."}
 };
 const MAXCAT={nfl:5,cfb:5,nhl:4,nba:4,wnba:3,mlb:7,cbb:5,wcbb:5,mls:5,fcs:5,chk:5,cfl:5,nwsl:5,afl:5,nrl:5,superleague:5}, TOTAL={nfl:17,cfb:12,nhl:82,nba:82,wnba:44,mlb:162,cbb:31,wcbb:30,mls:34,fcs:11,chk:34,cfl:18,nwsl:30,afl:23,nrl:24,superleague:27};
-const LBL=[["🏆 Best Chance","t5"],["🔵 Great Chance","t4"],["🟢 Good Chance","t3"],["🟡 Outside","t2"],["⚪ Longshot","t1"]];
+const LBL=[["Best chance","t5"],["Great chance","t4"],["Good chance","t3"],["Outside","t2"],["Longshot","t1"]];
 const tier=(sc,mx)=>LBL[Math.min(Math.max(mx-sc,0),4)];
 let DATA={},HIST={},cur="nfl",VPSET=new Set();
 /* matchup simulator — backtested SDs (CFB 20.0 out-of-sample); NBA/NHL estimated. NFL: data/nfl.json carries sig 13.5 for its prior-blended
    ratings (2026-11-08, build.py NFL_MU_*); MU_SD.nfl 24.5 only applies to an older nfl.json with raw points-per-game ratings */
 let MU_OPEN=false;   // (2026-11-07, user: "collapse the matchup sim") folded by default; stays the way you left it when you switch leagues, folded again on reload
+let WKP_OPEN=false, TIER_OPEN={};   // (2026-11-23) the weekly parlay and each tier are folds too; they stay the way you left them until reload
 const MU_SD={nfl:24.5,cfb:20.0,nba:16.0,nhl:1.8,wnba:14.0,mlb:5.0,cbb:11.0,wcbb:12.0,mls:1.65,fcs:20.0,chk:2.0,cfl:27.0,nwsl:1.6,afl:33,nrl:24,superleague:22}, MU_HFA={nfl:2.0,cfb:4.0,nba:2.8,nhl:0.2,wnba:2.5,mlb:0.2,cbb:3.0,wcbb:3.0,mls:0.3,fcs:4.0,chk:0.2,cfl:10.5,nwsl:0.2,afl:9.1,nrl:2.2,superleague:3.2}, MU_UNIT={nfl:"pts",cfb:"pts",nba:"pts",nhl:"goals",wnba:"pts",mlb:"runs",cbb:"pts",wcbb:"pts",mls:"goals",fcs:"pts",chk:"goals",cfl:"pts",nwsl:"goals",afl:"pts",nrl:"pts",superleague:"pts"};   // MLS rtg = expected goal margin vs an average team (Poisson model); knockout draws -> penalties ~50/50
 const SERIES={nba:[7],nhl:[7],mlb:[3,5,7],wnba:[3,5,7]};   // series lengths each league really plays (2026-11-11: MLB wild card and WNBA round 1 are best-of-3, MLB division series and WNBA semis best-of-5 -- every series used to be scored as a best-of-7, which overstated the favourite); NFL/CFB are single-elimination
 function _nCk(n,k){let r=1;for(let i=0;i<k;i++)r=r*(n-i)/(i+1);return r;}
@@ -501,7 +527,7 @@ function wkpGames(j){   // ESPN scoreboard (games, status, neutral) + FanDuel pr
     Object.assign(g,{mlA,mlB,L,pxA,pxB,r:oddsVerdict('nfl',M,{mlA,mlB,L,pxA,pxB,nA:shortNm(a.name),nB:shortNm(h.name),bank:0})}); }
   return out;
 }
-function parlayCard(){ return `<div class="wkp" id="wkparlay"><div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span></div><div class="munote">Loading this week's lines…</div></div>`; }
+function parlayCard(){ return `<details class="fold wkp" id="wkparlay"${WKP_OPEN?' open':''} ontoggle="WKP_OPEN=this.open"><summary>This week's parlay <span class="musub">· loading…</span></summary></details>`; }
 async function loadParlay(force){
   if(force||!WKP||Date.now()-WKP.at>5*60e3){
     try{ const j=await (await fetch(WKP_URL,{cache:'no-store'})).json(); WKP={at:Date.now(), sb:j, season:j.season||{}}; }
@@ -511,14 +537,15 @@ async function loadParlay(force){
 function drawParlay(){
   const el=document.getElementById('wkparlay'); if(!el||!WKP) return;
   const d=DATA.nfl, bank=+(bankDefault()||0), sev=e=>(e>=0?'+':'')+(100*e).toFixed(1)+'%', GL=d.game_lines;
-  const hdr=`<div class="wkh">🎯 This week's parlay <span class="musub">· automatic: the two moneyline TAKEs with the biggest stakes</span><button class="btn ghost rf" title="Pull fresh FanDuel prices: rebuilds the NFL board (~1–2 min, 3 Odds API credits)" onclick="document.getElementById('rfbtn').click()">↻ FanDuel</button></div>`;
-  if(WKP.err){ el.innerHTML=hdr+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}).</div>`; return; }
-  if(WKP.season.type&&WKP.season.type!==2){ el.innerHTML=hdr+`<div class="munote">Regular season only — the rule was never tested on ${WKP.season.type===3?'playoff':'preseason'} games.</div>`; return; }
-  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (Wednesdays about 9 AM ET, or press ↻ FanDuel).</div>`; return; }
+  const hdr=s=>`<summary>This week's parlay <span class="musub">· ${s}</span></summary><div class="munote" style="margin:0 0 4px">Automatic: the two moneyline TAKEs with the biggest stakes. <button class="rfb rf" title="Pull fresh FanDuel prices: rebuilds the NFL board (~1–2 min, 3 Odds API credits)" onclick="document.getElementById('rfbtn').click()">↻ FanDuel</button></div>`;
+  if(WKP.err){ el.innerHTML=hdr("couldn't load")+`<div class="munote">Couldn't load this week's lines from ESPN (${WKP.err}).</div>`; return; }
+  if(WKP.season.type&&WKP.season.type!==2){ el.innerHTML=hdr("regular season only")+`<div class="munote">Regular season only — the rule was never tested on ${WKP.season.type===3?'playoff':'preseason'} games.</div>`; return; }
+  if(!GL||!(GL.games||[]).length){ el.innerHTML=hdr("no game lines yet")+`<div class="munote">No FanDuel game lines yet — they come with the NFL board's next refresh (Wednesdays about 9 AM ET, or press ↻ FanDuel).</div>`; return; }
   const G=WKP.games=wkpGames(WKP.sb), up=G.filter(g=>g.r), legs=up.filter(g=>g.r.v&&g.r.v.c==='take'&&g.r.v.best.k==='ml').sort((x,y)=>y.r.v.best.kelly-x.r.v.best.kelly), top=legs.slice(0,2);
   const book=GL.book||'FanDuel', at=new Date(GL.at), age=(Date.now()-at)/36e5, t=at.toLocaleString([],{weekday:'short',hour:'numeric',minute:'2-digit'});
-  let h=hdr;
-  if(top.length===2){ const dd=top[0].r.v.best.dec*top[1].r.v.best.dec, am=Math.round(dd>=2?(dd-1)*100:-100/(dd-1));
+  const dd=top.length===2?top[0].r.v.best.dec*top[1].r.v.best.dec:0, am=dd?Math.round(dd>=2?(dd-1)*100:-100/(dd-1)):0;
+  let h=hdr(top.length===2?`${top.map(g=>g.r.v.best.label).join(' + ')} → ${_fmtPx(am)}`:'none this week');
+  if(top.length===2){
     h+=`<div class="wkpick">${top.map(g=>`<b>${g.r.v.best.label} ${_fmtPx(g.r.v.best.price)}</b>`).join(' + ')} → <b style="color:var(--good)">parlay ${_fmtPx(am)}</b> · bet $1–2</div>`; }
   else h+=`<div class="wkpick">No parlay ${up.length?'yet':'this week'} — ${legs.length?'only one game has':'no game has'} a moneyline TAKE${up.length?` among the ${up.length} game${up.length===1?'':'s'} still to play`:''} (the rule needs two).${d.signal&&d.signal.status==='early'?' Early in the season every pick is LEAN PASS.':''}</div>`;
   const started=G.filter(g=>g.skip==='started').length, nolines=G.filter(g=>g.skip==='no FanDuel line').length;
@@ -539,7 +566,7 @@ function wkpOpen(i){   // load one game into the matchup sim
 }
 const evClass=ev=>ev==null?"zero":(ev>=15?"pos":(ev<=-10?"neg":"zero"));
 const fmtEV=ev=>ev==null?"—":(ev>0?"+":"")+ev+"%";
-const VICON={best:"⭐",value:"✓",longshot:"🎯",small:"",fair:"",fade:"🚫",bigfade:"🚫",trap:"⚠"};
+const VICON={best:"★"};   // (2026-11-23) tags are words; only BEST VALUE keeps a mark
 const VDESC={
   best:"The board's Value play — the single best bet vs the market (complete profile, trusted read, believable price ≤ +2500). Same team as the header 'Value play'.",
   value:"A trusted value bet: positive EV at a believable price (≤ +2500).",
@@ -554,7 +581,8 @@ const VDESC={
 function verdictPill(v){ if(!v) return "";
   const ev=v.ev>0?`+${v.ev}%`:`${v.ev}%`, showEv=v.kind!=="fair";
   const ic=VICON[v.kind]?VICON[v.kind]+" ":"";
-  return `<span class="vd ${v.kind}" title="${v.norule?"Best value on price alone — the biggest EV among the value-priced teams, but it doesn't pass this board's betting rule, so the header's Value play stays empty. Not a bet by the rule.":VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.label}${showEv?` ${ev}`:""}</span>`;
+  // (2026-11-23) in a row the price-only crown reads "BEST · price only" as an outline; the filled green tag is the rule's value play
+  return `<span class="vd ${v.kind}${v.norule?" norule":""}" title="${v.norule?"Best value on price alone — the biggest EV among the value-priced teams, but it doesn't pass this board's betting rule, so the header's Value play stays empty. Not a bet by the rule.":VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.norule?"BEST · price only":v.label}${showEv?` ${ev}`:""}</span>`;
 }
 const MK=sp=>(DATA[sp]&&DATA[sp].market_name)||"FanDuel";
 // (2026-11-16) boards priced off FanDuel AND DraftKings: t.books = {book: price}, t.market = the better one (the EV uses it)
@@ -564,80 +592,78 @@ const bkAb=(t,sp)=>{ const b=bestBk(t); return b?(BKAB[b]||b):(MK(sp)==="FanDuel
 const shortNm=n=>n? n.split(" ").slice(-1)[0] : "—";
 function spark(v){ if(v.length<2)return""; const w=56,h=15,mn=Math.min(...v),mx=Math.max(...v),r=(mx-mn)||1;
   const p=v.map((x,i)=>`${(i/(v.length-1)*w).toFixed(1)},${(h-(x-mn)/r*(h-3)-1.5).toFixed(1)}`).join(" ");
-  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline points="${p}" fill="none" stroke="${v[v.length-1]>=v[0]?'#0b9a5e':'#d93a48'}" stroke-width="1.5"/></svg>`;}
+  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline points="${p}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;}
 function consistency(sp,nm){ const h=HIST[sp]; if(!h||!h.length)return{spark:"",streak:0,star:false};
   const pr=h.map(s=>s.teams[nm]||null), idx=pr.filter(x=>x).map(x=>x.idx), mx=MAXCAT[sp]; let st=0, full=true;
   // (2026-11-07) a streak stops at a season boundary -- games played drops from one snapshot to the next (a new season began) -- so it never
-  // carries last season over; full = the streak covers every snapshot of this season (the ⭐)
+  // carries last season over; full = the streak covers every snapshot of this season (the ★)
   for(let i=pr.length-1;i>=0;i--){ if(i<pr.length-1&&h[i].gp!=null&&h[i+1].gp!=null&&h[i].gp>h[i+1].gp) break; if(pr[i]&&pr[i].sc>=mx-1)st++; else { full=false; break; } }
   // history is one snapshot per DAY the bot ran -> measure the streak in calendar time, not run count
   const days=st?Math.round((Date.parse(h[h.length-1].date)-Date.parse(h[h.length-st].date))/864e5)+1:0;
   const lbl=`${Math.ceil(days/7)}w`;   // weeks, counting the week in progress (1-7 days = 1w)
   return{spark:spark(idx),streak:st,lbl,days,star:st>=2&&full};}
 
-// Top-8 strip: the backtested shortlist (top 8 by index; CFB by index × schedule, the order that
-// picked 10/12 champions) with each team's EV beside it — green = value (incl. small value).
-const T8EV={best:"g",value:"g",small:"g",longshot:"g",trap:"w",fair:"n",fade:"r",bigfade:"r",gap:"n"};
-// (2026-11-18) fair_pct is rounded to 0.1, so two teams can tie on it (NFL: Jaguars 16.7 / 49ers 16.7) and the cards fell back to index order
-// while the header's Top pick (build.py, unrounded) named the other team. The fair odds carry more precision: break the tie on them first.
-const _fo=o=>{const x=parseFloat(o);return isNaN(x)?0:x>0?100/(x+100):-x/(-x+100);};
-function top8(d,sp){
-  const ord=d.teams.filter(t=>t._irank).sort((a,b)=>a._irank-b._irank);
-  const top=ord.slice(0,8); if(top.length<3)return "";
-  // one snapshot per WEEK (the bot ran daily until 2026-11-19, weekly since): the latest run, then the latest run on/before each 7-day step back
+// Rank movement (2026-11-23, layout cleanup): the Top 8 strip is gone -- it repeated the cards under it -- and its ▲▼ / new now sit
+// beside the rank of each of today's top 8. Same comparison as before: today's order against the oldest of up to six weekly snapshots.
+const _fo=o=>{const x=parseFloat(o);return isNaN(x)?0:x>0?100/(x+100):-x/(-x+100);};   // fair odds -> chance; breaks ties in fair_pct (rounded to 0.1)
+function rankMoves(d,sp){
   const all=d.stage==="preseason"?[]:(HIST[sp]||[]), h=[];
   if(all.length){const last=Date.parse(all[all.length-1].date);
     for(let k=0;k<6;k++){const cut=last-k*7*864e5, s=[...all].reverse().find(x=>Date.parse(x.date)<=cut); if(s&&!h.includes(s))h.unshift(s);}}
-  const wks=h.length>1?Math.round((Date.parse(h[h.length-1].date)-Date.parse(h[0].date))/(7*864e5)):0;
+  if(h.length<2) return {was:null,wks:0};
+  const s=h[0], was={}, wks=Math.round((Date.parse(h[h.length-1].date)-Date.parse(s.date))/(7*864e5));
   // CFB's live order is the uncapped index x schedule (mw); snapshots that carry mw use it too, so the arrows compare like with like
-  const rk=h.map(s=>{const r={},byMw=sp==="cfb"&&Object.values(s.teams).some(x=>x.mw!=null);Object.entries(s.teams).sort((a,b)=>byMw?((b[1].mw??-1)-(a[1].mw??-1))||((b[1].idx||0)-(a[1].idx||0)):(sp==="cfb"||BYODDS.includes(sp))?((b[1].fp||0)-(a[1].fp||0))||((b[1].idx||0)-(a[1].idx||0)):b[1].idx-a[1].idx).forEach(([n],i)=>r[n]=i+1);return r;});
-  const cells=top.map((t,i)=>{const n=i+1, was=rk.length>1?rk[0][t.name]:undefined;
-    const mv=rk.length<2?"":was==null||was>8?`<span class="t8mv nw">NEW</span>`:was>n?`<span class="t8mv up">▲${was-n}</span>`:was<n?`<span class="t8mv dn">▼${n-was}</span>`:"";
-    const k=t.verdict?T8EV[t.verdict.kind]||"n":"n";
-    const tr=rk.length?`<div class="t8tr">${rk.map(r=>{const x=r[t.name];return `<i class="${x<=3?'a':x<=5?'b':x<=8?'c':''}"></i>`;}).join("")}</div>`:"";
-    return `<div class="t8c ${k==="g"?"g":""}" title="${t.name} · ${t.books?Object.entries(t.books).map(([b,p])=>b+" "+fmtA(p)).join(" · "):MK(sp)+" "+(t.market||"—")} · fair ${t.fair_odds||"—"}${t.verdict?" · "+t.verdict.label:""}">
-      <div class="t8top"><span class="t8rk">#${n}</span>${mv}<span class="t8ev ${k}">${t.ev!=null?fmtEV(t.ev):"—"}</span></div>
-      <div class="t8nm">${FULLNM.includes(sp)?t.name:shortNm(t.name)}</div><div class="t8m">${t.market?`${bkAb(t,sp)} ${t.market} · fair ${t.fair_odds||"—"}`:`${t.rec} · index ${t.index}`}</div>${tr}</div>`;}).join("");
-  return `<div class="t8"><div class="t8h"><b>🏁 Top 8</b><span>${sp==="cfb"?"model rank (index × schedule)":sp==="mls"?"model rank (title % from the season + playoff sim)":sp==="cfl"?"model rank (Grey Cup % from the bracket sim)":FOOTY.includes(sp)?"model rank (title % from the season + finals sim)":sp==="nwsl"?"model rank (title % from the playoff bracket sim)":BYODDS.includes(sp)?"model rank (fair title odds)":"rank by index"} · EV vs ${MK(sp)} beside each · green = value</span>${rk.length>1?`<span class="r">▲▼ vs ${wks} week${wks===1?"":"s"} ago · bars = ${rk.length} weekly snapshots (dark top-3 · mid top-5 · light top-8)</span>`:""}</div><div class="t8g">${cells}</div></div>`;
+  const byMw=sp==="cfb"&&Object.values(s.teams).some(x=>x.mw!=null);
+  Object.entries(s.teams).sort((a,b)=>byMw?((b[1].mw??-1)-(a[1].mw??-1))||((b[1].idx||0)-(a[1].idx||0)):(sp==="cfb"||BYODDS.includes(sp))?((b[1].fp||0)-(a[1].fp||0))||((b[1].idx||0)-(a[1].idx||0)):b[1].idx-a[1].idx).forEach(([n],i)=>was[n]=i+1);
+  return {was,wks};
 }
 
-function card(t,sp){
-  const flat=NOPROFILE.includes(sp), cl=flat?"t3":tier(t.score,MAXCAT[sp])[1], L=(DATA[sp]&&DATA[sp].labels)||[];
-  const chips=t.q.map((ok,i)=>`<span class="chip ${ok&&!flat?'on':''}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("")
+// One team = one row (rank · team · checks · index · fair odds · best price · verdict · trend). Tap it for the full card:
+// the Read (warnings only), every check's value, both books' prices, the schedule numbers and the streak.
+function row(t,sp,mv){
+  const D=DATA[sp]||{}, flat=NOPROFILE.includes(sp), L=D.labels||[];
+  const chips=t.q.map((ok,i)=>`<span class="chip ${flat?'':ok?'on':'no'}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("")
     +(sp==="nhl"&&t.sv5?`<span class="chip ghost" title="5v5 save % (goaltending). Not one of the 4 scored categories (on its own it picks champions badly), but the Read uses it as a warning sign and the Cup odds use the Read — so it's shown here.">Sv% 5v5 ${t.sv5}</span>`:"");
-  const pre=DATA[sp]&&DATA[sp].use_pre?`<span class="chip prelbl" title="Only ${t.gp||0} game${t.gp===1?'':'s'} played — too few to score. Checks turn green once the blueprint takes over (~8 games).">live stats · ${t.gp||0}g · not scored yet</span>`:"";
-  const ev=verdictPill(t.verdict);
+  const pre=D.use_pre?`<span class="chip prelbl" title="Only ${t.gp||0} game${t.gp===1?'':'s'} played — too few to score. Checks count once the blueprint takes over (~8 games).">live stats · ${t.gp||0}g · not scored yet</span>`:"";
   let srs=""; if(sp==="mls"&&t.conf_pct!=null) srs=`<div title="Chance to win the ${t.conf}ern Conference (reach MLS Cup)${DATA.mls&&DATA.mls.window_closed?" — frozen at the start of the playoffs":""}"><span class="k">${t.conf} title</span>${t.conf_pct}%</div>`;
-  if(sp==="mls"&&DATA.mls&&DATA.mls.window_closed) srs=t.champion?`<div><span class="k">result</span>🏆 MLS Cup</div>`:t.next?`<div title="Next playoff match"><span class="k">next</span>${t.next.round} ${t.next.site==="away"?"at":"vs"} ${t.next.opp}</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:srs;   // (2026-11-07) playoff status once the window closes
+  if(sp==="mls"&&DATA.mls&&DATA.mls.window_closed) srs=t.champion?`<div><span class="k">result</span>MLS Cup</div>`:t.next?`<div title="Next playoff match"><span class="k">next</span>${t.next.round} ${t.next.site==="away"?"at":"vs"} ${t.next.opp}</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:srs;   // (2026-11-07) playoff status once the window closes
   if(sp==="cfl"||sp==="nwsl") srs=t.next?`<div title="Next playoff game"><span class="k">next</span>${t.next.round} ${t.next.site==="home"?"vs":t.next.site==="away"?"at":"vs"} ${sp==="nwsl"?t.next.opp:shortNm(t.next.opp)}</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:"";
-  if(FOOTY.includes(sp)) srs=t.premier?`<div><span class="k">result</span>🏆 ${sp==="superleague"?"champions":"premiers"}</div>`:t.minor_pct!=null?`<div title="Chance to finish 1st on the ladder (the minor premiership), from the same simulation"><span class="k">1st on ladder</span>${t.minor_pct}%</div>`:"";
-  if((sp==="fcs"||sp==="chk")&&t.alt_pct!=null) srs=(DATA[sp]&&DATA[sp].window_closed?(t.champion?`<div><span class="k">result</span>🏆 champions</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:t.alive?`<div><span class="k">status</span>alive</div>`:""):"")+`<div title="${sp==="chk"?"Title chance from the every-champion profile model (tier × index) — shown as a check; the board's odds come from the plain rating, which beat the profile in the backtest.":"Title chance from the plain power rating (SRS) alone — a check on the blueprint. A big blueprint-over-rating gap usually means a soft-schedule record."}"><span class="k">${sp==="chk"?"profile odds":"rating-only"}</span>${t.alt_pct}%</div><div title="SRS = opponent-adjusted ${sp==="chk"?"goal":"scoring"} margin rank · SOS = strength-of-schedule rank (opponents' win%), among ${sp==="chk"?"D1":"FCS"} teams"><span class="k">SRS · SOS</span><span class="srs ${t.srsrank<=10?'elite':t.srsrank<=15?'ok':'mirage'}">#${t.srsrank}</span> · #${t.sosrank}</div>`;
+  if(FOOTY.includes(sp)) srs=t.premier?`<div><span class="k">result</span>${sp==="superleague"?"champions":"premiers"}</div>`:t.minor_pct!=null?`<div title="Chance to finish 1st on the ladder (the minor premiership), from the same simulation"><span class="k">1st on ladder</span>${t.minor_pct}%</div>`:"";
+  if((sp==="fcs"||sp==="chk")&&t.alt_pct!=null) srs=(DATA[sp]&&DATA[sp].window_closed?(t.champion?`<div><span class="k">result</span>champions</div>`:t.alive===false?`<div><span class="k">status</span>eliminated</div>`:t.alive?`<div><span class="k">status</span>alive</div>`:""):"")+`<div title="${sp==="chk"?"Title chance from the every-champion profile model (tier × index) — shown as a check; the board's odds come from the plain rating, which beat the profile in the backtest.":"Title chance from the plain power rating (SRS) alone — a check on the blueprint. A big blueprint-over-rating gap usually means a soft-schedule record."}"><span class="k">${sp==="chk"?"profile odds":"rating-only"}</span>${t.alt_pct}%</div><div title="SRS = opponent-adjusted ${sp==="chk"?"goal":"scoring"} margin rank · SOS = strength-of-schedule rank (opponents' win%), among ${sp==="chk"?"D1":"FCS"} teams"><span class="k">SRS · SOS</span><span class="srs ${t.srsrank<=10?'elite':t.srsrank<=15?'ok':'mirage'}">#${t.srsrank}</span> · #${t.sosrank}</div>`;
   if(sp==="cfb"&&t.srsrank!=null){ const l={elite:`SRS #${t.srsrank} ✓`,ok:`SRS #${t.srsrank}`,mirage:`SRS #${t.srsrank} ⚑`}[t.srs_flag];
     srs=`<div><span class="k">schedule-adj</span><span class="srs ${t.srs_flag}">${l}</span></div><div><span class="k">SOS</span>#${t.sosrank}</div>`;
     if(t.infield!=null) srs+=`<div title="CFP committee rank → chance to make the 12-team field (how teams at that rank finished, 2014–25). Fair odds are multiplied by it — a ticket is dead if the team misses the field."><span class="k">CFP</span><span class="srs ${t.infield>=66?'elite':t.infield>=28?'ok':'mirage'}">${t.cfp?'#'+t.cfp:'unranked'} · ${t.infield}% in</span></div>`;}
   const c=consistency(sp,t.name);
-  const cons=c.spark?`<div class="cons" title="index trajectory + top-tier streak">${c.spark}${c.streak?`<span class="streak ${c.star?'star':''}" title="top-two tier ${c.days} day${c.days===1?'':'s'} running${c.star?' — every snapshot this season':''}">${c.star?'⭐':''}${c.lbl}</span>`:''}</div>`:"";
+  const cons=c.spark?`<div class="cons" title="index trajectory + top-tier streak">${c.spark}${c.streak?`<span class="streak" title="top-two tier ${c.days} day${c.days===1?'':'s'} running${c.star?' — every snapshot this season':''}">${c.star?'★ ':''}${c.lbl}</span>`:''}</div>`:"";
   const RV={trust:"TRUST",caution:"CAUTION",fools_gold:"FOOL'S GOLD"};
   const TIER={pretender:"PRETENDER",contender:"CONTENDER",champion:"CHAMPION"};
   const rlabel=t.read&&t.read.tier?(TIER[t.read.tier]||RV[t.read.v]):(t.read?RV[t.read.v]:"");
   const rtxt=t.read?(t.read.beat||t.read.why):"";
-  // A read only earns its place when it's a WARNING — a flaw/caveat the ranking would otherwise hide
-  // (caution, fool's gold, or a pretender call). A genuinely good, complete team needs no read: the
-  // tier + value tag already say "believe it". Clean trust/champion teams show nothing here.
   const rv=t.read&&t.read.v, rtier=t.read&&t.read.tier;
   const showRead=!!t.read && (rv==="caution"||rv==="fools_gold"||rtier==="pretender");
   const read=showRead?`<div class="read ${t.read.v}"><span class="rv ${t.read.v}">${rlabel||''}</span><span class="rwhy">${rtxt}</span></div>`:"";
-  return `<div class="card ${cl}">
-    <div class="row1"><span class="nm">${t.name}${t.confirmed===true?` <span title="rotation confirmed in real games" style="color:var(--g,#16a34a)">✓</span>`:""}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}<span class="rec">${t.rec}</span>${sp==="nba"&&t.ftt?`<span class="ftt ${t.ftt}" title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+.">${{pass:"✓ 40-20",fail:"✗ 40-20",pending:"40-20 ○"}[t.ftt]||""}</span>`:""}${ev}
-      <span class="idx">${t._irank?`<span class="irank" title="${sp==="cfb"?"Rank by fair title odds: index × schedule strength × chance to make the field (the backtested order). Not the index rank.":"Rank by fair title odds (the board's pick order). Not the index rank."}">odds #${t._irank}</span> `:""}<span${t.vs500?` title="vs .500+ teams: ${t.vs500} (half the NBA index)"`:""}>index <b>${t.index??"—"}</b></span></span></div>
-    ${read}<div class="chips">${pre}${chips}</div>
-    <div class="foot"><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
-      ${t.books?Object.entries(t.books).map(([b,p])=>{const top=fmtA(p)===t.market&&new Set(Object.values(t.books)).size>1; return `<div${top?' title="The better of the two prices — the EV on this card uses it"':''}><span class="k">${b}</span><b class="${top?'bestpx':''}">${fmtA(p)}</b></div>`;}).join(""):`<div><span class="k">${MK(sp)}</span><b>${t.market||"—"}</b></div>`}${t.alt&&DATA[sp].alt_name?`<div><span class="k" title="hand-entered sportsbook screenshot — not live">${DATA[sp].alt_name}</span><b>${t.alt}</b></div>`:""}${srs}${cons}</div></div>`;
+  const n=t._irank, wk=`${mv.wks} week${mv.wks===1?"":"s"} ago`, was=mv.was&&n&&n<=8?mv.was[t.name]:null;
+  const move=!mv.was||!n||n>8?"":was==null||was>8?`<span class="mv nw" title="Outside the top 8 ${wk}">new</span>`:was>n?`<span class="mv" title="Up from #${was} ${wk}">▲${was-n}</span>`:was<n?`<span class="mv" title="Down from #${was} ${wk}">▼${n-was}</span>`:"";
+  const flag=t.read&&(rv==="fools_gold"||rtier==="pretender")?`<i class="wm" title="${esc((rlabel||"Warning")+": "+rtxt)}">!</i>`:"";
+  const pass=t.q.filter(Boolean).length;
+  const dots=flat?`<span class="dots"></span>`:`<span class="dots" title="${pass} of ${t.q.length} checks · ${esc(t.q.map((ok,i)=>(L[i]||i+1)+(ok?" ✓":" ✗")).join(" · "))}">${t.q.map(ok=>`<i class="${ok?'on':''}"></i>`).join("")}</span>`;
+  const bk=bkAb(t,sp), rankTip=sp==="cfb"?"Rank by fair title odds: index × schedule strength × chance to make the field (the backtested order). Not the index rank.":"Rank by fair title odds (the board's pick order). Not the index rank.";
+  return `<details class="tm"><summary>
+    <span class="rk" title="${rankTip}">${n||""}</span>
+    <span class="who"><span class="nm">${t.name}</span>${t.confirmed===true?`<span class="okm" title="rotation confirmed in real games">✓</span>`:""}<span class="rec">${t.rec||""}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}${move}${flag}</span>
+    ${dots}<span class="c idx">${t.index??"—"}</span>
+    <span class="c fair"><span class="lb">fair </span>${t.fair_odds||"—"}${t.fair_pct?`<small>${t.fair_pct}%</small>`:""}</span>
+    <span class="c px">${t.market?`${t.market}<small>${BKAB[bk]||bk}</small>`:"—"}</span>
+    <span class="tg">${verdictPill(t.verdict)}</span><span class="tr">${c.spark}</span><span class="ch"></span></summary>
+    <div class="tmb">${read}<div class="chips">${pre}${chips}</div>
+    <div class="foot">${t.rec?`<div><span class="k">record</span>${t.rec}${t.conf?` · ${t.conf}`:""}</div>`:""}<div${t.vs500?` title="vs .500+ teams: ${t.vs500} (half the NBA index)"`:""}><span class="k">index</span><b>${t.index??"—"}</b></div><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
+      ${t.books?Object.entries(t.books).map(([b,p])=>{const top=fmtA(p)===t.market&&new Set(Object.values(t.books)).size>1; return `<div${top?' title="The better of the two prices — the EV on this card uses it"':''}><span class="k">${b}</span><b class="${top?'bestpx':''}">${fmtA(p)}</b></div>`;}).join(""):`<div><span class="k">${MK(sp)}</span><b>${t.market||"—"}</b></div>`}${t.alt&&DATA[sp].alt_name?`<div><span class="k" title="hand-entered sportsbook screenshot — not live">${DATA[sp].alt_name}</span><b>${t.alt}</b></div>`:""}${sp==="nba"&&t.ftt?`<div title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+."><span class="k">40-20</span><span class="ftt ${t.ftt}">${{pass:"✓ cleared",fail:"✗ missed",pending:"pending"}[t.ftt]||""}</span></div>`:""}${srs}${cons}</div></div></details>`;
 }
 
 function render(){
   document.querySelectorAll(".sportbar button").forEach(b=>b.classList.toggle("on",b.dataset.s===cur)); sbShow();
   renderClock();
+  { const lg=document.getElementById("lgs"); if(lg) lg.innerHTML=tabKeys().map(k=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${SPORTS[k]}</label>`).join(""); }   // same order as the tab strip
   const d=DATA[cur], mx=MAXCAT[cur], app=document.getElementById("app"), strip=document.getElementById("strip");
   if(!d){ app.innerHTML=`<div class="preseason">No data.</div>`; strip.innerHTML=""; return; }
   if(d.status==="preseason"){
@@ -653,42 +679,42 @@ function render(){
   const vp=(d.value_plays||[]); VPSET=new Set(vp.map(x=>x.name));
   const bv=vp[0], traps=teams.filter(t=>t.read&&t.read.v==="fools_gold").length;
   strip.innerHTML=[
-    `<div class="stat"><small>Season</small><b>${pct}%</b></div>`,
-    `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
     `<div class="stat" title="${cur==="cfb"?"The model's strongest team — most likely to win the title. On CFB it is also the bet once it has held #1 through a committee ranking and is priced at least +10% over fair (then it shows as the Value play).":"The team with the best title odds on the board — most likely to win it. This is TEAM STRENGTH, not a bet; the best bet is the Value play (they can be different teams)."}"><small>Top pick</small><b class="tx">${FULLNM.includes(cur)?((d.prediction&&d.prediction.pick)||"—"):shortNm(d.prediction&&d.prediction.pick)}</b></div>`,
-    `<div class="stat" title="${(cur==="mls"?"The best BET vs the DraftKings price: the top +EV team (>=+10%) among teams that clear all 5 every-champion criteria, at a believable price (<=+2500). Same team the board tags ⭐ BEST VALUE.":FOOTY.includes(cur)?"Small stakes, before the finals only (the board freezes once a final is played, and the preseason odds are untested): EV >= +15% at most +2500 against your DraftKings/FanDuel screenshot, and "+(cur==="superleague"?"a top-2 ladder spot (a top-2 seed won 9 of the 10 title seasons tested).":"all 5 every-champion criteria.")+" Same team the board tags ⭐ BEST VALUE.":cur==="nwsl"?"NOT a bet-able board: NWSL knockouts have been no better than 'the home side advances'. Odds appear once the bracket is set; a value play needs a wide margin (5/5, EV >= +25%, <= +2500) and only before the first playoff game.":cur==="cfl"?"Before the playoffs only (you never bet within them): a value play needs a wide margin — 4/5 or better, EV >= +25%, at most +2500. Once a playoff game is played the window closes and no value play is shown. Check injuries first — QB news moves CFL prices.":cur==="chk"?"Small stakes, from March 1 until the first NCAA-tournament game only: a team in the board's top 5 at EV >= +25% and <= +2500 against your DraftKings/FanDuel screenshot (by March 1 the champion was top-5 in 14 of 17 seasons). Before March 1 the board is a shortlist only. Same team the board tags ⭐ BEST VALUE.":cur==="fcs"?"Small stakes only. A value play needs a 5/5 team at EV >= +10% and <= +2500 that is ALSO priced longer than the rating-only fair odds and is SRS top-15 (not a soft-schedule record). Empty until you post a screenshot.":(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ⭐ BEST VALUE.":cur==="cfb"?"The board's #1 (the Top pick) once it has HELD #1 through a committee ranking, at EV >= +10% and <= +2500 vs FanDuel. Against real FanDuel prices 2023-25 this went 8 for 8 (+$316 at $10 a bet); the old rule (the biggest EV in the top 4) went 3 for 22. Empty until a #1 has held its spot, when the #1 is fairly priced, and once the playoff starts. Same team the board tags ⭐ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ⭐ BEST VALUE. Empty in chalk years.")+(cur!=="cfb"?" Since Nov 22 it must also be one of the board's top 3 by fair title odds (tested on past MLB, NFL, NHL and college-hoops prices: it cut the late-season long shots that kept losing).":"")}"><small>${d.window_closed&&bv?"Pre-playoff value":"Value play"}</small><b class="tx ${bv?'g':''}">${bv?(FULLNM.includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(d.window_closed&&d.stage!=="done"?"window closed":teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb"||d.stage==="done")?"season over":"no market")}</b></div>`,
+    `<div class="stat" title="${(cur==="mls"?"The best BET vs the DraftKings price: the top +EV team (>=+10%) among teams that clear all 5 every-champion criteria, at a believable price (<=+2500). Same team the board tags ★ BEST VALUE.":FOOTY.includes(cur)?"Small stakes, before the finals only (the board freezes once a final is played, and the preseason odds are untested): EV >= +15% at most +2500 against your DraftKings/FanDuel screenshot, and "+(cur==="superleague"?"a top-2 ladder spot (a top-2 seed won 9 of the 10 title seasons tested).":"all 5 every-champion criteria.")+" Same team the board tags ★ BEST VALUE.":cur==="nwsl"?"NOT a bet-able board: NWSL knockouts have been no better than 'the home side advances'. Odds appear once the bracket is set; a value play needs a wide margin (5/5, EV >= +25%, <= +2500) and only before the first playoff game.":cur==="cfl"?"Before the playoffs only (you never bet within them): a value play needs a wide margin — 4/5 or better, EV >= +25%, at most +2500. Once a playoff game is played the window closes and no value play is shown. Check injuries first — QB news moves CFL prices.":cur==="chk"?"Small stakes, from March 1 until the first NCAA-tournament game only: a team in the board's top 5 at EV >= +25% and <= +2500 against your DraftKings/FanDuel screenshot (by March 1 the champion was top-5 in 14 of 17 seasons). Before March 1 the board is a shortlist only. Same team the board tags ★ BEST VALUE.":cur==="fcs"?"Small stakes only. A value play needs a 5/5 team at EV >= +10% and <= +2500 that is ALSO priced longer than the rating-only fair odds and is SRS top-15 (not a soft-schedule record). Empty until you post a screenshot.":(cur==="cbb"||cur==="wcbb")?"The best BET vs the market: the top +EV team (>=+10%) on the backtested shortlist (men top-5, women top-3 by fair title odds) at <=+5000. Same team the board tags ★ BEST VALUE.":cur==="cfb"?"The board's #1 (the Top pick) once it has HELD #1 through a committee ranking, at EV >= +10% and <= +2500 vs FanDuel. Against real FanDuel prices 2023-25 this went 8 for 8 (+$316 at $10 a bet); the old rule (the biggest EV in the top 4) went 3 for 22. Empty until a #1 has held its spot, when the #1 is fairly priced, and once the playoff starts. Same team the board tags ★ BEST VALUE.":"The best BET vs the market: the top positive-EV team with a complete profile + trust read at a believable price (<=+2500). This is the SAME team the board tags ★ BEST VALUE. Empty in chalk years.")+(cur!=="cfb"?" Since Nov 22 it must also be one of the board's top 3 by fair title odds (tested on past MLB, NFL, NHL and college-hoops prices: it cut the late-season long shots that kept losing).":"")}"><small>${d.window_closed&&bv?"Pre-playoff value":"Value play"}</small><b class="tx ${bv?'g':''}">${bv?(FULLNM.includes(cur)?bv.name:shortNm(bv.name))+" "+fmtEV(bv.ev):(d.window_closed&&d.stage!=="done"?"window closed":teams.some(t=>t.market)?"none":(cur==="wnba"||cur==="mlb"||d.stage==="done")?"season over":"no market")}</b></div>`,
+    `<div class="stat"><small>Contenders</small><b>${contenders}</b></div>`,
     `<div class="stat"><small>Traps</small><b class="${traps?'r':''}">${traps}</b></div>`].join("");
-  const checks=tabKeys().map(k=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${SPORTS[k]}</label>`).join("");   // same order as the tab strip
-  const rfTitle=PRICE_FILES[cur]?`Rebuilds the ${d.sport} board (free, ~2–3 min). Prices come from your screenshot — use 📷 Update to change them.`
+  const rfTitle=PRICE_FILES[cur]?`Rebuilds the ${d.sport} board (free, ~2–3 min). Prices come from your screenshot — use Update prices to change them.`
     :`Re-pulls ${MK(cur)} prices and rebuilds the ${d.sport} board (~1–2 min; ${cur==="nfl"?"3 Odds API credits: futures + this week's game lines":"1 Odds API credit"})`;
-  // simplified head (2026-11-06, user: "it has a lot going on in this area. i want it simplified"):
-  // prediction + one Refresh button (multi-board Run + token under ⚙) · one status line · details collapsed
-  let html=`<div class="hero"><div class="heror">
-    <div><div class="herot">🎯 Our prediction</div><p>${d.prediction?d.prediction.why:"—"}</p></div>
-    <div class="herobtns"><button class="btn" id="rfbtn" title="${rfTitle}" onclick="runBlueprint(['${cur}'],'rfmsg')">↻ Refresh</button>
-      <button class="btn ghost" title="More: rebuild several boards, GitHub token" onclick="document.getElementById('runmore').hidden=!document.getElementById('runmore').hidden">⚙</button></div></div>
-    <div class="runmore" id="runmore" hidden><div class="lgs">${checks}</div><button class="btn sm" id="runbtn" onclick="runBlueprint()">▶ Run selected</button><a class="pplink" href="#" onclick="return chgTok()">🔑 GitHub token</a><span class="runmsg" id="runmsg"></span></div>
-    <span class="runmsg" id="rfmsg"></span><div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div>
-    ${statusRow(d,pct)}${trustDetails(d)}${top8(d,cur)}`;
+  { const rb=document.getElementById("rfbtn"); if(rb) rb.title=rfTitle; }
+  // layout cleanup (2026-11-23): the summary line sits above; here = one status line, two folded explanations, then the teams.
+  // Refresh and the settings (several boards, theme, token) live in the header.
+  const why=d.prediction&&d.prediction.why?`<details class="trustd"><summary>Why this pick</summary><p>${d.prediction.why}</p></details>`:"";
+  let html=`${statusRow(d,pct)}<div class="folds">${why}${trustDetails(d)}</div>`;
+  const mv=rankMoves(d,cur), byRank=(a,b)=>(a._irank||999)-(b._irank||999);
+  const tierBox=(key,label,badge,tip,g,open)=>{ const o=TIER_OPEN[cur+":"+key]??open;
+    return `<details class="tierd"${o?" open":""} ontoggle="TIER_OPEN['${cur}:${key}']=this.open"><summary class="tier">${label}<span class="n"${tip?` title="${tip}"`:""}>${badge}</span><span class="cnt">${plural(g.length,"team")}</span></summary><div class="rows">${g.slice().sort(byRank).map(t=>row(t,cur,mv)).join("")}</div></details>`; };
+  html+=`<div class="thead" aria-hidden="true"><span class="rk">#</span><span class="who">Team</span><span class="dots">${NOPROFILE.includes(cur)?"":"Checks"}</span><span class="idx">Index</span><span class="fair">Fair odds</span><span class="px">Best price</span><span class="tg">Verdict</span><span class="tr">Trend</span><span class="ch"></span></div>`;
+  if(NOPROFILE.includes(cur)) html+=tierBox("all","By title odds","no checklist","No tiers on this board: its every-champion checklist did no better than a coin flip when tested on seasons it had not seen, so teams are listed by title odds. The stats in each team's card are context.",teams,true);
+  else { let first=true; for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
+    // the top three tiers, whichever tier comes first, and any tier holding one of today's top 8 by odds start open; the rest start folded
+    html+=tierBox(sc,tier(sc,mx)[0],d.use_pre?{5:"proj ≥10%",4:"proj 4–10%",3:"proj 2–4%",2:"proj 1–2%",1:"proj <1%",0:"proj <1%"}[sc]:`${sc}/${mx}`,d.use_pre?"Projection phase: tier = projected title odds from the preseason roster model, not the 5-point checklist. The checklist takes over ~8 games in.":"",g,first||mx-sc<=2||g.some(t=>t._irank&&t._irank<=8)); first=false; } }
+  if(cur==="cfb"&&d.gauntlet&&d.gauntlet.length){
+    html+=`<div class="gauntlet"><h3>⚑ Gauntlet watch</h3>`+d.gauntlet.map(g=>`<span class="g">${g.name} <b>SRS #${g.srsrank}</b></span>`).join("")+`<div style="font-size:11px;margin-top:5px">Brutal schedules suppress their score — a 0% here isn't a true longshot.</div></div>`; }
   const MT=muTeams(d), ml=Object.keys(MT).sort((a,b)=>a.localeCompare(b));   // every rated team (d.rtgs), not just the board's cards
-  if(cur==="nfl") html+=parlayCard();   // 🎯 automatic weekly parlay (2026-11-08)
+  let tools=cur==="nfl"?parlayCard():"";   // automatic weekly parlay (2026-11-08)
   if(ml.length>1){
     const opt=(sel)=>ml.map(n=>`<option value="${n}"${n===sel?' selected':''}>${n}</option>`).join("");
-    html+=`<details class="matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary class="muhead">⚔️ Matchup simulator <span class="musub">· who wins, and why</span></summary>
+    tools+=`<details class="fold matchup"${MU_OPEN?' open':''} ontoggle="MU_OPEN=this.open"><summary>Matchup simulator <span class="musub">· who wins, and why</span></summary>
       <div class="murow"><select id="muA" onchange="simMatchup()">${opt(ml[0])}</select><span class="muvs">vs</span><select id="muB" onchange="simMatchup()">${opt(ml[1])}</select>
       ${SERIES[cur]?'<select id="muM" onchange="simMatchup()"><option value="g">one game</option>'+SERIES[cur].map(n=>`<option value="s${n}">best-of-${n} series</option>`).join('')+'</select>':''}
       <select id="muH" onchange="simMatchup()"><option value="0">neutral</option><option value="A">left home</option><option value="B">right home</option></select>
       <button class="btn" onclick="simMatchup()">Simulate</button></div>
       <div class="muout" id="muout"></div></details>`;
   }
-  if(NOPROFILE.includes(cur)) html+=`<div class="tier t3">By title odds <span class="n" title="No tiers on this board: its every-champion checklist did no better than a coin flip when tested on seasons it had not seen, so teams are listed by title odds. The stats on each card are context.">no checklist</span></div><div class="cards">${teams.slice().sort((a,b)=>((b.fair_pct||0)-(a.fair_pct||0))||((b.index||0)-(a.index||0))).map(t=>card(t,cur)).join("")}</div>`;
-  else for(let sc=mx;sc>=0;sc--){ const g=teams.filter(t=>t.score===sc); if(!g.length)continue;
-    html+=`<div class="tier ${tier(sc,mx)[1]}">${tier(sc,mx)[0]} <span class="n"${d.use_pre?' title="Projection phase: tier = projected title odds from the preseason roster model, not the 5-point checklist. The checklist takes over ~8 games in."':''}>${d.use_pre?{5:"proj ≥10%",4:"proj 4–10%",3:"proj 2–4%",2:"proj 1–2%",1:"proj <1%",0:"proj <1%"}[sc]:`${sc}/${mx}`}</span></div><div class="cards">${g.map(t=>card(t,cur)).join("")}</div>`; }
-  if(cur==="cfb"&&d.gauntlet&&d.gauntlet.length){
-    html+=`<div class="gauntlet"><h3>⚑ Gauntlet watch</h3>`+d.gauntlet.map(g=>`<span class="g">${g.name} <b>SRS #${g.srsrank}</b></span>`).join("")+`<div style="font-size:11px;margin-top:5px">Brutal schedules suppress their score — a 0% here isn't a true longshot.</div></div>`; }
+  if(tools) html+=`<div class="tools">${tools}</div>`;
   const W={afl:"Index = Rating 60 · Form (last 8) 20 · Away win% 20, each 0–100. Odds = 20,000-run simulation of the rest of the home-and-away season + the finals (wildcard round, then the final eight), on ratings from game margins; the home edge depends on travel (same state ~1 pt, interstate ~9). Frozen at the start of the finals (you don't bet within the finals)",nrl:"Index = Rating 60 · Win% 20 · Away win% 20, each 0–100. Odds = 20,000-run simulation of the rest of the regular season + the final eight (qualifying and elimination finals, semis, prelims, neutral Grand Final), on ratings from game margins (home edge ~2 pts). Frozen at the start of the finals",superleague:"Index = Rating 70 · Away win% 30, each 0–100. Odds = 20,000-run simulation of the rest of the regular season + the top-six play-offs (eliminators, semis, neutral Grand Final), on ratings from game margins (home edge ~3 pts). Frozen at the start of the play-offs",nwsl:"Every-champion profile: Goal diff/game top-5 · Form (last 8) top-8 · Goals for/game ≥ 1.14 · Goals against/game ≤ 1.09 · Loss% ≤ .32. Index = Loss% 30 · Goals against 25 · Goal diff 20 · Form 15 · Goals for 10, each 0–100. Odds = the playoff bracket simulated with Poisson attack × defence ratings (home edge; extra time, then penalties); they appear once the bracket is set and freeze at the start of the playoffs (you don't bet within the playoffs)",cfl:"Every-champion profile: Win% top-5 · Points scored ≥ 24.6/g · Points allowed top-6 · Division place ≤ 3 · Losses ≤ 9. Index = scoring margin 35 · Win% 20 · points allowed 15 · points scored 15 · win% vs the other division 15. Odds = bracket simulation on scoring margin (playoff home edge ~10.5 pts, Grey Cup neutral); once the playoffs start the fair odds freeze at their pre-playoff values (you don't bet within the playoffs)",chk:"Every-champion profile: Adj defense top-27 · Win% top-20 · Scoring top-26 · Goals allowed top-32 · RPI ≥ .527 (loose — the sport is). Index = SRS 30 · RPI 25 · Adj defense 15 · Adj offense 15 · Win% 15, each 0–100. Odds = the rating model: SRS on goal margins capped at 5 with 0.2 goals of home ice removed and last season's rating (halved) counted as 12 games, turned into title odds by a softmax tuned on past seasons' boards as of the same date — the 5-stat profile did not beat it; profile odds are shown as a check",fcs:"Every-champion profile: Adj offense top-23 · Win% top-7 · Points allowed top-64 · RPI ≥ .583 · Win% vs top teams ≥ .667. Index = Adj defense 60 · Adj offense 40, each 0–100; before the field is set both start from last season's values, halved, counted as 4 games (since 2026-11-10) (since 2026-11-07: defense-tilted adjusted ratings predicted 325 playoff games better than the old SRS/RPI/Win% blend, in both halves and at every checkpoint). Fair odds = tier × index^k, tuned on past seasons' boards as of the same date (the bracket model once the field is set); rating-only = the plain SRS model, shown as a check",mls:"Every-champion profile: Attack top-12 · Form (last 8) ≥ 1.25 pts/g · Form (last 5) ≥ 1.40 · Win% top-7 · Overall rating ≥ 1.10. Odds = 20,000-run sim of the last matchday + the full playoff bracket (Poisson attack × defence × home edge; ratings fit on 75% expected goals + 25% actual goals, xG from American Soccer Analysis). Tiers and index use the goals-only rating they were validated on. Index = Win% 25 · Overall rating 25 · Attack 20 · Form (last 8) 15 · Form (last 5) 15, each 0–100",nfl:"Pt Diff 25 · PD/g 20 · Def 20 · Off 20 · Win% 15 for the index and tiers. Super Bowl odds = a 50,000-run season simulation on a game rating (opponent-adjusted point margins capped at 21, home field removed, the previous season rating as an 8-game start); ties in the standings are broken the NFL's way (head-to-head, division or conference record, strength of victory, then point differential), and once the regular season ends the official seeds are used; then the playoff bracket with byes and reseeding",cfb:"Margin 30 · Win% 20 · OppPPG 18 · OppYPG 17 · PPG 15 (×SOS³; fair odds × chance to make the CFP field once the committee ranks)",nhl:"GD/g 30 · Corsi 25 · xG% 25 · GA 20 for the index and tiers. Cup odds = 50% index odds + 50% a game rating (goal diff/game and score-adjusted xG diff/game, half each, last season as a 30-game start); once the 16-team bracket is set, an exact series-by-series simulation of that rating",nba:"Net/g 30 · Win% 23 · Def 20 · Off 12 · Depth 15",wnba:"Net rating per 100 possessions, 100% — defense is already inside it, and the old Net 45 · Def 30 · Win% 25 blend picked fewer champions (17 vs 22 of 30). Fair odds = softmax of net rating: each +1 point ≈ 1.38× the title odds; once the regular season ends only the top 8 by record are priced",cbb:"Adj net 30 · Adj off 20 · Adj def 20 · Win% 15 · vs top-50 15",wcbb:"Adj net 30 · Adj off 20 · Adj def 20 · Win% 15 · vs top-50 15",mlb:"Run diff 22 · ERA 16 · DRS 14 · RBI 13 · Win% 12 · pBABIP 12 · DEF 11"};
   if(cur==="nfl"&&(d.manual_adjust||[]).length) html+=`<div class="note"><span class="warn">⚠ Manual adjustment active:</span> ${d.manual_adjust.map(a=>`<b>${esc(a.team)}</b> ${a.pts>0?"+":""}${a.pts} pts${a.note?" ("+esc(a.note)+")":""}${a.until?" until "+esc(a.until):""}`).join(" · ")}. These odds include a hand-entered rating change (data/nfl_adjust.json) — a judgment call, not part of the backtest.</div>`;
-  html+=`<div class="note"><b>Top pick vs Value play:</b> <b>Top pick</b> = the strongest team (most likely champion) — a strength call, not a bet. <b>Value play</b> = the best bet vs the ${MK(cur)} price (the one card tagged <span class="vd best" style="padding:1px 6px">⭐ BEST VALUE</span>). ${cur==="cfb"?"On CFB the Value play IS the Top pick by design — once it has held #1 through a committee ranking and is priced at least +10% over fair (against FanDuel 2023–25 that beat chasing the biggest EV: 8 for 8 vs 3 for 22).":"They're usually <i>different</i> teams: the best team is normally priced too short to also be the best bet."} A big-EV longshot (price > +2500) shows as <span class="vd longshot" style="padding:1px 6px">🎯 longshot value</span> and is never crowned. ${NOPROFILE.includes(cur)?"The every-champion checklist is not used for tiers on this board (in testing it did no better than a coin flip); the stats on each card are context. ":""}<b>The Read</b> is the automated trust call — it reads the component ranks, not the composite, and flags a top team hiding a playoff-fatal hole (🔴) vs a complete one (🟢). <b>Index weights:</b> ${FOOTY.includes(cur)?"Every-champion profile: "+(d.cats||[]).join(" · ")+". ":""}${W[cur]} (the tier counts categories equally). <b>Nw</b> = top-two tier into its Nth straight week (hover for exact days); ⭐ = every snapshot this season.${cur==="nhl"?" NHL depth is already in the team-level numbers.":cur==="nba"?` Depth (10+ PPG scorers) is rewarded in the index. From game 25 the index is 50% these + 50% record vs .500+ teams (backtested: champ top-3 12/15 vs 10/15)${d.vs500_on?" — <b>active</b>.":" — inactive until every team has 25 games."}`:""}${early?' <span class="warn">⚠ Early sample — market sharper than model; big EVs are usually model-lag.</span>':''}</div>`;
+  html+=`<details class="fold"><summary>How this board works</summary><div class="note"><b>Top pick vs Value play:</b> <b>Top pick</b> = the strongest team (most likely champion) — a strength call, not a bet. <b>Value play</b> = the best bet vs the ${MK(cur)} price (the one card tagged <span class="vd best" style="padding:1px 6px">★ BEST VALUE</span>). ${cur==="cfb"?"On CFB the Value play IS the Top pick by design — once it has held #1 through a committee ranking and is priced at least +10% over fair (against FanDuel 2023–25 that beat chasing the biggest EV: 8 for 8 vs 3 for 22).":"They're usually <i>different</i> teams: the best team is normally priced too short to also be the best bet."} A big-EV longshot (price > +2500) shows as <span class="vd longshot" style="padding:1px 6px">longshot value</span> and is never crowned. ${NOPROFILE.includes(cur)?"The every-champion checklist is not used for tiers on this board (in testing it did no better than a coin flip); the stats on each card are context. ":""}<b>The Read</b> is the automated trust call — it reads the component ranks, not the composite, and flags a top team hiding a playoff-fatal hole (🔴) vs a complete one (🟢). <b>Index weights:</b> ${FOOTY.includes(cur)?"Every-champion profile: "+(d.cats||[]).join(" · ")+". ":""}${W[cur]} (the tier counts categories equally). <b>Nw</b> = top-two tier into its Nth straight week (hover for exact days); ★ = every snapshot this season.${cur==="nhl"?" NHL depth is already in the team-level numbers.":cur==="nba"?` Depth (10+ PPG scorers) is rewarded in the index. From game 25 the index is 50% these + 50% record vs .500+ teams (backtested: champ top-3 12/15 vs 10/15)${d.vs500_on?" — <b>active</b>.":" — inactive until every team has 25 games."}`:""}${early?' <span class="warn">⚠ Early sample — market sharper than model; big EVs are usually model-lag.</span>':''}</div></details>`;
   app.innerHTML=html;
   if(cur==="nfl") loadParlay();
 }
@@ -792,8 +818,8 @@ window.addEventListener("resize",sbArrows);
 function renderTabs(){
   document.getElementById("tabs").innerHTML=tabKeys().map(k=>{ const o=offPhase(k);
     const tip=o?` title="Offseason · ${o.p.over?(o.L.next?`next season starts ${fD(o.L,"next")}`:"season over"):`season starts ${fD(o.L,"start")}`}"`:"";
-    return `<button data-s="${k}"${tip}>${SPORTS[k]}</button>`; }).join("");
-  document.querySelectorAll(".sportbar button").forEach(b=>{ b.onclick=()=>{cur=b.dataset.s;render();}; b.classList.toggle("on",b.dataset.s===cur); });
+    return `<button data-s="${k}"${o?' class="off"':""}${tip}>${SPORTS[k]}</button>`; }).join("");
+  document.querySelectorAll(".sportbar button").forEach(b=>{ b.onclick=()=>pick(b.dataset.s); b.classList.toggle("on",b.dataset.s===cur); });
   sbShow();
 }
 function renderClock(){
@@ -809,7 +835,7 @@ function renderClock(){
       if(k==="open"){ const mo=D0(L.final).toLocaleDateString("en-US",{month:"short",year:"numeric",timeZone:"UTC"}); if(mo!==m){ h+=`<div class="ck-m" title="Titles decided in ${D0(L.final).toLocaleDateString("en-US",{month:"long",year:"numeric",timeZone:"UTC"})}">${mo}</div>`; m=mo; } }
       const tip=`${L.name} — ${k==="open"?`bet window open, ${p.pct}% of the regular season played`:k==="po"?"playoffs, window closed":p.over?"season over":"offseason"}.`
         +` Season ${fD(L,"start")} · ${L.po?`playoffs ${fD(L,"po")}`:"no playoffs"} · ${L.title} ${fD(L,"final")}${L.site?"":" · chat-only blueprint (not a tab)"}${(L.approx||[]).length?" · ~ = estimated date":""}`;
-      const right=k==="off"?(p.over?(L.next?`next ${fD(L,"next")}`:`✓ ${fD(L,"final")}`):`starts ${fD(L,"start")}`):`🏆 ${fD(L,"final")}`;   // offseason rows show when it comes back (title date in the tooltip)
+      const right=k==="off"?(p.over?(L.next?`next ${fD(L,"next")}`:`✓ ${fD(L,"final")}`):`starts ${fD(L,"start")}`):fD(L,"final");   // offseason rows show when it comes back (title date in the tooltip)
       h+=`<div class="ck ${k}${L.site?" site":""}${L.key===cur?" on":""}"${L.site?` data-s="${L.key}"`:""} title="${esc(tip)}">`
         +`<span class="n"><span class="dot ${k}"></span>${esc(lgName(L))}${L.site?"":"<i>chat</i>"}</span><span class="d">${right}</span>`
         +(k==="open"?`<span class="pb"><span><i style="width:${p.pct}%"></i></span><span>${p.pct}% · ${L.po?`playoffs ${fD(L,"po")}`:`ends ${fD(L,"final")}`}</span></span>`:"")+`</div>`;
@@ -818,7 +844,7 @@ function renderClock(){
   }
   el.innerHTML=h+`</div>`;
   const w=el.querySelector(".ck-wrap"); if(w&&sl) w.scrollLeft=sl;
-  el.querySelectorAll(".ck.site").forEach(c=>c.onclick=()=>{cur=c.dataset.s;render();window.scrollTo({top:0,behavior:"smooth"});});
+  el.querySelectorAll(".ck.site").forEach(c=>c.onclick=()=>{pick(c.dataset.s);window.scrollTo({top:0,behavior:"smooth"});});
 }
 // the board's own season: regular season (green, filled to games played) → playoffs (amber) → title day
 function timeline(d,pct){
@@ -833,18 +859,18 @@ function timeline(d,pct){
   return `<div class="tl"><div class="tl-bar${po?"":" nopo"}"><span class="tl-reg" style="width:${regW}%"><i style="width:${played}%"></i></span>`
     +(po?`<span class="tl-po" style="width:${100-regW}%"><i style="width:${poFill}%"></i></span>`:"")
     +(p.k==="po"?`<span class="tl-now" style="left:${100*(now-st)/span}%" title="today"></span>`:"")
-    +`</div><div class="tl-lab"><span>${fD(L,"start")}</span><span>${po?`<i class="sw"></i>playoffs <b>${fD(L,"po")}</b> · `:""}🏆 <b>${fD(L,"final")}</b></span></div>`
+    +`</div><div class="tl-lab"><span>${fD(L,"start")}</span><span>${po?`<i class="sw"></i>playoffs <b>${fD(L,"po")}</b> · `:""}${esc(L.title||"title")} <b>${fD(L,"final")}</b></span></div>`
     +`<div class="tl-st">${msg}</div></div>`;
 }
 function statusRow(d,pct){
   const s=d.signal, hasMk=(d.teams||[]).some(t=>t.market);
-  const sig=s?`<span class="sig ${s.status}" title="${esc(s.note)}">${s.emoji} ${s.label}</span>`:"";
-  const proj=d.use_pre?`<span class="sig early" title="Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the preseason roster projection until ~8 games in. ${d.pre_confirmed||0} teams' rotations are confirmed (✓ on the card).">📐 preseason projection</span>`:"";
+  const sig=s?`<span class="sig ${s.status}" title="${esc(s.note)}">${s.label}</span>`:"";
+  const proj=d.use_pre?`<span class="sig early" title="Too few games for the blueprint (median ${d.median_gp||0}) — fair odds and tiers come from the preseason roster projection until ~8 games in. ${d.pre_confirmed||0} teams' rotations are confirmed (✓ on the card).">preseason projection</span>`:"";
   const prices=PRICE_FILES[cur]
-    ?`<span class="pr ${d.market_asof?"":"stale"}">${d.market_asof?`${esc(d.market_name||"DraftKings")} · ${d.market_asof} screenshot`:"no current prices"}<button class="rfb" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">📷 Update</button></span>`
+    ?`<span class="pr ${d.market_asof?"":"stale"}">${d.market_asof?`${esc(d.market_name||"DraftKings")} · ${d.market_asof} screenshot`:"no current prices"}<button class="rfb" onclick="openPP()" title="Screenshot or paste — you check the prices, then they're saved and this board rebuilds">Update prices</button></span>`
     :hasMk?`<span title="${d.odds_remaining?d.odds_remaining+" Odds API credits left":""}">${esc(MK(cur))} ${d.market_asof?`· ${d.market_asof}${d.window_closed?" · last prices before the playoffs":""}`:"odds"}</span>`:"";
   // the feed has no DraftKings title odds for these boards -> the user's screenshot adds them (kept 14 days, shown beside FanDuel)
-  const dkbtn=DK_FILES[cur]&&!d.window_closed?`<span class="pr ${d.dk_asof?"":"stale"}">${d.dk_asof?`DraftKings · ${d.dk_asof} screenshot`:"no DraftKings prices"}<button class="rfb" onclick="openPP('dk')" title="The odds feed has FanDuel but not DraftKings for this title market. Add a DraftKings screenshot (or paste the prices): each card then shows both books and uses the better price. Kept for 14 days.">📷 DraftKings</button></span>`:"";
+  const dkbtn=DK_FILES[cur]&&!d.window_closed?`<span class="pr ${d.dk_asof?"":"stale"}">${d.dk_asof?`DraftKings · ${d.dk_asof} screenshot`:"no DraftKings prices"}<button class="rfb" onclick="openPP('dk')" title="The odds feed has FanDuel but not DraftKings for this title market. Add a DraftKings screenshot (or paste the prices): each card then shows both books and uses the better price. Kept for 14 days.">Add DraftKings</button></span>`:"";
   const warn=s&&s.status!=="trust"?`<div class="signote ${s.status}">${s.note}</div>`:"";
   // (2026-11-07) the bot's last build of this board failed -> the board is older than it looks; say so
   const b=BUILDS[cur], failed=b&&b.ok===false?`<span class="pr stale" title="${esc(b.error||"")}">⚠ last refresh failed ${ago(b.at)} — this is the ${ago(d.generated)} build</span>`:"";
@@ -853,7 +879,7 @@ function statusRow(d,pct){
     +`<span>${tl?"":pct+"% of season · "}updated <b title="${new Date(d.generated).toLocaleString()}">${ago(d.generated)}</b></span>${prices}${dkbtn}${failed}</div>${tl}${warn}`;
 }
 function trustDetails(d){
-  const c=CAL[cur], lvl=!c?null:c.c==="low"?["🔴","weak"]:c.c==="ok"?["🟡","fair"]:["🟢","strong"];
+  const c=CAL[cur], lvl=!c?null:c.c==="low"?"weak":c.c==="ok"?"fair":"strong";
   const rule={mls:"Bet only teams with all 5 criteria, priced longer than fair, before the first playoff match. Once the playoffs start the board freezes its fair odds and shows no value play.",
     mlb:"Small stakes only. A value play (6+/7, trusted read, priced longer than fair, at most +2500) at the 75% mark or right before the playoffs. Against real prices 2022–26 these went 3 for 12 (+$140 at $10 each), but two seasons made all of it — not a proven edge yet.",
     wnba:"No odds feed carries WNBA title futures, so EV needs your sportsbook screenshot or a dated sportsbook list found online (2026: DraftKings, Sep 25). The favourite wins most years — a longshot that looks like value is usually just a longshot.",
@@ -871,7 +897,7 @@ function trustDetails(d){
     +(d.use_pre?`<p>Too few games for the blueprint yet (median ${d.median_gp||0}) — fair odds and tiers come from the <b>preseason roster projection</b> (returning players, transfers, freshmen; a weak champion-picker in backtests). <b>${d.pre_confirmed||0}</b> teams' rotations are confirmed in real games (✓ on the card). The blueprint takes over around 8 games in.</p>`:"")
     +(rule?`<p><b>Betting rule:</b> ${rule}</p>`:"");
   if(!body) return "";
-  return `<details class="trustd"><summary>${lvl?lvl[0]+" ":""}How much to trust this board${lvl?` — backtest: <b>${lvl[1]}</b>`:""}</summary>${body}</details>`;
+  return `<details class="trustd"><summary>How much to trust this board${lvl?` — backtest: <b>${lvl}</b>`:""}</summary>${body}</details>`;
 }
 function closePP(){ document.getElementById("ppop").classList.remove("on"); }
 function chgTok(){ document.getElementById("tok").value=tok(); document.getElementById("pop").classList.add("on"); return false; }   // opens above the price box; prices stay put
@@ -990,11 +1016,11 @@ async function runBlueprint(only,msgId){
   const lg=only||[...document.querySelectorAll(".lgchk:checked")].map(c=>c.value), msg=document.getElementById(MSGID);
   if(!lg.length){msg.textContent="select a league";return;}
   if(!tok()){document.getElementById("pop").classList.add("on");document.getElementById("tok").value=tok();return;}
-  const btn=document.getElementById(MSGID==="rfmsg"?"rfbtn":"runbtn");btn.disabled=true;msg.innerHTML="⏳ triggering…";
+  const btn=document.getElementById(MSGID==="rfmsg"?"rfbtn":"runbtn");btn.disabled=true;msg.innerHTML="triggering…";
   try{ const r=await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/refresh.yml/dispatches`,{method:"POST",
       headers:{Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json","Content-Type":"application/json"},
       body:JSON.stringify({ref:"main",inputs:{leagues:lg.join(",")}})});
-    if(r.status===204){msg.innerHTML="⏳ building the board… (~1–2 min)";startProg();pollFresh();}
+    if(r.status===204){msg.innerHTML="building the board… (~1–2 min)";startProg();pollFresh();}
     else if(r.status===401||r.status===403){msg.innerHTML='<span style="color:var(--bad)">token invalid</span>';document.getElementById("pop").classList.add("on");}
     else msg.innerHTML=`<span style="color:var(--bad)">failed (${r.status})</span>`;
   }catch(e){msg.innerHTML='<span style="color:var(--bad)">network error</span>';}
@@ -1012,13 +1038,20 @@ async function pollFresh(){ let before=null; try{before=(await(await fetch("data
     try{const g=(await(await fetch("data/index.json?t="+Date.now())).json()).generated;
       if(g&&g!==before){clearInterval(iv);endProg(true);await loadData();render();const m=document.getElementById(MSGID);
         // (2026-11-07) a finished bot run isn't a successful build of THIS board -- say so when its build failed
-        if(m){ const b=BUILDS[cur]; m.innerHTML=b&&b.ok===false&&Date.parse(b.at)>=Date.parse(before||0)?`<span style="color:var(--bad)">⚠ the bot ran but the ${esc(SPORTS[cur])} build failed — showing the last good board</span>`:"✅ updated"; }}}catch(e){} },8000);
+        if(m){ const b=BUILDS[cur]; m.innerHTML=b&&b.ok===false&&Date.parse(b.at)>=Date.parse(before||0)?`<span style="color:var(--bad)">⚠ the bot ran but the ${esc(SPORTS[cur])} build failed — showing the last good board</span>`:"updated"; }}}catch(e){} },8000);
 }
 // (2026-11-07) all files in parallel -- the old loop fetched 31 files one after another before the first render
 let BUILDS={};
 async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await fetch(u+"?t="+t); return r.ok?await r.json():null; }catch(e){ return null; } };
   await Promise.all([...Object.keys(SPORTS).flatMap(k=>[J(`data/${k}.json`).then(x=>{ if(x) DATA[k]=x; }), J(`data/history/${k}.json`).then(x=>{ if(x) HIST[k]=x; })]),
     J("data/seasons.json").then(x=>{ if(x) SEASONS=x.leagues||[]; renderTabs(); }), J("data/index.json").then(x=>{ if(x) BUILDS=x.builds||{}; })]); }
+// (2026-11-23) switch boards from a tab or the season clock; a finished refresh message doesn't follow you to the next board
+function pick(k){ cur=k; const p=document.getElementById("runprog"), m=document.getElementById("rfmsg"); if(m&&(!p||p.hidden)) m.textContent=""; render(); }
+function toggleMore(){ const m=document.getElementById("runmore"); m.hidden=!m.hidden; if(!m.hidden) window.scrollTo({top:0,behavior:"smooth"}); }
+// Theme: Auto follows the device; Light / Dark are remembered in this browser (bp_theme). The <head> script applies it before first paint.
+function setTheme(t){ try{ t==="auto"?localStorage.removeItem("bp_theme"):localStorage.setItem("bp_theme",t); }catch(e){}
+  if(t==="auto") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme=t; }
+{ const s=document.getElementById("thsel"); if(s) s.value=document.documentElement.dataset.theme||"auto"; }
 async function load(){
   await loadData(); render();   // the tab strip is drawn by loadData the moment data/seasons.json arrives (renderTabs), so it never reshuffles
 }
