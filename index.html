@@ -1275,6 +1275,7 @@ function blendScan(){
       if(nw.some(k=>used.has(k))) continue;   // a second blend must bring different new teams
       if(pick.some(p=>p.legs.filter(x=>ks.includes(x.sp+"|"+x.t.name)).length>1)) continue;   // ...and not be the first one with one team swapped
       let g=0; for(let i=0;i<COV_N;i++) if(c.cash[i]&&!cur[i]) g++; c.gain=g/COV_N;
+      if(!g) continue;   // cashes only when a slip you hold already does (e.g. any Jaguars blend: your Valkyries-Brewers-Jaguars slip) -- covers nothing
       if(!best||c.legs.length>best.legs.length||(c.legs.length===best.legs.length&&(c.gain>best.gain+1e-9||(Math.abs(c.gain-best.gain)<=1e-9&&c.ev>best.ev)))) best=c; }
     if(!best) break;
     best.cov={from:pct(),fromTop:topK?pct(lose):null};
@@ -1297,7 +1298,7 @@ function blendsHTML(){
     <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")} · EV ${fmtEV(Math.round(100*c.ev))} on fair odds</div>
     ${c.cov?`<div class="blcov">Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b>${R.cov.top&&!c.legs.some(x=>x.sp===R.cov.top.lg&&x.t.name===R.cov.top.name)?` · if ${esc(blNm(R.cov.top.lg,R.cov.top.name))} lose <b>${covP(c.cov.fromTop)} → ${covP(c.cov.toTop)}</b>`:""}</div>`:""}</div>`).join("");
-  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"Every blend of open-board value plays is already on one of your slips.":"No open board has a value play right now."}</span></div>`;
+  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"Every value-play blend is already on your slips, or only cashes when one of them does.":"No open board has a value play right now."}</span></div>`;
   const W=[...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]}) · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
