@@ -284,6 +284,8 @@
   .blpay{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2)}
   .blpay b{font:700 18px var(--head);color:var(--ink)}
   .blsub{font-size:11px;color:var(--ink3);margin-top:2px}
+  .blnet{font-size:11px;color:var(--ink2);margin-top:3px} .blnet b{font:600 11px var(--mono);color:var(--ink)}
+  .blnet.warn b{color:var(--warn)} .blnet.bad b{color:var(--bad)}
   .blcov{font-size:11px;color:var(--ink2);margin-top:3px} .blcov b{font:600 11px var(--mono);color:var(--ink)}
   .blk{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin-top:12px}
   .blw{font-size:12.5px;color:var(--ink2);margin-top:2px}
@@ -1242,7 +1244,11 @@ function cashArr(legs,S){ const a=new Uint8Array(COV_N), need=[];
    1. STEADY legs: over the last 14 days of board snapshots (4+), the team was top 3 by fair odds in at least 2/3 of them (the team
       is consistently one of the best -- its EV may swing with the price), and TODAY it passes its board's value rule at that book.
    2. REAL COVERAGE: it adds 1+ point to the chance something cashes (seasons where none of your live slips do).
-   3. A HIT IS A PROFIT: $5 on it pays more than everything you've staked, it included.
+   The old rule 3 ("$5 on it pays more than everything staked") was replaced the same day (user: "I don't want to make 100 parlays,
+   and only one hits, and it pays just pretty much what I've already bet ... all the money I've staked has taken away from the total
+   payout"): the panel now shows what a TYPICAL HIT nets after everything staked, and how much of it your stakes eat (amber 25%+,
+   red 50%+ = "stop adding"); each blend shows how it moves that number. "Typical hit" = the median payout of your live tickets
+   (100 small tickets pull it down and push stakes up, which is exactly the trap).
    Boards in their playoffs are already off (boardOpen), so a league stops getting blends once its playoffs start. */
 const BL_MINGAIN=0.01, BL_STEADY=14;
 function steadyOf(sp,name){ const h=HIST[sp]; if(!h||!h.length) return {ok:false,n:0,k:0};
@@ -1283,6 +1289,10 @@ function blendScan(){
   const cov={any:pct(), top:topK?{lg:topLg,name:topNm,stake:ex[topK],any:pct(lose)}:null};
   for(const c of all) c.cash=cashArr(c.legs.map(x=>({lg:x.sp,team:x.t.name})),S);
   const staked=live.reduce((m,s)=>m+(+s.stake||0),0);
+  // a typical hit = the median payout of your live tickets; the bite = everything staked as a share of it
+  const pays=live.map(s=>+s.pays||0).filter(p=>p>0);
+  const netOf=(st,ps)=>{ if(!ps.length) return null; const v=[...ps].sort((a,b)=>a-b), n=v.length, med=n%2?v[(n-1)/2]:(v[n/2-1]+v[n/2])/2; return {gross:med,net:med-st,eat:st/med}; };
+  cov.net=netOf(staked,pays); let stakeCur=staked;
   const pick=[], used=new Set();
   while(pick.length<2){ let best=null;
     for(const c of all){ if(pick.includes(c)) continue;
@@ -1292,10 +1302,10 @@ function blendScan(){
       let g=0; for(let i=0;i<COV_N;i++) if(c.cash[i]&&!cur[i]) g++; c.gain=g/COV_N;
       if(!g) continue;   // cashes only when a slip you hold already does (e.g. any Jaguars blend: your Valkyries-Brewers-Jaguars slip) -- covers nothing
       if(c.gain<BL_MINGAIN) continue;   // rule 2: adds under 1 point -- you're covered
-      if(BL_STAKE*c.dec<=staked+BL_STAKE) continue;   // rule 3: hitting it wouldn't even pay back what's staked
       if(!best||c.legs.length>best.legs.length||(c.legs.length===best.legs.length&&(c.gain>best.gain+1e-9||(Math.abs(c.gain-best.gain)<=1e-9&&c.ev>best.ev)))) best=c; }
     if(!best) break;
-    best.cov={from:pct(),fromTop:topK?pct(lose):null};
+    best.cov={from:pct(),fromTop:topK?pct(lose):null,netFrom:netOf(stakeCur,pays)};
+    stakeCur+=BL_STAKE; pays.push(BL_STAKE*best.dec); best.cov.netTo=netOf(stakeCur,pays);
     for(let i=0;i<COV_N;i++) cur[i]|=best.cash[i];
     best.cov.to=pct(); best.cov.toTop=topK?pct(lose):null;
     pick.push(best); best.legs.filter(x=>!x.held).forEach(x=>used.add(x.sp+"|"+x.t.name)); }
@@ -1316,7 +1326,7 @@ function blendsHTML(){
     <div class="bllegs">${c.legs.map(x=>`<span${x.held?"":' class="nw"'} title="${esc(x.t.name)} · fair ${x.t.fair_odds} (${x.t.fair_pct}%)${x.held?" · already in your slips":" · not in your slips yet"}">${esc(blNm(x.sp,x.t.name))}<i>${SPORTS[x.sp]}</i></span><b>${fmtA(x.a)}</b>`).join("")}</div>
     <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")} · EV ${fmtEV(Math.round(100*c.ev))} on fair odds</div>
-    ${c.cov?`<div class="blcov">Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b>${R.cov.top&&!c.legs.some(x=>x.sp===R.cov.top.lg&&x.t.name===R.cov.top.name)?` · if ${esc(blNm(R.cov.top.lg,R.cov.top.name))} lose <b>${covP(c.cov.fromTop)} → ${covP(c.cov.toTop)}</b>`:""}</div>`:""}</div>`).join("");
+    ${c.cov?`<div class="blcov">Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b>${R.cov.top&&!c.legs.some(x=>x.sp===R.cov.top.lg&&x.t.name===R.cov.top.name)?` · if ${esc(blNm(R.cov.top.lg,R.cov.top.name))} lose <b>${covP(c.cov.fromTop)} → ${covP(c.cov.toTop)}</b>`:""}${c.cov.netFrom&&c.cov.netTo?` · stakes take <b>${Math.round(100*c.cov.netFrom.eat)}% → ${Math.round(100*c.cov.netTo.eat)}%</b> of a typical hit`:""}</div>`:""}</div>`).join("");
   else h+=`<div class="blst"><b>You're covered</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestGain>0?`The best blend left adds only ${(100*R.disc.bestGain).toFixed(1)} points to your chance something cashes. Not worth a new ticket.`:"Every steady value-play blend is already on your slips, or only cashes when one of them does."}</span></div>`;
   const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but top 3 on only ${u.sd.k} of the last ${u.sd.n} boards. Wait for it to hold.`),
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
@@ -1333,6 +1343,8 @@ function blendsHTML(){
   h+=`<details class="blsl"><summary>Your slips · ${live.length} live · ${money(Math.round(live.reduce((m,x)=>m+(+x.s.stake||0),0)))} in</summary>`
     +(most?`<div class="blexp">Most on: ${most}</div>`:"")
     +(live.length&&R.cov?`<div class="blexp">By the boards, something cashes ${covP(R.cov.any)}${R.cov.top?` · if ${esc(blNm(R.cov.top.lg,R.cov.top.name))} lose ${covP(R.cov.top.any)}`:""}</div>`:"")
+    +(live.length&&R.cov&&R.cov.net?(()=>{ const n=R.cov.net, e=n.eat, cl=e>=0.5?"bad":e>=0.25?"warn":"";
+      return `<div class="blnet ${cl}">Your typical ticket pays ${money(Math.round(n.gross))}. If one hits, the ${money(Math.round(R.disc.staked))} you've staked takes <b>${Math.round(100*e)}%</b> of it, so you net <b>${n.net<0?"−"+money(Math.round(-n.net)):money(Math.round(n.net))}</b>${e>=0.5?" — you're staking away your wins. Stop adding.":e>=0.25?" — getting heavy; add only real gaps.":"."}</div>`; })():"")
     +(SL_FILT?`<div class="slf"><span>Only <b>${esc(fName)}</b> · ${shown.length} slip${shown.length>1?"s":""}${fMoney?` · ${money(Math.round(fMoney))} live`:""}</span><button onclick="slFilt(null)">Show all</button></div>`:"")
     +order.map(({s,st})=>`<div class="slp ${st}"><div class="slh"><span>${BLAB[s.book]||esc(s.book)}</span><b>${money(s.stake)} → ${money(s.pays)}</b>${st!=="live"?`<span class="stt">${st}</span>`:""}<button class="x" title="Remove this slip" aria-label="Remove this slip" onclick="removeSlip('${esc(s.id)}')">×</button></div>
       <div class="slg">${s.legs.map(L=>{ const k=legState(L), lk=legKey(L); return `<span class="${k}${lk===SL_FILT?" on":""}" data-k="${esc(lk)}" role="button" tabindex="0" onclick="slFilt(this)" onkeydown="if(event.key==='Enter')slFilt(this)" title="${esc(L.team)} · ${SPORTS[L.lg]||L.lg}${k!=="open"?" · "+k:""} · tap to show only slips with this team">${k==="won"?"✓ ":""}${esc(blNm(L.lg,L.team))}</span>`; }).join("")}</div></div>`).join("")
