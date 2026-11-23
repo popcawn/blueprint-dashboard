@@ -1185,6 +1185,8 @@ async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await f
    GitHub token so phone and PC share one list). It suggests a blend only when an OPEN board has a top-3 team (by fair odds) at EV >= +10%
    that no live slip holds yet. Rules (user, 2026-11-23): one team per league, every leg at one book, no league in its playoffs,
    3 legs preferred over 2. No payout minimum (the $500-on-$5 rule was removed, user 2026-11-23: "remove the payout rule").
+   (2026-11-23, user: "yes make both changes") a leg must pass ITS BOARD'S OWN betting rule (the board's value_plays list, so no
+   "BEST VALUE · price only" picks), and a board still "Firming up" is treated like "Too early": its value teams wait under Watching.
    It changes no board's numbers. */
 let SLIPS={updated:null,slips:[]};
 const BL_STAKE=5, BL_BOOKS=["DraftKings","FanDuel"], BL_FROM={chk:"03-01"};   // college hockey: value plays only from Mar 1 (its rule)
@@ -1200,7 +1202,8 @@ function heldSet(){ const h=new Set(); for(const s of SLIPS.slips) if(slipState(
 // open = regular season with a trusted-enough board; early = too few games; wait = before the board's own bet date; closed = playoffs / over
 function boardOpen(sp){ const d=DATA[sp]; if(!d||!d.teams||d.status==="preseason"||d.stage==="preseason"||d.stage==="done"||d.window_closed) return "closed";
   const g=d.signal&&d.signal.status; if(g==="closed") return "closed"; if(g==="early") return "early";
-  const f=BL_FROM[sp]; if(f){ const md=new Date().toLocaleDateString("en-CA").slice(5); if(md<f||md>"06-30") return "wait"; } return "open"; }
+  const f=BL_FROM[sp]; if(f){ const md=new Date().toLocaleDateString("en-CA").slice(5); if(md<f||md>"06-30") return "wait"; }
+  if(g==="firming") return "firming"; return "open"; }
 function pxBooks(t,d){ if(t.books&&Object.keys(t.books).length) return {...t.books};
   if(!t.market) return {}; const b=(d.market_name&&!d.market_name.includes("/"))?d.market_name:"FanDuel"; return {[b]:_parseOdds(t.market)}; }
 const toAm=dec=>dec>=2?Math.round((dec-1)*100):-Math.round(100/(dec-1));
@@ -1210,11 +1213,13 @@ function blendScan(){
   const held=heldSet(), legs=[], early=[], watch=[];
   for(const sp of Object.keys(SPORTS)){ const st=boardOpen(sp); if(st==="closed") continue; rankBoard(sp); const d=DATA[sp];
     const top=d.teams.filter(t=>t._irank&&t._irank<=3&&t.fair_pct).sort((a,b)=>a._irank-b._irank);
-    const isVal=t=>t.ev!=null&&t.ev>=10&&t.verdict&&["best","value","longshot"].includes(t.verdict.kind);
-    if(st!=="open"){ if(top.some(isVal)) early.push({sp,st,pct:d.season_pct}); continue; }
+    // a leg = one of the board's own value plays (its betting rule, top 3 by fair odds) at +10% or better -- never a price-only crown
+    const VP=new Set((d.value_plays||[]).map(x=>x.name));
+    const isVal=t=>t.ev!=null&&t.ev>=10&&VP.has(t.name)&&t.verdict&&!t.verdict.norule&&["best","value","longshot"].includes(t.verdict.kind);
+    if(st!=="open"){ const v=top.filter(isVal).sort((a,b)=>b.ev-a.ev); if(v.length) early.push({sp,st,pct:d.season_pct,v}); continue; }
     for(const t of top){ const bk=pxBooks(t,d); if(!Object.keys(bk).length) continue; const p=t.fair_pct/100;
       if(isVal(t)) legs.push({sp,t,p,bk,held:held.has(sp+"|"+t.name)});
-      else if(t.verdict&&t.verdict.kind!=="trap"&&t.ev!=null&&t.ev>-25) watch.push({sp,t,need:Math.ceil(toAm(1.1/p)/10)*10}); } }
+      else if(t.verdict&&t.verdict.kind!=="trap"&&t.ev!=null&&t.ev>-25&&t.ev<10) watch.push({sp,t,need:Math.ceil(toAm(1.1/p)/10)*10}); } }
   // every 2- and 3-leg combination at one book, one team per league, each leg worth +10% at THAT book
   const all=[];
   for(const B of BL_BOOKS){ const L=legs.filter(c=>c.bk[B]!=null).map(c=>({...c,a:c.bk[B],dec:_dec(c.bk[B])})).filter(c=>c.p*c.dec-1>=0.10);
@@ -1240,9 +1245,9 @@ function blendsHTML(){
     <div class="bllegs">${c.legs.map(x=>`<span${x.held?"":' class="nw"'} title="${esc(x.t.name)} · fair ${x.t.fair_odds} (${x.t.fair_pct}%)${x.held?" · already in your slips":" · not in your slips yet"}">${esc(blNm(x.sp,x.t.name))}<i>${SPORTS[x.sp]}</i></span><b>${fmtA(x.a)}</b>`).join("")}</div>
     <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")} · EV ${fmtEV(Math.round(100*c.ev))} on fair odds</div></div>`).join("");
-  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"You already hold every top-3 value team on an open board.":"No open board has a top-3 team priced as value right now."}</span></div>`;
+  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"You already hold every value play on an open board.":"No open board has a value play right now."}</span></div>`;
   const W=[...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]}) · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
-    ...R.early.map(e=>`${SPORTS[e.sp]} · ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`too early (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
+    ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
   const exp={}; for(const {s} of live) for(const L of s.legs) if(legState(L)==="open"){ const k=blNm(L.lg,L.team); exp[k]=(exp[k]||0)+(+s.stake||0); }   // whole dollars below
   const most=Object.entries(exp).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([n,v])=>`${esc(n)} ${money(Math.round(v))}`).join(" · ");
