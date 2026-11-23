@@ -1,14 +1,14 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-22T17:23:55Z",
-  "odds_remaining": "30347",
+  "generated": "2026-11-23T11:06:09Z",
+  "odds_remaining": "28970",
   "prediction": {
     "pick": "Boston Celtics",
-    "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +447). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
+    "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +462). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
   },
   "season_pct": 20,
-  "gp_min": 14,
+  "gp_min": 15,
   "gp_max": 18,
   "has_depth": false,
   "vs500_on": false,
@@ -44,18 +44,17 @@
         "105.4 #4"
       ],
       "rtg": 11.9,
-      "fair_pct": 14.0,
-      "fair_odds": "+613",
-      "market": "+300",
+      "fair_pct": 14.6,
+      "fair_odds": "+587",
+      "market": "+260",
       "books": {
-        "FanDuel": 260,
-        "DraftKings": 300
+        "FanDuel": 260
       },
-      "ev": -44,
+      "ev": -48,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -44
+        "ev": -48
       },
       "read": {
         "v": "trust",
@@ -83,18 +82,17 @@
         "105.2 #3"
       ],
       "rtg": 9.7,
-      "fair_pct": 10.5,
-      "fair_odds": "+855",
-      "market": "+1600",
+      "fair_pct": 10.9,
+      "fair_odds": "+821",
+      "market": "+1700",
       "books": {
-        "FanDuel": 1600,
-        "DraftKings": 1500
+        "FanDuel": 1700
       },
-      "ev": 78,
+      "ev": 96,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 78
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 96
       },
       "read": {
         "v": "trust",
@@ -122,18 +120,17 @@
         "110.6 #9"
       ],
       "rtg": 7.6,
-      "fair_pct": 8.0,
-      "fair_odds": "+1143",
-      "market": "+1500",
+      "fair_pct": 8.3,
+      "fair_odds": "+1098",
+      "market": "+1400",
       "books": {
-        "FanDuel": 1500,
-        "DraftKings": 1100
+        "FanDuel": 1400
       },
-      "ev": 29,
+      "ev": 25,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 29
+        "ev": 25
       },
       "read": {
         "v": "trust",
@@ -145,9 +142,9 @@
     {
       "name": "Boston Celtics",
       "conf": "E",
-      "rec": "11-5",
+      "rec": "11-6",
       "score": 3,
-      "index": 87.3,
+      "index": 86.1,
       "q": [
         true,
         true,
@@ -155,24 +152,23 @@
         true
       ],
       "vals": [
-        "0.688",
+        "0.647",
         "+9.8 #2",
         "112.8 #17",
         "103.0 #1"
       ],
       "rtg": 9.8,
-      "fair_pct": 18.3,
-      "fair_odds": "+447",
+      "fair_pct": 17.8,
+      "fair_odds": "+462",
       "market": "+950",
       "books": {
-        "FanDuel": 950,
-        "DraftKings": 750
+        "FanDuel": 950
       },
-      "ev": 92,
+      "ev": 87,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 92
+        "kind": "value",
+        "label": "value",
+        "ev": 87
       },
       "read": {
         "v": "trust",
@@ -200,18 +196,17 @@
         "111.5 #11"
       ],
       "rtg": 9.1,
-      "fair_pct": 6.4,
-      "fair_odds": "+1471",
+      "fair_pct": 6.6,
+      "fair_odds": "+1413",
       "market": "+15000",
       "books": {
-        "FanDuel": 15000,
-        "DraftKings": 15000
+        "FanDuel": 15000
       },
-      "ev": 861,
+      "ev": 898,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 861
+        "ev": 898
       },
       "read": {
         "v": "trust",
@@ -239,18 +234,17 @@
         "110.3 #7"
       ],
       "rtg": 5.8,
-      "fair_pct": 4.3,
-      "fair_odds": "+2204",
+      "fair_pct": 4.5,
+      "fair_odds": "+2120",
       "market": "+3000",
       "books": {
-        "FanDuel": 3000,
-        "DraftKings": 3000
+        "FanDuel": 3000
       },
-      "ev": 35,
+      "ev": 40,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 35
+        "ev": 40
       },
       "read": {
         "v": "caution",
@@ -278,18 +272,17 @@
         "113.8 #17"
       ],
       "rtg": 6.2,
-      "fair_pct": 3.6,
-      "fair_odds": "+2687",
+      "fair_pct": 3.7,
+      "fair_odds": "+2586",
       "market": "+2200",
       "books": {
-        "FanDuel": 2200,
-        "DraftKings": 2200
+        "FanDuel": 2200
       },
-      "ev": -17,
+      "ev": -14,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -17
+        "ev": -14
       },
       "read": {
         "v": "fools_gold",
@@ -301,9 +294,9 @@
     {
       "name": "New York Knicks",
       "conf": "E",
-      "rec": "10-6",
+      "rec": "11-6",
       "score": 2,
-      "index": 75.4,
+      "index": 76.0,
       "q": [
         true,
         false,
@@ -311,24 +304,23 @@
         true
       ],
       "vals": [
-        "0.625",
+        "0.647",
         "+5.6 #9",
         "108.7 #27",
         "103.1 #2"
       ],
       "rtg": 5.6,
-      "fair_pct": 7.9,
-      "fair_odds": "+1173",
-      "market": "+1000",
+      "fair_pct": 8.2,
+      "fair_odds": "+1126",
+      "market": "+850",
       "books": {
-        "FanDuel": 850,
-        "DraftKings": 1000
+        "FanDuel": 850
       },
-      "ev": -14,
+      "ev": -23,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -14
+        "ev": -23
       },
       "read": {
         "v": "trust",
@@ -340,9 +332,9 @@
     {
       "name": "Detroit Pistons",
       "conf": "E",
-      "rec": "10-5",
+      "rec": "10-6",
       "score": 2,
-      "index": 74.6,
+      "index": 73.4,
       "q": [
         true,
         false,
@@ -350,24 +342,23 @@
         true
       ],
       "vals": [
-        "0.667",
+        "0.625",
         "+5.8 #8",
         "114.5 #13",
         "108.7 #6"
       ],
       "rtg": 5.8,
-      "fair_pct": 7.6,
-      "fair_odds": "+1214",
+      "fair_pct": 7.3,
+      "fair_odds": "+1261",
       "market": "+2000",
       "books": {
-        "FanDuel": 2000,
-        "DraftKings": 1900
+        "FanDuel": 2000
       },
-      "ev": 60,
+      "ev": 54,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 60
+        "ev": 54
       },
       "read": {
         "v": "caution",
@@ -395,18 +386,17 @@
         "112.6 #13"
       ],
       "rtg": 2.9,
-      "fair_pct": 6.5,
-      "fair_odds": "+1444",
-      "market": "+900",
+      "fair_pct": 6.6,
+      "fair_odds": "+1423",
+      "market": "+850",
       "books": {
-        "FanDuel": 900,
-        "DraftKings": 800
+        "FanDuel": 850
       },
-      "ev": -35,
+      "ev": -38,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -35
+        "ev": -38
       },
       "read": {
         "v": "caution",
@@ -416,50 +406,11 @@
       "vs500": null
     },
     {
-      "name": "Oklahoma City Thunder",
-      "conf": "W",
-      "rec": "10-6",
-      "score": 2,
-      "index": 70.3,
-      "q": [
-        true,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "0.625",
-        "+4.5 #10",
-        "113.0 #16",
-        "108.5 #5"
-      ],
-      "rtg": 4.5,
-      "fair_pct": 2.6,
-      "fair_odds": "+3721",
-      "market": "+500",
-      "books": {
-        "FanDuel": 500,
-        "DraftKings": 500
-      },
-      "ev": -84,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -84
-      },
-      "read": {
-        "v": "trust",
-        "why": "Defense wins in May \u2014 a #5 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
-      },
-      "ftt": "pending",
-      "vs500": null
-    },
-    {
       "name": "Atlanta Hawks",
       "conf": "E",
-      "rec": "10-6",
+      "rec": "11-6",
       "score": 2,
-      "index": 63.3,
+      "index": 63.9,
       "q": [
         true,
         false,
@@ -467,24 +418,23 @@
         false
       ],
       "vals": [
-        "0.625",
+        "0.647",
         "+2.7 #12",
         "117.3 #6",
         "114.6 #18"
       ],
       "rtg": 2.7,
-      "fair_pct": 4.6,
-      "fair_odds": "+2051",
-      "market": "+8000",
+      "fair_pct": 4.8,
+      "fair_odds": "+1963",
+      "market": "+7500",
       "books": {
-        "FanDuel": 8000,
-        "DraftKings": 8000
+        "FanDuel": 7500
       },
-      "ev": 277,
+      "ev": 268,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 277
+        "ev": 268
       },
       "read": {
         "v": "caution",
@@ -496,9 +446,9 @@
     {
       "name": "Miami Heat",
       "conf": "E",
-      "rec": "9-6",
+      "rec": "10-6",
       "score": 2,
-      "index": 55.4,
+      "index": 56.1,
       "q": [
         true,
         false,
@@ -506,24 +456,23 @@
         false
       ],
       "vals": [
-        "0.600",
+        "0.625",
         "+0.7 #15",
         "120.5 #1",
         "119.9 #27"
       ],
       "rtg": 0.7,
-      "fair_pct": 3.1,
-      "fair_odds": "+3108",
-      "market": "+4000",
+      "fair_pct": 3.3,
+      "fair_odds": "+2949",
+      "market": "+3500",
       "books": {
-        "FanDuel": 3500,
-        "DraftKings": 4000
+        "FanDuel": 3500
       },
-      "ev": 28,
+      "ev": 18,
       "verdict": {
         "kind": "trap",
         "label": "trap",
-        "ev": 28
+        "ev": 18
       },
       "read": {
         "v": "fools_gold",
@@ -533,11 +482,49 @@
       "vs500": null
     },
     {
+      "name": "Oklahoma City Thunder",
+      "conf": "W",
+      "rec": "10-7",
+      "score": 1,
+      "index": 69.2,
+      "q": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "0.588",
+        "+4.5 #10",
+        "113.0 #16",
+        "108.5 #5"
+      ],
+      "rtg": 4.5,
+      "fair_pct": 0.8,
+      "fair_odds": "+12255",
+      "market": "+550",
+      "books": {
+        "FanDuel": 550
+      },
+      "ev": -95,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -95
+      },
+      "read": {
+        "v": "trust",
+        "why": "Defense wins in May \u2014 a #5 unit that travels, forces the half-court, and keeps every game winnable when shots stop falling. Trust it."
+      },
+      "ftt": "pending",
+      "vs500": null
+    },
+    {
       "name": "Denver Nuggets",
       "conf": "W",
-      "rec": "9-5",
+      "rec": "10-5",
       "score": 1,
-      "index": 61.6,
+      "index": 62.3,
       "q": [
         true,
         false,
@@ -545,23 +532,23 @@
         false
       ],
       "vals": [
-        "0.643",
+        "0.667",
         "+1.5 #14",
         "114.6 #12",
         "113.1 #15"
       ],
       "rtg": 1.5,
       "fair_pct": 0.6,
-      "fair_odds": "+18076",
-      "market": "+2500",
+      "fair_odds": "+16832",
+      "market": "+2700",
       "books": {
-        "FanDuel": 2500
+        "FanDuel": 2700
       },
-      "ev": -86,
+      "ev": -83,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -83
       },
       "read": {
         "v": "caution",
@@ -590,17 +577,16 @@
       ],
       "rtg": 2.4,
       "fair_pct": 1.2,
-      "fair_odds": "+8486",
-      "market": "+3000",
+      "fair_odds": "+8373",
+      "market": "+3300",
       "books": {
-        "FanDuel": 3000,
-        "DraftKings": 2800
+        "FanDuel": 3300
       },
-      "ev": -64,
+      "ev": -60,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -64
+        "ev": -60
       },
       "read": {
         "v": "fools_gold",
@@ -629,16 +615,16 @@
       ],
       "rtg": 0.2,
       "fair_pct": 0.8,
-      "fair_odds": "+12982",
-      "market": "+2500",
+      "fair_odds": "+12809",
+      "market": "+2200",
       "books": {
-        "FanDuel": 2500
+        "FanDuel": 2200
       },
-      "ev": -80,
+      "ev": -82,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -82
       },
       "read": {
         "v": "caution",
@@ -668,16 +654,15 @@
       "rtg": -10.5,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
-      "market": "+35000",
+      "market": "+17500",
       "books": {
-        "FanDuel": 17500,
-        "DraftKings": 35000
+        "FanDuel": 17500
       },
-      "ev": -78,
+      "ev": -89,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -78
+        "ev": -89
       },
       "read": {
         "v": "caution",
@@ -698,24 +683,24 @@
     "New York Knicks": 5.6,
     "Detroit Pistons": 5.8,
     "Philadelphia 76ers": 2.9,
-    "Oklahoma City Thunder": 4.5,
     "Atlanta Hawks": 2.7,
     "Miami Heat": 0.7,
+    "Oklahoma City Thunder": 4.5,
     "Denver Nuggets": 1.5,
     "Cleveland Cavaliers": 2.4,
     "Toronto Raptors": 0.2,
     "Charlotte Hornets": -10.5,
     "Dallas Mavericks": -0.2,
-    "Phoenix Suns": -0.9,
     "Golden State Warriors": -0.9,
+    "Phoenix Suns": -0.9,
     "Orlando Magic": -3.1,
     "Indiana Pacers": -3.6,
     "Washington Wizards": -6.5,
     "LA Clippers": -6.5,
     "Utah Jazz": -7.4,
     "New Orleans Pelicans": -8.2,
-    "Chicago Bulls": -8.1,
     "Brooklyn Nets": -7.9,
+    "Chicago Bulls": -8.1,
     "Sacramento Kings": -12.3,
     "Milwaukee Bucks": -12.4
   },
@@ -725,20 +710,19 @@
     "label": "Trust the board",
     "note": "18 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "dk_asof": "Nov 18",
-  "market_name": "FanDuel / DraftKings",
+  "market_name": "FanDuel",
   "value_plays": [
     {
-      "name": "Boston Celtics",
-      "ev": 92,
-      "market": "+950",
-      "fair_odds": "+447"
+      "name": "Minnesota Timberwolves",
+      "ev": 96,
+      "market": "+1700",
+      "fair_odds": "+821"
     },
     {
-      "name": "Minnesota Timberwolves",
-      "ev": 78,
-      "market": "+1600",
-      "fair_odds": "+855"
+      "name": "Boston Celtics",
+      "ev": 87,
+      "market": "+950",
+      "fair_odds": "+462"
     }
   ]
 }
