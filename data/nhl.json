@@ -1,11 +1,11 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-23T11:06:05Z",
-  "odds_remaining": "28971",
+  "generated": "2026-11-23T17:04:51Z",
+  "odds_remaining": "28464",
   "prediction": {
     "pick": "Carolina Hurricanes",
-    "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +284). The Read: No goaltending asterisk, no possession hole \u2014 #1 driving play and #8 in net. The team you want when the games get low-scoring and tight. Trust it."
+    "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +285). The Read: No goaltending asterisk, no possession hole \u2014 #1 driving play and #8 in net. The team you want when the games get low-scoring and tight. Trust it."
   },
   "gp_min": 20,
   "gp_max": 26,
@@ -44,10 +44,11 @@
       "rtg": 1.29,
       "sv5": "91.3% #8",
       "fair_pct": 26.0,
-      "fair_odds": "+284",
+      "fair_odds": "+285",
       "market": "+500",
       "books": {
-        "FanDuel": 500
+        "FanDuel": 500,
+        "DraftKings": 500
       },
       "ev": 56,
       "verdict": {
@@ -65,7 +66,7 @@
       "conf": "E",
       "rec": "15-6-2",
       "score": 4,
-      "index": 70.3,
+      "index": 70.4,
       "q": [
         true,
         true,
@@ -75,26 +76,27 @@
       "vals": [
         "+0.74 #6",
         "55.0 #3",
-        "54.9 #7",
+        "55.0 #7",
         "67 #8"
       ],
-      "rtg": 0.63,
-      "sv5": "89.9% #19",
+      "rtg": 0.64,
+      "sv5": "90.2% #18",
       "fair_pct": 6.2,
-      "fair_odds": "+1519",
+      "fair_odds": "+1508",
       "market": "+1100",
       "books": {
-        "FanDuel": 1100
+        "FanDuel": 1100,
+        "DraftKings": 1000
       },
-      "ev": -26,
+      "ev": -25,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -26
+        "ev": -25
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#3) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+        "why": "Controls the puck (#3) but can't fully trust the net (#18). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -119,15 +121,16 @@
       "sv5": "91.1% #12",
       "fair_pct": 16.9,
       "fair_odds": "+491",
-      "market": "+900",
+      "market": "+850",
       "books": {
-        "FanDuel": 900
+        "FanDuel": 850,
+        "DraftKings": 850
       },
-      "ev": 69,
+      "ev": 61,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 69
+        "ev": 61
       },
       "read": {
         "v": "trust",
@@ -155,10 +158,11 @@
       "rtg": 0.42,
       "sv5": "93.5% #1",
       "fair_pct": 13.8,
-      "fair_odds": "+625",
+      "fair_odds": "+626",
       "market": "+900",
       "books": {
-        "FanDuel": 900
+        "FanDuel": 900,
+        "DraftKings": 850
       },
       "ev": 38,
       "verdict": {
@@ -190,12 +194,13 @@
         "73 #18"
       ],
       "rtg": 0.57,
-      "sv5": "90.1% #18",
+      "sv5": "90.1% #19",
       "fair_pct": 3.9,
-      "fair_odds": "+2480",
+      "fair_odds": "+2484",
       "market": "+1000",
       "books": {
-        "FanDuel": 1000
+        "FanDuel": 1000,
+        "DraftKings": 950
       },
       "ev": -57,
       "verdict": {
@@ -205,7 +210,7 @@
       },
       "read": {
         "v": "caution",
-        "why": "Controls the puck (#2) but can't fully trust the net (#18). The dangerous kind of team: the process says contender, the goaltending says coin flip."
+        "why": "Controls the puck (#2) but can't fully trust the net (#19). The dangerous kind of team: the process says contender, the goaltending says coin flip."
       }
     },
     {
@@ -229,10 +234,11 @@
       "rtg": 0.11,
       "sv5": "89.8% #23",
       "fair_pct": 5.8,
-      "fair_odds": "+1613",
+      "fair_odds": "+1615",
       "market": "+1000",
       "books": {
-        "FanDuel": 1000
+        "FanDuel": 1000,
+        "DraftKings": 850
       },
       "ev": -36,
       "verdict": {
@@ -266,20 +272,21 @@
       "rtg": 0.0,
       "sv5": "90.2% #17",
       "fair_pct": 4.9,
-      "fair_odds": "+1959",
+      "fair_odds": "+1961",
       "market": "+1600",
       "books": {
-        "FanDuel": 1600
+        "FanDuel": 1600,
+        "DraftKings": 1500
       },
-      "ev": -17,
+      "ev": -18,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -17
+        "ev": -18
       },
       "read": {
         "v": "caution",
-        "why": "No standout strength (#14 even-strength goal differential), and its weakest link \u2014 #17 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
+        "why": "No standout strength (#13 even-strength goal differential), and its weakest link \u2014 #17 in 5v5 save % (goaltending, not shown on the card) \u2014 is what a seven-game series exposes."
       }
     },
     {
@@ -303,16 +310,17 @@
       "rtg": 0.32,
       "sv5": "91.8% #3",
       "fair_pct": 2.7,
-      "fair_odds": "+3559",
+      "fair_odds": "+3566",
       "market": "+2700",
       "books": {
-        "FanDuel": 2700
+        "FanDuel": 2700,
+        "DraftKings": 2500
       },
-      "ev": -23,
+      "ev": -24,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -23
+        "ev": -24
       },
       "read": {
         "v": "trust",
@@ -340,10 +348,11 @@
       "rtg": 0.37,
       "sv5": "92.5% #2",
       "fair_pct": 1.9,
-      "fair_odds": "+5222",
+      "fair_odds": "+5231",
       "market": "+3500",
       "books": {
-        "FanDuel": 3500
+        "FanDuel": 3500,
+        "DraftKings": 3000
       },
       "ev": -32,
       "verdict": {
@@ -377,16 +386,17 @@
       "rtg": 0.16,
       "sv5": "89.0% #26",
       "fair_pct": 1.5,
-      "fair_odds": "+6673",
+      "fair_odds": "+6684",
       "market": "+950",
       "books": {
-        "FanDuel": 950
+        "FanDuel": 950,
+        "DraftKings": 950
       },
-      "ev": -84,
+      "ev": -85,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -84
+        "ev": -85
       },
       "read": {
         "v": "caution",
@@ -414,10 +424,11 @@
       "rtg": 0.13,
       "sv5": "89.8% #21",
       "fair_pct": 3.4,
-      "fair_odds": "+2872",
+      "fair_odds": "+2875",
       "market": "+1500",
       "books": {
-        "FanDuel": 1500
+        "FanDuel": 1500,
+        "DraftKings": 1500
       },
       "ev": -46,
       "verdict": {
@@ -451,16 +462,17 @@
       "rtg": -0.22,
       "sv5": "91.2% #9",
       "fair_pct": 1.2,
-      "fair_odds": "+8156",
-      "market": "+6000",
+      "fair_odds": "+8174",
+      "market": "+8000",
       "books": {
-        "FanDuel": 6000
+        "FanDuel": 6000,
+        "DraftKings": 8000
       },
-      "ev": -26,
+      "ev": -2,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -26
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -2
       },
       "read": {
         "v": "caution",
@@ -488,16 +500,17 @@
       "rtg": 0.1,
       "sv5": "91.8% #4",
       "fair_pct": 1.0,
-      "fair_odds": "+9815",
-      "market": "+10000",
+      "fair_odds": "+9831",
+      "market": "+15000",
       "books": {
-        "FanDuel": 10000
+        "FanDuel": 12500,
+        "DraftKings": 15000
       },
-      "ev": 2,
+      "ev": 52,
       "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": 2
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 52
       },
       "read": {
         "v": "caution",
@@ -509,7 +522,7 @@
       "conf": "E",
       "rec": "8-12-3",
       "score": 2,
-      "index": 47.3,
+      "index": 47.4,
       "q": [
         false,
         true,
@@ -525,16 +538,17 @@
       "rtg": -0.02,
       "sv5": "90.5% #15",
       "fair_pct": 0.7,
-      "fair_odds": "+13608",
-      "market": "+50000",
+      "fair_odds": "+13552",
+      "market": "+100000",
       "books": {
-        "FanDuel": 50000
+        "FanDuel": 40000,
+        "DraftKings": 100000
       },
-      "ev": 265,
+      "ev": 633,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 265
+        "ev": 633
       },
       "read": {
         "v": "caution",
@@ -562,16 +576,17 @@
       "rtg": -0.1,
       "sv5": "91.4% #6",
       "fair_pct": 1.3,
-      "fair_odds": "+7417",
-      "market": "+5500",
+      "fair_odds": "+7425",
+      "market": "+6000",
       "books": {
-        "FanDuel": 5500
+        "FanDuel": 5500,
+        "DraftKings": 6000
       },
-      "ev": -26,
+      "ev": -19,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -26
+        "ev": -19
       },
       "read": {
         "v": "caution",
@@ -599,10 +614,11 @@
       "rtg": -0.05,
       "sv5": "91.2% #10",
       "fair_pct": 0.5,
-      "fair_odds": "+19147",
+      "fair_odds": "+19177",
       "market": "+15000",
       "books": {
-        "FanDuel": 15000
+        "FanDuel": 15000,
+        "DraftKings": 14000
       },
       "ev": -22,
       "verdict": {
@@ -620,7 +636,7 @@
       "conf": "W",
       "rec": "17-5-4",
       "score": 1,
-      "index": 53.4,
+      "index": 53.7,
       "q": [
         true,
         false,
@@ -630,16 +646,17 @@
       "vals": [
         "+1.00 #3",
         "47.0 #25",
-        "49.5 #15",
+        "49.7 #15",
         "74 #19"
       ],
       "rtg": -0.06,
       "sv5": "91.7% #5",
       "fair_pct": 2.6,
-      "fair_odds": "+3812",
+      "fair_odds": "+3735",
       "market": "+950",
       "books": {
-        "FanDuel": 950
+        "FanDuel": 950,
+        "DraftKings": 800
       },
       "ev": -73,
       "verdict": {
@@ -667,17 +684,23 @@
       "vals": [
         "+0.17 #14",
         "51.0 #8",
-        "49.3 #18",
+        "49.3 #17",
         "71 #14"
       ],
       "rtg": 0.25,
       "sv5": "91.4% #7",
       "fair_pct": 0.8,
-      "fair_odds": "+12583",
-      "market": null,
-      "books": null,
-      "ev": null,
-      "verdict": null,
+      "fair_odds": "+12607",
+      "market": "+1800",
+      "books": {
+        "DraftKings": 1800
+      },
+      "ev": -85,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -85
+      },
       "read": {
         "v": "caution",
         "why": "Carried by its #7 even-strength goal differential, but its weakest link \u2014 #14 in goals against \u2014 is the one a seven-game series finds."
@@ -704,16 +727,17 @@
       "rtg": -0.32,
       "sv5": "90.7% #14",
       "fair_pct": 1.1,
-      "fair_odds": "+9108",
-      "market": "+10000",
+      "fair_odds": "+9118",
+      "market": "+14000",
       "books": {
-        "FanDuel": 10000
+        "FanDuel": 10000,
+        "DraftKings": 14000
       },
-      "ev": 10,
+      "ev": 53,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 10
+        "ev": 53
       },
       "read": {
         "v": "caution",
@@ -725,7 +749,7 @@
       "conf": "E",
       "rec": "10-10-4",
       "score": 1,
-      "index": 43.2,
+      "index": 43.1,
       "q": [
         false,
         true,
@@ -735,22 +759,23 @@
       "vals": [
         "-0.38 #21",
         "51.0 #8",
-        "48.6 #22",
+        "48.5 #22",
         "82 #24"
       ],
-      "rtg": 0.08,
+      "rtg": 0.07,
       "sv5": "89.5% #25",
       "fair_pct": 0.5,
-      "fair_odds": "+21487",
-      "market": "+4000",
+      "fair_odds": "+21759",
+      "market": "+4500",
       "books": {
-        "FanDuel": 4000
+        "FanDuel": 4000,
+        "DraftKings": 4500
       },
-      "ev": -81,
+      "ev": -79,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -81
+        "ev": -79
       },
       "read": {
         "v": "caution",
@@ -772,16 +797,17 @@
       "vals": [
         "-0.52 #24",
         "51.0 #8",
-        "49.3 #17",
+        "49.3 #16",
         "83 #25"
       ],
       "rtg": 0.05,
       "sv5": "87.6% #32",
       "fair_pct": 0.4,
-      "fair_odds": "+23755",
+      "fair_odds": "+23800",
       "market": "+2500",
       "books": {
-        "FanDuel": 2500
+        "FanDuel": 2500,
+        "DraftKings": 1800
       },
       "ev": -89,
       "verdict": {
@@ -799,7 +825,7 @@
       "conf": "E",
       "rec": "7-14-2",
       "score": 1,
-      "index": 41.9,
+      "index": 42.0,
       "q": [
         false,
         true,
@@ -815,10 +841,11 @@
       "rtg": -0.11,
       "sv5": "88.4% #30",
       "fair_pct": 0.4,
-      "fair_odds": "+25176",
+      "fair_odds": "+25103",
       "market": "+20000",
       "books": {
-        "FanDuel": 20000
+        "FanDuel": 20000,
+        "DraftKings": 20000
       },
       "ev": -20,
       "verdict": {
@@ -852,16 +879,17 @@
       "rtg": -0.27,
       "sv5": "89.6% #24",
       "fair_pct": 0.3,
-      "fair_odds": "+33287",
-      "market": "+40000",
+      "fair_odds": "+33321",
+      "market": "+100000",
       "books": {
-        "FanDuel": 40000
+        "FanDuel": 40000,
+        "DraftKings": 100000
       },
-      "ev": 20,
+      "ev": 200,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 20
+        "ev": 200
       },
       "read": {
         "v": "caution",
@@ -872,7 +900,7 @@
   "odds_model": "mix",
   "rtgs": {
     "Carolina Hurricanes": 1.29,
-    "Tampa Bay Lightning": 0.63,
+    "Tampa Bay Lightning": 0.64,
     "Colorado Avalanche": 0.55,
     "Minnesota Wild": 0.42,
     "New Jersey Devils": 0.57,
@@ -890,7 +918,7 @@
     "Edmonton Oilers": -0.06,
     "Montreal Canadiens": 0.25,
     "Nashville Predators": -0.32,
-    "Buffalo Sabres": 0.08,
+    "Buffalo Sabres": 0.07,
     "Washington Capitals": 0.05,
     "Pittsburgh Penguins": -0.11,
     "Calgary Flames": -0.27,
@@ -910,19 +938,20 @@
     "label": "Trust the board",
     "note": "26 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "market_name": "FanDuel",
+  "dk_asof": "Nov 23",
+  "market_name": "FanDuel / DraftKings",
   "value_plays": [
     {
       "name": "Colorado Avalanche",
-      "ev": 69,
-      "market": "+900",
+      "ev": 61,
+      "market": "+850",
       "fair_odds": "+491"
     },
     {
       "name": "Carolina Hurricanes",
       "ev": 56,
       "market": "+500",
-      "fair_odds": "+284"
+      "fair_odds": "+285"
     }
   ]
 }
