@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T17:11:09Z",
+ "updated": "2026-11-23T17:13:01Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -415,8 +415,8 @@
   {
    "id": "s18",
    "book": "DraftKings",
-   "stake": 5,
-   "pays": 1102.95,
+   "stake": 15,
+   "pays": 3308.85,
    "added": "2026-11-23",
    "legs": [
     {
