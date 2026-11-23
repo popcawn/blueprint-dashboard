@@ -1110,9 +1110,10 @@ async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await f
    Reads every board plus the user's slips (data/slips.json: book, stake, pays, legs -- no bet IDs, the repo is public; saved through the
    GitHub token so phone and PC share one list). It suggests a blend only when an OPEN board has a top-3 team (by fair odds) at EV >= +10%
    that no live slip holds yet. Rules (user, 2026-11-23): one team per league, every leg at one book, no league in its playoffs,
-   3 legs by default and 2 only if $5 pays $500+, every blend pays $500+ on $5. It changes no board's numbers. */
+   3 legs preferred over 2. No payout minimum (the $500-on-$5 rule was removed, user 2026-11-23: "remove the payout rule").
+   It changes no board's numbers. */
 let SLIPS={updated:null,slips:[]};
-const BL_STAKE=5, BL_MIN=500, BL_BOOKS=["DraftKings","FanDuel"], BL_FROM={chk:"03-01"};   // college hockey: value plays only from Mar 1 (its rule)
+const BL_STAKE=5, BL_BOOKS=["DraftKings","FanDuel"], BL_FROM={chk:"03-01"};   // college hockey: value plays only from Mar 1 (its rule)
 const money=x=>x==null||x===""?"—":"$"+(+x>=1000?Math.round(+x).toLocaleString("en-US"):(+x).toFixed(+x%1?2:0));
 const blNm=(lg,n)=>FULLNM.includes(lg)?n:shortNm(n);
 function loadSlips(remote){ let local=null; try{ local=JSON.parse(localStorage.getItem("bp_slips")||"null"); }catch(e){}
@@ -1140,11 +1141,11 @@ function blendScan(){
     for(const t of top){ const bk=pxBooks(t,d); if(!Object.keys(bk).length) continue; const p=t.fair_pct/100;
       if(isVal(t)) legs.push({sp,t,p,bk,held:held.has(sp+"|"+t.name)});
       else if(t.verdict&&t.verdict.kind!=="trap"&&t.ev!=null&&t.ev>-25) watch.push({sp,t,need:Math.ceil(toAm(1.1/p)/10)*10}); } }
-  // every 2- and 3-leg combination at one book, one team per league, each leg worth +10% at THAT book, paying $500+ on $5
+  // every 2- and 3-leg combination at one book, one team per league, each leg worth +10% at THAT book
   const all=[];
   for(const B of BL_BOOKS){ const L=legs.filter(c=>c.bk[B]!=null).map(c=>({...c,a:c.bk[B],dec:_dec(c.bk[B])})).filter(c=>c.p*c.dec-1>=0.10);
     const add=g=>{ if(new Set(g.map(x=>x.sp)).size<g.length) return; const fresh=g.filter(x=>!x.held).length; if(!fresh) return;
-      const dec=g.reduce((m,x)=>m*x.dec,1), ch=g.reduce((m,x)=>m*x.p,1); if(BL_STAKE*dec<BL_MIN) return;
+      const dec=g.reduce((m,x)=>m*x.dec,1), ch=g.reduce((m,x)=>m*x.p,1);
       all.push({book:B,legs:g,dec,ch,ev:ch*dec-1,fresh}); };
     for(let i=0;i<L.length;i++) for(let j=i+1;j<L.length;j++){ add([L[i],L[j]]); for(let k=j+1;k<L.length;k++) add([L[i],L[j],L[k]]); } }
   // most new teams first, then 3 legs before 2 (the user's default), then the best value
