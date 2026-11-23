@@ -1,0 +1,416 @@
+{
+ "updated": "2026-11-23T20:00:00Z",
+ "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
+ "slips": [
+  {
+   "id": "s01",
+   "book": "DraftKings",
+   "stake": 11,
+   "pays": 10863.53,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "fcs",
+     "team": "South Dakota State"
+    },
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    }
+   ]
+  },
+  {
+   "id": "s02",
+   "book": "DraftKings",
+   "stake": 25,
+   "pays": 3798.43,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    },
+    {
+     "lg": "fcs",
+     "team": "South Dakota State"
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "book": "DraftKings",
+   "stake": 2.08,
+   "pays": 249394.34,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    },
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    },
+    {
+     "lg": "cfb",
+     "team": "Georgia Bulldogs"
+    },
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "fcs",
+     "team": "Montana State"
+    },
+    {
+     "lg": "nba",
+     "team": "Boston Celtics"
+    },
+    {
+     "lg": "cfl",
+     "team": "Edmonton Elks",
+     "res": "won"
+    }
+   ]
+  },
+  {
+   "id": "s04",
+   "book": "DraftKings",
+   "stake": 10,
+   "pays": 1188,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "cfl",
+     "team": "Edmonton Elks",
+     "res": "won"
+    },
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "fcs",
+     "team": "Montana State"
+    }
+   ]
+  },
+  {
+   "id": "s05",
+   "book": "DraftKings",
+   "stake": 5,
+   "pays": 486,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "fcs",
+     "team": "Montana State"
+    },
+    {
+     "lg": "mls",
+     "team": "Nashville SC"
+    },
+    {
+     "lg": "cfl",
+     "team": "Edmonton Elks",
+     "res": "won"
+    }
+   ]
+  },
+  {
+   "id": "s06",
+   "book": "DraftKings",
+   "stake": 3,
+   "pays": 108483.37,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "nba",
+     "team": "Boston Celtics"
+    },
+    {
+     "lg": "fcs",
+     "team": "Stephen F. Austin"
+    },
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    },
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    }
+   ]
+  },
+  {
+   "id": "s07",
+   "book": "DraftKings",
+   "stake": 15,
+   "pays": 10456.87,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "fcs",
+     "team": "South Dakota State"
+    },
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    }
+   ]
+  },
+  {
+   "id": "s08",
+   "book": "DraftKings",
+   "stake": 5,
+   "pays": 2470,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "fcs",
+     "team": "South Dakota State"
+    },
+    {
+     "lg": "nhl",
+     "team": "Minnesota Wild"
+    },
+    {
+     "lg": "nba",
+     "team": "Minnesota Timberwolves"
+    }
+   ]
+  },
+  {
+   "id": "s09",
+   "book": "FanDuel",
+   "stake": 2,
+   "pays": 4743,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "wnba",
+     "team": "Golden State Valkyries",
+     "res": "won"
+    },
+    {
+     "lg": "mlb",
+     "team": "Brewers",
+     "res": "won"
+    },
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "book": "FanDuel",
+   "stake": 1.08,
+   "pays": 20563.2,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "cfb",
+     "team": "Miami Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    },
+    {
+     "lg": "nhl",
+     "team": "Dallas Stars"
+    },
+    {
+     "lg": "nba",
+     "team": "Toronto Raptors"
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "book": "FanDuel",
+   "stake": 5,
+   "pays": 6000,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "cfb",
+     "team": "Miami Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    },
+    {
+     "lg": "nhl",
+     "team": "Dallas Stars"
+    }
+   ]
+  },
+  {
+   "id": "s12",
+   "book": "FanDuel",
+   "stake": 5,
+   "pays": 239400,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "cfb",
+     "team": "Miami Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "Minnesota Vikings"
+    },
+    {
+     "lg": "nhl",
+     "team": "Dallas Stars"
+    },
+    {
+     "lg": "nba",
+     "team": "Toronto Raptors"
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "book": "FanDuel",
+   "stake": 1,
+   "pays": 27200,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "cfb",
+     "team": "Miami Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "Kansas City Chiefs"
+    },
+    {
+     "lg": "nhl",
+     "team": "Dallas Stars"
+    },
+    {
+     "lg": "nba",
+     "team": "Toronto Raptors"
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "book": "FanDuel",
+   "stake": 5,
+   "pays": 255816,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "mls",
+     "team": "Nashville SC"
+    },
+    {
+     "lg": "cfb",
+     "team": "Miami Hurricanes"
+    },
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    },
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    },
+    {
+     "lg": "nba",
+     "team": "Houston Rockets"
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "book": "FanDuel",
+   "stake": 5,
+   "pays": 3412.5,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    },
+    {
+     "lg": "nhl",
+     "team": "Colorado Avalanche"
+    },
+    {
+     "lg": "nba",
+     "team": "Boston Celtics"
+    }
+   ]
+  },
+  {
+   "id": "s16",
+   "book": "FanDuel",
+   "stake": 10,
+   "pays": 8400,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "nfl",
+     "team": "Jacksonville Jaguars"
+    },
+    {
+     "lg": "nhl",
+     "team": "Colorado Avalanche"
+    },
+    {
+     "lg": "nba",
+     "team": "Boston Celtics"
+    }
+   ]
+  },
+  {
+   "id": "s17",
+   "book": "DraftKings",
+   "stake": 15,
+   "pays": 1032,
+   "added": "2026-11-23",
+   "legs": [
+    {
+     "lg": "fcs",
+     "team": "Montana State"
+    },
+    {
+     "lg": "nba",
+     "team": "Minnesota Timberwolves"
+    }
+   ]
+  }
+ ]
+}

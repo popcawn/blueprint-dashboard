@@ -268,7 +268,45 @@
   .ck .pb>span:first-child>i,.dot.open{background:var(--accent)}
   .tl-reg{background:color-mix(in srgb,var(--accent) 16%,transparent)} .tl-reg>i{background:var(--accent)}
   .tl{margin:8px 0 4px;max-width:640px} .tl-bar{height:6px}
-  @media(max-width:1199px){ .clock{display:none} }
+  /* right column (2026-11-23): Blends panel on top, season clock under it; both scroll together. Under 1200px the column is hidden
+     and the Blends panel shows as a fold under the summary line (#blendsm) instead. */
+  .side{flex:0 0 258px;position:sticky;top:64px;margin-top:14px;max-height:calc(100vh - 78px);overflow:auto;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin}
+  .side .clock{flex:none;position:static;margin:0;max-height:none;overflow:visible}
+  .bl{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;line-height:1.45}
+  .bl:empty{display:none}
+  .blh{display:flex;justify-content:space-between;align-items:baseline;gap:8px} .blh b{font:700 14px var(--head)} .blh span{font-size:11px;color:var(--ink3)}
+  .blst{margin-top:10px;padding:10px;border-radius:9px;background:var(--panel2)} .blst b{display:block;font-size:14px} .blst span{font-size:12.5px;color:var(--ink2)}
+  .blmk{margin-top:10px;padding:10px;border-radius:9px;border:1.5px solid var(--good)}
+  .blmk .why{font-size:12.5px;color:var(--ink2)} .blmk .ti{font-weight:700;font-size:14px;margin-top:6px}
+  .bllegs{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;margin-top:4px;font-size:14px}
+  .bllegs span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .bllegs i{font-style:normal;font-size:11px;color:var(--ink3);margin-left:5px} .bllegs b{font:500 14px var(--mono)}
+  .bllegs .nw{color:var(--good);font-weight:700}
+  .blpay{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2)}
+  .blpay b{font:700 18px var(--head);color:var(--ink)}
+  .blsub{font-size:11px;color:var(--ink3);margin-top:2px}
+  .blk{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin-top:12px}
+  .blw{font-size:12.5px;color:var(--ink2);margin-top:2px}
+  .blsl{margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+  .blsl>summary{cursor:pointer;list-style:none;font-size:12.5px;color:var(--ink2)} .blsl>summary::-webkit-details-marker{display:none}
+  .blsl>summary::before{content:"\25B8  ";color:var(--ink3)} .blsl[open]>summary::before{content:"\25BE  "}
+  .blexp{font-size:11px;color:var(--ink3);margin-top:3px}
+  .slp{padding:7px 0;border-top:1px solid var(--line);font-size:12.5px} .slp:first-of-type{border-top:0;margin-top:4px}
+  .slh{display:flex;align-items:baseline;gap:6px;color:var(--ink2)} .slh b{font:600 12.5px var(--mono);color:var(--ink)}
+  .slh .x{margin-left:auto;border:0;background:none;color:var(--ink3);cursor:pointer;font-size:14px;line-height:1;padding:0 2px}
+  .slh .x:hover{color:var(--bad)}
+  .slg{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+  .slg span{font-size:11px;padding:1px 6px;border-radius:5px;border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
+  .slg .won{color:var(--good);border-color:color-mix(in srgb,var(--good) 45%,transparent)} .slg .lost{color:var(--bad);text-decoration:line-through}
+  .slp.lost{opacity:.55} .slp .stt{font-size:11px;font-weight:700} .slp.won .stt{color:var(--good)} .slp.lost .stt{color:var(--bad)}
+  .bladd{margin-top:10px;width:100%}
+  #blendsm{display:none}
+  .blm{margin:4px 0 8px;padding:0 12px} .blm[open]{padding-bottom:12px}
+  .blm>summary{display:flex;align-items:baseline;gap:8px;padding:10px 0;cursor:pointer;list-style:none;font-size:14px} .blm>summary::-webkit-details-marker{display:none}
+  .blm>summary b{font:700 14px var(--head)} .blm>summary .ms{color:var(--ink2)} .blm>summary .ms.go{color:var(--good);font-weight:700}
+  .blm>summary::after{content:"";margin-left:auto;width:6px;height:6px;border-right:1.5px solid var(--ink3);border-bottom:1.5px solid var(--ink3);transform:rotate(45deg)}
+  .blm[open]>summary::after{transform:rotate(-135deg)}
+  .blm .blh{display:none}
+  @media(max-width:1199px){ .side{display:none} #blendsm{display:block} }
   /* the row drops its Trend column, then Index, as the board gets narrower (both stay in the opened card); the side panel takes 278px from 1200px up */
   @media (min-width:1200px) and (max-width:1261px),(max-width:983px){
     .thead,.tm>summary{grid-template-columns:26px minmax(0,1fr) 70px 46px 98px 90px 184px 10px;grid-template-areas:"rk who dots idx fair px tg ch"}
@@ -303,13 +341,14 @@
 </div></header>
 <div class="layout"><main class="wrap">
   <div class="strip" id="strip"></div>
+  <div id="blendsm"></div>
   <div class="runmore" id="runmore" hidden>
     <div class="rmrow"><b>Rebuild boards</b><div class="lgs" id="lgs"></div><button class="btn sm" id="runbtn" onclick="runBlueprint()">Run selected</button><span class="runmsg" id="runmsg"></span></div>
     <div class="rmrow"><label>Theme<select id="thsel" onchange="setTheme(this.value)"><option value="auto">Auto (follows this device)</option><option value="light">Light</option><option value="dark">Dark</option></select></label><a class="pplink" href="#" onclick="return chgTok()">GitHub token</a></div>
   </div>
   <div class="runline"><span class="runmsg" id="rfmsg"></span><div class="runprog" id="runprog" hidden><i id="runprogi"></i></div></div>
   <div id="app"></div>
-</main><aside class="clock" id="clock" aria-label="Season clock"></aside></div>
+</main><aside class="side" aria-label="Blends and season clock"><section class="bl" id="blends"></section><div class="clock" id="clock"></div></aside></div>
 <div class="pop" id="ppop"><div class="box wide">
   <b id="pptitle">Update prices</b>
   <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap Screenshot, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
@@ -321,6 +360,19 @@
   <div style="display:flex;gap:8px;justify-content:flex-end">
     <button class="btn ghost" onclick="closePP()">Cancel</button>
     <button class="btn" id="ppsave" onclick="savePrices()">Save &amp; rebuild</button>
+  </div>
+</div></div>
+
+<div class="pop" id="slpop"><div class="box wide">
+  <b>Add a slip</b>
+  <p>One team per line, as on the ticket. Short names work (<code>Jaguars</code>, <code>Canes</code>); add the league if a name is in two (<code>cfb: Miami</code>). Mark a leg that already won with <code>won</code>. No bet ID needed — this list is saved in the public repo so your phone and PC share it.</p>
+  <div class="pprow"><select id="slbook" aria-label="Sportsbook"><option>DraftKings</option><option>FanDuel</option></select>
+    <input id="slstake" inputmode="decimal" placeholder="Stake $" style="width:110px;margin:0"><input id="slpays" inputmode="decimal" placeholder="Pays $" style="width:130px;margin:0"></div>
+  <textarea id="sltxt" rows="6" spellcheck="false" placeholder="Jaguars&#10;Montana State&#10;Canes" oninput="checkSlip()"></textarea>
+  <div class="ppcheck" id="slcheck"></div><div class="ppstat" id="slstat"></div>
+  <div style="display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn ghost" onclick="document.getElementById('slpop').classList.remove('on')">Cancel</button>
+    <button class="btn" id="slsave" onclick="addSlip()">Save slip</button>
   </div>
 </div></div>
 
@@ -463,6 +515,9 @@ function simMatchup(){
 const MU_GAP={nfl:5.4,cfb:8.0}, MU_LONG={nfl:600,cfb:400}, MU_MSD={nfl:11.7,cfb:15.8};
 const _invphi=p=>{ let lo=-8,hi=8; for(let i=0;i<60;i++){ const m=(lo+hi)/2; if(_phi(m)<p) lo=m; else hi=m; } return (lo+hi)/2; };
 const _dec=a=>a>0?1+a/100:1+100/-a;
+// odds rank (#1 = best fair title odds; CFB by index x schedule): the board's pick order -- used by the rows and the Blends panel
+function rankBoard(sp){ const d=DATA[sp]; if(!d||!d.teams) return;
+  d.teams.slice().filter(t=>t.index!=null||sp==="cbb"||sp==="wcbb").sort((a,b)=>sp==="cfb"?((b.mw||-1)-(a.mw||-1))||(b.index-a.index):BYODDS.includes(sp)?((b.fair_pct||0)-(a.fair_pct||0))||(_fo(b.fair_odds)-_fo(a.fair_odds))||(b.index-a.index):b.index-a.index).forEach((t,i)=>t._irank=i+1); }
 const _fmtLine=x=>x===0?'PK':(x>0?'+':'')+x;
 const _fmtPx=x=>(x>0?'+':'')+x;
 function bankDefault(){ try{ const b=localStorage.getItem('bp_bank'); if(b) return b; const n=JSON.parse(localStorage.getItem('nfltd_bank')||'{}'); return n&&n.amt>0?String(n.amt):''; }catch(e){ return ''; } }
@@ -667,7 +722,7 @@ function row(t,sp,mv){
 
 function render(){
   document.querySelectorAll(".sportbar button").forEach(b=>b.classList.toggle("on",b.dataset.s===cur)); sbShow();
-  renderClock();
+  renderClock(); renderBlends();
   { const lg=document.getElementById("lgs"); if(lg) lg.innerHTML=tabKeys().map(k=>`<label><input type="checkbox" class="lgchk" value="${k}" ${k===cur?'checked':''}>${SPORTS[k]}</label>`).join(""); }   // same order as the tab strip
   const d=DATA[cur], mx=MAXCAT[cur], app=document.getElementById("app"), strip=document.getElementById("strip");
   if(!d){ app.innerHTML=`<div class="preseason">No data.</div>`; strip.innerHTML=""; return; }
@@ -680,7 +735,7 @@ function render(){
   const teams=d.teams, contenders=NOPROFILE.includes(cur)?teams.filter(t=>t.fair_pct>=5).length:teams.filter(t=>t.score>=2).length;
   // overall rank by index (strength) — what the calibration line's "top-N" refers to
   // CFB ranks by index × schedule (uncapped mw) — the backtested order, same as the Top 8 strip
-  teams.slice().filter(t=>t.index!=null||cur==="cbb"||cur==="wcbb").sort((a,b)=>cur==="cfb"?((b.mw||-1)-(a.mw||-1))||(b.index-a.index):BYODDS.includes(cur)?((b.fair_pct||0)-(a.fair_pct||0))||(_fo(b.fair_odds)-_fo(a.fair_odds))||(b.index-a.index):b.index-a.index).forEach((t,i)=>t._irank=i+1);
+  rankBoard(cur);
   const vp=(d.value_plays||[]); VPSET=new Set(vp.map(x=>x.name));
   const bv=vp[0], traps=teams.filter(t=>t.read&&t.read.v==="fools_gold").length;
   strip.innerHTML=[
@@ -1049,7 +1104,141 @@ async function pollFresh(){ let before=null; try{before=(await(await fetch("data
 let BUILDS={};
 async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await fetch(u+"?t="+t); return r.ok?await r.json():null; }catch(e){ return null; } };
   await Promise.all([...Object.keys(SPORTS).flatMap(k=>[J(`data/${k}.json`).then(x=>{ if(x) DATA[k]=x; }), J(`data/history/${k}.json`).then(x=>{ if(x) HIST[k]=x; })]),
-    J("data/seasons.json").then(x=>{ if(x) SEASONS=x.leagues||[]; renderTabs(); }), J("data/index.json").then(x=>{ if(x) BUILDS=x.builds||{}; })]); }
+    J("data/seasons.json").then(x=>{ if(x) SEASONS=x.leagues||[]; renderTabs(); }), J("data/slips.json").then(x=>loadSlips(x)), J("data/index.json").then(x=>{ if(x) BUILDS=x.builds||{}; })]); }
+
+/* ---------- Blends panel (2026-11-23, user: "as the boards update, it'll say ... make this blend right now") ----------
+   Reads every board plus the user's slips (data/slips.json: book, stake, pays, legs -- no bet IDs, the repo is public; saved through the
+   GitHub token so phone and PC share one list). It suggests a blend only when an OPEN board has a top-3 team (by fair odds) at EV >= +10%
+   that no live slip holds yet. Rules (user, 2026-11-23): one team per league, every leg at one book, no league in its playoffs,
+   3 legs by default and 2 only if $5 pays $500+, every blend pays $500+ on $5. It changes no board's numbers. */
+let SLIPS={updated:null,slips:[]};
+const BL_STAKE=5, BL_MIN=500, BL_BOOKS=["DraftKings","FanDuel"], BL_FROM={chk:"03-01"};   // college hockey: value plays only from Mar 1 (its rule)
+const money=x=>x==null||x===""?"—":"$"+(+x>=1000?Math.round(+x).toLocaleString("en-US"):(+x).toFixed(+x%1?2:0));
+const blNm=(lg,n)=>FULLNM.includes(lg)?n:shortNm(n);
+function loadSlips(remote){ let local=null; try{ local=JSON.parse(localStorage.getItem("bp_slips")||"null"); }catch(e){}
+  // right after a save GitHub Pages can serve the old file for a minute -- keep whichever copy is newer
+  SLIPS=local&&local.updated&&(!remote||Date.parse(local.updated)>Date.parse(remote.updated||0))?local:(remote||SLIPS); if(!SLIPS.slips) SLIPS.slips=[]; }
+function legState(L){ if(L.res) return L.res; const d=DATA[L.lg], t=d&&(d.teams||[]).find(x=>x.name===L.team);
+  if(!t) return "open"; if(t.champion||t.premier) return "won"; if(t.alive===false) return "lost"; return "open"; }
+function slipState(s){ const st=s.legs.map(legState); return st.includes("lost")?"lost":st.every(x=>x==="won")?"won":"live"; }
+function heldSet(){ const h=new Set(); for(const s of SLIPS.slips) if(slipState(s)==="live") for(const L of s.legs) if(legState(L)==="open") h.add(L.lg+"|"+L.team); return h; }
+// open = regular season with a trusted-enough board; early = too few games; wait = before the board's own bet date; closed = playoffs / over
+function boardOpen(sp){ const d=DATA[sp]; if(!d||!d.teams||d.status==="preseason"||d.stage==="preseason"||d.stage==="done"||d.window_closed) return "closed";
+  const g=d.signal&&d.signal.status; if(g==="closed") return "closed"; if(g==="early") return "early";
+  const f=BL_FROM[sp]; if(f){ const md=new Date().toLocaleDateString("en-CA").slice(5); if(md<f||md>"06-30") return "wait"; } return "open"; }
+function pxBooks(t,d){ if(t.books&&Object.keys(t.books).length) return {...t.books};
+  if(!t.market) return {}; const b=(d.market_name&&!d.market_name.includes("/"))?d.market_name:"FanDuel"; return {[b]:_parseOdds(t.market)}; }
+const toAm=dec=>dec>=2?Math.round((dec-1)*100):-Math.round(100/(dec-1));
+function prevSnap(sp){ const h=HIST[sp]; if(!h||!h.length) return null; const cut=Date.parse(h[h.length-1].date)-7*864e5;
+  return [...h].reverse().find(x=>Date.parse(x.date)<=cut)||null; }
+function blendScan(){
+  const held=heldSet(), legs=[], early=[], watch=[];
+  for(const sp of Object.keys(SPORTS)){ const st=boardOpen(sp); if(st==="closed") continue; rankBoard(sp); const d=DATA[sp];
+    const top=d.teams.filter(t=>t._irank&&t._irank<=3&&t.fair_pct).sort((a,b)=>a._irank-b._irank);
+    const isVal=t=>t.ev!=null&&t.ev>=10&&t.verdict&&["best","value","longshot"].includes(t.verdict.kind);
+    if(st!=="open"){ if(top.some(isVal)) early.push({sp,st,pct:d.season_pct}); continue; }
+    for(const t of top){ const bk=pxBooks(t,d); if(!Object.keys(bk).length) continue; const p=t.fair_pct/100;
+      if(isVal(t)) legs.push({sp,t,p,bk,held:held.has(sp+"|"+t.name)});
+      else if(t.verdict&&t.verdict.kind!=="trap"&&t.ev!=null&&t.ev>-25) watch.push({sp,t,need:Math.ceil(toAm(1.1/p)/10)*10}); } }
+  // every 2- and 3-leg combination at one book, one team per league, each leg worth +10% at THAT book, paying $500+ on $5
+  const all=[];
+  for(const B of BL_BOOKS){ const L=legs.filter(c=>c.bk[B]!=null).map(c=>({...c,a:c.bk[B],dec:_dec(c.bk[B])})).filter(c=>c.p*c.dec-1>=0.10);
+    const add=g=>{ if(new Set(g.map(x=>x.sp)).size<g.length) return; const fresh=g.filter(x=>!x.held).length; if(!fresh) return;
+      const dec=g.reduce((m,x)=>m*x.dec,1), ch=g.reduce((m,x)=>m*x.p,1); if(BL_STAKE*dec<BL_MIN) return;
+      all.push({book:B,legs:g,dec,ch,ev:ch*dec-1,fresh}); };
+    for(let i=0;i<L.length;i++) for(let j=i+1;j<L.length;j++){ add([L[i],L[j]]); for(let k=j+1;k<L.length;k++) add([L[i],L[j],L[k]]); } }
+  // most new teams first, then 3 legs before 2 (the user's default), then the best value
+  all.sort((a,b)=>b.fresh-a.fresh||b.legs.length-a.legs.length||b.ev-a.ev);
+  const pick=[], used=new Set();
+  for(const c of all){ const nw=c.legs.filter(x=>!x.held).map(x=>x.sp+"|"+x.t.name); if(nw.some(k=>used.has(k))) continue;   // a second blend must bring different new teams
+    pick.push(c); nw.forEach(k=>used.add(k)); if(pick.length===2) break; }
+  return {pick,early,watch:watch.slice(0,4),legs};
+}
+function blendWhy(c){ return c.legs.filter(x=>!x.held).map(x=>{ const s=prevSnap(x.sp), w=s&&s.teams[x.t.name];
+  const was=w&&(w.ev==null||w.ev<10)?` — was ${w.ev==null?"no price":(w.ev>0?"+":"")+w.ev+"%"} a week ago`:"";
+  return `${blNm(x.sp,x.t.name)} (${SPORTS[x.sp]}) value ${fmtEV(x.t.ev)}${was}`; }).join(" · "); }
+function blendsHTML(){
+  const R=blendScan(), S=SLIPS.slips.map(s=>({s,st:slipState(s)})), live=S.filter(x=>x.st==="live");
+  const newest=Object.values(DATA).map(d=>d&&d.generated).filter(Boolean).sort().pop();
+  let h=`<div class="blh"><b>Blends</b><span>${newest?"boards "+ago(newest):""}</span></div>`;
+  if(R.pick.length) h+=R.pick.map(c=>`<div class="blmk"><div class="why">New for you: ${esc(blendWhy(c))}</div><div class="ti">Make this blend</div>
+    <div class="bllegs">${c.legs.map(x=>`<span${x.held?"":' class="nw"'} title="${esc(x.t.name)} · fair ${x.t.fair_odds} (${x.t.fair_pct}%)${x.held?" · already in your slips":" · not in your slips yet"}">${esc(blNm(x.sp,x.t.name))}<i>${SPORTS[x.sp]}</i></span><b>${fmtA(x.a)}</b>`).join("")}</div>
+    <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
+    <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")} · EV ${fmtEV(Math.round(100*c.ev))} on fair odds</div></div>`).join("");
+  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"You already hold every top-3 value team on an open board.":"No open board has a top-3 team priced as value right now."}</span></div>`;
+  const W=[...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]}) · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
+    ...R.early.map(e=>`${SPORTS[e.sp]} · ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`too early (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
+  if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
+  const exp={}; for(const {s} of live) for(const L of s.legs) if(legState(L)==="open"){ const k=blNm(L.lg,L.team); exp[k]=(exp[k]||0)+(+s.stake||0); }   // whole dollars below
+  const most=Object.entries(exp).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([n,v])=>`${esc(n)} ${money(Math.round(v))}`).join(" · ");
+  const order=[...S].sort((a,b)=>({live:0,won:1,lost:2}[a.st]-{live:0,won:1,lost:2}[b.st]));
+  h+=`<details class="blsl"><summary>Your slips · ${live.length} live · ${money(Math.round(live.reduce((m,x)=>m+(+x.s.stake||0),0)))} in</summary>`
+    +(most?`<div class="blexp">Most on: ${most}</div>`:"")
+    +order.map(({s,st})=>`<div class="slp ${st}"><div class="slh"><span>${BLAB[s.book]||esc(s.book)}</span><b>${money(s.stake)} → ${money(s.pays)}</b>${st!=="live"?`<span class="stt">${st}</span>`:""}<button class="x" title="Remove this slip" aria-label="Remove this slip" onclick="removeSlip('${esc(s.id)}')">×</button></div>
+      <div class="slg">${s.legs.map(L=>{ const k=legState(L); return `<span class="${k}" title="${esc(L.team)} · ${SPORTS[L.lg]||L.lg}${k!=="open"?" · "+k:""}">${k==="won"?"✓ ":""}${esc(blNm(L.lg,L.team))}</span>`; }).join("")}</div></div>`).join("")
+    +`<button class="btn ghost sm bladd" onclick="openSlip()">Add a slip</button></details>`;
+  return {h,n:R.pick.length};
+}
+const BLAB={DraftKings:"DK",FanDuel:"FD"};
+let BL_MOPEN=false;
+function renderBlends(){ const el=document.getElementById("blends"), m=document.getElementById("blendsm"); if(!el&&!m) return;
+  if(!Object.keys(DATA).length){ if(el) el.innerHTML=""; if(m) m.innerHTML=""; return; }
+  const keep=el&&el.querySelector(".blsl"), slOpen=!!(keep&&keep.open), keepm=m&&m.querySelector(".blm .blsl"), slOpenM=!!(keepm&&keepm.open);
+  const {h,n}=blendsHTML();
+  if(el){ el.innerHTML=h; if(slOpen) el.querySelector(".blsl").open=true; }
+  if(m){ m.innerHTML=`<details class="bl blm"${BL_MOPEN?" open":""} ontoggle="BL_MOPEN=this.open"><summary><b>Blends</b><span class="ms${n?" go":""}">${n?`${n} new blend${n>1?"s":""}`:"No new blends"}</span></summary>${h}</details>`;
+    if(slOpenM) m.querySelector(".blsl").open=true; }
+}
+// ---- add / remove slips: saved to data/slips.json with the GitHub token (Contents: Read and write), like Update prices ----
+const _SLAL={canes:"carolina hurricanes",avs:"colorado avalanche",wolves:"minnesota timberwolves",jags:"jacksonville jaguars",niners:"san francisco 49ers",
+  sdsu:"south dakota state",sfa:"stephen f austin",whitecaps:"vancouver whitecaps",valks:"golden state valkyries",cavs:"cleveland cavaliers",sixers:"philadelphia 76ers"};
+function parseSlip(text){ const legs=[], bad=[];
+  for(let raw of String(text||"").split(/\n+/)){ raw=raw.trim(); if(!raw) continue;
+    let res=null; if(/✅|\bwon\b/i.test(raw)) res="won"; else if(/❌|\blost\b/i.test(raw)) res="lost";
+    let nm=raw.replace(/✅|❌|\bwon\b|\blost\b/gi,"").replace(/[+\-−–]\d{3,6}\b/g,"").trim(), only=null;
+    const pm=nm.match(/^([a-z ]+):\s*(.+)$/i);
+    if(pm){ const w=pm[1].trim().toLowerCase(); only=Object.keys(SPORTS).find(k=>k===w||SPORTS[k].toLowerCase()===w)||null; if(only) nm=pm[2]; }
+    const n=_nrm(nm), q=_SLAL[n]||nm, boards=(only?[only]:Object.keys(SPORTS)).filter(k=>DATA[k]&&DATA[k].teams);
+    // an exact full name wins first ("Canes" -> Carolina Hurricanes must not also match CFB's Miami Hurricanes by nickname)
+    let hits=boards.map(k=>({k,t:DATA[k].teams.find(t=>_nrm(t.name)===_nrm(q))})).filter(x=>x.t);
+    if(hits.length!==1) for(const strict of [true,false]){ hits=boards.map(k=>({k,t:matchTeam(q,DATA[k].teams,strict)})).filter(x=>x.t); if(hits.length) break; }
+    if(hits.length>1){ const op=hits.filter(x=>boardOpen(x.k)!=="closed"); if(op.length) hits=op; }
+    if(hits.length===1) legs.push({lg:hits[0].k,team:hits[0].t.name,...(res?{res}:{})});
+    else bad.push(hits.length?`${raw} — in ${hits.map(x=>SPORTS[x.k]).join(" and ")}: add the league, like "${hits[0].k}: ${nm}"`:`${raw} — no team found`); }
+  return {legs,bad}; }
+function checkSlip(){ const {legs,bad}=parseSlip(document.getElementById("sltxt").value);
+  document.getElementById("slcheck").innerHTML=legs.map(L=>`<span class="g">✓</span> ${esc(L.team)} <span class="sub">${SPORTS[L.lg]}${L.res?" · "+L.res:""}</span>`).join("<br>")
+    +(bad.length?(legs.length?"<br>":"")+bad.map(b=>`<span class="r">✗ ${esc(b)}</span>`).join("<br>"):"");
+  return {legs,bad}; }
+function openSlip(){ ["sltxt","slstake","slpays"].forEach(i=>document.getElementById(i).value=""); document.getElementById("slcheck").innerHTML="";
+  document.getElementById("slstat").innerHTML=""; document.getElementById("slpop").classList.add("on"); }
+async function saveSlips(next,msg,st){
+  if(!tok()){ if(st) st.innerHTML='<span class="r">Add your GitHub token first</span> — it needs <b>Contents: Read and write</b>.'; document.getElementById("pop").classList.add("on"); return false; }
+  next.updated=new Date().toISOString();
+  const url=`https://api.github.com/repos/${REPO}/contents/data/slips.json`, H={Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json"};
+  try{ for(let attempt=0;attempt<2;attempt++){
+      let sha; const g=await fetch(`${url}?ref=main&t=${Date.now()}`,{headers:H});
+      if(g.ok) sha=(await g.json()).sha; else if(g.status!==404) throw new Error(g.status===401||g.status===403?"your token can't read the repo":`GitHub said ${g.status}`);
+      const content=btoa(unescape(encodeURIComponent(JSON.stringify(next,null,1)+"\n")));
+      const r=await fetch(url,{method:"PUT",headers:{...H,"Content-Type":"application/json"},body:JSON.stringify({message:msg,content,sha,branch:"main"})});
+      if(r.ok){ SLIPS=next; try{ localStorage.setItem("bp_slips",JSON.stringify(next)); }catch(e){} renderBlends(); return true; }
+      if(r.status===409&&attempt===0) continue;   // the bot committed in between -- refetch the sha once
+      throw new Error(r.status===401?"GitHub refused the save — the token is expired or wrong (Change token)":r.status===403||r.status===404?"GitHub refused the save — the token needs Contents: Read and write on blueprint-dashboard":`GitHub said ${r.status}`); }
+  }catch(e){ const m=esc(e.message||e); if(st) st.innerHTML=`<span class="r">${m}</span>`; else alert(e.message||e); }
+  return false; }
+async function addSlip(){ const {legs,bad}=checkSlip(), st=document.getElementById("slstat"), stake=parseFloat(document.getElementById("slstake").value.replace(/[$,]/g,"")),
+    pays=parseFloat(document.getElementById("slpays").value.replace(/[$,]/g,""));
+  if(bad.length||legs.length<1){ st.innerHTML='<span class="r">Fix the teams marked ✗ first.</span>'; return; }
+  if(!(stake>0)){ st.innerHTML='<span class="r">Enter the stake.</span>'; return; }
+  const book=document.getElementById("slbook").value, ids=SLIPS.slips.map(x=>+String(x.id).replace(/\D/g,"")||0);
+  const slip={id:"s"+String(Math.max(0,...ids)+1).padStart(2,"0"),book,stake,pays:pays>0?pays:null,added:new Date().toLocaleDateString("en-CA"),legs};
+  const btn=document.getElementById("slsave"); btn.disabled=true; st.textContent="saving…";
+  const ok=await saveSlips({...SLIPS,slips:[...SLIPS.slips,slip]},`slips: add a ${BLAB[book]||book} ${legs.length}-leg slip (from the site)`,st);
+  btn.disabled=false; if(ok) document.getElementById("slpop").classList.remove("on"); }
+async function removeSlip(id){ const s=SLIPS.slips.find(x=>x.id===id); if(!s) return;
+  if(!confirm(`Remove this slip from your list?\n${s.book} ${money(s.stake)}: ${s.legs.map(L=>blNm(L.lg,L.team)).join(", ")}`)) return;
+  await saveSlips({...SLIPS,slips:SLIPS.slips.filter(x=>x.id!==id)},`slips: remove ${id} (from the site)`,null); }
+
 // (2026-11-23) switch boards from a tab or the season clock; a finished refresh message doesn't follow you to the next board
 function pick(k){ cur=k; const p=document.getElementById("runprog"), m=document.getElementById("rfmsg"); if(m&&(!p||p.hidden)) m.textContent=""; render(); }
 function toggleMore(){ const m=document.getElementById("runmore"); m.hidden=!m.hidden; if(!m.hidden) window.scrollTo({top:0,behavior:"smooth"}); }
