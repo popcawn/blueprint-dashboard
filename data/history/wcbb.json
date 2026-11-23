@@ -4544,5 +4544,158 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-23",
+  "gp": 9,
+  "teams": {
+   "South Carolina Gamecocks": {
+    "sc": 5,
+    "idx": 98.0,
+    "fp": 23.1,
+    "mkt": "+250",
+    "ev": -19
+   },
+   "Texas Longhorns": {
+    "sc": 5,
+    "idx": 93.8,
+    "fp": 14.9,
+    "mkt": "+1000",
+    "ev": 64
+   },
+   "Michigan Wolverines": {
+    "sc": 4,
+    "idx": 90.9,
+    "fp": 10.9,
+    "mkt": null,
+    "ev": null
+   },
+   "UCLA Bruins": {
+    "sc": 3,
+    "idx": 91.4,
+    "fp": 11.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Kentucky Wildcats": {
+    "sc": 3,
+    "idx": 89.7,
+    "fp": 9.5,
+    "mkt": "+6000",
+    "ev": 481
+   },
+   "USC Trojans": {
+    "sc": 3,
+    "idx": 89.3,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Duke Blue Devils": {
+    "sc": 3,
+    "idx": 88.9,
+    "fp": 8.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Michigan State Spartans": {
+    "sc": 3,
+    "idx": 83.1,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Maryland Terrapins": {
+    "sc": 3,
+    "idx": 80.3,
+    "fp": 3.1,
+    "mkt": "+9000",
+    "ev": 186
+   },
+   "LSU Tigers": {
+    "sc": 3,
+    "idx": 80.0,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Illinois Fighting Illini": {
+    "sc": 3,
+    "idx": 75.6,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Oklahoma Sooners": {
+    "sc": 2,
+    "idx": 85.5,
+    "fp": null,
+    "mkt": "+4000",
+    "ev": null
+   },
+   "Louisville Cardinals": {
+    "sc": 2,
+    "idx": 84.2,
+    "fp": null,
+    "mkt": "+5000",
+    "ev": null
+   },
+   "Arizona State Sun Devils": {
+    "sc": 2,
+    "idx": 82.1,
+    "fp": null,
+    "mkt": "+15000",
+    "ev": null
+   },
+   "Minnesota Golden Gophers": {
+    "sc": 2,
+    "idx": 81.3,
+    "fp": null,
+    "mkt": "+12000",
+    "ev": null
+   },
+   "Oklahoma State Cowgirls": {
+    "sc": 2,
+    "idx": 78.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Rice Owls": {
+    "sc": 2,
+    "idx": 75.0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "TCU Horned Frogs": {
+    "sc": 2,
+    "idx": 74.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Notre Dame Fighting Irish": {
+    "sc": 2,
+    "idx": 71.7,
+    "fp": null,
+    "mkt": "+3500",
+    "ev": null
+   },
+   "Washington Huskies": {
+    "sc": 2,
+    "idx": 70.9,
+    "fp": null,
+    "mkt": "+11000",
+    "ev": null
+   },
+   "California Golden Bears": {
+    "sc": 2,
+    "idx": 69.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]
