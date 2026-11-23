@@ -351,7 +351,7 @@
 </main><aside class="side" aria-label="Blends and season clock"><section class="bl" id="blends"></section><div class="clock" id="clock"></div></aside></div>
 <div class="pop" id="ppop"><div class="box wide">
   <b id="pptitle">Update prices</b>
-  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap Screenshot, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days.</p>
+  <p>Add a <b>screenshot</b> of the sportsbook's title-odds board — tap Screenshot, <b>paste</b> it (Ctrl+V, or long-press the box → Paste), or drag it in — or paste prices as text, one per line (<code>Nashville SC: +350</code>). Check them before saving. Saving writes them to the site and rebuilds this board (~2–3 min). Prices count as current for 14 days. Each book is kept separately: paste FanDuel and DraftKings one after the other and the board shows both and uses the better price.</p>
   <div class="pprow"><select id="ppbook" aria-label="Sportsbook"><option>DraftKings</option><option>FanDuel</option></select>
     <label class="btn ghost sm">Screenshot<input id="ppimg" type="file" accept="image/*" hidden onchange="if(this.files[0])ocrPrices(this.files[0])"></label><a class="pplink" href="#" onclick="return chgTok()">Change token</a></div>
   <div class="ppstat" id="ppstat"></div>
@@ -1049,15 +1049,33 @@ async function savePrices(){ const d=DATA[cur], path=ppPath(), st=document.getEl
   if(d.window_closed){ st.innerHTML=`<span class="r">Not saved — the ${esc(d.sport)} playoffs have started.</span> This board stays frozen on its last pre-playoff prices (you never bet within the playoffs), so a new screenshot would only erase them.`; return; }
   if(!tok()){ st.innerHTML='<span class="r">Add your GitHub token first</span> — it needs <b>Contents: Read and write</b>.'; document.getElementById("pop").classList.add("on"); return; }
   const today=new Date().toLocaleDateString("en-CA"), book=document.getElementById("ppbook").value;
-  const body={date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds:Object.fromEntries(out.map(x=>[x.name,x.odds]))};
+  const odds=Object.fromEntries(out.map(x=>[x.name,x.odds]));
+  // (2026-11-23) boards priced only from screenshots keep EACH book: pasting DraftKings no longer wipes the FanDuel prices (and back).
+  // The other book comes from the saved file, or -- after the bot has used and removed that file -- from what the board shows now.
+  const multi=PPMODE!=="dk", D14=864e5*14, okDate=x=>x&&Date.now()-Date.parse(x+"T12:00:00Z")<=D14;
+  const boardBooks=()=>{ const o={}, bd=d.book_dates||{}, teams=d.teams||[];
+    if(Object.keys(bd).length) for(const [b,dt] of Object.entries(bd)){ const m={}; teams.forEach(t=>{ if(t.books&&t.books[b]!=null) m[t.name]=t.books[b]; }); if(Object.keys(m).length) o[b]={date:dt,odds:m}; }
+    else if(d.market_asof&&d.market_name&&!d.market_name.includes("/")){ const y=new Date().getFullYear(); let dt=new Date(`${d.market_asof} ${y} 12:00`); if(dt-Date.now()>864e5) dt=new Date(`${d.market_asof} ${y-1} 12:00`);
+      const m={}; teams.forEach(t=>{ if(t.market) m[t.name]=_parseOdds(t.market); }); if(!isNaN(dt)&&Object.keys(m).length) o[d.market_name]={date:dt.toLocaleDateString("en-CA"),odds:m}; }
+    return o; };
+  const mkBody=prev=>{ if(!multi) return {date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds};
+    const books={}; for(const [b,e] of Object.entries(prev||{})) if(b!==book&&e&&e.odds&&okDate(String(e.date).slice(0,10))) books[b]={date:String(e.date).slice(0,10),odds:e.odds};
+    books[book]={date:today,odds};
+    const all={}; for(const e of Object.values(books)) for(const [n,p] of Object.entries(e.odds)) if(all[n]==null||_dec(p)>_dec(all[n])) all[n]=p;
+    return {books,date:Object.values(books).map(e=>e.date).sort().pop(),book:Object.keys(books).join(" / "),source:`user screenshots, saved from the site (${d.sport} board)`,odds:all}; };
   const url=`https://api.github.com/repos/${REPO}/contents/${path}`, H={Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json"};
   const btn=document.getElementById("ppsave"); btn.disabled=true; st.textContent="saving…";
   try{ for(let attempt=0;attempt<2;attempt++){
-      let sha; const g=await fetch(`${url}?ref=main&t=${Date.now()}`,{headers:H});
-      if(g.ok) sha=(await g.json()).sha; else if(g.status!==404) throw new Error(g.status===401||g.status===403?"your token can't read the repo":`GitHub said ${g.status}`);
+      let sha, prev=null; const g=await fetch(`${url}?ref=main&t=${Date.now()}`,{headers:H});
+      if(g.ok){ const j=await g.json(); sha=j.sha;
+        try{ const old=JSON.parse(decodeURIComponent(escape(atob(String(j.content||"").replace(/\s/g,"")))));
+          prev=old.books||(old.odds?{[old.book||"DraftKings"]:{date:old.date,odds:old.odds}}:null); }catch(e){} }
+      else if(g.status!==404) throw new Error(g.status===401||g.status===403?"your token can't read the repo":`GitHub said ${g.status}`);
+      if(!prev) prev=boardBooks();
+      const body=mkBody(prev);
       const content=btoa(unescape(encodeURIComponent(JSON.stringify(body,null,1)+"\n")));
       const r=await fetch(url,{method:"PUT",headers:{...H,"Content-Type":"application/json"},
-        body:JSON.stringify({message:`prices: ${d.sport} ${book} screenshot ${today} (saved from the site)`,content,sha,branch:"main"})});
+        body:JSON.stringify({message:`prices: ${d.sport} ${book} screenshot ${today} (saved from the site${body.books&&Object.keys(body.books).length>1?"; kept "+Object.keys(body.books).filter(b=>b!==book).join(", "):""})`,content,sha,branch:"main"})});
       if(r.ok){ closePP(); runBlueprint([cur],"rfmsg"); return; }
       if(r.status===409&&attempt===0) continue;   // the bot committed in between -- refetch the file's sha once
       if(r.status===401||r.status===403||r.status===404){ let gm=""; try{ gm=(await r.json()).message||""; }catch(e){}

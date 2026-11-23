@@ -251,6 +251,37 @@ def with_books(matched, live, matcher):
     return out
 
 DK_ASOF = {}   # board -> "Nov 16": the date of the DraftKings screenshot it used (main() puts it on the board as dk_asof)
+# ---- pasted price files with BOTH books (2026-11-23, user: "in this scenario where i have to paste dk and fd odds ... i currently
+# overwrite the odds when repasted"). A screenshot-priced board's file (data/<x>_book.json, mls_dk.json, wcbb_fd.json) may hold
+#   {"books": {"FanDuel": {"date", "odds"}, "DraftKings": {"date", "odds"}}, "date", "book", "odds"}
+# -- the site's Update prices box replaces only the book being pasted. The top-level date/book/odds stay filled in (best price per team,
+# newest date) so older readers (the chat engines) keep working; old one-book files {date, book, odds} still load.
+PASTED_FILE = {"wcbb": "wcbb_fd.json", "mls": "mls_dk.json", "fcs": "fcs_book.json", "chk": "chk_book.json", "cfl": "cfl_book.json",
+               "nwsl": "nwsl_book.json", "afl": "afl_book.json", "nrl": "nrl_book.json", "superleague": "superleague_book.json"}
+PASTED_BOOKS = {}   # file -> {"per": {team: {book: price}}, "dates": {book: "YYYY-MM-DD"}} for main() to put on the cards
+def load_pasted(fname):
+    """The builders' snapshot shape {date, book, odds}: odds = each team's best price over the books used, date = the newest of them.
+       Books used = those <= 14 days old when any is; otherwise all of them (a board frozen for the playoffs prices against its last
+       pre-playoff screenshots, whatever their age -- the builder checks that date itself)."""
+    raw = json.load(open(os.path.join(DATA, fname), encoding="utf-8"))
+    books = raw.get("books") or ({raw.get("book") or "DraftKings": {"date": raw.get("date"), "odds": raw.get("odds") or {}}} if raw.get("odds") else {})
+    today, ok = datetime.date.today(), {}
+    for b, e in books.items():
+        try: d = datetime.date.fromisoformat(str(e.get("date"))[:10])
+        except Exception: continue
+        if e.get("odds"): ok[b] = (d, e["odds"])
+    fresh = {b: v for b, v in ok.items() if (today - v[0]).days <= 14}
+    use = fresh or ok
+    if not use: return {}
+    per = {}
+    for b, (d, odds) in use.items():
+        for team, px in odds.items():
+            try: per.setdefault(team, {})[b] = int(px)
+            except Exception: pass
+    PASTED_BOOKS[fname] = {"per": per, "dates": {b: v[0].isoformat() for b, v in use.items()}}
+    return {"date": max(v[0] for v in use.values()).isoformat(), "book": " / ".join(use), "source": raw.get("source"),
+            "odds": {team: max(v.values(), key=_dec) for team, v in per.items()}}
+
 def second_book(name, fd, names):
     """DraftKings prices from the user's screenshot, for the boards whose odds feed has FanDuel but no DraftKings title market (NHL, NBA,
        men's college hoops). 2026-11-16, user: "add the screenshot box for draftkings on nhl nba cbb". The site's box saves
@@ -2201,7 +2232,7 @@ def build_college_bb(key):
         if not fd_raw: fd_raw, alt_raw = alt_raw, None   # DraftKings only
     else:
         snap = {}
-        try: snap = json.load(open(os.path.join(DATA, "wcbb_fd.json"), encoding="utf-8"))
+        try: snap = load_pasted("wcbb_fd.json")
         except Exception: pass
         d0 = snap.get("date")
         if snap.get("odds") and d0 and (datetime.date.today() - datetime.date.fromisoformat(d0)).days <= 14:
@@ -2252,7 +2283,7 @@ def build_mls():
     # this season, and no value play (the user never bets within the playoffs).
     stage = E.get("stage") or "regular"; closed = stage in ("playoffs", "done"); first = E.get("first_playoff")
     snap = {}
-    try: snap = json.load(open(os.path.join(DATA, "mls_dk.json"), encoding="utf-8"))
+    try: snap = load_pasted("mls_dk.json")
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
@@ -2331,7 +2362,7 @@ def _build_college(sk):
     subprocess.run(["node", os.path.join(HERE, "scripts", "college", "run.mjs"), sk, "--export", out], check=True, timeout=1500, stdout=subprocess.DEVNULL)
     E = json.load(open(out, encoding="utf-8"))
     snap = {}
-    try: snap = json.load(open(os.path.join(DATA, f"{sk}_book.json"), encoding="utf-8"))
+    try: snap = load_pasted(f"{sk}_book.json")
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
@@ -2424,7 +2455,7 @@ def build_cfl():
         subprocess.run(["node", eng, "--preplayoff", "--export", outp], check=True, timeout=1500, stdout=subprocess.DEVNULL)
         pre = {t["name"]: t["p"] for t in json.load(open(outp, encoding="utf-8"))["teams"]}
     snap = {}
-    try: snap = json.load(open(os.path.join(DATA, "cfl_book.json"), encoding="utf-8"))
+    try: snap = load_pasted("cfl_book.json")
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
@@ -2490,7 +2521,7 @@ def build_nwsl():
     stage = E.get("stage")
     closed = stage in ("playoffs", "done")
     snap = {}
-    try: snap = json.load(open(os.path.join(DATA, "nwsl_book.json"), encoding="utf-8"))
+    try: snap = load_pasted("nwsl_book.json")
     except Exception: pass
     asof = snap.get("date")
     d0 = datetime.date.fromisoformat(asof) if asof else None
@@ -2599,7 +2630,7 @@ def build_footy(key):
     stage, Y, PY = E["stage"], E["season"], E["profile_season"]
     closed, pre = stage in ("finals", "done"), stage == "preseason"
     snap = {}
-    try: snap = json.load(open(os.path.join(DATA, C["book"]), encoding="utf-8"))
+    try: snap = load_pasted(C["book"])
     except Exception: pass
     d0 = datetime.date.fromisoformat(snap["date"]) if snap.get("date") else None
     first = E.get("first_final")
@@ -2699,6 +2730,14 @@ def main():
                     data["signal"] = {"status": "firming", "emoji": "🟡", "label": "Shortlist only",
                                       "note": f"Fair as a top-5 shortlist (17-season backtest), but no bets before March 1: a value play needs a top-5 team at EV >= +25%, from March 1 until the first NCAA-tournament game. The #1 still wins only about 1 title in 6."}
                 if DK_ASOF.get(name): data["dk_asof"] = DK_ASOF[name]
+                pb = PASTED_BOOKS.get(PASTED_FILE.get(name, ""))
+                if pb and len(pb["dates"]) > 1 and data.get("market_asof"):   # both books pasted: each priced card shows both, EV used the better
+                    names = [t["name"] for t in data.get("teams", [])]
+                    for b in pb["dates"]:
+                        for n, px in match_book(names, {k: v[b] for k, v in pb["per"].items() if b in v}).items():
+                            t = next(x for x in data["teams"] if x["name"] == n)
+                            if t.get("market"): t.setdefault("books", {})[b] = px
+                    data["book_dates"] = pb["dates"]
                 seen = {b for t in data.get("teams", []) for b in (t.get("books") or {})}
                 if seen: data["market_name"] = " / ".join(b for b in BOOKS.values() if b in seen)   # (2026-11-16) the books this board's prices came from (the feed has no DraftKings for NHL / NBA / college hoops titles); with two, each card shows both and the EV uses the better price
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
