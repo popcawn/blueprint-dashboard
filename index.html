@@ -212,6 +212,9 @@
   .nm{font:600 14px var(--sans);color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
   .rec{font-size:12.5px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1000 auto}
   .conf{font-size:11px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 30 auto}
+  .conf.ca,.conf.cb{flex:0 0 auto;font-weight:700;line-height:1.45;padding:0 5px;border:1px solid;border-radius:4px}
+  .conf.ca{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 55%,transparent)}
+  .conf.cb{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
   .okm{font-size:12.5px;color:var(--ink2);flex:0 0 auto}
   .mv{font:500 11px var(--mono);color:var(--ink2);white-space:nowrap;flex:0 0 auto} .mv.nw{color:var(--accent)}
   .wm{flex:0 0 auto;font:700 11px var(--mono);font-style:normal;color:var(--warn);background:var(--warnbg);border-radius:50%;width:16px;height:16px;display:inline-grid;place-items:center;cursor:help}
@@ -279,7 +282,7 @@
     .thead{display:none}
     .tm>summary{grid-template-columns:22px auto minmax(0,1fr) auto auto;grid-template-areas:"rk who who who px" ". dots fair tg tg";gap:4px 9px;padding:10px 12px}
     .tm .tg{text-align:right}
-    .tm .idx,.tm .tr,.tm .ch,.conf{display:none}
+    .tm .idx,.tm .tr,.tm .ch,.conf:not(.ca):not(.cb){display:none}
     .c.fair{text-align:left;font-size:12.5px;min-width:0;overflow:hidden;text-overflow:ellipsis} .lb{display:inline;font-family:var(--sans);color:var(--ink3)}
     .tmb{padding:6px 12px 14px}
   }
@@ -620,6 +623,8 @@ function rankMoves(d,sp){
 
 // One team = one row (rank · team · checks · index · fair odds · best price · verdict · trend). Tap it for the full card:
 // the Read (warnings only), every check's value, both books' prices, the schedule numbers and the streak.
+// (2026-11-23, user: "a red and blue square around the conf. to differentiate") two-conference leagues: one side red, the other blue
+const CONFC={AFC:"ca",W:"ca",West:"ca",AL:"ca", NFC:"cb",E:"cb",East:"cb",NL:"cb"};
 function row(t,sp,mv){
   const D=DATA[sp]||{}, flat=NOPROFILE.includes(sp), L=D.labels||[];
   const chips=t.q.map((ok,i)=>`<span class="chip ${flat?'':ok?'on':'no'}"><b>${L[i]||''}</b> ${t.vals[i]}</span>`).join("")
@@ -650,7 +655,7 @@ function row(t,sp,mv){
   const bk=bkAb(t,sp), rankTip=sp==="cfb"?"Rank by fair title odds: index × schedule strength × chance to make the field (the backtested order). Not the index rank.":"Rank by fair title odds (the board's pick order). Not the index rank.";
   return `<details class="tm"><summary>
     <span class="rk" title="${rankTip}">${n||""}</span>
-    <span class="who"><span class="nm">${t.name}</span>${t.confirmed===true?`<span class="okm" title="rotation confirmed in real games">✓</span>`:""}<span class="rec">${t.rec||""}</span>${t.conf?`<span class="conf">${t.conf}</span>`:""}${move}${flag}</span>
+    <span class="who"><span class="nm">${t.name}</span>${t.confirmed===true?`<span class="okm" title="rotation confirmed in real games">✓</span>`:""}<span class="rec">${t.rec||""}</span>${t.conf?`<span class="conf${CONFC[t.conf]?" "+CONFC[t.conf]:""}">${t.conf}</span>`:""}${move}${flag}</span>
     ${dots}<span class="c idx">${t.index??"—"}</span>
     <span class="c fair"><span class="lb">fair </span>${t.fair_odds||"—"}${t.fair_pct?`<small>${t.fair_pct}%</small>`:""}</span>
     <span class="c px">${t.market?`${t.market}<small>${BKAB[bk]||bk}</small>`:"—"}</span>
