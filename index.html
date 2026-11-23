@@ -1226,31 +1226,37 @@ function blendScan(){
       if(isVal(t)) legs.push({sp,t,p,bk,held:held.has(sp+"|"+t.name)});
       else if(t.verdict&&t.verdict.kind!=="trap"&&t.ev!=null&&t.ev>-25&&t.ev<10) watch.push({sp,t,need:Math.ceil(toAm(1.1/p)/10)*10}); } }
   // every 2- and 3-leg combination at one book, one team per league, each leg worth +10% at THAT book
+  // (2026-11-23, user: "doesn't have to be just new teams") a blend of teams you already hold counts too, as long as no live slip
+  // already has all of them together (at either book)
+  const own=SLIPS.slips.filter(s=>slipState(s)==="live").map(s=>new Set(s.legs.map(L=>L.lg+"|"+L.team)));
   const all=[];
   for(const B of BL_BOOKS){ const L=legs.filter(c=>c.bk[B]!=null).map(c=>({...c,a:c.bk[B],dec:_dec(c.bk[B])})).filter(c=>c.p*c.dec-1>=0.10);
-    const add=g=>{ if(new Set(g.map(x=>x.sp)).size<g.length) return; const fresh=g.filter(x=>!x.held).length; if(!fresh) return;
+    const add=g=>{ if(new Set(g.map(x=>x.sp)).size<g.length) return; const fresh=g.filter(x=>!x.held).length; if(own.some(o=>g.every(x=>o.has(x.sp+"|"+x.t.name)))) return;
       const dec=g.reduce((m,x)=>m*x.dec,1), ch=g.reduce((m,x)=>m*x.p,1);
       all.push({book:B,legs:g,dec,ch,ev:ch*dec-1,fresh}); };
     for(let i=0;i<L.length;i++) for(let j=i+1;j<L.length;j++){ add([L[i],L[j]]); for(let k=j+1;k<L.length;k++) add([L[i],L[j],L[k]]); } }
   // most new teams first, then 3 legs before 2 (the user's default), then the best value
   all.sort((a,b)=>b.fresh-a.fresh||b.legs.length-a.legs.length||b.ev-a.ev);
   const pick=[], used=new Set();
-  for(const c of all){ const nw=c.legs.filter(x=>!x.held).map(x=>x.sp+"|"+x.t.name); if(nw.some(k=>used.has(k))) continue;   // a second blend must bring different new teams
+  for(const c of all){ const ks=c.legs.map(x=>x.sp+"|"+x.t.name), nw=c.legs.filter(x=>!x.held).map(x=>x.sp+"|"+x.t.name);
+    if(nw.some(k=>used.has(k))) continue;   // a second blend must bring different new teams
+    if(pick.some(p=>p.legs.filter(x=>ks.includes(x.sp+"|"+x.t.name)).length>1)) continue;   // ...and not be the first one with one team swapped
     pick.push(c); nw.forEach(k=>used.add(k)); if(pick.length===2) break; }
   return {pick,early,watch:watch.slice(0,4),legs};
 }
-function blendWhy(c){ return c.legs.filter(x=>!x.held).map(x=>{ const s=prevSnap(x.sp), w=s&&s.teams[x.t.name];
+function blendWhy(c){ if(!c.fresh) return `New combo: you hold all ${c.legs.length} teams, but never together on one slip`;
+  return "New for you: "+c.legs.filter(x=>!x.held).map(x=>{ const s=prevSnap(x.sp), w=s&&s.teams[x.t.name];
   const was=w&&(w.ev==null||w.ev<10)?` — was ${w.ev==null?"no price":(w.ev>0?"+":"")+w.ev+"%"} a week ago`:"";
   return `${blNm(x.sp,x.t.name)} (${SPORTS[x.sp]}) value ${fmtEV(x.t.ev)}${was}`; }).join(" · "); }
 function blendsHTML(){
   const R=blendScan(), S=SLIPS.slips.map(s=>({s,st:slipState(s)})), live=S.filter(x=>x.st==="live");
   const newest=Object.values(DATA).map(d=>d&&d.generated).filter(Boolean).sort().pop();
   let h=`<div class="blh"><b>Blends</b><span>${newest?"boards "+ago(newest):""}</span></div>`;
-  if(R.pick.length) h+=R.pick.map(c=>`<div class="blmk"><div class="why">New for you: ${esc(blendWhy(c))}</div><div class="ti">Make this blend</div>
+  if(R.pick.length) h+=R.pick.map(c=>`<div class="blmk"><div class="why">${esc(blendWhy(c))}</div><div class="ti">Make this blend</div>
     <div class="bllegs">${c.legs.map(x=>`<span${x.held?"":' class="nw"'} title="${esc(x.t.name)} · fair ${x.t.fair_odds} (${x.t.fair_pct}%)${x.held?" · already in your slips":" · not in your slips yet"}">${esc(blNm(x.sp,x.t.name))}<i>${SPORTS[x.sp]}</i></span><b>${fmtA(x.a)}</b>`).join("")}</div>
     <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")} · EV ${fmtEV(Math.round(100*c.ev))} on fair odds</div></div>`).join("");
-  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"You already hold every value play on an open board.":"No open board has a value play right now."}</span></div>`;
+  else h+=`<div class="blst"><b>No new blends</b><span>${R.legs.length?"Every blend of open-board value plays is already on one of your slips.":"No open board has a value play right now."}</span></div>`;
   const W=[...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]}) · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
