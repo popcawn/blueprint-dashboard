@@ -297,6 +297,11 @@
   .slg{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
   .slg span{font-size:11px;padding:1px 6px;border-radius:5px;border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
   .slg .won{color:var(--good);border-color:color-mix(in srgb,var(--good) 45%,transparent)} .slg .lost{color:var(--bad);text-decoration:line-through}
+  .slg span[data-k],.blexp .slk{cursor:pointer} .slg span[data-k]:hover{border-color:var(--ink3)}
+  .slg span.on{background:var(--accent);border-color:var(--accent);color:var(--onacc)}
+  .blexp .slk{text-decoration:underline dotted;text-underline-offset:2px}
+  .slf{display:flex;align-items:baseline;gap:6px;font-size:11.5px;color:var(--ink2);margin-top:6px}
+  .slf button{margin-left:auto;border:0;background:none;color:var(--accent);cursor:pointer;font-size:11.5px;padding:0}
   .slp.lost{opacity:.55} .slp .stt{font-size:11px;font-weight:700} .slp.won .stt{color:var(--good)} .slp.lost .stt{color:var(--bad)}
   .bladd{margin-top:10px;width:100%}
   #blendsm{display:none}
@@ -1250,17 +1255,25 @@ function blendsHTML(){
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
   const exp={}; for(const {s} of live) for(const L of s.legs) if(legState(L)==="open"){ const k=blNm(L.lg,L.team); exp[k]=(exp[k]||0)+(+s.stake||0); }   // whole dollars below
-  const most=Object.entries(exp).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([n,v])=>`${esc(n)} ${money(Math.round(v))}`).join(" · ");
-  const order=[...S].sort((a,b)=>({live:0,won:1,lost:2}[a.st]-{live:0,won:1,lost:2}[b.st]));
+  // (2026-11-23, user: "click one of the teams and it only shows me every slip they're in. I un click and all slips are back")
+  const legKey=L=>L.lg+"|"+blNm(L.lg,L.team), expLg={}; for(const {s} of live) for(const L of s.legs) expLg[blNm(L.lg,L.team)]=L;
+  const most=Object.entries(exp).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([n,v])=>{ const k=expLg[n]?legKey(expLg[n]):""; return `<span class="slk" data-k="${esc(k)}" onclick="slFilt(this)">${esc(n)}</span> ${money(Math.round(v))}`; }).join(" · ");
+  if(SL_FILT&&!S.some(({s})=>s.legs.some(L=>legKey(L)===SL_FILT))) SL_FILT=null;   // that team's last slip was removed
+  const shown=SL_FILT?S.filter(({s})=>s.legs.some(L=>legKey(L)===SL_FILT)):S;
+  const order=[...shown].sort((a,b)=>({live:0,won:1,lost:2}[a.st]-{live:0,won:1,lost:2}[b.st]));
+  const fName=SL_FILT?SL_FILT.slice(SL_FILT.indexOf("|")+1):"", fMoney=SL_FILT?shown.filter(x=>x.st==="live").reduce((m,x)=>m+(+x.s.stake||0),0):0;
   h+=`<details class="blsl"><summary>Your slips · ${live.length} live · ${money(Math.round(live.reduce((m,x)=>m+(+x.s.stake||0),0)))} in</summary>`
     +(most?`<div class="blexp">Most on: ${most}</div>`:"")
+    +(SL_FILT?`<div class="slf"><span>Only <b>${esc(fName)}</b> · ${shown.length} slip${shown.length>1?"s":""}${fMoney?` · ${money(Math.round(fMoney))} live`:""}</span><button onclick="slFilt(null)">Show all</button></div>`:"")
     +order.map(({s,st})=>`<div class="slp ${st}"><div class="slh"><span>${BLAB[s.book]||esc(s.book)}</span><b>${money(s.stake)} → ${money(s.pays)}</b>${st!=="live"?`<span class="stt">${st}</span>`:""}<button class="x" title="Remove this slip" aria-label="Remove this slip" onclick="removeSlip('${esc(s.id)}')">×</button></div>
-      <div class="slg">${s.legs.map(L=>{ const k=legState(L); return `<span class="${k}" title="${esc(L.team)} · ${SPORTS[L.lg]||L.lg}${k!=="open"?" · "+k:""}">${k==="won"?"✓ ":""}${esc(blNm(L.lg,L.team))}</span>`; }).join("")}</div></div>`).join("")
+      <div class="slg">${s.legs.map(L=>{ const k=legState(L), lk=legKey(L); return `<span class="${k}${lk===SL_FILT?" on":""}" data-k="${esc(lk)}" role="button" tabindex="0" onclick="slFilt(this)" onkeydown="if(event.key==='Enter')slFilt(this)" title="${esc(L.team)} · ${SPORTS[L.lg]||L.lg}${k!=="open"?" · "+k:""} · tap to show only slips with this team">${k==="won"?"✓ ":""}${esc(blNm(L.lg,L.team))}</span>`; }).join("")}</div></div>`).join("")
     +`<button class="btn ghost sm bladd" onclick="openSlip()">Add a slip</button></details>`;
   return {h,n:R.pick.length};
 }
 const BLAB={DraftKings:"DK",FanDuel:"FD"};
-let BL_MOPEN=false;
+let BL_MOPEN=false, SL_FILT=null;
+// tap a team in Your slips -> only the slips with that team; tap it again (or Show all) -> every slip
+function slFilt(el){ const k=el&&el.dataset?el.dataset.k:null; SL_FILT=k&&k!==SL_FILT?k:null; renderBlends(); }
 function renderBlends(){ const el=document.getElementById("blends"), m=document.getElementById("blendsm"); if(!el&&!m) return;
   if(!Object.keys(DATA).length){ if(el) el.innerHTML=""; if(m) m.innerHTML=""; return; }
   const keep=el&&el.querySelector(".blsl"), slOpen=!!(keep&&keep.open), keepm=m&&m.querySelector(".blm .blsl"), slOpenM=!!(keepm&&keepm.open);
