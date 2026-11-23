@@ -1076,29 +1076,82 @@ async function runBlueprint(only,msgId){
   const lg=only||[...document.querySelectorAll(".lgchk:checked")].map(c=>c.value), msg=document.getElementById(MSGID);
   if(!lg.length){msg.textContent="select a league";return;}
   if(!tok()){document.getElementById("pop").classList.add("on");document.getElementById("tok").value=tok();return;}
-  const btn=document.getElementById(MSGID==="rfmsg"?"rfbtn":"runbtn");btn.disabled=true;msg.innerHTML="triggering…";
+  const btn=document.getElementById(MSGID==="rfmsg"?"rfbtn":"runbtn");btn.disabled=true;msg.innerHTML="triggering…"; const t0=Date.now();
   try{ const r=await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/refresh.yml/dispatches`,{method:"POST",
       headers:{Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json","Content-Type":"application/json"},
       body:JSON.stringify({ref:"main",inputs:{leagues:lg.join(",")}})});
-    if(r.status===204){msg.innerHTML="building the board… (~1–2 min)";startProg();pollFresh();}
+    if(r.status===204){msg.textContent="Starting…";startProg();trackRun(lg,t0);pollFresh();}
     else if(r.status===401||r.status===403){msg.innerHTML='<span style="color:var(--bad)">token invalid</span>';document.getElementById("pop").classList.add("on");}
     else msg.innerHTML=`<span style="color:var(--bad)">failed (${r.status})</span>`;
   }catch(e){msg.innerHTML='<span style="color:var(--bad)">network error</span>';}
   btn.disabled=false;
 }
 let progTimer=null;
-function startProg(){ const p=document.getElementById("runprog"),i=document.getElementById("runprogi"),t0=Date.now();
-  p.hidden=false; i.style.width="4%"; clearInterval(progTimer);
-  progTimer=setInterval(()=>{ const t=(Date.now()-t0)/1000; i.style.width=Math.min(92,92*(1-Math.exp(-t/40))).toFixed(1)+"%"; },450); }
-function endProg(ok){ const p=document.getElementById("runprog"),i=document.getElementById("runprogi"); clearInterval(progTimer);
+function startProg(){ const p=document.getElementById("runprog"),i=document.getElementById("runprogi");
+  p.hidden=false; i.style.width="2%"; clearInterval(progTimer); }   // the bar is driven by trackRun (real run progress)
+function endProg(ok){ const p=document.getElementById("runprog"),i=document.getElementById("runprogi"); clearInterval(progTimer); stopTrack();
   if(ok){ i.style.width="100%"; setTimeout(()=>{p.hidden=true;i.style.width="0";},1500); }
   else { p.hidden=true; i.style.width="0"; } }
+/* ---- live countdown (2026-11-23, user: "count this down in seconds, accurately"): watches the real GitHub runs with your token --
+   the refresh run (queued -> building -> done), then the GitHub Pages publish it triggers -- and counts down from how long those
+   same steps took in your recent runs (same boards when there are 2+ such runs, else any Run-button run). Every 3 s it re-reads the
+   runs, so the number corrects itself as each step really starts and ends. Times use GitHub's clock (offset measured at the start). */
+let TRK=null;
+function stopTrack(){ if(TRK){ clearInterval(TRK.tick); clearInterval(TRK.poll); TRK=null; } }
+function ghApi(path){ return fetch(`https://api.github.com/repos/${REPO}/${path}${path.includes("?")?"&":"?"}t=${Date.now()}`,{headers:{Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json"}})
+  .then(r=>{ if(!r.ok) throw new Error("GitHub "+r.status); return r.json(); }); }
+const _med=a=>{ a=a.filter(x=>x!=null&&isFinite(x)&&x>=0).sort((x,y)=>x-y); return a.length?a[Math.floor(a.length/2)]:null; };
+const _secs=(a,b)=>(Date.parse(b)-Date.parse(a))/1000;
+const BUILD_WF="Refresh blueprint data", PAGES_WF="pages build and deployment";
+async function runTimes(lg){ const E={start:3,build:35,after:40,pages:40,n:0,same:false}, title="Refresh "+lg.join(",");
+  try{ const R=(await ghApi("actions/runs?per_page=100")).workflow_runs||[];
+    const B=R.filter(r=>r.name===BUILD_WF&&r.event==="workflow_dispatch"&&r.conclusion==="success"), P=R.filter(r=>r.name===PAGES_WF&&r.conclusion==="success");
+    const same=B.filter(r=>r.display_title===title), use=(same.length>=2?same:B).slice(0,15);
+    // the publish a build's commit set off: the first successful Pages run created after that build started
+    const pub=b=>P.filter(p=>Date.parse(p.created_at)>=Date.parse(b.run_started_at)).sort((x,y)=>Date.parse(x.created_at)-Date.parse(y.created_at))[0];
+    E.start=_med(use.map(r=>_secs(r.created_at,r.run_started_at)))??E.start;
+    E.build=_med(use.map(r=>_secs(r.run_started_at,r.updated_at)))??E.build;
+    E.after=_med(use.map(b=>{ const p=pub(b); return p?_secs(b.updated_at,p.updated_at):null; }).filter(x=>x!=null&&x<300))??E.after;
+    E.pages=_med(P.slice(0,15).map(r=>_secs(r.run_started_at,r.updated_at)))??E.pages;
+    E.n=use.length; E.same=same.length>=2;
+  }catch(e){ E.err=String(e.message||e); }
+  return E; }
+async function trackRun(lg,t0){ stopTrack();
+  const me={t0,lg,E:null,skew:0,build:null,pages:null,done:false}; TRK=me;
+  const title="Refresh "+lg.join(","), name=lg.length===1?(SPORTS[lg[0]]||lg[0]):`${lg.length} boards`;
+  me.E=await runTimes(lg); if(TRK!==me) return;
+  const now=()=>Date.now()+me.skew, since=iso=>(now()-Date.parse(iso))/1000;
+  const left=()=>{ const E=me.E, b=me.build, p=me.pages;
+    if(me.done) return {ph:"load",s:0};
+    if(p) return {ph:"Publishing",s:E.pages-(p.status==="queued"||!p.run_started_at?0:since(p.run_started_at))};
+    if(b&&b.status==="completed") return {ph:"Publishing",s:E.after-since(b.updated_at)};
+    if(b&&b.status==="in_progress") return {ph:"Building "+name,s:E.build-since(b.run_started_at)+E.after};
+    if(b) return {ph:"Waiting for GitHub",s:E.start-since(b.created_at)+E.build+E.after};
+    return {ph:"Starting",s:E.start+E.build+E.after-(Date.now()-t0)/1000}; };
+  const draw=()=>{ if(TRK!==me) return; const {ph,s}=left(), m=document.getElementById(MSGID), bar=document.getElementById("runprogi"), el=(Date.now()-t0)/1000;
+    if(m) m.textContent=ph==="load"?"Loading the new board…":s>=1.5?`${ph} · ${Math.round(s)} s left`:`${ph} · a few more seconds`;
+    if(bar) bar.style.width=Math.max(2,Math.min(ph==="load"?99:97,100*el/(el+Math.max(s,1.5)))).toFixed(1)+"%"; };
+  const poll=async()=>{ if(TRK!==me) return;
+    try{ const R=(await ghApi("actions/runs?per_page=12")).workflow_runs||[]; if(TRK!==me) return;
+      if(!me.build){ const c=R.filter(r=>r.name===BUILD_WF&&r.event==="workflow_dispatch"&&Date.parse(r.created_at)>t0-120e3&&(r.display_title===title||r.display_title===BUILD_WF)&&!(r.status==="completed"&&Date.parse(r.updated_at)<t0-60e3));
+        const b=c.find(r=>r.display_title===title)||c[c.length-1];
+        if(b){ me.build=b; const sk=Date.parse(b.created_at)-t0; if(Math.abs(sk)<600e3) me.skew=sk-500; } }   // GitHub's clock minus ours (less ~0.5 s for the request)
+      else me.build=R.find(r=>r.id===me.build.id)||me.build;
+      const b=me.build;
+      if(b&&b.status==="completed"&&b.conclusion!=="success"){ stopTrack(); endProg(false); clearInterval(PFIV);
+        const m=document.getElementById(MSGID); if(m) m.innerHTML=`<span style="color:var(--bad)">The refresh ${b.conclusion==="cancelled"?"was cancelled":"failed"} on GitHub — the board wasn't changed.</span>`; return; }
+      if(b){ const ps=R.filter(r=>r.name===PAGES_WF&&Date.parse(r.created_at)>=Date.parse(b.run_started_at||b.created_at)&&r.conclusion!=="cancelled");
+        if(ps.length){ me.pages=ps[0]; if(me.pages.status==="completed"&&me.pages.conclusion==="success") me.done=true; } }
+    }catch(e){ /* no Actions access or offline: keep counting down on the estimate alone */ }
+    draw(); };
+  me.tick=setInterval(draw,1000); me.poll=setInterval(poll,3000); poll(); }
+let PFIV=null;
 async function pollFresh(){ let before=null; try{before=(await(await fetch("data/index.json?t="+Date.now())).json()).generated}catch(e){}
-  let n=0; const iv=setInterval(async()=>{ n++; if(n>30){clearInterval(iv);endProg(false);document.getElementById(MSGID).textContent="still building — check back shortly";return;}
+  clearInterval(PFIV); let n=0; const iv=PFIV=setInterval(async()=>{ n++; if(n>80){clearInterval(iv);endProg(false);document.getElementById(MSGID).textContent="still building — check back shortly";return;}
     try{const g=(await(await fetch("data/index.json?t="+Date.now())).json()).generated;
       if(g&&g!==before){clearInterval(iv);endProg(true);await loadData();render();const m=document.getElementById(MSGID);
         // (2026-11-07) a finished bot run isn't a successful build of THIS board -- say so when its build failed
-        if(m){ const b=BUILDS[cur]; m.innerHTML=b&&b.ok===false&&Date.parse(b.at)>=Date.parse(before||0)?`<span style="color:var(--bad)">⚠ the bot ran but the ${esc(SPORTS[cur])} build failed — showing the last good board</span>`:"updated"; }}}catch(e){} },8000);
+        if(m){ const b=BUILDS[cur]; m.innerHTML=b&&b.ok===false&&Date.parse(b.at)>=Date.parse(before||0)?`<span style="color:var(--bad)">⚠ the bot ran but the ${esc(SPORTS[cur])} build failed — showing the last good board</span>`:"updated"; }}}catch(e){} },3000);
 }
 // (2026-11-07) all files in parallel -- the old loop fetched 31 files one after another before the first render
 let BUILDS={};

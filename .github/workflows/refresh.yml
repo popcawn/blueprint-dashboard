@@ -1,4 +1,6 @@
 name: Refresh blueprint data
+# (2026-11-23) the run's title names the boards a Run-button build asked for, so the site's countdown can time each board from its own past runs
+run-name: ${{ github.event_name == 'workflow_dispatch' && format('Refresh {0}', github.event.inputs.leagues) || 'Refresh blueprint data' }}
 
 on:
   schedule:
