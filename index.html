@@ -862,13 +862,16 @@ function sitePct(L,p){ const d=DATA[L.key]; return L.site&&p.k==="open"&&d&&d.se
 // Tab order (2026-11-22, user: "Sport row should be ordered by when season ends. Seasons that haven't ended [= have ended] should be
 // ordered by when they come back"): leagues in season or in their playoffs first, soonest title first; then the offseason ones (title
 // decided, or not started yet), soonest return first. From data/seasons.json on every load; no seasons.json = the usual order.
+// (2026-11-23, user: "move to the end once window is closed") a league in its playoffs (bet window closed) goes LAST, soonest title first.
 function offPhase(k){ try{ const L=SEASONS.find(x=>x.key===k), p=L&&phase(L);
   if(!p||p.k!=="off"||(p.over&&L.next&&Date.now()>=D0(L.next).getTime())) return null;   // past its "next" start but the row isn't rolled yet = back in season
   return {L,p}; }catch(e){ return null; } }
 function tabKeys(){ const ks=Object.keys(SPORTS), row=k=>SEASONS.find(x=>x.key===k);
   const ends=k=>(row(k)||{}).final||"9999", back=k=>{ const o=offPhase(k); return o.p.over?(o.L.next||"9999"):o.L.start; };
-  const on=ks.filter(k=>!offPhase(k)).sort((a,b)=>ends(a).localeCompare(ends(b))), off=ks.filter(k=>offPhase(k)).sort((a,b)=>back(a).localeCompare(back(b)));
-  return [...on,...off]; }
+  const inPo=k=>{ const L=row(k); try{ return !!L&&phase(L).k==="po"; }catch(e){ return false; } };
+  const on=ks.filter(k=>!offPhase(k)&&!inPo(k)).sort((a,b)=>ends(a).localeCompare(ends(b))), off=ks.filter(k=>offPhase(k)).sort((a,b)=>back(a).localeCompare(back(b)));
+  const po=ks.filter(k=>!offPhase(k)&&inPo(k)).sort((a,b)=>ends(a).localeCompare(ends(b)));
+  return [...on,...off,...po]; }
 function sbArrows(){ const t=document.getElementById("tabs"), w=document.getElementById("sbwrap"); if(!t||!w) return;
   w.classList.toggle("cl",t.scrollLeft>4); w.classList.toggle("cr",t.scrollLeft+t.clientWidth<t.scrollWidth-4); }
 function sbScroll(dir){ const t=document.getElementById("tabs"); t.scrollBy({left:dir*Math.max(120,t.clientWidth*0.7),behavior:"smooth"}); }
