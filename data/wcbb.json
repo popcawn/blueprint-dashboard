@@ -37,19 +37,19 @@
         "4-0"
       ],
       "rtg": 82.0,
-      "mk": 250,
+      "mk": 195,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 23.1,
       "fair_odds": "+333",
       "read": null,
-      "market": "+250",
-      "ev": -19,
+      "market": "+195",
+      "ev": -32,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -19
+        "ev": -32
       }
     },
     {
@@ -73,19 +73,19 @@
         "1-0"
       ],
       "rtg": 73.0,
-      "mk": 1000,
+      "mk": 1900,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 14.9,
       "fair_odds": "+572",
       "read": null,
-      "market": "+1000",
-      "ev": 64,
+      "market": "+1900",
+      "ev": 198,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE",
-        "ev": 64
+        "ev": 198
       }
     },
     {
@@ -173,19 +173,19 @@
         "1-0"
       ],
       "rtg": 63.3,
-      "mk": 6000,
+      "mk": 5000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.5,
       "fair_odds": "+950",
       "read": null,
-      "market": "+6000",
-      "ev": 481,
+      "market": "+5000",
+      "ev": 386,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 481
+        "ev": 386
       }
     },
     {
@@ -273,16 +273,20 @@
         "1-0"
       ],
       "rtg": 47.4,
-      "mk": null,
+      "mk": 20000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 4.4,
       "fair_odds": "+2155",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+20000",
+      "ev": 791,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 791
+      }
     },
     {
       "name": "Maryland Terrapins",
@@ -305,19 +309,19 @@
         "1-1"
       ],
       "rtg": 66.7,
-      "mk": 9000,
+      "mk": 10000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 3.1,
       "fair_odds": "+3077",
       "read": null,
-      "market": "+9000",
-      "ev": 186,
+      "market": "+10000",
+      "ev": 218,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 186
+        "ev": 218
       }
     },
     {
@@ -405,14 +409,14 @@
         "1-0"
       ],
       "rtg": 54.2,
-      "mk": 4000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+4000",
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -437,14 +441,14 @@
         "1-0"
       ],
       "rtg": 51.1,
-      "mk": 5000,
+      "mk": 2200,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+5000",
+      "market": "+2200",
       "ev": null,
       "verdict": null
     },
@@ -501,14 +505,14 @@
         "1-0"
       ],
       "rtg": 45.9,
-      "mk": 12000,
+      "mk": 10000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+12000",
+      "market": "+10000",
       "ev": null,
       "verdict": null
     },
@@ -533,14 +537,14 @@
         "1-0"
       ],
       "rtg": 42.3,
-      "mk": null,
+      "mk": 5000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+5000",
       "ev": null,
       "verdict": null
     },
@@ -629,14 +633,14 @@
         "\u2014"
       ],
       "rtg": 58.1,
-      "mk": 3500,
+      "mk": 3000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+3500",
+      "market": "+3000",
       "ev": null,
       "verdict": null
     },
@@ -661,14 +665,14 @@
         "\u2014"
       ],
       "rtg": 56.9,
-      "mk": 11000,
+      "mk": 10000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+11000",
+      "market": "+10000",
       "ev": null,
       "verdict": null
     },
@@ -693,14 +697,14 @@
         "\u2014"
       ],
       "rtg": 50.2,
-      "mk": null,
+      "mk": 25000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+25000",
       "ev": null,
       "verdict": null
     }
@@ -1078,10 +1082,10 @@
     "Carolina University Bruins": -72.4,
     "Johnson Royals": -52.6
   },
-  "generated": "2026-11-23T16:34:50Z",
+  "generated": "2026-11-23T16:36:30Z",
   "odds_remaining": null,
   "market_asof": "Nov 23",
-  "market_name": "DraftKings",
+  "market_name": "FanDuel",
   "alt_name": null,
   "prediction": {
     "pick": "South Carolina Gamecocks",
@@ -1099,8 +1103,8 @@
   "value_plays": [
     {
       "name": "Texas Longhorns",
-      "ev": 64,
-      "market": "+1000",
+      "ev": 198,
+      "market": "+1900",
       "fair_odds": "+572"
     }
   ]

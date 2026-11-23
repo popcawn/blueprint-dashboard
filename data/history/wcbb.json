@@ -4553,15 +4553,15 @@
     "sc": 5,
     "idx": 98.0,
     "fp": 23.1,
-    "mkt": "+250",
-    "ev": -19
+    "mkt": "+195",
+    "ev": -32
    },
    "Texas Longhorns": {
     "sc": 5,
     "idx": 93.8,
     "fp": 14.9,
-    "mkt": "+1000",
-    "ev": 64
+    "mkt": "+1900",
+    "ev": 198
    },
    "Michigan Wolverines": {
     "sc": 4,
@@ -4581,8 +4581,8 @@
     "sc": 3,
     "idx": 89.7,
     "fp": 9.5,
-    "mkt": "+6000",
-    "ev": 481
+    "mkt": "+5000",
+    "ev": 386
    },
    "USC Trojans": {
     "sc": 3,
@@ -4602,15 +4602,15 @@
     "sc": 3,
     "idx": 83.1,
     "fp": 4.4,
-    "mkt": null,
-    "ev": null
+    "mkt": "+20000",
+    "ev": 791
    },
    "Maryland Terrapins": {
     "sc": 3,
     "idx": 80.3,
     "fp": 3.1,
-    "mkt": "+9000",
-    "ev": 186
+    "mkt": "+10000",
+    "ev": 218
    },
    "LSU Tigers": {
     "sc": 3,
@@ -4630,14 +4630,14 @@
     "sc": 2,
     "idx": 85.5,
     "fp": null,
-    "mkt": "+4000",
+    "mkt": null,
     "ev": null
    },
    "Louisville Cardinals": {
     "sc": 2,
     "idx": 84.2,
     "fp": null,
-    "mkt": "+5000",
+    "mkt": "+2200",
     "ev": null
    },
    "Arizona State Sun Devils": {
@@ -4651,14 +4651,14 @@
     "sc": 2,
     "idx": 81.3,
     "fp": null,
-    "mkt": "+12000",
+    "mkt": "+10000",
     "ev": null
    },
    "Oklahoma State Cowgirls": {
     "sc": 2,
     "idx": 78.2,
     "fp": null,
-    "mkt": null,
+    "mkt": "+5000",
     "ev": null
    },
    "Rice Owls": {
@@ -4679,21 +4679,21 @@
     "sc": 2,
     "idx": 71.7,
     "fp": null,
-    "mkt": "+3500",
+    "mkt": "+3000",
     "ev": null
    },
    "Washington Huskies": {
     "sc": 2,
     "idx": 70.9,
     "fp": null,
-    "mkt": "+11000",
+    "mkt": "+10000",
     "ev": null
    },
    "California Golden Bears": {
     "sc": 2,
     "idx": 69.2,
     "fp": null,
-    "mkt": null,
+    "mkt": "+25000",
     "ev": null
    }
   }
