@@ -284,8 +284,6 @@
   .blpay{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2)}
   .blpay b{font:700 18px var(--head);color:var(--ink)}
   .blsub{font-size:11px;color:var(--ink3);margin-top:2px}
-  .bldis{font-size:11.5px;color:var(--ink2);margin:2px 0 8px} .bldis b{font:600 11.5px var(--mono);color:var(--ink)}
-  .bldis.warn b{color:var(--warn)} .bldis.bad b{color:var(--bad)}
   .blcov{font-size:11px;color:var(--ink2);margin-top:3px} .blcov b{font:600 11px var(--mono);color:var(--ink)}
   .blk{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin-top:12px}
   .blw{font-size:12.5px;color:var(--ink2);margin-top:2px}
@@ -1238,20 +1236,18 @@ function cashArr(legs,S){ const a=new Uint8Array(COV_N), need=[];
   for(let i=0;i<COV_N;i++){ let ok=1; for(const [d,k] of need) if(d[i]!==k){ ok=0; break; } a[i]=ok; }
   return a; }
 /* ---- discipline (2026-11-23, user: "make sure blend is only adding value ... teams that are consistent are being rewarded more
-   than the teams that flip-flop ... not just unnecessarily betting ... let me know when I am overdoing it ... hold me accountable").
+   than the teams that flip-flop ... not just unnecessarily betting"). Same day the user dropped the budget and the 7-day cooldown
+   ("there doesn't need to be a budget ... I don't need a 7-day cooldown either") and asked what "steady" means for the Bills.
    A blend is suggested only when ALL hold:
-   1. STEADY legs: over the last 14 days of board snapshots (4+), the team was top 3 by fair odds with positive EV in at least 2/3
-      of them, and today it passes its board's value rule. A team that just turned value waits under Watching until it holds.
+   1. STEADY legs: over the last 14 days of board snapshots (4+), the team was top 3 by fair odds in at least 2/3 of them (the team
+      is consistently one of the best -- its EV may swing with the price), and TODAY it passes its board's value rule at that book.
    2. REAL COVERAGE: it adds 1+ point to the chance something cashes (seasons where none of your live slips do).
    3. A HIT IS A PROFIT: $5 on it pays more than everything you've staked, it included.
-   4. BUDGET: your live stakes + $5 stay within the budget (slips.json "budget", default $160 = where the user said "I'm okay with
-      stopping here since I'm $155 in").
-   5. COOLDOWN: no slip added in the last 7 days -- one look a week, not every refresh.
-   A blend that passes 1-3 but is stopped by 4 or 5 is shown as "held back" (so nothing is missed), never as "make this blend". */
-const BL_BUDGET=160, BL_COOL=7, BL_MINGAIN=0.01, BL_STEADY=14;
+   Boards in their playoffs are already off (boardOpen), so a league stops getting blends once its playoffs start. */
+const BL_MINGAIN=0.01, BL_STEADY=14;
 function steadyOf(sp,name){ const h=HIST[sp]; if(!h||!h.length) return {ok:false,n:0,k:0};
   const end=Date.parse(h[h.length-1].date), w=h.filter(x=>x.teams&&x.teams[name]&&end-Date.parse(x.date)<=BL_STEADY*864e5);
-  let k=0; for(const x of w){ const me=x.teams[name], fp=me.fp||0, rk=1+Object.values(x.teams).filter(v=>(v.fp||0)>fp).length; if(rk<=3&&me.ev!=null&&me.ev>0) k++; }
+  let k=0; for(const x of w){ const me=x.teams[name], fp=me.fp||0, rk=1+Object.values(x.teams).filter(v=>(v.fp||0)>fp).length; if(rk<=3) k++; }
   return {ok:w.length>=4&&k>=Math.ceil(w.length*2/3),n:w.length,k}; }
 function blendScan(){
   const held=heldSet(), legs=[], early=[], watch=[], unsteady=[];
@@ -1305,14 +1301,8 @@ function blendScan(){
     pick.push(best); best.legs.filter(x=>!x.held).forEach(x=>used.add(x.sp+"|"+x.t.name)); }
   let bestGain=0; for(const c of all) if(c.gain!=null&&!pick.includes(c)) bestGain=Math.max(bestGain,c.gain);
   for(const c of all) delete c.cash;
-  // rules 4-5: budget and cooldown hold a qualifying blend back instead of offering it
-  const budget=+SLIPS.budget||BL_BUDGET, today=new Date().toLocaleDateString("en-CA");
-  const lastAdd=SLIPS.slips.map(s=>s.added).filter(Boolean).sort().pop()||null;
-  const since=lastAdd?Math.round((Date.parse(today)-Date.parse(lastAdd))/864e5):null;
-  const next=lastAdd?new Date(Date.parse(lastAdd+"T12:00:00")+BL_COOL*864e5):null;
-  const disc={staked,budget,lastAdd,since,next,over:staked+BL_STAKE>budget,cool:since!=null&&since<BL_COOL,bestGain};
-  const heldBack=disc.over||disc.cool?pick.splice(0):[];
-  return {pick,heldBack,disc,early,watch:watch.slice(0,4),unsteady,legs,cov};
+  for(const w of watch) w.sd=steadyOf(w.sp,w.t.name);
+  return {pick,disc:{staked,bestGain},early,watch:watch.slice(0,4),unsteady,legs,cov};
 }
 function blendWhy(c){ if(!c.fresh) return `New combo: you hold all ${c.legs.length} teams, but never together on one slip`;
   return "New for you: "+c.legs.filter(x=>!x.held).map(x=>{ const s=prevSnap(x.sp), w=s&&s.teams[x.t.name];
@@ -1322,18 +1312,14 @@ function blendsHTML(){
   const R=blendScan(), S=SLIPS.slips.map(s=>({s,st:slipState(s)})), live=S.filter(x=>x.st==="live");
   const newest=Object.values(DATA).map(d=>d&&d.generated).filter(Boolean).sort().pop();
   let h=`<div class="blh"><b>Blends</b><span>${newest?"boards "+ago(newest):""}</span></div>`;
-  const D=R.disc, fmtD=x=>x.toLocaleDateString("en-US",{month:"short",day:"numeric"});
-  h+=`<div class="bldis${D.staked>D.budget?" bad":D.staked>=0.9*D.budget?" warn":""}">Budget <b>${money(Math.round(D.staked))} of ${money(D.budget)}</b>${D.staked>D.budget?` · <b>${money(Math.round(D.staked-D.budget))} over, stop adding</b>`:""}${D.cool?` · last slip ${D.since===0?"today":D.since===1?"yesterday":D.since+" days ago"}, next blend check <b>${fmtD(D.next)}</b>`:""}</div>`;
   if(R.pick.length) h+=R.pick.map(c=>`<div class="blmk"><div class="why">${esc(blendWhy(c))}</div><div class="ti">Make this blend</div>
     <div class="bllegs">${c.legs.map(x=>`<span${x.held?"":' class="nw"'} title="${esc(x.t.name)} · fair ${x.t.fair_odds} (${x.t.fair_pct}%)${x.held?" · already in your slips":" · not in your slips yet"}">${esc(blNm(x.sp,x.t.name))}<i>${SPORTS[x.sp]}</i></span><b>${fmtA(x.a)}</b>`).join("")}</div>
     <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")} · EV ${fmtEV(Math.round(100*c.ev))} on fair odds</div>
     ${c.cov?`<div class="blcov">Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b>${R.cov.top&&!c.legs.some(x=>x.sp===R.cov.top.lg&&x.t.name===R.cov.top.name)?` · if ${esc(blNm(R.cov.top.lg,R.cov.top.name))} lose <b>${covP(c.cov.fromTop)} → ${covP(c.cov.toTop)}</b>`:""}</div>`:""}</div>`).join("");
-  else if(R.heldBack.length){ const c=R.heldBack[0];
-    h+=`<div class="blst"><b>Hold</b><span>${D.over?`You're at your ${money(D.budget)} budget.`:`You added a slip ${D.since===0?"today":D.since===1?"yesterday":D.since+" days ago"}; next check ${fmtD(D.next)}.`} One blend would qualify: ${c.legs.map(x=>esc(blNm(x.sp,x.t.name))).join(" / ")} at ${c.book} (adds ${(100*c.gain).toFixed(1)} points). Skip it unless you'd drop something for it.</span></div>`; }
   else h+=`<div class="blst"><b>You're covered</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestGain>0?`The best blend left adds only ${(100*R.disc.bestGain).toFixed(1)} points to your chance something cashes. Not worth a new ticket.`:"Every steady value-play blend is already on your slips, or only cashes when one of them does."}</span></div>`;
-  const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but steady on only ${u.sd.k} of the last ${u.sd.n} boards. Wait for it to hold.`),
-    ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]}) · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
+  const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but top 3 on only ${u.sd.k} of the last ${u.sd.n} boards. Wait for it to hold.`),
+    ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+(BL_FROM[e.sp]==="03-01"?"Mar 1":BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
   const exp={}; for(const {s} of live) for(const L of s.legs) if(legState(L)==="open"){ const k=blNm(L.lg,L.team); exp[k]=(exp[k]||0)+(+s.stake||0); }   // whole dollars below
@@ -1351,7 +1337,7 @@ function blendsHTML(){
     +order.map(({s,st})=>`<div class="slp ${st}"><div class="slh"><span>${BLAB[s.book]||esc(s.book)}</span><b>${money(s.stake)} → ${money(s.pays)}</b>${st!=="live"?`<span class="stt">${st}</span>`:""}<button class="x" title="Remove this slip" aria-label="Remove this slip" onclick="removeSlip('${esc(s.id)}')">×</button></div>
       <div class="slg">${s.legs.map(L=>{ const k=legState(L), lk=legKey(L); return `<span class="${k}${lk===SL_FILT?" on":""}" data-k="${esc(lk)}" role="button" tabindex="0" onclick="slFilt(this)" onkeydown="if(event.key==='Enter')slFilt(this)" title="${esc(L.team)} · ${SPORTS[L.lg]||L.lg}${k!=="open"?" · "+k:""} · tap to show only slips with this team">${k==="won"?"✓ ":""}${esc(blNm(L.lg,L.team))}</span>`; }).join("")}</div></div>`).join("")
     +`<button class="btn ghost sm bladd" onclick="openSlip()">Add a slip</button></details>`;
-  return {h,n:R.pick.length,lab:R.heldBack.length?"Hold · budget/cooldown":"You're covered"};
+  return {h,n:R.pick.length,lab:"You're covered"};
 }
 const BLAB={DraftKings:"DK",FanDuel:"FD"};
 const covP=p=>p==null?"—":p>=0.001?(100*p).toFixed(1)+"%":"<0.1%";
