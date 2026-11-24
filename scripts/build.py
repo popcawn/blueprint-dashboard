@@ -1133,19 +1133,28 @@ def nba_depth(season):
         d = get(f"https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/statistics/byathlete?region=us&lang=en&contentorigin=espn&season={season}&seasontype=2&limit=600")
     except Exception:
         return {}
+    # (2026-11-24 fix) ESPN empties each athlete's category `names` (same change as byteam -- see nba_scoring): the field order lives in the
+    # top-level `categories` glossary, and the team is athlete.teamName (nickname, e.g. "Lakers"), not athlete.team. Before this the feed
+    # returned {} on every build, so has_depth was False and net rating silently took depth's 15% of the index.
+    glos = {c.get("name"): c.get("names") or [] for c in d.get("categories", [])}
     out = {}
     for a in d.get("athletes", []):
         try:
-            tm = a.get("athlete", {}).get("team", {}).get("displayName")
+            ath = a.get("athlete", {})
+            tm = ath.get("teamName") or (ath.get("team") or {}).get("displayName")
             ppg = None
             for c in a.get("categories", []):
-                nm = c.get("names", [])
-                for cand in ("avgPoints", "points"):
-                    if cand in nm: ppg = c["values"][nm.index(cand)]; break
+                nm = c.get("names") or glos.get(c.get("name"), [])
+                if "avgPoints" in nm: ppg = c["values"][nm.index("avgPoints")]; break
             if tm and ppg is not None and ppg >= 10: out[tm] = out.get(tm, 0) + 1
         except Exception:
             continue
     return out
+
+def _nba_depth_of(depth, name):
+    """depth is keyed by nickname ("Trail Blazers") or full name; match the board's full name."""
+    if name in depth: return depth[name]
+    return next((v for k, v in depth.items() if name.endswith(" " + k)), 0)
 
 def nba_scoring(season):
     """Pull per-team PPG / Opp PPG from ESPN byteam. Returns {name:(ppg,oppppg)} or {} if the season hasn't started.
@@ -1594,7 +1603,7 @@ def build_nba():
         w, l = wl.get(nm, (0, 0)); g = w + l
         if g == 0: continue
         rows.append({"name": nm, "conf": "E" if nm in NBA_EAST else "W", "rec": f"{w}-{l}", "gp": g,
-            "w": w, "l": l, "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp, "depth": depth.get(nm, 0)})
+            "w": w, "l": l, "winpct": w/g, "ppg": ppg, "oppppg": opp, "pdg": ppg - opp, "depth": _nba_depth_of(depth, nm)})
     if not rows:
         base.update({"status": "preseason", "odds_remaining": None,
             "note": "NBA regular season tips off in late October — the blueprint goes live on the first real games.", "teams": []})
@@ -1605,17 +1614,21 @@ def build_nba():
         t["q"] = [t["winpct"] >= 0.600, t["rk_pd"] <= 5, t["rk_ppg"] <= 10, t["rk_opp"] <= 10]
         t["score"] = sum(t["q"])
     npd = norm(rows, "pdg", True); no = norm(rows, "oppppg", False); nf = norm(rows, "ppg", True)
-    nw = norm(rows, "winpct", True); ndp = norm(rows, "depth", True)
+    nw = norm(rows, "winpct", True)
     has_depth = any(t["depth"] for t in rows)
     # Index reweighted 2026-10-28 after a 15-season champion backtest (2011-2025, ESPN standings):
     # WIN% is the single BEST champion predictor (champ top-3 10/15) but was weighted only .13, while
     # raw offense (ppg, .20) is a weak standalone predictor and redundant with net rating. Bumping
     # win% .13->.23 and trimming offense .20->.12 lifts the champ to top-3 11/15 (was 9) and avg rank
     # #2.9 (was #3.2); it held or improved on BOTH split-halves (unlike the NFL reweight, which overfit).
-    # Depth (scoring balance) stays .15, net rating .30; neutral if the depth feed is unavailable.
+    # Depth (scoring balance) is OUT of the index (2026-11-24, user: "fix it and test it first"): the depth feed had been empty since
+    # ESPN's format change (has_depth False every build), so net rating carried its .15. Fixed feed, then tested 2010-11..2025-26
+    # weekly (baseball-blueprint/study/nba-depth-test.py, depth as of each date from player box scores): depth on was worse or tied in
+    # the first half and mixed-to-worse in the second (champ fair rank at the playoff start 2.88->3.12 / 3.50->3.75; the champion's depth
+    # rank averaged ~#12 of 30, close to random). The .15 was hand-set and never live with data -> net rating keeps .45. `depth` is still
+    # pulled and stored on each team for reference only.
     for t in rows:
-        t["index"] = round(npd[t["name"]]*.30 + no[t["name"]]*.20 + nf[t["name"]]*.12 + nw[t["name"]]*.23
-                           + (ndp[t["name"]]*.15 if has_depth else npd[t["name"]]*.15), 1)
+        t["index"] = round(npd[t["name"]]*.45 + no[t["name"]]*.20 + nf[t["name"]]*.12 + nw[t["name"]]*.23, 1)
     # From game 25: index = 50% the above + 50% record vs .500+ teams (see nba_vs500 for the backtest;
     # this exact 0-100 blend reproduces it: champ top-3 12/15, top-5 14/15, avg rank 2.67 vs 3.00).
     vs500_on = min(t["gp"] for t in rows) >= VS500_MIN_GP
