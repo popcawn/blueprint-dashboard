@@ -10,7 +10,6 @@
     "wcbb",
     "mls",
     "fcs",
-    "chk",
     "cfl",
     "nwsl",
     "afl",
@@ -87,10 +86,6 @@
     "wcbb": {
       "ok": true,
       "at": "2026-11-24T19:42:13Z"
-    },
-    "chk": {
-      "ok": true,
-      "at": "2026-11-24T19:42:17Z"
     },
     "euroleague": {
       "ok": true,

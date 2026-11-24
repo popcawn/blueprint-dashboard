@@ -15,7 +15,7 @@ import json, math, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
 SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "chk": 34, "cfl": 18, "nwsl": 30, "afl": 23, "nrl": 24, "superleague": 27, "euroleague": 38, "nbl": 33, "aleague": 26, "liiga": 60, "ligamx": 17, "superrugby": 14, "urc": 18, "ahl": 72, "swissnl": 52}   # regular-season games per team (for season %)
@@ -2890,7 +2890,7 @@ def main():
     # just kept its old file). The site flags a board whose last refresh failed; the Action log gets a ::warning:: annotation.
     try: builds = json.load(open(os.path.join(DATA, "index.json"), encoding="utf-8")).get("builds") or {}
     except Exception: builds = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("chk", build_chk), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague), ("euroleague", build_euroleague), ("nbl", build_nbl), ("aleague", build_aleague), ("liiga", build_liiga), ("ligamx", build_ligamx), ("superrugby", build_superrugby), ("urc", build_urc), ("ahl", build_ahl), ("swissnl", build_swissnl)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague), ("euroleague", build_euroleague), ("nbl", build_nbl), ("aleague", build_aleague), ("liiga", build_liiga), ("ligamx", build_ligamx), ("superrugby", build_superrugby), ("urc", build_urc), ("ahl", build_ahl), ("swissnl", build_swissnl)]:
         if name not in LEAGUES:
             continue
         try:
@@ -2941,7 +2941,7 @@ def main():
             built[name] = f"FAILED: {msg}"
             builds[name] = {"ok": False, "at": now_iso(), "error": msg[:300]}
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga", "ligamx", "superrugby", "urc", "ahl", "swissnl"], "generated": now_iso(),
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga", "ligamx", "superrugby", "urc", "ahl", "swissnl"], "generated": now_iso(),
                    "builds": builds}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 
