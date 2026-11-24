@@ -148,7 +148,7 @@ def _value_plays(teams, maxcat, sport=None):
         # <= +2500, regular season only -- never the untested preseason, never within the playoffs). All three fair; URC and AHL thin.
         for t in teams:
             p = _price_num(t.get("market"))
-            ok = sport == "liiga" or (t.get("pos") or 99) <= 2
+            ok = sport != "aleague" or (t.get("pos") or 99) <= 2   # only A-League needs a top-2 ladder spot (fixed 2026-11-24: URC/Super Rugby/AHL were wrongly held to it)
             if t.get("bet_ok") and ok and (t.get("ev") or 0) >= 15 and p is not None and p <= 2500:
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
