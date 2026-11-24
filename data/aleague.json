@@ -1,7 +1,7 @@
 {
   "sport": "A-League Men",
   "season": "2026-27",
-  "generated": "2026-11-24T20:02:52Z",
+  "generated": "2026-11-24T20:12:15Z",
   "cats": [
     "Attack rating \u2265 0.98",
     "Defence rating \u2264 0.97",
@@ -44,13 +44,17 @@
       "minor_pct": 13.5,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 13.9,
-      "fair_odds": "+619",
+      "fair_pct": 14.1,
+      "fair_odds": "+607",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 470,
+      "market": "+470",
+      "ev": -19,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -19
+      }
     },
     {
       "name": "Wellington Phoenix",
@@ -76,16 +80,21 @@
       "rtg": 1.031,
       "reg": null,
       "pos": 1,
-      "minor_pct": 17.9,
+      "minor_pct": 17.0,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 13.7,
-      "fair_odds": "+628",
+      "fair_pct": 13.6,
+      "fair_odds": "+633",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1100,
+      "market": "+1100",
+      "ev": 64,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE \u00b7 price only",
+        "ev": 64,
+        "norule": true
+      }
     },
     {
       "name": "Melbourne City FC",
@@ -114,13 +123,17 @@
       "minor_pct": 14.1,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 12.4,
-      "fair_odds": "+705",
+      "fair_pct": 11.7,
+      "fair_odds": "+753",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 410,
+      "market": "+410",
+      "ev": -40,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -40
+      }
     },
     {
       "name": "Western Sydney Wanderers FC",
@@ -146,16 +159,59 @@
       "rtg": 1.026,
       "reg": null,
       "pos": 2,
-      "minor_pct": 11.8,
+      "minor_pct": 11.6,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 10.9,
-      "fair_odds": "+814",
+      "fair_pct": 10.8,
+      "fair_odds": "+825",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 550,
+      "market": "+550",
+      "ev": -30,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -30
+      }
+    },
+    {
+      "name": "Perth Glory FC",
+      "conf": "6th",
+      "rec": "2-2-1 \u00b7 7 pts \u00b7 +3",
+      "gp": 5,
+      "score": 3,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "0.99 #9",
+        "0.96 #2",
+        "1.00 #4",
+        "0.40 #4",
+        "0.40 #9"
+      ],
+      "index": 65.7,
+      "rtg": 1.034,
+      "reg": null,
+      "pos": 6,
+      "minor_pct": 9.6,
+      "premier": false,
+      "bet_ok": false,
+      "fair_pct": 10.1,
+      "fair_odds": "+890",
+      "read": null,
+      "mk": 5000,
+      "market": "+5000",
+      "ev": 415,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 415
+      }
     },
     {
       "name": "Auckland FC",
@@ -184,48 +240,17 @@
       "minor_pct": 7.8,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 9.9,
-      "fair_odds": "+906",
+      "fair_pct": 9.8,
+      "fair_odds": "+916",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Perth Glory FC",
-      "conf": "6th",
-      "rec": "2-2-1 \u00b7 7 pts \u00b7 +3",
-      "gp": 5,
-      "score": 3,
-      "q": [
-        true,
-        true,
-        true,
-        false,
-        false
-      ],
-      "vals": [
-        "0.99 #9",
-        "0.96 #2",
-        "1.00 #4",
-        "0.40 #4",
-        "0.40 #9"
-      ],
-      "index": 65.7,
-      "rtg": 1.034,
-      "reg": null,
-      "pos": 6,
-      "minor_pct": 9.2,
-      "premier": false,
-      "bet_ok": false,
-      "fair_pct": 9.7,
-      "fair_odds": "+929",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 600,
+      "market": "+600",
+      "ev": -31,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -31
+      }
     },
     {
       "name": "Brisbane Roar FC",
@@ -251,16 +276,20 @@
       "rtg": 0.965,
       "reg": null,
       "pos": 4,
-      "minor_pct": 9.6,
+      "minor_pct": 9.9,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 8.8,
-      "fair_odds": "+1037",
+      "fair_pct": 8.5,
+      "fair_odds": "+1081",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1600,
+      "market": "+1600",
+      "ev": 44,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 44
+      }
     },
     {
       "name": "Macarthur FC",
@@ -286,16 +315,20 @@
       "rtg": 0.983,
       "reg": null,
       "pos": 5,
-      "minor_pct": 7.6,
+      "minor_pct": 8.3,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 8.0,
-      "fair_odds": "+1155",
+      "fair_pct": 8.1,
+      "fair_odds": "+1129",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1100,
+      "market": "+1100",
+      "ev": -2,
+      "verdict": {
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -2
+      }
     },
     {
       "name": "Melbourne Victory",
@@ -321,16 +354,20 @@
       "rtg": 1.057,
       "reg": null,
       "pos": 9,
-      "minor_pct": 4.6,
+      "minor_pct": 4.3,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 6.3,
-      "fair_odds": "+1492",
+      "fair_pct": 6.6,
+      "fair_odds": "+1419",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 650,
+      "market": "+650",
+      "ev": -51,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -51
+      }
     },
     {
       "name": "Newcastle Jets",
@@ -359,13 +396,17 @@
       "minor_pct": 2.6,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 4.0,
-      "fair_odds": "+2394",
+      "fair_pct": 4.2,
+      "fair_odds": "+2270",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1100,
+      "market": "+1100",
+      "ev": -49,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -49
+      }
     },
     {
       "name": "Adelaide United FC",
@@ -394,13 +435,17 @@
       "minor_pct": 0.8,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 1.4,
-      "fair_odds": "+7307",
+      "fair_pct": 1.5,
+      "fair_odds": "+6501",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2700,
+      "market": "+2700",
+      "ev": -58,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -58
+      }
     },
     {
       "name": "Central Coast Mariners FC",
@@ -429,18 +474,22 @@
       "minor_pct": 0.5,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 0.9,
-      "fair_odds": "+10482",
+      "fair_pct": 0.8,
+      "fair_odds": "+12021",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 6500,
+      "market": "+6500",
+      "ev": -46,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -46
+      }
     }
   ],
   "odds_remaining": null,
-  "market_name": "DraftKings",
-  "market_asof": null,
+  "market_name": "FanDuel",
+  "market_asof": "Nov 24",
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2026,
@@ -451,7 +500,7 @@
   "sig": null,
   "prediction": {
     "pick": "Sydney FC",
-    "why": "<b>Sydney FC</b> is the model's #1: 13.9% to win the A-League Grand Final (fair +619). 128 regular-season games left are simulated, then the finals (20,000 runs). Value plays open at 75% of the regular season (about March) and close at the first final."
+    "why": "<b>Sydney FC</b> is the model's #1: 14.1% to win the A-League Grand Final (fair +607). 128 regular-season games left are simulated, then the finals (20,000 runs). Value plays open at 75% of the regular season (about March) and close at the first final."
   },
   "season_pct": 18,
   "gp_min": 4,
