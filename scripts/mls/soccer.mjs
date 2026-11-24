@@ -433,7 +433,7 @@ const norm = s => String(s).toLowerCase().replace(/[^a-z ]/g, ' ').replace(/\b(f
 // stage: regular (no bracket yet) | bracket (set, nothing played: window open) | playoffs | done. Title odds are FROZEN at the start of the playoffs
 // (ratings fit only on games before the first playoff match, results ignored): the user never bets within the playoffs. Fixed 2026-11-07: the
 // printed odds used to be refit on today's ratings while still ignoring the quarterfinals already played (eliminated teams kept their odds).
-const isFinal = g => /final/i.test(g.po) && !/quarter|semi/i.test(g.po);
+const isFinal = g => /final|championship/i.test(g.po) && !/quarter|semi/i.test(g.po);   // (2026-11-24) ESPN's NWSL final slug is 'playoffs---championship' -- the board never reached 'done'
 const first = PO.length ? PO.map(g => g.d).sort()[0] : null, done = PO.some(g => isFinal(g) && g.fin);
 const stage = !PO.length ? 'regular' : done ? 'done' : PO.some(g => g.fin) ? 'playoffs' : 'bracket', frozen = stage === 'playoffs' || stage === 'done';
 const Mp = first ? fit(G, first, P) : null;
