@@ -1286,7 +1286,13 @@ function cashArr(legs,S){ const a=new Uint8Array(COV_N), need=[];
    Boards in their playoffs are already off (boardOpen), so a league stops getting blends once its playoffs start. */
 const BL_MINGAIN=0.01, BL_STEADY=14;
 function steadyOf(sp,name){ const h=HIST[sp]; if(!h||!h.length) return {ok:false,n:0,k:0};
-  const end=Date.parse(h[h.length-1].date), w=h.filter(x=>x.teams&&x.teams[name]&&end-Date.parse(x.date)<=BL_STEADY*864e5);
+  const end=Date.parse(h[h.length-1].date); let w=h.filter(x=>x.teams&&x.teams[name]&&end-Date.parse(x.date)<=BL_STEADY*864e5);
+  // (2026-11-24, user: "ok make the fix") weekly-saved boards have only 2-3 snapshots in 14 days and could never reach 4, so when the
+  // 2-week window is short, look back to the last 4 snapshots instead (whichever covers more) -- never past the start of this season
+  if(w.length<4){ const back=[]; for(let i=h.length-1;i>=0&&back.length<4;i--){
+      if(i<h.length-1&&h[i].gp!=null&&h[i+1].gp!=null&&h[i].gp>h[i+1].gp) break;   // games played dropped = last season
+      if(h[i].teams&&h[i].teams[name]) back.unshift(h[i]); }
+    if(back.length>w.length) w=back; }
   let k=0; for(const x of w){ const me=x.teams[name], fp=me.fp||0, rk=1+Object.values(x.teams).filter(v=>(v.fp||0)>fp).length; if(rk<=3) k++; }
   return {ok:w.length>=4&&k>=Math.ceil(w.length*2/3),n:w.length,k}; }
 function blendScan(){
@@ -1362,7 +1368,7 @@ function blendsHTML(){
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")}</div>
     <div class="blcov">${c.cov?`Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b> · `:""}EV <b>${fmtEV(Math.round(100*c.ev))}</b></div></div>`).join("");
   else h+=`<div class="blst"><b>You're covered</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestGain>0?`The best blend left adds only ${(100*R.disc.bestGain).toFixed(1)} points to your chance something cashes. Not worth a new ticket.`:"Every steady value-play blend is already on your slips, or only cashes when one of them does."}</span></div>`;
-  const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} in the last 2 weeks so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
+  const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} this season so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+({"03-01":"Mar 1","03-16":"mid-March"}[BL_FROM[e.sp]]||BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<details class="blwf"${BL_WOPEN?" open":""} ontoggle="BL_WOPEN=this.open"><summary class="blk">Watching · ${W.length}<i class="ck-car">▾</i></summary>`+W.map(x=>`<div class="blw">${x}</div>`).join("")+`</details>`;   // (2026-11-24, user) folded by default
