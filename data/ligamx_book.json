@@ -1,0 +1,30 @@
+{
+ "books": {
+  "DraftKings": {
+   "date": "2026-11-24",
+   "odds": {
+    "Guadalajara": 330,
+    "Cruz Azul": 350,
+    "América": 350,
+    "Toluca": 450,
+    "Monterrey": 800,
+    "Atlas": 1200,
+    "Pachuca": 1200,
+    "León": 1400
+   }
+  }
+ },
+ "date": "2026-11-24",
+ "book": "DraftKings",
+ "source": "user screenshots, saved from the site (Liga MX board)",
+ "odds": {
+  "Guadalajara": 330,
+  "Cruz Azul": 350,
+  "América": 350,
+  "Toluca": 450,
+  "Monterrey": 800,
+  "Atlas": 1200,
+  "Pachuca": 1200,
+  "León": 1400
+ }
+}
