@@ -999,11 +999,11 @@ def build_nhl():
                 for t in cs: soft[t["ab"]] = z[t["ab"]] / tot * 0.5 if tot else 0
             for t in pool: t["p"] = 0.5 * t["p"] + 0.5 * soft.get(t["ab"], 0.0)
             nhl_new = "mix"
-            if (3, 1) <= mo < (7, 1):   # from March 1 the Read joins the odds (x e^(1.0 x verdict)); earlier it didn't help (Dec 1-Feb 1)
-                for cf in ("E", "W"):
-                    cs = [t for t in pool if t["conf"] == cf]; w = {t["ab"]: t["p"] * math.exp(NHL_READ_K * NHL_VW.get((t.get("read") or {}).get("v"), 1)) for t in cs}; tot = sum(w.values())
-                    for t in cs: t["p"] = w[t["ab"]] / tot * 0.5 if tot else 0
-                nhl_new = "mix+read"
+            # (2026-11-24, user: "take the read out of in-season odds") The Read no longer multiplies the in-season odds from March 1 (it
+            # did since 2026-11-10, x e^(1.0 x verdict)). Multi-season test baseball-blueprint/study/nhl-read-multiseason.py (Cups 2009-26):
+            # in-season it helped 2009-17 but HURT 2018-26 (Mar 1 log-loss 2.534 -> 2.554, 75% mark 2.541 -> 2.571), ~0 leave-one-season-out,
+            # worse on the 3 never-fit seasons 2009-11; a 'caution' champion at Mar 1 in 9/18 seasons (5 of the last 9, e.g. Carolina 2026
+            # cut 13.8% -> 8.2%). It stays as the card label, in the value-play trust filter, and in the bracket sim (better in both halves).
     except Exception as e:
         print(f"  nhl new odds failed, index odds kept: {e}", file=sys.stderr)
     for t in pool: t["fair_odds"] = american(t["p"]) if t.get("p") else None   # (2026-11-10 fix) cap_odds set these from the index odds; the cards showed +669 beside 23.5%
