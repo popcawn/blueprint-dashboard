@@ -1,7 +1,7 @@
 {
   "sport": "URC",
   "season": "2026-27",
-  "generated": "2026-11-24T19:47:09Z",
+  "generated": "2026-11-24T20:02:03Z",
   "cats": [
     "Percentage (PF/PA) \u2265 124.9",
     "Points for/game top-7",
@@ -41,16 +41,21 @@
       "rtg": 12.96,
       "reg": "IRE",
       "pos": 6,
-      "minor_pct": 56.5,
+      "minor_pct": 56.9,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 53.4,
-      "fair_odds": "-114",
+      "fair_pct": 53.6,
+      "fair_odds": "-115",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 150,
+      "market": "+150",
+      "ev": 34,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE \u00b7 price only",
+        "ev": 34,
+        "norule": true
+      }
     },
     {
       "name": "Bulls",
@@ -76,16 +81,20 @@
       "rtg": 11.14,
       "reg": "RSA",
       "pos": 2,
-      "minor_pct": 24.1,
+      "minor_pct": 23.7,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 26.0,
-      "fair_odds": "+284",
+      "fair_pct": 25.7,
+      "fair_odds": "+290",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 300,
+      "market": "+300",
+      "ev": 3,
+      "verdict": {
+        "kind": "small",
+        "label": "small value",
+        "ev": 3
+      }
     },
     {
       "name": "Stormers",
@@ -111,16 +120,20 @@
       "rtg": 8.56,
       "reg": "RSA",
       "pos": 3,
-      "minor_pct": 9.9,
+      "minor_pct": 9.6,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 11.6,
-      "fair_odds": "+764",
+      "fair_pct": 11.7,
+      "fair_odds": "+757",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 400,
+      "market": "+400",
+      "ev": -42,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -42
+      }
     },
     {
       "name": "Glasgow Warriors",
@@ -146,16 +159,20 @@
       "rtg": 4.52,
       "reg": "SCO",
       "pos": 1,
-      "minor_pct": 5.7,
+      "minor_pct": 6.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 4.7,
-      "fair_odds": "+2041",
+      "fair_pct": 4.6,
+      "fair_odds": "+2095",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 400,
+      "market": "+400",
+      "ev": -77,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -77
+      }
     },
     {
       "name": "Sharks",
@@ -181,16 +198,20 @@
       "rtg": 5.27,
       "reg": "RSA",
       "pos": 4,
-      "minor_pct": 3.8,
+      "minor_pct": 3.7,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 4.1,
-      "fair_odds": "+2354",
+      "fair_odds": "+2318",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1400,
+      "market": "+1400",
+      "ev": -38,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -38
+      }
     },
     {
       "name": "Edinburgh",
@@ -219,13 +240,17 @@
       "minor_pct": 0.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.1,
+      "fair_pct": 0.2,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 4000,
+      "market": "+4000",
+      "ev": -93,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -93
+      }
     },
     {
       "name": "Ulster",
@@ -257,10 +282,14 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 4000,
+      "market": "+4000",
+      "ev": -96,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -96
+      }
     },
     {
       "name": "Munster",
@@ -292,10 +321,14 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 3500,
+      "market": "+3500",
+      "ev": -98,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -98
+      }
     },
     {
       "name": "Lions",
@@ -327,10 +360,14 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 6500,
+      "market": "+6500",
+      "ev": -98,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -98
+      }
     },
     {
       "name": "Cardiff Blues",
@@ -362,10 +399,14 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 20000,
+      "market": "+20000",
+      "ev": -94,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -94
+      }
     },
     {
       "name": "Connacht",
@@ -397,10 +438,14 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 12000,
+      "market": "+12000",
+      "ev": -99,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -99
+      }
     },
     {
       "name": "Scarlets",
@@ -432,8 +477,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 35000,
+      "market": "+35000",
       "ev": null,
       "verdict": null
     },
@@ -467,8 +512,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 50000,
+      "market": "+50000",
       "ev": null,
       "verdict": null
     },
@@ -502,8 +547,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 25000,
+      "market": "+25000",
       "ev": null,
       "verdict": null
     },
@@ -537,8 +582,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 35000,
+      "market": "+35000",
       "ev": null,
       "verdict": null
     },
@@ -572,15 +617,15 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 100000,
+      "market": "+100000",
       "ev": null,
       "verdict": null
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": null,
+  "market_asof": "Nov 24",
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2027,
@@ -594,7 +639,7 @@
   "sig": 12,
   "prediction": {
     "pick": "Leinster",
-    "why": "<b>Leinster</b> is the model's #1: 53.4% to win the URC title (fair -114). 104 regular-season games left are simulated, then the play-offs (20,000 runs). Bet window open until the first final."
+    "why": "<b>Leinster</b> is the model's #1: 53.6% to win the URC title (fair -115). 104 regular-season games left are simulated, then the play-offs (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 28,
   "gp_min": 5,
