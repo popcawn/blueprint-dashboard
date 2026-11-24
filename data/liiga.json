@@ -1,7 +1,7 @@
 {
   "sport": "Liiga",
   "season": "2026-27",
-  "generated": "2026-11-24T19:45:37Z",
+  "generated": "2026-11-24T20:16:30Z",
   "cats": [
     "Goal diff/game top-5",
     "Goals for/game \u2265 2.67",
@@ -41,11 +41,11 @@
       "rtg": 0.63,
       "reg": null,
       "pos": 3,
-      "minor_pct": 28.6,
+      "minor_pct": 29.8,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 25.9,
-      "fair_odds": "+286",
+      "fair_pct": 26.3,
+      "fair_odds": "+280",
       "read": null,
       "mk": null,
       "market": null,
@@ -76,16 +76,20 @@
       "rtg": 0.57,
       "reg": null,
       "pos": 1,
-      "minor_pct": 40.3,
+      "minor_pct": 39.7,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 23.8,
-      "fair_odds": "+321",
+      "fair_pct": 23.7,
+      "fair_odds": "+322",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 500,
+      "market": "+500",
+      "ev": 42,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 42
+      }
     },
     {
       "name": "SaiPa",
@@ -111,16 +115,20 @@
       "rtg": 0.56,
       "reg": null,
       "pos": 4,
-      "minor_pct": 14.6,
+      "minor_pct": 14.8,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 21.1,
-      "fair_odds": "+373",
+      "fair_pct": 21.0,
+      "fair_odds": "+375",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1300,
+      "market": "+1300",
+      "ev": 195,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 195
+      }
     },
     {
       "name": "JYP",
@@ -146,16 +154,20 @@
       "rtg": 0.36,
       "reg": null,
       "pos": 2,
-      "minor_pct": 16.0,
+      "minor_pct": 15.2,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 13.8,
-      "fair_odds": "+626",
+      "fair_odds": "+625",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 700,
+      "market": "+700",
+      "ev": 10,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 10
+      }
     },
     {
       "name": "K-Espoo",
@@ -184,13 +196,17 @@
       "minor_pct": 0.2,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 5.0,
-      "fair_odds": "+1892",
+      "fair_pct": 4.9,
+      "fair_odds": "+1960",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2500,
+      "market": "+2500",
+      "ev": 26,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 26
+      }
     },
     {
       "name": "Tappara",
@@ -219,13 +235,56 @@
       "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 2.8,
-      "fair_odds": "+3471",
+      "fair_pct": 2.6,
+      "fair_odds": "+3702",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 500,
+      "market": "+500",
+      "ev": -84,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -84
+      }
+    },
+    {
+      "name": "Jukurit",
+      "conf": "5th",
+      "rec": "15-10 \u00b7 43 pts \u00b7 +11",
+      "gp": 25,
+      "score": 1,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "vals": [
+        "+0.44 #6",
+        "2.52 #9",
+        "0.440 #7",
+        "0.578 #8",
+        "0.567 #3"
+      ],
+      "index": 47.8,
+      "rtg": -0.07,
+      "reg": null,
+      "pos": 5,
+      "minor_pct": 0.1,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 1.7,
+      "fair_odds": "+5888",
+      "read": null,
+      "mk": 2800,
+      "market": "+2800",
+      "ev": -52,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -52
+      }
     },
     {
       "name": "HIFK",
@@ -255,82 +314,16 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.6,
-      "fair_odds": "+6209",
+      "fair_odds": "+6016",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Jukurit",
-      "conf": "5th",
-      "rec": "15-10 \u00b7 43 pts \u00b7 +11",
-      "gp": 25,
-      "score": 1,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        true
-      ],
-      "vals": [
-        "+0.44 #6",
-        "2.52 #9",
-        "0.440 #7",
-        "0.578 #8",
-        "0.567 #3"
-      ],
-      "index": 47.8,
-      "rtg": -0.07,
-      "reg": null,
-      "pos": 5,
-      "minor_pct": 0.1,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 1.5,
-      "fair_odds": "+6479",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "K\u00e4rp\u00e4t",
-      "conf": "7th",
-      "rec": "13-12 \u00b7 40 pts \u00b7 -1",
-      "gp": 25,
-      "score": 3,
-      "q": [
-        false,
-        true,
-        false,
-        true,
-        true
-      ],
-      "vals": [
-        "-0.04 #8",
-        "2.88 #6",
-        "0.360 #9",
-        "0.590 #6",
-        "0.472 #7"
-      ],
-      "index": 43.2,
-      "rtg": -0.13,
-      "reg": null,
-      "pos": 7,
-      "minor_pct": 0.0,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 1.1,
-      "fair_odds": "+8909",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1300,
+      "market": "+1300",
+      "ev": -77,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -77
+      }
     },
     {
       "name": "\u00c4ss\u00e4t",
@@ -359,13 +352,17 @@
       "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 1.0,
-      "fair_odds": "+9656",
+      "fair_pct": 1.1,
+      "fair_odds": "+9074",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2000,
+      "market": "+2000",
+      "ev": -77,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -77
+      }
     },
     {
       "name": "TPS",
@@ -395,12 +392,55 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.0,
-      "fair_odds": "+9704",
+      "fair_odds": "+10104",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1300,
+      "market": "+1300",
+      "ev": -86,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -86
+      }
+    },
+    {
+      "name": "K\u00e4rp\u00e4t",
+      "conf": "7th",
+      "rec": "13-12 \u00b7 40 pts \u00b7 -1",
+      "gp": 25,
+      "score": 3,
+      "q": [
+        false,
+        true,
+        false,
+        true,
+        true
+      ],
+      "vals": [
+        "-0.04 #8",
+        "2.88 #6",
+        "0.360 #9",
+        "0.590 #6",
+        "0.472 #7"
+      ],
+      "index": 43.2,
+      "rtg": -0.13,
+      "reg": null,
+      "pos": 7,
+      "minor_pct": 0.0,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.9,
+      "fair_odds": "+10426",
+      "read": null,
+      "mk": 1600,
+      "market": "+1600",
+      "ev": -84,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -84
+      }
     },
     {
       "name": "KalPa",
@@ -426,16 +466,59 @@
       "rtg": -0.08,
       "reg": null,
       "pos": 15,
-      "minor_pct": 0.0,
+      "minor_pct": null,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 0.8,
-      "fair_odds": "+12887",
+      "fair_odds": "+12639",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 3500,
+      "market": "+3500",
+      "ev": -72,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -72
+      }
+    },
+    {
+      "name": "HPK",
+      "conf": "13th",
+      "rec": "11-13 \u00b7 30 pts \u00b7 -13",
+      "gp": 24,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "-0.54 #14",
+        "2.17 #16",
+        "0.333 #13",
+        "0.564 #10",
+        "0.242 #16"
+      ],
+      "index": 32.5,
+      "rtg": -0.27,
+      "reg": null,
+      "pos": 13,
+      "minor_pct": 0.0,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.3,
+      "fair_odds": "+36937",
+      "read": null,
+      "mk": 5000,
+      "market": "+5000",
+      "ev": -86,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -86
+      }
     },
     {
       "name": "Pelicans",
@@ -465,47 +548,16 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 0.3,
-      "fair_odds": "+35614",
+      "fair_odds": "+38362",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "HPK",
-      "conf": "13th",
-      "rec": "11-13 \u00b7 30 pts \u00b7 -13",
-      "gp": 24,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "-0.54 #14",
-        "2.17 #16",
-        "0.333 #13",
-        "0.564 #10",
-        "0.242 #16"
-      ],
-      "index": 32.5,
-      "rtg": -0.27,
-      "reg": null,
-      "pos": 13,
-      "minor_pct": 0.0,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.2,
-      "fair_odds": "+42453",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2800,
+      "market": "+2800",
+      "ev": -92,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -92
+      }
     },
     {
       "name": "Jokerit",
@@ -537,45 +589,14 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Sport",
-      "conf": "11th",
-      "rec": "11-13 \u00b7 32 pts \u00b7 -15",
-      "gp": 24,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "-0.63 #15",
-        "2.08 #17",
-        "0.292 #15",
-        "0.476 #13",
-        "0.400 #10"
-      ],
-      "index": 0,
-      "rtg": -0.71,
-      "reg": null,
-      "pos": 11,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 3500,
+      "market": "+3500",
+      "ev": -98,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -98
+      }
     },
     {
       "name": "KooKoo",
@@ -607,15 +628,58 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 25000,
+      "market": "+25000",
+      "ev": -97,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -97
+      }
+    },
+    {
+      "name": "Sport",
+      "conf": "11th",
+      "rec": "11-13 \u00b7 32 pts \u00b7 -15",
+      "gp": 24,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "-0.63 #15",
+        "2.08 #17",
+        "0.292 #15",
+        "0.476 #13",
+        "0.400 #10"
+      ],
+      "index": 0,
+      "rtg": -0.71,
+      "reg": null,
+      "pos": 11,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": 25000,
+      "market": "+25000",
+      "ev": -97,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -97
+      }
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": null,
+  "market_asof": "Nov 24",
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2026,
@@ -626,7 +690,7 @@
   "sig": 2.4,
   "prediction": {
     "pick": "Ilves",
-    "why": "<b>Ilves</b> is the model's #1: 25.9% to win the Liiga championship (fair +286). 341 regular-season games left are simulated, then the playoffs (20,000 runs). Bet window open until the first final."
+    "why": "<b>Ilves</b> is the model's #1: 26.3% to win the Liiga championship (fair +280). 341 regular-season games left are simulated, then the playoffs (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 37,
   "gp_min": 22,
@@ -642,5 +706,18 @@
     "label": "Firming up",
     "note": "26 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "SaiPa",
+      "ev": 195,
+      "market": "+1300",
+      "fair_odds": "+375"
+    },
+    {
+      "name": "Lukko",
+      "ev": 42,
+      "market": "+500",
+      "fair_odds": "+322"
+    }
+  ]
 }
