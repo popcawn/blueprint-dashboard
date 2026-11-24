@@ -233,6 +233,7 @@
   .vd.fair,.vd.gap{background:var(--panel2);color:var(--ink3);font-weight:500}
   .vd.fade,.vd.bigfade{background:var(--badbg);color:var(--bad)} .vd.fade{font-weight:500}
   .vd.trap{background:var(--warnbg);color:var(--warn)}
+  .vd.np{background:none;color:var(--ink3);font-weight:500;box-shadow:inset 0 0 0 1px var(--line)}
   /* the full card, shown when a row is opened */
   .tmb{padding:6px 14px 14px 52px;background:var(--panel2)}
   .read{display:flex;gap:9px;align-items:baseline;margin:4px 0 8px;padding:8px 11px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--warn);max-width:96ch}
@@ -654,11 +655,17 @@ const VDESC={
   trap:"Positive EV the model DISTRUSTS (fool's gold / pretender / soft schedule) — a mirage price, not a bet.",
   gap:"Price gap: the model's fair odds against the book's price (+ = the book pays more than the model thinks is fair). Information, not a bet — this board has no bet rule tested against real prices."
 };
+// (2026-11-24, user: "every board should have tags") every row gets a tag: a priced team the board gives ~0% (no EV) is a big fade, and
+// an unpriced team gets a grey strength tag from its fair-odds rank (top pick / contender / in the mix / long shot) until prices are saved
+function rowTag(t,n){ if(t.verdict) return t.verdict;
+  if(t.market) return {kind:"bigfade",label:"big fade",noev:true,tip:"Priced by the book, but the board gives this team almost no chance — fade."};
+  const f=t.fair_pct||0, lab=n===1?"top pick":n&&n<=3?"contender":f>=5?"in the mix":f>0?"long shot":"no chance";
+  return {kind:"np",label:lab,noev:true,tip:"No book price yet — this tag is the board's strength call only (by fair title odds). Save a DraftKings/FanDuel screenshot to get a value / fair / fade tag."}; }
 function verdictPill(v){ if(!v) return "";
-  const ev=v.ev>0?`+${v.ev}%`:`${v.ev}%`, showEv=v.kind!=="fair";
+  const ev=v.ev>0?`+${v.ev}%`:`${v.ev}%`, showEv=v.kind!=="fair"&&!v.noev;
   const ic=VICON[v.kind]?VICON[v.kind]+" ":"";
   // (2026-11-23) in a row the price-only crown reads "BEST · price only" as an outline; the filled green tag is the rule's value play
-  return `<span class="vd ${v.kind}${v.norule?" norule":""}" title="${v.norule?"Best value on price alone — the biggest EV among the value-priced teams, but it doesn't pass this board's betting rule, so the header's Value play stays empty. Not a bet by the rule.":VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.norule?"BEST · price only":v.label}${showEv?` ${ev}`:""}</span>`;
+  return `<span class="vd ${v.kind}${v.norule?" norule":""}" title="${v.tip?esc(v.tip):v.norule?"Best value on price alone — the biggest EV among the value-priced teams, but it doesn't pass this board's betting rule, so the header's Value play stays empty. Not a bet by the rule.":VDESC[v.kind]||'Market EV verdict — fair model odds vs the market price'}">${ic}${v.norule?"BEST · price only":v.label}${showEv?` ${ev}`:""}</span>`;
 }
 const MK=sp=>(DATA[sp]&&DATA[sp].market_name)||"FanDuel";
 // (2026-11-16) boards priced off FanDuel AND DraftKings: t.books = {book: price}, t.market = the better one (the EV uses it)
@@ -732,7 +739,7 @@ function row(t,sp,mv){
     ${dots}<span class="c idx">${t.index??"—"}</span>
     <span class="c fair"><span class="lb">fair </span>${t.fair_odds||"—"}${t.fair_pct?`<small>${t.fair_pct}%</small>`:""}</span>
     <span class="c px">${t.market?`${t.market}<small>${BKAB[bk]||bk}</small>`:"—"}</span>
-    <span class="tg">${verdictPill(t.verdict)}</span><span class="tr">${c.spark}</span><span class="ch"></span></summary>
+    <span class="tg">${verdictPill(rowTag(t,n))}</span><span class="tr">${c.spark}</span><span class="ch"></span></summary>
     <div class="tmb">${read}<div class="chips">${pre}${chips}</div>
     <div class="foot">${t.rec?`<div><span class="k">record</span>${t.rec}${t.conf?` · ${t.conf}`:""}</div>`:""}<div${t.vs500?` title="vs .500+ teams: ${t.vs500} (half the NBA index)"`:""}><span class="k">index</span><b>${t.index??"—"}</b></div><div><span class="k">fair</span><b>${t.fair_odds||"—"}</b>${t.fair_pct?` · ${t.fair_pct}%`:""}</div>
       ${t.books?Object.entries(t.books).map(([b,p])=>{const top=fmtA(p)===t.market&&new Set(Object.values(t.books)).size>1; return `<div${top?' title="The better of the two prices — the EV on this card uses it"':''}><span class="k">${b}</span><b class="${top?'bestpx':''}">${fmtA(p)}</b></div>`;}).join(""):`<div><span class="k">${MK(sp)}</span><b>${t.market||"—"}</b></div>`}${t.alt&&DATA[sp].alt_name?`<div><span class="k" title="hand-entered sportsbook screenshot — not live">${DATA[sp].alt_name}</span><b>${t.alt}</b></div>`:""}${sp==="nba"&&t.ftt?`<div title="40 wins before 20 losses — 8/10 recent champs cleared it (a positive pedigree signal, not a requirement). Resolves ~game 50+."><span class="k">40-20</span><span class="ftt ${t.ftt}">${{pass:"✓ cleared",fail:"✗ missed",pending:"pending"}[t.ftt]||""}</span></div>`:""}${srs}${cons}</div></div></details>`;
