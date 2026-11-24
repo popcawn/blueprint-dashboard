@@ -2709,10 +2709,12 @@ FOOTY["ahl"] = {"sport": "AHL", "eng": ["hockeytech.mjs", "ahl", "live"], "title
     "book": "ahl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/ahl?category=team-futures&subcategory=champion"], "alias": {}}
 FOOTY["swissnl"] = {"sport": "Swiss National League", "eng": ["euhockey.mjs", "swissnl", "live"], "title": "Swiss championship", "finals": "playoffs",
     "book": "swissnl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/swiss-nla?category=team-futures&subcategory=champion"],
-    "alias": {"zsc": "zsc lions", "zurich": "zsc lions", "zsc lions zurich": "zsc lions", "hc davos": "davos", "fribourg": "fribourg-gotteron", "fribourg gotteron": "fribourg-gotteron",
-              "ev zug": "zug", "sc bern": "bern", "hc lugano": "lugano", "geneve": "geneve-servette", "geneva": "geneve-servette", "servette": "geneve-servette",
-              "lausanne hc": "lausanne", "biel": "biel-bienne", "ehc biel": "biel-bienne", "rapperswil": "rapperswil-jona lakers", "lakers": "rapperswil-jona lakers",
-              "scl tigers": "langnau", "tigers": "langnau", "ambri": "ambri-piotta", "ajoie": "ajoie", "kloten": "kloten"}}
+    "alias": {"zurich lions": "ZSC Lions", "zurich": "ZSC Lions", "zsc": "ZSC Lions", "zug": "EV Zug", "fribourg": "Fribourg-Gotteron", "bern": "SC Bern",
+              "scl tigers langnau": "SCL Tigers", "langnau": "SCL Tigers", "tigers": "SCL Tigers", "davos": "HC Davos", "lausanne": "Lausanne HC",
+              "servette": "Geneve-Servette HC", "geneve servette": "Geneve-Servette HC", "geneve": "Geneve-Servette HC", "geneva": "Geneve-Servette HC",
+              "lugano": "HC Lugano", "ambri": "HC Ambri-Piotta", "ambri piotta": "HC Ambri-Piotta", "biel": "EHC Biel-Bienne", "biel bienne": "EHC Biel-Bienne",
+              "rapperswil": "SC Rapperswil-Jona Lakers", "rapperswil jona": "SC Rapperswil-Jona Lakers", "lakers": "SC Rapperswil-Jona Lakers",
+              "kloten": "EHC Kloten", "ajoie": "HC Ajoie"}}
 FOOTY["euroleague"]["bet_url"] = None   # (2026-11-24, user: "theres no euroleague futures") at DraftKings/FanDuel
 FOOTY["nbl"]["bet_url"] = ["FanDuel", "https://sportsbook.fanduel.com/basketball/australian-nbl"]   # link from the user, 2026-11-24
 BB_FOOTY = ("euroleague", "nbl", "aleague", "liiga", "ligamx", "ahl", "swissnl")
@@ -2760,18 +2762,26 @@ def _norm_bb(key, E):
     return E
 
 def _footy_key(s):
-    s = re.sub(r"[^a-z ]", " ", str(s).lower().replace("&", " and ").replace("-", " ").replace(".", ""))
+    import unicodedata   # (2026-11-24) strip accents first: "Genève-Servette" was keyed "gen ve servette", so "Servette" never matched
+    s = "".join(c for c in unicodedata.normalize("NFKD", str(s)) if not unicodedata.combining(c))
+    s = re.sub(r"[^a-z ]", " ", s.lower().replace("&", " and ").replace("-", " ").replace(".", ""))
     return re.sub(r"\s+", " ", re.sub(r"\b(fc|rlfc|club|the)\b", " ", s)).strip()
 
 def _footy_match(raw, keys, alias):
     """Board name for a sportsbook name: exact, alias, prefix either way, then a nickname only one club has."""
-    k = _footy_key(raw); k = alias.get(k, k)
+    # (2026-11-24) the board's own name wins over an alias (a wrong alias used to hide an exact match: "SCL Tigers" -> "langnau"),
+    # and alias targets are keyed the same way as board names (accents stripped), so a target with an accent still matches
+    k0 = _footy_key(raw)
+    if k0 in keys: return keys[k0]
+    k = _footy_key(alias.get(k0, k0))
     if k in keys: return keys[k]
-    hits = [v for kk, v in keys.items() if len(k) >= 5 and (kk.startswith(k) or k.startswith(kk))]
-    if len(hits) == 1: return hits[0]
-    nick = k.split()[-1] if k else ""
-    hits = [v for kk, v in keys.items() if len(nick) >= 4 and kk.split()[-1] == nick]
-    return hits[0] if len(hits) == 1 else None
+    for kq in dict.fromkeys([k, k0]):
+        hits = [v for kk, v in keys.items() if len(kq) >= 5 and (kk.startswith(kq) or kq.startswith(kk))]
+        if len(hits) == 1: return hits[0]
+        nick = kq.split()[-1] if kq else ""
+        hits = [v for kk, v in keys.items() if len(nick) >= 4 and kk.split()[-1] == nick]
+        if len(hits) == 1: return hits[0]
+    return None
 
 def _ordinal(n):
     return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
