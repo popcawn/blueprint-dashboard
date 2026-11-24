@@ -1,0 +1,548 @@
+[
+ {
+  "date": "2026-10-19",
+  "gp": 1,
+  "backfill": true,
+  "teams": {
+   "Auckland FC": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 23.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Jets": {
+    "sc": 2,
+    "idx": 33.3,
+    "fp": 15.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 10.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 9.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney FC": {
+    "sc": 3,
+    "idx": 33.3,
+    "fp": 8.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 8.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 5.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Wellington Phoenix": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 2,
+    "idx": 33.3,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 2,
+    "idx": 33.3,
+    "fp": 3.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 3.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-26",
+  "gp": 2,
+  "backfill": true,
+  "teams": {
+   "Newcastle Jets": {
+    "sc": 2,
+    "idx": 33.3,
+    "fp": 14.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Auckland FC": {
+    "sc": 2,
+    "idx": 50,
+    "fp": 14.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney FC": {
+    "sc": 4,
+    "idx": 66.7,
+    "fp": 12.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Wellington Phoenix": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 9.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 4,
+    "idx": 66.7,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 2,
+    "idx": 16.7,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 4,
+    "idx": 66.7,
+    "fp": 8.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 7.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 1,
+    "idx": 16.7,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 3,
+    "idx": 100,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 0,
+    "idx": 16.7,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-02",
+  "gp": 3,
+  "backfill": true,
+  "teams": {
+   "Wellington Phoenix": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 20.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Auckland FC": {
+    "sc": 1,
+    "idx": 44.4,
+    "fp": 13.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 3,
+    "idx": 55.6,
+    "fp": 9.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 1,
+    "idx": 44.4,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney FC": {
+    "sc": 2,
+    "idx": 44.4,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 2,
+    "idx": 33.3,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 3,
+    "idx": 22.2,
+    "fp": 7.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 2,
+    "idx": 55.6,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Jets": {
+    "sc": 1,
+    "idx": 22.2,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 3,
+    "idx": 66.7,
+    "fp": 5.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 0,
+    "idx": 22.2,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-09",
+  "gp": 4,
+  "backfill": true,
+  "teams": {
+   "Wellington Phoenix": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 19.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney FC": {
+    "sc": 4,
+    "idx": 65.4,
+    "fp": 14.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 4,
+    "idx": 65.4,
+    "fp": 11.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Auckland FC": {
+    "sc": 3,
+    "idx": 42.3,
+    "fp": 11.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 3,
+    "idx": 53.8,
+    "fp": 10.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 3,
+    "idx": 92.3,
+    "fp": 8.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 2,
+    "idx": 19.2,
+    "fp": 6.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 3,
+    "idx": 42.3,
+    "fp": 6.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 2,
+    "idx": 42.3,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Jets": {
+    "sc": 1,
+    "idx": 7.7,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 0,
+    "idx": 7.7,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "gp": 4,
+  "backfill": true,
+  "teams": {
+   "Wellington Phoenix": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 19.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney FC": {
+    "sc": 4,
+    "idx": 65.4,
+    "fp": 13.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 4,
+    "idx": 65.4,
+    "fp": 12.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Auckland FC": {
+    "sc": 3,
+    "idx": 42.3,
+    "fp": 11.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 3,
+    "idx": 53.8,
+    "fp": 10.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 3,
+    "idx": 92.3,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 3,
+    "idx": 42.3,
+    "fp": 6.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 2,
+    "idx": 19.2,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 2,
+    "idx": 42.3,
+    "fp": 4.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Jets": {
+    "sc": 1,
+    "idx": 7.7,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 0,
+    "idx": 7.7,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-23",
+  "gp": 5,
+  "backfill": true,
+  "teams": {
+   "Sydney FC": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 14.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Wellington Phoenix": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 13.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 2,
+    "idx": 85.7,
+    "fp": 12.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 11.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Auckland FC": {
+    "sc": 3,
+    "idx": 54.3,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 3,
+    "idx": 65.7,
+    "fp": 9.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 8.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 3,
+    "idx": 31.4,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Jets": {
+    "sc": 1,
+    "idx": 14.3,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 0,
+    "idx": 20,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ }
+]

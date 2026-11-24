@@ -1,0 +1,1388 @@
+[
+ {
+  "date": "2026-09-14",
+  "gp": 4,
+  "backfill": true,
+  "teams": {
+   "Tappara": {
+    "sc": 0,
+    "idx": 100,
+    "fp": 21.8,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 99.3,
+    "fp": 19.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 2,
+    "idx": 91.2,
+    "fp": 15.1,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 4,
+    "idx": 90.9,
+    "fp": 14.7,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 3,
+    "idx": 81.8,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 4,
+    "idx": 79,
+    "fp": 7.6,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 3,
+    "idx": 68.9,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 1,
+    "idx": 70,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 0,
+    "idx": 69.1,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 5,
+    "idx": 63.4,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 1,
+    "idx": 54.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 1,
+    "idx": 53.4,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 4,
+    "idx": 50.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 1,
+    "idx": 48.9,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 0,
+    "idx": 34.3,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 1,
+    "idx": 36.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 1,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-21",
+  "gp": 7,
+  "backfill": true,
+  "teams": {
+   "SaiPa": {
+    "sc": 5,
+    "idx": 98.3,
+    "fp": 20.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 3,
+    "idx": 100,
+    "fp": 20.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 2,
+    "idx": 93.6,
+    "fp": 16.5,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 4,
+    "idx": 88.4,
+    "fp": 14.6,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 86.6,
+    "fp": 7.6,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 3,
+    "idx": 79.8,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 1,
+    "idx": 78,
+    "fp": 5.1,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 4,
+    "idx": 73.5,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 1,
+    "idx": 65.1,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 2,
+    "idx": 54.6,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 5,
+    "idx": 50.6,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 2,
+    "idx": 51.1,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 3,
+    "idx": 48.5,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 45.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 0,
+    "idx": 40.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 1,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 7.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-28",
+  "gp": 9,
+  "backfill": true,
+  "teams": {
+   "SaiPa": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 26.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 5,
+    "idx": 97,
+    "fp": 23.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 1,
+    "idx": 94.3,
+    "fp": 16.4,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 4,
+    "idx": 85.1,
+    "fp": 13.4,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 2,
+    "idx": 76.8,
+    "fp": 5.7,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 1,
+    "idx": 75.1,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 2,
+    "idx": 70.8,
+    "fp": 3.6,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 3,
+    "idx": 65,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 69.5,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 5,
+    "idx": 55.4,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 2,
+    "idx": 48.7,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 2,
+    "idx": 47.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 0,
+    "idx": 42.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 42.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 0,
+    "idx": 40.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 12.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-05",
+  "gp": 11,
+  "backfill": true,
+  "teams": {
+   "Ilves": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 27.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 3,
+    "idx": 97.3,
+    "fp": 21.1,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 5,
+    "idx": 92.7,
+    "fp": 19.3,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 4,
+    "idx": 79,
+    "fp": 9.3,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 1,
+    "idx": 75.9,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 1,
+    "idx": 73.1,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 2,
+    "idx": 71.5,
+    "fp": 4.1,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 4,
+    "idx": 65.4,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 5,
+    "idx": 57.8,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 3,
+    "idx": 52.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 2,
+    "idx": 53.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 2,
+    "idx": 52.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 61.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 42.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 0,
+    "idx": 43.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 26.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-12",
+  "gp": 14,
+  "backfill": true,
+  "teams": {
+   "Tappara": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 24.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 5,
+    "idx": 94.1,
+    "fp": 21.8,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 4,
+    "idx": 91.5,
+    "fp": 17.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 3,
+    "idx": 80.2,
+    "fp": 9.6,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 3,
+    "idx": 74.8,
+    "fp": 8.0,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 3,
+    "idx": 79.1,
+    "fp": 7.1,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 3,
+    "idx": 64.9,
+    "fp": 3.3,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 0,
+    "idx": 65.9,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 3,
+    "idx": 55.5,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 2,
+    "idx": 51.5,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 2,
+    "idx": 52.3,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 2,
+    "idx": 50.2,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 60.8,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 1,
+    "idx": 46.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 1,
+    "idx": 48.4,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 21.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-19",
+  "gp": 15,
+  "backfill": true,
+  "teams": {
+   "SaiPa": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 25.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 2,
+    "idx": 97.1,
+    "fp": 18.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 5,
+    "idx": 90.7,
+    "fp": 17.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 3,
+    "idx": 84.7,
+    "fp": 13.2,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 3,
+    "idx": 72.4,
+    "fp": 7.3,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 2,
+    "idx": 73.6,
+    "fp": 4.6,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 2,
+    "idx": 65.6,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 4,
+    "idx": 60.5,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 0,
+    "idx": 63.3,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 3,
+    "idx": 57.1,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 3,
+    "idx": 50.7,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 1,
+    "idx": 48,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 55.9,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 0,
+    "idx": 40.5,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 1,
+    "idx": 34.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 12.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-26",
+  "gp": 18,
+  "backfill": true,
+  "teams": {
+   "SaiPa": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 25.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Lukko": {
+    "sc": 4,
+    "idx": 90.6,
+    "fp": 17.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 2,
+    "idx": 94.6,
+    "fp": 16.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 5,
+    "idx": 89.1,
+    "fp": 15.2,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 5,
+    "idx": 77.3,
+    "fp": 9.5,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 2,
+    "idx": 69.6,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 0,
+    "idx": 68,
+    "fp": 2.7,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 2,
+    "idx": 59.9,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 3,
+    "idx": 56.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 2,
+    "idx": 55.9,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 3,
+    "idx": 56.8,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 1,
+    "idx": 50.5,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 1,
+    "idx": 51.4,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 42.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 52,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 29,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-02",
+  "gp": 20,
+  "backfill": true,
+  "teams": {
+   "Lukko": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 22.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 4,
+    "idx": 96.2,
+    "fp": 16.6,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 5,
+    "idx": 92.3,
+    "fp": 14.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 2,
+    "idx": 95.2,
+    "fp": 12.8,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 5,
+    "idx": 85.1,
+    "fp": 11.3,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 3,
+    "idx": 85.4,
+    "fp": 7.5,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 1,
+    "idx": 78.7,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 1,
+    "idx": 62.5,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 2,
+    "idx": 63.1,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 3,
+    "idx": 62.8,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 2,
+    "idx": 60.2,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 1,
+    "idx": 61.6,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 1,
+    "idx": 58.2,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 48.2,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 53.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 28.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-09",
+  "gp": 20,
+  "backfill": true,
+  "teams": {
+   "Lukko": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 22.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 4,
+    "idx": 96.1,
+    "fp": 17.3,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 5,
+    "idx": 92.3,
+    "fp": 14.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 2,
+    "idx": 95.2,
+    "fp": 12.2,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 5,
+    "idx": 85.1,
+    "fp": 11.5,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 3,
+    "idx": 85.4,
+    "fp": 7.7,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 1,
+    "idx": 77.2,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 2,
+    "idx": 62.5,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 3,
+    "idx": 64.3,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 2,
+    "idx": 63.1,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 1,
+    "idx": 61.6,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 2,
+    "idx": 60,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 1,
+    "idx": 58.2,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 48.1,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 53.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 28.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "gp": 23,
+  "backfill": true,
+  "teams": {
+   "Lukko": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 24.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 5,
+    "idx": 95.4,
+    "fp": 18.7,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 5,
+    "idx": 90.7,
+    "fp": 18.1,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 5,
+    "idx": 86.2,
+    "fp": 12.3,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 1,
+    "idx": 80.3,
+    "fp": 6.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 0,
+    "idx": 79.4,
+    "fp": 5.1,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 3,
+    "idx": 63.6,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 4,
+    "idx": 63.5,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 2,
+    "idx": 58.7,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 0,
+    "idx": 63,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 3,
+    "idx": 52,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 2,
+    "idx": 53.9,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 40.5,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 0,
+    "idx": 42.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 25.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 39.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-23",
+  "gp": 25,
+  "backfill": true,
+  "teams": {
+   "Lukko": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 30.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Ilves": {
+    "sc": 5,
+    "idx": 94.9,
+    "fp": 24.8,
+    "mkt": null,
+    "ev": null
+   },
+   "SaiPa": {
+    "sc": 5,
+    "idx": 83.5,
+    "fp": 14.8,
+    "mkt": null,
+    "ev": null
+   },
+   "JYP": {
+    "sc": 5,
+    "idx": 77.6,
+    "fp": 13.6,
+    "mkt": null,
+    "ev": null
+   },
+   "K-Espoo": {
+    "sc": 3,
+    "idx": 72.7,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tappara": {
+    "sc": 0,
+    "idx": 62.2,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 1,
+    "idx": 47.8,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "HIFK": {
+    "sc": 2,
+    "idx": 50.2,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "\u00c4ss\u00e4t": {
+    "sc": 2,
+    "idx": 43,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "TPS": {
+    "sc": 3,
+    "idx": 41.6,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "K\u00e4rp\u00e4t": {
+    "sc": 3,
+    "idx": 42.9,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "KalPa": {
+    "sc": 0,
+    "idx": 47,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "HPK": {
+    "sc": 0,
+    "idx": 33.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 0,
+    "idx": 33.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Jokerit": {
+    "sc": 0,
+    "idx": 25.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sport": {
+    "sc": 0,
+    "idx": 0,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "KooKoo": {
+    "sc": 0,
+    "idx": 32.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ }
+]
