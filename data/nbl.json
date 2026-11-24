@@ -1,7 +1,7 @@
 {
   "sport": "NBL",
   "season": "2026-27",
-  "generated": "2026-11-24T19:57:55Z",
+  "generated": "2026-11-24T20:02:51Z",
   "cats": [
     "Ladder position \u2264 3",
     "Points for/game \u2265 81.9",
@@ -41,20 +41,16 @@
       "rtg": 6.47,
       "reg": null,
       "pos": 2,
-      "minor_pct": 69.3,
+      "minor_pct": 69.2,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 58.0,
-      "fair_odds": "-138",
+      "fair_pct": 58.1,
+      "fair_odds": "-139",
       "read": null,
-      "mk": 250,
-      "market": "+250",
-      "ev": 103,
-      "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 103
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Melbourne United",
@@ -80,20 +76,16 @@
       "rtg": 3.91,
       "reg": null,
       "pos": 4,
-      "minor_pct": 18.6,
+      "minor_pct": 18.8,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 24.8,
-      "fair_odds": "+304",
+      "fair_pct": 24.7,
+      "fair_odds": "+305",
       "read": null,
-      "mk": 300,
-      "market": "+300",
-      "ev": -1,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -1
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Tasmania JackJumpers",
@@ -119,20 +111,16 @@
       "rtg": 1.82,
       "reg": null,
       "pos": 1,
-      "minor_pct": 11.3,
+      "minor_pct": 11.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 10.4,
-      "fair_odds": "+858",
+      "fair_pct": 10.6,
+      "fair_odds": "+841",
       "read": null,
-      "mk": 350,
-      "market": "+350",
-      "ev": -53,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -53
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Adelaide 36ers",
@@ -158,20 +146,16 @@
       "rtg": 0.78,
       "reg": null,
       "pos": 5,
-      "minor_pct": 0.6,
+      "minor_pct": 0.7,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 3.7,
-      "fair_odds": "+2599",
+      "fair_pct": 3.5,
+      "fair_odds": "+2737",
       "read": null,
-      "mk": 470,
-      "market": "+470",
-      "ev": -79,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -79
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "South East Melbourne Phoenix",
@@ -201,16 +185,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.9,
-      "fair_odds": "+5205",
+      "fair_odds": "+5081",
       "read": null,
-      "mk": 2700,
-      "market": "+2700",
-      "ev": -47,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -47
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Perth Wildcats",
@@ -239,17 +219,13 @@
       "minor_pct": 0.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.8,
-      "fair_odds": "+13145",
+      "fair_pct": 0.7,
+      "fair_odds": "+13886",
       "read": null,
-      "mk": 1900,
-      "market": "+1900",
-      "ev": -85,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -85
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "New Zealand Breakers",
@@ -279,16 +255,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 0.3,
-      "fair_odds": "+33233",
+      "fair_odds": "+34383",
       "read": null,
-      "mk": 5000,
-      "market": "+5000",
-      "ev": -85,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -85
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Cairns Taipans",
@@ -320,14 +292,10 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 1100,
-      "market": "+1100",
-      "ev": -98,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -98
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Illawarra Hawks",
@@ -359,14 +327,10 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 4500,
-      "market": "+4500",
-      "ev": -100,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -100
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Brisbane Bullets",
@@ -398,15 +362,15 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": 2700,
-      "market": "+2700",
+      "mk": null,
+      "market": null,
       "ev": null,
       "verdict": null
     }
   ],
   "odds_remaining": null,
-  "market_name": "FanDuel",
-  "market_asof": "Nov 24",
+  "market_name": "DraftKings",
+  "market_asof": null,
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2026,
@@ -417,12 +381,15 @@
   "sig": 11,
   "prediction": {
     "pick": "Sydney Kings",
-    "why": "<b>Sydney Kings</b> is the model's #1: 58.0% to win the NBL championship (fair -138). 90 regular-season games left are simulated, then the finals (20,000 runs). Bet window open until the first final."
+    "why": "<b>Sydney Kings</b> is the model's #1: 58.1% to win the NBL championship (fair -139). 90 regular-season games left are simulated, then the finals (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 47,
   "gp_min": 14,
   "gp_max": 17,
-  "bet_url": null,
+  "bet_url": [
+    "FanDuel",
+    "https://sportsbook.fanduel.com/basketball/australian-nbl"
+  ],
   "hist_off": false,
   "signal": {
     "status": "trust",
@@ -430,12 +397,5 @@
     "label": "Trust the board",
     "note": "17 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "value_plays": [
-    {
-      "name": "Sydney Kings",
-      "ev": 103,
-      "market": "+250",
-      "fair_odds": "-138"
-    }
-  ]
+  "value_plays": []
 }

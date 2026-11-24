@@ -1623,225 +1623,225 @@
    "Grand Rapids Griffins": {
     "sc": 5,
     "idx": 100,
-    "fp": 24.9,
-    "mkt": "+1000",
-    "ev": 174
+    "fp": 25.5,
+    "mkt": null,
+    "ev": null
    },
    "Laval Rocket": {
     "sc": 4,
     "idx": 92,
-    "fp": 13.5,
-    "mkt": "+900",
-    "ev": 35
+    "fp": 13.7,
+    "mkt": null,
+    "ev": null
    },
    "Tucson Roadrunners": {
     "sc": 4,
     "idx": 83.5,
-    "fp": 8.7,
-    "mkt": "+1500",
-    "ev": 40
+    "fp": 8.4,
+    "mkt": null,
+    "ev": null
    },
    "Providence Bruins": {
     "sc": 4,
     "idx": 70.8,
-    "fp": 8.5,
-    "mkt": "+2000",
-    "ev": 79
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
    },
    "Henderson Silver Knights": {
     "sc": 5,
     "idx": 68.3,
-    "fp": 4.9,
-    "mkt": "+2200",
-    "ev": 13
-   },
-   "Rochester Americans": {
-    "sc": 5,
-    "idx": 74.5,
-    "fp": 4.7,
-    "mkt": "+2000",
-    "ev": -1
+    "fp": 4.8,
+    "mkt": null,
+    "ev": null
    },
    "Wilkes-Barre/Scranton Penguins": {
     "sc": 4,
     "idx": 57.9,
-    "fp": 4.3,
-    "mkt": "+1500",
-    "ev": -31
+    "fp": 4.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Rochester Americans": {
+    "sc": 5,
+    "idx": 74.5,
+    "fp": 4.4,
+    "mkt": null,
+    "ev": null
    },
    "Manitoba Moose": {
     "sc": 4,
     "idx": 62.9,
-    "fp": 3.9,
-    "mkt": "+2200",
-    "ev": -10
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
    },
    "Utica Comets": {
     "sc": 5,
     "idx": 62.4,
-    "fp": 3.6,
-    "mkt": "+2000",
-    "ev": -24
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
    },
    "Toronto Marlies": {
     "sc": 4,
     "idx": 63.8,
-    "fp": 3.2,
-    "mkt": "+1500",
-    "ev": -48
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
    },
    "Charlotte Checkers": {
     "sc": 4,
     "idx": 49.6,
-    "fp": 2.9,
-    "mkt": "+1000",
-    "ev": -68
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
    },
    "Hershey Bears": {
     "sc": 3,
     "idx": 49.6,
-    "fp": 2.0,
-    "mkt": "+2200",
-    "ev": -53
-   },
-   "Colorado Eagles": {
-    "sc": 2,
-    "idx": 53.7,
-    "fp": 1.9,
-    "mkt": "+900",
-    "ev": -81
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
    },
    "San Diego Gulls": {
     "sc": 4,
     "idx": 60.8,
-    "fp": 1.8,
-    "mkt": "+3500",
-    "ev": -35
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
    },
    "Ontario Reign": {
     "sc": 4,
     "idx": 50.1,
-    "fp": 1.7,
-    "mkt": "+2800",
-    "ev": -51
-   },
-   "Coachella Valley Firebirds": {
-    "sc": 4,
-    "idx": 48.7,
     "fp": 1.6,
-    "mkt": "+2800",
-    "ev": -55
+    "mkt": null,
+    "ev": null
+   },
+   "Colorado Eagles": {
+    "sc": 2,
+    "idx": 53.7,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
    },
    "Milwaukee Admirals": {
     "sc": 3,
     "idx": 42.2,
     "fp": 1.4,
-    "mkt": "+2000",
-    "ev": -70
+    "mkt": null,
+    "ev": null
+   },
+   "Coachella Valley Firebirds": {
+    "sc": 4,
+    "idx": 48.7,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
    },
    "Syracuse Crunch": {
     "sc": 2,
     "idx": 41.3,
     "fp": 1.3,
-    "mkt": "+2000",
-    "ev": -72
-   },
-   "Calgary Wranglers": {
-    "sc": 4,
-    "idx": 54.1,
-    "fp": 1.3,
-    "mkt": "+3500",
-    "ev": -52
+    "mkt": null,
+    "ev": null
    },
    "Hartford Wolf Pack": {
     "sc": 3,
     "idx": 43.9,
-    "fp": 1.0,
-    "mkt": "+5000",
-    "ev": -50
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Calgary Wranglers": {
+    "sc": 4,
+    "idx": 54.1,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
    },
    "Cleveland Monsters": {
     "sc": 0,
     "idx": 43.5,
     "fp": 0.9,
-    "mkt": "+2200",
-    "ev": -80
-   },
-   "Chicago Wolves": {
-    "sc": 1,
-    "idx": 18.9,
-    "fp": 0.5,
-    "mkt": "+3500",
-    "ev": -83
+    "mkt": null,
+    "ev": null
    },
    "Abbotsford Canucks": {
     "sc": 1,
     "idx": 39.8,
     "fp": 0.5,
-    "mkt": "+1200",
-    "ev": -94
+    "mkt": null,
+    "ev": null
+   },
+   "Chicago Wolves": {
+    "sc": 1,
+    "idx": 18.9,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
    },
    "Belleville Senators": {
     "sc": 2,
     "idx": 38.8,
     "fp": 0.4,
-    "mkt": "+5000",
-    "ev": -80
+    "mkt": null,
+    "ev": null
    },
-   "Texas Stars": {
-    "sc": 1,
-    "idx": 14.5,
+   "Iowa Wild": {
+    "sc": 2,
+    "idx": 24.6,
     "fp": 0.2,
-    "mkt": "+3500",
-    "ev": -94
+    "mkt": null,
+    "ev": null
    },
    "Rockford IceHogs": {
     "sc": 1,
     "idx": 17.6,
     "fp": 0.1,
-    "mkt": "+5000",
-    "ev": -94
+    "mkt": null,
+    "ev": null
    },
-   "Iowa Wild": {
-    "sc": 2,
-    "idx": 24.6,
+   "Texas Stars": {
+    "sc": 1,
+    "idx": 14.5,
     "fp": 0.1,
-    "mkt": "+5000",
-    "ev": -95
+    "mkt": null,
+    "ev": null
    },
    "Springfield Thunderbirds": {
     "sc": 2,
     "idx": 14.6,
-    "fp": 0.0,
-    "mkt": "+3500",
-    "ev": -98
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
    },
    "San Jose Barracuda": {
     "sc": 1,
     "idx": 20.5,
-    "fp": 0.0,
-    "mkt": "+5000",
-    "ev": -98
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
    },
    "Bakersfield Condors": {
     "sc": 0,
     "idx": 12.7,
     "fp": 0.0,
-    "mkt": "+3500",
-    "ev": -99
+    "mkt": null,
+    "ev": null
    },
    "Lehigh Valley Phantoms": {
     "sc": 1,
     "idx": 0,
     "fp": 0.0,
-    "mkt": "+3500",
-    "ev": -100
+    "mkt": null,
+    "ev": null
    },
    "Hamilton Hammers": {
     "sc": 0,
     "idx": 6.6,
-    "fp": null,
-    "mkt": "+5000",
+    "fp": 0.0,
+    "mkt": null,
     "ev": null
    }
   }
