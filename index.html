@@ -410,7 +410,7 @@ const REPO="popcawn/blueprint-dashboard";
 // W (method text), and the full-name / fair-% ranking lists if the board uses full team names or ranks by fair odds.
 // build.py: LEAGUES, SEASON_GAMES, SIGNAL_THRESH, value_plays branch, build_<sport>(), main() list, index.json sports;
 // .github/workflows/refresh.yml: the leagues default (both places). Screenshot-priced board: add its price file to PRICE_FILES.
-const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA",wnba:"WNBA",mlb:"MLB",cbb:"CBB",wcbb:"WCBB",mls:"MLS",fcs:"FCS",chk:"College Hockey",cfl:"CFL",nwsl:"NWSL",afl:"AFL",nrl:"NRL",superleague:"Super League",euroleague:"EuroLeague",nbl:"NBL",aleague:"A-League",liiga:"Liiga",ligamx:"Liga MX",superrugby:"Super Rugby",urc:"URC",ahl:"AHL",swissnl:"Swiss NL"};
+const SPORTS={nfl:"NFL",cfb:"CFB",nhl:"NHL",nba:"NBA",wnba:"WNBA",mlb:"MLB",cbb:"CBB",wcbb:"WCBB",mls:"MLS",fcs:"FCS",cfl:"CFL",nwsl:"NWSL",afl:"AFL",nrl:"NRL",superleague:"Super League",euroleague:"EuroLeague",nbl:"NBL",aleague:"A-League",liiga:"Liiga",ligamx:"Liga MX",superrugby:"Super Rugby",urc:"URC",ahl:"AHL",swissnl:"Swiss NL"};
 // boards that show full team names (not just the nickname) and, apart from CFB, rank teams by fair title odds
 const FOOTY=["afl","nrl","superleague","euroleague","nbl","aleague","liiga","ligamx","superrugby","urc","ahl","swissnl"], BBF=["euroleague","nbl","aleague","liiga","ligamx","superrugby","urc","ahl","swissnl"], FULLNM=["cfb","cbb","wcbb","mls","fcs","chk","cfl","nwsl",...FOOTY], BYODDS=[...FULLNM.slice(1),"nfl","nhl","nba","wnba","mlb"], NOPROFILE=["superleague","nwsl","cfl"];   /* (2026-11-22, user: "i want it to run the same as the other blueprints, regardless") college hockey back on tiers + the coloured checklist (the odds still come from the rating) */   // (2026-11-16) BYODDS: ranked by fair title odds, the same order as the pick · NOPROFILE: the every-champion checklist did no better than a coin flip in testing, so these boards list teams by title odds with no tiers
 // Per-sport backtest calibration — how reliably the board's ranking has identified the champion.
@@ -1226,7 +1226,7 @@ async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await f
    Reads every board plus the user's slips (data/slips.json: book, stake, pays, legs -- no bet IDs, the repo is public; saved through the
    GitHub token so phone and PC share one list). It suggests a blend only when an OPEN board has a top-3 team (by fair odds) at EV >= +10%
    that no live slip holds yet. Rules (user, 2026-11-23): one team per league, every leg at one book, no league in its playoffs,
-   3 legs preferred over 2. No payout minimum (the $500-on-$5 rule was removed, user 2026-11-23: "remove the payout rule").
+   2 or 3 legs, whichever covers more (2026-11-24, user: "Doesn't have to be 3 teams"). No payout minimum (the $500-on-$5 rule was removed, user 2026-11-23: "remove the payout rule").
    (2026-11-23, user: "yes make both changes") a leg must pass ITS BOARD'S OWN betting rule (the board's value_plays list, so no
    "BEST VALUE · price only" picks), and a board still "Firming up" is treated like "Too early": its value teams wait under Watching.
    It changes no board's numbers. */
@@ -1316,7 +1316,7 @@ function blendScan(){
       const dec=g.reduce((m,x)=>m*x.dec,1), ch=g.reduce((m,x)=>m*x.p,1);
       all.push({book:B,legs:g,dec,ch,ev:ch*dec-1,fresh}); };
     for(let i=0;i<L.length;i++) for(let j=i+1;j<L.length;j++){ add([L[i],L[j]]); for(let k=j+1;k<L.length;k++) add([L[i],L[j],L[k]]); } }
-  // (2026-11-23, user: "Blends should cover bases") 3 legs before 2 (the user's default), then the blend that cashes in the most
+  // (2026-11-23, user: "Blends should cover bases"; 2026-11-24 "Doesn't have to be 3 teams" = no 3-leg preference) the blend that cashes in the most
   // seasons where none of your live slips do, then the best value. Picked one at a time: the 2nd covers what the 1st doesn't.
   const live=SLIPS.slips.filter(s=>slipState(s)==="live");
   const S=covSim(new Set([...live.flatMap(s=>s.legs.map(L=>L.lg)),...all.flatMap(c=>c.legs.map(x=>x.sp))]));
@@ -1342,7 +1342,7 @@ function blendScan(){
       let g=0; for(let i=0;i<COV_N;i++) if(c.cash[i]&&!cur[i]) g++; c.gain=g/COV_N;
       if(!g) continue;   // cashes only when a slip you hold already does (e.g. any Jaguars blend: your Valkyries-Brewers-Jaguars slip) -- covers nothing
       if(c.gain<BL_MINGAIN) continue;   // rule 2: adds under 1 point -- you're covered
-      if(!best||c.legs.length>best.legs.length||(c.legs.length===best.legs.length&&(c.gain>best.gain+1e-9||(Math.abs(c.gain-best.gain)<=1e-9&&c.ev>best.ev)))) best=c; }
+      if(!best||c.gain>best.gain+1e-9||(Math.abs(c.gain-best.gain)<=1e-9&&c.ev>best.ev)) best=c; }
     if(!best) break;
     best.cov={from:pct(),fromTop:topK?pct(lose):null,netFrom:netOf(stakeCur,pays)};
     stakeCur+=BL_STAKE; pays.push(BL_STAKE*best.dec); best.cov.netTo=netOf(stakeCur,pays);
