@@ -482,6 +482,23 @@
      "team": "Leinster"
     }
    ]
+  },
+  {
+   "id": "s21",
+   "book": "DraftKings",
+   "stake": 20,
+   "pays": 387.0,
+   "added": "2026-11-24",
+   "legs": [
+    {
+     "lg": "ligamx",
+     "team": "Cruz Azul"
+    },
+    {
+     "lg": "fcs",
+     "team": "Montana State"
+    }
+   ]
   }
  ]
 }
