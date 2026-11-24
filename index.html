@@ -289,6 +289,9 @@
   .blnet{font-size:11px;color:var(--ink2);margin-top:3px} .blnet b{font:600 11px var(--mono);color:var(--ink)}
   .blnet.warn b{color:var(--warn)} .blnet.bad b{color:var(--bad)}
   .blcov{font-size:11px;color:var(--ink2);margin-top:3px} .blcov b{font:600 11px var(--mono);color:var(--ink)}
+  details.ck-f>summary,details.blwf>summary{cursor:pointer;list-style:none} details.ck-f>summary::-webkit-details-marker,details.blwf>summary::-webkit-details-marker{display:none}
+  .ck-car{font-style:normal;margin-left:auto;transition:transform .15s} details:not([open])>summary .ck-car{transform:rotate(-90deg)}
+  details.blwf>summary{display:flex;align-items:center;gap:6px}
   .blk{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);margin-top:12px}
   .blw{font-size:12.5px;color:var(--ink2);margin-top:2px}
   .blsl{margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
@@ -910,6 +913,7 @@ function renderTabs(){
   document.querySelectorAll(".sportbar button").forEach(b=>{ b.onclick=()=>pick(b.dataset.s); b.classList.toggle("on",b.dataset.s===cur); });
   sbShow();
 }
+let CK_OPEN={po:false,off:false}, BL_WOPEN=false;   // (2026-11-24) folds: clock's playoff / offseason groups, Blends' Watching list
 function renderClock(){
   const el=document.getElementById("clock"); if(!el) return; if(!SEASONS.length){ el.innerHTML=""; return; }
   const keep=el.querySelector(".ck-wrap"), sl=keep?keep.scrollLeft:0;   // phone strip keeps its scroll across tab switches
@@ -918,7 +922,9 @@ function renderClock(){
   let h=`<h4 title="Sorted by the day each title is decided — leagues next to each other finish together, so they parlay well. Green = regular season (your bet window), amber = playoffs (window closed).">Season clock<span>by title date</span></h4><div class="ck-wrap">`;
   for(const [k,lab] of G){
     const rs=rows.filter(r=>r.p.k===k).sort((a,b)=>a.p.sortD.localeCompare(b.p.sortD)); if(!rs.length) continue;
-    h+=`<div class="ck-g"><div class="ck-gh"><span class="dot ${k}"></span>${lab} · ${rs.length}</div>`; let m="";
+    // (2026-11-24, user: "collapse offseason, playoff section") the closed-window groups are folds, shut by default; they stay as you left them until reload
+    const fold=k!=="open", gh=`<span class="dot ${k}"></span>${lab} · ${rs.length}`;
+    h+=fold?`<details class="ck-g ck-f" data-k="${k}"${CK_OPEN[k]?" open":""}><summary class="ck-gh">${gh}<i class="ck-car">▾</i></summary>`:`<div class="ck-g"><div class="ck-gh">${gh}</div>`; let m="";
     for(const {L,p} of rs){
       if(k==="open"){ const mo=D0(L.final).toLocaleDateString("en-US",{month:"short",year:"numeric",timeZone:"UTC"}); if(mo!==m){ h+=`<div class="ck-m" title="Titles decided in ${D0(L.final).toLocaleDateString("en-US",{month:"long",year:"numeric",timeZone:"UTC"})}">${mo}</div>`; m=mo; } }
       const tip=`${L.name} — ${k==="open"?`bet window open, ${p.pct}% of the regular season played`:k==="po"?"playoffs, window closed":p.over?"season over":"offseason"}.`
@@ -928,9 +934,10 @@ function renderClock(){
         +`<span class="n"><span class="dot ${k}"></span>${esc(lgName(L))}${L.site?"":"<i>chat</i>"}</span><span class="d">${right}</span>`
         +(k==="open"?`<span class="pb"><span><i style="width:${p.pct}%"></i></span><span>${p.pct}% · ${L.po?`playoffs ${fD(L,"po")}`:`ends ${fD(L,"final")}`}</span></span>`:"")+`</div>`;
     }
-    h+=`</div>`;
+    h+=fold?`</details>`:`</div>`;
   }
   el.innerHTML=h+`</div>`;
+  el.querySelectorAll("details.ck-f").forEach(d=>d.addEventListener("toggle",()=>{CK_OPEN[d.dataset.k]=d.open;}));
   const w=el.querySelector(".ck-wrap"); if(w&&sl) w.scrollLeft=sl;
   el.querySelectorAll(".ck.site").forEach(c=>c.onclick=()=>{pick(c.dataset.s);window.scrollTo({top:0,behavior:"smooth"});});
 }
@@ -1358,7 +1365,7 @@ function blendsHTML(){
   const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} in the last 2 weeks so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+({"03-01":"Mar 1","03-16":"mid-March"}[BL_FROM[e.sp]]||BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
-  if(W.length) h+=`<div class="blk">Watching</div>`+W.map(x=>`<div class="blw">${x}</div>`).join("");
+  if(W.length) h+=`<details class="blwf"${BL_WOPEN?" open":""} ontoggle="BL_WOPEN=this.open"><summary class="blk">Watching · ${W.length}<i class="ck-car">▾</i></summary>`+W.map(x=>`<div class="blw">${x}</div>`).join("")+`</details>`;   // (2026-11-24, user) folded by default
   const exp={}; for(const {s} of live) for(const L of s.legs) if(legState(L)==="open"){ const k=blNm(L.lg,L.team); exp[k]=(exp[k]||0)+(+s.stake||0); }   // whole dollars below
   // (2026-11-23, user: "click one of the teams and it only shows me every slip they're in. I un click and all slips are back")
   const legKey=L=>L.lg+"|"+blNm(L.lg,L.team), expLg={}; for(const {s} of live) for(const L of s.legs) expLg[blNm(L.lg,L.team)]=L;
