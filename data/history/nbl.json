@@ -776,72 +776,72 @@
    "Sydney Kings": {
     "sc": 5,
     "idx": 91.1,
-    "fp": 58.1,
-    "mkt": null,
-    "ev": null
+    "fp": 58.6,
+    "mkt": "+250",
+    "ev": 105
    },
    "Melbourne United": {
     "sc": 4,
     "idx": 73,
-    "fp": 24.7,
-    "mkt": null,
-    "ev": null
+    "fp": 24.0,
+    "mkt": "+300",
+    "ev": -4
    },
    "Tasmania JackJumpers": {
     "sc": 5,
     "idx": 90.4,
-    "fp": 10.6,
-    "mkt": null,
-    "ev": null
+    "fp": 10.7,
+    "mkt": "+350",
+    "ev": -52
    },
    "Adelaide 36ers": {
     "sc": 3,
     "idx": 46.6,
-    "fp": 3.5,
-    "mkt": null,
-    "ev": null
+    "fp": 3.6,
+    "mkt": "+470",
+    "ev": -79
    },
    "South East Melbourne Phoenix": {
     "sc": 3,
     "idx": 20,
-    "fp": 1.9,
-    "mkt": null,
-    "ev": null
+    "fp": 1.8,
+    "mkt": "+2700",
+    "ev": -49
    },
    "Perth Wildcats": {
     "sc": 2,
     "idx": 51.7,
-    "fp": 0.7,
-    "mkt": null,
-    "ev": null
+    "fp": 0.8,
+    "mkt": "+1900",
+    "ev": -83
    },
    "New Zealand Breakers": {
     "sc": 2,
     "idx": 26.3,
     "fp": 0.3,
-    "mkt": null,
-    "ev": null
+    "mkt": "+5000",
+    "ev": -86
    },
    "Cairns Taipans": {
     "sc": 4,
     "idx": 65.8,
     "fp": 0.1,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1100",
+    "ev": -98
+   },
+   "Brisbane Bullets": {
+    "sc": 1,
+    "idx": 36.7,
+    "fp": 0.0,
+    "mkt": "+2700",
+    "ev": -100
    },
    "Illawarra Hawks": {
     "sc": 1,
     "idx": 9.2,
     "fp": 0.0,
-    "mkt": null,
-    "ev": null
-   },
-   "Brisbane Bullets": {
-    "sc": 1,
-    "idx": 36.7,
-    "fp": null,
-    "mkt": null,
-    "ev": null
+    "mkt": "+4500",
+    "ev": -100
    }
   }
  }

@@ -1056,42 +1056,42 @@
    "ZSC Lions": {
     "sc": 4,
     "idx": 100,
-    "fp": 46.5,
-    "mkt": null,
-    "ev": null
+    "fp": 46.8,
+    "mkt": "+150",
+    "ev": 17
    },
    "Fribourg-Gott\u00e9ron": {
     "sc": 0,
     "idx": 43.5,
-    "fp": 13.2,
-    "mkt": null,
-    "ev": null
+    "fp": 13.4,
+    "mkt": "+900",
+    "ev": 34
    },
    "HC Davos": {
     "sc": 0,
     "idx": 18.2,
-    "fp": 13.1,
-    "mkt": null,
-    "ev": null
+    "fp": 12.8,
+    "mkt": "+900",
+    "ev": 28
    },
    "EV Zug": {
     "sc": 4,
     "idx": 82.4,
-    "fp": 11.2,
+    "fp": 11.1,
     "mkt": null,
     "ev": null
    },
    "SC Bern": {
     "sc": 1,
     "idx": 56.3,
-    "fp": 6.5,
-    "mkt": null,
-    "ev": null
+    "fp": 6.4,
+    "mkt": "+1100",
+    "ev": -24
    },
    "SCL Tigers": {
     "sc": 1,
     "idx": 45.3,
-    "fp": 4.1,
+    "fp": 4.2,
     "mkt": null,
     "ev": null
    },
@@ -1099,29 +1099,29 @@
     "sc": 0,
     "idx": 14.1,
     "fp": 1.7,
-    "mkt": null,
-    "ev": null
+    "mkt": "+900",
+    "ev": -83
    },
    "Gen\u00e8ve-Servette HC": {
     "sc": 0,
     "idx": 25.3,
-    "fp": 1.4,
+    "fp": 1.5,
     "mkt": null,
     "ev": null
    },
    "HC Lugano": {
     "sc": 0,
     "idx": 23.7,
-    "fp": 1.3,
-    "mkt": null,
-    "ev": null
+    "fp": 1.4,
+    "mkt": "+2000",
+    "ev": -71
    },
    "HC Ambri-Piotta": {
     "sc": 0,
     "idx": 45.2,
-    "fp": 0.7,
-    "mkt": null,
-    "ev": null
+    "fp": 0.6,
+    "mkt": "+2000",
+    "ev": -87
    },
    "EHC Biel-Bienne": {
     "sc": 0,
@@ -1134,21 +1134,21 @@
     "sc": 0,
     "idx": 8,
     "fp": 0.1,
-    "mkt": null,
-    "ev": null
-   },
-   "EHC Kloten": {
-    "sc": 0,
-    "idx": 0,
-    "fp": 0.0,
-    "mkt": null,
-    "ev": null
+    "mkt": "+5000",
+    "ev": -95
    },
    "HC Ajoie": {
     "sc": 0,
     "idx": 30.2,
     "fp": null,
-    "mkt": null,
+    "mkt": "+10000",
+    "ev": null
+   },
+   "EHC Kloten": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": "+10000",
     "ev": null
    }
   }
