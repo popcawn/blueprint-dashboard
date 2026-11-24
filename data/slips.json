@@ -453,6 +453,35 @@
      "team": "Carolina Hurricanes"
     }
    ]
+  },
+  {
+   "id": "s20",
+   "book": "DraftKings",
+   "stake": 5,
+   "pays": 37248.75,
+   "added": "2026-11-24",
+   "legs": [
+    {
+     "lg": "liiga",
+     "team": "SaiPa"
+    },
+    {
+     "lg": "ligamx",
+     "team": "Cruz Azul"
+    },
+    {
+     "lg": "fcs",
+     "team": "Montana State"
+    },
+    {
+     "lg": "ahl",
+     "team": "Grand Rapids Griffins"
+    },
+    {
+     "lg": "urc",
+     "team": "Leinster"
+    }
+   ]
   }
  ]
 }
