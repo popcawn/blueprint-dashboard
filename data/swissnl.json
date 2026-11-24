@@ -1,7 +1,7 @@
 {
   "sport": "Swiss National League",
   "season": "2026-27",
-  "generated": "2026-11-24T19:48:37Z",
+  "generated": "2026-11-24T19:59:45Z",
   "cats": [
     "Standings position \u2264 2",
     "Points % top-2",
@@ -37,16 +37,20 @@
       "rtg": 0.89,
       "reg": null,
       "pos": 1,
-      "minor_pct": 95.5,
+      "minor_pct": 95.2,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 46.8,
+      "fair_pct": 46.7,
       "fair_odds": "+114",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 150,
+      "market": "+150",
+      "ev": 17,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 17
+      }
     },
     {
       "name": "Fribourg-Gott\u00e9ron",
@@ -73,13 +77,17 @@
       "minor_pct": 0.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 12.9,
-      "fair_odds": "+674",
+      "fair_pct": 12.7,
+      "fair_odds": "+689",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 900,
+      "market": "+900",
+      "ev": 27,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 27
+      }
     },
     {
       "name": "HC Davos",
@@ -107,12 +115,16 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 12.7,
-      "fair_odds": "+686",
+      "fair_odds": "+690",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 900,
+      "market": "+900",
+      "ev": 27,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 27
+      }
     },
     {
       "name": "EV Zug",
@@ -136,11 +148,11 @@
       "rtg": 0.28,
       "reg": null,
       "pos": 2,
-      "minor_pct": 3.7,
+      "minor_pct": 4.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 11.4,
-      "fair_odds": "+780",
+      "fair_pct": 11.5,
+      "fair_odds": "+772",
       "read": null,
       "mk": null,
       "market": null,
@@ -169,16 +181,20 @@
       "rtg": 0.13,
       "reg": null,
       "pos": 3,
-      "minor_pct": 0.5,
+      "minor_pct": 0.6,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 6.4,
-      "fair_odds": "+1464",
+      "fair_pct": 6.9,
+      "fair_odds": "+1357",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1100,
+      "market": "+1100",
+      "ev": -18,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -18
+      }
     },
     {
       "name": "SCL Tigers",
@@ -202,11 +218,11 @@
       "rtg": 0.1,
       "reg": null,
       "pos": 6,
-      "minor_pct": 0.1,
+      "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 4.4,
-      "fair_odds": "+2155",
+      "fair_pct": 4.3,
+      "fair_odds": "+2204",
       "read": null,
       "mk": null,
       "market": null,
@@ -235,16 +251,20 @@
       "rtg": 0.05,
       "reg": null,
       "pos": 11,
-      "minor_pct": null,
+      "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 1.7,
-      "fair_odds": "+5961",
+      "fair_pct": 1.5,
+      "fair_odds": "+6372",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 900,
+      "market": "+900",
+      "ev": -85,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -85
+      }
     },
     {
       "name": "Gen\u00e8ve-Servette HC",
@@ -272,7 +292,7 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.5,
-      "fair_odds": "+6415",
+      "fair_odds": "+6634",
       "read": null,
       "mk": null,
       "market": null,
@@ -305,12 +325,16 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.4,
-      "fair_odds": "+7120",
+      "fair_odds": "+7017",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2000,
+      "market": "+2000",
+      "ev": -70,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -70
+      }
     },
     {
       "name": "HC Ambri-Piotta",
@@ -337,46 +361,17 @@
       "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.6,
-      "fair_odds": "+15648",
+      "fair_pct": 0.7,
+      "fair_odds": "+15052",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "SC Rapperswil-Jona Lakers",
-      "conf": "13th",
-      "rec": "8-15 \u00b7 25 pts \u00b7 -19",
-      "gp": 23,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "13 #13",
-        "0.362 #13",
-        "-0.83 #13",
-        "2.61 #11"
-      ],
-      "index": 8,
-      "rtg": -0.28,
-      "reg": null,
-      "pos": 13,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.1,
-      "fair_odds": "+50000+",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 2000,
+      "market": "+2000",
+      "ev": -86,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -86
+      }
     },
     {
       "name": "EHC Biel-Bienne",
@@ -412,9 +407,9 @@
       "verdict": null
     },
     {
-      "name": "HC Ajoie",
-      "conf": "7th",
-      "rec": "12-11 \u00b7 33 pts \u00b7 -4",
+      "name": "SC Rapperswil-Jona Lakers",
+      "conf": "13th",
+      "rec": "8-15 \u00b7 25 pts \u00b7 -19",
       "gp": 23,
       "score": 0,
       "q": [
@@ -424,25 +419,29 @@
         false
       ],
       "vals": [
-        "7 #7",
-        "0.478 #7",
-        "-0.17 #7",
-        "3.00 #7"
+        "13 #13",
+        "0.362 #13",
+        "-0.83 #13",
+        "2.61 #11"
       ],
-      "index": 30.2,
-      "rtg": -0.8,
+      "index": 8,
+      "rtg": -0.28,
       "reg": null,
-      "pos": 7,
+      "pos": 13,
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.0,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 5000,
+      "market": "+5000",
+      "ev": -95,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -95
+      }
     },
     {
       "name": "EHC Kloten",
@@ -469,18 +468,55 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": 10000,
+      "market": "+10000",
+      "ev": -99,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -99
+      }
+    },
+    {
+      "name": "HC Ajoie",
+      "conf": "7th",
+      "rec": "12-11 \u00b7 33 pts \u00b7 -4",
+      "gp": 23,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "7 #7",
+        "0.478 #7",
+        "-0.17 #7",
+        "3.00 #7"
+      ],
+      "index": 30.2,
+      "rtg": -0.8,
+      "reg": null,
+      "pos": 7,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 10000,
+      "market": "+10000",
       "ev": null,
       "verdict": null
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": null,
+  "market_asof": "Nov 24",
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2026,
@@ -491,7 +527,7 @@
   "sig": 2.2,
   "prediction": {
     "pick": "ZSC Lions",
-    "why": "<b>ZSC Lions</b> is the model's #1: 46.8% to win the Swiss championship (fair +114). 209 regular-season games left are simulated, then the playoffs (20,000 runs). Bet window open until the first final."
+    "why": "<b>ZSC Lions</b> is the model's #1: 46.7% to win the Swiss championship (fair +114). 209 regular-season games left are simulated, then the playoffs (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 43,
   "gp_min": 18,
@@ -507,5 +543,18 @@
     "label": "Firming up",
     "note": "23 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Fribourg-Gott\u00e9ron",
+      "ev": 27,
+      "market": "+900",
+      "fair_odds": "+689"
+    },
+    {
+      "name": "HC Davos",
+      "ev": 27,
+      "market": "+900",
+      "fair_odds": "+690"
+    }
+  ]
 }
