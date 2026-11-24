@@ -544,5 +544,95 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-24",
+  "gp": 5,
+  "teams": {
+   "Wellington Phoenix": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 13.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Sydney FC": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 13.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne City FC": {
+    "sc": 2,
+    "idx": 85.7,
+    "fp": 12.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Western Sydney Wanderers FC": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 10.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Perth Glory FC": {
+    "sc": 3,
+    "idx": 65.7,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Auckland FC": {
+    "sc": 3,
+    "idx": 54.3,
+    "fp": 9.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Brisbane Roar FC": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 8.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Macarthur FC": {
+    "sc": 3,
+    "idx": 77.1,
+    "fp": 8.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Melbourne Victory": {
+    "sc": 3,
+    "idx": 31.4,
+    "fp": 6.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Newcastle Jets": {
+    "sc": 1,
+    "idx": 14.3,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Adelaide United FC": {
+    "sc": 1,
+    "idx": 0,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Central Coast Mariners FC": {
+    "sc": 0,
+    "idx": 20,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]

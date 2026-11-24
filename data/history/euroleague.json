@@ -1174,5 +1174,151 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-24",
+  "gp": 14,
+  "teams": {
+   "Olympiacos": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 36.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Valencia": {
+    "sc": 5,
+    "idx": 85.8,
+    "fp": 17.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Real Madrid": {
+    "sc": 4,
+    "idx": 71.4,
+    "fp": 16.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Panathinaikos": {
+    "sc": 5,
+    "idx": 70.6,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Fenerbahce": {
+    "sc": 5,
+    "idx": 53.3,
+    "fp": 6.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Zalgiris": {
+    "sc": 4,
+    "idx": 68,
+    "fp": 3.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Crvena Zvezda": {
+    "sc": 5,
+    "idx": 62.7,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Hapoel Tel Aviv": {
+    "sc": 3,
+    "idx": 56.4,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Barcelona": {
+    "sc": 3,
+    "idx": 69.5,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Dubai": {
+    "sc": 4,
+    "idx": 63,
+    "fp": 2.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Paris": {
+    "sc": 1,
+    "idx": 55.9,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Anadolu Efes": {
+    "sc": 3,
+    "idx": 35.2,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Partizan": {
+    "sc": 3,
+    "idx": 36.5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Besiktas": {
+    "sc": 2,
+    "idx": 40.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Olimpia Milano": {
+    "sc": 2,
+    "idx": 21.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Bayern Munich": {
+    "sc": 1,
+    "idx": 31,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Virtus Bologna": {
+    "sc": 1,
+    "idx": 23.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Maccabi Tel Aviv": {
+    "sc": 0,
+    "idx": 17.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "ASVEL": {
+    "sc": 0,
+    "idx": 5.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Baskonia": {
+    "sc": 0,
+    "idx": 3.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]

@@ -1,7 +1,7 @@
 {
   "sport": "MLB",
   "season": "2026",
-  "generated": "2026-11-18T21:39:28Z",
+  "generated": "2026-11-24T19:42:10Z",
   "odds_remaining": null,
   "prediction": {
     "pick": "Brewers",
@@ -68,8 +68,8 @@
       "books": null,
       "ev": 18,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 18
       },
       "read": {
@@ -148,8 +148,8 @@
       "books": null,
       "ev": 98,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "value",
+        "label": "value",
         "ev": 98
       },
       "read": {
@@ -1097,12 +1097,6 @@
     "note": "The season is decided \u2014 the board shows the fair odds frozen at the start of the playoffs, for the record."
   },
   "value_plays": [
-    {
-      "name": "Braves",
-      "ev": 98,
-      "market": "+1400",
-      "fair_odds": "+656"
-    },
     {
       "name": "Brewers",
       "ev": 18,

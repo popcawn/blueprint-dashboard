@@ -1,7 +1,7 @@
 {
   "sport": "NWSL",
   "season": "2026",
-  "generated": "2026-11-20T20:14:35Z",
+  "generated": "2026-11-24T19:42:21Z",
   "cats": [
     "Goal diff/game top-5",
     "Form (last 8) top-8",
@@ -72,14 +72,9 @@
         "0.30 #5"
       ],
       "index": 82.4,
-      "rtg": 0.658,
+      "rtg": 0.684,
       "alive": true,
-      "next": {
-        "round": "Final",
-        "opp": "Washington Spirit",
-        "site": "away",
-        "date": "2026-11-22"
-      },
+      "next": null,
       "seed": 4,
       "bet_ok": false,
       "fair_pct": 18.1,
@@ -111,7 +106,7 @@
         "0.27 #2"
       ],
       "index": 85.5,
-      "rtg": 0.291,
+      "rtg": 0.29,
       "alive": false,
       "next": null,
       "seed": 2,
@@ -145,14 +140,9 @@
         "0.30 #5"
       ],
       "index": 82,
-      "rtg": 0.414,
-      "alive": true,
-      "next": {
-        "round": "Final",
-        "opp": "Kansas City Current",
-        "site": "home",
-        "date": "2026-11-22"
-      },
+      "rtg": 0.388,
+      "alive": false,
+      "next": null,
       "seed": 3,
       "bet_ok": false,
       "fair_pct": 16.5,
@@ -184,7 +174,7 @@
         "0.27 #2"
       ],
       "index": 90.3,
-      "rtg": 0.411,
+      "rtg": 0.41,
       "alive": false,
       "next": null,
       "seed": 5,
@@ -218,7 +208,7 @@
         "0.27 #2"
       ],
       "index": 74.8,
-      "rtg": 0.121,
+      "rtg": 0.119,
       "alive": false,
       "next": null,
       "seed": 6,
@@ -286,7 +276,7 @@
         "0.37 #7"
       ],
       "index": 65,
-      "rtg": 0.004,
+      "rtg": 0.003,
       "alive": false,
       "next": null,
       "seed": 7,
@@ -320,7 +310,7 @@
         "0.50 #11"
       ],
       "index": 49.7,
-      "rtg": -0.26,
+      "rtg": -0.259,
       "alive": false,
       "next": null,
       "seed": 13,
@@ -354,7 +344,7 @@
         "0.37 #7"
       ],
       "index": 69.8,
-      "rtg": 0.3,
+      "rtg": 0.299,
       "alive": false,
       "next": null,
       "seed": 10,
@@ -388,7 +378,7 @@
         "0.43 #10"
       ],
       "index": 64.4,
-      "rtg": 0.215,
+      "rtg": 0.214,
       "alive": false,
       "next": null,
       "seed": 9,
@@ -422,7 +412,7 @@
         "0.50 #11"
       ],
       "index": 50.4,
-      "rtg": -0.219,
+      "rtg": -0.218,
       "alive": false,
       "next": null,
       "seed": 12,
@@ -456,7 +446,7 @@
         "0.53 #13"
       ],
       "index": 49.3,
-      "rtg": -0.148,
+      "rtg": -0.147,
       "alive": false,
       "next": null,
       "seed": 11,
@@ -490,7 +480,7 @@
         "0.67 #15"
       ],
       "index": 23.3,
-      "rtg": -0.537,
+      "rtg": -0.536,
       "alive": false,
       "next": null,
       "seed": 15,
@@ -524,7 +514,7 @@
         "0.57 #14"
       ],
       "index": 38.9,
-      "rtg": -0.485,
+      "rtg": -0.483,
       "alive": false,
       "next": null,
       "seed": 14,
@@ -558,7 +548,7 @@
         "0.77 #16"
       ],
       "index": 0,
-      "rtg": -1.269,
+      "rtg": -1.267,
       "alive": false,
       "next": null,
       "seed": 16,
@@ -575,11 +565,11 @@
   "odds_remaining": null,
   "market_name": "DraftKings",
   "market_asof": null,
-  "stage": "playoffs",
+  "stage": "done",
   "window_closed": true,
   "prediction": {
     "pick": "Gotham FC",
-    "why": "Still alive: Kansas City Current, Washington Spirit. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
+    "why": "<b>Kansas City Current</b> won the 2026 NWSL Championship. Going into the playoffs the model's #1 was <b>Gotham FC</b>: 19.1% to win the title (fair +425). The betting window is closed: these fair odds are frozen at the start of the playoffs (you don't bet within the playoffs), so no EV is shown against in-playoff prices."
   },
   "season_pct": 100,
   "gp_min": 30,
@@ -587,8 +577,8 @@
   "signal": {
     "status": "closed",
     "emoji": "\ud83d\udd12",
-    "label": "Window closed",
-    "note": "The playoffs are under way \u2014 you never bet within them. The fair odds are frozen at the start of the playoffs; nothing here is a bet now."
+    "label": "Season over",
+    "note": "The season is decided \u2014 the board shows the fair odds frozen at the start of the playoffs, for the record."
   },
   "value_plays": []
 }

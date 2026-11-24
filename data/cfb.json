@@ -1,8 +1,8 @@
 {
   "sport": "CFB",
   "season": "2026",
-  "generated": "2026-11-22T17:23:47Z",
-  "odds_remaining": "30349",
+  "generated": "2026-11-24T19:41:51Z",
+  "odds_remaining": "26320",
   "prediction": {
     "pick": "Georgia Bulldogs",
     "why": "<b>Georgia Bulldogs</b> is the pick \u2014 the model's #1 by index \u00d7 schedule \u00d7 playoff odds (fair +254), the order that picked 10 of 12 CFP champions. Committee has it <b>#1</b> (97% to make the field). The genuine article \u2014 complete (worst spot: scoring defense #6) and SRS #1 proves it's earned against real teams, not padded. Exactly what wins a 12-team playoff."
@@ -51,16 +51,16 @@
       "rtg": 40.2,
       "fair_pct": 28.2,
       "fair_odds": "+254",
-      "market": "+200",
+      "market": "+190",
       "books": {
-        "FanDuel": 180,
-        "DraftKings": 200
+        "FanDuel": 175,
+        "DraftKings": 190
       },
-      "ev": -15,
+      "ev": -18,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -15
+        "ev": -18
       },
       "read": {
         "v": "trust",
@@ -100,7 +100,7 @@
       "market": "+420",
       "books": {
         "FanDuel": 420,
-        "DraftKings": 400
+        "DraftKings": 390
       },
       "ev": 4,
       "verdict": {
@@ -189,16 +189,16 @@
       "rtg": 31.4,
       "fair_pct": 22.5,
       "fair_odds": "+345",
-      "market": "+1300",
+      "market": "+1200",
       "books": {
         "FanDuel": 1200,
-        "DraftKings": 1300
+        "DraftKings": 1100
       },
-      "ev": 215,
+      "ev": 192,
       "verdict": {
         "kind": "best",
         "label": "BEST VALUE \u00b7 price only",
-        "ev": 215,
+        "ev": 192,
         "norule": true
       },
       "read": {
@@ -236,16 +236,16 @@
       "rtg": 25.6,
       "fair_pct": 13.8,
       "fair_odds": "+623",
-      "market": "+17500",
+      "market": "+20000",
       "books": {
         "FanDuel": 17500,
-        "DraftKings": 12000
+        "DraftKings": 20000
       },
-      "ev": 2335,
+      "ev": 2681,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 2335
+        "ev": 2681
       },
       "read": {
         "v": "caution",
@@ -282,16 +282,16 @@
       "rtg": 19.8,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+125000",
+      "market": "+200000",
       "books": {
         "FanDuel": 125000,
-        "DraftKings": 70000
+        "DraftKings": 200000
       },
-      "ev": -60,
+      "ev": -36,
       "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -60
+        "kind": "fade",
+        "label": "fade",
+        "ev": -36
       },
       "read": {
         "v": "caution",
@@ -328,16 +328,16 @@
       "rtg": 19.7,
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
-      "market": "+125000",
+      "market": "+200000",
       "books": {
         "FanDuel": 125000,
-        "DraftKings": 70000
+        "DraftKings": 200000
       },
-      "ev": -76,
+      "ev": -61,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -76
+        "ev": -61
       },
       "read": {
         "v": "caution",
@@ -374,16 +374,16 @@
       "rtg": 29.6,
       "fair_pct": 3.9,
       "fair_odds": "+2487",
-      "market": "+2800",
+      "market": "+2900",
       "books": {
-        "FanDuel": 2700,
-        "DraftKings": 2800
+        "FanDuel": 2500,
+        "DraftKings": 2900
       },
-      "ev": 12,
+      "ev": 16,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 12
+        "ev": 16
       },
       "read": {
         "v": "caution",
@@ -591,9 +591,9 @@
     "West Virginia Mountaineers": 10.0,
     "Tulane Green Wave": -0.8,
     "Vanderbilt Commodores": 6.7,
+    "New Mexico State Aggies": -5.5,
     "Washington State Cougars": 3.1,
     "Troy Trojans": -4.3,
-    "New Mexico State Aggies": -5.5,
     "Eastern Michigan Eagles": -6.9,
     "Arkansas Razorbacks": 9.0,
     "Missouri State Bears": -4.6,

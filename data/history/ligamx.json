@@ -2658,5 +2658,137 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-24",
+  "gp": 17,
+  "teams": {
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 78.1,
+    "fp": 25.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 79.4,
+    "fp": 20.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 93.3,
+    "fp": 19.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 78.6,
+    "fp": 19.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 5,
+    "idx": 68.3,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 61,
+    "fp": 5.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 38.2,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 52.9,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 4,
+    "idx": 46.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 58.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 48.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 3,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 38.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 32.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 2,
+    "idx": 35.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 2,
+    "idx": 22.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 19.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 2.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]
