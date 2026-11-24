@@ -2681,7 +2681,7 @@ FOOTY = {
                       "illawarra": "illawarra hawks", "hawks": "illawarra hawks", "nz breakers": "new zealand breakers", "breakers": "new zealand breakers"}},
 }
 FOOTY["aleague"] = {"sport": "A-League Men", "eng": ["aleague.mjs", "live"], "title": "A-League Grand Final", "finals": "finals",
-    "book": "aleague_book.json", "bet_url": ["FanDuel", "https://sportsbook.fanduel.com/soccer/australian-a-league-men's"],
+    "book": "aleague_book.json", "bet_url": ["FanDuel", "https://sportsbook.fanduel.com/soccer/australian-a-league-men's?tab=futures"],
     "alias": {"sydney": "sydney fc", "city": "melbourne city", "melbourne c": "melbourne city", "victory": "melbourne victory", "melbourne v": "melbourne victory",
               "wanderers": "western sydney wanderers", "wsw": "western sydney wanderers", "western sydney": "western sydney wanderers",
               "phoenix": "wellington phoenix", "wellington": "wellington phoenix", "mariners": "central coast mariners", "central coast": "central coast mariners",
@@ -2693,7 +2693,7 @@ FOOTY["liiga"] = {"sport": "Liiga", "eng": ["euhockey.mjs", "liiga", "live"], "t
               "tappara tampere": "tappara", "pelicans lahti": "pelicans", "saipa lappeenranta": "saipa", "hpk hameenlinna": "hpk", "assat pori": "assat",
               "karpat oulu": "karpat", "sport vaasa": "sport", "kookoo kouvola": "kookoo", "jukurit mikkeli": "jukurit", "kiekko espoo": "k espoo", "jokerit helsinki": "jokerit"}}
 FOOTY["ligamx"] = {"sport": "Liga MX", "eng": ["ligamx.mjs", "live"], "title": "Liga MX title", "finals": "liguilla",
-    "book": "ligamx_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/soccer/mexico---liga-mx"],
+    "book": "ligamx_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/soccer/mexico---liga-mx?category=futures&subcategory=team-futures&nav_1=winner"],
     "alias": {"chivas": "guadalajara", "club america": "america", "américa": "america", "cruz azul": "cruz azul", "pumas": "pumas unam", "unam": "pumas unam",
               "tigres": "tigres uanl", "rayados": "monterrey", "toluca": "toluca", "santos": "santos laguna", "leon": "león", "atlas": "atlas", "pachuca": "pachuca",
               "xolos": "tijuana", "necaxa": "necaxa", "puebla": "puebla", "queretaro": "querétaro", "mazatlan": "mazatlán", "juarez": "fc juarez", "san luis": "atlético de san luis"}}
@@ -2706,14 +2706,15 @@ FOOTY["urc"] = {"sport": "URC", "eng": ["union.mjs", "urc", "live"], "title": "U
     "alias": {"glasgow": "glasgow warriors", "bulls": "vodacom bulls", "stormers": "dhl stormers", "sharks": "hollywoodbets sharks", "lions": "emirates lions",
               "ospreys": "ospreys", "scarlets": "scarlets", "cardiff": "cardiff rugby", "dragons": "dragons rfc", "edinburgh": "edinburgh rugby", "benetton": "benetton rugby", "zebre": "zebre parma"}}
 FOOTY["ahl"] = {"sport": "AHL", "eng": ["hockeytech.mjs", "ahl", "live"], "title": "Calder Cup", "finals": "playoffs",
-    "book": "ahl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/ahl"], "alias": {}}
+    "book": "ahl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/ahl?category=team-futures&subcategory=champion"], "alias": {}}
 FOOTY["swissnl"] = {"sport": "Swiss National League", "eng": ["euhockey.mjs", "swissnl", "live"], "title": "Swiss championship", "finals": "playoffs",
-    "book": "swissnl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/swiss-nla"],
+    "book": "swissnl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/swiss-nla?category=team-futures&subcategory=champion"],
     "alias": {"zsc": "zsc lions", "zurich": "zsc lions", "zsc lions zurich": "zsc lions", "hc davos": "davos", "fribourg": "fribourg-gotteron", "fribourg gotteron": "fribourg-gotteron",
               "ev zug": "zug", "sc bern": "bern", "hc lugano": "lugano", "geneve": "geneve-servette", "geneva": "geneve-servette", "servette": "geneve-servette",
               "lausanne hc": "lausanne", "biel": "biel-bienne", "ehc biel": "biel-bienne", "rapperswil": "rapperswil-jona lakers", "lakers": "rapperswil-jona lakers",
               "scl tigers": "langnau", "tigers": "langnau", "ambri": "ambri-piotta", "ajoie": "ajoie", "kloten": "kloten"}}
-FOOTY["euroleague"]["bet_url"] = None; FOOTY["nbl"]["bet_url"] = None
+FOOTY["euroleague"]["bet_url"] = None   # (2026-11-24, user: "theres no euroleague futures") at DraftKings/FanDuel
+FOOTY["nbl"]["bet_url"] = ["FanDuel", "https://sportsbook.fanduel.com/basketball/australian-nbl"]   # link from the user, 2026-11-24
 BB_FOOTY = ("euroleague", "nbl", "aleague", "liiga", "ligamx", "ahl", "swissnl")
 
 def _norm_bb(key, E):
