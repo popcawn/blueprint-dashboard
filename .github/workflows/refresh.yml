@@ -15,9 +15,9 @@ on:
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
-        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga)"
+        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl)"
         required: false
-        default: "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga"
+        default: "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl"
 
 permissions:
   contents: write
@@ -36,7 +36,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import datetime, json, os, zoneinfo
-          ALL = "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga"
+          ALL = "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl"
           if os.environ.get("EVENT_SCHEDULE") == "30 13 * * *":            # the daily pre-playoff check
               tomorrow = datetime.datetime.now(zoneinfo.ZoneInfo("America/New_York")).date() + datetime.timedelta(days=1)
               lg = json.load(open("data/seasons.json", encoding="utf-8"))["leagues"]
@@ -91,7 +91,7 @@ jobs:
           python3 - <<'PY'
           import json, os
           PASTED = {"mls": "mls_dk.json", "fcs": "fcs_book.json", "chk": "chk_book.json", "wcbb": "wcbb_fd.json", "cfl": "cfl_book.json",
-                    "nwsl": "nwsl_book.json", "afl": "afl_book.json", "nrl": "nrl_book.json", "superleague": "superleague_book.json", "euroleague": "euroleague_book.json", "nbl": "nbl_book.json", "aleague": "aleague_book.json", "liiga": "liiga_book.json",
+                    "nwsl": "nwsl_book.json", "afl": "afl_book.json", "nrl": "nrl_book.json", "superleague": "superleague_book.json", "euroleague": "euroleague_book.json", "nbl": "nbl_book.json", "aleague": "aleague_book.json", "liiga": "liiga_book.json", "ligamx": "ligamx_book.json", "superrugby": "superrugby_book.json", "urc": "urc_book.json", "ahl": "ahl_book.json", "swissnl": "swissnl_book.json",
                     "nhl": "nhl_dk.json", "nba": "nba_dk.json", "cbb": "cbb_dk.json"}
           try: builds = json.load(open("data/index.json", encoding="utf-8")).get("builds") or {}
           except Exception: builds = {}

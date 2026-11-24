@@ -21,6 +21,11 @@
   {"key": "euroleague", "name": "EuroLeague (basketball)", "title": "Final Four", "site": true, "start": "2026-09-29", "po": "2027-04-20", "final": "2027-05-23", "approx": ["start", "po", "final"], "short": "EuroLeague"},
   {"key": "nbl", "name": "NBL (Australian basketball)", "title": "Grand Final", "site": true, "start": "2026-09-17", "po": "2027-02-24", "final": "2027-03-21", "approx": ["start", "po", "final"], "short": "NBL"},
   {"key": "aleague", "name": "A-League Men (soccer)", "title": "Grand Final", "site": true, "start": "2026-10-17", "po": "2027-05-08", "final": "2027-05-29", "approx": ["start", "po", "final"], "short": "A-League"},
-  {"key": "liiga", "name": "Liiga (Finnish hockey)", "title": "Liiga final", "site": true, "start": "2026-09-10", "po": "2027-03-16", "final": "2027-04-30", "approx": ["start", "po", "final"], "short": "Liiga"}
+  {"key": "liiga", "name": "Liiga (Finnish hockey)", "title": "Liiga final", "site": true, "start": "2026-09-10", "po": "2027-03-16", "final": "2027-04-30", "approx": ["start", "po", "final"], "short": "Liiga"},
+  {"key": "ligamx", "name": "Liga MX (Apertura 2026)", "title": "Liguilla final", "site": true, "start": "2026-07-10", "po": "2026-11-26", "final": "2026-12-13", "next": "2027-01-08", "approx": ["start", "final", "next"], "short": "Liga MX"},
+  {"key": "superrugby", "name": "Super Rugby Pacific", "title": "Super Rugby final", "site": true, "start": "2027-02-12", "po": "2027-06-04", "final": "2027-06-19", "approx": ["start", "po", "final"], "short": "Super Rugby"},
+  {"key": "urc", "name": "United Rugby Championship", "title": "URC final", "site": true, "start": "2026-09-25", "po": "2027-05-28", "final": "2027-06-12", "approx": ["start", "po", "final"], "short": "URC"},
+  {"key": "ahl", "name": "AHL (hockey)", "title": "Calder Cup Final", "site": true, "start": "2026-10-09", "po": "2027-04-21", "final": "2027-06-10", "approx": ["start", "po", "final"], "short": "AHL"},
+  {"key": "swissnl", "name": "Swiss National League (hockey)", "title": "Swiss final", "site": true, "start": "2026-09-11", "po": "2027-03-10", "final": "2027-04-25", "approx": ["start", "po", "final"], "short": "Swiss NL"}
  ]
 }

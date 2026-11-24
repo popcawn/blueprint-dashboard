@@ -15,10 +15,10 @@ import json, math, os, re, sys, time, datetime, urllib.request
 
 YEAR = int(os.environ.get("SEASON_YEAR", datetime.datetime.now().year if datetime.datetime.now().month >= 7 else datetime.datetime.now().year - 1))
 ODDS_KEY = os.environ.get("ODDS_API_KEY", "").strip()
-LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga").split(",") if x.strip()]  # which to build (run-button inputs)
+LEAGUES = [x.strip() for x in os.environ.get("LEAGUES", "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,chk,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl").split(",") if x.strip()]  # which to build (run-button inputs)
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(HERE, "data")
-SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "chk": 34, "cfl": 18, "nwsl": 30, "afl": 23, "nrl": 24, "superleague": 27, "euroleague": 38, "nbl": 33, "aleague": 26, "liiga": 60}   # regular-season games per team (for season %)
+SEASON_GAMES = {"nfl": 17, "cfb": 12, "nhl": 82, "nba": 82, "wnba": 44, "mlb": 162, "cbb": 31, "wcbb": 30, "mls": 34, "fcs": 11, "chk": 34, "cfl": 18, "nwsl": 30, "afl": 23, "nrl": 24, "superleague": 27, "euroleague": 38, "nbl": 33, "aleague": 26, "liiga": 60, "ligamx": 17, "superrugby": 14, "urc": 18, "ahl": 72, "swissnl": 52}   # regular-season games per team (for season %)
 
 def season_pct(rows, sport):
     if not rows: return 0
@@ -29,7 +29,7 @@ def season_pct(rows, sport):
 # so short football seasons never reach a big sample (lean on point differential) while
 # NHL/NBA firm up at ~25% of the season. Thresholds = games played by the leaders (gp_max).
 #  trust (>=): board is actionable on stats | firming: directional | early: records are schedule-noise.
-SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (30, 17), "fcs": (6, 4), "chk": (12, 8), "cfl": (9, 5), "nwsl": (15, 9), "afl": (10, 6), "nrl": (10, 6), "superleague": (10, 6), "euroleague": (19, 12), "nbl": (16, 10), "aleague": (13, 8), "liiga": (30, 18)}
+SIGNAL_THRESH = {"nfl": (8, 5), "cfb": (6, 4), "nhl": (20, 12), "nba": (15, 10), "wnba": (14, 8), "mlb": (50, 25), "cbb": (15, 8), "wcbb": (15, 8), "mls": (30, 17), "fcs": (6, 4), "chk": (12, 8), "cfl": (9, 5), "nwsl": (15, 9), "afl": (10, 6), "nrl": (10, 6), "superleague": (10, 6), "euroleague": (19, 12), "nbl": (16, 10), "aleague": (13, 8), "liiga": (30, 18), "ligamx": (9, 6), "superrugby": (7, 4), "urc": (9, 5), "ahl": (36, 20), "swissnl": (26, 15)}
 
 def _price_num(mk):
     """Parse a stored American-odds string like '+1500' / '-120' to int, or None."""
@@ -120,11 +120,32 @@ def _value_plays(teams, maxcat, sport=None):
                 out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
         out.sort(key=lambda x: -x["ev"])
         return out
-    if sport in ("aleague", "liiga"):
+    if sport == "ligamx":
+        # Liga MX (2026-11-24, user: "mexican liga mx is on dk"): fair on title odds (beat equal odds AND seed history in both halves at the
+        # start of the liguilla, 29 single-table titles; the checklist only tied a coin flip in the 1st half -> context). A top-3 team (the
+        # general rule), EV >= +15%, <= +2500, only before the first liguilla match (bet_ok). Each Apertura / Clausura is its own title.
+        for t in teams:
+            p = _price_num(t.get("market"))
+            if t.get("bet_ok") and (t.get("ev") or 0) >= 15 and p is not None and p <= 2500:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
+    if sport == "swissnl":
+        # Swiss National League (2026-11-24, user: "swiss nla, dk"): fair on only 8 title seasons (the feed has 2017 + 2019-27), so a wider
+        # margin: top 3 (the general rule), EV >= +20%, <= +2500, regular season only. Smallest stakes.
+        for t in teams:
+            p = _price_num(t.get("market"))
+            if t.get("bet_ok") and (t.get("ev") or 0) >= 20 and p is not None and p <= 2500:
+                out.append({"name": t["name"], "ev": t["ev"], "market": t.get("market"), "fair_odds": t.get("fair_odds")})
+        out.sort(key=lambda x: -x["ev"])
+        return out
+    if sport in ("aleague", "liiga", "superrugby", "urc", "ahl"):
         # A-League Men / Liiga (2026-11-24, user: "add a league and liiga to the site"): both fair on title odds (beat equal odds AND seed
         # history in both halves at the start of the playoffs; every-champion profiles context only). A top-3 team (the general rule),
         # EV >= +15%, <= +2500, before the first final. A-League also needs a top-2 ladder spot and opens only at 75% of the season
         # (bet_ok, build_footy): the premiers won 11/21 and the board is trusted from ~75%. Liiga: the model's #1 won 13/22 at the playoff start.
+        # Super Rugby / URC / AHL (2026-11-24, user: "Super Rugby Pacific, dk" / "urc, dk" / "ahl, dk"): same rule (top 3, EV >= +15%,
+        # <= +2500, regular season only -- never the untested preseason, never within the playoffs). All three fair; URC and AHL thin.
         for t in teams:
             p = _price_num(t.get("market"))
             ok = sport == "liiga" or (t.get("pos") or 99) <= 2
@@ -285,7 +306,7 @@ DK_ASOF = {}   # board -> "Nov 16": the date of the DraftKings screenshot it use
 # newest date) so older readers (the chat engines) keep working; old one-book files {date, book, odds} still load.
 PASTED_FILE = {"wcbb": "wcbb_fd.json", "mls": "mls_dk.json", "fcs": "fcs_book.json", "chk": "chk_book.json", "cfl": "cfl_book.json",
                "nwsl": "nwsl_book.json", "afl": "afl_book.json", "nrl": "nrl_book.json", "superleague": "superleague_book.json",
-               "euroleague": "euroleague_book.json", "nbl": "nbl_book.json", "aleague": "aleague_book.json", "liiga": "liiga_book.json"}
+               "euroleague": "euroleague_book.json", "nbl": "nbl_book.json", "aleague": "aleague_book.json", "liiga": "liiga_book.json", "ligamx": "ligamx_book.json", "superrugby": "superrugby_book.json", "urc": "urc_book.json", "ahl": "ahl_book.json", "swissnl": "swissnl_book.json"}
 PASTED_BOOKS = {}   # file -> {"per": {team: {book: price}}, "dates": {book: "YYYY-MM-DD"}} for main() to put on the cards
 def load_pasted(fname):
     """The builders' snapshot shape {date, book, odds}: odds = each team's best price over the books used, date = the newest of them.
@@ -2671,8 +2692,29 @@ FOOTY["liiga"] = {"sport": "Liiga", "eng": ["euhockey.mjs", "liiga", "live"], "t
     "alias": {"tps turku": "tps", "hifk helsinki": "hifk", "jyp jyvaskyla": "jyp", "kalpa kuopio": "kalpa", "lukko rauma": "lukko", "ilves tampere": "ilves",
               "tappara tampere": "tappara", "pelicans lahti": "pelicans", "saipa lappeenranta": "saipa", "hpk hameenlinna": "hpk", "assat pori": "assat",
               "karpat oulu": "karpat", "sport vaasa": "sport", "kookoo kouvola": "kookoo", "jukurit mikkeli": "jukurit", "kiekko espoo": "k espoo", "jokerit helsinki": "jokerit"}}
+FOOTY["ligamx"] = {"sport": "Liga MX", "eng": ["ligamx.mjs", "live"], "title": "Liga MX title", "finals": "liguilla",
+    "book": "ligamx_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/soccer/mexico---liga-mx"],
+    "alias": {"chivas": "guadalajara", "club america": "america", "américa": "america", "cruz azul": "cruz azul", "pumas": "pumas unam", "unam": "pumas unam",
+              "tigres": "tigres uanl", "rayados": "monterrey", "toluca": "toluca", "santos": "santos laguna", "leon": "león", "atlas": "atlas", "pachuca": "pachuca",
+              "xolos": "tijuana", "necaxa": "necaxa", "puebla": "puebla", "queretaro": "querétaro", "mazatlan": "mazatlán", "juarez": "fc juarez", "san luis": "atlético de san luis"}}
+_UNION_ALIAS = {}
+FOOTY["superrugby"] = {"sport": "Super Rugby Pacific", "eng": ["union.mjs", "superrugby", "live"], "title": "Super Rugby title", "finals": "play-offs",
+    "book": "superrugby_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/rugbyunion/super-rugby-pacific"],
+    "alias": {"canes": "hurricanes", "saders": "crusaders", "drua": "fijian drua", "moana": "moana pasifika", "force": "western force", "reds": "queensland reds", "tahs": "nsw waratahs", "waratahs": "nsw waratahs"}}
+FOOTY["urc"] = {"sport": "URC", "eng": ["union.mjs", "urc", "live"], "title": "URC title", "finals": "play-offs",
+    "book": "urc_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/rugbyunion/united-rugby-championship"],
+    "alias": {"glasgow": "glasgow warriors", "bulls": "vodacom bulls", "stormers": "dhl stormers", "sharks": "hollywoodbets sharks", "lions": "emirates lions",
+              "ospreys": "ospreys", "scarlets": "scarlets", "cardiff": "cardiff rugby", "dragons": "dragons rfc", "edinburgh": "edinburgh rugby", "benetton": "benetton rugby", "zebre": "zebre parma"}}
+FOOTY["ahl"] = {"sport": "AHL", "eng": ["hockeytech.mjs", "ahl", "live"], "title": "Calder Cup", "finals": "playoffs",
+    "book": "ahl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/ahl"], "alias": {}}
+FOOTY["swissnl"] = {"sport": "Swiss National League", "eng": ["euhockey.mjs", "swissnl", "live"], "title": "Swiss championship", "finals": "playoffs",
+    "book": "swissnl_book.json", "bet_url": ["DraftKings", "https://sportsbook.draftkings.com/leagues/hockey/swiss-nla"],
+    "alias": {"zsc": "zsc lions", "zurich": "zsc lions", "zsc lions zurich": "zsc lions", "hc davos": "davos", "fribourg": "fribourg-gotteron", "fribourg gotteron": "fribourg-gotteron",
+              "ev zug": "zug", "sc bern": "bern", "hc lugano": "lugano", "geneve": "geneve-servette", "geneva": "geneve-servette", "servette": "geneve-servette",
+              "lausanne hc": "lausanne", "biel": "biel-bienne", "ehc biel": "biel-bienne", "rapperswil": "rapperswil-jona lakers", "lakers": "rapperswil-jona lakers",
+              "scl tigers": "langnau", "tigers": "langnau", "ambri": "ambri-piotta", "ajoie": "ajoie", "kloten": "kloten"}}
 FOOTY["euroleague"]["bet_url"] = None; FOOTY["nbl"]["bet_url"] = None
-BB_FOOTY = ("euroleague", "nbl", "aleague", "liiga")
+BB_FOOTY = ("euroleague", "nbl", "aleague", "liiga", "ligamx", "ahl", "swissnl")
 
 def _norm_bb(key, E):
     """EuroLeague/NBL exports -> the footy export shape build_footy reads (stage finals/done, first_final, premier, gp_now, games_left)."""
@@ -2689,7 +2731,22 @@ def _norm_bb(key, E):
         E["frac"] = E["games_played"] / E["games_total"] if E["games_total"] else 0
         E["pct"] = 100 * E["frac"]; E["sig"] = None
         for t in E["teams"]: t["pf"], t["pa"], t["rtg"] = t["gf"], t["ga"], t.get("str")
-    if key == "liiga":   # hockey engine: season = END year (2027 = 2026-27) -> start year like the other cross-year boards
+    if key == "ligamx":   # (2026-11-24) one Apertura / Clausura = one title; 'bracket' = regular phase done, liguilla not started (window open)
+        E["stage"] = {"bracket": "regular", "liguilla": "finals"}.get(E["stage"], E["stage"])
+        E["season_label"] = E.get("tournament"); E["season"] = int(str(E.get("key", "A0"))[1:] or 0); E["profile_season"] = E["season"]
+        E["premier"] = E.get("champion"); E["first_final"] = E.get("first_liguilla"); E["sig"] = None
+        played = sum(t["gp"] for t in E["teams"]) / 2; tot = played + (E.get("games_left") or 0)
+        E["frac"] = played / tot if tot else 0; E["pct"] = 100 * E["frac"]
+        for t in E["teams"]: t["pf"], t["pa"], t["rtg"] = t.get("gd", 0), 0, None; t.setdefault("minor", None)
+    if key == "ahl":   # (2026-11-24) HockeyTech engine: season = END year, W-L-OTL record, no ladder position in the export
+        E["stage"] = {"playoffs": "finals"}.get(E["stage"], E["stage"])
+        E["season"] -= 1; E["profile_season"] = (E.get("profile_season") or E["season"] + 1) - 1
+        E["season_label"] = f"{E['season']}-{str(E['season'] + 1)[2:]}"
+        E["first_final"] = E.get("first_playoff"); E["premier"] = E.get("champion")
+        rk = sorted(E["teams"], key=lambda t: (-(t.get("ptp") or 0), -(t.get("pts") or 0)))
+        for i, t in enumerate(rk): t["pos"] = i + 1
+        for t in E["teams"]: t["pf"], t["pa"], t["d"] = t["gf"], t["ga"], t.get("otl", 0)
+    if key in ("liiga", "swissnl"):   # hockey engine: season = END year (2027 = 2026-27) -> start year like the other cross-year boards
         E["stage"] = {"playoffs": "finals"}.get(E["stage"], E["stage"])
         E["season"] -= 1; E["profile_season"] = (E.get("profile_season") or E["season"] + 1) - 1
         E["pct"] = E.get("pct_played")
@@ -2726,7 +2783,7 @@ def build_footy(key):
     E = json.load(open(out, encoding="utf-8"))
     if key in BB_FOOTY: E = _norm_bb(key, E)
     stage, Y, PY = E["stage"], E["season"], E["profile_season"]
-    base_season = f"{Y}-{str(Y + 1)[2:]}"
+    base_season = E.get("season_label") or f"{Y}-{str(Y + 1)[2:]}"
     closed, pre = stage in ("finals", "done"), stage == "preseason"
     snap = {}
     try: snap = load_pasted(C["book"])
@@ -2778,6 +2835,7 @@ def build_footy(key):
                f"{E['games_left']} regular-season games left are simulated, then the {fin} ({E['sims']:,} runs). "
                + ("Value plays open at 75% of the regular season (about mid-March) and close at the play-in." if key == "euroleague" and E.get("frac", 0) < 0.75
                   else "Value plays open at 75% of the regular season (about March) and close at the first final." if key == "aleague" and E.get("frac", 0) < 0.75
+                  else "Regular phase done; bet window open until the first liguilla match." if key == "ligamx"
                   else "Bet window open until the first final."))
     else:
         pm = next((t for t in rows if t.get("premier")), None)
@@ -2787,7 +2845,7 @@ def build_footy(key):
                f"The betting window is closed: these fair odds are frozen at the start of the {fin} (you don't bet within the {fin})"
                + (f"; EV is against the prices you saved before them ({d0:%b} {d0.day})." if fresh else "."))
     gmin, gmax = E["gp_now"]
-    base = {"sport": C["sport"], "season": f"{Y}-{str(Y + 1)[2:]}" if key in BB_FOOTY else str(Y), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
+    base = {"sport": C["sport"], "season": E.get("season_label") or (f"{Y}-{str(Y + 1)[2:]}" if key in BB_FOOTY else str(Y)), "generated": now_iso(), "cats": E["cats"], "labels": E["labels"], "teams": rows,
             "odds_remaining": None, "market_name": snap.get("book", "DraftKings"), "market_asof": f"{d0:%b} {d0.day}" if fresh else None,
             "stage": stage, "window_closed": closed, "profile_season": PY, "premier": E.get("premier"), "games_left": E["games_left"], "sims": E["sims"],
             "hfa2": E["hfa"], "sig": E["sig"], "prediction": {"pick": top["name"], "why": why},
@@ -2805,6 +2863,11 @@ def build_euroleague(): return build_footy("euroleague")
 def build_nbl(): return build_footy("nbl")
 def build_aleague(): return build_footy("aleague")
 def build_liiga(): return build_footy("liiga")
+def build_ligamx(): return build_footy("ligamx")
+def build_superrugby(): return build_footy("superrugby")
+def build_urc(): return build_footy("urc")
+def build_ahl(): return build_footy("ahl")
+def build_swissnl(): return build_footy("swissnl")
 
 def build_cbb(): return build_college_bb("cbb")
 def build_wcbb(): return build_college_bb("wcbb")
@@ -2816,7 +2879,7 @@ def main():
     # just kept its old file). The site flags a board whose last refresh failed; the Action log gets a ::warning:: annotation.
     try: builds = json.load(open(os.path.join(DATA, "index.json"), encoding="utf-8")).get("builds") or {}
     except Exception: builds = {}
-    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("chk", build_chk), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague), ("euroleague", build_euroleague), ("nbl", build_nbl), ("aleague", build_aleague), ("liiga", build_liiga)]:
+    for name, fn in [("nfl", build_nfl), ("cfb", build_cfb), ("nhl", build_nhl), ("nba", build_nba), ("wnba", build_wnba), ("mlb", build_mlb), ("cbb", build_cbb), ("wcbb", build_wcbb), ("mls", build_mls), ("fcs", build_fcs), ("chk", build_chk), ("cfl", build_cfl), ("nwsl", build_nwsl), ("afl", build_afl), ("nrl", build_nrl), ("superleague", build_superleague), ("euroleague", build_euroleague), ("nbl", build_nbl), ("aleague", build_aleague), ("liiga", build_liiga), ("ligamx", build_ligamx), ("superrugby", build_superrugby), ("urc", build_urc), ("ahl", build_ahl), ("swissnl", build_swissnl)]:
         if name not in LEAGUES:
             continue
         try:
@@ -2851,7 +2914,7 @@ def main():
                 if seen: data["market_name"] = " / ".join(b for b in BOOKS.values() if b in seen)   # (2026-11-16) the books this board's prices came from (the feed has no DraftKings for NHL / NBA / college hoops titles); with two, each card shows both and the EV uses the better price
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
-                if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+                if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga", "ligamx", "superrugby", "urc", "ahl", "swissnl") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
@@ -2867,7 +2930,7 @@ def main():
             built[name] = f"FAILED: {msg}"
             builds[name] = {"ok": False, "at": now_iso(), "error": msg[:300]}
     with open(os.path.join(DATA, "index.json"), "w", encoding="utf-8") as f:
-        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga"], "generated": now_iso(),
+        json.dump({"sports": ["nfl", "cfb", "nhl", "nba", "wnba", "mlb", "cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga", "ligamx", "superrugby", "urc", "ahl", "swissnl"], "generated": now_iso(),
                    "builds": builds}, f, indent=2)
     print("done:", json.dumps(built, indent=2))
 

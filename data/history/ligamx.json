@@ -1,0 +1,2662 @@
+[
+ {
+  "date": "2026-07-13",
+  "gp": 17,
+  "backfill": true,
+  "teams": {
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 87.4,
+    "fp": 24.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 91.8,
+    "fp": 19.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 87.2,
+    "fp": 14.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 80.1,
+    "fp": 12.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 5,
+    "idx": 84,
+    "fp": 11.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 5,
+    "idx": 75.5,
+    "fp": 11.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 5,
+    "idx": 69.8,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 55.7,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 4,
+    "idx": 60.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 4,
+    "idx": 48.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 3,
+    "idx": 41.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 3,
+    "idx": 36.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 34.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 2,
+    "idx": 28.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 2,
+    "idx": 26.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 1,
+    "idx": 19.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Mazatl\u00e1n FC": {
+    "sc": 1,
+    "idx": 8.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 1,
+    "idx": 1.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-07-20",
+  "gp": 1,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 100,
+    "fp": 24.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 74.3,
+    "fp": 18.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 96.6,
+    "fp": 18.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 4,
+    "idx": 26.6,
+    "fp": 10.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 5,
+    "idx": 84.8,
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 62.7,
+    "fp": 5.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 4,
+    "idx": 32.2,
+    "fp": 5.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 5,
+    "idx": 69.6,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 18.2,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 4,
+    "idx": 64.4,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 22.9,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 9.4,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 50.6,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 3,
+    "idx": 28.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 3,
+    "idx": 27,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 5.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 4,
+    "idx": 66,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 3,
+    "idx": 1.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-07-27",
+  "gp": 2,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 75.3,
+    "fp": 21.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 80.6,
+    "fp": 19.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 86.6,
+    "fp": 18.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 32.3,
+    "fp": 7.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 63.2,
+    "fp": 6.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 5,
+    "idx": 44.3,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 5,
+    "idx": 81.1,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 43.6,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 5,
+    "idx": 59.8,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 4,
+    "idx": 67.8,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 64.8,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 34.4,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 15.5,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 47.1,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 3,
+    "idx": 31.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 13.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 4,
+    "idx": 41.3,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 3,
+    "idx": 9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-03",
+  "gp": 3,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 85.9,
+    "fp": 23.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 98.4,
+    "fp": 20.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 67.2,
+    "fp": 15.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 5,
+    "idx": 63.4,
+    "fp": 8.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 66.8,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 4,
+    "idx": 63.9,
+    "fp": 5.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 2,
+    "idx": 30.4,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 5,
+    "idx": 81,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 55.7,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 4,
+    "idx": 48.1,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 3,
+    "idx": 52.1,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 53.5,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 53.3,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 33.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 2,
+    "idx": 38.5,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 42.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 10,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 0,
+    "idx": 5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-10",
+  "gp": 3,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 85.9,
+    "fp": 23.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 98.3,
+    "fp": 20.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 67.3,
+    "fp": 15.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 5,
+    "idx": 63.5,
+    "fp": 8.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 66.8,
+    "fp": 6.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 4,
+    "idx": 63.9,
+    "fp": 5.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 2,
+    "idx": 30.4,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 5,
+    "idx": 81,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 55.7,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 4,
+    "idx": 48.1,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 3,
+    "idx": 52.1,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 53.5,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 53.3,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 33.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 2,
+    "idx": 38.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 42.4,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 10,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 0,
+    "idx": 5,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-17",
+  "gp": 4,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 99.3,
+    "fp": 24.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 84.6,
+    "fp": 21.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 62.3,
+    "fp": 12.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 72.7,
+    "fp": 9.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 5,
+    "idx": 65.6,
+    "fp": 7.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 72.2,
+    "fp": 6.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 5,
+    "idx": 78.5,
+    "fp": 5.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 55.7,
+    "fp": 2.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 2,
+    "idx": 36.3,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 4,
+    "idx": 53.7,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 3,
+    "idx": 53.4,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 58.3,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 54.4,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 29.3,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 2,
+    "idx": 39.7,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 42.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 4.1,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 1,
+    "idx": 13.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-24",
+  "gp": 5,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 99.2,
+    "fp": 26.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 87.3,
+    "fp": 25.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 73.3,
+    "fp": 10.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 3,
+    "idx": 55.1,
+    "fp": 7.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 63.1,
+    "fp": 6.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 63.2,
+    "fp": 6.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 5,
+    "idx": 59.8,
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 2,
+    "idx": 48.1,
+    "fp": 4.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 63.6,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 46.2,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 47.2,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 3,
+    "idx": 44.8,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 55,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 3,
+    "idx": 46.9,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 4,
+    "idx": 46.9,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 31.6,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 0,
+    "idx": 10.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-08-31",
+  "gp": 6,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 89.9,
+    "fp": 27.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 98.6,
+    "fp": 27.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 69.9,
+    "fp": 9.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 61.1,
+    "fp": 9.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 4,
+    "idx": 64.6,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 56.5,
+    "fp": 4.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 54.1,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 52,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 52.7,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 51.1,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 45.8,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 47.7,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 52.7,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 39.3,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 38.5,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 4,
+    "idx": 41.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 0,
+    "idx": 17.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 3.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-07",
+  "gp": 7,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 89.7,
+    "fp": 27.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 98.8,
+    "fp": 26.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 75.1,
+    "fp": 13.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 66.1,
+    "fp": 10.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 4,
+    "idx": 64.4,
+    "fp": 6.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 56.1,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 53.3,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 52.1,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 54.6,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 50.9,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 50.8,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 45.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 52.4,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 39,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 33.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 4,
+    "idx": 40.2,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 0,
+    "idx": 17.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 2.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-14",
+  "gp": 8,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 98.3,
+    "fp": 28.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 95.7,
+    "fp": 23.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 88.5,
+    "fp": 16.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 71.3,
+    "fp": 12.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 4,
+    "idx": 67.6,
+    "fp": 3.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 59.2,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 67.6,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 4,
+    "idx": 61,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 63.8,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 59.7,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 2,
+    "idx": 46.9,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 51.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 4,
+    "idx": 52.8,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 36.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 41.8,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 42.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 2,
+    "idx": 26.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 2.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-21",
+  "gp": 9,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 97.5,
+    "fp": 27.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 95.6,
+    "fp": 23.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 89.7,
+    "fp": 17.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 69.6,
+    "fp": 11.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 4,
+    "idx": 66,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 68.2,
+    "fp": 4.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 58.7,
+    "fp": 3.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 65.7,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 64.2,
+    "fp": 2.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 57.7,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 45.5,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 53.3,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 49,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 35.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 40.3,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 0,
+    "idx": 32.6,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 2,
+    "idx": 25.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 2.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-09-28",
+  "gp": 10,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 89.8,
+    "fp": 28.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 94,
+    "fp": 27.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 81,
+    "fp": 14.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 64.1,
+    "fp": 10.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 68.7,
+    "fp": 4.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 56.5,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 4,
+    "idx": 56.9,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 46.4,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 51.2,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 62.2,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 59.4,
+    "fp": 1.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 59.9,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 38.1,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 44.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 45.5,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 0,
+    "idx": 25.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 2,
+    "idx": 32.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 1.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-05",
+  "gp": 10,
+  "backfill": true,
+  "teams": {
+   "Toluca": {
+    "sc": 5,
+    "idx": 89.8,
+    "fp": 28.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 93.9,
+    "fp": 27.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 81.2,
+    "fp": 15.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 64,
+    "fp": 10.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 68.8,
+    "fp": 4.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 4,
+    "idx": 56.9,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 56.4,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 46.5,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 62.3,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 51.3,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 59.4,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 59.8,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 38.2,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 44.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 45.5,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 2,
+    "idx": 32.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 0,
+    "idx": 25.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 2.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-12",
+  "gp": 11,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 92.3,
+    "fp": 26.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 82.7,
+    "fp": 26.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 79.9,
+    "fp": 14.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 60.1,
+    "fp": 10.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 74.1,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 3,
+    "idx": 56.7,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 55.7,
+    "fp": 2.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 60.9,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 46.1,
+    "fp": 2.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 58.1,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 46.4,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 57,
+    "fp": 1.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 33.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 43.9,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 38.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 3,
+    "idx": 35.8,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 0,
+    "idx": 21.6,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 0,
+    "idx": 2.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-19",
+  "gp": 12,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 94,
+    "fp": 28.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 85.3,
+    "fp": 23.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 4,
+    "idx": 71.7,
+    "fp": 15.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 82.4,
+    "fp": 13.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 4,
+    "idx": 64.6,
+    "fp": 4.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 63.4,
+    "fp": 3.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 4,
+    "idx": 55.4,
+    "fp": 3.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 55.1,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 2,
+    "idx": 60.8,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 65.8,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 51.6,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 57.8,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 4,
+    "idx": 47,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 2,
+    "idx": 39.4,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 49.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 39.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 1.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 0,
+    "idx": 24.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-10-26",
+  "gp": 14,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 88.4,
+    "fp": 28.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 76.7,
+    "fp": 22.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 88.5,
+    "fp": 18.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 80.1,
+    "fp": 16.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 64.5,
+    "fp": 4.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 61.1,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 44.6,
+    "fp": 2.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 51.2,
+    "fp": 1.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 55,
+    "fp": 1.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 46.3,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 49.7,
+    "fp": 0.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 3,
+    "idx": 43.1,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 56,
+    "fp": 0.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 59.3,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 33.9,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 40.8,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 22.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 1.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-02",
+  "gp": 15,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 88,
+    "fp": 25.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 82.2,
+    "fp": 23.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 93.9,
+    "fp": 20.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 4,
+    "idx": 80.6,
+    "fp": 15.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 51.4,
+    "fp": 3.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 62.3,
+    "fp": 3.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 60,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 53.6,
+    "fp": 1.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 53.8,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 4,
+    "idx": 46.9,
+    "fp": 0.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 62.9,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 3,
+    "idx": 49.1,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 44.9,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 53.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 33.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 2,
+    "idx": 30.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 2.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 0,
+    "idx": 19.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-09",
+  "gp": 16,
+  "backfill": true,
+  "teams": {
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 80.3,
+    "fp": 24.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 78,
+    "fp": 24.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 81.7,
+    "fp": 21.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 88.9,
+    "fp": 18.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 62.5,
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 38.7,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 53,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 4,
+    "idx": 48.2,
+    "fp": 1.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 4,
+    "idx": 50.2,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 49.1,
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 46.6,
+    "fp": 0.5,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 3,
+    "idx": 37.6,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 37.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 31.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 3,
+    "idx": 23.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 2,
+    "idx": 42.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 19.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 2.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-16",
+  "gp": 16,
+  "backfill": true,
+  "teams": {
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 77.7,
+    "fp": 25.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 80,
+    "fp": 23.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 81.7,
+    "fp": 21.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 88.7,
+    "fp": 18.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 53.7,
+    "fp": 3.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 4,
+    "idx": 62.2,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 38.7,
+    "fp": 1.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 52.9,
+    "fp": 1.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 4,
+    "idx": 50.1,
+    "fp": 1.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 3,
+    "idx": 49,
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 4,
+    "idx": 46.4,
+    "fp": 0.3,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 37.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 31.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 2,
+    "idx": 42.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 2,
+    "idx": 35.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 2,
+    "idx": 23.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 19.3,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 2.2,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ },
+ {
+  "date": "2026-11-23",
+  "gp": 17,
+  "backfill": true,
+  "teams": {
+   "Cruz Azul": {
+    "sc": 5,
+    "idx": 78.1,
+    "fp": 25.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Am\u00e9rica": {
+    "sc": 5,
+    "idx": 79.4,
+    "fp": 20.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Guadalajara": {
+    "sc": 5,
+    "idx": 93.3,
+    "fp": 19.7,
+    "mkt": null,
+    "ev": null
+   },
+   "Toluca": {
+    "sc": 5,
+    "idx": 78.6,
+    "fp": 19.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Pachuca": {
+    "sc": 5,
+    "idx": 68.3,
+    "fp": 5.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Monterrey": {
+    "sc": 5,
+    "idx": 60.9,
+    "fp": 5.2,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlas": {
+    "sc": 3,
+    "idx": 38.2,
+    "fp": 2.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Le\u00f3n": {
+    "sc": 4,
+    "idx": 52.9,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
+   },
+   "Santos": {
+    "sc": 4,
+    "idx": 46.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Tijuana": {
+    "sc": 3,
+    "idx": 58.4,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Tigres UANL": {
+    "sc": 3,
+    "idx": 48.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Pumas UNAM": {
+    "sc": 3,
+    "idx": 44,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atl\u00e9tico de San Luis": {
+    "sc": 3,
+    "idx": 38.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Puebla": {
+    "sc": 3,
+    "idx": 32.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Quer\u00e9taro": {
+    "sc": 2,
+    "idx": 35.1,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Atlante": {
+    "sc": 2,
+    "idx": 22.6,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Necaxa": {
+    "sc": 1,
+    "idx": 19.9,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "FC Ju\u00e1rez": {
+    "sc": 1,
+    "idx": 2.5,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
+ }
+]

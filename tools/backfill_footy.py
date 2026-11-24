@@ -11,6 +11,7 @@ os.environ.setdefault("ODDS_API_KEY", "")
 import build as B
 
 START = {"euroleague": "2026-09-29", "nbl": "2026-09-17", "aleague": "2026-10-17", "liiga": "2026-09-10",
+         "ligamx": "2026-07-10", "urc": "2026-09-25", "ahl": "2026-10-09", "superrugby": "2027-02-12", "swissnl": "2026-09-11",
          "afl": None, "nrl": None, "superleague": None}
 
 def mondays(first, last):
