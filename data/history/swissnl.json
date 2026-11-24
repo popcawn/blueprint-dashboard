@@ -1056,14 +1056,14 @@
    "ZSC Lions": {
     "sc": 4,
     "idx": 100,
-    "fp": 46.5,
+    "fp": 46.4,
     "mkt": "+150",
     "ev": 16
    },
    "HC Davos": {
     "sc": 0,
     "idx": 18.2,
-    "fp": 13.3,
+    "fp": 13.2,
     "mkt": "+900",
     "ev": 33
    },
@@ -1077,9 +1077,9 @@
    "EV Zug": {
     "sc": 4,
     "idx": 82.4,
-    "fp": 11.2,
-    "mkt": null,
-    "ev": null
+    "fp": 11.6,
+    "mkt": "+900",
+    "ev": 16
    },
    "SC Bern": {
     "sc": 1,
@@ -1091,30 +1091,30 @@
    "SCL Tigers": {
     "sc": 1,
     "idx": 45.3,
-    "fp": 4.3,
-    "mkt": null,
-    "ev": null
+    "fp": 4.2,
+    "mkt": "+2000",
+    "ev": -12
    },
    "Lausanne HC": {
     "sc": 0,
     "idx": 14.1,
-    "fp": 1.8,
+    "fp": 1.7,
     "mkt": "+900",
-    "ev": -82
+    "ev": -83
    },
    "Gen\u00e8ve-Servette HC": {
     "sc": 0,
     "idx": 25.3,
-    "fp": 1.5,
-    "mkt": null,
-    "ev": null
+    "fp": 1.6,
+    "mkt": "+650",
+    "ev": -88
    },
    "HC Lugano": {
     "sc": 0,
     "idx": 23.7,
-    "fp": 1.5,
+    "fp": 1.4,
     "mkt": "+2000",
-    "ev": -69
+    "ev": -70
    },
    "HC Ambri-Piotta": {
     "sc": 0,
@@ -1123,19 +1123,26 @@
     "mkt": "+2000",
     "ev": -86
    },
+   "EHC Biel-Bienne": {
+    "sc": 0,
+    "idx": 15.4,
+    "fp": 0.1,
+    "mkt": "+2800",
+    "ev": -97
+   },
    "SC Rapperswil-Jona Lakers": {
     "sc": 0,
     "idx": 8,
     "fp": 0.1,
     "mkt": "+5000",
-    "ev": -95
+    "ev": -97
    },
-   "EHC Biel-Bienne": {
+   "HC Ajoie": {
     "sc": 0,
-    "idx": 15.4,
-    "fp": 0.1,
-    "mkt": null,
-    "ev": null
+    "idx": 30.2,
+    "fp": 0.0,
+    "mkt": "+10000",
+    "ev": -99
    },
    "EHC Kloten": {
     "sc": 0,
@@ -1143,13 +1150,6 @@
     "fp": 0.0,
     "mkt": "+10000",
     "ev": -99
-   },
-   "HC Ajoie": {
-    "sc": 0,
-    "idx": 30.2,
-    "fp": null,
-    "mkt": null,
-    "ev": null
    }
   }
  }

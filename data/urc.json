@@ -1,7 +1,7 @@
 {
   "sport": "URC",
   "season": "2026-27",
-  "generated": "2026-11-24T20:02:03Z",
+  "generated": "2026-11-24T20:24:32Z",
   "cats": [
     "Percentage (PF/PA) \u2265 124.9",
     "Points for/game top-7",
@@ -41,10 +41,10 @@
       "rtg": 12.96,
       "reg": "IRE",
       "pos": 6,
-      "minor_pct": 56.9,
+      "minor_pct": 57.8,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 53.6,
+      "fair_pct": 53.5,
       "fair_odds": "-115",
       "read": null,
       "mk": 150,
@@ -52,9 +52,8 @@
       "ev": 34,
       "verdict": {
         "kind": "best",
-        "label": "BEST VALUE \u00b7 price only",
-        "ev": 34,
-        "norule": true
+        "label": "BEST VALUE",
+        "ev": 34
       }
     },
     {
@@ -81,11 +80,11 @@
       "rtg": 11.14,
       "reg": "RSA",
       "pos": 2,
-      "minor_pct": 23.7,
+      "minor_pct": 22.9,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 25.7,
-      "fair_odds": "+290",
+      "fair_odds": "+289",
       "read": null,
       "mk": 300,
       "market": "+300",
@@ -120,11 +119,11 @@
       "rtg": 8.56,
       "reg": "RSA",
       "pos": 3,
-      "minor_pct": 9.6,
+      "minor_pct": 9.4,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 11.7,
-      "fair_odds": "+757",
+      "fair_pct": 11.5,
+      "fair_odds": "+767",
       "read": null,
       "mk": 400,
       "market": "+400",
@@ -159,19 +158,19 @@
       "rtg": 4.52,
       "reg": "SCO",
       "pos": 1,
-      "minor_pct": 6.0,
+      "minor_pct": 6.2,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 4.6,
-      "fair_odds": "+2095",
+      "fair_pct": 4.8,
+      "fair_odds": "+1990",
       "read": null,
       "mk": 400,
       "market": "+400",
-      "ev": -77,
+      "ev": -76,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -77
+        "ev": -76
       }
     },
     {
@@ -202,15 +201,15 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 4.1,
-      "fair_odds": "+2318",
+      "fair_odds": "+2351",
       "read": null,
       "mk": 1400,
       "market": "+1400",
-      "ev": -38,
+      "ev": -39,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -38
+        "ev": -39
       }
     },
     {
@@ -240,16 +239,16 @@
       "minor_pct": 0.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.2,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": 4000,
       "market": "+4000",
-      "ev": -93,
+      "ev": -95,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -93
+        "ev": -95
       }
     },
     {
@@ -323,11 +322,11 @@
       "read": null,
       "mk": 3500,
       "market": "+3500",
-      "ev": -98,
+      "ev": -97,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -98
+        "ev": -97
       }
     },
     {
@@ -354,19 +353,19 @@
       "rtg": -0.3,
       "reg": "RSA",
       "pos": 13,
-      "minor_pct": null,
+      "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.0,
+      "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
       "mk": 6500,
       "market": "+6500",
-      "ev": -98,
+      "ev": -96,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -98
+        "ev": -96
       }
     },
     {
@@ -448,6 +447,45 @@
       }
     },
     {
+      "name": "Ospreys",
+      "conf": "9th",
+      "rec": "2-3 \u00b7 11 pts \u00b7 -35",
+      "gp": 5,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "76.2 #11",
+        "22.40 #12",
+        "29.40 #11",
+        "-7.0 #11",
+        "0.333 #8"
+      ],
+      "index": 35.8,
+      "rtg": -4.77,
+      "reg": "WAL",
+      "pos": 9,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": 25000,
+      "market": "+25000",
+      "ev": -99,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -99
+      }
+    },
+    {
       "name": "Scarlets",
       "conf": "14th",
       "rec": "1-4 \u00b7 9 pts \u00b7 -57",
@@ -514,41 +552,6 @@
       "read": null,
       "mk": 50000,
       "market": "+50000",
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Ospreys",
-      "conf": "9th",
-      "rec": "2-3 \u00b7 11 pts \u00b7 -35",
-      "gp": 5,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "76.2 #11",
-        "22.40 #12",
-        "29.40 #11",
-        "-7.0 #11",
-        "0.333 #8"
-      ],
-      "index": 35.8,
-      "rtg": -4.77,
-      "reg": "WAL",
-      "pos": 9,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": null,
-      "fair_odds": null,
-      "read": null,
-      "mk": 25000,
-      "market": "+25000",
       "ev": null,
       "verdict": null
     },
@@ -639,7 +642,7 @@
   "sig": 12,
   "prediction": {
     "pick": "Leinster",
-    "why": "<b>Leinster</b> is the model's #1: 53.6% to win the URC title (fair -115). 104 regular-season games left are simulated, then the play-offs (20,000 runs). Bet window open until the first final."
+    "why": "<b>Leinster</b> is the model's #1: 53.5% to win the URC title (fair -115). 104 regular-season games left are simulated, then the play-offs (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 28,
   "gp_min": 5,
@@ -655,5 +658,12 @@
     "label": "Firming up",
     "note": "5 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Leinster",
+      "ev": 34,
+      "market": "+150",
+      "fair_odds": "-115"
+    }
+  ]
 }
