@@ -1285,6 +1285,9 @@ function cashArr(legs,S){ const a=new Uint8Array(COV_N), need=[];
    (100 small tickets pull it down and push stakes up, which is exactly the trap).
    Boards in their playoffs are already off (boardOpen), so a league stops getting blends once its playoffs start. */
 const BL_MINGAIN=0.01, BL_STEADY=14;
+// (2026-11-25, user: "if it's in the panel that means I should need it ... It shouldn't be a debate") rule 3: a team already on
+// BL_MAXSLIPS or more live slips is full -- no new blend uses it, so the panel never piles more tickets onto one team.
+const BL_MAXSLIPS=3;
 function steadyOf(sp,name){ const h=HIST[sp]; if(!h||!h.length) return {ok:false,n:0,k:0};
   const end=Date.parse(h[h.length-1].date); let w=h.filter(x=>x.teams&&x.teams[name]&&end-Date.parse(x.date)<=BL_STEADY*864e5);
   // (2026-11-24, user: "ok make the fix") weekly-saved boards have only 2-3 snapshots in 14 days and could never reach 4, so when the
@@ -1296,7 +1299,8 @@ function steadyOf(sp,name){ const h=HIST[sp]; if(!h||!h.length) return {ok:false
   let k=0; for(const x of w){ const me=x.teams[name], fp=me.fp||0, rk=1+Object.values(x.teams).filter(v=>(v.fp||0)>fp).length; if(rk<=3) k++; }
   return {ok:w.length>=4&&k>=Math.ceil(w.length*2/3),n:w.length,k}; }
 function blendScan(){
-  const held=heldSet(), legs=[], early=[], watch=[], unsteady=[];
+  const held=heldSet(), legs=[], early=[], watch=[], unsteady=[], full=[];
+  const nOn={}; for(const s of SLIPS.slips) if(slipState(s)==="live") for(const L of s.legs) if(legState(L)==="open"){ const k=L.lg+"|"+L.team; nOn[k]=(nOn[k]||0)+1; }
   for(const sp of Object.keys(SPORTS)){ const st=boardOpen(sp); if(st==="closed") continue; rankBoard(sp); const d=DATA[sp];
     const top=d.teams.filter(t=>t._irank&&t._irank<=3&&t.fair_pct).sort((a,b)=>a._irank-b._irank);
     // a leg = one of the board's own value plays (its betting rule, top 3 by fair odds) at +10% or better -- never a price-only crown
@@ -1304,7 +1308,8 @@ function blendScan(){
     const isVal=t=>t.ev!=null&&t.ev>=10&&VP.has(t.name)&&t.verdict&&!t.verdict.norule&&["best","value","longshot"].includes(t.verdict.kind);
     if(st!=="open"){ const v=top.filter(isVal).sort((a,b)=>b.ev-a.ev); if(v.length) early.push({sp,st,pct:d.season_pct,v}); continue; }
     for(const t of top){ const bk=pxBooks(t,d); if(!Object.keys(bk).length) continue; const p=t.fair_pct/100;
-      if(isVal(t)){ const sd=steadyOf(sp,t.name); if(sd.ok) legs.push({sp,t,p,bk,sd,held:held.has(sp+"|"+t.name)}); else unsteady.push({sp,t,sd}); }
+      if(isVal(t)&&(nOn[sp+"|"+t.name]||0)>=BL_MAXSLIPS) full.push({sp,t,n:nOn[sp+"|"+t.name]});
+      else if(isVal(t)){ const sd=steadyOf(sp,t.name); if(sd.ok) legs.push({sp,t,p,bk,sd,held:held.has(sp+"|"+t.name)}); else unsteady.push({sp,t,sd}); }
       else if(t.verdict&&t.verdict.kind!=="trap"&&t.ev!=null&&t.ev>-25&&t.ev<10) watch.push({sp,t,need:Math.ceil(toAm(1.1/p)/10)*10}); } }
   // every 2- and 3-leg combination at one book, one team per league, each leg worth +10% at THAT book
   // (2026-11-23, user: "doesn't have to be just new teams") a blend of teams you already hold counts too, as long as no live slip
@@ -1352,7 +1357,7 @@ function blendScan(){
   let bestGain=0; for(const c of all) if(c.gain!=null&&!pick.includes(c)) bestGain=Math.max(bestGain,c.gain);
   for(const c of all) delete c.cash;
   for(const w of watch) w.sd=steadyOf(w.sp,w.t.name);
-  return {pick,disc:{staked,bestGain},early,watch:watch.slice(0,4),unsteady,legs,cov};
+  return {pick,disc:{staked,bestGain},early,watch:watch.slice(0,4),unsteady,full,legs,cov};
 }
 function blendWhy(c){ if(!c.fresh) return `New combo: you hold all ${c.legs.length} teams, but never together on one slip`;
   return "New for you: "+c.legs.filter(x=>!x.held).map(x=>{ const s=prevSnap(x.sp), w=s&&s.teams[x.t.name];
@@ -1367,8 +1372,9 @@ function blendsHTML(){
     <div class="blpay"><span>$${BL_STAKE} pays</span><b>${money(BL_STAKE*c.dec)}</b></div>
     <div class="blsub">${c.book} · 1 in ${Math.round(1/c.ch).toLocaleString("en-US")}</div>
     <div class="blcov">${c.cov?`Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b> · `:""}EV <b>${fmtEV(Math.round(100*c.ev))}</b></div></div>`).join("");
-  else h+=`<div class="blst"><b>You're covered</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestGain>0?`The best blend left adds only ${(100*R.disc.bestGain).toFixed(1)} points to your chance something cashes. Not worth a new ticket.`:"Every steady value-play blend is already on your slips, or only cashes when one of them does."}</span></div>`;
-  const W=[...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} this season so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
+  else h+=`<div class="blst"><b>You're covered</b><span>${R.full.length&&R.legs.length<2?`Your value teams are already on ${BL_MAXSLIPS}+ slips each (listed under Watching). A new blend waits for a new value team.`:!R.legs.length?"No steady value play on an open board right now.":R.disc.bestGain>0?`The best blend left adds only ${(100*R.disc.bestGain).toFixed(1)} points to your chance something cashes. Not worth a new ticket.`:"Every steady value-play blend is already on your slips, or only cashes when one of them does."}</span></div>`;
+  const W=[...R.full.map(f=>`${esc(blNm(f.sp,f.t.name))} (${SPORTS[f.sp]}) · value ${fmtEV(f.t.ev)}, but already on ${f.n} of your slips. Enough riding on it.`),
+    ...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} this season so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+({"03-01":"Mar 1","03-16":"mid-March"}[BL_FROM[e.sp]]||BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<details class="blwf"${BL_WOPEN?" open":""} ontoggle="BL_WOPEN=this.open"><summary class="blk">Watching · ${W.length}<i class="ck-car">▾</i></summary>`+W.map(x=>`<div class="blw">${x}</div>`).join("")+`</details>`;   // (2026-11-24, user) folded by default
