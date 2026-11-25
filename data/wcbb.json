@@ -83,8 +83,8 @@
       "market": "+1000",
       "ev": 68,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "value",
+        "label": "value",
         "ev": 68
       }
     },
@@ -109,16 +109,20 @@
         "2-0"
       ],
       "rtg": 65.8,
-      "mk": null,
+      "mk": 2000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 11.0,
       "fair_odds": "+812",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+2000",
+      "ev": 130,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 130
+      }
     },
     {
       "name": "LSU Tigers",
@@ -141,16 +145,20 @@
         "\u2014"
       ],
       "rtg": 75.3,
-      "mk": null,
+      "mk": 1900,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 3.4,
       "fair_odds": "+2881",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+1900",
+      "ev": -33,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -33
+      }
     },
     {
       "name": "Illinois Fighting Illini",
@@ -173,16 +181,20 @@
         "\u2014"
       ],
       "rtg": 67.1,
-      "mk": null,
+      "mk": 12000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 1.9,
       "fair_odds": "+5107",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+12000",
+      "ev": 132,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 132
+      }
     },
     {
       "name": "UCLA Bruins",
@@ -205,16 +217,20 @@
         "2-0"
       ],
       "rtg": 62.5,
-      "mk": null,
+      "mk": 2600,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.9,
       "fair_odds": "+907",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+2600",
+      "ev": 168,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 168
+      }
     },
     {
       "name": "Duke Blue Devils",
@@ -237,16 +253,20 @@
         "1-0"
       ],
       "rtg": 62.2,
-      "mk": null,
+      "mk": 1800,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.5,
       "fair_odds": "+952",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+1800",
+      "ev": 81,
+      "verdict": {
+        "kind": "value",
+        "label": "value",
+        "ev": 81
+      }
     },
     {
       "name": "USC Trojans",
@@ -269,16 +289,20 @@
         "2-1"
       ],
       "rtg": 79.2,
-      "mk": null,
+      "mk": 450,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.1,
       "fair_odds": "+1000",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+450",
+      "ev": -50,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -50
+      }
     },
     {
       "name": "Kentucky Wildcats",
@@ -337,16 +361,20 @@
         "3-0"
       ],
       "rtg": 58.0,
-      "mk": null,
+      "mk": 10000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 7.6,
       "fair_odds": "+1217",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+10000",
+      "ev": 667,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 667
+      }
     },
     {
       "name": "Louisville Cardinals",
@@ -369,14 +397,14 @@
         "1-0"
       ],
       "rtg": 50.6,
-      "mk": 5000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+5000",
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -401,14 +429,14 @@
         "1-0"
       ],
       "rtg": 45.7,
-      "mk": 15000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+15000",
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -433,14 +461,14 @@
         "1-1"
       ],
       "rtg": 66.3,
-      "mk": 9000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+9000",
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -465,14 +493,14 @@
         "1-0"
       ],
       "rtg": 45.2,
-      "mk": 12000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+12000",
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -561,14 +589,14 @@
         "2-0"
       ],
       "rtg": 44.4,
-      "mk": 4000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+4000",
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -657,14 +685,14 @@
         "\u2014"
       ],
       "rtg": 56.1,
-      "mk": 11000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": "+11000",
+      "market": null,
       "ev": null,
       "verdict": null
     }
@@ -1042,7 +1070,7 @@
     "Carolina University Bruins": -72.1,
     "Johnson Royals": -52.0
   },
-  "generated": "2026-11-25T20:11:54Z",
+  "generated": "2026-11-25T20:49:38Z",
   "odds_remaining": null,
   "market_asof": "Nov 25",
   "market_name": "DraftKings",
@@ -1061,6 +1089,12 @@
     "note": "9 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
   "value_plays": [
+    {
+      "name": "Michigan Wolverines",
+      "ev": 130,
+      "market": "+2000",
+      "fair_odds": "+812"
+    },
     {
       "name": "Texas Longhorns",
       "ev": 68,

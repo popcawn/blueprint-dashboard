@@ -4874,43 +4874,43 @@
     "sc": 4,
     "idx": 91.3,
     "fp": 11.0,
-    "mkt": null,
-    "ev": null
+    "mkt": "+2000",
+    "ev": 130
    },
    "LSU Tigers": {
     "sc": 4,
     "idx": 81.1,
     "fp": 3.4,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1900",
+    "ev": -33
    },
    "Illinois Fighting Illini": {
     "sc": 4,
     "idx": 76.7,
     "fp": 1.9,
-    "mkt": null,
-    "ev": null
+    "mkt": "+12000",
+    "ev": 132
    },
    "UCLA Bruins": {
     "sc": 3,
     "idx": 90.4,
     "fp": 9.9,
-    "mkt": null,
-    "ev": null
+    "mkt": "+2600",
+    "ev": 168
    },
    "Duke Blue Devils": {
     "sc": 3,
     "idx": 90.0,
     "fp": 9.5,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1800",
+    "ev": 81
    },
    "USC Trojans": {
     "sc": 3,
     "idx": 89.6,
     "fp": 9.1,
-    "mkt": null,
-    "ev": null
+    "mkt": "+450",
+    "ev": -50
    },
    "Kentucky Wildcats": {
     "sc": 3,
@@ -4923,35 +4923,35 @@
     "sc": 3,
     "idx": 88.0,
     "fp": 7.6,
-    "mkt": null,
-    "ev": null
+    "mkt": "+10000",
+    "ev": 667
    },
    "Louisville Cardinals": {
     "sc": 2,
     "idx": 84.4,
     "fp": null,
-    "mkt": "+5000",
+    "mkt": null,
     "ev": null
    },
    "Arizona State Sun Devils": {
     "sc": 2,
     "idx": 82.6,
     "fp": null,
-    "mkt": "+15000",
+    "mkt": null,
     "ev": null
    },
    "Maryland Terrapins": {
     "sc": 2,
     "idx": 81.6,
     "fp": null,
-    "mkt": "+9000",
+    "mkt": null,
     "ev": null
    },
    "Minnesota Golden Gophers": {
     "sc": 2,
     "idx": 81.5,
     "fp": null,
-    "mkt": "+12000",
+    "mkt": null,
     "ev": null
    },
    "Iowa Hawkeyes": {
@@ -4972,7 +4972,7 @@
     "sc": 2,
     "idx": 79.6,
     "fp": null,
-    "mkt": "+4000",
+    "mkt": null,
     "ev": null
    },
    "TCU Horned Frogs": {
@@ -4993,7 +4993,7 @@
     "sc": 2,
     "idx": 71.3,
     "fp": null,
-    "mkt": "+11000",
+    "mkt": null,
     "ev": null
    }
   }
