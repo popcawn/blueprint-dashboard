@@ -4860,15 +4860,15 @@
     "sc": 5,
     "idx": 98.5,
     "fp": 23.4,
-    "mkt": null,
-    "ev": null
+    "mkt": "+220",
+    "ev": -25
    },
    "Texas Longhorns": {
     "sc": 5,
     "idx": 94.4,
     "fp": 15.3,
-    "mkt": null,
-    "ev": null
+    "mkt": "+1000",
+    "ev": 68
    },
    "Michigan Wolverines": {
     "sc": 4,
@@ -4916,8 +4916,8 @@
     "sc": 3,
     "idx": 89.4,
     "fp": 8.9,
-    "mkt": null,
-    "ev": null
+    "mkt": "+6000",
+    "ev": 442
    },
    "Oklahoma Sooners": {
     "sc": 3,
@@ -4930,28 +4930,28 @@
     "sc": 2,
     "idx": 84.4,
     "fp": null,
-    "mkt": null,
+    "mkt": "+5000",
     "ev": null
    },
    "Arizona State Sun Devils": {
     "sc": 2,
     "idx": 82.6,
     "fp": null,
-    "mkt": null,
+    "mkt": "+15000",
     "ev": null
    },
    "Maryland Terrapins": {
     "sc": 2,
     "idx": 81.6,
     "fp": null,
-    "mkt": null,
+    "mkt": "+9000",
     "ev": null
    },
    "Minnesota Golden Gophers": {
     "sc": 2,
     "idx": 81.5,
     "fp": null,
-    "mkt": null,
+    "mkt": "+12000",
     "ev": null
    },
    "Iowa Hawkeyes": {
@@ -4972,7 +4972,7 @@
     "sc": 2,
     "idx": 79.6,
     "fp": null,
-    "mkt": null,
+    "mkt": "+4000",
     "ev": null
    },
    "TCU Horned Frogs": {
@@ -4993,7 +4993,7 @@
     "sc": 2,
     "idx": 71.3,
     "fp": null,
-    "mkt": null,
+    "mkt": "+11000",
     "ev": null
    }
   }

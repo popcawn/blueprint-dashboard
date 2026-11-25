@@ -37,16 +37,20 @@
         "5-0"
       ],
       "rtg": 81.0,
-      "mk": null,
+      "mk": 220,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 23.4,
       "fair_odds": "+327",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+220",
+      "ev": -25,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -25
+      }
     },
     {
       "name": "Texas Longhorns",
@@ -69,16 +73,20 @@
         "2-0"
       ],
       "rtg": 72.6,
-      "mk": null,
+      "mk": 1000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 15.3,
       "fair_odds": "+553",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+1000",
+      "ev": 68,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 68
+      }
     },
     {
       "name": "Michigan Wolverines",
@@ -293,16 +301,20 @@
         "1-0"
       ],
       "rtg": 61.1,
-      "mk": null,
+      "mk": 6000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 8.9,
       "fair_odds": "+1025",
       "read": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "market": "+6000",
+      "ev": 442,
+      "verdict": {
+        "kind": "longshot",
+        "label": "longshot value",
+        "ev": 442
+      }
     },
     {
       "name": "Oklahoma Sooners",
@@ -357,14 +369,14 @@
         "1-0"
       ],
       "rtg": 50.6,
-      "mk": null,
+      "mk": 5000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+5000",
       "ev": null,
       "verdict": null
     },
@@ -389,14 +401,14 @@
         "1-0"
       ],
       "rtg": 45.7,
-      "mk": null,
+      "mk": 15000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+15000",
       "ev": null,
       "verdict": null
     },
@@ -421,14 +433,14 @@
         "1-1"
       ],
       "rtg": 66.3,
-      "mk": null,
+      "mk": 9000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+9000",
       "ev": null,
       "verdict": null
     },
@@ -453,14 +465,14 @@
         "1-0"
       ],
       "rtg": 45.2,
-      "mk": null,
+      "mk": 12000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+12000",
       "ev": null,
       "verdict": null
     },
@@ -549,14 +561,14 @@
         "2-0"
       ],
       "rtg": 44.4,
-      "mk": null,
+      "mk": 4000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+4000",
       "ev": null,
       "verdict": null
     },
@@ -645,14 +657,14 @@
         "\u2014"
       ],
       "rtg": 56.1,
-      "mk": null,
+      "mk": 11000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "market": null,
+      "market": "+11000",
       "ev": null,
       "verdict": null
     }
@@ -1030,10 +1042,10 @@
     "Carolina University Bruins": -72.1,
     "Johnson Royals": -52.0
   },
-  "generated": "2026-11-25T19:50:06Z",
+  "generated": "2026-11-25T20:11:54Z",
   "odds_remaining": null,
-  "market_asof": null,
-  "market_name": "FanDuel",
+  "market_asof": "Nov 25",
+  "market_name": "DraftKings",
   "alt_name": null,
   "prediction": {
     "pick": "South Carolina Gamecocks",
@@ -1048,5 +1060,12 @@
     "label": "Firming up",
     "note": "9 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Texas Longhorns",
+      "ev": 68,
+      "market": "+1000",
+      "fair_odds": "+553"
+    }
+  ]
 }
