@@ -1,6 +1,7 @@
 {
  "about": "Every title price the nbl board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
  "log": [
-  {"book":"FanDuel","from":"2026-11-24T20:04:49Z","to":"2026-11-24T20:04:49Z","asof":"Nov 24","odds":{"Sydney Kings":250,"Melbourne United":300,"Tasmania JackJumpers":350,"Adelaide 36ers":470,"South East Melbourne Phoenix":2700,"Perth Wildcats":1900,"New Zealand Breakers":5000,"Cairns Taipans":1100,"Brisbane Bullets":2700,"Illawarra Hawks":4500}}
+  {"book":"FanDuel","from":"2026-11-24T20:04:49Z","to":"2026-11-24T20:04:49Z","asof":"Nov 24","odds":{"Sydney Kings":250,"Melbourne United":300,"Tasmania JackJumpers":350,"Adelaide 36ers":470,"South East Melbourne Phoenix":2700,"Perth Wildcats":1900,"New Zealand Breakers":5000,"Cairns Taipans":1100,"Brisbane Bullets":2700,"Illawarra Hawks":4500}},
+  {"book":"FanDuel","from":"2026-11-25T18:54:01Z","to":"2026-11-25T18:54:01Z","asof":"Nov 25","odds":{"Sydney Kings":250,"Melbourne United":300,"Tasmania JackJumpers":350,"Adelaide 36ers":470,"South East Melbourne Phoenix":2700,"Perth Wildcats":1900,"New Zealand Breakers":5000,"Cairns Taipans":1100,"Illawarra Hawks":4500,"Brisbane Bullets":2700}}
  ]
 }
