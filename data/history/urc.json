@@ -1187,5 +1187,124 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-25",
+  "gp": 5,
+  "mx": 5,
+  "teams": {
+   "Leinster": {
+    "sc": 4,
+    "idx": 100,
+    "fp": 52.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Bulls": {
+    "sc": 4,
+    "idx": 93.4,
+    "fp": 26.4,
+    "mkt": null,
+    "ev": null
+   },
+   "Stormers": {
+    "sc": 5,
+    "idx": 84.1,
+    "fp": 11.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Glasgow Warriors": {
+    "sc": 4,
+    "idx": 69.4,
+    "fp": 5.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Sharks": {
+    "sc": 4,
+    "idx": 72.2,
+    "fp": 3.9,
+    "mkt": null,
+    "ev": null
+   },
+   "Edinburgh": {
+    "sc": 3,
+    "idx": 48.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Ulster": {
+    "sc": 0,
+    "idx": 55.5,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Munster": {
+    "sc": 0,
+    "idx": 55.1,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Lions": {
+    "sc": 0,
+    "idx": 52,
+    "fp": 0.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Cardiff Blues": {
+    "sc": 1,
+    "idx": 46.2,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Connacht": {
+    "sc": 1,
+    "idx": 49.7,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   },
+   "Scarlets": {
+    "sc": 1,
+    "idx": 36,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Dragons": {
+    "sc": 1,
+    "idx": 22.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Ospreys": {
+    "sc": 0,
+    "idx": 35.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Benetton Treviso": {
+    "sc": 0,
+    "idx": 28.7,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Zebre": {
+    "sc": 0,
+    "idx": 0,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]

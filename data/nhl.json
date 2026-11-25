@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-25T15:29:49Z",
-  "odds_remaining": "25159",
+  "generated": "2026-11-25T19:49:53Z",
+  "odds_remaining": "24521",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +286). The Read: No goaltending asterisk, no possession hole \u2014 #1 driving play and #8 in net. The team you want when the games get low-scoring and tight. Trust it."
@@ -45,15 +45,15 @@
       "sv5": "91.3% #8",
       "fair_pct": 25.9,
       "fair_odds": "+286",
-      "market": "+550",
+      "market": "+500",
       "books": {
-        "FanDuel": 550
+        "FanDuel": 500
       },
-      "ev": 68,
+      "ev": 55,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 68
+        "kind": "value",
+        "label": "value",
+        "ev": 55
       },
       "read": {
         "v": "trust",
@@ -162,8 +162,8 @@
       },
       "ev": 65,
       "verdict": {
-        "kind": "value",
-        "label": "value",
+        "kind": "best",
+        "label": "BEST VALUE",
         "ev": 65
       },
       "read": {
@@ -267,15 +267,15 @@
       "sv5": "92.2% #3",
       "fair_pct": 3.5,
       "fair_odds": "+2760",
-      "market": "+2700",
+      "market": "+2500",
       "books": {
-        "FanDuel": 2700
+        "FanDuel": 2500
       },
-      "ev": -2,
+      "ev": -9,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -2
+        "ev": -9
       },
       "read": {
         "v": "trust",
@@ -341,15 +341,15 @@
       "sv5": "89.6% #23",
       "fair_pct": 5.4,
       "fair_odds": "+1744",
-      "market": "+950",
+      "market": "+1000",
       "books": {
-        "FanDuel": 950
+        "FanDuel": 1000
       },
-      "ev": -43,
+      "ev": -40,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -43
+        "ev": -40
       },
       "read": {
         "v": "fools_gold",
@@ -631,15 +631,15 @@
       "sv5": "91.9% #4",
       "fair_pct": 0.5,
       "fair_odds": "+18317",
-      "market": "+12500",
+      "market": "+10000",
       "books": {
-        "FanDuel": 12500
+        "FanDuel": 10000
       },
-      "ev": -32,
+      "ev": -45,
       "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -32
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -45
       },
       "read": {
         "v": "caution",
@@ -705,15 +705,15 @@
       "sv5": "91.7% #5",
       "fair_pct": 0.8,
       "fair_odds": "+12554",
-      "market": "+6000",
+      "market": "+5500",
       "books": {
-        "FanDuel": 6000
+        "FanDuel": 5500
       },
-      "ev": -52,
+      "ev": -56,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -52
+        "ev": -56
       },
       "read": {
         "v": "caution",
@@ -742,15 +742,15 @@
       "sv5": "89.5% #24",
       "fair_pct": 0.4,
       "fair_odds": "+23296",
-      "market": "+4000",
+      "market": "+4500",
       "books": {
-        "FanDuel": 4000
+        "FanDuel": 4500
       },
-      "ev": -82,
+      "ev": -80,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -82
+        "ev": -80
       },
       "read": {
         "v": "caution",
@@ -950,16 +950,16 @@
   "market_name": "FanDuel",
   "value_plays": [
     {
-      "name": "Carolina Hurricanes",
-      "ev": 68,
-      "market": "+550",
-      "fair_odds": "+286"
-    },
-    {
       "name": "Colorado Avalanche",
       "ev": 65,
       "market": "+900",
       "fair_odds": "+508"
+    },
+    {
+      "name": "Carolina Hurricanes",
+      "ev": 55,
+      "market": "+500",
+      "fair_odds": "+286"
     }
   ]
 }

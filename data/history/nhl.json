@@ -6113,13 +6113,14 @@
  {
   "date": "2026-11-25",
   "gp": 27,
+  "mx": 4,
   "teams": {
    "Carolina Hurricanes": {
     "sc": 4,
     "idx": 100.0,
     "fp": 25.9,
-    "mkt": "+550",
-    "ev": 68
+    "mkt": "+500",
+    "ev": 55
    },
    "Minnesota Wild": {
     "sc": 4,
@@ -6160,8 +6161,8 @@
     "sc": 4,
     "idx": 59.9,
     "fp": 3.5,
-    "mkt": "+2700",
-    "ev": -2
+    "mkt": "+2500",
+    "ev": -9
    },
    "New Jersey Devils": {
     "sc": 3,
@@ -6174,8 +6175,8 @@
     "sc": 3,
     "idx": 59.1,
     "fp": 5.4,
-    "mkt": "+950",
-    "ev": -43
+    "mkt": "+1000",
+    "ev": -40
    },
    "Florida Panthers": {
     "sc": 3,
@@ -6230,8 +6231,8 @@
     "sc": 1,
     "idx": 48.8,
     "fp": 0.5,
-    "mkt": "+12500",
-    "ev": -32
+    "mkt": "+10000",
+    "ev": -45
    },
    "Nashville Predators": {
     "sc": 1,
@@ -6244,15 +6245,15 @@
     "sc": 1,
     "idx": 44.1,
     "fp": 0.8,
-    "mkt": "+6000",
-    "ev": -52
+    "mkt": "+5500",
+    "ev": -56
    },
    "Buffalo Sabres": {
     "sc": 1,
     "idx": 42.4,
     "fp": 0.4,
-    "mkt": "+4000",
-    "ev": -82
+    "mkt": "+4500",
+    "ev": -80
    },
    "Washington Capitals": {
     "sc": 1,
