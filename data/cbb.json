@@ -37,7 +37,7 @@
         "2-0"
       ],
       "rtg": 57.4,
-      "mk": 650,
+      "mk": 850,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -45,14 +45,15 @@
       "fair_odds": "+568",
       "read": null,
       "books": {
-        "FanDuel": 650
+        "FanDuel": 650,
+        "DraftKings": 850
       },
-      "market": "+650",
-      "ev": 12,
+      "market": "+850",
+      "ev": 42,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 12
+        "ev": 42
       }
     },
     {
@@ -162,7 +163,8 @@
       "fair_odds": "+1072",
       "read": null,
       "books": {
-        "FanDuel": 3500
+        "FanDuel": 3500,
+        "DraftKings": 3200
       },
       "market": "+3500",
       "ev": 207,
@@ -193,7 +195,7 @@
         "1-0"
       ],
       "rtg": 44.1,
-      "mk": 2000,
+      "mk": 2100,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -201,14 +203,15 @@
       "fair_odds": "+2395",
       "read": null,
       "books": {
-        "FanDuel": 2000
+        "FanDuel": 2000,
+        "DraftKings": 2100
       },
-      "market": "+2000",
-      "ev": -16,
+      "market": "+2100",
+      "ev": -12,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -16
+        "ev": -12
       }
     },
     {
@@ -240,7 +243,8 @@
       "fair_odds": "+7739",
       "read": null,
       "books": {
-        "FanDuel": 1600
+        "FanDuel": 1600,
+        "DraftKings": 1350
       },
       "market": "+1600",
       "ev": -78,
@@ -271,7 +275,7 @@
         "1-0"
       ],
       "rtg": 43.5,
-      "mk": 10000,
+      "mk": 11000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -279,14 +283,15 @@
       "fair_odds": "+1616",
       "read": null,
       "books": {
-        "FanDuel": 10000
+        "FanDuel": 10000,
+        "DraftKings": 11000
       },
-      "market": "+10000",
-      "ev": 488,
+      "market": "+11000",
+      "ev": 547,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 488
+        "ev": 547
       }
     },
     {
@@ -349,7 +354,7 @@
         "2-0"
       ],
       "rtg": 42.3,
-      "mk": 8000,
+      "mk": 9000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -357,14 +362,15 @@
       "fair_odds": "+1767",
       "read": null,
       "books": {
-        "FanDuel": 8000
+        "FanDuel": 8000,
+        "DraftKings": 9000
       },
-      "market": "+8000",
-      "ev": 334,
+      "market": "+9000",
+      "ev": 387,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 334
+        "ev": 387
       }
     },
     {
@@ -576,7 +582,7 @@
         "3-1"
       ],
       "rtg": 41.0,
-      "mk": 700,
+      "mk": 750,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -584,14 +590,15 @@
       "fair_odds": "+5531",
       "read": null,
       "books": {
-        "FanDuel": 700
+        "FanDuel": 700,
+        "DraftKings": 750
       },
-      "market": "+700",
-      "ev": -86,
+      "market": "+750",
+      "ev": -85,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -86
+        "ev": -85
       }
     },
     {
@@ -654,7 +661,7 @@
         "2-1"
       ],
       "rtg": 43.0,
-      "mk": 1600,
+      "mk": 2000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -662,14 +669,15 @@
       "fair_odds": "+6299",
       "read": null,
       "books": {
-        "FanDuel": 1600
+        "FanDuel": 1600,
+        "DraftKings": 2000
       },
-      "market": "+1600",
-      "ev": -73,
+      "market": "+2000",
+      "ev": -67,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -73
+        "ev": -67
       }
     },
     {
@@ -850,7 +858,8 @@
       "fair_odds": "+10093",
       "read": null,
       "books": {
-        "FanDuel": 10000
+        "FanDuel": 10000,
+        "DraftKings": 8400
       },
       "market": "+10000",
       "ev": -1,
@@ -1037,7 +1046,7 @@
         "1-1"
       ],
       "rtg": 29.0,
-      "mk": 15000,
+      "mk": 18000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -1045,14 +1054,15 @@
       "fair_odds": "+33763",
       "read": null,
       "books": {
-        "FanDuel": 15000
+        "FanDuel": 15000,
+        "DraftKings": 18000
       },
-      "market": "+15000",
-      "ev": -55,
+      "market": "+18000",
+      "ev": -47,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -55
+        "ev": -47
       }
     },
     {
@@ -1076,7 +1086,7 @@
         "\u2014"
       ],
       "rtg": 40.5,
-      "mk": 2000,
+      "mk": 2800,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -1084,14 +1094,15 @@
       "fair_odds": "+35914",
       "read": null,
       "books": {
-        "FanDuel": 2000
+        "FanDuel": 2000,
+        "DraftKings": 2800
       },
-      "market": "+2000",
-      "ev": -94,
+      "market": "+2800",
+      "ev": -92,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -94
+        "ev": -92
       }
     },
     {
@@ -1123,7 +1134,8 @@
       "fair_odds": "+38212",
       "read": null,
       "books": {
-        "FanDuel": 6500
+        "FanDuel": 6500,
+        "DraftKings": 6000
       },
       "market": "+6500",
       "ev": -83,
@@ -1201,7 +1213,8 @@
       "fair_odds": "+50000+",
       "read": null,
       "books": {
-        "FanDuel": 1200
+        "FanDuel": 1200,
+        "DraftKings": 1150
       },
       "market": "+1200",
       "ev": -97,
@@ -1279,7 +1292,8 @@
       "fair_odds": "+50000+",
       "read": null,
       "books": {
-        "FanDuel": 5000
+        "FanDuel": 5000,
+        "DraftKings": 3600
       },
       "market": "+5000",
       "ev": -92,
@@ -1342,7 +1356,7 @@
         "0-1"
       ],
       "rtg": 36.7,
-      "mk": 3500,
+      "mk": 5400,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -1350,14 +1364,15 @@
       "fair_odds": "+50000+",
       "read": null,
       "books": {
-        "FanDuel": 3500
+        "FanDuel": 3500,
+        "DraftKings": 5400
       },
-      "market": "+3500",
-      "ev": -96,
+      "market": "+5400",
+      "ev": -94,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -96
+        "ev": -94
       }
     },
     {
@@ -1381,7 +1396,7 @@
         "0-1"
       ],
       "rtg": 35.5,
-      "mk": 10000,
+      "mk": 18000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -1389,14 +1404,15 @@
       "fair_odds": "+50000+",
       "read": null,
       "books": {
-        "FanDuel": 10000
+        "FanDuel": 10000,
+        "DraftKings": 18000
       },
-      "market": "+10000",
-      "ev": -89,
+      "market": "+18000",
+      "ev": -81,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -89
+        "ev": -81
       }
     },
     {
@@ -1420,7 +1436,7 @@
         "\u2014"
       ],
       "rtg": 33.6,
-      "mk": 10000,
+      "mk": 18000,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
@@ -1428,14 +1444,15 @@
       "fair_odds": "+50000+",
       "read": null,
       "books": {
-        "FanDuel": 10000
+        "FanDuel": 10000,
+        "DraftKings": 18000
       },
-      "market": "+10000",
-      "ev": -91,
+      "market": "+18000",
+      "ev": -84,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -91
+        "ev": -84
       }
     },
     {
@@ -1895,10 +1912,10 @@
     "College of Biblical Studies Ambassadors": -41.2,
     "Grace (CA) Talons": -60.8
   },
-  "generated": "2026-11-25T19:50:05Z",
-  "odds_remaining": "24519",
+  "generated": "2026-11-25T20:12:25Z",
+  "odds_remaining": "24316",
   "market_asof": null,
-  "market_name": "FanDuel",
+  "market_name": "FanDuel / DraftKings",
   "alt_name": null,
   "prediction": {
     "pick": "Houston Cougars",
@@ -1913,6 +1930,7 @@
     "label": "Firming up",
     "note": "8 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
+  "dk_asof": "Nov 25",
   "value_plays": [
     {
       "name": "Vanderbilt Commodores",
@@ -1928,8 +1946,8 @@
     },
     {
       "name": "Houston Cougars",
-      "ev": 12,
-      "market": "+650",
+      "ev": 42,
+      "market": "+850",
       "fair_odds": "+568"
     }
   ]
