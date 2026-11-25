@@ -916,7 +916,7 @@ function renderTabs(){
   document.querySelectorAll(".sportbar button").forEach(b=>{ b.onclick=()=>pick(b.dataset.s); b.classList.toggle("on",b.dataset.s===cur); });
   sbShow();
 }
-let CK_OPEN={po:false,off:false}, BL_WOPEN=false;   // (2026-11-24) folds: clock's playoff / offseason groups, Blends' Watching list
+let CK_OPEN={po:false,off:false}, BL_WOPEN=false, BL_SOPEN=false;   // (2026-11-24) folds: clock's playoff / offseason groups, Blends' Watching list
 function renderClock(){
   const el=document.getElementById("clock"); if(!el) return; if(!SEASONS.length){ el.innerHTML=""; return; }
   const keep=el.querySelector(".ck-wrap"), sl=keep?keep.scrollLeft:0;   // phone strip keeps its scroll across tab switches
@@ -1309,6 +1309,21 @@ function steadyOf(sp,name){ const h=HIST[sp]; if(!h||!h.length) return {ok:false
     if(back.length>w.length) w=back; }
   let k=0; for(const x of w){ const me=x.teams[name], fp=me.fp||0, rk=1+Object.values(x.teams).filter(v=>(v.fp||0)>fp).length; if(rk<=3) k++; }
   return {ok:w.length>=4&&k>=Math.ceil(w.length*2/3),n:w.length,k}; }
+// SEASON VALUE (2026-11-25, user: "some are best value for a day then not ... who's been the best value for most of the season" --
+// the Valkyries and Brewers were value most of the year). Over this season's saved boards that carry prices: the share of DAYS a team
+// was a value play (top 3 by fair odds, EV >= +10% at that day's price, +2500 or shorter), and since when it has been the board's best
+// value. Counts value-play days, not best-value days, so a team that was value all year and only now moved up to best scores in full.
+// Display only: it changes no blend. null = fewer than 4 priced boards (screenshot-priced boards keep one price at a time).
+function seasonVal(sp){ const h=HIST[sp]; if(!h||!h.length) return null;
+  let a=h.length-1; while(a>0&&!(h[a-1].gp!=null&&h[a].gp!=null&&h[a-1].gp>h[a].gp)) a--;   // games played dropped = last season
+  const sn=h.slice(a).filter(x=>x.teams&&Object.values(x.teams).some(v=>v.mkt)); if(sn.length<4) return null;
+  const T=sn.map(x=>Date.parse(x.date)), val={}, seq=[]; let days=0;
+  sn.forEach((x,i)=>{ const w=i+1<sn.length?Math.max(1,Math.min(14,Math.round((T[i+1]-T[i])/864e5))):1; days+=w; let b=null;
+    for(const [n,v] of Object.entries(x.teams).sort((p,q)=>(q[1].fp||0)-(p[1].fp||0)).slice(0,3)){
+      if(v.ev==null||v.ev<10||!v.mkt||!(_parseOdds(v.mkt)<=2500)) continue; val[n]=(val[n]||0)+w; if(!b||v.ev>b[1]) b=[n,v.ev]; }
+    seq.push(b?b[0]:null); });
+  return {days,rows:Object.keys(val).map(n=>{ let k=seq.length; while(k>0&&seq[k-1]===n) k--;
+    return {name:n,pct:val[n]/days,since:k<seq.length?sn[k].date:null}; }).sort((p,q)=>q.pct-p.pct)}; }
 function blendScan(){
   const held=heldSet(), legs=[], early=[], watch=[], unsteady=[];
   for(const sp of Object.keys(SPORTS)){ const st=boardOpen(sp); if(st==="closed") continue; rankBoard(sp); const d=DATA[sp];
@@ -1395,6 +1410,12 @@ function blendsHTML(){
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
     ...R.early.map(e=>`${esc(blNm(e.sp,e.v[0].name))} ${fmtEV(e.v[0].ev)}${e.v.length>1?` +${e.v.length-1} more`:""} (${SPORTS[e.sp]}) · waiting: ${e.st==="wait"?"value plays from "+({"03-01":"Mar 1","03-16":"mid-March"}[BL_FROM[e.sp]]||BL_FROM[e.sp]):`board still ${e.st==="firming"?"firming up":"too early"} (${e.pct!=null?Math.round(e.pct)+"% of season":"few games"})`}`)];
   if(W.length) h+=`<details class="blwf"${BL_WOPEN?" open":""} ontoggle="BL_WOPEN=this.open"><summary class="blk">Not yet · ${W.length}<i class="ck-car">▾</i></summary>`+W.map(x=>`<div class="blw">${x}</div>`).join("")+`</details>`;   // (2026-11-24, user) folded by default
+  // Season value: per open board, the teams that were a value play on half the season's days or more (2 a board at most), longest first
+  { const SV=[]; for(const sp of Object.keys(SPORTS)){ if(!DATA[sp]||boardOpen(sp)==="closed") continue; const v=seasonVal(sp); if(!v) continue;
+      for(const r of v.rows.filter(r=>r.pct>=0.5).slice(0,2)) SV.push({sp,r,days:v.days}); }
+    SV.sort((p,q)=>q.r.pct-p.r.pct);
+    if(SV.length) h+=`<details class="blwf"${BL_SOPEN?" open":""} ontoggle="BL_SOPEN=this.open"><summary class="blk" title="Share of this season's days (since prices were first saved) each team was a value play: top 3 on the board and priced 10%+ too long that day">Season value · ${SV.length}<i class="ck-car">▾</i></summary>`
+      +SV.map(({sp,r,days})=>`<div class="blw">${esc(blNm(sp,r.name))} (${SPORTS[sp]}) · value <b>${Math.round(100*r.pct)}%</b> of ${days} days${r.since?` · best value since ${fmtD(r.since.slice(0,10))}`:""}</div>`).join("")+`</details>`; }
   const exp={}; for(const {s} of live) for(const L of s.legs) if(legState(L)==="open"){ const k=blNm(L.lg,L.team); exp[k]=(exp[k]||0)+(+s.stake||0); }   // whole dollars below
   // (2026-11-23, user: "click one of the teams and it only shows me every slip they're in. I un click and all slips are back")
   const legKey=L=>L.lg+"|"+blNm(L.lg,L.team), expLg={}; for(const {s} of live) for(const L of s.legs) expLg[blNm(L.lg,L.team)]=L;
