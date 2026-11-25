@@ -486,8 +486,8 @@
   {
    "id": "s21",
    "book": "FanDuel",
-   "stake": 20,
-   "pays": 455,
+   "stake": 25,
+   "pays": 568.75,
    "added": "2026-11-24",
    "legs": [
     {
@@ -514,23 +514,6 @@
     {
      "lg": "ligamx",
      "team": "Cruz Azul"
-    }
-   ]
-  },
-  {
-   "id": "s23",
-   "book": "FanDuel",
-   "stake": 5,
-   "pays": 113.75,
-   "added": "2026-11-24",
-   "legs": [
-    {
-     "lg": "nhl",
-     "team": "Carolina Hurricanes"
-    },
-    {
-     "lg": "nbl",
-     "team": "Sydney Kings"
     }
    ]
   },
