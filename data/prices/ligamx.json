@@ -1,6 +1,7 @@
 {
  "about": "Every title price the ligamx board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
  "log": [
-  {"book":"DraftKings","from":"2026-11-24T20:04:50Z","to":"2026-11-24T20:04:50Z","asof":"Nov 24","odds":{"Cruz Azul":350,"América":350,"Guadalajara":330,"Toluca":450,"Pachuca":1200,"Monterrey":800,"Atlas":1200,"León":1400}}
+  {"book":"DraftKings","from":"2026-11-24T20:04:50Z","to":"2026-11-24T20:04:50Z","asof":"Nov 24","odds":{"Cruz Azul":350,"América":350,"Guadalajara":330,"Toluca":450,"Pachuca":1200,"Monterrey":800,"Atlas":1200,"León":1400}},
+  {"book":"DraftKings","from":"2026-11-25T20:36:31Z","to":"2026-11-25T20:36:31Z","asof":"Nov 25","odds":{"Cruz Azul":350,"América":350,"Guadalajara":330,"Toluca":450,"Pachuca":1200,"Monterrey":800,"Atlas":1200,"León":1400}}
  ]
 }
