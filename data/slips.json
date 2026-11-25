@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T01:45:05Z",
+ "updated": "2026-11-25T01:50:49Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -527,6 +527,23 @@
     {
      "lg": "nhl",
      "team": "Carolina Hurricanes"
+    },
+    {
+     "lg": "nbl",
+     "team": "Sydney Kings"
+    }
+   ]
+  },
+  {
+   "id": "s24",
+   "book": "FanDuel",
+   "stake": 10,
+   "pays": 350.0,
+   "added": "2026-11-24",
+   "legs": [
+    {
+     "lg": "nhl",
+     "team": "Colorado Avalanche"
     },
     {
      "lg": "nbl",
