@@ -1932,6 +1932,58 @@ def log_history(name, data):
     else: hist.append(snap)
     json.dump(hist[-400:], open(hp, "w", encoding="utf-8"), indent=1)
 
+def _am_int(px):
+    """'+450' / 450 / '-120' / 'EVEN' -> American odds as an int (None if it is not a price)."""
+    if px is None or isinstance(px, bool): return None
+    if isinstance(px, (int, float)): return int(px)
+    x = str(px).strip().replace("\u2212", "-").replace("\u2013", "-").replace("+", "")
+    if x.lower() in ("even", "ev", "evs"): return 100
+    try: return int(float(x))
+    except Exception: return None
+
+def log_prices(name, data):
+    """(2026-11-25, user: "save every price the boards see") The permanent price log, data/prices/<name>.json.
+       Every build writes down each book's title prices exactly as the board saw them -- the odds feed (FanDuel / DraftKings) and
+       pasted screenshots alike -- so a price is never lost when a screenshot is dropped after its build, or when a later run the same
+       day replaces the history snapshot (which keeps only the best price, not each book's).
+       One entry per book per CHANGE: {"book", "from", "to", "odds": {team: American odds}} plus "asof" for a screenshot (the date
+       the user read it). A build that sees the same prices only moves "to" (the last time the board showed them). Never trimmed."""
+    if data.get("status") == "preseason" or not data.get("teams"): return
+    per = {}
+    for t in data["teams"]:
+        if t.get("books"):
+            for b, px in t["books"].items():
+                a = _am_int(px)
+                if a is not None: per.setdefault(b, {})[t["name"]] = a
+        elif t.get("market"):
+            a = _am_int(t["market"])
+            if a is not None: per.setdefault(data.get("market_name") or "book", {})[t["name"]] = a
+    if not per: return
+    pp = os.path.join(DATA, "prices", f"{name}.json")
+    os.makedirs(os.path.dirname(pp), exist_ok=True)
+    try: log = json.load(open(pp, encoding="utf-8")).get("log") or []
+    except Exception: log = []
+    at = data.get("generated") or now_iso()
+    for b, odds in per.items():
+        last = next((e for e in reversed(log) if e.get("book") == b), None)
+        if last and last.get("odds") == odds and last.get("asof") == data.get("market_asof"):
+            last["to"] = at
+            continue
+        e = {"book": b, "from": at, "to": at}
+        if data.get("market_asof"): e["asof"] = data["market_asof"]
+        e["odds"] = odds
+        log.append(e)
+    write_price_log(pp, name, log)
+
+def write_price_log(pp, name, log):
+    about = (f"Every title price the {name} board has seen, per book. One entry per change: from/to = the first and last build that "
+             "showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were "
+             "rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.")
+    with open(pp, "w", encoding="utf-8", newline="\n") as f:
+        f.write('{\n "about": ' + json.dumps(about) + ',\n "log": [\n')
+        f.write(",\n".join("  " + json.dumps(e, ensure_ascii=False, separators=(",", ":")) for e in log))
+        f.write("\n ]\n}\n")
+
 def wnba_scoring(season):
     """Per-team scoring from ESPN WNBA byteam (same glossary-index trick as NBA): {team: {ppg, opp, poss, ortg, drtg, nrtg}}.
        Per-100 ratings (2026-11-07): possessions/g = FGA - OREB + TOV + 0.44*FTA, averaged over the team and its opponents.
@@ -2929,6 +2981,7 @@ def main():
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)
+            log_prices(name, data)
             if data.get("status") == "preseason":
                 built[name] = "preseason (no games yet)"
             else:

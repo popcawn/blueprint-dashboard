@@ -1,0 +1,7 @@
+{
+ "about": "Every title price the wnba board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"DraftKings","src":"history","from":"2026-09-24","to":"2026-09-24","odds":{"Golden State Valkyries":600,"Minnesota Lynx":115,"Atlanta Dream":750,"Las Vegas Aces":475,"Dallas Wings":8000,"Washington Mystics":6500,"Indiana Fever":950,"New York Liberty":1400}},
+  {"book":"DraftKings","from":"2026-11-24T19:42:06Z","to":"2026-11-24T19:42:06Z","asof":"Sep 25","odds":{"Golden State Valkyries":600,"Minnesota Lynx":115,"Atlanta Dream":750,"Las Vegas Aces":475,"Dallas Wings":8000,"Washington Mystics":6500,"Indiana Fever":950,"New York Liberty":1400}}
+ ]
+}

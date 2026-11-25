@@ -1,0 +1,6 @@
+{
+ "about": "Every title price the aleague board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"FanDuel","from":"2026-11-24T20:12:15Z","to":"2026-11-24T20:12:15Z","asof":"Nov 24","odds":{"Sydney FC":470,"Wellington Phoenix":1100,"Melbourne City FC":410,"Western Sydney Wanderers FC":550,"Perth Glory FC":5000,"Auckland FC":600,"Brisbane Roar FC":1600,"Macarthur FC":1100,"Melbourne Victory":650,"Newcastle Jets":1100,"Adelaide United FC":2700,"Central Coast Mariners FC":6500}}
+ ]
+}

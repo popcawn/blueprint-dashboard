@@ -1,0 +1,6 @@
+{
+ "about": "Every title price the cfl board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"DraftKings","src":"history","from":"2026-11-06","to":"2026-11-06","odds":{"Montreal Alouettes":-115,"Edmonton Elks":350,"BC Lions":300,"Winnipeg Blue Bombers":800}}
+ ]
+}

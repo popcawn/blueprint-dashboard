@@ -1,0 +1,6 @@
+{
+ "about": "Every title price the ahl board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"DraftKings","from":"2026-11-24T20:04:53Z","to":"2026-11-24T20:04:53Z","asof":"Nov 24","odds":{"Grand Rapids Griffins":1000,"Laval Rocket":900,"Tucson Roadrunners":1500,"Providence Bruins":2000,"Wilkes-Barre/Scranton Penguins":1500,"Rochester Americans":2000,"Henderson Silver Knights":2200,"Manitoba Moose":2200,"Utica Comets":2000,"Toronto Marlies":1500,"Charlotte Checkers":1000,"San Diego Gulls":3500,"Hershey Bears":2200,"Colorado Eagles":900,"Ontario Reign":2800,"Coachella Valley Firebirds":2800,"Milwaukee Admirals":2000,"Syracuse Crunch":2000,"Calgary Wranglers":3500,"Hartford Wolf Pack":5000,"Cleveland Monsters":2200,"Chicago Wolves":3500,"Abbotsford Canucks":1200,"Belleville Senators":5000,"Iowa Wild":5000,"Rockford IceHogs":5000,"Texas Stars":3500,"Springfield Thunderbirds":3500,"San Jose Barracuda":5000,"Lehigh Valley Phantoms":3500,"Bakersfield Condors":3500,"Hamilton Hammers":5000}}
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "about": "Every title price the mlb board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"FanDuel","src":"history","from":"2026-09-27","to":"2026-09-27","odds":{"Brewers":500,"Dodgers":230,"Braves":1400,"Cubs":1900,"Padres":2200,"Yankees":800,"Rays":750,"White Sox":4000,"Red Sox":1600,"Guardians":1000,"Astros":2000,"Phillies":1800}},
+  {"book":"FanDuel","from":"2026-11-24T19:42:10Z","to":"2026-11-24T19:42:10Z","asof":"Sep 29","odds":{"Brewers":500,"Dodgers":230,"Braves":1400,"Cubs":1900,"Padres":2200,"Yankees":800,"Rays":750,"White Sox":4000,"Red Sox":1600,"Guardians":1000,"Astros":2000,"Phillies":1800}}
+ ]
+}

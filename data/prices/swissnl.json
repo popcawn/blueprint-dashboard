@@ -1,0 +1,6 @@
+{
+ "about": "Every title price the swissnl board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"DraftKings","from":"2026-11-24T20:24:33Z","to":"2026-11-24T20:24:33Z","asof":"Nov 24","odds":{"ZSC Lions":150,"HC Davos":900,"Fribourg-Gottéron":900,"EV Zug":900,"SC Bern":1100,"SCL Tigers":2000,"Lausanne HC":900,"Genève-Servette HC":650,"HC Lugano":2000,"HC Ambri-Piotta":2000,"EHC Biel-Bienne":2800,"SC Rapperswil-Jona Lakers":5000,"HC Ajoie":10000,"EHC Kloten":10000}}
+ ]
+}

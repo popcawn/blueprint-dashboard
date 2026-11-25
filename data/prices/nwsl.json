@@ -1,0 +1,6 @@
+{
+ "about": "Every title price the nwsl board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
+ "log": [
+  {"book":"DraftKings","src":"history","from":"2026-11-07","to":"2026-11-20","odds":{"Gotham FC":270,"Kansas City Current":400,"San Diego Wave FC":300,"Washington Spirit":350,"Angel City FC":1100,"Portland Thorns FC":1600,"Seattle Reign FC":1400,"Utah Royals":2500}}
+ ]
+}
