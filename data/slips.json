@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T23:37:28Z",
+ "updated": "2026-11-25T01:01:18Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -480,6 +480,40 @@
     {
      "lg": "urc",
      "team": "Leinster"
+    }
+   ]
+  },
+  {
+   "id": "s21",
+   "book": "FanDuel",
+   "stake": 20,
+   "pays": 420.0,
+   "added": "2026-11-24",
+   "legs": [
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    },
+    {
+     "lg": "nbl",
+     "team": "Sydney Kings"
+    }
+   ]
+  },
+  {
+   "id": "s22",
+   "book": "DraftKings",
+   "stake": 20,
+   "pays": 472.5,
+   "added": "2026-11-24",
+   "legs": [
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    },
+    {
+     "lg": "ligamx",
+     "team": "Cruz Azul"
     }
    ]
   }
