@@ -2,7 +2,7 @@
   "sport": "FCS",
   "season": "2026",
   "alt_name": "rating-only",
-  "generated": "2026-11-24T19:53:54Z",
+  "generated": "2026-11-25T15:19:31Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -50,15 +50,15 @@
       "fair_pct": 30.9,
       "fair_odds": "+224",
       "read": null,
-      "mk": 330,
-      "market": "+330",
-      "ev": 33,
+      "mk": 240,
+      "market": "+240",
+      "ev": 5,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 33
+        "kind": "trap",
+        "label": "rating disagrees",
+        "ev": 5
       },
-      "alt_ev": 21
+      "alt_ev": -4
     },
     {
       "name": "Tarleton State",
@@ -92,15 +92,15 @@
       "fair_pct": 3.8,
       "fair_odds": "+2515",
       "read": null,
-      "mk": 1000,
-      "market": "+1000",
-      "ev": -58,
+      "mk": 1100,
+      "market": "+1100",
+      "ev": -54,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -58
+        "ev": -54
       },
-      "alt_ev": -71
+      "alt_ev": -68
     },
     {
       "name": "Lamar",
@@ -218,15 +218,15 @@
       "fair_pct": 6.7,
       "fair_odds": "+1397",
       "read": null,
-      "mk": 600,
-      "market": "+600",
-      "ev": -53,
+      "mk": 650,
+      "market": "+650",
+      "ev": -50,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -53
+        "ev": -50
       },
-      "alt_ev": -61
+      "alt_ev": -58
     },
     {
       "name": "Mercer",
@@ -462,15 +462,15 @@
       "fair_pct": 1.0,
       "fair_odds": "+9553",
       "read": null,
-      "mk": 1800,
-      "market": "+1800",
-      "ev": -80,
+      "mk": 2000,
+      "market": "+2000",
+      "ev": -78,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -80
+        "ev": -78
       },
-      "alt_ev": -29
+      "alt_ev": -22
     },
     {
       "name": "Incarnate Word",
@@ -672,20 +672,20 @@
       "fair_pct": 0.2,
       "fair_odds": "+42858",
       "read": null,
-      "mk": 10000,
-      "market": "+10000",
-      "ev": -76,
+      "mk": 12000,
+      "market": "+12000",
+      "ev": -72,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -76
+        "ev": -72
       },
-      "alt_ev": 122
+      "alt_ev": 166
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": "Nov 24",
+  "market_asof": "Nov 25",
   "field_known": true,
   "stage": "field",
   "window_closed": false,
@@ -705,12 +705,5 @@
     "label": "Trust the board",
     "note": "12 games in \u2014 stats have stabilized, so the board is as reliable as it gets. Still a shortlist, not a lock."
   },
-  "value_plays": [
-    {
-      "name": "Montana State",
-      "ev": 33,
-      "market": "+330",
-      "fair_odds": "+224"
-    }
-  ]
+  "value_plays": []
 }
