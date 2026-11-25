@@ -2815,5 +2815,79 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-25",
+  "gp": 12,
+  "teams": {
+   "Georgia Bulldogs": {
+    "sc": 5,
+    "idx": 93.8,
+    "fp": 27.1,
+    "mkt": "+190",
+    "ev": -22,
+    "mw": 28.12
+   },
+   "Notre Dame Fighting Irish": {
+    "sc": 5,
+    "idx": 92.8,
+    "fp": 23.5,
+    "mkt": "+410",
+    "ev": 20,
+    "mw": 24.44
+   },
+   "Wake Forest Demon Deacons": {
+    "sc": 3,
+    "idx": 92.2,
+    "fp": 13.7,
+    "mkt": "+2200",
+    "ev": 215,
+    "mw": 14.24
+   },
+   "Miami Hurricanes": {
+    "sc": 3,
+    "idx": 86.3,
+    "fp": 22.3,
+    "mkt": "+1100",
+    "ev": 167,
+    "mw": 23.14
+   },
+   "UCLA Bruins": {
+    "sc": 3,
+    "idx": 82.6,
+    "fp": 9.7,
+    "mkt": "+20000",
+    "ev": 1847,
+    "mw": 10.07
+   },
+   "New Mexico Lobos": {
+    "sc": 2,
+    "idx": 85.2,
+    "fp": 0.0,
+    "mkt": "+200000",
+    "ev": -40
+   },
+   "Liberty Flames": {
+    "sc": 2,
+    "idx": 84.3,
+    "fp": 0.0,
+    "mkt": "+200000",
+    "ev": -63
+   },
+   "Utah Utes": {
+    "sc": 2,
+    "idx": 83.3,
+    "fp": 3.7,
+    "mkt": "+2900",
+    "ev": 11
+   },
+   "North Dakota State Bison": {
+    "sc": 2,
+    "idx": 78.4,
+    "fp": 0.0,
+    "mkt": null,
+    "ev": null
+   }
+  }
  }
 ]
