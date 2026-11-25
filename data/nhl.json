@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-24T19:41:53Z",
-  "odds_remaining": "26319",
+  "generated": "2026-11-25T00:52:11Z",
+  "odds_remaining": "25927",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +285). The Read: No goaltending asterisk, no possession hole \u2014 #1 driving play and #8 in net. The team you want when the games get low-scoring and tight. Trust it."
@@ -45,15 +45,15 @@
       "sv5": "91.3% #8",
       "fair_pct": 26.0,
       "fair_odds": "+285",
-      "market": "+500",
+      "market": "+550",
       "books": {
-        "FanDuel": 500
+        "FanDuel": 550
       },
-      "ev": 56,
+      "ev": 69,
       "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 56
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 69
       },
       "read": {
         "v": "trust",
@@ -125,8 +125,8 @@
       },
       "ev": 65,
       "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
+        "kind": "value",
+        "label": "value",
         "ev": 65
       },
       "read": {
@@ -415,15 +415,15 @@
       "sv5": "89.4% #25",
       "fair_pct": 3.2,
       "fair_odds": "+3056",
-      "market": "+1600",
+      "market": "+1500",
       "books": {
-        "FanDuel": 1600
+        "FanDuel": 1500
       },
-      "ev": -46,
+      "ev": -49,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -46
+        "ev": -49
       },
       "read": {
         "v": "caution",
@@ -913,16 +913,16 @@
   "market_name": "FanDuel",
   "value_plays": [
     {
+      "name": "Carolina Hurricanes",
+      "ev": 69,
+      "market": "+550",
+      "fair_odds": "+285"
+    },
+    {
       "name": "Colorado Avalanche",
       "ev": 65,
       "market": "+900",
       "fair_odds": "+507"
-    },
-    {
-      "name": "Carolina Hurricanes",
-      "ev": 56,
-      "market": "+500",
-      "fair_odds": "+285"
     }
   ]
 }
