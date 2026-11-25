@@ -17,7 +17,6 @@
   {"key": "afl", "name": "AFL", "title": "Grand Final", "site": true, "start": "2027-03-17", "po": "2027-08-29", "final": "2027-09-25", "approx": ["po", "final"], "short": "AFL"},
   {"key": "nrl", "name": "NRL", "title": "Grand Final", "site": true, "start": "2027-03-06", "po": "2027-09-10", "final": "2027-10-03", "approx": ["start", "po", "final"], "short": "NRL"},
   {"key": "superleague", "name": "Super League (rugby league)", "title": "Grand Final", "site": true, "start": "2027-02-11", "po": "2027-09-24", "final": "2027-10-09", "approx": ["start", "po", "final"], "short": "Super League"},
-  {"key": "euroleague", "name": "EuroLeague (basketball)", "title": "Final Four", "site": true, "start": "2026-09-29", "po": "2027-04-20", "final": "2027-05-23", "approx": ["start", "po", "final"], "short": "EuroLeague"},
   {"key": "nbl", "name": "NBL (Australian basketball)", "title": "Grand Final", "site": true, "start": "2026-09-17", "po": "2027-02-24", "final": "2027-03-21", "approx": ["start", "po", "final"], "short": "NBL"},
   {"key": "aleague", "name": "A-League Men (soccer)", "title": "Grand Final", "site": true, "start": "2026-10-17", "po": "2027-05-08", "final": "2027-05-29", "approx": ["start", "po", "final"], "short": "A-League"},
   {"key": "liiga", "name": "Liiga (Finnish hockey)", "title": "Liiga final", "site": true, "start": "2026-09-10", "po": "2027-03-16", "final": "2027-04-30", "approx": ["start", "po", "final"], "short": "Liiga"},

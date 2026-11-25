@@ -15,9 +15,9 @@ on:
   workflow_dispatch:         # manual trigger + the dashboard "Run" button
     inputs:
       leagues:
-        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl)"
+        description: "Comma-separated leagues to build (nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl)"
         required: false
-        default: "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl"
+        default: "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl"
 
 permissions:
   contents: write
@@ -36,7 +36,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import datetime, json, os, zoneinfo
-          ALL = "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,euroleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl"
+          ALL = "nfl,cfb,nhl,nba,wnba,mlb,cbb,wcbb,mls,fcs,cfl,nwsl,afl,nrl,superleague,nbl,aleague,liiga,ligamx,superrugby,urc,ahl,swissnl"
           if os.environ.get("EVENT_SCHEDULE") == "30 13 * * *":            # the daily pre-playoff check
               tomorrow = datetime.datetime.now(zoneinfo.ZoneInfo("America/New_York")).date() + datetime.timedelta(days=1)
               lg = json.load(open("data/seasons.json", encoding="utf-8"))["leagues"]

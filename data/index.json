@@ -15,7 +15,6 @@
     "afl",
     "nrl",
     "superleague",
-    "euroleague",
     "nbl",
     "aleague",
     "liiga",
@@ -86,10 +85,6 @@
     "wcbb": {
       "ok": true,
       "at": "2026-11-24T19:42:13Z"
-    },
-    "euroleague": {
-      "ok": true,
-      "at": "2026-11-24T19:42:57Z"
     },
     "nbl": {
       "ok": true,
