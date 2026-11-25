@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T01:03:42Z",
+ "updated": "2026-11-25T01:43:06Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -486,8 +486,8 @@
   {
    "id": "s21",
    "book": "FanDuel",
-   "stake": 20,
-   "pays": 420.0,
+   "stake": 25,
+   "pays": 525.0,
    "added": "2026-11-24",
    "legs": [
     {
