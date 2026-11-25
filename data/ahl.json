@@ -1,7 +1,7 @@
 {
   "sport": "AHL",
   "season": "2026-27",
-  "generated": "2026-11-25T20:41:06Z",
+  "generated": "2026-11-25T22:53:47Z",
   "cats": [
     "Rating top-14",
     "Form (pts%, last 10) \u2265 0.450",
@@ -44,17 +44,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 25.2,
-      "fair_odds": "+297",
+      "fair_pct": 25.0,
+      "fair_odds": "+300",
       "read": null,
-      "mk": 1000,
-      "market": "+1000",
-      "ev": 177,
-      "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 177
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Laval Rocket",
@@ -83,17 +79,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 13.1,
-      "fair_odds": "+666",
+      "fair_pct": 13.5,
+      "fair_odds": "+641",
       "read": null,
-      "mk": 900,
-      "market": "+900",
-      "ev": 31,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 31
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Providence Bruins",
@@ -122,17 +114,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 7.9,
-      "fair_odds": "+1161",
+      "fair_pct": 8.4,
+      "fair_odds": "+1093",
       "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": 67,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 67
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Tucson Roadrunners",
@@ -162,16 +150,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 7.8,
-      "fair_odds": "+1178",
+      "fair_odds": "+1185",
       "read": null,
-      "mk": 1500,
-      "market": "+1500",
-      "ev": 25,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 25
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Henderson Silver Knights",
@@ -200,17 +184,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 5.2,
-      "fair_odds": "+1827",
+      "fair_pct": 5.0,
+      "fair_odds": "+1918",
       "read": null,
-      "mk": 2200,
-      "market": "+2200",
-      "ev": 19,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 19
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Wilkes-Barre/Scranton Penguins",
@@ -240,16 +220,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 4.6,
-      "fair_odds": "+2057",
+      "fair_odds": "+2055",
       "read": null,
-      "mk": 1500,
-      "market": "+1500",
-      "ev": -26,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -26
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Rochester Americans",
@@ -279,16 +255,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 4.6,
-      "fair_odds": "+2091",
+      "fair_odds": "+2088",
       "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": -4,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -4
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Toronto Marlies",
@@ -318,16 +290,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 4.4,
-      "fair_odds": "+2183",
+      "fair_odds": "+2178",
       "read": null,
-      "mk": 1500,
-      "market": "+1500",
-      "ev": -30,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -30
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Manitoba Moose",
@@ -357,16 +325,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 4.2,
-      "fair_odds": "+2304",
+      "fair_odds": "+2298",
       "read": null,
-      "mk": 2200,
-      "market": "+2200",
-      "ev": -4,
-      "verdict": {
-        "kind": "fair",
-        "label": "\u2248 fair",
-        "ev": -4
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Utica Comets",
@@ -395,17 +359,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 3.8,
-      "fair_odds": "+2535",
+      "fair_pct": 3.6,
+      "fair_odds": "+2682",
       "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": -20,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -20
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Charlotte Checkers",
@@ -434,17 +394,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 2.6,
-      "fair_odds": "+3710",
+      "fair_pct": 2.5,
+      "fair_odds": "+3860",
       "read": null,
-      "mk": 1000,
-      "market": "+1000",
-      "ev": -71,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -71
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Hershey Bears",
@@ -473,56 +429,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 2.1,
-      "fair_odds": "+4708",
-      "read": null,
-      "mk": 2200,
-      "market": "+2200",
-      "ev": -52,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -52
-      }
-    },
-    {
-      "name": "Ontario Reign",
-      "conf": "14th",
-      "rec": "11-8-1 \u00b7 23 pts \u00b7 +0",
-      "gp": 20,
-      "score": 4,
-      "q": [
-        true,
-        true,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "+0.17 #11",
-        "0.650 #10",
-        "0.575 #13",
-        "0.500 #20",
-        "0.667 #7"
-      ],
-      "index": 51.8,
-      "rtg": 0.17,
-      "reg": null,
-      "pos": 14,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
       "fair_pct": 2.0,
-      "fair_odds": "+4850",
+      "fair_odds": "+4900",
       "read": null,
-      "mk": 2800,
-      "market": "+2800",
-      "ev": -41,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -41
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Colorado Eagles",
@@ -551,56 +464,83 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 1.6,
-      "fair_odds": "+5998",
+      "fair_pct": 2.0,
+      "fair_odds": "+4989",
       "read": null,
-      "mk": 900,
-      "market": "+900",
-      "ev": -84,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -84
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
-      "name": "Coachella Valley Firebirds",
-      "conf": "10th",
-      "rec": "10-6-4 \u00b7 24 pts \u00b7 -1",
+      "name": "Ontario Reign",
+      "conf": "14th",
+      "rec": "11-8-1 \u00b7 23 pts \u00b7 +0",
       "gp": 20,
       "score": 4,
       "q": [
+        true,
+        true,
+        true,
         false,
-        true,
-        true,
-        true,
         true
       ],
       "vals": [
-        "+0.10 #16",
-        "0.750 #4",
-        "0.600 #10",
-        "0.667 #7",
-        "0.545 #16"
+        "+0.17 #11",
+        "0.650 #10",
+        "0.575 #13",
+        "0.500 #20",
+        "0.667 #7"
       ],
-      "index": 48.6,
-      "rtg": 0.1,
+      "index": 51.8,
+      "rtg": 0.17,
       "reg": null,
-      "pos": 10,
+      "pos": 14,
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 1.5,
-      "fair_odds": "+6372",
+      "fair_pct": 1.9,
+      "fair_odds": "+5028",
       "read": null,
-      "mk": 2800,
-      "market": "+2800",
-      "ev": -55,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -55
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "San Diego Gulls",
+      "conf": "17th",
+      "rec": "9-7-4 \u00b7 22 pts \u00b7 +9",
+      "gp": 20,
+      "score": 3,
+      "q": [
+        true,
+        true,
+        true,
+        false,
+        false
+      ],
+      "vals": [
+        "+0.15 #12",
+        "0.600 #14",
+        "0.550 #17",
+        "0.636 #10",
+        "0.444 #25"
+      ],
+      "index": 58.5,
+      "rtg": 0.15,
+      "reg": null,
+      "pos": 17,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 1.7,
+      "fair_odds": "+5888",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Syracuse Crunch",
@@ -630,55 +570,47 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.5,
-      "fair_odds": "+6372",
+      "fair_odds": "+6545",
       "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": -68,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -68
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
-      "name": "San Diego Gulls",
-      "conf": "17th",
-      "rec": "9-7-4 \u00b7 22 pts \u00b7 +9",
+      "name": "Coachella Valley Firebirds",
+      "conf": "10th",
+      "rec": "10-6-4 \u00b7 24 pts \u00b7 -1",
       "gp": 20,
-      "score": 3,
+      "score": 4,
       "q": [
-        true,
-        true,
-        true,
         false,
-        false
+        true,
+        true,
+        true,
+        true
       ],
       "vals": [
-        "+0.15 #12",
-        "0.600 #14",
-        "0.550 #17",
-        "0.636 #10",
-        "0.444 #25"
+        "+0.10 #16",
+        "0.750 #4",
+        "0.600 #10",
+        "0.667 #7",
+        "0.545 #16"
       ],
-      "index": 58.5,
-      "rtg": 0.15,
+      "index": 48.6,
+      "rtg": 0.1,
       "reg": null,
-      "pos": 17,
+      "pos": 10,
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.5,
-      "fair_odds": "+6545",
+      "fair_odds": "+6657",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -46,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -46
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Milwaukee Admirals",
@@ -708,16 +640,12 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 1.4,
-      "fair_odds": "+7173",
+      "fair_odds": "+7253",
       "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": -71,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -71
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Calgary Wranglers",
@@ -746,17 +674,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 1.3,
-      "fair_odds": "+7563",
+      "fair_pct": 1.2,
+      "fair_odds": "+7900",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -53,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -53
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Hartford Wolf Pack",
@@ -785,17 +709,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 1.0,
-      "fair_odds": "+9469",
+      "fair_pct": 0.8,
+      "fair_odds": "+11948",
       "read": null,
-      "mk": 5000,
-      "market": "+5000",
-      "ev": -47,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -47
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Cleveland Monsters",
@@ -824,56 +744,13 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.8,
-      "fair_odds": "+12400",
+      "fair_pct": 0.7,
+      "fair_odds": "+14288",
       "read": null,
-      "mk": 2200,
-      "market": "+2200",
-      "ev": -82,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -82
-      }
-    },
-    {
-      "name": "Abbotsford Canucks",
-      "conf": "16th",
-      "rec": "9-7-3 \u00b7 21 pts \u00b7 -3",
-      "gp": 19,
-      "score": 2,
-      "q": [
-        false,
-        false,
-        true,
-        true,
-        false
-      ],
-      "vals": [
-        "-0.13 #20",
-        "0.400 #27",
-        "0.553 #15",
-        "0.650 #9",
-        "0.444 #25"
-      ],
-      "index": 39.8,
-      "rtg": -0.13,
-      "reg": null,
-      "pos": 16,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.5,
-      "fair_odds": "+19702",
-      "read": null,
-      "mk": 1200,
-      "market": "+1200",
-      "ev": -93,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -93
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Chicago Wolves",
@@ -903,55 +780,47 @@
       "premier": false,
       "bet_ok": true,
       "fair_pct": 0.5,
-      "fair_odds": "+21177",
+      "fair_odds": "+19702",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -83,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -83
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
-      "name": "Texas Stars",
-      "conf": "25th",
-      "rec": "7-9-4 \u00b7 18 pts \u00b7 -19",
-      "gp": 20,
-      "score": 1,
+      "name": "Abbotsford Canucks",
+      "conf": "16th",
+      "rec": "9-7-3 \u00b7 21 pts \u00b7 -3",
+      "gp": 19,
+      "score": 2,
       "q": [
         false,
+        false,
         true,
-        false,
-        false,
+        true,
         false
       ],
       "vals": [
-        "-0.42 #27",
-        "0.600 #14",
-        "0.450 #25",
-        "0.636 #10",
-        "0.222 #32"
+        "-0.13 #20",
+        "0.400 #27",
+        "0.553 #15",
+        "0.650 #9",
+        "0.444 #25"
       ],
-      "index": 17.5,
-      "rtg": -0.42,
+      "index": 39.8,
+      "rtg": -0.13,
       "reg": null,
-      "pos": 25,
+      "pos": 16,
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 0.2,
-      "fair_odds": "+44344",
+      "fair_pct": 0.5,
+      "fair_odds": "+20953",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -92,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -92
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Belleville Senators",
@@ -983,14 +852,10 @@
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 5000,
-      "market": "+5000",
-      "ev": -92,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -92
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Iowa Wild",
@@ -1022,14 +887,45 @@
       "fair_pct": 0.2,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 5000,
-      "market": "+5000",
-      "ev": -92,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -92
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "Texas Stars",
+      "conf": "25th",
+      "rec": "7-9-4 \u00b7 18 pts \u00b7 -19",
+      "gp": 20,
+      "score": 1,
+      "q": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "-0.42 #27",
+        "0.600 #14",
+        "0.450 #25",
+        "0.636 #10",
+        "0.222 #32"
+      ],
+      "index": 17.5,
+      "rtg": -0.42,
+      "reg": null,
+      "pos": 25,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.2,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Rockford IceHogs",
@@ -1061,14 +957,45 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 5000,
-      "market": "+5000",
-      "ev": -93,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -93
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "San Jose Barracuda",
+      "conf": "28th",
+      "rec": "8-11 \u00b7 16 pts \u00b7 -16",
+      "gp": 19,
+      "score": 1,
+      "q": [
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "-0.38 #25",
+        "0.500 #18",
+        "0.421 #28",
+        "0.455 #25",
+        "0.375 #30"
+      ],
+      "index": 20.4,
+      "rtg": -0.38,
+      "reg": null,
+      "pos": 28,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Springfield Thunderbirds",
@@ -1100,53 +1027,10 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -98,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -98
-      }
-    },
-    {
-      "name": "San Jose Barracuda",
-      "conf": "28th",
-      "rec": "8-11 \u00b7 16 pts \u00b7 -16",
-      "gp": 19,
-      "score": 1,
-      "q": [
-        false,
-        true,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "-0.38 #25",
-        "0.500 #18",
-        "0.421 #28",
-        "0.455 #25",
-        "0.375 #30"
-      ],
-      "index": 20.4,
-      "rtg": -0.38,
-      "reg": null,
-      "pos": 28,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
-      "read": null,
-      "mk": 5000,
-      "market": "+5000",
-      "ev": -98,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -98
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Bakersfield Condors",
@@ -1178,14 +1062,10 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
-      "ev": -99,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -99
-      }
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Lehigh Valley Phantoms",
@@ -1214,11 +1094,11 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "read": null,
-      "mk": 3500,
-      "market": "+3500",
+      "mk": null,
+      "market": null,
       "ev": null,
       "verdict": null
     },
@@ -1249,18 +1129,18 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": null,
-      "fair_odds": null,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
       "read": null,
-      "mk": 5000,
-      "market": "+5000",
+      "mk": null,
+      "market": null,
       "ev": null,
       "verdict": null
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": "Nov 25",
+  "market_asof": null,
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2026,
@@ -1271,7 +1151,7 @@
   "sig": 2.8,
   "prediction": {
     "pick": "Grand Rapids Griffins",
-    "why": "<b>Grand Rapids Griffins</b> is the model's #1: 25.2% to win the Calder Cup (fair +297). 845 regular-season games left are simulated, then the playoffs (20,000 runs). Bet window open until the first final."
+    "why": "<b>Grand Rapids Griffins</b> is the model's #1: 25.0% to win the Calder Cup (fair +300). 845 regular-season games left are simulated, then the playoffs (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 26,
   "gp_min": 15,
@@ -1287,24 +1167,5 @@
     "label": "Firming up",
     "note": "22 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": [
-    {
-      "name": "Grand Rapids Griffins",
-      "ev": 177,
-      "market": "+1000",
-      "fair_odds": "+297"
-    },
-    {
-      "name": "Providence Bruins",
-      "ev": 67,
-      "market": "+2000",
-      "fair_odds": "+1161"
-    },
-    {
-      "name": "Laval Rocket",
-      "ev": 31,
-      "market": "+900",
-      "fair_odds": "+666"
-    }
-  ]
+  "value_plays": []
 }

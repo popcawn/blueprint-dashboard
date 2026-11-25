@@ -2,7 +2,7 @@
   "sport": "FCS",
   "season": "2026",
   "alt_name": "rating-only",
-  "generated": "2026-11-25T20:39:43Z",
+  "generated": "2026-11-25T22:53:17Z",
   "cats": [
     "Adj offense top-23",
     "Win% top-7",
@@ -50,15 +50,11 @@
       "fair_pct": 30.9,
       "fair_odds": "+224",
       "read": null,
-      "mk": 240,
-      "market": "+240",
-      "ev": 5,
-      "verdict": {
-        "kind": "trap",
-        "label": "rating disagrees",
-        "ev": 5
-      },
-      "alt_ev": -4
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Tarleton State",
@@ -92,15 +88,11 @@
       "fair_pct": 3.8,
       "fair_odds": "+2515",
       "read": null,
-      "mk": 1100,
-      "market": "+1100",
-      "ev": -54,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -54
-      },
-      "alt_ev": -68
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Lamar",
@@ -134,15 +126,11 @@
       "fair_pct": 3.0,
       "fair_odds": "+3197",
       "read": null,
-      "mk": 30000,
-      "market": "+30000",
-      "ev": 813,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 813
-      },
-      "alt_ev": 363
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "South Dakota State",
@@ -176,15 +164,11 @@
       "fair_pct": 44.6,
       "fair_odds": "+124",
       "read": null,
-      "mk": 160,
-      "market": "+160",
-      "ev": 16,
-      "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 16
-      },
-      "alt_ev": -21
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Stephen F. Austin",
@@ -218,15 +202,11 @@
       "fair_pct": 6.7,
       "fair_odds": "+1397",
       "read": null,
-      "mk": 650,
-      "market": "+650",
-      "ev": -50,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -50
-      },
-      "alt_ev": -58
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Mercer",
@@ -260,15 +240,11 @@
       "fair_pct": 0.4,
       "fair_odds": "+24128",
       "read": null,
-      "mk": 25000,
-      "market": "+25000",
-      "ev": 4,
-      "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 4
-      },
-      "alt_ev": -60
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "South Carolina State",
@@ -340,15 +316,11 @@
       "fair_pct": 2.9,
       "fair_odds": "+3298",
       "read": null,
-      "mk": 900,
-      "market": "+900",
-      "ev": -71,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -71
-      },
-      "alt_ev": 32
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "South Dakota",
@@ -382,15 +354,11 @@
       "fair_pct": 2.2,
       "fair_odds": "+4537",
       "read": null,
-      "mk": 1500,
-      "market": "+1500",
-      "ev": -65,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -65
-      },
-      "alt_ev": 11
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Illinois State",
@@ -462,15 +430,11 @@
       "fair_pct": 1.0,
       "fair_odds": "+9553",
       "read": null,
-      "mk": 2000,
-      "market": "+2000",
-      "ev": -78,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -78
-      },
-      "alt_ev": -22
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Incarnate Word",
@@ -504,15 +468,11 @@
       "fair_pct": 0.5,
       "fair_odds": "+20708",
       "read": null,
-      "mk": 30000,
-      "market": "+30000",
-      "ev": 45,
-      "verdict": {
-        "kind": "trap",
-        "label": "fails profile",
-        "ev": 45
-      },
-      "alt_ev": 142
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Austin Peay",
@@ -546,15 +506,11 @@
       "fair_pct": 0.3,
       "fair_odds": "+31906",
       "read": null,
-      "mk": 8000,
-      "market": "+8000",
-      "ev": -75,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -75
-      },
-      "alt_ev": -62
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Tennessee Tech",
@@ -588,15 +544,11 @@
       "fair_pct": 0.2,
       "fair_odds": "+41497",
       "read": null,
-      "mk": 10000,
-      "market": "+10000",
-      "ev": -76,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -76
-      },
-      "alt_ev": -50
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Western Illinois",
@@ -630,15 +582,11 @@
       "fair_pct": 0.2,
       "fair_odds": "+41904",
       "read": null,
-      "mk": 50000,
-      "market": "+50000",
-      "ev": 19,
-      "verdict": {
-        "kind": "trap",
-        "label": "trap",
-        "ev": 19
-      },
-      "alt_ev": -27
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     },
     {
       "name": "Harvard",
@@ -672,20 +620,16 @@
       "fair_pct": 0.2,
       "fair_odds": "+42858",
       "read": null,
-      "mk": 12000,
-      "market": "+12000",
-      "ev": -72,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -72
-      },
-      "alt_ev": 166
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null,
+      "alt_ev": null
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": "Nov 25",
+  "market_asof": null,
   "field_known": true,
   "stage": "field",
   "window_closed": false,

@@ -1,8 +1,8 @@
 {
   "sport": "NBA",
   "season": "2026-27",
-  "generated": "2026-11-25T19:49:58Z",
-  "odds_remaining": "24520",
+  "generated": "2026-11-25T22:53:01Z",
+  "odds_remaining": "24033",
   "prediction": {
     "pick": "Boston Celtics",
     "why": "<b>Boston Celtics</b> is the pick \u2014 the best title odds on the board (fair +413). The Read: Elite defense (#1) \u2014 the one trait that shows up every single playoff night. Offense slumps in a series; defense doesn't. The playoff-proof profile."
@@ -46,15 +46,15 @@
       "rtg": 12.2,
       "fair_pct": 13.5,
       "fair_odds": "+642",
-      "market": "+270",
+      "market": "+260",
       "books": {
-        "FanDuel": 270
+        "FanDuel": 260
       },
-      "ev": -50,
+      "ev": -51,
       "verdict": {
         "kind": "bigfade",
         "label": "big fade",
-        "ev": -50
+        "ev": -51
       },
       "read": {
         "v": "trust",
@@ -84,15 +84,15 @@
       "rtg": 10.6,
       "fair_pct": 10.6,
       "fair_odds": "+844",
-      "market": "+1300",
+      "market": "+1200",
       "books": {
-        "FanDuel": 1300
+        "FanDuel": 1200
       },
-      "ev": 48,
+      "ev": 38,
       "verdict": {
         "kind": "value",
         "label": "value",
-        "ev": 48
+        "ev": 38
       },
       "read": {
         "v": "trust",
@@ -160,15 +160,15 @@
       "rtg": 7.9,
       "fair_pct": 7.9,
       "fair_odds": "+1170",
-      "market": "+1200",
+      "market": "+1100",
       "books": {
-        "FanDuel": 1200
+        "FanDuel": 1100
       },
-      "ev": 2,
+      "ev": -5,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": 2
+        "ev": -5
       },
       "read": {
         "v": "trust",
@@ -236,15 +236,15 @@
       "rtg": 6.5,
       "fair_pct": 4.4,
       "fair_odds": "+2154",
-      "market": "+3300",
+      "market": "+3000",
       "books": {
-        "FanDuel": 3300
+        "FanDuel": 3000
       },
-      "ev": 51,
+      "ev": 38,
       "verdict": {
         "kind": "longshot",
         "label": "longshot value",
-        "ev": 51
+        "ev": 38
       },
       "read": {
         "v": "caution",
@@ -312,15 +312,15 @@
       "rtg": 5.7,
       "fair_pct": 9.0,
       "fair_odds": "+1013",
-      "market": "+800",
+      "market": "+750",
       "books": {
-        "FanDuel": 800
+        "FanDuel": 750
       },
-      "ev": -19,
+      "ev": -24,
       "verdict": {
         "kind": "fade",
         "label": "fade",
-        "ev": -19
+        "ev": -24
       },
       "read": {
         "v": "trust",
@@ -540,15 +540,15 @@
       "rtg": 1.0,
       "fair_pct": 0.5,
       "fair_odds": "+21204",
-      "market": "+22500",
+      "market": "+20000",
       "books": {
-        "FanDuel": 22500
+        "FanDuel": 20000
       },
-      "ev": 6,
+      "ev": -6,
       "verdict": {
-        "kind": "small",
-        "label": "small value",
-        "ev": 6
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": -6
       },
       "read": {
         "v": "caution",
@@ -758,8 +758,8 @@
     },
     {
       "name": "Minnesota Timberwolves",
-      "ev": 48,
-      "market": "+1300",
+      "ev": 38,
+      "market": "+1200",
       "fair_odds": "+844"
     }
   ]

@@ -1,8 +1,8 @@
 {
   "sport": "NHL",
   "season": "2026-27",
-  "generated": "2026-11-25T19:49:53Z",
-  "odds_remaining": "24521",
+  "generated": "2026-11-25T22:52:56Z",
+  "odds_remaining": "24034",
   "prediction": {
     "pick": "Carolina Hurricanes",
     "why": "<b>Carolina Hurricanes</b> is the pick \u2014 the best title odds on the board (fair +286). The Read: No goaltending asterisk, no possession hole \u2014 #1 driving play and #8 in net. The team you want when the games get low-scoring and tight. Trust it."
@@ -267,15 +267,15 @@
       "sv5": "92.2% #3",
       "fair_pct": 3.5,
       "fair_odds": "+2760",
-      "market": "+2500",
+      "market": "+2700",
       "books": {
-        "FanDuel": 2500
+        "FanDuel": 2700
       },
-      "ev": -9,
+      "ev": -2,
       "verdict": {
         "kind": "fair",
         "label": "\u2248 fair",
-        "ev": -9
+        "ev": -2
       },
       "read": {
         "v": "trust",

@@ -1161,77 +1161,77 @@
    "ZSC Lions": {
     "sc": 4,
     "idx": 100,
-    "fp": 49.4,
-    "mkt": "+150",
-    "ev": 23
+    "fp": 50.0,
+    "mkt": null,
+    "ev": null
    },
    "EV Zug": {
     "sc": 4,
     "idx": 82.6,
-    "fp": 11.8,
-    "mkt": "+900",
-    "ev": 17
+    "fp": 11.6,
+    "mkt": null,
+    "ev": null
    },
    "Fribourg-Gott\u00e9ron": {
     "sc": 0,
     "idx": 38.2,
-    "fp": 10.7,
-    "mkt": "+900",
-    "ev": 7
+    "fp": 10.8,
+    "mkt": null,
+    "ev": null
    },
    "HC Davos": {
     "sc": 0,
     "idx": 16.6,
-    "fp": 10.5,
+    "fp": 10.8,
     "mkt": null,
     "ev": null
    },
    "SC Bern": {
     "sc": 0,
     "idx": 57.5,
-    "fp": 6.8,
-    "mkt": "+1100",
-    "ev": -18
+    "fp": 6.5,
+    "mkt": null,
+    "ev": null
    },
    "SCL Tigers": {
     "sc": 1,
     "idx": 48.1,
-    "fp": 4.8,
-    "mkt": "+2000",
-    "ev": 1
+    "fp": 4.7,
+    "mkt": null,
+    "ev": null
    },
    "Gen\u00e8ve-Servette HC": {
     "sc": 0,
     "idx": 29.7,
-    "fp": 2.3,
-    "mkt": "+650",
-    "ev": -83
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
    },
    "Lausanne HC": {
     "sc": 0,
     "idx": 17.5,
-    "fp": 1.9,
-    "mkt": "+900",
-    "ev": -81
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
    },
    "HC Lugano": {
     "sc": 0,
     "idx": 21.1,
-    "fp": 1.0,
-    "mkt": "+2000",
-    "ev": -78
+    "fp": 0.7,
+    "mkt": null,
+    "ev": null
    },
    "HC Ambri-Piotta": {
     "sc": 0,
     "idx": 42.2,
     "fp": 0.6,
-    "mkt": "+2000",
-    "ev": -88
+    "mkt": null,
+    "ev": null
    },
    "EHC Biel-Bienne": {
     "sc": 1,
     "idx": 21.8,
-    "fp": 0.1,
+    "fp": 0.2,
     "mkt": null,
     "ev": null
    },
@@ -1239,13 +1239,13 @@
     "sc": 0,
     "idx": 9.2,
     "fp": 0.1,
-    "mkt": "+5000",
-    "ev": -96
+    "mkt": null,
+    "ev": null
    },
    "HC Ajoie": {
     "sc": 0,
     "idx": 27.8,
-    "fp": null,
+    "fp": 0.0,
     "mkt": null,
     "ev": null
    },
@@ -1253,7 +1253,7 @@
     "sc": 0,
     "idx": 0,
     "fp": null,
-    "mkt": "+10000",
+    "mkt": null,
     "ev": null
    }
   }

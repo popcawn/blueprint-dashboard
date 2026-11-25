@@ -37,20 +37,16 @@
         "5-0"
       ],
       "rtg": 81.0,
-      "mk": 220,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 23.4,
       "fair_odds": "+327",
       "read": null,
-      "market": "+220",
-      "ev": -25,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -25
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Texas Longhorns",
@@ -73,20 +69,16 @@
         "2-0"
       ],
       "rtg": 72.6,
-      "mk": 1000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 15.3,
       "fair_odds": "+553",
       "read": null,
-      "market": "+1000",
-      "ev": 68,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 68
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Michigan Wolverines",
@@ -109,20 +101,16 @@
         "2-0"
       ],
       "rtg": 65.8,
-      "mk": 2000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 11.0,
       "fair_odds": "+812",
       "read": null,
-      "market": "+2000",
-      "ev": 130,
-      "verdict": {
-        "kind": "best",
-        "label": "BEST VALUE",
-        "ev": 130
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "LSU Tigers",
@@ -145,20 +133,16 @@
         "\u2014"
       ],
       "rtg": 75.3,
-      "mk": 1900,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 3.4,
       "fair_odds": "+2881",
       "read": null,
-      "market": "+1900",
-      "ev": -33,
-      "verdict": {
-        "kind": "fade",
-        "label": "fade",
-        "ev": -33
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Illinois Fighting Illini",
@@ -181,20 +165,16 @@
         "\u2014"
       ],
       "rtg": 67.1,
-      "mk": 12000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 1.9,
       "fair_odds": "+5107",
       "read": null,
-      "market": "+12000",
-      "ev": 132,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 132
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "UCLA Bruins",
@@ -217,20 +197,16 @@
         "2-0"
       ],
       "rtg": 62.5,
-      "mk": 2600,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.9,
       "fair_odds": "+907",
       "read": null,
-      "market": "+2600",
-      "ev": 168,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 168
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Duke Blue Devils",
@@ -253,20 +229,16 @@
         "1-0"
       ],
       "rtg": 62.2,
-      "mk": 1800,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.5,
       "fair_odds": "+952",
       "read": null,
-      "market": "+1800",
-      "ev": 81,
-      "verdict": {
-        "kind": "value",
-        "label": "value",
-        "ev": 81
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "USC Trojans",
@@ -289,20 +261,16 @@
         "2-1"
       ],
       "rtg": 79.2,
-      "mk": 450,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 9.1,
       "fair_odds": "+1000",
       "read": null,
-      "market": "+450",
-      "ev": -50,
-      "verdict": {
-        "kind": "bigfade",
-        "label": "big fade",
-        "ev": -50
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Kentucky Wildcats",
@@ -325,20 +293,16 @@
         "1-0"
       ],
       "rtg": 61.1,
-      "mk": 6000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 8.9,
       "fair_odds": "+1025",
       "read": null,
-      "market": "+6000",
-      "ev": 442,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 442
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Oklahoma Sooners",
@@ -361,20 +325,16 @@
         "3-0"
       ],
       "rtg": 58.0,
-      "mk": 10000,
+      "mk": null,
       "alt": null,
       "confirmed": null,
       "pre_rank": null,
       "fair_pct": 7.6,
       "fair_odds": "+1217",
       "read": null,
-      "market": "+10000",
-      "ev": 667,
-      "verdict": {
-        "kind": "longshot",
-        "label": "longshot value",
-        "ev": 667
-      }
+      "market": null,
+      "ev": null,
+      "verdict": null
     },
     {
       "name": "Louisville Cardinals",
@@ -1070,10 +1030,10 @@
     "Carolina University Bruins": -72.1,
     "Johnson Royals": -52.0
   },
-  "generated": "2026-11-25T20:49:38Z",
+  "generated": "2026-11-25T22:53:14Z",
   "odds_remaining": null,
-  "market_asof": "Nov 25",
-  "market_name": "DraftKings",
+  "market_asof": null,
+  "market_name": "FanDuel",
   "alt_name": null,
   "prediction": {
     "pick": "South Carolina Gamecocks",
@@ -1088,18 +1048,5 @@
     "label": "Firming up",
     "note": "9 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": [
-    {
-      "name": "Michigan Wolverines",
-      "ev": 130,
-      "market": "+2000",
-      "fair_odds": "+812"
-    },
-    {
-      "name": "Texas Longhorns",
-      "ev": 68,
-      "market": "+1000",
-      "fair_odds": "+553"
-    }
-  ]
+  "value_plays": []
 }

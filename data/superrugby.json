@@ -1,20 +1,14 @@
 {
   "sport": "Super Rugby Pacific",
   "season": "2027",
-  "generated": "2026-11-24T19:46:23Z",
+  "generated": "2026-11-25T22:53:42Z",
   "cats": [
     "Ladder position \u2264 2",
-    "Ladder points/game top-2",
-    "Points for/game \u2265 28.13",
-    "Points against/game top-6",
-    "Form (win%, last 8) \u2265 0.625"
+    "Rating top-4"
   ],
   "labels": [
     "Ladder position",
-    "Ladder points/game",
-    "Points for/game",
-    "Points against/game",
-    "Form (win%, last 8)"
+    "Rating"
   ],
   "teams": [
     {
@@ -22,30 +16,24 @@
       "conf": "2026: 1st",
       "rec": "11-3 \u00b7 55 pts \u00b7 +264 (2026)",
       "gp": 14,
-      "score": 5,
+      "score": 2,
       "q": [
-        true,
-        true,
-        true,
         true,
         true
       ],
       "vals": [
         "1",
-        "3.93 #1",
-        "40.14 #1",
-        "21.29 #1",
-        "0.750 #2"
+        "+14.1 #1"
       ],
       "index": 100,
       "rtg": 17.75,
       "reg": "NZ",
       "pos": 1,
-      "minor_pct": 78.4,
+      "minor_pct": 78.5,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 67.3,
-      "fair_odds": "-206",
+      "fair_pct": 66.7,
+      "fair_odds": "-200",
       "read": null,
       "mk": null,
       "market": null,
@@ -57,30 +45,24 @@
       "conf": "2026: 2nd",
       "rec": "11-3 \u00b7 51 pts \u00b7 +190 (2026)",
       "gp": 14,
-      "score": 5,
+      "score": 2,
       "q": [
-        true,
-        true,
-        true,
         true,
         true
       ],
       "vals": [
         "2",
-        "3.64 #2",
-        "36.79 #2",
-        "23.21 #2",
-        "0.875 #1"
+        "+13.3 #2"
       ],
       "index": 96.9,
       "rtg": 11.43,
       "reg": "NZ",
       "pos": 2,
-      "minor_pct": 16.2,
+      "minor_pct": 15.8,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 21.7,
-      "fair_odds": "+361",
+      "fair_pct": 22.4,
+      "fair_odds": "+347",
       "read": null,
       "mk": null,
       "market": null,
@@ -92,30 +74,24 @@
       "conf": "2026: 3rd",
       "rec": "8-6 \u00b7 41 pts \u00b7 +100 (2026)",
       "gp": 14,
-      "score": 3,
+      "score": 1,
       "q": [
         false,
-        false,
-        true,
-        true,
         true
       ],
       "vals": [
         "3",
-        "2.93 #3",
-        "34.86 #3",
-        "27.71 #6",
-        "0.625 #4"
+        "+8.6 #3"
       ],
       "index": 80.2,
       "rtg": 7.42,
       "reg": "NZ",
       "pos": 3,
-      "minor_pct": 4.5,
+      "minor_pct": 4.8,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 8.2,
-      "fair_odds": "+1114",
+      "fair_pct": 8.0,
+      "fair_odds": "+1151",
       "read": null,
       "mk": null,
       "market": null,
@@ -130,27 +106,21 @@
       "score": 1,
       "q": [
         false,
-        false,
-        true,
-        false,
-        false
+        true
       ],
       "vals": [
         "4",
-        "2.71 #4",
-        "32.57 #4",
-        "29.43 #8",
-        "0.500 #5"
+        "+6.3 #4"
       ],
       "index": 71.9,
       "rtg": 3.05,
       "reg": "NZ",
       "pos": 4,
-      "minor_pct": 0.7,
+      "minor_pct": 0.6,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 1.9,
-      "fair_odds": "+5055",
+      "fair_pct": 2.0,
+      "fair_odds": "+4802",
       "read": null,
       "mk": null,
       "market": null,
@@ -162,20 +132,14 @@
       "conf": "2026: 6th",
       "rec": "7-7 \u00b7 34 pts \u00b7 +29 (2026)",
       "gp": 14,
-      "score": 2,
+      "score": 0,
       "q": [
         false,
-        false,
-        true,
-        true,
         false
       ],
       "vals": [
         "6",
-        "2.43 #6",
-        "28.71 #5",
-        "26.64 #3",
-        "0.375 #7"
+        "+1.6 #5"
       ],
       "index": 55.2,
       "rtg": -0.57,
@@ -185,7 +149,7 @@
       "premier": false,
       "bet_ok": false,
       "fair_pct": 0.5,
-      "fair_odds": "+20733",
+      "fair_odds": "+21878",
       "read": null,
       "mk": null,
       "market": null,
@@ -197,20 +161,14 @@
       "conf": "2026: 5th",
       "rec": "8-6 \u00b7 37 pts \u00b7 -22 (2026)",
       "gp": 14,
-      "score": 1,
+      "score": 0,
       "q": [
         false,
-        false,
-        false,
-        true,
         false
       ],
       "vals": [
         "5",
-        "2.64 #5",
-        "26.00 #6",
-        "27.57 #5",
-        "0.500 #5"
+        "-0.5 #6"
       ],
       "index": 47.5,
       "rtg": -1.67,
@@ -220,7 +178,7 @@
       "premier": false,
       "bet_ok": false,
       "fair_pct": 0.2,
-      "fair_odds": "+40716",
+      "fair_odds": "+43378",
       "read": null,
       "mk": null,
       "market": null,
@@ -232,25 +190,48 @@
       "conf": "2026: 7th",
       "rec": "7-7 \u00b7 30 pts \u00b7 -25 (2026)",
       "gp": 14,
-      "score": 2,
+      "score": 0,
       "q": [
         false,
-        false,
-        false,
-        true,
-        true
+        false
       ],
       "vals": [
         "7",
-        "2.14 #7",
-        "25.57 #7",
-        "27.36 #4",
-        "0.750 #2"
+        "-3.9 #7"
       ],
       "index": 35.2,
       "rtg": -3.99,
       "reg": "AUS",
       "pos": 7,
+      "minor_pct": 0.0,
+      "premier": false,
+      "bet_ok": false,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": null,
+      "market": null,
+      "ev": null,
+      "verdict": null
+    },
+    {
+      "name": "New South Wales Waratahs",
+      "conf": "2026: 8th",
+      "rec": "5-9 \u00b7 28 pts \u00b7 -49 (2026)",
+      "gp": 14,
+      "score": 0,
+      "q": [
+        false,
+        false
+      ],
+      "vals": [
+        "8",
+        "-5.2 #9"
+      ],
+      "index": 30.4,
+      "rtg": -5.41,
+      "reg": "AUS",
+      "pos": 8,
       "minor_pct": 0.0,
       "premier": false,
       "bet_ok": false,
@@ -270,57 +251,16 @@
       "score": 0,
       "q": [
         false,
-        false,
-        false,
-        false,
         false
       ],
       "vals": [
         "9",
-        "1.71 #9",
-        "23.36 #10",
-        "30.29 #9",
-        "0.375 #7"
+        "-4.5 #8"
       ],
       "index": 33.2,
       "rtg": -4.32,
       "reg": "NZ",
       "pos": 9,
-      "minor_pct": 0.0,
-      "premier": false,
-      "bet_ok": false,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "New South Wales Waratahs",
-      "conf": "2026: 8th",
-      "rec": "5-9 \u00b7 28 pts \u00b7 -49 (2026)",
-      "gp": 14,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "8",
-        "2.00 #8",
-        "25.21 #8",
-        "28.71 #7",
-        "0.250 #10"
-      ],
-      "index": 30.4,
-      "rtg": -5.41,
-      "reg": "AUS",
-      "pos": 8,
       "minor_pct": 0.0,
       "premier": false,
       "bet_ok": false,
@@ -340,17 +280,11 @@
       "score": 0,
       "q": [
         false,
-        false,
-        false,
-        false,
         false
       ],
       "vals": [
         "10",
-        "1.50 #10",
-        "23.57 #9",
-        "33.79 #10",
-        "0.375 #7"
+        "-9.6 #10"
       ],
       "index": 14.9,
       "rtg": -9.85,
@@ -359,8 +293,8 @@
       "minor_pct": null,
       "premier": false,
       "bet_ok": false,
-      "fair_pct": 0.0,
-      "fair_odds": "+50000+",
+      "fair_pct": null,
+      "fair_odds": null,
       "read": null,
       "mk": null,
       "market": null,
@@ -384,7 +318,7 @@
   "sig": 16,
   "prediction": {
     "pick": "Hurricanes",
-    "why": "<b>Hurricanes</b> is the model's #1 for 2027: 67.3% to win the Super Rugby title (fair -206). Preseason projection \u2014 the whole 2027 fixture simulated from last season's ratings fading toward average (an untested stage, so no value play yet). Tiers and index are 2026's end-of-season profile."
+    "why": "<b>Hurricanes</b> is the model's #1 for 2027: 66.7% to win the Super Rugby title (fair -200). Preseason projection \u2014 the whole 2027 fixture simulated from last season's ratings fading toward average (an untested stage, so no value play yet). Tiers and index are 2026's end-of-season profile."
   },
   "season_pct": 0,
   "gp_min": 0,

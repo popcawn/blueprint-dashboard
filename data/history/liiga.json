@@ -1518,121 +1518,121 @@
    "Ilves": {
     "sc": 5,
     "idx": 100,
-    "fp": 26.3,
-    "mkt": "+300",
-    "ev": 5
+    "fp": 26.5,
+    "mkt": null,
+    "ev": null
    },
    "Lukko": {
     "sc": 5,
     "idx": 95.4,
-    "fp": 24.4,
-    "mkt": "+500",
-    "ev": 46
+    "fp": 23.9,
+    "mkt": null,
+    "ev": null
    },
    "SaiPa": {
     "sc": 5,
     "idx": 94.8,
-    "fp": 20.9,
-    "mkt": "+1300",
-    "ev": 192
+    "fp": 20.6,
+    "mkt": null,
+    "ev": null
    },
    "JYP": {
     "sc": 5,
     "idx": 80.1,
-    "fp": 13.4,
-    "mkt": "+700",
-    "ev": 7
+    "fp": 13.5,
+    "mkt": null,
+    "ev": null
    },
    "K-Espoo": {
     "sc": 3,
     "idx": 71.7,
     "fp": 5.0,
-    "mkt": "+2500",
-    "ev": 31
+    "mkt": null,
+    "ev": null
    },
    "Tappara": {
     "sc": 0,
     "idx": 61.2,
-    "fp": 2.3,
-    "mkt": "+500",
-    "ev": -86
-   },
-   "Jukurit": {
-    "sc": 2,
-    "idx": 50.5,
-    "fp": 2.0,
-    "mkt": "+2800",
-    "ev": -43
+    "fp": 2.2,
+    "mkt": null,
+    "ev": null
    },
    "HIFK": {
     "sc": 2,
     "idx": 53,
-    "fp": 1.9,
-    "mkt": "+1300",
-    "ev": -74
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "Jukurit": {
+    "sc": 2,
+    "idx": 50.5,
+    "fp": 1.8,
+    "mkt": null,
+    "ev": null
    },
    "\u00c4ss\u00e4t": {
     "sc": 2,
     "idx": 41.7,
     "fp": 1.0,
-    "mkt": "+2000",
-    "ev": -78
+    "mkt": null,
+    "ev": null
    },
    "KalPa": {
     "sc": 0,
     "idx": 46.9,
     "fp": 0.8,
-    "mkt": "+3500",
-    "ev": -71
+    "mkt": null,
+    "ev": null
    },
    "TPS": {
     "sc": 3,
     "idx": 38.4,
-    "fp": 0.7,
-    "mkt": "+1300",
-    "ev": -91
-   },
-   "Pelicans": {
-    "sc": 1,
-    "idx": 40.3,
-    "fp": 0.6,
-    "mkt": "+2800",
-    "ev": -84
+    "fp": 0.8,
+    "mkt": null,
+    "ev": null
    },
    "K\u00e4rp\u00e4t": {
     "sc": 2,
     "idx": 35.2,
+    "fp": 0.6,
+    "mkt": null,
+    "ev": null
+   },
+   "Pelicans": {
+    "sc": 1,
+    "idx": 40.3,
     "fp": 0.5,
-    "mkt": "+1600",
-    "ev": -91
+    "mkt": null,
+    "ev": null
    },
    "HPK": {
     "sc": 0,
     "idx": 32.1,
     "fp": 0.3,
-    "mkt": "+5000",
-    "ev": -86
+    "mkt": null,
+    "ev": null
    },
    "KooKoo": {
     "sc": 0,
     "idx": 33.8,
     "fp": 0.0,
-    "mkt": "+25000",
-    "ev": -97
+    "mkt": null,
+    "ev": null
    },
    "Jokerit": {
     "sc": 0,
     "idx": 21.4,
     "fp": 0.0,
-    "mkt": "+3500",
-    "ev": -100
+    "mkt": null,
+    "ev": null
    },
    "Sport": {
     "sc": 0,
     "idx": 0,
-    "fp": 0.0,
-    "mkt": "+25000",
-    "ev": -99
+    "fp": null,
+    "mkt": null,
+    "ev": null
    }
   }
  }
