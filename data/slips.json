@@ -550,7 +550,32 @@
      "team": "Sydney Kings"
     }
    ]
+  },
+  {
+   "id": "s26",
+   "book": "DraftKings",
+   "stake": 5,
+   "pays": 8662.5,
+   "added": "2026-11-25",
+   "legs": [
+    {
+     "lg": "liiga",
+     "team": "SaiPa"
+    },
+    {
+     "lg": "swissnl",
+     "team": "ZSC Lions"
+    },
+    {
+     "lg": "ligamx",
+     "team": "Cruz Azul"
+    },
+    {
+     "lg": "ahl",
+     "team": "Grand Rapids Griffins"
+    }
+   ]
   }
  ],
- "bankroll": 779.84
+ "bankroll": 774.84
 }
