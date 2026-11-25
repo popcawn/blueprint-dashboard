@@ -1235,7 +1235,7 @@ async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await f
      - STEADY: top 3 by fair odds on 2/3 of the last 14 days of snapshots (or the last 4 this season),
      - LASTING (the season rule, seasonOf): best value today + a value play on half the season's days, or best value on half of them,
      - still a positive edge after the trust haircut below (no dead-weight legs carried by a better one).
-   Chances = the board's own fair odds (BL_TRUST0 1 since 2026-11-25); NHL = 25% board, 75% the book's price (its value plays lost to real prices).
+   Chances = the board's own fair odds on every board (BL_TRUST0 1, no overrides, since 2026-11-25: the user's call).
    Stake = half Kelly on the expected log of (bankroll + what every live slip pays) over 40,000 simulated seasons; shown only at
    BL_MINSTAKE or more, and only when it adds BL_MINCOV (1 point) or more to "Something cashes" (coverage, not extra payout: user 2026-11-25).
    It changes no board's numbers. */
@@ -1269,8 +1269,9 @@ function prevSnap(sp){ const h=HIST[sp]; if(!h||!h.length) return null; const cu
      everything else .5 -- never tested against prices. */
 // (2026-11-25, user: "trust the boards fully. the board picked majority of last years winners") every board's own fair odds are used as
 // they stand (BL_TRUST0 1; was .5, and cfb .75). Only the two boards whose value plays LOST to real prices keep the book-weighted cut.
-// (same day, user: "put nfl at full trust") NFL joins the rest; only NHL keeps the book-weighted cut.
-const COV_N=40000, BL_TRUST={nhl:.25}, BL_TRUST0=1;
+// (same day, user: "put nfl at full trust", then "put nhl at full trust") no board keeps a book-weighted cut. BL_TRUST stays as the
+// per-board override (e.g. {nhl:.25} = 25% board, 75% the book's price) should one ever be wanted again.
+const COV_N=40000, BL_TRUST={}, BL_TRUST0=1;
 function _rng(seed){ let s=seed>>>0; return ()=>{ s=(s+0x6D2B79F5)>>>0; let t=s; t=Math.imul(t^t>>>15,t|1); t^=t+Math.imul(t^t>>>7,t|61); return ((t^t>>>14)>>>0)/4294967296; }; }
 function blendPct(d,sp){ const w=BL_TRUST[sp]!=null?BL_TRUST[sp]:BL_TRUST0, ts=d.teams.filter(t=>t.fair_pct>0&&t.alive!==false),
     px=t=>{ const a=t.market!=null?_parseOdds(t.market):null; return a==null||isNaN(a)?null:1/_dec(a); };
@@ -1448,7 +1449,7 @@ function blendsHTML(){
     +(live.length&&R.cov&&R.cov.net&&R.cov.net.eat<0.25?`<div class="blexp">Your stakes are ${Math.round(100*R.cov.net.eat)}% of a typical ${money(Math.round(R.cov.net.gross))} ticket</div>`:"")
     +(live.length&&R.cov&&R.cov.net&&R.cov.net.eat>=0.25?(()=>{ const n=R.cov.net, e=n.eat;
       return `<div class="blnet ${e>=0.5?"bad":"warn"}">Your typical ticket pays ${money(Math.round(n.gross))}. If one hits, the ${money(Math.round(R.disc.staked))} you've staked takes <b>${Math.round(100*e)}%</b> of it, so you net <b>${n.net<0?"−"+money(Math.round(-n.net)):money(Math.round(n.net))}</b>${e>=0.5?" — you're staking away your wins.":" — getting heavy."}</div>`; })():"")
-    +`<div class="blexp">% = chance the slip cashes on the boards' odds (NHL: mostly the book's price)</div>`
+    +`<div class="blexp">% = chance the slip cashes on the boards' odds</div>`
     +(SL_FILT?`<div class="slf"><span>Only <b>${esc(fName)}</b> · ${shown.length} slip${shown.length>1?"s":""}${fMoney?` · ${money(Math.round(fMoney))} live`:""}</span><button onclick="slFilt(null)">Show all</button></div>`:"")
     +order.map(({s,st})=>`<div class="slp ${st}"><div class="slh"><span>${BLAB[s.book]||esc(s.book)}</span><b>${money(s.stake)} → ${money(s.pays)}</b>${st!=="live"?`<span class="stt">${st}</span>`:`<span class="slch" title="Chance this slip cashes">${covP(R.slipCh[s.id])}</span>`}<button class="x" title="Remove this slip" aria-label="Remove this slip" onclick="removeSlip('${esc(s.id)}')">×</button></div>
       <div class="slg">${s.legs.map(L=>{ const k=legState(L), lk=legKey(L); return `<span class="${k}${lk===SL_FILT?" on":""}" data-k="${esc(lk)}" role="button" tabindex="0" onclick="slFilt(this)" onkeydown="if(event.key==='Enter')slFilt(this)" title="${esc(L.team)} · ${SPORTS[L.lg]||L.lg}${k!=="open"?" · "+k:""} · tap to show only slips with this team">${k==="won"?"✓ ":""}${esc(blNm(L.lg,L.team))}</span>`; }).join("")}</div></div>`).join("")
