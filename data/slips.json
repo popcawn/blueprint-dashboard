@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T11:35:37.083Z",
+ "updated": "2026-11-25T13:08:05.839Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -550,7 +550,24 @@
      "team": "Sydney Kings"
     }
    ]
+  },
+  {
+   "id": "s25",
+   "book": "FanDuel",
+   "stake": 15,
+   "pays": 472.5,
+   "added": "2026-11-25",
+   "legs": [
+    {
+     "lg": "nba",
+     "team": "Boston Celtics"
+    },
+    {
+     "lg": "nbl",
+     "team": "Sydney Kings"
+    }
+   ]
   }
  ],
- "bankroll": 1000
+ "bankroll": 985
 }
