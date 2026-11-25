@@ -1,6 +1,7 @@
 {
  "about": "Every title price the liiga board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
  "log": [
-  {"book":"DraftKings","from":"2026-11-24T20:16:30Z","to":"2026-11-24T20:16:30Z","asof":"Nov 24","odds":{"Lukko":500,"SaiPa":1300,"JYP":700,"K-Espoo":2500,"Tappara":500,"Jukurit":2800,"HIFK":1300,"Ässät":2000,"TPS":1300,"Kärpät":1600,"KalPa":3500,"HPK":5000,"Pelicans":2800,"Jokerit":3500,"KooKoo":25000,"Sport":25000}}
+  {"book":"DraftKings","from":"2026-11-24T20:16:30Z","to":"2026-11-24T20:16:30Z","asof":"Nov 24","odds":{"Lukko":500,"SaiPa":1300,"JYP":700,"K-Espoo":2500,"Tappara":500,"Jukurit":2800,"HIFK":1300,"Ässät":2000,"TPS":1300,"Kärpät":1600,"KalPa":3500,"HPK":5000,"Pelicans":2800,"Jokerit":3500,"KooKoo":25000,"Sport":25000}},
+  {"book":"DraftKings","from":"2026-11-25T20:29:06Z","to":"2026-11-25T20:29:06Z","asof":"Nov 25","odds":{"Lukko":500,"SaiPa":1300,"JYP":700,"K-Espoo":2500,"Tappara":500,"HIFK":1300,"Jukurit":2800,"Ässät":2000,"TPS":1300,"KalPa":3500,"Pelicans":2800,"Kärpät":1600,"HPK":5000,"Jokerit":3500,"KooKoo":25000,"Sport":25000}}
  ]
 }
