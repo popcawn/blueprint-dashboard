@@ -1236,7 +1236,8 @@ async function loadData(){ const t=Date.now(), J=async u=>{ try{ const r=await f
      - still a positive edge after the trust haircut below (no dead-weight legs carried by a better one).
    Chances = the board's own fair odds (BL_TRUST0 1 since 2026-11-25); NFL and NHL = 25% board, 75% the book's price (they lost to real prices).
    Stake = half Kelly on the expected log of (bankroll + what every live slip pays) over 40,000 simulated seasons; shown only at
-   BL_MINSTAKE or more. It changes no board's numbers. */
+   BL_MINSTAKE or more, and only when it adds BL_MINCOV (1 point) or more to "Something cashes" (coverage, not extra payout: user 2026-11-25).
+   It changes no board's numbers. */
 let SLIPS={updated:null,slips:[]};
 const BL_BOOKS=["DraftKings","FanDuel"], BL_FROM={chk:"03-01",euroleague:"03-16",aleague:"03-01"};   // A-League: value plays from ~75% of the season (about March)   // college hockey: value plays only from Mar 1 (its rule)
 const money=x=>x==null||x===""?"—":"$"+(+x>=1000?Math.round(+x).toLocaleString("en-US"):(+x).toFixed(+x%1?2:0));
@@ -1293,7 +1294,7 @@ function cashArr(legs,S){ const a=new Uint8Array(COV_N), need=[];
    stake out, removing a live one puts it back. Unset = BL_BANK0, and the panel asks for it. */
 // (2026-11-25, user: "you've only been giving 2 leg parlays ... I don't mind 2+") a 3-leg hits ~1 in 100, so its right stake is a
 // couple of dollars and the $5 minimum hid every one: 3+ legs show from BL_MINLONG.
-const BL_STEADY=14, BL_MINSTAKE=5, BL_MINLONG=2, BL_BANK0=400, BL_MAXPICK=3, BL_STALE=2;   // BL_STALE = days before a price is called old
+const BL_STEADY=14, BL_MINSTAKE=5, BL_MINLONG=2, BL_BANK0=400, BL_MAXPICK=3, BL_STALE=2, BL_MINCOV=0.01;   // BL_STALE = days before a price is called old
 // how old a board's prices are, in days (screenshot date if it has one, else the build time)
 function pxAge(d){ let t=Date.parse(d.generated||""); if(d.market_asof){ const y=new Date().getFullYear(); let dt=new Date(`${d.market_asof} ${y} 12:00`);
     if(dt-Date.now()>864e5) dt=new Date(`${d.market_asof} ${y-1} 12:00`); if(!isNaN(dt)) t=+dt; }
@@ -1349,10 +1350,13 @@ function blendScan(){
   const growth=(cash,dec,st,W)=>{ let m=0; for(let i=0;i<COV_N;i++) m+=Math.log(W-st+P[i]+(cash[i]?st*dec:0)); return m/COV_N; };
   const kelly=(cash,dec,W)=>{ let lo=0, hi=Math.min(W-1,0.25*W); for(let it=0;it<32;it++){ const a=lo+(hi-lo)/3, b=hi-(hi-lo)/3; if(growth(cash,dec,a,W)<growth(cash,dec,b,W)) lo=a; else hi=b; } return (lo+hi)/2; };
   const same=(p,c)=>p.legs.every(x=>c.legs.some(y=>y.sp===x.sp&&y.t.name===x.t.name))||c.legs.every(x=>p.legs.some(y=>y.sp===x.sp&&y.t.name===x.t.name));
-  const pick=[]; let W=bank, bestStake=0;
+  const pick=[]; let W=bank, bestStake=0, bestC=null; const payOnly=new Set();
   while(pick.length<BL_MAXPICK&&W>BL_MINSTAKE){ let best=null;
     for(const c of all){ if(pick.includes(c)||c.ev<=0||pick.some(p=>same(p,c))) continue;   // not a picked blend plus/minus a team
-      c.stake=Math.floor(kelly(c.cash,c.dec,W)/2); bestStake=Math.max(bestStake,c.stake);
+      // (2026-11-25, user: "coverage") a blend must add a NEW way to cash: +1 point or more of "Something cashes". A blend that only
+      // pays extra in seasons the slips already cash (e.g. a 3-leg made of teams held as 2-legs) is left out, whatever its price.
+      { let nw=0; for(let i=0;i<COV_N;i++) if(c.cash[i]&&!cur[i]) nw++; c.add=nw/COV_N; if(c.add<BL_MINCOV){ payOnly.add(c); continue; } payOnly.delete(c); }
+      c.stake=Math.floor(kelly(c.cash,c.dec,W)/2); if(c.stake>bestStake){ bestStake=c.stake; bestC=c; }
       if(c.stake<c.min) continue;
       c.gain=growth(c.cash,c.dec,c.stake,W)-growth(c.cash,c.dec,0,W);
       if(!best||c.gain>best.gain) best=c; }
@@ -1363,7 +1367,7 @@ function blendScan(){
     W-=best.stake; pick.push(best); }
   for(const c of all) delete c.cash;
   for(const w of watch) w.sd=steadyOf(w.sp,w.t.name);
-  return {pick,disc:{staked,bank,bankSet,bestStake},early,watch:watch.slice(0,4),unsteady,thin:thin.filter(c=>!usable.has(c.sp+"|"+c.t.name)),legs,cov,slipCh};
+  return {pick,disc:{staked,bank,bankSet,bestStake,bestName:!pick.length&&bestC?bestC.legs.map(x=>blNm(x.sp,x.t.name)).join(" + "):"",payOnly:payOnly.size},early,watch:watch.slice(0,4),unsteady,thin:thin.filter(c=>!usable.has(c.sp+"|"+c.t.name)),legs,cov,slipCh};
 }
 function blendWhy(c){ if(!c.fresh) return `New combo: you hold all ${c.legs.length} teams, but never together on one slip`;
   return "New for you: "+c.legs.filter(x=>!x.held).map(x=>{ const s=prevSnap(x.sp), w=s&&s.teams[x.t.name];
@@ -1385,7 +1389,7 @@ function blendsHTML(){
     <div class="blcov">Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b></div>
     ${c.age>BL_STALE?`<div class="blcov old">Prices are ${Math.round(c.age)} days old. Check them against the floor first.</div>`:""}
     <button class="btn sm bllog" onclick="logBlend(${i})">Placed it — log this bet</button></div>`; }).join("");
-  else h+=`<div class="blst"><b>Nothing to place</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestStake>0?`The best blend left is worth ${money(R.disc.bestStake)} of your ${money(R.disc.bank)} bankroll, under the minimum (${money(BL_MINSTAKE)}, or ${money(BL_MINLONG)} for 3 legs).`:"With the slips you already hold, no blend grows your bankroll."}</span></div>`;
+  else h+=`<div class="blst"><b>Nothing to place</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestStake>0?`The best blend left${R.disc.bestName?` (${esc(R.disc.bestName)})`:""} is worth ${money(R.disc.bestStake)} of your ${money(R.disc.bank)} bankroll, under the minimum (${money(BL_MINSTAKE)}, or ${money(BL_MINLONG)} for 3 legs).`:R.disc.payOnly?"Every blend left only adds payout to seasons your slips already cash. None adds a new way to cash.":"With the slips you already hold, no blend grows your bankroll."}</span></div>`;
   const W=[...R.thin.map(c=>`${esc(blNm(c.sp,c.t.name))} (${SPORTS[c.sp]}) · value ${fmtEV(c.t.ev)} on the board, but no edge once the book's price is weighed in${BL_TRUST[c.sp]!=null&&BL_TRUST[c.sp]<BL_TRUST0?` (this board has lost to real prices)`:""}`),
     ...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} this season so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
