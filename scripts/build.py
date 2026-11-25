@@ -112,6 +112,7 @@ def _value_plays(teams, maxcat, sport=None):
         # EV >= +20%. NBL: chalky (the minor premier won 11/17; the model's #1 12/17) -> the board's #1 or #2 by fair odds, EV >= +20%,
         # before the play-in. Both <= +2500. No title-price history -> small stakes. Last-season rewind (baseball-blueprint/pro/weekly-2526.py):
         # EuroLeague champ Olympiacos #1 from 65% of the season on, NBL champ Sydney #1 from late December.
+        # (2026-11-25) NBL tiers = 3 fixed checks that pass the hidden-season test (scripts/pro/nbl.mjs FEATS), Super Rugby 2; the value rules here do not use them.
         top2 = {t["name"] for t in sorted([t for t in teams if t.get("fair_pct")], key=lambda t: -t["fair_pct"])[:2]}
         for t in teams:
             p = _price_num(t.get("market"))
@@ -1942,7 +1943,9 @@ def log_history(name, data):
     os.makedirs(os.path.dirname(hp), exist_ok=True)
     try: hist = json.load(open(hp, encoding="utf-8"))
     except Exception: hist = []
-    snap = {"date": data["generated"][:10], "gp": data.get("gp_max"),
+    # (2026-11-25) mx = how many checks "sc" is out of on this snapshot: NBL went 5 -> 3 and Super Rugby 5 -> 2 that day, so the site's
+    # consistency() reads each snapshot on its own scale (a snapshot without mx = 5 for those two, today's MAXCAT for every other board)
+    snap = {"date": data["generated"][:10], "gp": data.get("gp_max"), **({"mx": len(data["cats"])} if data.get("cats") else {}),
             "teams": {t["name"]: {"sc": t["score"], "idx": t["index"], "fp": t.get("fair_pct"),
                                   "mkt": t.get("market"), "ev": t.get("ev"), **({"mw": t["mw"]} if t.get("mw") is not None else {})} for t in data["teams"]}}   # mw: CFB's pick order
     if hist and hist[-1]["date"] == snap["date"]: hist[-1] = snap   # same-day re-run replaces

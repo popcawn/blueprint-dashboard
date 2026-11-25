@@ -1,7 +1,10 @@
 // Shared champion-profile tiers for the pro engines (added 2026-11-05, user: "i want teirs for all bp").
 // 5 stats per sport; each cutoff = what `cover` (90%) of past champions cleared at the same point of their season.
 // Tiers are a profile, not the odds -- each engine's odds still come from its backtested model.
-export const TIER_NAME = s => s >= 5 ? '🏆 Best (5/5)' : s === 4 ? '🔵 Great (4/5)' : s === 3 ? '🟢 Good (3/5)' : s === 2 ? '🟡 Outside (2/5)' : '⚪ Longshot (0-1/5)';
+// (2026-11-25) n = how many checks the board runs (default 5; NBL 3, Super Rugby 2): n/n, then one short ... and one bottom bucket
+// (0-1 of n; 0 of 2). A feat may carry a fixed cutoff (`cut: 2`) that replaces the champion-derived one in `cutoffs`.
+export const TIER_NAME = (s, n = 5) => { const lo = n >= 3 ? 1 : 0;
+  return s <= lo ? `⚪ Longshot (${lo ? '0-1' : '0'}/${n})` : `${['🏆 Best', '🔵 Great', '🟢 Good'][Math.max(n - s, 0)] || '🟡 Outside'} (${Math.min(s, n)}/${n})`; };
 export function rankRows(rows, feats) {
   for (const f of feats) {
     const v = r => r[f.k] == null || !isFinite(r[f.k]) ? (f.dir > 0 ? -Infinity : Infinity) : r[f.k];
@@ -12,6 +15,7 @@ export function rankRows(rows, feats) {
 export function cutoffs(champs, feats, cover = 0.9) {
   const k = Math.max(1, Math.ceil(cover * champs.length)) - 1;
   return feats.map(f => {
+    if (f.cut != null) return f.cut;
     if (f.kind === 'rank') return champs.map(c => c['r_' + f.k]).sort((a, b) => a - b)[k];
     return champs.map(c => c[f.k] ?? (f.dir > 0 ? -Infinity : Infinity)).sort((a, b) => f.dir > 0 ? b - a : a - b)[k];
   });

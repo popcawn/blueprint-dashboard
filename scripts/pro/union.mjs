@@ -21,6 +21,7 @@ const FMT = {four: {K: 3, N: 4}, six: {K: 5, N: 6}, eight: {K: 7, N: 8}, top8re:
 const NEUTRAL = (fmt, Y) => fmt === 'four' ? [0, 0, L.finalNeutral(Y)] : fmt === 'six' ? [0, 0, 1, 1, 1] : fmt === 'conf3' ? [0, 0, 0, 0, 1] : fmt === 'conf2' ? [0, 0, 1] : [];
 // bonus: tb = try bonus ('4' = 4+ tries, '3more' = 3+ more tries than the opponent, '3moreW' = same but winners only), lb = losing bonus margin.
 // P: settings tuned by `backtest` on the first half (also written to the cache's params.json). FEATS/IDXW: from `dump` + study/criteria.mjs.
+// (2026-11-25) a FEATS entry with `cut` = a FIXED check (Super Rugby: 2 of them); the board then has FEATS.length checks, not always 5.
 const LG = {
   superrugby: {verdict: "🟡 fair (backtest 2026-11-24): title odds at the play-off start beat equal odds and seed history in both halves (11 seasons, small sample)",
     id: 242041, label: 'Super Rugby Pacific', euro: false, first: 2014, warm: 2012, region: REG_SR,
@@ -29,11 +30,13 @@ const LG = {
     fmtOf: Y => Y <= 2015 ? 'sr6' : Y <= 2017 ? 'sr16' : Y <= 2019 ? 'sr18' : Y <= 2021 ? null : Y <= 2024 ? 'top8re' : 'sr6ll',
     // 2027 (10 clubs, 16 games each): play-off format not confirmed -> assumed top 6 as in 2025-26
     gpt: Y => Y >= 2027 ? 16 : Y >= 2022 ? 14 : 16, assumed: Y => Y >= 2027, bonus: Y => ({tb: Y >= 2016 ? '3more' : '4', lb: 7}),
-    // every-champion rule (study/criteria.mjs on `dump`, 2026-11-24): all 11 champions 2014-26 cleared all 5 at the end of the regular season; ~1.6 of the
-    // 6-8 play-off teams do. Honest test (search re-run without each season): the hidden champion cleared all 5 in 8/11 (5/6 | 3/5); as a predictor it beat a
-    // coin flip over the field in the 1st half (1.23 vs 1.98) but not the 2nd (2.15 vs 1.96) -> tiers are context; the odds come from the simulation.
-    // (4-metric version 9/11, beat the coin flip in both halves: 1.23 | 1.46 vs 1.98 | 1.96.) Misses: 2015 Highlanders, 2022 + 2025 Crusaders.
-    FEATS: [{k: 'pos', dir: -1, kind: 'value', label: 'Ladder position'}, {k: 'ppg', dir: 1, kind: 'rank', label: 'Ladder points/game'}, {k: 'pfpg', dir: 1, kind: 'value', label: 'Points for/game'}, {k: 'papg', dir: -1, kind: 'rank', label: 'Points against/game'}, {k: 'form8', dir: 1, kind: 'value', label: 'Form (win%, last 8)'}],
+    // FIXED checks (2026-11-25, study/improve-criteria-*.mjs on `dump` -> study/results/improve-criteria-summary.txt): ladder position <= 2 (the overall
+    // table by ladder points, not the play-off seed) and rating top 4 in the WHOLE league (ties share a rank), at the end of the regular season. Tiers by
+    // checks passed: 2/2, 1/2, 0/2. Hidden-season test, 11 seasons 2014-19 + 2022-26: champion 2/2 in 11/11 (6/6 | 5/5), ~1.9 teams a season at 2/2,
+    // log-loss 0.683 v coin 1.984 | 0.799 v 1.964. `cut` = fixed cutoff (tiers.mjs `cutoffs`), not re-derived from the champions.
+    // Replaced the 5 every-champion checks (ladder position, ladder points, points for, points against, form), whose hidden-season test failed the
+    // 2nd half: champion 5/5 in 8/11 (5/6 | 3/5), log-loss 1.23 v 1.98 | 2.15 v 1.96. Misses then: 2015 Highlanders, 2022 + 2025 Crusaders.
+    FEATS: [{k: 'pos', dir: -1, kind: 'value', cut: 2, label: 'Ladder position'}, {k: 'rtg', dir: 1, kind: 'rank', cut: 4, label: 'Rating'}],
     // index = rating alone: champion's rank in the play-off field avg #1.55, #1 in 8/11; no blend beat it in both halves (rating 60/win% 40 won the 1st half, lost #1s in the 2nd)
     IDXW: {rtg: 100},
     P: {half: 240, lam: 1, sig: 16}},
@@ -480,7 +483,7 @@ if (mode === 'backtest') {
   if (stage === 'preseason' && S[Y - 1]?.length) { PG = S[Y - 1]; PY = Y - 1; pAsOf = firstFinal(PG) || asOf; }
   const {rows} = profile(PG, pool(S, PY), pAsOf, P, PY, O[PY]);
   const TS = SEASONS.concat(Y > CURY ? [Y] : []).filter(Yp => Yp <= Y && premier(S[Yp]) && L.fmtOf(Yp)).map(Yp => { const Gp = S[Yp], ch = premier(Gp); return profile(Gp, pool(S, Yp), firstFinal(Gp), P, Yp, O[Yp]).rows.find(r => r.id === ch); }).filter(Boolean);
-  const cuts = tierCuts(TS, FEATS, 1);   // each cutoff = the loosest champion (every champion cleared all of them)
+  const cuts = tierCuts(TS, FEATS, 1), FIX = FEATS.length > 0 && FEATS.every(f => f.cut != null);   // each cutoff = the loosest champion (every champion cleared all of them) unless the feat fixes it (`cut`, 2026-11-25)
   for (const r of rows) tierScore(r, FEATS, cuts);
   addIndex(rows);
   const prof = new Map(rows.map(r => [r.id, r])), left = reg.filter(g => !g.fin).length, curT = new Set(reg.flatMap(g => [g.h, g.a]));
@@ -495,11 +498,11 @@ if (mode === 'backtest') {
   if (PY !== Y) console.log(`tiers/index = ${lab(PY)} end of the regular season (${lab(Y)} hasn't started) -- title odds are preseason, from ratings that fade toward average (untested stage)`);
   console.log(`VERDICT ${L.verdict}`);
   console.log(`model: half-life ${P.half} d, shrink ${P.lam}, sigma ${P.sig} pts · home edge ${M.Hs.toFixed(1)} pts (same country) / ${M.Hi.toFixed(1)} pts (travelling visitor)`);
-  console.log(`TIERS -- every-champion profile (${TS.length} champions): ${FEATS.map((f, i) => cutLabel(f, cuts[i], v => fv(f.k, +v))).join(' · ') || '(none)'}`);
+  console.log(`TIERS -- ${FIX ? 'fixed checks that passed a hidden-season test' : `every-champion profile (${TS.length} champions)`}: ${FEATS.map((f, i) => cutLabel(f, cuts[i], v => fv(f.k, +v))).join(' · ') || '(none)'}`);
   console.log(`index (0-100) = ${Object.entries(IDXW).map(([k, w]) => `${{rtg: 'Rating', wp: 'Win%', awp: 'Away win%', hwp: 'Home win%', mgn: 'Margin/g', pct: 'Pct', ppg: 'Ladder pts/g', bpg: 'Bonus pts/g', tdpg: 'Try diff/g', pos: 'Ladder position'}[k] || k} ${w}`).join(' · ')}\n`);
   for (const t of lad.slice().sort((a, b) => (T.get(b.id) || 0) - (T.get(a.id) || 0) || (prof.get(b.id)?.idx ?? 0) - (prof.get(a.id)?.idx ?? 0))) {
     const p = T.get(t.id) || 0, r = prof.get(t.id), pos = posOf(t) ?? '-';
-    console.log(`  ${TIER_NAME(r ? r.score : 0).padEnd(18)} ${String(NAMES.get(t.id)).padEnd(26)} #${String(pos).padEnd(2)} ${String(t.pts).padStart(3)} pts (${t.w}-${t.l}${t.d ? '-' + t.d : ''}, diff ${t.pf - t.pa >= 0 ? '+' : ''}${t.pf - t.pa}) | idx ${r ? r.idx.toFixed(1).padStart(5) : '    —'} | rating ${(M.r.get(t.id) ?? 0) >= 0 ? '+' : ''}${(M.r.get(t.id) ?? 0).toFixed(1)} | title ${(100 * p).toFixed(1).padStart(5)}% (fair ${fair(p)})${r && FEATS.length ? ' | ' + FEATS.map((f, i) => `${r.q[i] ? '✓' : '✗'} ${f.label}`).join(' · ') : ''}`); }
+    console.log(`  ${TIER_NAME(r ? r.score : 0, FEATS.length || 5).padEnd(18)} ${String(NAMES.get(t.id)).padEnd(26)} #${String(pos).padEnd(2)} ${String(t.pts).padStart(3)} pts (${t.w}-${t.l}${t.d ? '-' + t.d : ''}, diff ${t.pf - t.pa >= 0 ? '+' : ''}${t.pf - t.pa}) | idx ${r ? r.idx.toFixed(1).padStart(5) : '    —'} | rating ${(M.r.get(t.id) ?? 0) >= 0 ? '+' : ''}${(M.r.get(t.id) ?? 0).toFixed(1)} | title ${(100 * p).toFixed(1).padStart(5)}% (fair ${fair(p)})${r && FEATS.length ? ' | ' + FEATS.map((f, i) => `${r.q[i] ? '✓' : '✗'} ${f.label}`).join(' · ') : ''}`); }
   if (arg('--export')) {
     const gpNow = [...table(reg, Y, null).values()].map(t => t.gp);
     const out = {league: lk, label: L.label, season: Y, season_label: lab(Y), profile_season: PY, gp_now: [Math.min(...gpNow), Math.max(...gpNow)], generated: new Date().toISOString(), today, stage, first_final: first || null, games_left: left, sims: N,

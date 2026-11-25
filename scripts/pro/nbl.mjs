@@ -17,6 +17,7 @@
 //   node nbl.mjs xcheck     every 2009-10+ Wikipedia result vs BetExplorer's results pages · raw --y YYYY / table --y YYYY = debug views
 // RESULT 2026-11-24: odds model beats equal odds + ladder-position history at the start of the finals in both halves, but the every-champion
 // rule fails its honest test (worse than a coin flip over the finals field) -> verdict ❌ by the house rule; no /nbl-blueprint command.
+// 2026-11-25: the 5 every-champion checks are replaced by 3 FIXED checks that pass the hidden-season test in both halves (see FEATS).
 // NO KALSHI / Polymarket. The Odds API has NBL game lines but no outright market -> prices only from the user's DraftKings/FanDuel screenshot.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
 import {TIER_NAME, rankRows, cutoffs as tierCuts, score as tierScore, cutLabel} from './tiers.mjs';
@@ -34,12 +35,13 @@ const L = {label: 'NBL', first: 2003, fmtFirst: 2009, P: {half: 120, lam: 3, sig
     'south-east-melbourne-phoenix': 'South East Melbourne Phoenix', 'sydney-kings': 'Sydney Kings', 'tasmania-jackjumpers': 'Tasmania JackJumpers',
     'townsville-crocodiles': 'Townsville Crocodiles', 'singapore-slingers': 'Singapore Slingers', 'south-dragons': 'South Dragons', 'west-sydney-razorbacks': 'West Sydney Razorbacks',
     'victoria-titans': 'Victoria Titans'},
-  // every-champion rule (study/criteria.mjs nbl on `node nbl.mjs dump`, 2026-11-24): all 23 champions 2003-04..2025-26 cleared all 5 at the end of the
-  // regular season; ~2.0 of the ~5.3 finals teams do. HONEST TEST FAILED: the hidden champion cleared all 5 in only 16/23 (9/12 | 7/11) and as a
-  // predictor the rule was WORSE than a coin flip over the finals field (log-loss 1.68 vs 1.63; 1st half 1.51 vs 1.71, 2nd half 1.87 vs 1.53).
-  // Misses: 2008-09 South Dragons, 2010-11 NZ, 2014-15 NZ, 2016-17 Perth, 2021-22 Sydney, 2023-24 Tasmania, 2024-25 Illawarra. -> tiers = context only.
-  FEATS: [{k: 'pos', dir: -1, kind: 'value', label: 'Ladder position'}, {k: 'pfpg', dir: 1, kind: 'value', label: 'Points for/game'}, {k: 'papg', dir: -1, kind: 'rank', label: 'Points against/game'},
-    {k: 'rtg', dir: 1, kind: 'value', label: 'Rating'}, {k: 'form5', dir: 1, kind: 'rank', label: 'Form (last 5)'}],
+  // FIXED checks (2026-11-25, study/improve-criteria-*.mjs on `node nbl.mjs dump` -> study/results/improve-criteria-summary.txt): each = top 2 in
+  // the WHOLE league at the end of the regular season, ties share a rank. Tiers by checks passed: 3/3, 2/3, 0-1/3. Hidden-season test, 23 seasons
+  // 2003-04..2025-26: champion 3/3 in 21/23 (11/12 | 10/11), ~1.6 teams a season at 3/3, log-loss 0.855 v coin 1.709 | 0.809 v 1.534.
+  // Misses: 2007-08 Melbourne (1/3), 2023-24 Tasmania (0/3). `cut` = fixed cutoff (tiers.mjs `cutoffs`), not re-derived from the champions.
+  // Replaced the 5 every-champion checks (ladder position, points for, points against, rating, form), whose own hidden-season test FAILED:
+  // champion 5/5 in only 16/23 (9/12 | 7/11), log-loss 1.51 v 1.71 | 1.87 v 1.53 (worse than a coin flip in the 2nd half).
+  FEATS: [{k: 'wp', dir: 1, kind: 'rank', cut: 2, label: 'Win%'}, {k: 'hwp', dir: 1, kind: 'rank', cut: 2, label: 'Home win%'}, {k: 'idx', dir: 1, kind: 'rank', cut: 2, label: 'Index'}],
   // index (`node nbl.mjs index`): champion's rank inside the finals field avg #1.35, #1 in 16/23, top-3 23/23 (1st half #1.33 | 2nd #1.36);
   // rating alone #1.70 (#1.83 | #1.55), win% alone #1.48 (#1.25 | #1.73) -> beats the rating in both halves
   IDXW: {wp: 50, rtg: 25, hwp: 25}};
@@ -293,6 +295,7 @@ function profile(G, pl, asOf, P) {
   const rows = lad.map((id, i) => { const t = T.get(id), s = t.res.sort((a, b) => a[0].localeCompare(b[0])), f = n => mean(s.slice(-n).map(x => x[1]));
     return {id, pos: i + 1, gp: t.gp, w: t.w, l: t.l, pf: t.pf, pa: t.pa, wp: t.w / t.gp, pct: 100 * t.pf / Math.max(1, t.pa),
       pfpg: t.pf / t.gp, papg: t.pa / t.gp, mgn: (t.pf - t.pa) / t.gp, rtg: M.r.get(id) ?? 0, form10: f(10), form5: f(5), hwp: t.hn ? t.hw / t.hn : 0, awp: t.an ? t.aw / t.an : 0}; });
+  addIndex(rows);   // (2026-11-25) before the ranks: Index is one of the checks, ranked across the whole league like the others
   return {rows: rankRows(rows, FEATS), M};
 }
 function addIndex(rows, W = IDXW) {
@@ -429,9 +432,8 @@ if (mode === 'xcheck') {   // cross-check Wikipedia results against BetExplorer'
   if (stage === 'preseason' && S[Y - 1]?.length) { PG = S[Y - 1]; PY = Y - 1; pAsOf = firstFinal(PG) || asOf; }
   const {rows} = profile(PG, pool(S, PY), pAsOf, P);
   const TS = SEASONS.filter(Yp => Yp < Y || (Yp === Y && done)).filter(Yp => premier(S[Yp])).map(Yp => { const Gp = S[Yp], ch = premier(Gp); return profile(Gp, pool(S, Yp), firstFinal(Gp), P).rows.find(r => r.id === ch); }).filter(Boolean);
-  const cuts = tierCuts(TS, FEATS, 1);   // each cutoff = the loosest champion (every champion cleared all of them)
-  for (const r of rows) tierScore(r, FEATS, cuts);
-  addIndex(rows);
+  const cuts = tierCuts(TS, FEATS, 1);   // (2026-11-25) fixed cutoffs (FEATS `cut`); a feat without one = the loosest champion
+  for (const r of rows) tierScore(r, FEATS, cuts);   // idx + its league rank come from profile()
   const prof = new Map(rows.map(r => [r.id, r])), played = reg.filter(g => g.fin).length, stale = reg.filter(g => !g.fin && g.d < today).length;
   const lad = PY !== Y ? rows.map(r => r.id).concat(ladderIds(reg).filter(t => !rows.some(r => r.id === t))) : ladderIds(reg.filter(g => g.fin));
   const cur = new Set(reg.flatMap(g => [g.h, g.a])), board = lad.filter(t => cur.has(t)).concat([...cur].filter(t => !lad.includes(t)));
@@ -452,15 +454,15 @@ if (mode === 'xcheck') {   // cross-check Wikipedia results against BetExplorer'
   if (stale) console.log(`note: ${stale} past regular-season game(s) have no score yet on Wikipedia/ESPN -> simulated as unplayed`);
   if (PY !== Y) console.log(`tiers/index = ${SL(PY)} end of the regular season (${SL(Y)} hasn't started) -- title odds are preseason, from ratings that fade toward average (untested stage)`);
   console.log(`model: half-life ${P.half} d, shrink ${P.lam}, sigma ${P.sig} pts · home edge ${M.H.toFixed(1)} pts · ${fmt === 'playin' ? 'play-in for 3rd-6th, best-of-3 semis, best-of-5 Grand Final' : fmt}`);
-  console.log(`TIERS -- every-champion profile (${TS.length} champions 2003-04 on): ${FEATS.map((f, i) => cutLabel(f, cuts[i], v => fv(f.k, +v))).join(' · ')}`);
-  console.log(`  (its honest test FAILED vs a coin flip over the finals field -> tiers are context only; the odds come from the simulation)`);
+  console.log(`TIERS -- fixed checks that passed a hidden-season test: ${FEATS.map((f, i) => cutLabel(f, cuts[i], v => fv(f.k, +v))).join(' · ')}`);
+  console.log(`  (each = top 2 in the whole league, ties share a rank · the hidden champion was 3/3 in 21 of 23 seasons, ~1.6 teams a season at 3/3 · the odds come from the simulation)`);
   console.log(`index (0-100) = ${Object.entries(IDXW).map(([k, w]) => `${{rtg: 'Rating', wp: 'Win%', hwp: 'Home win%'}[k] || k} ${w}`).join(' · ')}\n`);
   const order2 = board.slice().sort((a, b) => (prof.get(b)?.score ?? 0) - (prof.get(a)?.score ?? 0) || (T.get(b) || 0) - (T.get(a) || 0) || (prof.get(b)?.idx ?? 0) - (prof.get(a)?.idx ?? 0));
   let lastTier = null;
   for (const id of order2) {
-    const r = prof.get(id), p = T.get(id) || 0, tn = TIER_NAME(r ? r.score : 0), am = book.get(id);
+    const r = prof.get(id), p = T.get(id) || 0, tn = TIER_NAME(r ? r.score : 0, FEATS.length || 5), am = book.get(id);
     if (tn !== lastTier) { console.log(`${tn}`); lastTier = tn; }
-    console.log(`  ${(nameOf(id) + ' ' + rec(id)).padEnd(36)} #${String(board.indexOf(id) + 1).padEnd(2)} ${r ? r.q.map(x => x ? '✓' : '✗').join('') : '?????'} | idx ${r ? r.idx.toFixed(0).padStart(3) : '  —'} | rating ${(M.r.get(id) ?? 0) >= 0 ? '+' : ''}${(M.r.get(id) ?? 0).toFixed(1).padStart(4)} | title ${(100 * p).toFixed(1).padStart(4)}% fair ${fair(p).padStart(6)} | finals ${(100 * (T.field.get(id) || 0)).toFixed(0).padStart(3)}%${am != null ? ` | book ${am > 0 ? '+' : ''}${am} -> EV ${pctS(ev(p, am))}` : ''}`);
+    console.log(`  ${(nameOf(id) + ' ' + rec(id)).padEnd(36)} #${String(board.indexOf(id) + 1).padEnd(2)} ${r ? r.q.map(x => x ? '✓' : '✗').join('') : '?'.repeat(FEATS.length)} | idx ${r ? r.idx.toFixed(0).padStart(3) : '  —'} | rating ${(M.r.get(id) ?? 0) >= 0 ? '+' : ''}${(M.r.get(id) ?? 0).toFixed(1).padStart(4)} | title ${(100 * p).toFixed(1).padStart(4)}% fair ${fair(p).padStart(6)} | finals ${(100 * (T.field.get(id) || 0)).toFixed(0).padStart(3)}%${am != null ? ` | book ${am > 0 ? '+' : ''}${am} -> EV ${pctS(ev(p, am))}` : ''}`);
   }
   console.log(`checks (in order): ${FEATS.map(f => f.label).join(' · ')}`);
   if (unknown.length) console.log(`(--book names not matched: ${unknown.join(', ')})`);
@@ -480,7 +482,7 @@ if (mode === 'xcheck') {   // cross-check Wikipedia results against BetExplorer'
     const old = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : head, i = old.indexOf('---\n\n');
     let body = i >= 0 ? old.slice(i + 5) : ''; if (body.startsWith(`## ${today} `)) { const nx = body.indexOf('\n## '); body = nx >= 0 ? body.slice(nx + 1) : ''; }
     const entry = `## ${today} (${SL(Y)} season, ${played}/${reg.length} regular-season games, stage ${stage}${done ? `, champion ${nameOf(champ)}` : ''}${book.size ? ', book prices pasted' : ''})\n\n` +
-      [...T].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id, p]) => `- ${nameOf(id)} ${rec(id)} · ${prof.get(id) ? prof.get(id).score + '/5 · idx ' + prof.get(id).idx.toFixed(0) + ' · ' : ''}${(100 * p).toFixed(1)}% (fair ${fair(p)})${book.has(id) ? ` · book ${book.get(id) > 0 ? '+' : ''}${book.get(id)} EV ${pctS(ev(p, book.get(id)))}` : ''}`).join('\n') + '\n\n';
+      [...T].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([id, p]) => `- ${nameOf(id)} ${rec(id)} · ${prof.get(id) ? prof.get(id).score + '/' + FEATS.length + ' · idx ' + prof.get(id).idx.toFixed(0) + ' · ' : ''}${(100 * p).toFixed(1)}% (fair ${fair(p)})${book.has(id) ? ` · book ${book.get(id) > 0 ? '+' : ''}${book.get(id)} EV ${pctS(ev(p, book.get(id)))}` : ''}`).join('\n') + '\n\n';
     fs.writeFileSync(file, i >= 0 ? old.slice(0, i + 5) + entry + body : old + entry); console.log('\nlogged to ' + file);
   }
 }
