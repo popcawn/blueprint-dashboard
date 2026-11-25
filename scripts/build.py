@@ -454,6 +454,27 @@ def build_nfl():
     nf = norm(rows, "ppg", True); nw = norm(rows, "winpct", True)
     for t in rows:
         t["index"] = round(npd[t["name"]]*.25 + npg[t["name"]]*.20 + no[t["name"]]*.20 + nf[t["name"]]*.20 + nw[t["name"]]*.15, 1)
+    # NEW INDEX (2026-11-25, user: "improve the weakest ones"; study baseball-blueprint/study/improve-nfl-index.py, 24 champions 2002-25,
+    # halves 2002-13 / 2014-25): index = 50 x game rating + 50 x Win%, each scaled 0-100 across the league. The game rating is the season
+    # sim's own (SRS on capped margins + last season's final rating as an 8-game prior at half strength). Champion's average rank vs the
+    # old index above: week 8 4.67 / 3.92 vs 6.17 / 4.33, week 12 4.33 / 3.83 vs 5.67 / 4.83, season end 4.08 / 3.58 vs 5.83 / 3.58;
+    # top-3, top-5 and log-loss same or better in both halves at all three; picked on each half separately and in all 24 leave-one-
+    # season-out folds out of 118 candidates. The one cell that got worse: #1 hits at season end 2014-25 (2 vs 4). Its form was chosen
+    # after a first look at all 24 seasons -> a real but modest gain, biggest mid-season. The old index is kept only as the fallback
+    # when the sim fails. Tested and not shipped: prior blends on the old index, SRS alone, re-cut criteria (all failed a half).
+    nfl_new, nfl_post, nfl_adj, sim, RT = None, False, {}, None, {}
+    try:
+        nfl_adj = nfl_load_adjust()
+        sim, nfl_post = nfl_season_odds(YEAR, adjust={k: v["pts"] for k, v in nfl_adj.items()}, ratings_out=RT)
+    except Exception as e:
+        sim = None
+        print(f"  nfl season sim failed, index odds kept: {e}", file=sys.stderr)
+    for t in rows: t["grt"] = RT.get(NFL_CODE.get(t["name"], ""))
+    idx_model = "points"
+    if sim and all(t["grt"] is not None for t in rows):
+        ngr = norm(rows, "grt", True)
+        for t in rows: t["index"] = round(ngr[t["name"]]*.50 + nw[t["name"]]*.50, 1)
+        idx_model = "rating+win"
     for t in rows: t["read"] = team_read(t, "nfl", len(rows), 5)
     # fair odds: AFC/NFC split, cap 22%. Raised from 17% after a 16-season calibration backtest
     # (2010-2025): the model's #1 fair-odds team won the SB in 4/16 seasons (~25%), so a 17% cap
@@ -480,15 +501,10 @@ def build_nfl():
     # BEHIND the market at every one (e.g. pre-playoff 2.27 vs 2.11) -> fair, not strong. Tested and NOT added: EPA margins, recency, the Read in
     # the odds, a backup-QB penalty (helps single games, not Super Bowl odds).
     # 2026-11-11: NFL tiebreakers in the simulation + the manual adjustment file data/nfl_adjust.json (see nfl_season_odds / nfl_load_adjust)
-    nfl_new, nfl_post, nfl_adj = None, False, {}
-    try:
-        nfl_adj = nfl_load_adjust()
-        sim, nfl_post = nfl_season_odds(YEAR, adjust={k: v["pts"] for k, v in nfl_adj.items()})
+    if sim:   # the sim ran above (the index needs its rating)
         for t in pool: t["p"] = sim.get(NFL_CODE.get(t["name"], ""), 0.0)
         for t in pool: t["fair_odds"] = american(t["p"]) if t.get("p") else None
         nfl_new = "season sim"
-    except Exception as e:
-        print(f"  nfl season sim failed, index odds kept: {e}", file=sys.stderr)
     fd, rem = fetch_futures("americanfootball_nfl_super_bowl_winner")
     attach(rows, pool, fd)
     pred = make_prediction(rows, 5)
@@ -497,7 +513,7 @@ def build_nfl():
     lines, rem2 = fetch_game_lines("americanfootball_nfl") if (datetime.date.today().month >= 9 or datetime.date.today().month <= 2) else (None, None)
     if rem2 is not None: rem = rem2   # the later pull's count is the current one
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred, "game_lines": lines,
-            "odds_model": nfl_new, **({"window_closed": True, "stage": "playoffs"} if nfl_post else {}),
+            "odds_model": nfl_new, "index_model": idx_model, **({"window_closed": True, "stage": "playoffs"} if nfl_post else {}),
             "manual_adjust": [{"team": next((n for n, c in NFL_CODE.items() if c == k), k), **v} for k, v in sorted(nfl_adj.items())] if nfl_new else [],
             "sig": NFL_MU_SD,   # matchup SD that goes with the prior-blended rtg (index.html's MU_SD.nfl 24.5 = the old raw-PD/g fallback)
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
@@ -545,7 +561,7 @@ def nfl_load_adjust(path=None, today=None):
         if not code or not pts or str(v.get("until") or "9999-12-31") < today: continue
         out[code] = {"pts": max(-10.0, min(10.0, pts)), "until": v.get("until"), "note": str(v.get("note") or "")[:120]}
     return out
-def nfl_season_odds(year, through_week=None, games_csv=None, seed=7, sims=None, tiebreak=None, adjust=None):
+def nfl_season_odds(year, through_week=None, games_csv=None, seed=7, sims=None, tiebreak=None, adjust=None, ratings_out=None):
     """({nflverse code: P(win the Super Bowl)}, playoffs_started) from the season simulation (see build_nfl). Data: nflverse games.csv
     (scores + the remaining schedule). through_week: score only games up to that week (backtests). adjust: {code: points} added to the ratings.
     REWRITTEN 2026-11-11 (audit: baseball-blueprint/nfl-audit.py; user: "yes put it on the site") -- the rating and the win model are unchanged:
@@ -589,6 +605,7 @@ def nfl_season_odds(year, through_week=None, games_csv=None, seed=7, sims=None, 
     dname = sorted(NFL_DIVS); div = np.zeros(n, int); conf = np.zeros(n, int)
     for d, v in NFL_DIVS.items():
         for t in v.split(): div[ix[t]] = dname.index(d); conf[ix[t]] = 0 if d.startswith("AFC") else 1
+    if ratings_out is not None: ratings_out.update(R)   # (2026-11-25) the game rating per team code, for the board's index
     r = np.array([R[t] for t in teams]); gap = r[:, None] - r[None, :]
     Ph = 1 / (1 + np.exp(-(C["scale"] * gap + C["home"]))); Pn = 1 / (1 + np.exp(-C["scale"] * gap))
     w0 = np.zeros(n); pd0 = np.zeros(n); W0 = np.zeros((n, n))
