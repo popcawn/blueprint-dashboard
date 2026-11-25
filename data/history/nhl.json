@@ -6112,132 +6112,139 @@
  },
  {
   "date": "2026-11-25",
-  "gp": 26,
+  "gp": 27,
   "teams": {
    "Carolina Hurricanes": {
     "sc": 4,
     "idx": 100.0,
-    "fp": 26.0,
+    "fp": 25.9,
     "mkt": "+550",
-    "ev": 69
+    "ev": 68
+   },
+   "Minnesota Wild": {
+    "sc": 4,
+    "idx": 74.5,
+    "fp": 14.6,
+    "mkt": "+900",
+    "ev": 46
    },
    "Tampa Bay Lightning": {
     "sc": 4,
-    "idx": 69.9,
-    "fp": 6.0,
-    "mkt": "+1100",
-    "ev": -28
+    "idx": 70.0,
+    "fp": 5.9,
+    "mkt": "+1200",
+    "ev": -23
    },
    "Colorado Avalanche": {
     "sc": 4,
-    "idx": 69.7,
+    "idx": 68.4,
     "fp": 16.5,
     "mkt": "+900",
     "ev": 65
    },
+   "Boston Bruins": {
+    "sc": 4,
+    "idx": 61.6,
+    "fp": 3.1,
+    "mkt": "+3500",
+    "ev": 11
+   },
+   "Dallas Stars": {
+    "sc": 4,
+    "idx": 60.2,
+    "fp": 5.8,
+    "mkt": "+1600",
+    "ev": -1
+   },
    "Ottawa Senators": {
     "sc": 4,
-    "idx": 59.7,
+    "idx": 59.9,
     "fp": 3.5,
-    "mkt": "+2500",
-    "ev": -8
-   },
-   "Minnesota Wild": {
-    "sc": 3,
-    "idx": 74.4,
-    "fp": 14.6,
-    "mkt": "+850",
-    "ev": 39
+    "mkt": "+2700",
+    "ev": -2
    },
    "New Jersey Devils": {
     "sc": 3,
-    "idx": 70.1,
-    "fp": 3.7,
+    "idx": 70.2,
+    "fp": 3.6,
     "mkt": "+1000",
-    "ev": -59
-   },
-   "Boston Bruins": {
-    "sc": 3,
-    "idx": 61.5,
-    "fp": 2.4,
-    "mkt": "+3500",
-    "ev": -14
+    "ev": -60
    },
    "Vegas Golden Knights": {
     "sc": 3,
-    "idx": 60.6,
-    "fp": 5.8,
-    "mkt": "+1000",
-    "ev": -36
-   },
-   "Dallas Stars": {
-    "sc": 3,
-    "idx": 60.1,
-    "fp": 4.9,
-    "mkt": "+1600",
-    "ev": -17
+    "idx": 59.1,
+    "fp": 5.4,
+    "mkt": "+950",
+    "ev": -43
    },
    "Florida Panthers": {
     "sc": 3,
-    "idx": 58.6,
+    "idx": 58.7,
     "fp": 1.9,
-    "mkt": "+1000",
-    "ev": -79
+    "mkt": "+950",
+    "ev": -80
    },
    "Utah Mammoth": {
     "sc": 2,
     "idx": 56.6,
-    "fp": 3.2,
+    "fp": 2.9,
     "mkt": "+1500",
-    "ev": -49
+    "ev": -53
    },
    "New York Rangers": {
     "sc": 2,
-    "idx": 53.4,
+    "idx": 53.5,
     "fp": 1.1,
-    "mkt": "+6000",
-    "ev": -31
+    "mkt": "+5500",
+    "ev": -38
    },
    "Detroit Red Wings": {
     "sc": 2,
-    "idx": 46.6,
+    "idx": 46.7,
     "fp": 0.7,
-    "mkt": "+40000",
-    "ev": 175
+    "mkt": "+50000",
+    "ev": 236
    },
-   "Edmonton Oilers": {
-    "sc": 1,
-    "idx": 52.6,
-    "fp": 2.5,
-    "mkt": "+1000",
-    "ev": -72
+   "Columbus Blue Jackets": {
+    "sc": 2,
+    "idx": 39.1,
+    "fp": 0.4,
+    "mkt": "+15000",
+    "ev": -40
    },
    "Montreal Canadiens": {
     "sc": 1,
-    "idx": 52.1,
+    "idx": 52.2,
     "fp": 0.8,
     "mkt": null,
     "ev": null
    },
+   "Edmonton Oilers": {
+    "sc": 1,
+    "idx": 49.7,
+    "fp": 2.1,
+    "mkt": "+1000",
+    "ev": -77
+   },
    "New York Islanders": {
     "sc": 1,
-    "idx": 48.7,
-    "fp": 0.6,
-    "mkt": "+10000",
-    "ev": -44
+    "idx": 48.8,
+    "fp": 0.5,
+    "mkt": "+12500",
+    "ev": -32
    },
    "Nashville Predators": {
     "sc": 1,
     "idx": 48.1,
-    "fp": 1.1,
+    "fp": 1.0,
     "mkt": "+10000",
-    "ev": 8
+    "ev": -1
    },
    "Los Angeles Kings": {
     "sc": 1,
     "idx": 44.1,
-    "fp": 0.9,
-    "mkt": "+5500",
+    "fp": 0.8,
+    "mkt": "+6000",
     "ev": -52
    },
    "Buffalo Sabres": {
@@ -6249,31 +6256,31 @@
    },
    "Washington Capitals": {
     "sc": 1,
-    "idx": 41.7,
+    "idx": 41.6,
     "fp": 0.4,
     "mkt": "+2700",
     "ev": -89
    },
    "Pittsburgh Penguins": {
     "sc": 1,
-    "idx": 41.3,
+    "idx": 41.4,
     "fp": 0.4,
-    "mkt": "+20000",
-    "ev": -24
+    "mkt": "+25000",
+    "ev": -7
    },
-   "Columbus Blue Jackets": {
+   "Anaheim Ducks": {
     "sc": 1,
-    "idx": 39.0,
-    "fp": 0.3,
-    "mkt": "+20000",
-    "ev": -45
+    "idx": 37.8,
+    "fp": 0.6,
+    "mkt": "+10000",
+    "ev": -43
    },
    "Calgary Flames": {
     "sc": 1,
     "idx": 31.8,
-    "fp": 0.3,
-    "mkt": "+50000",
-    "ev": 36
+    "fp": 0.2,
+    "mkt": "+40000",
+    "ev": -1
    }
   }
  }
