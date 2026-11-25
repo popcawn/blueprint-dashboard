@@ -1289,7 +1289,9 @@ function cashArr(legs,S){ const a=new Uint8Array(COV_N), need=[];
    another ticket that needs the same team adds little where your other tickets already pay, and costs its stake in every season that
    team loses. Bankroll = SLIPS.bankroll: cash set aside for futures, not counting live stakes; logging a slip on the site takes its
    stake out, removing a live one puts it back. Unset = BL_BANK0, and the panel asks for it. */
-const BL_STEADY=14, BL_MINSTAKE=5, BL_BANK0=400, BL_MAXPICK=3, BL_STALE=2;   // BL_STALE = days before a price is called old
+// (2026-11-25, user: "you've only been giving 2 leg parlays ... I don't mind 2+") a 3-leg hits ~1 in 100, so its right stake is a
+// couple of dollars and the $5 minimum hid every one: 3+ legs show from BL_MINLONG.
+const BL_STEADY=14, BL_MINSTAKE=5, BL_MINLONG=2, BL_BANK0=400, BL_MAXPICK=3, BL_STALE=2;   // BL_STALE = days before a price is called old
 // how old a board's prices are, in days (screenshot date if it has one, else the build time)
 function pxAge(d){ let t=Date.parse(d.generated||""); if(d.market_asof){ const y=new Date().getFullYear(); let dt=new Date(`${d.market_asof} ${y} 12:00`);
     if(dt-Date.now()>864e5) dt=new Date(`${d.market_asof} ${y-1} 12:00`); if(!isNaN(dt)) t=+dt; }
@@ -1318,15 +1320,17 @@ function blendScan(){
   const live=SLIPS.slips.filter(s=>slipState(s)==="live");
   const S=covSim(new Set(Object.keys(SPORTS).filter(k=>DATA[k]&&DATA[k].teams)));
   // every 2- and 3-leg combination at one book, one team per league; each leg worth +10% on the board's odds at THAT book and still
-  // a positive edge on the haircut odds. A blend whose teams a live slip already has together is left out.
-  const own=live.map(s=>new Set(s.legs.map(L=>L.lg+"|"+L.team)));
+  // a positive edge on the haircut odds. Left out: a blend that is the same ticket as a live slip (same open teams). Until 2026-11-25
+  // any live slip holding the teams together blocked it, so one 7-leg lottery ticket hid every 2-leg made of its teams -- the Kelly
+  // test already prices that overlap (the short blend pays in far more seasons than the long ticket).
+  const own=live.map(s=>new Set(s.legs.filter(L=>legState(L)==="open").map(L=>L.lg+"|"+L.team)));
   const all=[], thin=[];
   for(const B of BL_BOOKS){ const L=[];
     for(const c of legs){ if(c.bk[B]==null) continue; const dec=_dec(c.bk[B]), q=S[c.sp]&&S[c.sp].pr[c.t.name]; if(c.p*dec-1<0.10) continue;
       if(!(q*dec-1>0)){ if(!thin.some(x=>x.sp===c.sp&&x.t===c.t)) thin.push(c); continue; }
       L.push({...c,a:c.bk[B],dec,q}); }
-    const add=g=>{ if(new Set(g.map(x=>x.sp)).size<g.length) return; if(own.some(o=>g.every(x=>o.has(x.sp+"|"+x.t.name)))) return;
-      all.push({book:B,legs:g,dec:g.reduce((m,x)=>m*x.dec,1),fresh:g.filter(x=>!x.held).length}); };
+    const add=g=>{ if(new Set(g.map(x=>x.sp)).size<g.length) return; if(own.some(o=>o.size===g.length&&g.every(x=>o.has(x.sp+"|"+x.t.name)))) return;
+      all.push({book:B,legs:g,dec:g.reduce((m,x)=>m*x.dec,1),fresh:g.filter(x=>!x.held).length,min:g.length>2?BL_MINLONG:BL_MINSTAKE}); };
     for(let i=0;i<L.length;i++) for(let j=i+1;j<L.length;j++){ add([L[i],L[j]]); for(let k=j+1;k<L.length;k++) add([L[i],L[j],L[k]]); } }
   const usable=new Set(all.flatMap(c=>c.legs.map(x=>x.sp+"|"+x.t.name)));
   const cur=new Uint8Array(COV_N), P=new Float64Array(COV_N), slipCh={};   // P = what your live slips pay in each simulated season
@@ -1347,12 +1351,12 @@ function blendScan(){
   while(pick.length<BL_MAXPICK&&W>BL_MINSTAKE){ let best=null;
     for(const c of all){ if(pick.includes(c)||c.ev<=0||pick.some(p=>same(p,c))) continue;   // not a picked blend plus/minus a team
       c.stake=Math.floor(kelly(c.cash,c.dec,W)/2); bestStake=Math.max(bestStake,c.stake);
-      if(c.stake<BL_MINSTAKE) continue;
+      if(c.stake<c.min) continue;
       c.gain=growth(c.cash,c.dec,c.stake,W)-growth(c.cash,c.dec,0,W);
       if(!best||c.gain>best.gain) best=c; }
     if(!best) break;
     // the shortest parlay price at which it is still a bet (half Kelly still BL_MINSTAKE): prices move between the board and the bet slip
-    { let lo=1/best.ch, hi=best.dec; for(let it=0;it<9;it++){ const m=(lo+hi)/2; if(Math.floor(kelly(best.cash,m,W)/2)>=BL_MINSTAKE) hi=m; else lo=m; } best.floor=hi; }
+    { let lo=1/best.ch, hi=best.dec; for(let it=0;it<9;it++){ const m=(lo+hi)/2; if(Math.floor(kelly(best.cash,m,W)/2)>=best.min) hi=m; else lo=m; } best.floor=hi; }
     best.cov={from:pct()}; for(let i=0;i<COV_N;i++) if(best.cash[i]){ cur[i]=1; P[i]+=best.stake*best.dec; } best.cov.to=pct();
     W-=best.stake; pick.push(best); }
   for(const c of all) delete c.cash;
@@ -1379,7 +1383,7 @@ function blendsHTML(){
     <div class="blcov">Something cashes <b>${covP(c.cov.from)} → ${covP(c.cov.to)}</b></div>
     ${c.age>BL_STALE?`<div class="blcov old">Prices are ${Math.round(c.age)} days old. Check them against the floor first.</div>`:""}
     <button class="btn sm bllog" onclick="logBlend(${i})">Placed it — log this bet</button></div>`; }).join("");
-  else h+=`<div class="blst"><b>Nothing to place</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestStake>0?`The best blend left is worth ${money(R.disc.bestStake)} of your ${money(R.disc.bank)} bankroll, under the ${money(BL_MINSTAKE)} minimum.`:"With the slips you already hold, no blend grows your bankroll."}</span></div>`;
+  else h+=`<div class="blst"><b>Nothing to place</b><span>${!R.legs.length?"No steady value play on an open board right now.":R.disc.bestStake>0?`The best blend left is worth ${money(R.disc.bestStake)} of your ${money(R.disc.bank)} bankroll, under the minimum (${money(BL_MINSTAKE)}, or ${money(BL_MINLONG)} for 3 legs).`:"With the slips you already hold, no blend grows your bankroll."}</span></div>`;
   const W=[...R.thin.map(c=>`${esc(blNm(c.sp,c.t.name))} (${SPORTS[c.sp]}) · value ${fmtEV(c.t.ev)} on the board, but no edge once the book's price is weighed in${BL_TRUST[c.sp]!=null&&BL_TRUST[c.sp]<BL_TRUST0?` (this board has lost to real prices)`:""}`),
     ...R.unsteady.map(u=>`${esc(blNm(u.sp,u.t.name))} (${SPORTS[u.sp]}) · value ${fmtEV(u.t.ev)} today, but ${u.sd.n<4?`only ${u.sd.n} board${u.sd.n===1?"":"s"} this season so far (needs 4 to judge steadiness)`:`top 3 on only ${u.sd.k} of the last ${u.sd.n} boards`}. Wait for it to hold.`),
     ...R.watch.map(w=>`${esc(blNm(w.sp,w.t.name))} (${SPORTS[w.sp]})${w.sd&&w.sd.ok?` · steady (top 3 on ${w.sd.k} of ${w.sd.n} boards)`:""} · value at ${fmtA(w.need)} or longer${w.t.market?` (now ${w.t.market})`:""}`),
