@@ -1,7 +1,7 @@
 {
   "sport": "URC",
   "season": "2026-27",
-  "generated": "2026-11-25T19:50:17Z",
+  "generated": "2026-11-25T20:43:29Z",
   "cats": [
     "Percentage (PF/PA) \u2265 124.9",
     "Points for/game top-7",
@@ -41,16 +41,20 @@
       "rtg": 12.96,
       "reg": "IRE",
       "pos": 6,
-      "minor_pct": 56.5,
+      "minor_pct": 56.4,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 52.9,
-      "fair_odds": "-112",
+      "fair_pct": 53.8,
+      "fair_odds": "-116",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 150,
+      "market": "+150",
+      "ev": 35,
+      "verdict": {
+        "kind": "best",
+        "label": "BEST VALUE",
+        "ev": 35
+      }
     },
     {
       "name": "Bulls",
@@ -76,16 +80,20 @@
       "rtg": 11.14,
       "reg": "RSA",
       "pos": 2,
-      "minor_pct": 24.8,
+      "minor_pct": 24.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 26.4,
-      "fair_odds": "+279",
+      "fair_pct": 25.4,
+      "fair_odds": "+293",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 300,
+      "market": "+300",
+      "ev": 2,
+      "verdict": {
+        "kind": "fair",
+        "label": "\u2248 fair",
+        "ev": 2
+      }
     },
     {
       "name": "Stormers",
@@ -111,16 +119,20 @@
       "rtg": 8.56,
       "reg": "RSA",
       "pos": 3,
-      "minor_pct": 9.1,
+      "minor_pct": 9.5,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 11.6,
-      "fair_odds": "+764",
+      "fair_odds": "+762",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 400,
+      "market": "+400",
+      "ev": -42,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -42
+      }
     },
     {
       "name": "Glasgow Warriors",
@@ -146,16 +158,20 @@
       "rtg": 4.52,
       "reg": "SCO",
       "pos": 1,
-      "minor_pct": 5.7,
+      "minor_pct": 6.1,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 5.0,
-      "fair_odds": "+1918",
+      "fair_pct": 4.7,
+      "fair_odds": "+2010",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 400,
+      "market": "+400",
+      "ev": -76,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -76
+      }
     },
     {
       "name": "Sharks",
@@ -181,86 +197,20 @@
       "rtg": 5.27,
       "reg": "RSA",
       "pos": 4,
-      "minor_pct": 3.7,
+      "minor_pct": 3.8,
       "premier": false,
       "bet_ok": true,
-      "fair_pct": 3.9,
-      "fair_odds": "+2471",
+      "fair_pct": 4.1,
+      "fair_odds": "+2360",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Edinburgh",
-      "conf": "5th",
-      "rec": "4-1 \u00b7 19 pts \u00b7 +28",
-      "gp": 5,
-      "score": 3,
-      "q": [
-        true,
-        false,
-        true,
-        false,
-        true
-      ],
-      "vals": [
-        "129.5 #6",
-        "24.60 #8",
-        "19.00 #2",
-        "+5.6 #6",
-        "0.667 #2"
-      ],
-      "index": 48.5,
-      "rtg": -1.28,
-      "reg": "SCO",
-      "pos": 5,
-      "minor_pct": 0.1,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.1,
-      "fair_odds": "+50000+",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Ulster",
-      "conf": "15th",
-      "rec": "0-3-2 \u00b7 9 pts \u00b7 -39",
-      "gp": 5,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "75.6 #12",
-        "24.20 #9",
-        "32.00 #12",
-        "-7.8 #12",
-        "0.167 #12"
-      ],
-      "index": 55.5,
-      "rtg": 0.66,
-      "reg": "IRE",
-      "pos": 15,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": 0.1,
-      "fair_odds": "+50000+",
-      "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 1400,
+      "market": "+1400",
+      "ev": -39,
+      "verdict": {
+        "kind": "fade",
+        "label": "fade",
+        "ev": -39
+      }
     },
     {
       "name": "Munster",
@@ -292,15 +242,58 @@
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 3500,
+      "market": "+3500",
+      "ev": -96,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -96
+      }
     },
     {
-      "name": "Lions",
-      "conf": "13th",
-      "rec": "2-3 \u00b7 9 pts \u00b7 -55",
+      "name": "Edinburgh",
+      "conf": "5th",
+      "rec": "4-1 \u00b7 19 pts \u00b7 +28",
+      "gp": 5,
+      "score": 3,
+      "q": [
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "vals": [
+        "129.5 #6",
+        "24.60 #8",
+        "19.00 #2",
+        "+5.6 #6",
+        "0.667 #2"
+      ],
+      "index": 48.5,
+      "rtg": -1.28,
+      "reg": "SCO",
+      "pos": 5,
+      "minor_pct": 0.1,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.1,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": 4000,
+      "market": "+4000",
+      "ev": -96,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -96
+      }
+    },
+    {
+      "name": "Ulster",
+      "conf": "15th",
+      "rec": "0-3-2 \u00b7 9 pts \u00b7 -39",
       "gp": 5,
       "score": 0,
       "q": [
@@ -311,26 +304,30 @@
         false
       ],
       "vals": [
-        "66.0 #15",
-        "21.40 #14",
-        "32.40 #14",
-        "-11.0 #14",
-        "0.000 #13"
+        "75.6 #12",
+        "24.20 #9",
+        "32.00 #12",
+        "-7.8 #12",
+        "0.167 #12"
       ],
-      "index": 52,
-      "rtg": -0.3,
-      "reg": "RSA",
-      "pos": 13,
-      "minor_pct": null,
+      "index": 55.5,
+      "rtg": 0.66,
+      "reg": "IRE",
+      "pos": 15,
+      "minor_pct": 0.0,
       "premier": false,
       "bet_ok": true,
       "fair_pct": 0.1,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 4000,
+      "market": "+4000",
+      "ev": -98,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -98
+      }
     },
     {
       "name": "Cardiff Blues",
@@ -362,10 +359,14 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 20000,
+      "market": "+20000",
+      "ev": -92,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -92
+      }
     },
     {
       "name": "Connacht",
@@ -397,10 +398,92 @@
       "fair_pct": 0.0,
       "fair_odds": "+50000+",
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
+      "mk": 12000,
+      "market": "+12000",
+      "ev": -98,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -98
+      }
+    },
+    {
+      "name": "Lions",
+      "conf": "13th",
+      "rec": "2-3 \u00b7 9 pts \u00b7 -55",
+      "gp": 5,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "66.0 #15",
+        "21.40 #14",
+        "32.40 #14",
+        "-11.0 #14",
+        "0.000 #13"
+      ],
+      "index": 52,
+      "rtg": -0.3,
+      "reg": "RSA",
+      "pos": 13,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": 6500,
+      "market": "+6500",
+      "ev": -99,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -99
+      }
+    },
+    {
+      "name": "Ospreys",
+      "conf": "9th",
+      "rec": "2-3 \u00b7 11 pts \u00b7 -35",
+      "gp": 5,
+      "score": 0,
+      "q": [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "vals": [
+        "76.2 #11",
+        "22.40 #12",
+        "29.40 #11",
+        "-7.0 #11",
+        "0.333 #8"
+      ],
+      "index": 35.8,
+      "rtg": -4.77,
+      "reg": "WAL",
+      "pos": 9,
+      "minor_pct": null,
+      "premier": false,
+      "bet_ok": true,
+      "fair_pct": 0.0,
+      "fair_odds": "+50000+",
+      "read": null,
+      "mk": 25000,
+      "market": "+25000",
+      "ev": -99,
+      "verdict": {
+        "kind": "bigfade",
+        "label": "big fade",
+        "ev": -99
+      }
     },
     {
       "name": "Scarlets",
@@ -432,8 +515,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 35000,
+      "market": "+35000",
       "ev": null,
       "verdict": null
     },
@@ -467,43 +550,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
-      "ev": null,
-      "verdict": null
-    },
-    {
-      "name": "Ospreys",
-      "conf": "9th",
-      "rec": "2-3 \u00b7 11 pts \u00b7 -35",
-      "gp": 5,
-      "score": 0,
-      "q": [
-        false,
-        false,
-        false,
-        false,
-        false
-      ],
-      "vals": [
-        "76.2 #11",
-        "22.40 #12",
-        "29.40 #11",
-        "-7.0 #11",
-        "0.333 #8"
-      ],
-      "index": 35.8,
-      "rtg": -4.77,
-      "reg": "WAL",
-      "pos": 9,
-      "minor_pct": null,
-      "premier": false,
-      "bet_ok": true,
-      "fair_pct": null,
-      "fair_odds": null,
-      "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 50000,
+      "market": "+50000",
       "ev": null,
       "verdict": null
     },
@@ -537,8 +585,8 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 35000,
+      "market": "+35000",
       "ev": null,
       "verdict": null
     },
@@ -572,15 +620,15 @@
       "fair_pct": null,
       "fair_odds": null,
       "read": null,
-      "mk": null,
-      "market": null,
+      "mk": 100000,
+      "market": "+100000",
       "ev": null,
       "verdict": null
     }
   ],
   "odds_remaining": null,
   "market_name": "DraftKings",
-  "market_asof": null,
+  "market_asof": "Nov 25",
   "stage": "regular",
   "window_closed": false,
   "profile_season": 2027,
@@ -594,7 +642,7 @@
   "sig": 12,
   "prediction": {
     "pick": "Leinster",
-    "why": "<b>Leinster</b> is the model's #1: 52.9% to win the URC title (fair -112). 104 regular-season games left are simulated, then the play-offs (20,000 runs). Bet window open until the first final."
+    "why": "<b>Leinster</b> is the model's #1: 53.8% to win the URC title (fair -116). 104 regular-season games left are simulated, then the play-offs (20,000 runs). Bet window open until the first final."
   },
   "season_pct": 28,
   "gp_min": 5,
@@ -610,5 +658,12 @@
     "label": "Firming up",
     "note": "5 games in \u2014 directional, but records still carry schedule noise. Lean on point differential."
   },
-  "value_plays": []
+  "value_plays": [
+    {
+      "name": "Leinster",
+      "ev": 35,
+      "market": "+150",
+      "fair_odds": "-116"
+    }
+  ]
 }

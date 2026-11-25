@@ -1,6 +1,7 @@
 {
  "about": "Every title price the urc board has seen, per book. One entry per change: from/to = the first and last build that showed these prices (UTC); asof = the date on a pasted screenshot; odds = American. Entries with src 'history' were rebuilt from the board's saved snapshots (best price only). Written by scripts/build.py log_prices; never trimmed.",
  "log": [
-  {"book":"DraftKings","from":"2026-11-24T20:24:32Z","to":"2026-11-24T20:24:32Z","asof":"Nov 24","odds":{"Leinster":150,"Bulls":300,"Stormers":400,"Glasgow Warriors":400,"Sharks":1400,"Edinburgh":4000,"Ulster":4000,"Munster":3500,"Lions":6500,"Cardiff Blues":20000,"Connacht":12000,"Ospreys":25000,"Scarlets":35000,"Dragons":50000,"Benetton Treviso":35000,"Zebre":100000}}
+  {"book":"DraftKings","from":"2026-11-24T20:24:32Z","to":"2026-11-24T20:24:32Z","asof":"Nov 24","odds":{"Leinster":150,"Bulls":300,"Stormers":400,"Glasgow Warriors":400,"Sharks":1400,"Edinburgh":4000,"Ulster":4000,"Munster":3500,"Lions":6500,"Cardiff Blues":20000,"Connacht":12000,"Ospreys":25000,"Scarlets":35000,"Dragons":50000,"Benetton Treviso":35000,"Zebre":100000}},
+  {"book":"DraftKings","from":"2026-11-25T20:43:29Z","to":"2026-11-25T20:43:29Z","asof":"Nov 25","odds":{"Leinster":150,"Bulls":300,"Stormers":400,"Glasgow Warriors":400,"Sharks":1400,"Munster":3500,"Edinburgh":4000,"Ulster":4000,"Cardiff Blues":20000,"Connacht":12000,"Lions":6500,"Ospreys":25000,"Scarlets":35000,"Dragons":50000,"Benetton Treviso":35000,"Zebre":100000}}
  ]
 }
