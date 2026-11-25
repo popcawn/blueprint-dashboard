@@ -1,0 +1,34 @@
+{
+ "books": {
+  "DraftKings": {
+   "date": "2026-11-25",
+   "odds": {
+    "South Carolina Gamecocks": 220,
+    "Texas Longhorns": 1000,
+    "Michigan Wolverines": 2000,
+    "LSU Tigers": 1900,
+    "Illinois Fighting Illini": 12000,
+    "UCLA Bruins": 2600,
+    "Duke Blue Devils": 1800,
+    "USC Trojans": 450,
+    "Kentucky Wildcats": 6000,
+    "Oklahoma Sooners": 10000
+   }
+  }
+ },
+ "date": "2026-11-25",
+ "book": "DraftKings",
+ "source": "user screenshots, saved from the site (WCBB board)",
+ "odds": {
+  "South Carolina Gamecocks": 220,
+  "Texas Longhorns": 1000,
+  "Michigan Wolverines": 2000,
+  "LSU Tigers": 1900,
+  "Illinois Fighting Illini": 12000,
+  "UCLA Bruins": 2600,
+  "Duke Blue Devils": 1800,
+  "USC Trojans": 450,
+  "Kentucky Wildcats": 6000,
+  "Oklahoma Sooners": 10000
+ }
+}
