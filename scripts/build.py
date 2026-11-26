@@ -2955,6 +2955,27 @@ def build_swissnl(): return build_footy("swissnl")
 def build_cbb(): return build_college_bb("cbb")
 def build_wcbb(): return build_college_bb("wcbb")
 
+def board_aliases(name):
+    """(2026-11-26, user: "for some teams it doesn't match completely ... fixing that bug") The sportsbook nicknames the site's price box
+       matches with, put on the board as data["alias"] = {book name: board team}: this board's FOOTY alias list (the one the builder
+       matches with -- the box used to have only its own shorter list, so "Canes", "Saders", "Zurich", "Geneva" never matched) plus every
+       name the user tied to a team by hand in the box. Those come in the saved price file's "alias" and are kept for good in
+       data/aliases.json, because the workflow deletes the price file after the build."""
+    pp = os.path.join(DATA, "aliases.json")
+    try: learned = json.load(open(pp, encoding="utf-8"))
+    except Exception: learned = {}
+    mine, changed = dict(learned.get(name) or {}), False
+    for f in {PASTED_FILE.get(name), f"{name}_dk.json"} - {None}:
+        try: raw = json.load(open(os.path.join(DATA, f), encoding="utf-8"))
+        except Exception: continue
+        for k, v in (raw.get("alias") or {}).items():
+            if isinstance(k, str) and isinstance(v, str) and k.strip() and v.strip() and mine.get(k) != v: mine[k] = v; changed = True
+    if changed:
+        NL = chr(10)
+        learned[name] = dict(sorted(mine.items()))
+        with open(pp, "w", encoding="utf-8", newline=NL) as fh: json.dump(dict(sorted(learned.items())), fh, indent=1, ensure_ascii=False); fh.write(NL)
+    return {**((FOOTY.get(name) or {}).get("alias") or {}), **mine}
+
 def main():
     os.makedirs(DATA, exist_ok=True)
     built = {}
@@ -2998,6 +3019,8 @@ def main():
                 data["value_plays"] = value_plays(data.get("teams", []), len(data.get("cats", [])) or 4, name)
                 crown_best_value(data.get("teams", []), data["value_plays"])
                 if name not in ("cbb", "wcbb", "mls", "fcs", "chk", "cfl", "nwsl", "afl", "nrl", "superleague", "euroleague", "nbl", "aleague", "liiga", "ligamx", "superrugby", "urc", "ahl", "swissnl") and not data.get("window_closed"): attach_beat_reads(name, data)   # (2026-11-08) never on a frozen board (WNBA/MLB after their playoffs start, now built daily): the reads would cost LLM calls all offseason and overwrite the result banner   # LLM beat-reporter reads (no-op without ANTHROPIC_API_KEY); CBB has no reads
+            try: data["alias"] = board_aliases(name)
+            except Exception as e: print(f"  {name}: aliases skipped: {e}", file=sys.stderr)
             with open(os.path.join(DATA, f"{name}.json"), "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2)
             log_history(name, data)

@@ -102,6 +102,7 @@
   .pprow select{background:var(--panel2);border:1px solid var(--line2);border-radius:9px;color:var(--ink);padding:7px 9px;font-size:13px}
   .ppstat{font-size:12px;color:var(--ink2);min-height:16px;line-height:1.45}
   .ppcheck{font-size:12px;color:var(--ink2);margin-bottom:10px;line-height:1.5}
+  .ppfix{margin-top:6px} .ppfix>div{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:4px} .ppfix select{font:inherit;font-size:12px;max-width:100%}
   .ppcheck .g{color:var(--good)} .ppcheck .r,.ppstat .r{color:var(--bad)} .ppcheck .w{color:var(--warn)} .ppcheck .sub{color:var(--ink3)}
   .ppgrid{display:grid;grid-template-columns:1fr;gap:8px} .ppgrid:has(img:not([hidden])){grid-template-columns:1fr 1fr}
   .ppimgwrap{max-height:260px;overflow:auto;border-radius:9px} .ppimgwrap img{width:100%;display:block;margin:8px 0}
@@ -833,10 +834,20 @@ const _ALIAS={"los angeles":"lafc","la fc":"lafc","minnesota utd":"minnesota uni
 // to its own file; build.py (second_book) adds those prices beside FanDuel's and the board uses the better one. PPMODE = which file the box edits.
 const DK_FILES={nhl:"data/nhl_dk.json",nba:"data/nba_dk.json",cbb:"data/cbb_dk.json"}; let PPMODE="main";
 const ppPath=()=>PPMODE==="dk"?DK_FILES[cur]:PRICE_FILES[cur];
-function matchTeam(raw,teams,strict){
-  let n=_nrm(raw); if(!n||n.length<3) return null; n=_ALIAS[n]||n;
+// (2026-11-26, user: "for some teams it doesn't match completely ... fixing that bug") each board's nickname list: the one build.py
+// matches with (FOOTY alias, exported as DATA[sp].alias) + every name the user has tied to a team by hand (the "pick team" menu under
+// the box; kept in this browser AND saved with the prices, so the bot adds it to data/aliases.json and every device learns it)
+const _LEARN_KEY="bp_alias";
+function learnedAl(){ try{ return JSON.parse(localStorage.getItem(_LEARN_KEY)||"{}")||{}; }catch(e){ return {}; } }
+function boardAl(sp){ const o={}, put=m=>{ for(const [k,v] of Object.entries(m||{})) if(k&&v) o[_nrm(k)]=v; };
+  put(DATA[sp]&&DATA[sp].alias); put(learnedAl()[sp]); return o; }
+function matchTeam(raw,teams,strict,sp){
+  let n=_nrm(raw); if(!n||n.length<3) return null;
   const T=teams.map(t=>({t,m:_nrm(t.name)}));
-  let hit=T.filter(x=>x.m===n); if(hit.length===1) return hit[0].t;
+  let hit=T.filter(x=>x.m===n); if(hit.length===1) return hit[0].t;   // the board's own name wins over any nickname
+  const al=sp?boardAl(sp)[n]:null; if(al){ const m=_nrm(al), h=T.filter(x=>x.m===m||x.t.name===al); if(h.length===1) return h[0].t; n=m; }
+  else n=_ALIAS[n]||n;
+  hit=T.filter(x=>x.m===n); if(hit.length===1) return hit[0].t;
   if(n.length>=5){ hit=T.filter(x=>x.m.startsWith(n)||(!strict&&x.m.length>=5&&n.startsWith(x.m))); if(hit.length===1) return hit[0].t; }
   const nick=n.split(" ").pop();   // books often abbreviate the city ("MTL Alouettes", "EDM Elks"): a nickname only one team has is enough
   if(nick.length>=4){ hit=T.filter(x=>x.m.split(" ").pop()===nick); if(hit.length===1) return hit[0].t; }
@@ -848,21 +859,34 @@ function matchTeam(raw,teams,strict){
 function _parseOdds(s){ s=String(s).trim().replace(/[−–—~]/g,"-").replace(/\?$/,""); if(/^ev(en)?$/i.test(s)) return 100;
   const m=s.match(/^([+-]?)(\d{3,6})$/); if(!m) return null; const v=+m[2]; return m[1]==="-"?-v:v; }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
-function parsePP(text,teams){ const out=[],bad=[],seen=new Set(), ODDLINE=/^([+\-−–—]?\d{3,6}\??|even|ev)$/i, ENDODD=/[+\-−–—]?\d{3,6}\??\s*$/, L=[];
+function parsePP(text,teams){ const out=[],bad=[],unk=[],seen=new Set(), ODDLINE=/^([+\-−–—]?\d{3,6}\??|even|ev)$/i, ENDODD=/[+\-−–—]?\d{3,6}\??\s*$/, L=[];
   for(const raw of String(text).split(/\n/)){ const l=raw.trim(); if(!l) continue;   // "Team" then "+350" on the next line -> one line
     if(ODDLINE.test(l)&&L.length&&!ODDLINE.test(L[L.length-1])&&!ENDODD.test(L[L.length-1])) L[L.length-1]+=" "+l; else L.push(l); }
   for(const line of L){ const l=line.trim(); if(!l||l.startsWith("#")) continue;
     const m=l.match(/^(.*?)[\s:=,|]+([+\-−–—]?\d{3,6}\??|even|ev)\s*$/i); if(!m){bad.push(l);continue;}
-    const t=matchTeam(m[1],teams), o=_parseOdds(m[2]);
+    const t=matchTeam(m[1],teams,false,cur), o=_parseOdds(m[2]);
+    if(!t&&o!=null&&Math.abs(o)>=100){ unk.push({line:l,raw:m[1].trim(),odds:o}); continue; }
     if(!t||o==null||Math.abs(o)<100){bad.push(l);continue;}
     if(seen.has(t.name)) continue; seen.add(t.name);
     out.push({name:t.name,odds:o,guess:/\?$/.test(m[2])}); }
-  return {out,bad}; }
+  return {out,bad,unk}; }
+// a hand pick: remember "book name -> team" for this board (this browser now, every device after the save), then rewrite the line
+function ppFix(i,name){ const u=PPUNK[i]; if(!u||!name) return; const ta=document.getElementById("pptxt");
+  if(name!=="-"){ const L=learnedAl(); (L[cur]=L[cur]||{})[_nrm(u.raw)]=name; try{ localStorage.setItem(_LEARN_KEY,JSON.stringify(L)); }catch(e){}
+    PPLEARN[_nrm(u.raw)]=name; }
+  const lines=ta.value.split(String.fromCharCode(10)), k=lines.findIndex(l=>l.trim()===u.line||l.includes(u.raw));
+  const nl=name==="-"?`# ${u.line}`:`${name}: ${u.odds>0?"+":""}${u.odds}`;
+  if(k>=0) lines[k]=nl; else lines.push(nl);
+  ta.value=lines.join(String.fromCharCode(10)); checkPP(); }
 function ppTeams(){ return (DATA[cur]&&DATA[cur].teams)||[]; }
-function checkPP(){ const {out,bad}=parsePP(document.getElementById("pptxt").value,ppTeams()), g=out.filter(x=>x.guess).map(x=>x.name);
+let PPLEARN={}, PPUNK=[];   // names tied to a team by hand in this box (saved with the prices) · the lines waiting for a pick
+function checkPP(){ const {out,bad,unk}=parsePP(document.getElementById("pptxt").value,ppTeams()), g=out.filter(x=>x.guess).map(x=>x.name);
+  PPUNK=unk; const have=new Set(out.map(x=>x.name)), left=ppTeams().filter(t=>!have.has(t.name)).sort((a,b)=>a.name.localeCompare(b.name));
+  const fix=unk.length?`<div class="ppfix"><b class="w">? ${unk.length} name${unk.length===1?"":"s"} not on this board yet — pick the team once and the site remembers it:</b>`
+    +unk.map((u,i)=>`<div><span>${esc(u.raw)} <b>${u.odds>0?"+":""}${u.odds}</b> →</span> <select onchange="ppFix(${i},this.value)"><option value="">pick team…</option>${left.map(t=>`<option>${esc(t.name)}</option>`).join("")}<option value="-">not on this board (skip)</option></select></div>`).join("")+`</div>`:"";
   document.getElementById("ppcheck").innerHTML=`<b class="g">✓ ${out.length} price${out.length===1?"":"s"} matched to this board</b>`
     +(bad.length?` · <b class="r">✗ ${bad.length} line${bad.length===1?"":"s"} not understood</b> <span class="sub">(${bad.slice(0,4).map(esc).join(" · ")}${bad.length>4?" …":""})</span>`:"")
-    +(g.length?`<br><b class="w">⚠ plus/minus sign guessed — check:</b> ${g.map(esc).join(", ")}`:"")+ppDiff(out);
+    +(g.length?`<br><b class="w">⚠ plus/minus sign guessed — check:</b> ${g.map(esc).join(", ")}`:"")+fix+ppDiff(out);
   document.getElementById("ppsave").disabled=!out.length; return out; }
 // safety net (added after a misread save dropped Nashville and put its +340 on Vancouver): compare with the prices the board
 // has now -- a team that would LOSE its price, or a price that moved a lot, is listed for a second look before saving
@@ -872,7 +896,7 @@ function ppDiff(out){ const now=new Map(ppTeams().filter(t=>t.market).map(t=>[t.
   const moved=out.filter(x=>now.has(x.name)&&Math.abs(imp(x.odds)-imp(now.get(x.name)))>(dk?0.4:0.2)*imp(now.get(x.name))).map(x=>`${x.name} ${f(now.get(x.name))} → ${f(x.odds)}`);
   return (gone.length?`<br><b class="w">⚠ missing from your list (they'd lose their price):</b> ${gone.slice(0,6).map(esc).join(", ")}${gone.length>6?` +${gone.length-6} more`:""}`:"")
     +(moved.length?`<br><b class="w">⚠ ${PPMODE==="dk"?"far from the board's current price":"big moves vs the board now"} — double-check:</b> ${moved.slice(0,6).map(esc).join(" · ")}${moved.length>6?" …":""}`:""); }
-function openPP(mode){ const d=DATA[cur]; PPMODE=mode==="dk"?"dk":"main"; if(!d||!ppPath()) return;
+function openPP(mode){ const d=DATA[cur]; PPMODE=mode==="dk"?"dk":"main"; if(!d||!ppPath()) return; PPLEARN={};
   const dk=PPMODE==="dk", bk=document.getElementById("ppbook");
   document.getElementById("pptitle").textContent=dk?`Add DraftKings prices — ${d.sport}`:`Update ${d.sport} prices`;
   bk.value=dk?"DraftKings":d.market_name==="FanDuel"?"FanDuel":"DraftKings"; bk.disabled=dk;   // this slot is DraftKings only: FanDuel comes from the odds feed
@@ -1073,7 +1097,7 @@ async function ocrPrices(file,teamsOverride){ const st=document.getElementById("
       while(i<W.length){ if(isOdd(W[i].t)){ i++; continue; }
         let got=null;
         for(let k=Math.min(4,W.length-i);k>=1;k--){ const seg=W.slice(i,i+k); if(seg.some(w=>isOdd(w.t))) continue;
-          const t=matchTeam(seg.map(w=>w.t).join(" "),teams,true);
+          const t=matchTeam(seg.map(w=>w.t).join(" "),teams,true,teamsOverride?null:cur);
           if(t){ got={t,k,x0:Math.min(...seg.map(w=>w.x0)),x1:Math.max(...seg.map(w=>w.x1)),y0:Math.min(...seg.map(w=>w.y0)),y1:Math.max(...seg.map(w=>w.y1))}; break; } }
         if(got){ if(!names.some(n=>n.t===got.t||ov(n,got))) names.push(got); i+=got.k; } else i++; }
       for(const w of W) if(isOdd(w.t)&&!odds.some(o=>ov(o,w))) odds.push({...w,t:clean(w.t)}); }
@@ -1112,11 +1136,13 @@ async function savePrices(){ const d=DATA[cur], path=ppPath(), st=document.getEl
     else if(d.market_asof&&d.market_name&&!d.market_name.includes("/")){ const y=new Date().getFullYear(); let dt=new Date(`${d.market_asof} ${y} 12:00`); if(dt-Date.now()>864e5) dt=new Date(`${d.market_asof} ${y-1} 12:00`);
       const m={}; teams.forEach(t=>{ if(t.market) m[t.name]=_parseOdds(t.market); }); if(!isNaN(dt)&&Object.keys(m).length) o[d.market_name]={date:dt.toLocaleDateString("en-CA"),odds:m}; }
     return o; };
-  const mkBody=prev=>{ if(!multi) return {date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds};
+  const learned=Object.keys(PPLEARN).length?{alias:{...PPLEARN}}:{};   // names tied to a team by hand -> build.py adds them to data/aliases.json
+  const mkBody0=prev=>{ if(!multi) return {date:today,book,source:`user screenshot, saved from the site (${d.sport} board)`,odds};
     const books={}; for(const [b,e] of Object.entries(prev||{})) if(b!==book&&e&&e.odds&&okDate(String(e.date).slice(0,10))) books[b]={date:String(e.date).slice(0,10),odds:e.odds};
     books[book]={date:today,odds};
     const all={}; for(const e of Object.values(books)) for(const [n,p] of Object.entries(e.odds)) if(all[n]==null||_dec(p)>_dec(all[n])) all[n]=p;
     return {books,date:Object.values(books).map(e=>e.date).sort().pop(),book:Object.keys(books).join(" / "),source:`user screenshots, saved from the site (${d.sport} board)`,odds:all}; };
+  const mkBody=prev=>({...mkBody0(prev),...learned});
   const url=`https://api.github.com/repos/${REPO}/contents/${path}`, H={Authorization:`Bearer ${tok()}`,Accept:"application/vnd.github+json"};
   const btn=document.getElementById("ppsave"); btn.disabled=true; st.textContent="saving…";
   try{ for(let attempt=0;attempt<2;attempt++){
@@ -1130,7 +1156,7 @@ async function savePrices(){ const d=DATA[cur], path=ppPath(), st=document.getEl
       const content=btoa(unescape(encodeURIComponent(JSON.stringify(body,null,1)+"\n")));
       const r=await fetch(url,{method:"PUT",headers:{...H,"Content-Type":"application/json"},
         body:JSON.stringify({message:`prices: ${d.sport} ${book} screenshot ${today} (saved from the site${body.books&&Object.keys(body.books).length>1?"; kept "+Object.keys(body.books).filter(b=>b!==book).join(", "):""})`,content,sha,branch:"main"})});
-      if(r.ok){ closePP(); runBlueprint([cur],"rfmsg"); return; }
+      if(r.ok){ PPLEARN={}; closePP(); runBlueprint([cur],"rfmsg"); return; }
       if(r.status===409&&attempt===0) continue;   // the bot committed in between -- refetch the file's sha once
       if(r.status===401||r.status===403||r.status===404){ let gm=""; try{ gm=(await r.json()).message||""; }catch(e){}
         const classic=/^ghp_/.test(tok()), sc=r.headers.get("x-oauth-scopes");
