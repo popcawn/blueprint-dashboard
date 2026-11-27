@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T19:48:33.552Z",
+ "updated": "2026-11-27T22:52:33.000Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -592,7 +592,36 @@
      "team": "Sydney Kings"
     }
    ]
+  },
+  {
+   "id": "s28",
+   "book": "DraftKings",
+   "stake": 5,
+   "pays": 5654.5,
+   "added": "2026-11-27",
+   "legs": [
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    },
+    {
+     "lg": "cfb",
+     "team": "Georgia Bulldogs"
+    },
+    {
+     "lg": "nbl",
+     "team": "Sydney Kings"
+    },
+    {
+     "lg": "mls",
+     "team": "Vancouver Whitecaps"
+    },
+    {
+     "lg": "nhl",
+     "team": "Carolina Hurricanes"
+    }
+   ]
   }
  ],
- "bankroll": 734.84
+ "bankroll": 729.84
 }
