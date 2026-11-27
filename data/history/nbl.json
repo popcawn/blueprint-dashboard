@@ -921,5 +921,82 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-27",
+  "gp": 17,
+  "mx": 3,
+  "teams": {
+   "Sydney Kings": {
+    "sc": 3,
+    "idx": 91.1,
+    "fp": 58.0,
+    "mkt": "+250",
+    "ev": 103
+   },
+   "Melbourne United": {
+    "sc": 0,
+    "idx": 73,
+    "fp": 24.6,
+    "mkt": "+300",
+    "ev": -2
+   },
+   "Tasmania JackJumpers": {
+    "sc": 3,
+    "idx": 90.4,
+    "fp": 10.4,
+    "mkt": "+350",
+    "ev": -53
+   },
+   "Adelaide 36ers": {
+    "sc": 0,
+    "idx": 46.6,
+    "fp": 3.8,
+    "mkt": "+470",
+    "ev": -79
+   },
+   "South East Melbourne Phoenix": {
+    "sc": 0,
+    "idx": 20,
+    "fp": 2.0,
+    "mkt": "+2700",
+    "ev": -45
+   },
+   "Perth Wildcats": {
+    "sc": 0,
+    "idx": 51.7,
+    "fp": 0.9,
+    "mkt": "+1900",
+    "ev": -82
+   },
+   "New Zealand Breakers": {
+    "sc": 0,
+    "idx": 26.3,
+    "fp": 0.3,
+    "mkt": "+5000",
+    "ev": -86
+   },
+   "Cairns Taipans": {
+    "sc": 0,
+    "idx": 65.8,
+    "fp": 0.1,
+    "mkt": "+1100",
+    "ev": -98
+   },
+   "Illawarra Hawks": {
+    "sc": 0,
+    "idx": 9.2,
+    "fp": 0.0,
+    "mkt": "+4500",
+    "ev": -99
+   },
+   "Brisbane Bullets": {
+    "sc": 0,
+    "idx": 36.7,
+    "fp": 0.0,
+    "mkt": "+2700",
+    "ev": -100
+   }
+  }
  }
 ]
