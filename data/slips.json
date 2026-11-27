@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T13:08:05.839Z",
+ "updated": "2026-11-27T19:48:33.552Z",
  "note": "Open futures parlays for the Blends panel. No bet IDs (public repo). Leg 'res' is set only when known; otherwise the board decides (champion = won, eliminated = lost).",
  "slips": [
   {
@@ -575,7 +575,24 @@
      "team": "Grand Rapids Griffins"
     }
    ]
+  },
+  {
+   "id": "s27",
+   "book": "FanDuel",
+   "stake": 40,
+   "pays": 742,
+   "added": "2026-11-27",
+   "legs": [
+    {
+     "lg": "nfl",
+     "team": "San Francisco 49ers"
+    },
+    {
+     "lg": "nbl",
+     "team": "Sydney Kings"
+    }
+   ]
   }
  ],
- "bankroll": 774.84
+ "bankroll": 734.84
 }
