@@ -3482,5 +3482,124 @@
     "ev": null
    }
   }
+ },
+ {
+  "date": "2026-11-27",
+  "gp": 12,
+  "mx": 5,
+  "teams": {
+   "Montana State": {
+    "sc": 5,
+    "idx": 89.9,
+    "fp": 30.9,
+    "mkt": "+240",
+    "ev": 5
+   },
+   "Tarleton State": {
+    "sc": 5,
+    "idx": 78.2,
+    "fp": 3.8,
+    "mkt": "+1100",
+    "ev": -54
+   },
+   "Lamar": {
+    "sc": 5,
+    "idx": 77,
+    "fp": 3.0,
+    "mkt": "+30000",
+    "ev": 816
+   },
+   "South Dakota State": {
+    "sc": 4,
+    "idx": 96.5,
+    "fp": 44.6,
+    "mkt": "+160",
+    "ev": 16
+   },
+   "Stephen F. Austin": {
+    "sc": 3,
+    "idx": 89,
+    "fp": 6.7,
+    "mkt": "+650",
+    "ev": -50
+   },
+   "Mercer": {
+    "sc": 3,
+    "idx": 73.4,
+    "fp": 0.4,
+    "mkt": "+25000",
+    "ev": 4
+   },
+   "South Carolina State": {
+    "sc": 3,
+    "idx": 64.8,
+    "fp": null,
+    "mkt": null,
+    "ev": null
+   },
+   "Youngstown State": {
+    "sc": 2,
+    "idx": 88.2,
+    "fp": 2.9,
+    "mkt": "+900",
+    "ev": -71
+   },
+   "South Dakota": {
+    "sc": 2,
+    "idx": 86.4,
+    "fp": 2.2,
+    "mkt": "+1500",
+    "ev": -65
+   },
+   "Illinois State": {
+    "sc": 2,
+    "idx": 86.3,
+    "fp": 2.1,
+    "mkt": null,
+    "ev": null
+   },
+   "North Dakota": {
+    "sc": 2,
+    "idx": 82.1,
+    "fp": 1.0,
+    "mkt": "+2000",
+    "ev": -78
+   },
+   "Incarnate Word": {
+    "sc": 2,
+    "idx": 77.8,
+    "fp": 0.5,
+    "mkt": "+30000",
+    "ev": 45
+   },
+   "Austin Peay": {
+    "sc": 2,
+    "idx": 75.3,
+    "fp": 0.3,
+    "mkt": "+8000",
+    "ev": -75
+   },
+   "Tennessee Tech": {
+    "sc": 2,
+    "idx": 73.8,
+    "fp": 0.2,
+    "mkt": "+10000",
+    "ev": -76
+   },
+   "Western Illinois": {
+    "sc": 2,
+    "idx": 73.7,
+    "fp": 0.2,
+    "mkt": "+50000",
+    "ev": 19
+   },
+   "Harvard": {
+    "sc": 2,
+    "idx": 73.6,
+    "fp": 0.2,
+    "mkt": "+12000",
+    "ev": -72
+   }
+  }
  }
 ]
