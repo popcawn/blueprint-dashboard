@@ -1,0 +1,34 @@
+{
+ "books": {
+  "DraftKings": {
+   "date": "2026-11-27",
+   "odds": {
+    "Sydney Kings": 250,
+    "Melbourne United": 300,
+    "Tasmania JackJumpers": 350,
+    "Adelaide 36ers": 470,
+    "Cairns Taipans": 1100,
+    "Perth Wildcats": 1900,
+    "South East Melbourne Phoenix": 2700,
+    "Brisbane Bullets": 2700,
+    "Illawarra Hawks": 4500,
+    "New Zealand Breakers": 5000
+   }
+  }
+ },
+ "date": "2026-11-27",
+ "book": "DraftKings",
+ "source": "user screenshots, saved from the site (NBL board)",
+ "odds": {
+  "Sydney Kings": 250,
+  "Melbourne United": 300,
+  "Tasmania JackJumpers": 350,
+  "Adelaide 36ers": 470,
+  "Cairns Taipans": 1100,
+  "Perth Wildcats": 1900,
+  "South East Melbourne Phoenix": 2700,
+  "Brisbane Bullets": 2700,
+  "Illawarra Hawks": 4500,
+  "New Zealand Breakers": 5000
+ }
+}
