@@ -1625,6 +1625,61 @@ def attach_beat_reads(name, data):
         best = sorted(tagged, key=lambda t: (tr.get(t["read"]["tier"], 3), -t.get("index", 0)))[0]
         data["prediction"] = {"pick": best["name"], "why": f"<b>{best['name']}</b> is the pick — {best['read']['beat']}"}
 
+# NBA ROTATION AVAILABILITY (2026-11-27, user: "build and test" -> "top 9, 10" -> "add it"). Each team's top 10 = its ten best players
+# by Game Score per game (this season's games + all of last season's incl. playoffs, >= 10 games) among players who have played for it
+# this season (a traded player counts for his new team from his first game there). avail = games those 10 played / team games they could
+# have played (since each one's first game for the team), season to date. Title odds are then x avail^2 inside each conference.
+# Test (baseball-blueprint/study/nba-avail-test.py --top 10, weekly boards 2010-11..2025-26, halves 2011-18 / 2019-26): the only one of
+# 18 versions (top 1-10, index blend or odds multiplier) that beat the live board on all three log-loss checks in BOTH halves -- weekly
+# 1.991/1.962 vs 2.013/2.001, playoff start 1.801/1.743 vs 1.825/1.810, 75% of the season 1.720/1.745 vs 1.726/1.791. Champion's average
+# chance 15.6% -> 16.1% (all season), 17.4% -> 18.2% (playoff start); last 10 seasons the #1 at the playoff start won 5 vs 4. Champions
+# ranked #8 of 30 on average in availability (12/16 in the top 10). No extra jumpiness (study/nba-avail-jump.py: weekly move 2.54 pts
+# both, #1 changes 7.6 vs 7.4 a season). Data: sportsdataverse's ESPN player box scores (daily parquet; pandas + pyarrow in the Action).
+NBA_AVAIL_TOP, NBA_AVAIL_K = 10, 2
+_SDV = "https://github.com/sportsdataverse/sportsdataverse-data/releases/download/espn_nba_player_boxscores"
+
+def nba_availability(season):
+    """{espn team id (str): {"avail": 0-1, "top": [(name, games, possible)]}} or {} on any failure (the board then runs without it)."""
+    try:
+        import io as _io
+        import pandas as pd
+        cols = ["game_id", "game_date_time", "season_type", "athlete_id", "athlete_display_name", "team_id", "minutes", "did_not_play", "points",
+                "field_goals_made", "field_goals_attempted", "free_throws_made", "free_throws_attempted", "offensive_rebounds",
+                "defensive_rebounds", "steals", "assists", "blocks", "fouls", "turnovers"]
+        def load(y):
+            req = urllib.request.Request(f"{_SDV}/player_box_{y}.parquet", headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
+            b = pd.read_parquet(_io.BytesIO(urllib.request.urlopen(req, timeout=90).read()), columns=cols)
+            b = b[(b.minutes.fillna(0) > 0) & ~b.did_not_play.fillna(False)].copy()
+            f = lambda c: b[c].fillna(0).astype(float)
+            b["gs"] = (f("points") + .4*f("field_goals_made") - .7*f("field_goals_attempted") - .4*(f("free_throws_attempted") - f("free_throws_made"))
+                       + .7*f("offensive_rebounds") + .3*f("defensive_rebounds") + f("steals") + .7*f("assists") + .7*f("blocks") - .4*f("fouls") - f("turnovers"))
+            b["team"] = b.team_id.astype(str)
+            return b
+        cur = load(season); cur = cur[cur.season_type == 2].sort_values(["game_date_time", "game_id"])
+        if cur.empty: return {}
+        try: pr = load(season - 1); pv = pr.groupby("athlete_id").gs.agg(["sum", "size"])
+        except Exception: pv = None
+        tgames = {t: list(dict.fromkeys(g.game_id)) for t, g in cur.groupby("team")}            # each team's games, in order
+        g = cur.groupby("athlete_id")
+        pl = pd.DataFrame({"team": g.team.last(), "name": g.athlete_display_name.last(), "gs": g.gs.sum(), "n": g.size()})
+        if pv is not None:
+            pl = pl.join(pv, how="left"); pl["gs"] += pl["sum"].fillna(0); pl["n"] += pl["size"].fillna(0)
+        pl = pl[pl.n >= 10].copy(); pl["val"] = pl.gs / pl.n
+        out = {}
+        for team, sub in pl.groupby("team"):
+            order = {gid: i for i, gid in enumerate(tgames.get(team, []))}
+            played = possible = 0; top = []
+            for aid, r in sub.sort_values("val", ascending=False).head(NBA_AVAIL_TOP).iterrows():
+                mine = cur[(cur.athlete_id == aid) & (cur.team == team)].game_id.unique()
+                first = min(order.get(x, 10**6) for x in mine) if len(mine) else 10**6
+                poss = sum(1 for i in order.values() if i >= first)
+                played += len(mine); possible += poss; top.append((r["name"], int(len(mine)), poss))
+            if possible: out[team] = {"avail": played / possible, "top": top}
+        return out
+    except Exception as e:
+        print(f"  nba availability skipped: {e}", file=sys.stderr)
+        return {}
+
 def build_nba():
     season = YEAR + 1  # ESPN tags the NBA season by its end year (2026-27 -> 2027)
     base = {"sport": "NBA", "season": f"{YEAR}-{str(YEAR+1)[2:]}", "generated": now_iso()}
@@ -1711,13 +1766,24 @@ def build_nba():
         for t in cs: t["_pc"] = ((max(t["index"], 5)**3)/1e5*tm[t["score"]]) / tot if tot else 0
     for t in pool: t["p"] = t.get("_pc", 0) * 0.5
     cap_odds(pool, 0.24)   # NBA is the chalkiest sport -> let the top team run
+    # rotation availability (see nba_availability): odds x avail^2 inside each conference, then the same cap
+    ids = nba_team_ids(); av = nba_availability(season) if ids else {}
+    for t in rows:
+        a = av.get(str(ids.get(t["name"], "")))
+        t["avail"] = round(a["avail"], 3) if a else None
+    avail_on = bool(av) and all(t["avail"] is not None for t in rows)
+    if avail_on:
+        for cf in ("E", "W"):
+            cs = [t for t in pool if t["conf"] == cf]; w = {t["name"]: t["p"] * max(t["avail"], .05) ** NBA_AVAIL_K for t in cs}; tot = sum(w.values())
+            for t in cs: t["p"] = 0.5 * w[t["name"]] / tot if tot else t["p"]
+        cap_odds(pool, 0.24)
     fd, rem = fetch_futures("basketball_nba_championship_winner")
     fd = second_book("nba", fd, [t["name"] for t in rows])   # + the user's DraftKings screenshot, if one is fresh
     attach(rows, pool, fd)
     pred = make_prediction(rows, 4)
     rows.sort(key=lambda t: (-t["score"], -t["index"]))
     base.update({"odds_remaining": rem, "prediction": pred, "season_pct": season_pct(rows, "nba"),
-        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth, "vs500_on": vs500_on,
+        "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows), "has_depth": has_depth, "vs500_on": vs500_on, "avail_on": avail_on,
         "cats": ["Win% ≥.600", "Net/g top-5", "PPG top-10", "Opp PPG top-10"],
         "labels": ["Win%", "Net/g", "PPG", "Opp PPG"],
         "teams": [{"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
@@ -1725,7 +1791,7 @@ def build_nba():
             "vals": [f"{t['winpct']:.3f}", f"{t['pdg']:+.1f} #{t['rk_pd']}", f"{t['ppg']:.1f} #{t['rk_ppg']}", f"{t['oppppg']:.1f} #{t['rk_opp']}"],
             "rtg": round(t['pdg'], 1),
             "fair_pct": round(t["p"]*100,1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-            "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec")} for t in rows if t["score"] >= 1],
+            "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "ftt": t.get("ftt"), "vs500": t.get("vs500_rec"), "avail": t.get("avail")} for t in rows if t["score"] >= 1],
         "rtgs": {t["name"]: round(t["pdg"], 1) for t in rows}})   # every team, for the matchup sim
     return base
 
