@@ -502,7 +502,16 @@ def build_nfl():
     # BEHIND the market at every one (e.g. pre-playoff 2.27 vs 2.11) -> fair, not strong. Tested and NOT added: EPA margins, recency, the Read in
     # the odds, a backup-QB penalty (helps single games, not Super Bowl odds).
     # 2026-11-11: NFL tiebreakers in the simulation + the manual adjustment file data/nfl_adjust.json (see nfl_season_odds / nfl_load_adjust)
+    avail_on = False
     if sim:   # the sim ran above (the index needs its rating)
+        av = nfl_availability(YEAR)   # starter availability (see nfl_availability): odds x avail^2 inside each conference
+        if av and all(c in av for c in sim):
+            afc = {c for d, v in NFL_DIVS.items() if d.startswith("AFC") for c in v.split()}; adj = {}
+            for conf in (True, False):
+                cs = [c for c in sim if (c in afc) == conf]; tot = sum(sim[c] for c in cs); w = {c: sim[c] * max(av[c], .05) ** NFL_AVAIL_K for c in cs}; z = sum(w.values())
+                for c in cs: adj[c] = tot * w[c] / z if z else sim[c]
+            sim = adj; avail_on = True
+        for t in rows: t["avail"] = round(av[NFL_CODE[t["name"]]], 3) if av and NFL_CODE.get(t["name"]) in av else None
         for t in pool: t["p"] = sim.get(NFL_CODE.get(t["name"], ""), 0.0)
         for t in pool: t["fair_odds"] = american(t["p"]) if t.get("p") else None
         nfl_new = "season sim"
@@ -514,7 +523,7 @@ def build_nfl():
     lines, rem2 = fetch_game_lines("americanfootball_nfl") if (datetime.date.today().month >= 9 or datetime.date.today().month <= 2) else (None, None)
     if rem2 is not None: rem = rem2   # the later pull's count is the current one
     return {"sport": "NFL", "season": f"{YEAR}", "generated": now_iso(), "odds_remaining": rem, "prediction": pred, "game_lines": lines,
-            "odds_model": nfl_new, "index_model": idx_model, **({"window_closed": True, "stage": "playoffs"} if nfl_post else {}),
+            "odds_model": nfl_new, "index_model": idx_model, "avail_on": avail_on, **({"window_closed": True, "stage": "playoffs"} if nfl_post else {}),
             "manual_adjust": [{"team": next((n for n, c in NFL_CODE.items() if c == k), k), **v} for k, v in sorted(nfl_adj.items())] if nfl_new else [],
             "sig": NFL_MU_SD,   # matchup SD that goes with the prior-blended rtg (index.html's MU_SD.nfl 24.5 = the old raw-PD/g fallback)
             "gp_min": min(t["gp"] for t in rows), "gp_max": max(t["gp"] for t in rows),
@@ -660,6 +669,61 @@ def nfl_season_odds(year, through_week=None, games_csv=None, seed=7, sims=None, 
         a, b = champs; title += np.bincount(np.where(rng.random(m) < Pn[a, b], a, b), minlength=n)   # Super Bowl: neutral site
     return {t: title[i] / sims for i, t in enumerate(teams)}, post
 
+# NFL STARTER AVAILABILITY (2026-11-27, user: "something similar for nfl" -> "yes" add it). Each team's top 22 = its top 11 offense
+# (one QB) + top 11 defense by snap share per game (this season + last, 4+ games), among players who played for the team this season or are
+# on its injury list now (injured reserve / PUP / non-football injury) with last-season snaps. avail = games played / team games possible,
+# counted from week 1 for last season's players, else from their first game for the team. Super Bowl odds x avail^2, re-normalised inside
+# each conference (conference total kept). Test: baseball-blueprint/study/nfl-avail-test.py (S22b; nflverse snap counts 2013-2025, the
+# site's own 50,000-run sim at every week): better weekly / playoff-start / 75%-of-season log-loss in BOTH halves (2013-19: 2.140->2.131,
+# 1.701->1.678, 1.886->1.860; 2020-25: 2.642->2.552, 2.286->2.190, 2.441->2.357), no added week-to-week movement, 200-shuffle control
+# passed 1/200 (nfl-avail-control.py). QB availability alone FAILED (champions won without their QB in 2015-17). Leaving out starters on
+# IR all season tested worse (nfl-avail-rule.py), so they count. On any failure the board runs without it (avail_on false).
+NFL_AVAIL_K = 2
+_NFL_INJ = {"RES", "PUP", "NON"}
+def nfl_availability(year):
+    """{nflverse team code: avail 0-1} for the current regular season, or {} on any failure."""
+    try:
+        import io as _io
+        import pandas as pd
+        fx = {"OAK": "LV", "SD": "LAC", "STL": "LA"}
+        rel = "https://github.com/nflverse/nflverse-data/releases/download"
+        def csv_(url, **kw):
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (blueprint-dashboard)"})
+            return pd.read_csv(_io.BytesIO(urllib.request.urlopen(req, timeout=120).read()), low_memory=False, **kw)
+        cur = csv_(f"{rel}/snap_counts/snap_counts_{year}.csv"); prv = csv_(f"{rel}/snap_counts/snap_counts_{year - 1}.csv")
+        ros = csv_(f"{rel}/weekly_rosters/roster_weekly_{year}.csv", usecols=["team", "position", "status", "full_name", "pfr_id", "week", "game_type"])
+        for d in (cur, prv, ros): d["team"] = d.team.map(lambda t: fx.get(t, t))
+        cur = cur[(cur.game_type == "REG") & cur.pfr_player_id.notna()].sort_values("week"); prv = prv[prv.pfr_player_id.notna()].sort_values("week")
+        ros = ros[(ros.game_type == "REG") & ros.pfr_id.notna()]
+        if cur.empty: return {}
+        snapwk = cur.groupby("team").week.agg(lambda x: sorted(set(x))).to_dict()
+        g = cur.groupby("pfr_player_id"); pl = pd.DataFrame({"team": g.team.last(), "pos": g.position.last()})
+        tw = cur.groupby(["pfr_player_id", "team"]).week.agg(lambda x: set(x))
+        prev_team = prv.groupby("pfr_player_id").team.last().to_dict()
+        cols = ["pfr_player_id", "offense_snaps", "defense_snaps", "offense_pct", "defense_pct"]
+        agg = pd.concat([cur[cols], prv[cols]]).groupby("pfr_player_id").agg(os_=("offense_snaps", "sum"), ds_=("defense_snaps", "sum"),
+                                                                          op=("offense_pct", "mean"), dp=("defense_pct", "mean"), n=("offense_pct", "size"))
+        last = ros.sort_values("week").groupby("pfr_id").last()
+        extra = last[last.status.isin(_NFL_INJ) & ~last.index.isin(pl.index) & last.index.isin(agg.index)]
+        pl = pd.concat([pl, pd.DataFrame({"team": extra.team, "pos": extra.position})]).join(agg, how="inner")
+        pl = pl[pl.n >= 4].copy(); pl["side"] = (pl.os_ >= pl.ds_).map({True: "O", False: "D"}); pl["val"] = pl.op.where(pl.side == "O", pl.dp)
+        out = {}
+        for t, sub in pl.groupby("team"):
+            wk = snapwk.get(t)
+            if not wk: continue
+            off = sub[sub.side == "O"].sort_values("val", ascending=False); qbs = off.index[off.pos == "QB"]
+            if len(qbs): off = off[(off.pos != "QB") | (off.index == qbs[0])]
+            top = pd.concat([off.head(11), sub[sub.side == "D"].nlargest(11, "val")]); p_ = n_ = 0
+            for pid, r in top.iterrows():
+                mine = tw.get((pid, t), set())
+                first = wk[0] if (prev_team.get(pid) == t or not mine) else min(mine)
+                poss = [w for w in wk if w >= first]; p_ += sum(w in mine for w in poss); n_ += len(poss)
+            if n_: out[t] = p_ / n_
+        return out
+    except Exception as e:
+        print(f"  nfl availability skipped: {e}", file=sys.stderr)
+        return {}
+
 def nfl_row(t):
     return {"name": t["name"], "conf": t["conf"], "rec": t["rec"], "score": t["score"], "index": t["index"],
         "q": [bool(x) for x in t["q"]],
@@ -667,7 +731,7 @@ def nfl_row(t):
                  f"{t['oppppg']:.1f} #{t['rk_opp']}", f"{t['pdg']:+.1f}"],
         "rtg": round(t['mrtg'], 1),   # matchup rating: last season's PD/g as a 7-game prior (see NFL_MU_*)
         "fair_pct": round(t["p"]*100, 1) if t.get("p") else None, "fair_odds": t.get("fair_odds"),
-        "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read")}
+        "market": t.get("market"), "books": t.get("books"), "ev": t.get("ev"), "verdict": t.get("verdict"), "read": t.get("read"), "avail": t.get("avail")}
 
 # ----------------------------------------------------------------------------- CFB
 def build_cfb():
