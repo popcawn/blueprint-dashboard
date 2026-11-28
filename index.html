@@ -686,7 +686,9 @@ const bkAb=(t,sp)=>{ const b=bestBk(t); return b?(BKAB[b]||b):(MK(sp)==="FanDuel
 const shortNm=n=>n? n.split(" ").slice(-1)[0] : "—";
 function spark(v){ if(v.length<2)return""; const w=56,h=15,mn=Math.min(...v),mx=Math.max(...v),r=(mx-mn)||1;
   const p=v.map((x,i)=>`${(i/(v.length-1)*w).toFixed(1)},${(h-(x-mn)/r*(h-3)-1.5).toFixed(1)}`).join(" ");
-  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><polyline points="${p}" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;}
+  // (2026-11-27, user: "make them red or green (if trending up)") colour = direction of the line as drawn: last point vs first
+  const d=v[v.length-1]-v[0], col=d>0?"var(--good)":d<0?"var(--bad)":"currentColor";
+  return `<svg width="${w}" height="${h}" style="vertical-align:middle"><title>${d>0?"trending up":d<0?"trending down":"flat"} (index ${v[0]} → ${v[v.length-1]})</title><polyline points="${p}" fill="none" stroke="${col}" stroke-width="1.5"/></svg>`;}
 function consistency(sp,nm){ const h=HIST[sp]; if(!h||!h.length)return{spark:"",streak:0,star:false};
   const pr=h.map(s=>s.teams[nm]||null), idx=pr.filter(x=>x).map(x=>x.idx), mx=MAXCAT[sp]; let st=0, full=true;
   // (2026-11-25) a snapshot scored on a different number of checks than today's board is read on its own scale: `mx` on the snapshot (build.py
